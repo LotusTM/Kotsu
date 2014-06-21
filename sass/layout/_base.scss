@@ -1,0 +1,31 @@
+
+/*------------------------------------*\
+		$BASE
+\*------------------------------------*/
+
+
+/**
+ * Custom HTML and body styling
+ */
+
+html {}
+
+body {}
+
+
+
+/**
+ * Main wrapper styling
+ */
+
+.site-wrapper {
+	position: relative;
+
+	min-width: $site-min-width;
+	max-width: $site-max-width;
+
+	padding-left:  $base-spacing-unit;
+	padding-right: $base-spacing-unit;
+
+	margin: 0 auto;
+}
