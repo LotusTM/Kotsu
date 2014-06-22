@@ -1,0 +1,46 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"name": "Root",
+			"path": ".\\",
+			"folder_exclude_patterns": ["sass", "js", "css", "assets"],
+			"file_exclude_patterns": ["*.html"]
+		},
+		{
+			"follow_symlinks": true,
+			"name": "Assets",
+			"path": "assets"
+		},
+		{
+			"follow_symlinks": true,
+			"name": "JavaScript",
+			"path": "js",
+			"folder_exclude_patterns": ["vendor"]
+		},
+		{
+			"follow_symlinks": true,
+			"name": "JavaScript — vendor",
+			"path": "js\\vendor"
+		},
+		{
+			"follow_symlinks": true,
+			"name": "SASS",
+			"path": "sass",
+			"folder_exclude_patterns": ["sass-framework"]
+		},
+		{
+			"follow_symlinks": true,
+			"name": "SASS — framework",
+			"path": "sass\\sass-framework"
+		},
+		{
+			"follow_symlinks": true,
+			"name": "HTML",
+			"path": "\\",
+			"file_include_patterns": ["*.html"],
+			"folder_exclude_patterns": ["sass", "js", "css", "assets"]
+		}
+	]
+}
