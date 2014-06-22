@@ -33,7 +33,7 @@
 			"follow_symlinks": true,
 			"name": "SASS",
 			"path": "sass",
-			"folder_exclude_patterns": ["sass-framework"]
+			"folder_exclude_patterns": ["ekzo.sass"]
 		},
 		{
 			"follow_symlinks": true,
