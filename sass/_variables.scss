@@ -1,6 +1,6 @@
 
 /*------------------------------------*\
-		$VARS
+		$VARIABLES
 \*------------------------------------*/
 
 /**
@@ -13,9 +13,17 @@
  */
 
 
+/*------------------------------------*\
+		$SITE
+\*------------------------------------*/
+
+$site-min-width: 930px;
+$site-max-width: 1280px;
+
+
 
 /*------------------------------------*\
-		$FONT
+		$FONTS
 \*------------------------------------*/
 
 $base-font-size:              14px;
@@ -28,8 +36,6 @@ $headings-font-family:        $second-font-family;
 $headings-font-weight:        normal;
 
 $form-placeholder-font-style: normal;
-
-$base-link-hover-unline:      false;
 
 
 
@@ -62,41 +68,36 @@ $base-form-font-size:    $base-font-size;
 /**
  * Base colors
  */
-$base-color:                      #ff6600;
 
+$base-color:                      #ff6600;
 
 $base-font-color:                 #444;
 
+$base-bg-color:                   #353a39;
 
 $base-link-color:                 $base-color;
 $base-link-hover-color:           #000;
 
-
 $base-heading-color:              #585c5d;
-
 
 $base-form-bg-color:              #fff;
 $base-form-color:                 #333;
 
 $base-form-placeholder-color:     #a9a9a9;
 
+$base-button-bg-color:            #313232;
+$base-button-color:               #fee0cd;
 
-$base-divider-color:              $base-color;
+$base-button-bg-color--positive:  #1fa205;
+$base-button-color--positive:     #7ef76a;
 
+$base-button-bg-color--negative:  #a20b05;
+$base-button-color--negative:     #ff8877;
 
-// $base-button-bg-color:            #313232;
-// $base-button-color:               #fee0cd;
+$base-button-bg-color--disabled:  #d3d3d3;
+$base-button-color--disabled:     #464646;
 
-// $base-button-bg-color-positive:   #1fa205;
-// $base-button-color-positive:      #7ef76a;
-
-// $base-button-bg-color-negative:   #a20b05;
-// $base-button-color-negative:      #ff8877;
-
-// $base-button-bg-color-disabled:   #d3d3d3;
-// $base-button-color-disabled:      #464646;
-
-// $base-breadcrumb-separator-color: #bbc2c5;
+$base-breadcrumb-separator-color: #bbc2c5;
 
 
 
@@ -120,62 +121,4 @@ $base-icon-font-version: 79220573;
  * Backgrounds
  */
 
-$base-bg-color:          #353a39;
-
 $base-bg:                $base-bg-color;
-
-
-
-/*------------------------------------*\
-		$OPTIONS
-\*------------------------------------*/
-
-$debug-mode:              false;
-
-$global-border-box:       false;
-
-
-/**
-* Elements and abstractions
-*/
-
-$use-arrows:              false;
-$use-breadcrumb:          false;
-$use-buttons:             false;
-$use-flag:                false;
-$use-forms:               true;
-$use-grid:                true;
-$use-icons:               false;
-$use-island:              false;
-$use-lists:               true;
-$use-media:               false;
-$use-nav:                 true;
-$use-tables:              false;
-$use-tooltips:            false;
-
-
-/**
-* Responsive
-*/
-
-$site-min-width: 930px;
-$site-max-width: 1280px;
-
-$responsive:              false;
-
-$responsive-palm:         false;
-$responsive-lap:          false;
-$responsive-lap-and-up:   false;
-$responsive-portable:     false;
-$responsive-desk:         false;
-
-$responsive-desk-wide:    false;
-
-
-/**
-* Responsive breakpoint's start.
-*/
-
-$lap-start:         481px;
-$desk-start:        1024px;
-$desk-wide-start:   1200px;
