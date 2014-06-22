@@ -15,25 +15,25 @@
 		},
 		{
 			"follow_symlinks": true,
+			"name": "JavaScript — vendor",
+			"path": "js\\vendor"
+		},
+		{
+			"follow_symlinks": true,
 			"name": "JavaScript",
 			"path": "js",
 			"folder_exclude_patterns": ["vendor"]
 		},
 		{
 			"follow_symlinks": true,
-			"name": "JavaScript — vendor",
-			"path": "js\\vendor"
+			"name": "SASS — Ekzo framework",
+			"path": "sass\\ekzo.sass"
 		},
 		{
 			"follow_symlinks": true,
 			"name": "SASS",
 			"path": "sass",
 			"folder_exclude_patterns": ["sass-framework"]
-		},
-		{
-			"follow_symlinks": true,
-			"name": "SASS — framework",
-			"path": "sass\\sass-framework"
 		},
 		{
 			"follow_symlinks": true,
