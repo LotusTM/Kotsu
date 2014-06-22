@@ -8,7 +8,8 @@
 * Options, styles, colors etc.
 */
 
-@import "vars";
+@import "options";
+@import "variables";
 
 
 
@@ -16,7 +17,7 @@
  * Framework
  */
 
-@import "sass-framework/framework";
+@import "ekzo.sass/framework";
 
 
 
@@ -24,16 +25,16 @@
  * Site's custom styling
  */
 
-@import "ui/animations";
-@import "ui/fonts";
-@import "ui/forms";
-@import "ui/icons";
-
-@import "partials/browse-happy";
+@import "generic/animations";
+@import "generic/fonts";
+@import "generic/forms";
+@import "generic/icons";
 
 @import "layout/base";
 @import "layout/site-header";
 @import "layout/site-content";
 @import "layout/site-footer";
+
+@import "partials/browse-happy";
 
 @import "pages/index";
