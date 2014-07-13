@@ -21,8 +21,13 @@ body {}
 .site-wrapper {
 	position: relative;
 
-	min-width: $site-min-width;
-	max-width: $site-max-width;
+	@if variable-exists(site-min-width) and $site-min-width != null and $site-min-width {
+		min-width: $site-min-width;
+	}
+
+	@if variable-exists(site-max-width) and $site-max-width != null and $site-max-width {
+		max-width: $site-max-width;
+	}
 
 	padding-left:  $base-spacing-unit;
 	padding-right: $base-spacing-unit;
