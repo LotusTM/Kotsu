@@ -1,1 +1,0 @@
-browser-sync --config browser-sync-config.js

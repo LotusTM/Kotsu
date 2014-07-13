@@ -1,0 +1,1 @@
+browser-sync --config b-sync-config.js
