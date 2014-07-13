@@ -28,7 +28,8 @@ $site-max-width: 1280px;
 
 $base-font-size:              14px;
 
-$base-font-family:            "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-family:            "Open Sans", Helvetica, Arial, sans-serif;
+$base-font-weight:            normal;
 
 $second-font-family:          "Helvetica LT Condensed", Arial, sans-serif;
 
@@ -79,6 +80,10 @@ $base-link-color:                 $base-color;
 $base-link-hover-color:           #000;
 
 $base-heading-color:              #585c5d;
+$apply-color-to-base-headings:    true;
+
+$extra-headings-color:            $base-headings-color;
+$apply-color-to-extra-headings:   true;
 
 $base-form-bg-color:              #fff;
 $base-form-color:                 #333;
