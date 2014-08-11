@@ -158,7 +158,7 @@ module.exports = function (grunt) {
 				tasks: ['sass']
 			},
 			sprite: {
-				files: ['<%= path.app.sprites %>/*.png'],
+				files: ['sprites/*.png'],
 				tasks: ['sprite']
 			},
 		}
