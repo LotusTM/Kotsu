@@ -20,8 +20,8 @@ module.exports = function (grunt) {
 			build: {
 				root: 'www',
 					assets:    '<%= path.build.root %>/assets',
-					css:       '<%= path.build.root %>/css'
-					// js:        '<%= path.build.root %>/js',
+					css:       '<%= path.build.root %>/css',
+					js:        '<%= path.build.root %>/js'
 					// templates: '<%= path.build.root %>/templates'
 			}
 		},
