@@ -7,7 +7,7 @@
 
 
 {{#items}}
-// .{{name}} { width: {{px.width}}; height: {{px.height}}; background-position: {{px.offset_x}} {{px.offset_y}}; }
+// @include sprite(${{name}});
 {{/items}}
 
 {{#items}}
@@ -62,7 +62,3 @@ ${{name}}: (width: {{px.width}}, height: {{px.height}}, offset-x: {{px.offset_x}
 	}
 
 }
-
-{{#items}}
-// @include sprite(${{name}});
-{{/items}}
