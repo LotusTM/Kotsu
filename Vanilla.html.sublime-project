@@ -11,7 +11,7 @@
 		{
 			"follow_symlinks": true,
 			"name": "Assets",
-			"path": "assets"
+			"path": "www\\assets"
 		},
 		{
 			"follow_symlinks": true,
@@ -38,7 +38,7 @@
 		{
 			"follow_symlinks": true,
 			"name": "HTML",
-			"path": "\\",
+			"path": "www\\",
 			"file_include_patterns": ["*.html"],
 			"folder_exclude_patterns": ["sass", "js", "css", "assets"]
 		}
