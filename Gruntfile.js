@@ -108,7 +108,7 @@ module.exports = function (grunt) {
 				notify: true,
 				watchTask: true,
 				debugInfo: true,
-				host: 'catbase.dev',
+				host: '192.168.1.2',
 				ghostMode: {
 					clicks: true,
 					links: true,
@@ -123,8 +123,8 @@ module.exports = function (grunt) {
 				src: [
 					// '<%= path.build.templates %>/*',
 					'<%= path.build.root %>/*',
-					'<%= path.build.css %>/*'
-					// '<%= path.build.js %>/*'
+					'<%= path.build.css %>/*',
+					'<%= path.build.js %>/*'
 				]
 			}
 		},
