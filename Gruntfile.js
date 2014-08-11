@@ -156,7 +156,11 @@ module.exports = function (grunt) {
 			scss: {
 				files: ['<%= path.app.sass %>/**/*.scss'],
 				tasks: ['sass']
-			}
+			},
+			sprite: {
+				files: ['<%= path.app.sprites %>/*.png'],
+				tasks: ['sprite']
+			},
 		}
 
 	});
