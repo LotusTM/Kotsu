@@ -14,7 +14,6 @@ Icon
 
 ## Sublime Text
 *.sublime*
-!*.sublime-project
 
 ## Node.js
 lib-cov
