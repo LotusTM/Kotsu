@@ -1,0 +1,60 @@
+
+/*------------------------------------*\
+		$SPRITES.MAP
+\*------------------------------------*/
+
+
+// @include sprite($sprite--bg--mosaic--dark);
+// @include sprite($sprite--bg--wow);
+
+$sprite--bg--mosaic--dark: (width: 56px, height: 56px, offset-x: 0px, offset-y: 0px, name: sprite--bg--mosaic--dark);
+$sprite--bg--wow: (width: 56px, height: 56px, offset-x: -58px, offset-y: 0px, name: sprite--bg--wow);
+
+@mixin sprite($name, $type:false, $padding:false, $after1:false, $after2:false, $after3:false) {
+
+	$width:       map-get($name, width) !default;
+	$height:      map-get($name, height) !default;
+	$full-width:  0px !default;
+	$full-height: 0px !default;
+
+	@if $after1 == false {
+
+        .#{map-get($name, name)} {
+        	width: map-get($name, width);
+        	height: map-get($name, height);
+        	background-position: map-get($name, offset-x) map-get($name, offset-y);
+        	@content
+        }
+
+	} @else if $after1 != false and $after3 == false {
+
+		@if $type == horizontal or $type == hor {
+			$width:  (map-get($name, width) - $padding) / 2;
+			$full-width:  $width + $padding;
+		} @else {
+			$height: (map-get($name, height) - $padding)  / 2;
+			$full-height: $height + $padding;
+		}
+
+		.#{map-get($name, name)} { width: $width; height: $height; @content }
+			.#{map-get($name, name)}#{$after1} { background-position: map-get($name, offset-x) map-get($name, offset-y); }
+			.#{map-get($name, name)}#{$after2} { background-position: map-get($name, offset-x) - $full-width map-get($name, offset-y) - $full-height; }
+
+	} @else {
+
+		@if $type == horizontal or $type == hor {
+			$width:  (map-get($name, width) - $padding * 2) / 3;
+			$full-width:  $width + $padding;
+		} @else {
+			$height: (map-get($name, height) - $padding * 2 )  / 3;
+			$full-height: $height + $padding;
+		}
+
+		.#{map-get($name, name)} { width: $width; height: $height; @content }
+			.#{map-get($name, name)}#{$after1} { background-position: map-get($name, offset-x) map-get($name, offset-y); }
+			.#{map-get($name, name)}#{$after2} { background-position: map-get($name, offset-x) - $full-width map-get($name, offset-y) - $full-height; }
+			.#{map-get($name, name)}#{$after3} { background-position: map-get($name, offset-x) - $full-width * 2 map-get($name, offset-y) - $full-height * 2; }
+
+	}
+
+}
