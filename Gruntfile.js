@@ -116,7 +116,6 @@ module.exports = function (grunt) {
 				notify: true,
 				watchTask: true,
 				debugInfo: true,
-				host: '192.168.1.2',
 				ghostMode: {
 					clicks: true,
 					links: true,
