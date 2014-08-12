@@ -97,6 +97,14 @@ module.exports = function (grunt) {
 			}
 		},
 
+		uncss: {
+			dist: {
+				files: {
+					'<%= css.build.style.tidy %>': ['<%= path.build.root %>/*.html']
+				}
+			}
+		},
+
 		/**
 		 * Browser Sync
 		 * https://github.com/shakyshane/grunt-browser-sync
@@ -155,7 +163,7 @@ module.exports = function (grunt) {
 		watch: {
 			scss: {
 				files: ['<%= path.app.sass %>/**/*.scss'],
-				tasks: ['sass']
+				tasks: ['sass', 'autoprefixer']
 			},
 			sprite: {
 				files: ['sprites/*.png'],
@@ -168,13 +176,13 @@ module.exports = function (grunt) {
 	/**
 	 * Default task
 	 */
-	grunt.registerTask('default', ['sass', 'autoprefixer', 'browserSync', 'watch']);
+	grunt.registerTask('default', ['sprite', 'sass', 'autoprefixer', 'browserSync', 'watch']);
 
 	/**
 	 * A task for your production environment
 	 * run jshint, uglify and sass
 	 */
-	grunt.registerTask('production', ['sass', 'autoprefixer', 'csso']);
+	grunt.registerTask('production', ['sprite', 'sass', 'autoprefixer', 'csso', 'uncss']);
 
 	/**
 	 * A task for for a static server with a watch
