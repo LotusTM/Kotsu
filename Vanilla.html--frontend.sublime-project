@@ -4,43 +4,47 @@
 		{
 			"follow_symlinks": true,
 			"name": "Root",
-			"path": ".\\",
+			"path": ".",
 			"folder_exclude_patterns": ["sass", "js", "css", "assets"],
 			"file_exclude_patterns": ["*.html"]
 		},
 		{
 			"follow_symlinks": true,
 			"name": "Assets",
-			"path": "www\\assets"
+			"path": "source\\assets"
 		},
 		{
 			"follow_symlinks": true,
-			"name": "JavaScript — vendor",
-			"path": "js\\vendor"
+			"name": "Sprites",
+			"path": "source\\sprites"
 		},
+		// {
+		// 	"follow_symlinks": true,
+		// 	"name": "JavaScript — vendor",
+		// 	"path": "js\\vendor"
+		// },
+		// {
+		// 	"follow_symlinks": true,
+		// 	"name": "JavaScript",
+		// 	"path": "js",
+		// 	"folder_exclude_patterns": ["vendor"]
+		// },
 		{
 			"follow_symlinks": true,
-			"name": "JavaScript",
-			"path": "js",
-			"folder_exclude_patterns": ["vendor"]
-		},
-		{
-			"follow_symlinks": true,
-			"name": "SASS — Ekzo framework",
-			"path": "sass\\ekzo.sass"
+			"name": "SASS — framework",
+			"path": "source\\sass\\ekzo.sass"
 		},
 		{
 			"follow_symlinks": true,
 			"name": "SASS",
-			"path": "sass",
+			"path": "source\\sass",
 			"folder_exclude_patterns": ["ekzo.sass"]
 		},
 		{
 			"follow_symlinks": true,
 			"name": "HTML",
-			"path": "www\\",
-			"file_include_patterns": ["*.html"],
-			"folder_exclude_patterns": ["sass", "js", "css", "assets"]
+			"path": "source\\boilerplates",
+			"file_include_patterns": ["*.html"]
 		}
 	]
 }
