@@ -21,5 +21,4 @@ module.exports = ->
       src: [
         '<%= path.build.root %>/*'
         '<%= path.build.css %>/*'
-        '<%= path.build.js %>/*'
       ]
