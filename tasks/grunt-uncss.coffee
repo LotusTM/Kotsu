@@ -5,7 +5,7 @@ Remove unused CSS
 ###
 module.exports = ->
   @config 'uncss',
-    dist:
+    build:
       options:
         stylesheets: ['../<%= file.build.style.prefixed %>']
       files:

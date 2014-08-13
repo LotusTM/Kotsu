@@ -50,21 +50,19 @@ module.exports = (grunt) ->
 
   ###
   A task for your production environment
-  run jshint, uglify and sass
   ###
-  grunt.registerTask 'production', [
-    'clean'
-    'copy'
-    'sprite'
-    'sass'
-    'autoprefixer'
-    'uncss'
-    'csso'
+  grunt.registerTask 'build', [
+    'clean:build'
+    'copy:build'
+    'sprite:build'
+    'sass:build'
+    'autoprefixer:build'
+    'uncss:build'
+    'csso:build'
   ]
 
   ###
   A task for for a static server with a watch
-  run connect and watch
   ###
   grunt.registerTask 'serve', [
     'browserSync'
