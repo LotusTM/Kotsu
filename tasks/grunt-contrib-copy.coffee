@@ -5,7 +5,7 @@ Copy files and folders
 ###
 module.exports = ->
   @config 'copy',
-    main:
+    build:
       expand: true
       cwd: '<%= path.source.boilerplates %>/'
       src: ['**']
