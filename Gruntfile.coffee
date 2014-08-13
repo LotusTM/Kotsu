@@ -14,7 +14,7 @@ module.exports = (grunt) ->
         root: 'source'
         sass: '<%= path.source.root %>/sass'
         sprites: '<%= path.source.root %>/sprites'
-        boilerplate: '<%= path.soruce.root %>/ boilerplate'
+        boilerplates: '<%= path.source.root %>/boilerplates'
 
       build:
         root: 'build'
@@ -39,6 +39,8 @@ module.exports = (grunt) ->
   Default task
   ###
   grunt.registerTask 'default', [
+    'clean'
+    'copy'
     'sprite'
     'sass'
     'autoprefixer'
@@ -51,6 +53,8 @@ module.exports = (grunt) ->
   run jshint, uglify and sass
   ###
   grunt.registerTask 'production', [
+    'clean'
+    'copy'
     'sprite'
     'sass'
     'autoprefixer'
