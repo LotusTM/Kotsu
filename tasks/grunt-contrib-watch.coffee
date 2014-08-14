@@ -14,3 +14,6 @@ module.exports = ->
     sprite:
       files: ['<%= path.source.sprites %>/*.png']
       tasks: ['sprite']
+    nunjucks:
+      files: ['<%= path.source.layouts %>/*.nj']
+      tasks: ['nunjucks']
