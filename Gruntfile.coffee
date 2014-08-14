@@ -14,6 +14,7 @@ module.exports = (grunt) ->
         root: 'source'
         sass: '<%= path.source.root %>/sass'
         sprites: '<%= path.source.root %>/sprites'
+        layouts: '<%= path.source.root %>/layouts'
         boilerplates: '<%= path.source.root %>/boilerplates'
 
       build:
@@ -41,6 +42,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'clean'
     'copy'
+    'nunjucks'
     'sprite'
     'sass'
     'autoprefixer'
@@ -54,6 +56,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'build', [
     'clean:build'
     'copy:build'
+    'nunjucks:build'
     'sprite:build'
     'sass:build'
     'autoprefixer:build'
