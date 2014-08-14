@@ -1,7 +1,7 @@
 {
 	"name": "Vanilla.html",
 	"version": "0.3.0",
-	"description": "",
+	"title": "Clean foundation for new projects",
 	"private": true,
 	"dependencies": {},
 	"devDependencies": {
