@@ -1,0 +1,168 @@
+{# --------- #}
+{% set siteName = "Vanilla" %}
+{% set language = "ru" %}
+{# --------- #}
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="{{ language }}">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<!-- IE compatibility -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- DNS Prefetching -->
+	<link rel="dns-prefetch" href="//ajax.googleapis.com">
+
+	<title>{{ siteName }} — {{ pageName }}</title>
+
+	<!-- Description -->
+	<meta name="description" content="{{ pageDescription }}">
+
+	<!-- Mobile devices -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+	<!-- Fonts -->
+	<!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic"> -->
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/style.compiled.css">
+
+	<!-- Sitemap -->
+	<!-- <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"> -->
+
+	<!-- RSS -->
+	<!-- <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> -->
+
+	<!-- Facebook Open Graph -->
+	<!-- <meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content=""> -->
+
+	<!-- Twitter Cards -->
+	<!-- <meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@site_account">
+	<meta name="twitter:creator" content="@individual_account">
+	<meta name="twitter:url" content="http://www.example.com/path/to/page.html">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="http://www.example.com/path/to/image.jpg"> -->
+
+	<!-- Authors -->
+	<link rel="author" href="/humans.txt">
+
+	<!--[if lte IE 9]>
+		<script>
+			var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+				"figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+				"progress,section,time,video").split(',');
+			for (var i = 0; i < e.length; i++) {
+				document.createElement(e[i]);
+			}
+		</script>
+	<![endif]-->
+
+</head>
+
+
+
+<body{{ " class=\"" + pageClass + "\"" if pageClass }}>
+
+
+
+	{% include "source/layouts/partials/_browse-happy.nj" %}
+
+
+
+	<!-- Site's header -->
+	<!-- ============= -->
+
+	<header class="site-header">
+		<div class="site-wrapper">
+
+
+			<h1 class="site-logo">
+				<a class="site-logo__link" href="#index">
+
+					Site's logo
+
+				</a>
+			</h1><!-- /site-logo -->
+
+
+			Header content
+
+
+			<!--noindex-->
+			<nav class="site-menu">
+				<ul class="site-menu__list nav">
+					<li class="site-menu__item site-menu__item--active">
+						<a class="site-menu__link" href="#item1">
+							Menu item
+						</a>
+					</li>
+					<li class="site-menu__item">
+						<a class="site-menu__link" href="#item2">
+							Menu item 2
+						</a>
+					</li>
+				</ul>
+			</nav><!-- /site-menu -->
+			<!--/noindex-->
+
+
+		</div><!-- /site-wrapper -->
+	</header><!-- /site-header -->
+
+
+
+	<!-- Site's content -->
+	<!-- ============== -->
+
+	<main class="site-content" role="main">
+		<article class="site-wrapper">
+			<div class="site-content-wrapper">
+
+
+				<h1 class="site-content__heading">{{ pageTitle }}</h1>
+
+
+				{% block main %}{% endblock %}
+
+
+			</div><!-- /site-content-wrapper -->
+		</article><!-- /site-wrapper -->
+	</main><!-- /site-content -->
+
+
+
+	<!-- Site's footer -->
+	<!-- ============= -->
+
+	<!--/noindex-->
+	<footer class="site-footer">
+		<div class="site-wrapper">
+
+
+			© 2000—2014 Footer content
+
+
+		</div>
+	</footer><!-- /footer --><!-- /site-wrapper -->
+	<!--/noindex-->
+
+
+
+<!-- Scripts -->
+<!-- ======= -->
+
+{% include "source/layouts/_scripts.nj" %}
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{% extends "source/layouts/_layout.nj" %}
+
+
+{# --------- #}
+{% set pageName = "Blog" %}
+{% set pageDescription = "Blog page description" %}
+{% set pageTitle = "Blog's main content title" %}
+
+{% set pageClass = "blog-page" %}
+{# --------- #}
+
+
+{% block main %}
+
+
+Blog's content
+
+
+{% endblock %}
