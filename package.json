@@ -1,6 +1,6 @@
 {
 	"name": "Vanilla.html",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "",
 	"private": true,
 	"dependencies": {},
@@ -18,7 +18,7 @@
 		"pngsmith": "~0.1.0",
 		"grunt-spritesmith": "~2.1.1",
 		"grunt-processhtml": "~0.3.3",
-		"grunt-nunjucks-2-html": "^0.2.0"
+		"grunt-nunjucks-2-html": "~0.2.0"
 	},
 	"peerDependencies": {
 		"grunt-cli": "*"
