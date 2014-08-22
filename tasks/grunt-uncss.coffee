@@ -7,6 +7,6 @@ module.exports = ->
   @config 'uncss',
     build:
       options:
-        stylesheets: ['../<%= file.build.style.prefixed %>']
+        htmlroot: '<%= path.build.root %>'
       files:
-        '<%= file.build.style.tidy %>': ['<%= path.build.root %>/*.html']
+        '<%= file.build.style.tidy %>': ['<%= path.build.root %>/{,**/}*.html']
