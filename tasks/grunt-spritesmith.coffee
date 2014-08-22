@@ -6,7 +6,7 @@ Generates sprites and scss from set of images
 module.exports = ->
   @config 'sprite',
     build:
-      src: ['<%= path.source.sprites %>/*.png']
+      src: ['<%= path.source.sprites %>/{,**/}*.png']
       destImg: '<%= path.build.assets %>/images/sprites.png'
       destCSS: '<%= path.source.sass %>/generic/_sprites.map.scss'
       padding: 2

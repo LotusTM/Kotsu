@@ -9,7 +9,7 @@ module.exports = ->
       files: [
         expand: true
         cwd: '<%= path.source.layouts %>/'
-        src: ['**/*.nj', '!**/_*.nj']
+        src: ['{,**/}*.nj', '!{,**/}_*.nj']
         dest: '<%= path.build.root %>/'
         ext: '.html'
       ]

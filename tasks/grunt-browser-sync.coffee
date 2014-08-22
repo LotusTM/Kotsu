@@ -19,6 +19,6 @@ module.exports = ->
         baseDir: '<%= path.build.root %>'
     files:
       src: [
-        '<%= path.build.root %>/*'
-        '<%= path.build.css %>/*'
+        '<%= path.build.root %>/{,**/}*'
+        '<%= path.build.css %>/{,**/}*'
       ]
