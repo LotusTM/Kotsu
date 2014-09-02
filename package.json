@@ -23,8 +23,5 @@
 	},
 	"engines": {
 		"node": ">=0.10.0"
-	},
-	"peerDependencies": {
-		"grunt-cli": "*"
 	}
 }
