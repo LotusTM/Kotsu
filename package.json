@@ -19,6 +19,7 @@
 		"pngsmith": "^0.1.0",
 		"grunt-spritesmith": "^2.1.1",
 		"grunt-processhtml": "^0.3.3",
+		"nunjucks": "^1.0.7",
 		"grunt-nunjucks-2-html": "^0.2.0"
 	},
 	"engines": {
