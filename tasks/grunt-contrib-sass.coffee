@@ -8,6 +8,5 @@ module.exports = ->
     build:
       options:
         style: 'nested'
-        sourcemap: true
       files:
         '<%= file.build.style.compiled %>': '<%= file.source.style %>'
