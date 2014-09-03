@@ -6,7 +6,7 @@ Watches scss, js etc for changes and compiles them
 module.exports = ->
   @config 'watch',
     scss:
-      files: ['<%= path.source.sass %>/{,**/}*.scss']
+      files: ['<%= path.source.styles %>/{,**/}*.scss']
       tasks: [
         'sass'
         'autoprefixer'

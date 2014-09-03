@@ -12,7 +12,7 @@ module.exports = (grunt) ->
     path:
       source:
         root: 'source'
-        sass: '<%= path.source.root %>/sass'
+        styles: '<%= path.source.root %>/styles'
         sprites: '<%= path.source.root %>/sprites'
         layouts: '<%= path.source.root %>/layouts'
         boilerplates: '<%= path.source.root %>/boilerplates'
@@ -25,7 +25,7 @@ module.exports = (grunt) ->
     # Specify files
     file:
       source:
-        style: '<%= path.source.sass %>/style.scss'
+        style: '<%= path.source.styles %>/style.scss'
 
       build:
         style:
