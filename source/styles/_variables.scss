@@ -76,8 +76,8 @@ $base-font-color:                 #444;
 
 $base-bg-color:                   #353a39;
 
-$base-link-color:                 $base-color;
-$base-link-hover-color:           #000;
+$base-links-color:                 $base-color;
+$base-links-hover-color:           #000;
 
 $base-headings-color:             #585c5d;
 $apply-color-to-base-headings:    true;
@@ -90,7 +90,7 @@ $base-form-color:                 #333;
 
 $base-form-placeholder-color:     #a9a9a9;
 
-$base-button-bg-color:            #313232;
+$base-button-bg-color:            $base-color;
 $base-button-color:               #fee0cd;
 
 $base-button-bg-color--positive:  #1fa205;
