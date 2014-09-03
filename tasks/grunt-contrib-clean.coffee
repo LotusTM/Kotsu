@@ -7,5 +7,5 @@ module.exports = ->
   @config 'clean',
     build:
       src: '<%= path.build.root %>/*'
-    css:
-      src: ['<%= path.build.css %>/*', '!<%= file.build.style.min %>']
+    styles:
+      src: ['<%= path.build.styles %>/*', '!<%= file.build.style.min %>']

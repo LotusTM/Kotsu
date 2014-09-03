@@ -20,5 +20,5 @@ module.exports = ->
     files:
       src: [
         '<%= path.build.root %>/{,**/}*'
-        '<%= path.build.css %>/{,**/}*'
+        '<%= path.build.styles %>/{,**/}*'
       ]

@@ -29,8 +29,8 @@
 	<!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic"> -->
 
 	<!-- CSS -->
-	<!-- build:[href] /css/style.min.css -->
-	<link rel="stylesheet" href="/css/style.compiled.css">
+	<!-- build:[href] /styles/style.min.css -->
+	<link rel="stylesheet" href="/styles/style.compiled.css">
 	<!-- /build -->
 
 	<!-- Sitemap -->

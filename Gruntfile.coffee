@@ -20,7 +20,7 @@ module.exports = (grunt) ->
       build:
         root: 'build'
         assets: '<%= path.build.root %>/assets'
-        css: '<%= path.build.root %>/css'
+        styles: '<%= path.build.root %>/styles'
 
     # Specify files
     file:
@@ -29,10 +29,10 @@ module.exports = (grunt) ->
 
       build:
         style:
-          compiled: '<%= path.build.css %>/style.compiled.css'
-          prefixed: '<%= path.build.css %>/style.prefixed.css'
-          tidy: '<%= path.build.css %>/style.tidy.css'
-          min: '<%= path.build.css %>/style.min.css'
+          compiled: '<%= path.build.styles %>/style.compiled.css'
+          prefixed: '<%= path.build.styles %>/style.prefixed.css'
+          tidy: '<%= path.build.styles %>/style.tidy.css'
+          min: '<%= path.build.styles %>/style.min.css'
 
   grunt.loadTasks 'tasks'
 
@@ -63,7 +63,7 @@ module.exports = (grunt) ->
     'uncss:build'
     'csso:build'
     'processhtml:build'
-    'clean:css'
+    'clean:styles'
   ]
 
   ###
