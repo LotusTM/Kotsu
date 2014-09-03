@@ -30,7 +30,7 @@
 
 	<!-- CSS -->
 	<!-- build:[href] /styles/style.min.css -->
-	<link rel="stylesheet" href="/styles/style.compiled.css">
+	<link rel="stylesheet" href="/styles/style.prefixed.css">
 	<!-- /build -->
 
 	<!-- Sitemap -->
