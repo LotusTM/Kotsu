@@ -5,6 +5,8 @@ Render nunjucks templates
 ###
 module.exports = ->
   @config 'nunjucks',
+    options:
+      data: true
     build:
       expand: true
       cwd: '<%= path.source.layouts %>/'
