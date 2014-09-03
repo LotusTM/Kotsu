@@ -63,6 +63,7 @@ module.exports = (grunt) ->
     'uncss:build'
     'csso:build'
     'processhtml:build'
+    'clean:css'
   ]
 
   ###
