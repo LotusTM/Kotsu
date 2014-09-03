@@ -5,8 +5,13 @@
 			"follow_symlinks": true,
 			"name": "Root",
 			"path": ".",
-			"folder_exclude_patterns": ["sass", "js", "css", "assets"],
+			"folder_exclude_patterns": ["sass", "js", "css", "assets", ".sass-cache", "source"],
 			"file_exclude_patterns": ["*.html"]
+		},
+		{
+			"follow_symlinks": true,
+			"name": "Boilerplates",
+			"path": "source\\boilerplates"
 		},
 		{
 			"follow_symlinks": true,
@@ -18,33 +23,26 @@
 			"name": "Sprites",
 			"path": "source\\sprites"
 		},
-		// {
-		// 	"follow_symlinks": true,
-		// 	"name": "JavaScript — vendor",
-		// 	"path": "js\\vendor"
-		// },
-		// {
-		// 	"follow_symlinks": true,
-		// 	"name": "JavaScript",
-		// 	"path": "js",
-		// 	"folder_exclude_patterns": ["vendor"]
-		// },
 		{
 			"follow_symlinks": true,
-			"name": "SASS — framework",
-			"path": "source\\sass\\ekzo.sass"
+			"name": "JavaScript",
+			"path": "source\\scripts"
 		},
 		{
 			"follow_symlinks": true,
-			"name": "SASS",
-			"path": "source\\sass",
+			"name": "Styles — framework",
+			"path": "source\\styles\\ekzo.sass"
+		},
+		{
+			"follow_symlinks": true,
+			"name": "Styles",
+			"path": "source\\styles",
 			"folder_exclude_patterns": ["ekzo.sass"]
 		},
 		{
 			"follow_symlinks": true,
-			"name": "HTML",
-			"path": "source\\boilerplates",
-			"file_include_patterns": ["*.html"]
+			"name": "Layouts",
+			"path": "source\\layouts"
 		}
 	]
 }
