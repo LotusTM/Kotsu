@@ -4,3 +4,5 @@ node_js:
 before_install:
   - gem install sass
   - npm install -g grunt-cli
+notifications:
+  slack: 2bad:V3I2EDTywzZFJSHQuELHphRS
