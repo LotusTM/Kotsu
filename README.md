@@ -1,6 +1,9 @@
 Vanilla.html
 ============
 
+[![devDependency Status](https://img.shields.io/david/dev/LotusTM/vanilla.html.svg?style=flat)](https://david-dm.org/LotusTM/vanilla.html#info=devDependencies)
+[![Build Status](https://img.shields.io/travis/LotusTM/vanilla.html.svg?style=flat)](https://travis-ci.org/LotusTM/vanilla.html)
+
 Clean foundation for new projects — to boldly go where no man has gone before.
 
 
