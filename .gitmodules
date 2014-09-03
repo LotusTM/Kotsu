@@ -1,3 +1,3 @@
 [submodule "source/styles/ekzo.sass"]
 	path = source/styles/ekzo.sass
-	url = git@github.com:ArmorDarks/ekzo.sass.git
+	url = https://github.com/ArmorDarks/ekzo.sass.git
