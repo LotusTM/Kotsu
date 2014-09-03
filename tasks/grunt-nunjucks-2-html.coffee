@@ -6,10 +6,8 @@ Render nunjucks templates
 module.exports = ->
   @config 'nunjucks',
     build:
-      files: [
-        expand: true
-        cwd: '<%= path.source.layouts %>/'
-        src: ['{,**/}*.nj', '!{,**/}_*.nj']
-        dest: '<%= path.build.root %>/'
-        ext: '.html'
-      ]
+      expand: true
+      cwd: '<%= path.source.layouts %>/'
+      src: ['{,**/}*.nj', '!{,**/}_*.nj']
+      dest: '<%= path.build.root %>/'
+      ext: '.html'

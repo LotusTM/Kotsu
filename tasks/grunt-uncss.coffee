@@ -9,4 +9,4 @@ module.exports = ->
       options:
         htmlroot: '<%= path.build.root %>'
       files:
-        '<%= file.build.style.tidy %>': ['<%= path.build.root %>/{,**/}*.html']
+        '<%= file.build.style.tidy %>': '<%= path.build.root %>/{,**/}*.html'
