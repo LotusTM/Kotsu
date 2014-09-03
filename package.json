@@ -1,9 +1,8 @@
 {
 	"name": "Vanilla.html",
-	"version": "0.3.3",
+	"version": "0.3.4",
 	"title": "Clean foundation for new projects",
 	"private": true,
-	"dependencies": {},
 	"devDependencies": {
 		"bower": "^1.3.9",
 		"grunt": "^0.4.5",
@@ -24,5 +23,8 @@
 	},
 	"engines": {
 		"node": ">=0.10.0"
+	},
+	"scripts": {
+		"test": "grunt build && git status | grep 'working directory clean' >NUL || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
 	}
 }
