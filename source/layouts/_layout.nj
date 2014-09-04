@@ -1,13 +1,6 @@
 {# --------- #}
 {% set siteName = "Kotsu" %}
 {% set language = "ru" %}
-
-{% set path = {
-	fonts   : "/assets/fonts",
-	images  : "/assets/images",
-	styles  : "/assets/styles",
-	scripts : "/assets/scripts"
-} %}
 {# --------- #}
 
 
