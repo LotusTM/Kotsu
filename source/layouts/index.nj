@@ -2,9 +2,9 @@
 
 
 {# --------- #}
-{% set pageName = "Home" %}
+{% set pageTitle = "Home" %}
 {% set pageDescription = "Home page description" %}
-{% set pageTitle = "Main content title" %}
+{% set pageContentTitle = "Main content title" %}
 
 {% set pageClass = "index-page" %}
 {# --------- #}

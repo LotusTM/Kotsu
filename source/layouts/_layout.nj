@@ -17,7 +17,7 @@
 	<!-- DNS Prefetching -->
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
 
-	<title>{{ siteName }} — {{ pageName }}</title>
+	<title>{{ siteName }} — {{ pageTitle }}</title>
 
 	<!-- Description -->
 	<meta name="description" content="{{ pageDescription }}">
@@ -129,7 +129,7 @@
 			<div class="site-content-wrapper">
 
 
-				<h1 class="site-content__heading">{{ pageTitle }}</h1>
+				<h1 class="site-content__heading">{{ pageContentTitle }}</h1>
 
 
 				{% block main %}{% endblock %}
