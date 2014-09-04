@@ -1,7 +1,7 @@
 {
-	"name": "Vanilla.html",
+	"name": "Kotsu",
 	"version": "0.3.5",
-	"title": "Clean foundation for new projects",
+	"title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
 	"author": "LotusTM",
 	"private": true,
 	"devDependencies": {
