@@ -12,16 +12,22 @@ module.exports = (grunt) ->
     path:
       source:
         root: 'source'
-        assets: '<%= path.source.root %>/assets'
+        fonts: '<%= path.source.root %>/fonts'
+        images: '<%= path.source.root %>/images'
         styles: '<%= path.source.root %>/styles'
-        sprites: '<%= path.source.root %>/sprites'
         layouts: '<%= path.source.root %>/layouts'
+        scripts: '<%= path.source.root %>/scripts'
+        sprites: '<%= path.source.root %>/sprites'
         boilerplates: '<%= path.source.root %>/boilerplates'
 
       build:
         root: 'build'
         assets: '<%= path.build.root %>/assets'
-        styles: '<%= path.build.root %>/styles'
+        fonts: '<%= path.build.assets %>/fonts'
+        images: '<%= path.build.assets %>/images'
+        styles: '<%= path.build.assets %>/styles'
+        scripts: '<%= path.build.assets %>/scripts'
+        sprites: '<%= path.build.assets %>/sprites'
 
     # Specify files
     file:
@@ -34,6 +40,7 @@ module.exports = (grunt) ->
           prefixed: '<%= path.build.styles %>/style.prefixed.css'
           tidy: '<%= path.build.styles %>/style.tidy.css'
           min: '<%= path.build.styles %>/style.min.css'
+        sprite: '<%= path.build.sprites %>/sprite.png'
 
   grunt.loadTasks 'tasks'
 

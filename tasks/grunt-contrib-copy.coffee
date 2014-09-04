@@ -13,7 +13,12 @@ module.exports = ->
           dest: '<%= path.build.root %>/'
         ,
           expand: true
-          cwd: '<%= path.source.assets %>/'
+          cwd: '<%= path.source.images %>/'
           src: ['**']
-          dest: '<%= path.build.assets %>/'
+          dest: '<%= path.build.images %>/'
+        ,
+          expand: true
+          cwd: '<%= path.source.fonts %>/'
+          src: ['**']
+          dest: '<%= path.build.fonts %>/'
       ]

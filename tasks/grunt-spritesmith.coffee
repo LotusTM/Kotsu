@@ -7,7 +7,7 @@ module.exports = ->
   @config 'sprite',
     build:
       src: ['<%= path.source.sprites %>/{,**/}*.png']
-      destImg: '<%= path.build.assets %>/images/sprites.png'
+      destImg: '<%= file.build.sprite %>'
       destCSS: '<%= path.source.styles %>/generic/_sprites.map.scss'
       padding: 2
       engine: 'pngsmith'
