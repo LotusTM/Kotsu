@@ -12,6 +12,7 @@ module.exports = (grunt) ->
     path:
       source:
         root: 'source'
+        assets: '<%= path.source.root %>/assets'
         styles: '<%= path.source.root %>/styles'
         sprites: '<%= path.source.root %>/sprites'
         layouts: '<%= path.source.root %>/layouts'
