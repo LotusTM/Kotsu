@@ -6,6 +6,6 @@ before_install:
   - npm install -g grunt-cli
 notifications:
   slack: 2bad:V3I2EDTywzZFJSHQuELHphRS
-  	on_success: change
-  	on_failure: always
+    on_success: change
+    on_failure: always
   email: false
