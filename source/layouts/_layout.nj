@@ -1,6 +1,13 @@
 {# --------- #}
 {% set siteName = "Vanilla" %}
 {% set language = "ru" %}
+
+{% set path = {
+	fonts   : "/assets/fonts",
+	images  : "/assets/images",
+	styles  : "/assets/styles",
+	scripts : "/assets/scripts"
+} %}
 {# --------- #}
 
 
@@ -30,7 +37,7 @@
 
 	<!-- CSS -->
 	<!-- build:[href] /assets/styles/style.min.css -->
-	<link rel="stylesheet" href="/assets/styles/style.prefixed.css">
+	<link rel="stylesheet" href="{{ path.styles }}/style.prefixed.css">
 	<!-- /build -->
 
 	<!-- Sitemap -->
