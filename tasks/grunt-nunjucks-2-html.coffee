@@ -10,6 +10,6 @@ module.exports = ->
     build:
       expand: true
       cwd: '<%= path.source.layouts %>/'
-      src: ['{,**/}*.nj', '!{,**/}_*.nj']
+      src: ['{,**/}*.nj', '{,**/}*.html', '!{,**/}_*.nj']
       dest: '<%= path.build.root %>/'
       ext: '.html'
