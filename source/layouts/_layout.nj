@@ -36,7 +36,7 @@
 	<!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic"> -->
 
 	<!-- CSS -->
-	<!-- build:[href] /assets/styles/style.min.css -->
+	<!-- build:[href] {{ path.styles }}/style.min.css -->
 	<link rel="stylesheet" href="{{ path.styles }}/style.prefixed.css">
 	<!-- /build -->
 
