@@ -6,7 +6,6 @@
 			"name": "Root",
 			"path": ".",
 			"folder_exclude_patterns": ["source/sass", "source/assets", ".sass-cache", "source/styles", "source/layouts"],
-			"file_exclude_patterns": ["*.html"]
 		},
 		{
 			"follow_symlinks": true,
