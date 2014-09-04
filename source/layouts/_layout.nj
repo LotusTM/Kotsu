@@ -1,5 +1,5 @@
 {# --------- #}
-{% set siteName = "Vanilla" %}
+{% set siteName = "Kotsu" %}
 {% set language = "ru" %}
 
 {% set path = {
