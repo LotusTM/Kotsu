@@ -5,7 +5,9 @@ before_install:
   - gem install sass
   - npm install -g grunt-cli
 notifications:
-  slack: 2bad:V3I2EDTywzZFJSHQuELHphRS
+  slack:
+    rooms:
+      - 2bad:V3I2EDTywzZFJSHQuELHphRS#general
     on_success: change
     on_failure: always
   email: false
