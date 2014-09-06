@@ -16,4 +16,4 @@ module.exports = ->
       tasks: ['sprite']
     nunjucks:
       files: ['<%= path.source.layouts %>/{,**/}*.nj']
-      tasks: ['nunjucks']
+      tasks: ['newer:nunjucks']
