@@ -1,0 +1,24 @@
+box: wercker/nodejs
+build:
+  steps:
+    - script:
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
+    - npm-install
+    - script:
+        name: install grunt-cli
+        code: sudo npm install -g grunt-cli
+    - script:
+        name: install sass
+        code: sudo gem install sass --no-ri --no-rdoc
+    - npm-test
+
+  after-steps:
+    - sherzberg/slack-notify:
+        subdomain: 2bad
+        token: $SLACK_TOKEN
+        channel: general
+        username: wercker
+        icon_url: https://avatars3.githubusercontent.com/u/1695193?s=140
