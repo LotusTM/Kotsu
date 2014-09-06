@@ -4,6 +4,8 @@ node_js:
 before_install:
   - gem install sass
   - npm install -g grunt-cli
+  - npm config set spin=false
+  - npm config set loglevel=http
 notifications:
   slack:
     rooms:
