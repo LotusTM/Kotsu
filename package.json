@@ -17,11 +17,11 @@
 		"grunt-newer": "^0.7.0",
 		"grunt-nunjucks-2-html": "^0.2.1",
 		"grunt-processhtml": "^0.3.3",
+		"pngsmith": "^0.1.0",
 		"grunt-spritesmith": "^2.1.1",
 		"grunt-uncss": "^0.3.6",
 		"load-grunt-tasks": "^0.6.0",
-		"nunjucks": "^1.0.7",
-		"pngsmith": "^0.1.0"
+		"nunjucks": "^1.0.7"
 	},
 	"engines": {
 		"node": ">=0.10.0"
