@@ -1,32 +1,32 @@
 {
-  "name": "Kotsu",
-  "version": "0.4.2",
-  "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
-  "author": "LotusTM",
-  "private": true,
-  "devDependencies": {
-    "bower": "^1.3.9",
-    "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^1.0.1",
-    "grunt-browser-sync": "^1.3.6",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-sass": "^0.8.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-csso": "^0.6.3",
-    "grunt-newer": "^0.7.0",
-    "grunt-nunjucks-2-html": "^0.2.1",
-    "grunt-processhtml": "^0.3.3",
-    "grunt-spritesmith": "^2.1.1",
-    "grunt-uncss": "^0.3.6",
-    "load-grunt-tasks": "^0.6.0",
-    "nunjucks": "^1.0.7",
-    "pngsmith": "^0.1.0"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "grunt build && git status | grep 'working directory clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
-  }
+	"name": "Kotsu",
+	"version": "0.4.2",
+	"title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
+	"author": "LotusTM",
+	"private": true,
+	"devDependencies": {
+		"bower": "^1.3.9",
+		"grunt": "^0.4.5",
+		"grunt-autoprefixer": "^1.0.1",
+		"grunt-browser-sync": "^1.3.6",
+		"grunt-contrib-clean": "^0.6.0",
+		"grunt-contrib-copy": "^0.5.0",
+		"grunt-contrib-sass": "^0.8.1",
+		"grunt-contrib-watch": "^0.6.1",
+		"grunt-csso": "^0.6.3",
+		"grunt-newer": "^0.7.0",
+		"grunt-nunjucks-2-html": "^0.2.1",
+		"grunt-processhtml": "^0.3.3",
+		"grunt-spritesmith": "^2.1.1",
+		"grunt-uncss": "^0.3.6",
+		"load-grunt-tasks": "^0.6.0",
+		"nunjucks": "^1.0.7",
+		"pngsmith": "^0.1.0"
+	},
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"scripts": {
+		"test": "grunt build && git status | grep 'working directory clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
+	}
 }
