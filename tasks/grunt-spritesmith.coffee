@@ -6,11 +6,13 @@ Generates sprites and scss from set of images
 module.exports = ->
   @config 'sprite',
     build:
-      src: ['<%= path.source.sprites %>/{,**/}*.png']
+      src: ['<%= path.source.sprites %>/{,**/}*']
       destImg: '<%= file.build.sprite %>'
       destCSS: '<%= path.source.styles %>/generic/_sprites.map.scss'
       padding: 2
-      engine: 'pngsmith'
+      engine: 'gm'
+      engineOpts:
+        imagemagick: true
       algorithm: 'binary-tree'
       cssTemplate: '<%= path.source.styles %>/generic/_sprites.map.mustache'
       cssVarMap: (sprite) ->
