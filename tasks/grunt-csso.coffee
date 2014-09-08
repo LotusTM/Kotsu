@@ -5,6 +5,8 @@ Minify CSS files with CSSO
 ###
 module.exports = ->
   @config 'csso',
+    options:
+      report: 'min'
     build:
       files:
         '<%= file.build.style.min %>': '<%= file.build.style.tidy %>'
