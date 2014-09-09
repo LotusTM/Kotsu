@@ -11,8 +11,6 @@ module.exports = ->
       destCSS: '<%= path.source.styles %>/generic/_sprites.map.scss'
       padding: 2
       engine: 'gm'
-      engineOpts:
-        imagemagick: true
       algorithm: 'binary-tree'
       cssTemplate: '<%= path.source.styles %>/generic/_sprites.map.mustache'
       cssVarMap: (sprite) ->
