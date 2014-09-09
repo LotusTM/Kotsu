@@ -7,6 +7,6 @@ module.exports = ->
   @config 'autoprefixer',
     build:
       options:
-        browsers: ['last 2 versions', '> 1%']
+        browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
       files:
         '<%= file.build.style.prefixed %>': '<%= file.build.style.compiled %>'
