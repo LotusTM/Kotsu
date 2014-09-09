@@ -71,6 +71,7 @@ module.exports = (grunt) ->
     'uncss:build'
     'csso:build'
     'clean:styles'
+    'responsive_images:build'
     'processhtml:build'
     'size_report:build'
   ]
