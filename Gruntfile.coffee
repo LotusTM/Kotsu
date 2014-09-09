@@ -70,8 +70,9 @@ module.exports = (grunt) ->
     'autoprefixer:build'
     'uncss:build'
     'csso:build'
-    'processhtml:build'
     'clean:styles'
+    'processhtml:build'
+    'size_report:build'
   ]
 
   ###
