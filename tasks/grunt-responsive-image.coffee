@@ -14,7 +14,7 @@ module.exports = ->
         expand: true
         cwd: '<%= path.source.images %>/'
         # List folders which have to be resized in glob, e.g.:
-        # {models,blog/posts}
+        # {,models,blog/posts}
         src: ['{,**}/*.{jpg,jpeg,gif,png}']
         custom_dest: '<%= path.build.thumbnails %>/{%= path %}/{%= width %}/'
       ]
