@@ -75,7 +75,7 @@
 
 
 
-	{% include "source/layouts/partials/_browse-happy.nj" %}
+	{% include "source/layouts/partials/_outdated-browser.nj" %}
 
 
 
