@@ -12,6 +12,7 @@ module.exports = ->
           images: '/assets/images'
           styles: '/assets/styles'
           scripts: '/assets/scripts'
+          thumbnails: '/assets/images/thumbnails'
     build:
       expand: true
       cwd: '<%= path.source.layouts %>/'
