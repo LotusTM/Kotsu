@@ -3,4 +3,47 @@
 // ^ICONS
 // =======================================
 
-// .icon--name:before { content: '\e815'; }
+
+// ---------------------------------------
+// Icons map
+// ---------------------------------------
+//
+// List all your icons name and it's `content` property values
+//
+// @dep Ekzo.sass framework ^2.0.0
+//      {map} $icons                   - map of icons
+//      {srintg==icon--} $icons-prefix - will be appended to all icon's classes
+//
+// @type {map} - map of icons
+
+$icons: (
+	// name: '\e815',
+);
+
+
+// ---------------------------------------
+// Include all icons
+// ---------------------------------------
+//
+// Output all your icons based on `$icons` map
+//
+// Each icon will be converted into class with specified
+// in project settings `$icons-prefix` (by default `icon--`).
+//
+// @dep Ekzo.sass framework ^2.0.0
+//      {map} $icons                   - map of icons
+//      {srintg==icon--} $icons-prefix - will be appended to all icon's classes
+
+@include icons();
+
+
+// ---------------------------------------
+// Icons extensions
+// ---------------------------------------
+//
+// Any neccessary extension and overrides for your icons.
+//
+// @example
+//
+//		icon--name { border: 1px }
+//
