@@ -1,10 +1,35 @@
 
-/*------------------------------------*\
-		$SPRITES
-\*------------------------------------*/
+// =======================================
+// ^SPRITES
+// =======================================
 
 
-@import "sprites.map";
+// ---------------------------------------
+// Include all sprites
+// ---------------------------------------
+//
+// Output all your sprites based on generated sprites map
+// from `sprites.map.scss` file
+//
+// Each sprite will be converted into class with specified
+// in project settings `$sprites-prefix` (by default `sprite--`).
+//
+// @dep Ekzo.sass framework ^2.0.0
+//      {map} $sprites                     - 2-dimensional map of sprites
+//      {srintg==sprite--} $sprites-prefix - will be appended to all sprite's classes
 
-// @include sprite($sprite--name);
-// @include sprite($sprite--multi, vertical, 3px, --white, --red, --blue);
+@include sprites();
+
+
+// ---------------------------------------
+// Sprites extensions
+// ---------------------------------------
+//
+// Any neccessary extension and overrides for your sprites.
+// You can also call here specific sprites with specific parameters
+//
+// @example
+//
+//		@include sprite(arrow) { border: 1px } ;
+//		@include sprite(arrow-multi, vertical, 3px, --white, --red, --blue);
+//
