@@ -5,7 +5,7 @@
 
 
 <!DOCTYPE html>
-<html class="no-js" lang="{{ language }}">
+<html class="{{ pageClass }} no-js" lang="{{ language }}">
 
 <head>
 
@@ -71,7 +71,7 @@
 
 
 
-<body{{ " class=\"" + pageClass + "\"" if pageClass }}>
+<body>
 
 
 
