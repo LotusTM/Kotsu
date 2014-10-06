@@ -13,6 +13,12 @@ build:
     - script:
         name: install sass
         code: sudo gem install sass --no-ri --no-rdoc
+    - script:
+        name: install graphicsmagick
+        code: |
+          sudo add-apt-repository ppa:dhor/myway -y
+          sudo apt-get update -qq
+          sudo apt-get install graphicsmagick -y
     - npm-test
     - script:
         name: update docker
@@ -26,13 +32,13 @@ build:
     - script:
         name: push image
         code: sudo docker push $DOCKER_IMAGE_NAME:$WERCKER_GIT_COMMIT
+
   after-steps:
     - sherzberg/slack-notify:
-        subdomain: 2bad
+        subdomain: $SLACK_SUBDOMAIN
         token: $SLACK_TOKEN
-        channel: general
-        username: wercker
-        icon_url: https://avatars3.githubusercontent.com/u/1695193?s=140
+        channel: $SLACK_CHANNEL
+
 deploy:
   steps:
     - add-ssh-key:
@@ -54,28 +60,34 @@ deploy:
           [Service]
           User=core
           TimeoutStartSec=0
-          EnvironmentFile=-/etc/app.conf
-          ExecStartPre=-/usr/bin/docker kill app
-          ExecStartPre=-/usr/bin/docker rm app
+          EnvironmentFile=-/etc/$WERCKER_APPLICATION_NAME.conf
+          ExecStartPre=-/usr/bin/docker kill $WERCKER_APPLICATION_NAME
+          ExecStartPre=-/usr/bin/docker rm $WERCKER_APPLICATION_NAME
           ExecStartPre=/usr/bin/docker pull $DOCKER_IMAGE_NAME:$WERCKER_GIT_COMMIT
-          ExecStart=/usr/bin/docker run --name app -p 80:80 --restart="always" $DOCKER_IMAGE_NAME:$WERCKER_GIT_COMMIT
+          ExecStart=/usr/bin/docker run --name $WERCKER_APPLICATION_NAME -p 80:80 --restart='always' $DOCKER_IMAGE_NAME:$WERCKER_GIT_COMMIT
           [Install]
           WantedBy=multi-user.target
     - script:
         name: copy service file
-        code: scp $SERVICE_PATH core@$DEPLOY_SERVER:/home/core/app.service
+        code: scp $SERVICE_PATH core@$DEPLOY_SERVER:/home/core/$WERCKER_APPLICATION_NAME.service
     - script:
         name: login to docker hub
         code: ssh core@$DEPLOY_SERVER docker login -u $DOCKER_USER -p $DOCKER_PASSWORD -e $DOCKER_EMAIL
     - script:
         name: link service file
-        code: ssh core@$DEPLOY_SERVER sudo mv /home/core/app.service /etc/systemd/system/app.service
+        code: ssh core@$DEPLOY_SERVER sudo mv /home/core/$WERCKER_APPLICATION_NAME.service /etc/systemd/system/$WERCKER_APPLICATION_NAME.service
     - script:
         name: reload systemd
         code: ssh core@$DEPLOY_SERVER sudo systemctl daemon-reload
     - script:
         name: enable service
-        code: ssh core@$DEPLOY_SERVER sudo systemctl enable app.service
+        code: ssh core@$DEPLOY_SERVER sudo systemctl enable $WERCKER_APPLICATION_NAME.service
     - script:
         name: restart service
-        code: ssh core@$DEPLOY_SERVER sudo systemctl restart app.service
+        code: ssh core@$DEPLOY_SERVER sudo systemctl restart $WERCKER_APPLICATION_NAME.service
+
+  after-steps:
+    - sherzberg/slack-notify:
+        subdomain: $SLACK_SUBDOMAIN
+        token: $SLACK_TOKEN
+        channel: $SLACK_CHANNEL
