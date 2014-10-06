@@ -6,7 +6,7 @@ module.exports = (grunt) ->
 
   # Define the configuration for all the tasks
   grunt.initConfig
-    pkg: grunt.file.readJSON('package.json')
+    pkg: grunt.file.readJSON 'package.json'
 
     # Specify your source and build directory structure
     path:
