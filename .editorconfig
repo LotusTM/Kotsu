@@ -16,6 +16,14 @@ tab_width = 4
 [*.md]
 trim_trailing_whitespace = false
 
-[{*.coffee,*.yml,package.json}]
+[*.coffee]
+indent_style = space
+indent_size = 2
+
+[*.yml]
+indent_style = space
+indent_size = 2
+
+[package.json]
 indent_style = space
 indent_size = 2
