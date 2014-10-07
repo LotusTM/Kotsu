@@ -12,7 +12,7 @@ module.exports = ->
         'autoprefixer'
       ]
     sprite:
-      files: ['<%= path.source.sprites %>/{,**/}*.png']
+      files: ['<%= path.source.sprites %>/{,**/}*.{jpg,jpeg,gif,png}']
       tasks: ['sprite']
     nunjucks:
       files: ['<%= path.source.layouts %>/{,**/}*.nj']
