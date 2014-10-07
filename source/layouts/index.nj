@@ -6,7 +6,7 @@
 {% set pageDescription = "Home page description" %}
 {% set pageContentTitle = "Main content title" %}
 
-{% set pageClass = "index-page" %}
+{% set pageClass = "l-index-page" %}
 {# --------- #}
 
 
