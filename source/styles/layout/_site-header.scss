@@ -1,14 +1,7 @@
 
-
-/*------------------------------------*\
-		$SITE-HEADER
-\*------------------------------------*/
-
-
-/**
- * Site's header styling
- */
-
+// =======================================
+// ^SITE-HEADER
+// =======================================
 
 .site-header {}
 
@@ -18,10 +11,10 @@
 		.site-logo__link {}
 
 
-	.site-menu {}
+	.site-nav {}
 
-		.site-menu__item {}
+		.site-nav__item {}
 
-			.site-menu__link {}
+			.site-nav__link {}
 
-		.site-menu__item--active {}
+		.site-nav__item--is-active {}

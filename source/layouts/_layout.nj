@@ -99,20 +99,20 @@
 
 
 			<!--noindex-->
-			<nav class="site-menu">
-				<ul class="site-menu__list nav">
-					<li class="site-menu__item site-menu__item--active">
-						<a class="site-menu__link" href="#item1">
+			<nav class="site-nav">
+				<ul class="site-nav__list nav">
+					<li class="site-nav__item site-nav__item--is-active">
+						<a class="site-nav__link" href="#item1">
 							Menu item
 						</a>
 					</li>
-					<li class="site-menu__item">
-						<a class="site-menu__link" href="#item2">
+					<li class="site-nav__item">
+						<a class="site-nav__link" href="#item2">
 							Menu item 2
 						</a>
 					</li>
 				</ul>
-			</nav><!-- /site-menu -->
+			</nav><!-- /site-nav -->
 			<!--/noindex-->
 
 
@@ -129,7 +129,7 @@
 			<div class="site-content-wrapper">
 
 
-				<h1 class="site-content__heading">{{ pageContentTitle }}</h1>
+				<h1 class="site-content-title">{{ pageContentTitle }}</h1>
 
 
 				{% block main %}{% endblock %}
