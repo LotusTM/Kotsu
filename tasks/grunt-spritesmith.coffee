@@ -13,8 +13,3 @@ module.exports = ->
       engine: 'gm'
       algorithm: 'binary-tree'
       cssTemplate: '<%= path.source.styles %>/generic/_sprites.map.mustache'
-      cssVarMap: (sprite) ->
-        # `sprite` has `name`, `image` (full path), `x`, `y`
-        # `width`, `height`, `total_width`, `total_height`
-        sprite.name = 'sprite--' + sprite.name
-        return
