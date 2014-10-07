@@ -1,35 +1,28 @@
 
-/*------------------------------------*\
-		$SITE-CONTENT
-\*------------------------------------*/
+// =======================================
+// ^SITE-CONTENT
+// =======================================
 
-
-/**
- * Site's main content styling
- */
+// ---------------------------------------
+// Site's main content styling
+// ---------------------------------------
 
 .site-content { position: relative; }
 
+// ---------------------------------------
+// Site's main content inner wrapper styling
+// ---------------------------------------
 
+.site-content-wrapper {}
 
-// /**
-//  * Site's main content inner wrapper styling
-//  */
+// ---------------------------------------
+// Site's main content's menu heading styling
+// ---------------------------------------
 
-// .site-content-wrapper {}
+.site-content-nav-title {}
 
+// ---------------------------------------
+// Site's main content heading styling
+// ---------------------------------------
 
-
-// /**
-//  * Site's main content's menu header styling
-//  */
-
-// .site-content-menu-header {}
-
-
-
-// /**
-//  * Site's main content header styling
-//  */
-
-// .site-content-header {}
+.site-content-title {}
