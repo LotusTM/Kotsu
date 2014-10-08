@@ -1,0 +1,13 @@
+
+// =======================================
+// ^SETTING.FRAMEWORK.DEFAULTS
+// =======================================
+//
+// Used for various framework calculations
+
+$base-spacing-unit:    $base-line-height;
+$half-spacing-unit:    $base-spacing-unit / 2;
+$double-spacing-unit:  $base-spacing-unit * 2;
+$triple-spacing-unit:  $base-spacing-unit * 3;
+
+$line-height-ratio:    $base-line-height / font-size(base);

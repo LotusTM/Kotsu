@@ -4,34 +4,44 @@
 // =======================================
 
 // ---------------------------------------
+// Functions
+// ---------------------------------------
+
+@import 'ekzo.sass/functions/typography';
+
+// ---------------------------------------
 // Options, styles, colors etc.
 // ---------------------------------------
 
-@import "options";
-@import "variables";
+@import 'settings.typography';
+@import 'settings.framework';
+@import 'settings.colors';
+@import 'settings.assets';
+@import 'settings.options';
+@import 'settings.responsive';
 
 // ---------------------------------------
 // Framework
 // ---------------------------------------
 
-@import "ekzo.sass/framework";
+@import 'ekzo.sass/framework';
 
 // ---------------------------------------
 // Site's custom styling
 // ---------------------------------------
 
-@import "generic/animations";
-@import "generic/fonts";
-@import "generic/forms";
-@import "generic/icons";
-@import "generic/sprites.map";
-@import "generic/sprites";
+@import 'generic/animations';
+@import 'generic/fonts';
+@import 'generic/forms';
+@import 'generic/icons';
+@import 'generic/sprites.map';
+@import 'generic/sprites';
 
-@import "layout/base";
-@import "layout/site-header";
-@import "layout/site-content";
-@import "layout/site-footer";
+@import 'layout/base';
+@import 'layout/site-header';
+@import 'layout/site-content';
+@import 'layout/site-footer';
 
-@import "partials/outdated-browser";
+@import 'partials/outdated-browser';
 
-@import "pages/index";
+@import 'pages/index';

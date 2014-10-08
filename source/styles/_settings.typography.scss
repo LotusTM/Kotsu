@@ -1,0 +1,60 @@
+
+// =======================================
+// ^SETTING.TYPOGRAPHY.DEFAULTS
+// =======================================
+
+// ---------------------------------------
+// Font sizes
+// ---------------------------------------
+
+$font-sizes: (
+	content: (
+		base:  14px, // used for vertical rhythm calculation; = .text--base
+		small: 12px, // = .text--small
+		micro: 10px, // = .text--micro
+	),
+	headings: (
+		h1: 36px, // = h1, .h1, .btn--h1
+		h2: 30px, // = h2, .h2, .btn--h2
+		h3: 24px, // = h3, .h3, .btn--h3
+		h4: 21px, // = h4, .h4, .btn--h4
+		h5: 18px, // = h5, .h5, .btn--h5
+		h6: 16px, // = h6, .h6, .btn--h6
+	),
+	extra-headings: (
+		giga: 96px, // = .giga
+		mega: 72px, // = .mega
+		kilo: 44px, // = .kilo
+	),
+	buttons: () // = .btn--*name*
+);
+
+$forms-font-size:              font-size(h5, headings);
+$forms-placeholder-font-size:  $forms-font-size;
+
+// ---------------------------------------
+// Line heights
+// ---------------------------------------
+
+$base-line-height:             font-size(base) * 1.5;
+
+// ---------------------------------------
+// Font famylies
+// ---------------------------------------
+
+$base-font-family:             sans-serif;
+$second-font-family:           sans-serif;
+
+$headings-font-family:         $second-font-family;
+$forms-font-family:            $base-font-family;
+
+// ---------------------------------------
+// Font weights and styles
+// ---------------------------------------
+
+$base-font-weight:             normal;
+
+$headings-font-weight:         normal;
+$breadcrumb-root-font-weight:  bold;
+
+$forms-placeholder-font-style: italic;

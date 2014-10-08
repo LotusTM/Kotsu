@@ -1,0 +1,30 @@
+
+// =======================================
+// ^SETTING.ASSETS.DEFAULTS
+// =======================================
+
+// ---------------------------------------
+// Paths
+// ---------------------------------------
+
+$base-assets-path:       '../../assets/';
+$base-images-path:       '#{$base-assets-path}images/';
+$base-fonts-path:        '#{$base-assets-path}fonts/';
+
+// ---------------------------------------
+// Background
+// ---------------------------------------
+
+$base-bg:                $base-bg-color;
+
+// ---------------------------------------
+// Icons and sprites
+// ---------------------------------------
+
+$icons-prefix:           icon--;
+$sprites-prefix:         sprite--;
+
+$base-icon-font:         fontello;
+$base-icon-font-version: 79220573;
+
+$base-sprites-file:      'sprites.png';

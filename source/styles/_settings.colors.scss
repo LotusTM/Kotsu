@@ -1,0 +1,62 @@
+
+// =======================================
+// ^SETTING.COLORS.DEFAULTS
+// =======================================
+
+$base-color:                      #ff6600;
+
+// ---------------------------------------
+// Font
+// ---------------------------------------
+
+$base-font-color:                 #000;
+
+// ---------------------------------------
+// Links
+// ---------------------------------------
+
+$base-links-color:                #35adda;
+$base-links-hover-color:          #69d1c6;
+
+// ---------------------------------------
+// Headings
+// ---------------------------------------
+
+$base-headings-color:             #585c5d;
+$extra-headings-color:            $base-headings-color;
+
+// ---------------------------------------
+// Forms
+// ---------------------------------------
+
+$forms-bg-color:                  #FFF;
+$forms-color:                     #8b8b8b;
+$forms-placeholder-color:         #a9a9a9;
+
+// ---------------------------------------
+// Buttons
+// ---------------------------------------
+
+$base-button-color:               $base-font-color;
+$base-button-bg-color:            $base-color;
+
+$base-button-color--positive:     #7ef76a;
+$base-button-bg-color--positive:  #1fa205;
+
+$base-button-color--negative:     #ff8877;
+$base-button-bg-color--negative:  #a20b05;
+
+$base-button-color--disabled:     #464646;
+$base-button-bg-color--disabled:  #d3d3d3;
+
+// ---------------------------------------
+// Breadcrumb
+// ---------------------------------------
+
+$base-breadcrumb-separator-color: #d3d3d3;
+
+// ---------------------------------------
+// Backgrounds
+// ---------------------------------------
+
+$base-bg-color:                   #353a39;

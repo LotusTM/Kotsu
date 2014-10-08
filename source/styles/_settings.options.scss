@@ -1,0 +1,53 @@
+
+// =======================================
+// ^SETTING.OPTIONS.DEFAULTS
+// =======================================
+
+// ---------------------------------------
+// ELEMENTS AND ABSTRACTIONS
+// ---------------------------------------
+
+$enable-a-nav:                  true;
+$enable-arrows:                 true;
+$enable-breadcrumb:             true;
+$enable-buttons:                true;
+$enable-flag:                   true;
+$enable-forms:                  true;
+$enable-grid:                   true;
+$enable-iconic-list:            true;
+$enable-icons:                  true;
+$enable-island:                 true;
+$enable-lists:                  true;
+$enable-media:                  true;
+$enable-nav:                    true;
+$enable-pack:                   true;
+$enable-tables:                 true;
+$enable-tooltips:               true;
+
+// ---------------------------------------
+// Typographic options
+// ---------------------------------------
+
+$apply-color-to-base-headings:  false;
+$apply-color-to-extra-headings: false;
+
+$base-links-underline:          true;
+$base-links-hover-unline:       true;
+$base-links-hover-colored:      true;
+
+$base-button-unline:            true;
+
+// ---------------------------------------
+// BORDER-BOX
+// ---------------------------------------
+
+$global-border-box:             false;
+
+// ---------------------------------------
+// DEBUG
+// ---------------------------------------
+//
+// Debug mode will visually highlight any potential markup/accessibility quirks
+// in the browser. Set to `true` or `false`.
+
+$debug-mode:                    false;
