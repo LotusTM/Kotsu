@@ -5,17 +5,19 @@ Render nunjucks templates
 ###
 module.exports = ->
   @config 'nunjucks',
-    options:
-      data:
-        path:
-          fonts: '/assets/fonts'
-          images: '/assets/images'
-          styles: '/assets/styles'
-          scripts: '/assets/scripts'
-          thumbnails: '/assets/images/thumbnails'
     build:
-      expand: true
-      cwd: '<%= path.source.layouts %>/'
-      src: ['{,**/}*.nj', '{,**/}*.html', '!{,**/}_*.nj']
-      dest: '<%= path.build.root %>/'
-      ext: '.html'
+      options:
+        data:
+          path:
+            fonts: '/assets/fonts'
+            images: '/assets/images'
+            styles: '/assets/styles'
+            scripts: '/assets/scripts'
+            thumbnails: '/assets/images/thumbnails'
+      files: [
+        expand: true
+        cwd: '<%= path.source.layouts %>/'
+        src: ['{,**/}*.nj', '{,**/}*.html', '!{,**/}_*.nj']
+        dest: '<%= path.build.root %>/'
+        ext: '.html'
+      ]

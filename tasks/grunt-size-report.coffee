@@ -7,4 +7,4 @@ module.exports = ->
   @config 'size_report',
     build:
       files:
-        build: ['<%= path.build.root %>/{,**}/*.*']
+        src: ['<%= path.build.root %>/{,**}/*.*']

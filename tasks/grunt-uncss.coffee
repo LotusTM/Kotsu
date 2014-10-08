@@ -8,5 +8,7 @@ module.exports = ->
     build:
       options:
         htmlroot: '<%= path.build.root %>'
-      files:
-        '<%= file.build.style.tidy %>': '<%= path.build.root %>/{,**/}*.html'
+      files: [
+        src: '<%= path.build.root %>/{,**/}*.html'
+        dest: '<%= file.build.style.tidy %>'
+      ]

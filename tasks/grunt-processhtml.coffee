@@ -6,7 +6,9 @@ Process html files to modify them depending on the release environment
 module.exports = ->
   @config 'processhtml',
     build:
-      expand: true
-      cwd: '<%= path.build.root %>'
-      src: '{,**/}*.html'
-      dest: '<%= path.build.root %>'
+      files: [
+        expand: true
+        cwd: '<%= path.build.root %>'
+        src: '{,**/}*.html'
+        dest: '<%= path.build.root %>'
+      ]
