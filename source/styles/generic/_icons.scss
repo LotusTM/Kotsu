@@ -15,7 +15,7 @@
 //
 // @type {map} - map of icons
 
-$icons: (
+$ekzo-icons: (
 	// name: '\e815',
 );
 
@@ -32,7 +32,7 @@ $icons: (
 //      {map} $icons                   - map of icons
 //      {srintg==icon--} $icons-prefix - will be appended to all icon's classes
 
-@include icons();
+@include ekzo-icons();
 
 // ---------------------------------------
 // Icons extensions

@@ -7,24 +7,25 @@
 // Paths
 // ---------------------------------------
 
-$base-assets-path:       '/assets';
-$base-images-path:       '#{$base-assets-path}/images/';
-$base-fonts-path:        '#{$base-assets-path}/fonts/';
+$ekzo-assets-path:       '../../assets';
+$ekzo-images-path:       '#{$ekzo-assets-path}/images/';
+$ekzo-fonts-path:        '#{$ekzo-assets-path}/fonts/';
 
 // ---------------------------------------
 // Background
 // ---------------------------------------
 
-$base-bg:                $base-bg-color;
+$ekzo-bg:                $ekzo-bg-color;
 
 // ---------------------------------------
 // Icons and sprites
 // ---------------------------------------
 
-$icons-prefix:           icon--;
-$sprites-prefix:         sprite--;
+$ekzo-icons-prefix:      icon--;
+$ekzo-sprites-prefix:    sprite--;
 
-$base-icon-font:         fontello;
-$base-icon-font-version: 79220573;
+$ekzo-icon-font:         fontello;
+$ekzo-icon-font-version: 79220573;
+$ekzo-icon-font-svg-id:  $ekzo-icon-font;
 
-$base-sprites-file:      'sprites.png';
+$ekzo-sprites-file:      'sprites.png';

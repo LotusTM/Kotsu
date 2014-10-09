@@ -17,7 +17,7 @@
 //      {map} $sprites                     - 2-dimensional map of sprites
 //      {srintg==sprite--} $sprites-prefix - will be appended to all sprite's classes
 
-@include sprites();
+@include ekzo-sprites();
 
 // ---------------------------------------
 // Sprites extensions

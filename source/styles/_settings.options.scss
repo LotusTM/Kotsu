@@ -7,41 +7,51 @@
 // ELEMENTS AND ABSTRACTIONS
 // ---------------------------------------
 
-$enable-a-nav:                  true;
-$enable-arrows:                 true;
-$enable-breadcrumb:             true;
-$enable-buttons:                true;
-$enable-flag:                   true;
-$enable-forms:                  true;
-$enable-grid:                   true;
-$enable-iconic-list:            true;
-$enable-icons:                  true;
-$enable-island:                 true;
-$enable-lists:                  true;
-$enable-media:                  true;
-$enable-nav:                    true;
-$enable-pack:                   true;
-$enable-tables:                 true;
-$enable-tooltips:               true;
+$ekzo-enable-a-nav:              true;
+$ekzo-enable-arrows:             true;
+$ekzo-enable-breadcrumb:         true;
+$ekzo-enable-buttons:            true;
+$ekzo-enable-flag:               true;
+$ekzo-enable-forms:              true;
+$ekzo-enable-grid:               true;
+$ekzo-enable-iconic-list:        true;
+$ekzo-enable-icons:              true;
+$ekzo-enable-island:             true;
+$ekzo-enable-lists:              true;
+$ekzo-enable-media:              true;
+$ekzo-enable-nav:                true;
+$ekzo-enable-pack:               true;
+$ekzo-enable-tables:             true;
+$ekzo-enable-tooltips:           true;
 
 // ---------------------------------------
 // Typographic options
 // ---------------------------------------
 
-$apply-color-to-base-headings:  false;
-$apply-color-to-extra-headings: false;
+$ekzo-color-headings:            false;
+$ekzo-color-extra-headings:      false;
 
-$base-links-underline:          true;
-$base-links-hover-unline:       true;
-$base-links-hover-colored:      true;
+$ekzo-links-underline:           true;
+$ekzo-links-hover-unline:        true;
+$ekzo-links-hover-colored:       true;
 
-$base-button-unline:            true;
+$ekzo-btn-unline:                true;
+
+// ---------------------------------------
+// Contents and delimiters
+// ---------------------------------------
+
+$ekzo-breadcrumb-delimiter:      '\00A0' '\2192' '\00A0' '\00A0';
+$ekzo-breadcrumb--rev-delimiter: '\00A0' '\00A0' '\2192' '\00A0';
+
+$ekzo-links--go-content:         '\00A0' '\00BB';
+$ekzo-links--back-content:       '\00AB' '\00A0';
 
 // ---------------------------------------
 // BORDER-BOX
 // ---------------------------------------
 
-$global-border-box:             false;
+$ekzo-global-border-box:          false;
 
 // ---------------------------------------
 // DEBUG
@@ -50,4 +60,4 @@ $global-border-box:             false;
 // Debug mode will visually highlight any potential markup/accessibility quirks
 // in the browser. Set to `true` or `false`.
 
-$debug-mode:                    false;
+$ekzo-debug-mode:                false;

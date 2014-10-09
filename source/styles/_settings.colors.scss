@@ -3,60 +3,61 @@
 // ^SETTING.COLORS.DEFAULTS
 // =======================================
 
-$base-color:                      #ff6600;
+$brand-color:                  #ff6600;
 
 // ---------------------------------------
-// Font
+// Text
 // ---------------------------------------
 
-$base-font-color:                 #ccc;
+$ekzo-text-color:              #ccc;
 
 // ---------------------------------------
 // Links
 // ---------------------------------------
 
-$base-links-color:                #35adda;
-$base-links-hover-color:          #69d1c6;
+$ekzo-links-color:             #35adda;
+$ekzo-links-hover-color:       #69d1c6;
 
 // ---------------------------------------
 // Headings
 // ---------------------------------------
 
-$base-headings-color:             #585c5d;
-$extra-headings-color:            $base-headings-color;
+$ekzo-headings-color:          #585c5d;
+$ekzo-extra-headings-color:    $ekzo-headings-color;
 
 // ---------------------------------------
 // Forms
 // ---------------------------------------
 
-$forms-bg-color:                  #FFF;
-$forms-color:                     #8b8b8b;
-$forms-placeholder-color:         #a9a9a9;
+$ekzo-forms-bg-color:          #FFF;
+$ekzo-forms-color:             #8b8b8b;
+$ekzo-forms-placeholder-color: #a9a9a9;
 
 // ---------------------------------------
 // Buttons
 // ---------------------------------------
 
-$base-button-color:               $base-font-color;
-$base-button-bg-color:            $base-color;
+$ekzo-btn-color:               $ekzo-text-color;
+$ekzo-btn-bg-color:            $brand-color;
 
-$base-button-color--positive:     #7ef76a;
-$base-button-bg-color--positive:  #1fa205;
+$ekzo-btn--positive-color:     #7ef76a;
+$ekzo-btn--positive-bg-color:  #1fa205;
 
-$base-button-color--negative:     #ff8877;
-$base-button-bg-color--negative:  #a20b05;
+$ekzo-btn--negative-color:     #ff8877;
+$ekzo-btn--negative-bg-color:  #a20b05;
 
-$base-button-color--disabled:     #464646;
-$base-button-bg-color--disabled:  #d3d3d3;
+$ekzo-btn--disabled-color:     #464646;
+$ekzo-btn--disabled-bg-color:  #d3d3d3;
 
 // ---------------------------------------
 // Breadcrumb
 // ---------------------------------------
 
-$base-breadcrumb-separator-color: #d3d3d3;
+$ekzo-breadcrumb-link-color:      #d3d3d3;
+$ekzo-breadcrumb-delimiter-color: #d3d3d3;
 
 // ---------------------------------------
 // Backgrounds
 // ---------------------------------------
 
-$base-bg-color:                   #353a39;
+$ekzo-bg-color:                   #353a39;

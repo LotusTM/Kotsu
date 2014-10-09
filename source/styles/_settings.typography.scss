@@ -7,11 +7,11 @@
 // Font sizes
 // ---------------------------------------
 
-$font-sizes: (
-	content: (
+$ekzo-font-sizes: (
+	text: (
 		base:  14px, // used for vertical rhythm calculation; = .text--base
 		small: 12px, // = .text--small
-		micro: 10px, // = .text--micro
+		tiny:  10px, // = .text--tiny
 	),
 	headings: (
 		h1: 36px, // = h1, .h1, .btn--h1
@@ -29,32 +29,36 @@ $font-sizes: (
 	buttons: () // = .btn--*name*
 );
 
-$forms-font-size:              font-size(h5, headings);
-$forms-placeholder-font-size:  $forms-font-size;
+$ekzo-forms-font-size:              ekzo-font-size(h5, headings);
+$ekzo-forms-placeholder-font-size:  $ekzo-forms-font-size;
 
 // ---------------------------------------
 // Line heights
 // ---------------------------------------
 
-$base-line-height:             font-size(base) * 1.5;
+$ekzo-line-height:                  ekzo-font-size(base) * 1.5;
 
 // ---------------------------------------
 // Font famylies
 // ---------------------------------------
 
-$base-font-family:             sans-serif;
-$second-font-family:           sans-serif;
+$ekzo-font-family:                  sans-serif;
+$second-font-family:                sans-serif;
 
-$headings-font-family:         $second-font-family;
-$forms-font-family:            $base-font-family;
+$ekzo-headings-font-family:         $second-font-family;
+$ekzo-extra-headings-font-family:   $second-font-family;
+
+$ekzo-forms-font-family:            $ekzo-font-family;
 
 // ---------------------------------------
 // Font weights and styles
 // ---------------------------------------
 
-$base-font-weight:             normal;
+$ekzo-font-weight:                  normal;
 
-$headings-font-weight:         normal;
-$breadcrumb-root-font-weight:  bold;
+$ekzo-headings-font-weight:         normal;
+$ekzo-extra-headings-font-weight:   normal;
 
-$forms-placeholder-font-style: italic;
+$ekzo-breadcrumb-root-font-weight:  bold;
+
+$ekzo-forms-placeholder-font-style: italic;
