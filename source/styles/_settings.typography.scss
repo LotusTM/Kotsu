@@ -22,9 +22,9 @@ $ekzo-font-sizes: (
 		h6: 16px, // = h6, .h6, .btn--h6
 	),
 	extra-headings: (
-		giga: 96px, // = .giga
-		mega: 72px, // = .mega
-		kilo: 44px, // = .kilo
+		giga: 96px, // = .text--giga
+		mega: 72px, // = .text--mega
+		kilo: 44px, // = .text--kilo
 	),
 	buttons: () // = .btn--*name*
 );
