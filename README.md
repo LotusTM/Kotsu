@@ -11,15 +11,16 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 
 1. Clone or download and unpack to desired location
 2. Download and install latest version of [node.js](http://nodejs.org/)
-3. Install grunt-cli globaly: `npm install -g grunt-cli`
+3. Install grunt-cli globally: `npm install -g grunt-cli`
 3. Install [Ruby](https://www.ruby-lang.org) and it's [SASS](http://sass-lang.com/install) and [SCSS-Lint](https://github.com/causes/scss-lint) (optional) gems
 4. Install [GraphicsMagick](http://www.graphicsmagick.org/download.html) (recommended) or [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) for your OS
-5. Install project dependencies: `npm install`
-6. Rename `Kotsu.sublime-project` to project's name
-7. Update `_options.scss` and `_variables.scss` in `styles` folder to suit your needs
-8. Code live with: `grunt`
-9. Build with: `grunt build`
-10. Deploy and enjoy your life
+5. Get your TinyPNG [API key](https://tinypng.com/developers) and set it as your environment variable `set TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Windows or `export TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Linux
+6. Install project dependencies: `npm install`
+7. Rename `Kotsu.sublime-project` to project's name
+8. Update `_options.scss` and `_variables.scss` in `styles` folder to suit your needs
+9. Code live with: `grunt`
+10. Build with: `grunt build`
+11. Deploy and enjoy your life
 
 ## What's inside?
 
@@ -29,6 +30,6 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 * [SASS](http://sass-lang.com/) compiler with source maps generation and linting
 * Optional, but mighty, [Ekzo](https://github.com/ArmorDarks/ekzo.sass) framework
 * HTML5 boilerplate files based on best practices
-* Automatic sprites generation with [ImageMagick](http://www.imagemagick.org)
-* Separate, unminified files in development, and
+* Automatic sprites generation with [ImageMagick](http://www.imagemagick.org) and compression via [TinyPNG](https://tinypng.com/)
+* Separate, not optimized files in development, and
 * Compiled and minified files for production

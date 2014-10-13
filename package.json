@@ -1,6 +1,6 @@
 {
   "name": "Kotsu",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "author": "LotusTM",
   "private": true,
@@ -21,6 +21,7 @@
     "grunt-scss-lint": "^0.3.3",
     "grunt-size-report": "^0.1.1",
     "grunt-spritesmith": "^2.20.0",
+    "grunt-tinypng": "^0.5.3",
     "grunt-uncss": "^0.3.7",
     "load-grunt-tasks": "^0.6.0",
     "nunjucks": "^1.1.0"

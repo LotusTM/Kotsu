@@ -7,7 +7,7 @@ module.exports = ->
   @config 'sprite',
     build:
       src: ['<%= path.source.sprites %>/{,**/}*']
-      destImg: '<%= file.build.sprite %>'
+      destImg: '<%= file.build.sprite.compiled %>'
       destCSS: '<%= path.source.styles %>/generic/_sprites.map.scss'
       padding: 2
       engine: 'gm'
