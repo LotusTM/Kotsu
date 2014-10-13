@@ -6,7 +6,7 @@
 {% set pageDescription = "Blog page description" %}
 {% set pageContentTitle = "Blog's main content title" %}
 
-{% set pageClass = "blog-page" %}
+{% set pageClass = "l-blog" %}
 {# --------- #}
 
 
