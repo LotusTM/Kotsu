@@ -14,7 +14,9 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 3. Install grunt-cli globally: `npm install -g grunt-cli`
 3. Install [Ruby](https://www.ruby-lang.org) and it's [SASS](http://sass-lang.com/install) and [SCSS-Lint](https://github.com/causes/scss-lint) (optional) gems
 4. Install [GraphicsMagick](http://www.graphicsmagick.org/download.html) (recommended) or [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) for your OS
-5. Get your TinyPNG [API key](https://tinypng.com/developers) and set it as your environment variable `set TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Windows or `export TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Linux
+5. Get your TinyPNG [API key](https://tinypng.com/developers) and set it as your environment variable:
+  * `set TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Windows
+  * `export TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Linux
 6. Install project dependencies: `npm install`
 7. Rename `Kotsu.sublime-project` to project's name
 8. Update `_options.scss` and `_variables.scss` in `styles` folder to suit your needs
