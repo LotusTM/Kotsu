@@ -34,10 +34,11 @@ build:
         code: sudo docker push $DOCKER_IMAGE_NAME:$WERCKER_GIT_COMMIT
 
   after-steps:
-    - sherzberg/slack-notify:
+    - lotustm/ultimate-slack-notify:
         subdomain: $SLACK_SUBDOMAIN
         token: $SLACK_TOKEN
         channel: $SLACK_CHANNEL
+        on: failed
 
 deploy:
   steps:
@@ -88,7 +89,7 @@ deploy:
         code: ssh core@$DEPLOY_SERVER sudo systemctl restart $WERCKER_APPLICATION_NAME.service
 
   after-steps:
-    - sherzberg/slack-notify:
+    - lotustm/ultimate-slack-notify:
         subdomain: $SLACK_SUBDOMAIN
         token: $SLACK_TOKEN
         channel: $SLACK_CHANNEL
