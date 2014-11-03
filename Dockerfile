@@ -1,3 +1,3 @@
 FROM dockerfile/nginx
 
-ADD ./build/ /usr/share/nginx/html/
+ADD ./build/ /var/www/html
