@@ -7,13 +7,7 @@ module.exports = ->
   @config 'nunjucks',
     build:
       options:
-        data:
-          path:
-            fonts: '/assets/fonts'
-            images: '/assets/images'
-            styles: '/assets/styles'
-            scripts: '/assets/scripts'
-            thumbnails: '/assets/images/thumbnails'
+        data: '<%= data %>'
       files: [
         expand: true
         cwd: '<%= path.source.layouts %>/'

@@ -1,11 +1,5 @@
-{# --------- #}
-{% set siteName = "Kotsu" %}
-{% set language = "ru" %}
-{# --------- #}
-
-
 <!DOCTYPE html>
-<html class="{{ pageClass }} no-js" lang="{{ language }}">
+<html class="{{ pageClass }} no-js" lang="{{ site.lang }}">
 
 <head>
 
@@ -17,7 +11,7 @@
 	<!-- DNS Prefetching -->
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
 
-	<title>{{ siteName }} — {{ pageTitle }}</title>
+	<title>{{ site.name }} — {{ pageTitle }}</title>
 
 	<!-- Description -->
 	<meta name="description" content="{{ pageDescription }}">
@@ -149,7 +143,7 @@
 		<div class="site-wrapper">
 
 
-			© 2000—2014 Footer content
+			© 2000–{{ data.currentYear }} {{ site.name }}
 
 
 		</div>

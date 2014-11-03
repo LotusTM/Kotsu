@@ -13,7 +13,24 @@
 {% block main %}
 
 
-Main content
+<p>Main block's content</p>
+
+
+<h2>Data examples</h2>
+
+
+<h3>Inline data</h3>
+
+<p>Current year is {{ data.currentYear }}</p>
+
+<p>Images path is {{ path.images }}</p>
+
+
+<h3>External data</h3>
+
+<h4>{{ data.example.title }}</h4>
+
+<p>{{ data.example.content }}</p>
 
 
 {% endblock %}

@@ -8,7 +8,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
 
-    #Specify environment variables
+    # Specify environment variables
     env:
       tinypng:
         api:
@@ -50,6 +50,22 @@ module.exports = (grunt) ->
         sprite:
           compiled: '<%= path.build.sprites %>/sprite.png'
           hash: '<%= path.build.sprites %>/hash.json'
+
+    # Specify data
+    # Template `<%= path.source.data %>` won't work here
+    data:
+      path:
+        fonts: '/assets/fonts'
+        images: '/assets/images'
+        styles: '/assets/styles'
+        scripts: '/assets/scripts'
+        thumbnails: '/assets/images/thumbnails'
+      site:
+        name: 'Kotsu'
+        lang: 'en'
+      data:
+        currentYear: new Date().getFullYear()
+        example: grunt.file.readJSON 'source/data/example.json'
 
   grunt.loadTasks 'tasks'
 
