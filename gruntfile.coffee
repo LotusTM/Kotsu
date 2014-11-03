@@ -61,8 +61,10 @@ module.exports = (grunt) ->
         scripts: '/assets/scripts'
         thumbnails: '/assets/images/thumbnails'
       site:
-        name: 'Kotsu'
         lang: 'en'
+        name: '<%= pkg.name %>'
+        title: '<%= pkg.title %>'
+        version: '<%= pkg.version %>'
       data:
         currentYear: new Date().getFullYear()
         example: grunt.file.readJSON 'source/data/example.json'
