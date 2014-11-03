@@ -143,7 +143,7 @@
 		<div class="site-wrapper">
 
 
-			© 2000–{{ data.currentYear }} {{ site.name }}
+			© 2000–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
 
 
 		</div>
