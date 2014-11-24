@@ -8,14 +8,13 @@ module.exports = ->
     build:
       options:
         removeComments: true
+        removeCommentsFromCDATA: true
         collapseWhitespace: true
         conservativeCollapse: true
         collapseBooleanAttributes: true
         removeEmptyAttributes: true
         removeScriptTypeAttributes: true
         removeStyleLinkTypeAttributes: true
-        minifyJS: true
-        minifyCSS: true
       files: [
         expand: true
         cwd: '<%= path.build.root %>'
