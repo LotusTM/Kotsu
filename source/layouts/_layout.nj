@@ -69,7 +69,7 @@
 
 
 
-	{% include "source/layouts/partials/_outdated-browser.nj" %}
+	{% include "partials/_outdated-browser.nj" %}
 
 
 
@@ -155,7 +155,7 @@
 <!-- Scripts -->
 <!-- ======= -->
 
-{% include "source/layouts/_scripts.nj" %}
+{% include "_scripts.nj" %}
 
 
 

@@ -1,4 +1,4 @@
-{% extends "source/layouts/_layout.nj" %}
+{% extends "_layout.nj" %}
 
 
 {# --------- #}
