@@ -35,8 +35,7 @@ build:
 
   after-steps:
     - lotustm/ultimate-slack-notify:
-        subdomain: $SLACK_SUBDOMAIN
-        token: $SLACK_TOKEN
+        webhook_url: $SLACK_WEBHOOK_URL
         channel: $SLACK_CHANNEL
         on: failed
 
@@ -90,6 +89,5 @@ deploy:
 
   after-steps:
     - lotustm/ultimate-slack-notify:
-        subdomain: $SLACK_SUBDOMAIN
-        token: $SLACK_TOKEN
+        webhook_url: $SLACK_WEBHOOK_URL
         channel: $SLACK_CHANNEL
