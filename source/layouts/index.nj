@@ -2,11 +2,13 @@
 
 
 {# --------- #}
-{% set pageTitle = "Home" %}
-{% set pageDescription = "Home page description" %}
-{% set pageContentTitle = "Main content title" %}
+{% set pageTitle        = "Home" %}
+{% set pageDescription  = "Home page description" %}
+{% set pageContentTitle = false %}
 
-{% set pageClass = "l-index" %}
+{% set pageClass        = "l-index" %}
+
+{% set breadcrumb       = false %}
 {# --------- #}
 
 

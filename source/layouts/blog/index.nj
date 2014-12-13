@@ -2,11 +2,13 @@
 
 
 {# --------- #}
-{% set pageTitle = "Blog" %}
-{% set pageDescription = "Blog page description" %}
-{% set pageContentTitle = "Blog's main content title" %}
+{% set pageTitle        = "Blog" %}
+{% set pageDescription  = "Blog page description" %}
+{% set pageContentTitle = "Blog's page titile" %}
 
-{% set pageClass = "l-blog" %}
+{% set pageClass        = "l-index" %}
+
+{% set breadcrumb       = { "Non-existing demo page" : "/url-to-that-page/" } %}
 {# --------- #}
 
 
