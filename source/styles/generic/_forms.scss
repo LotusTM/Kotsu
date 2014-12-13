@@ -2,3 +2,11 @@
 // =======================================
 // ^FORMS
 // =======================================
+
+$forms-border-width: 1px;
+
+input {
+	border: $forms-border-width solid #767676;
+
+	padding: $ekzo-half-spacing-unit / 2;
+}

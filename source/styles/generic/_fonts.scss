@@ -3,5 +3,6 @@
 // ^FONTS
 // =======================================
 
-// @include font(Helvetica LT Condensed, 1, HelveticaLTCondensed, $svg-id: helvlt);
-// @include font(Helvetica LT Condensed, 1, HelveticaLTCondensedMedium, 500);
+// @include ekzo-font('Myriad Pro Web', 457457, MyriadPro-Regular,  normal, normal);
+// @include ekzo-font('Myriad Pro Web', 457457, MyriadPro-Semibold, 600,    normal);
+// @include ekzo-font('Myriad Pro Web', 457457, MyriadPro-Bold,     bold,   normal);

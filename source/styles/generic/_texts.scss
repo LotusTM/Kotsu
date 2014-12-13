@@ -1,0 +1,10 @@
+
+// =======================================
+// ^TEXTS
+// =======================================
+
+.color--brand { color: $brand-color; }
+
+.color--base { color: $ekzo-text-color; }
+
+.color--dim   { color: ekzo-tint($ekzo-text-color, 40); }

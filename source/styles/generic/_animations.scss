@@ -5,5 +5,6 @@
 //
 // Extendable css3 animation effects
 
-// .trans--fast   { @include vendor (transition, all 0.15s ease); }
-// .trans--medium { @include vendor (transition, all 0.4s ease); }
+// .trans--fast,   %trans--fast   { transition: all 0.15s ease; }
+// .trans--medium, %trans--medium { transition: all 0.4s ease-in; }
+// .trans--slow,   %trans--slow   { transition: all 0.7s ease-in; }

@@ -3,4 +3,7 @@
 // ^SITE-FOOTER
 // =======================================
 
-.site-footer {}
+.site-footer {
+	padding-top:    $ekzo-spacing-unit * 1.5;
+	padding-bottom: $ekzo-spacing-unit * 1.5;
+}

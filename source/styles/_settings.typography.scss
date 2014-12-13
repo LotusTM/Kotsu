@@ -42,7 +42,7 @@ $ekzo-line-height:                  ekzo-font-size(base) * 1.5;
 // Font famylies
 // ---------------------------------------
 
-$ekzo-font-family:                  sans-serif;
+$ekzo-font-family:                  'Myriad Pro Web', 'Myriad Pro', Arial, sans-serif;
 $second-font-family:                sans-serif;
 
 $ekzo-headings-font-family:         false; // false to disable, font name(s) to enable
@@ -61,4 +61,4 @@ $ekzo-extra-headings-font-weight:   normal;
 
 $ekzo-breadcrumb-root-font-weight:  bold;
 
-$ekzo-forms-placeholder-font-style: italic;
+$ekzo-forms-placeholder-font-style: normal;
