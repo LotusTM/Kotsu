@@ -23,8 +23,8 @@
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic"> #}
 
 	<!-- CSS -->
-	<!-- build:[href] {{ path.styles }}/style.min.css -->
-	<link rel="stylesheet" href="{{ path.styles }}/style.prefixed.css">
+	<!-- build:[href] /{{ path.styles }}/style.min.css -->
+	<link rel="stylesheet" href="/{{ path.styles }}/style.prefixed.css">
 	<!-- /build -->
 
 	{# <!-- Sitemap -->
@@ -36,7 +36,7 @@
 	{# 	<!-- Facebook Open Graph -->
 	<meta property="og:title" content="{{ site.name }}">
 	<meta property="og:description" content="{{ site.title }}">
-	<meta property="og:image" content=""> #}
+	<meta property="og:image" content="http://www.example.com/{{ path.images }}/twitter.jpg"> #}
 
 	{# 	<!-- Twitter Cards -->
 	<meta name="twitter:card" content="summary">
@@ -45,7 +45,7 @@
 	<meta name="twitter:url" content="http://www.example.com/path/to/page.html">
 	<meta name="twitter:title" content="{{ site.name }}">
 	<meta name="twitter:description" content="{{ site.title }}">
-	<meta name="twitter:image" content="http://www.example.com/path/to/image.jpg"> #}
+	<meta name="twitter:image" content="http://www.example.com/{{ path.images }}/facebook.jpg"> #}
 
 	<!-- Authors -->
 	<link rel="author" href="/humans.txt">
