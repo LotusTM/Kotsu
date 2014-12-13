@@ -55,11 +55,11 @@ module.exports = (grunt) ->
     # Template `<%= path.source.data %>` won't work here
     data:
       path:
-        fonts: '/assets/fonts'
-        images: '/assets/images'
-        styles: '/assets/styles'
-        scripts: '/assets/scripts'
-        thumbnails: '/assets/images/thumbnails'
+        fonts: 'assets/fonts'
+        images: 'assets/images'
+        styles: 'assets/styles'
+        scripts: 'assets/scripts'
+        thumbnails: 'assets/images/thumbnails'
       site:
         lang: 'en'
         name: '<%= pkg.name %>'
