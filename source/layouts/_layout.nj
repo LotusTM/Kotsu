@@ -16,36 +16,36 @@
 	<!-- Description -->
 	<meta name="description" content="{{ pageDescription }}">
 
-	<!-- Mobile devices -->
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	{# <!-- Mobile devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"> #}
 
-	<!-- Fonts -->
-	<!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic"> -->
+	{# <!-- Fonts -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic"> #}
 
 	<!-- CSS -->
 	<!-- build:[href] {{ path.styles }}/style.min.css -->
 	<link rel="stylesheet" href="{{ path.styles }}/style.prefixed.css">
 	<!-- /build -->
 
-	<!-- Sitemap -->
-	<!-- <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"> -->
+	{# <!-- Sitemap -->
+	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"> #}
 
-	<!-- RSS -->
-	<!-- <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> -->
+	{# <!-- RSS -->
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> #}
 
-	<!-- Facebook Open Graph -->
-	<!-- <meta property="og:title" content="">
+	{# <!-- Facebook Open Graph -->
+	<meta property="og:title" content="">
 	<meta property="og:description" content="">
-	<meta property="og:image" content=""> -->
+	<meta property="og:image" content=""> #}
 
-	<!-- Twitter Cards -->
-	<!-- <meta name="twitter:card" content="summary">
+	{# <!-- Twitter Cards -->
+	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="@site_account">
 	<meta name="twitter:creator" content="@individual_account">
 	<meta name="twitter:url" content="http://www.example.com/path/to/page.html">
 	<meta name="twitter:title" content="">
 	<meta name="twitter:description" content="">
-	<meta name="twitter:image" content="http://www.example.com/path/to/image.jpg"> -->
+	<meta name="twitter:image" content="http://www.example.com/path/to/image.jpg"> #}
 
 	<!-- Authors -->
 	<link rel="author" href="/humans.txt">
@@ -86,7 +86,7 @@
 					Site's logo
 
 				</a>
-			</h1><!-- /site-logo -->
+			</h1>{# /site-logo #}
 
 
 			Header content
@@ -106,12 +106,12 @@
 						</a>
 					</li>
 				</ul>
-			</nav><!-- /site-nav -->
+			</nav>{# /site-nav #}
 			<!--/noindex-->
 
 
-		</div><!-- /site-wrapper -->
-	</header><!-- /site-header -->
+		</div>{# /site-wrapper #}
+	</header>{# /site-header #}
 
 
 
@@ -162,9 +162,9 @@
 				{% block main %}{% endblock %}
 
 
-			</div><!-- /site-content-wrapper -->
-		</article><!-- /site-content --><!-- /site-wrapper -->
-	</main><!-- /site-main -->
+			</div>{# /site-content-wrapper #}
+		</article>{# /site-content #}{# /site-wrapper #}
+	</main>{# /site-main #}
 
 
 
@@ -180,7 +180,7 @@
 
 
 		</div>
-	</footer><!-- /footer --><!-- /site-wrapper -->
+	</footer>{# /footer #}{# /site-wrapper #}
 	<!--/noindex-->
 
 
