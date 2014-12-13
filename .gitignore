@@ -32,7 +32,7 @@ node_modules
 
 ## Sass
 .sass-cache
-_sprites.map.scss
+/source/styles/generated/
 
 ## Bower
 /source/scripts/vendor/
