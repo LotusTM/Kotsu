@@ -37,11 +37,11 @@
 @import 'generic/sprites.map';
 @import 'generic/sprites';
 
-@import 'layout/base';
-@import 'layout/site-header';
-@import 'layout/site-content';
-@import 'layout/site-footer';
+@import 'layouts/site-base';
+@import 'layouts/site-header';
+@import 'layouts/site-main';
+@import 'layouts/site-footer';
 
 @import 'partials/outdated-browser';
 
-@import 'pages/index';
+@import 'layouts/index';
