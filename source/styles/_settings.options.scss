@@ -25,17 +25,24 @@ $ekzo-enable-tables:             true;
 $ekzo-enable-tooltips:           true;
 
 // ---------------------------------------
-// Typographic options
+// Links options
 // ---------------------------------------
-
-$ekzo-color-headings:            false;
-$ekzo-color-extra-headings:      false;
 
 $ekzo-links-underline:           true;
 $ekzo-links-hover-unline:        true;
-$ekzo-links-hover-colored:       true;
+
+// ---------------------------------------
+// Buttons options
+// ---------------------------------------
 
 $ekzo-btn-unline:                true;
+
+$ekzo-btn-radius:                false; // false to disable, px to enable
+
+$ekzo-btn-border-width:          false; // false to disable, width to enable
+$ekzo-btn-border-style:          false; // false to disable, type to enable
+$ekzo-btn-hover-border-width:    false; // false to disable, width to enable
+$ekzo-btn-hover-border-style:    false; // false to disable, type to enable
 
 // ---------------------------------------
 // Contents and delimiters

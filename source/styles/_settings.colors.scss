@@ -22,8 +22,8 @@ $ekzo-links-hover-color:       #69d1c6;
 // Headings
 // ---------------------------------------
 
-$ekzo-headings-color:          #585c5d;
-$ekzo-extra-headings-color:    $ekzo-headings-color;
+$ekzo-headings-color:          false; // false to disable, color value to enable
+$ekzo-extra-headings-color:    false; // false to disable, color value to enable
 
 // ---------------------------------------
 // Forms
@@ -39,6 +39,14 @@ $ekzo-forms-placeholder-color: #a9a9a9;
 
 $ekzo-btn-color:               $ekzo-text-color;
 $ekzo-btn-bg-color:            $brand-color;
+$ekzo-btn-hover-color:         false; // false to disable, color value to enable
+$ekzo-btn-hover-bg-color:      false; // false to disable, color value to enable
+
+
+// You have to enable width and style in `settings.options` too!
+$ekzo-btn-border-color:        false; // false to disable, color value to enable
+$ekzo-btn-hover-border-color:  false; // false to disable, color value to enable
+
 
 $ekzo-btn--positive-color:     #7ef76a;
 $ekzo-btn--positive-bg-color:  #1fa205;
@@ -53,8 +61,8 @@ $ekzo-btn--disabled-bg-color:  #d3d3d3;
 // Breadcrumb
 // ---------------------------------------
 
-$ekzo-breadcrumb-link-color:      #d3d3d3;
-$ekzo-breadcrumb-delimiter-color: #d3d3d3;
+$ekzo-breadcrumb-link-color:      #d3d3d3; // false to disable, color value to enable
+$ekzo-breadcrumb-delimiter-color: #d3d3d3; // false to disable, color value to enable
 
 // ---------------------------------------
 // Backgrounds
