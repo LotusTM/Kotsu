@@ -33,18 +33,18 @@
 	{# <!-- RSS -->
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> #}
 
-	{# <!-- Facebook Open Graph -->
-	<meta property="og:title" content="">
-	<meta property="og:description" content="">
+	{# 	<!-- Facebook Open Graph -->
+	<meta property="og:title" content="{{ site.name }}">
+	<meta property="og:description" content="{{ site.title }}">
 	<meta property="og:image" content=""> #}
 
-	{# <!-- Twitter Cards -->
+	{# 	<!-- Twitter Cards -->
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="@site_account">
 	<meta name="twitter:creator" content="@individual_account">
 	<meta name="twitter:url" content="http://www.example.com/path/to/page.html">
-	<meta name="twitter:title" content="">
-	<meta name="twitter:description" content="">
+	<meta name="twitter:title" content="{{ site.name }}">
+	<meta name="twitter:description" content="{{ site.title }}">
 	<meta name="twitter:image" content="http://www.example.com/path/to/image.jpg"> #}
 
 	<!-- Authors -->
