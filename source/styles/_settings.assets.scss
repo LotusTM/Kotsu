@@ -7,7 +7,7 @@
 // Paths
 // ---------------------------------------
 
-$ekzo-assets-path:       '../../assets';
+$ekzo-assets-path:       '/assets';
 $ekzo-images-path:       '#{$ekzo-assets-path}/images';
 $ekzo-ui-path:           '#{$ekzo-images-path}/ui';
 $ekzo-sprites-path:      '#{$ekzo-assets-path}/sprites';
@@ -30,4 +30,4 @@ $ekzo-icon-font:         fontello;
 $ekzo-icon-font-version: 79220573;
 $ekzo-icon-font-svg-id:  $ekzo-icon-font;
 
-$ekzo-sprites-file:      '/sprites.png';
+$ekzo-sprites-file:      'sprites.png';
