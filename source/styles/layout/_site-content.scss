@@ -1,28 +1,32 @@
 
 // =======================================
-// ^SITE-CONTENT
+// ^SITE-MAIN
 // =======================================
 
 // ---------------------------------------
-// Site's main content styling
+// Site's main styling
 // ---------------------------------------
 
-.site-content { position: relative; }
+.site-main {
+	padding-top:    $ekzo-spacing-unit * 1.5;
+	padding-bottom: $ekzo-spacing-unit * 1.5;
 
-// ---------------------------------------
-// Site's main content inner wrapper styling
-// ---------------------------------------
+	p:last-child,
+	ul:last-child { margin-bottom: 0; }
+}
 
-.site-content-wrapper {}
+	// ---------------------------------------
+	// Site's content styling
+	// ---------------------------------------
 
-// ---------------------------------------
-// Site's main content's menu heading styling
-// ---------------------------------------
+	.site-content { position: relative; }
 
-.site-content-nav-title {}
+		// ----
+		// Site's content inner wrapper styling
 
-// ---------------------------------------
-// Site's main content heading styling
-// ---------------------------------------
+		.site-content-wrapper {}
 
-.site-content-title {}
+			// ----
+			// Site's main content title styling
+
+			.site-content-title {}

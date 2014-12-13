@@ -118,8 +118,8 @@
 	<!-- Site's content -->
 	<!-- ============== -->
 
-	<main class="site-content" role="main">
-		<article class="site-wrapper">
+	<main class="site-main" role="main">
+		<article class="site-content site-wrapper">
 			<div class="site-content-wrapper">
 
 
@@ -130,8 +130,8 @@
 
 
 			</div><!-- /site-content-wrapper -->
-		</article><!-- /site-wrapper -->
-	</main><!-- /site-content -->
+		</article><!-- /site-content --><!-- /site-wrapper -->
+	</main><!-- /site-main -->
 
 
 
