@@ -13,7 +13,7 @@ module.exports = ->
       ]
     sprite:
       files: ['<%= path.source.sprites %>/{,**/}*.{jpg,jpeg,gif,png}']
-      tasks: ['sprite']
+      tasks: ['newer:sprite']
     nunjucks:
       files: ['<%= path.source.layouts %>/{,**/}*.nj']
       tasks: ['newer:nunjucks']
