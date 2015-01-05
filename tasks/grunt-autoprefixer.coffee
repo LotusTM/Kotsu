@@ -8,6 +8,7 @@ module.exports = ->
     build:
       options:
         browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+        map: true
       files: [
         src: '<%= file.build.style.compiled %>'
         dest: '<%= file.build.style.prefixed %>'
