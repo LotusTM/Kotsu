@@ -1,10 +1,19 @@
 # Default application configuration that all configurations inherit from.
 linters:
+  BangFormat:
+    enabled: true
+    space_before_bang: true
+    space_after_bang: false
+
   BorderZero:
     enabled: true
+    convention: zero # or `none`
 
   ColorKeyword:
     enabled: true
+
+  ColorVariable:
+    enabled: false
 
   Comment:
     enabled: false
@@ -44,12 +53,21 @@ linters:
   HexValidation:
     enabled: true
 
-  IdWithExtraneousSelector:
+  IdSelector:
     enabled: true
+
+  ImportantRule:
+    enabled: false
+
+  ImportPath:
+    enabled: true
+    leading_underscore: false
+    filename_extension: false
 
   Indentation:
     enabled: false
-    character: tab  # or 'space'
+    allow_non_nested_indentation: true
+    character: tab # or 'space'
     width: 1
 
   LeadingZero:
@@ -62,140 +80,35 @@ linters:
 
   NameFormat:
     enabled: true
-    convention: BEM # or 'hyphenated_lowercase', or a regex pattern
+    allow_leading_underscore: true
+    convention: BEM # or 'BEM', or a regex pattern
+
+  NestingDepth:
+    enabled: true
+    max_depth: 4
 
   PlaceholderInExtend:
     enabled: false
 
+  PropertyCount:
+    enabled: false
+    include_nested: false
+    max_properties: 10
+
   PropertySortOrder:
     enabled: false
     ignore_unspecified: false
-    order:
-      - display
-      - position
-      - top
-      - right
-      - bottom
-      - left
-
-      - columns
-      - column-gap
-      - column-fill
-      - column-rule
-      - column-span
-      - column-count
-      - column-width
-
-      - float
-      - clear
-
-      - transform
-      - transition
-
-      - visibility
-      - opacity
-      - z-index
-
-      - margin
-      - margin-top
-      - margin-right
-      - margin-bottom
-      - margin-left
-
-      - outline
-
-      - border
-      - border-top
-      - border-right
-      - border-bottom
-      - border-left
-      - border-width
-      - border-top-width
-      - border-right-width
-      - border-bottom-width
-      - border-left-width
-
-      - border-style
-      - border-top-style
-      - border-right-style
-      - border-bottom-style
-      - border-left-style
-
-      - border-radius
-      - border-top-left-radius
-      - border-top-right-radius
-      - border-bottom-left-radius
-      - border-bottom-right-radius
-
-      - border-color
-      - border-top-color
-      - border-right-color
-      - border-bottom-color
-      - border-left-color
-
-      - box-shadow
-
-      - background
-      - background-color
-      - background-image
-      - background-repeat
-      - background-position
-      - background-size
-      - cursor
-
-      - padding
-      - padding-top
-      - padding-right
-      - padding-bottom
-      - padding-left
-
-      - width
-      - min-width
-      - max-width
-
-      - height
-      - min-height
-      - max-height
-
-      - overflow
-
-      - list-style
-      - caption-side
-
-      - table-layout
-      - border-collapse
-      - border-spacing
-      - empty-cells
-
-      - vertical-align
-
-      - text-align
-      - text-indent
-      - text-transform
-      - text-decoration
-      - text-rendering
-      - text-shadow
-      - text-overflow
-
-      - line-height
-      - word-spacing
-      - letter-spacing
-      - white-space
-      - color
-
-      - font
-      - font-family
-      - font-size
-      - font-weight
-      - font-smoothing
-      - font-style
-
-      - content
-      - quotes
+    separate_groups: true
 
   PropertySpelling:
     enabled: true
     extra_properties: []
+
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: false
+    allow_element_with_class: false
+    allow_element_with_id: false
 
   SelectorDepth:
     enabled: true
@@ -203,7 +116,7 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: hyphenated_lowercase # or 'snake_case', or 'camel_case', or a regex pattern
+    convention: hyphenated_BEM # or hyphenated_lowercase or 'snake_case', or 'camel_case', or a regex pattern
 
   Shorthand:
     enabled: true
@@ -254,6 +167,16 @@ linters:
 
   UrlQuotes:
     enabled: true
+
+  VariableForProperty:
+    enabled: false
+    properties: []
+
+  VendorPrefixes:
+    enabled: true
+    identifier_list: base
+    include: []
+    exclude: []
 
   ZeroUnit:
     enabled: true
