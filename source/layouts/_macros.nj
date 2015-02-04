@@ -1,0 +1,15 @@
+{##
+ # Macros description
+ #
+ # @param {string} string — param description
+ #
+ # @example:
+
+	{{ macros.example(param) }}
+
+ #
+ #}
+
+{# {% macro example(string) %}
+
+{% endmacro %} #}

@@ -1,3 +1,8 @@
+
+{# Calling macros globally #}
+{% import "_macros.nj" as macros %}
+{# --------- #}
+
 <!DOCTYPE html>
 <html class="{{ pageClass }} no-js" lang="{{ site.lang }}">
 
