@@ -11,7 +11,7 @@
 	<!-- DNS Prefetching -->
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
 
-	<title>{{ site.name }} — {{ pageTitle }}</title>
+	<title>{{ pageTitle if pageTitle else site.name }}</title>
 
 	<!-- Description -->
 	<meta name="description" content="{{ pageDescription }}">
