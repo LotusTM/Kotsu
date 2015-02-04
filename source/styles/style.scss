@@ -7,7 +7,7 @@
 // Functions
 // ---------------------------------------
 
-@import 'ekzo.sass/functions/typography';
+@import 'ekzo.sass/tools/functions.typography';
 
 // ---------------------------------------
 // Options, styles, colors etc.
@@ -41,14 +41,14 @@
 @import 'generic/sprites';
 @import 'generic/texts';
 
+@import 'objects/breadcrumb';
+@import 'objects/buttons';
+
+@import 'components/outdated-browser';
+
 @import 'layouts/site-base';
 @import 'layouts/site-header';
 @import 'layouts/site-main';
 @import 'layouts/site-footer';
-
-@import 'objects/breadcrumb';
-@import 'objects/buttons';
-
-@import 'partials/outdated-browser';
 
 @import 'layouts/index';
