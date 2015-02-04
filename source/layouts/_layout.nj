@@ -181,7 +181,7 @@
 		<div class="site-wrapper">
 
 
-			© 2000–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
+			© 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
 
 
 		</div>
