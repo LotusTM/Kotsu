@@ -69,7 +69,7 @@
 
 
 
-	{% include "partials/_outdated-browser.nj" %}
+	{% include "components/_outdated-browser.nj" %}
 
 
 
