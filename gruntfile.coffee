@@ -19,12 +19,17 @@ module.exports = (grunt) ->
       source:
         root: 'source'
         fonts: '<%= path.source.root %>/fonts'
+        icons: '<%= path.source.root %>/icons'
         images: '<%= path.source.root %>/images'
         styles: '<%= path.source.root %>/styles'
         layouts: '<%= path.source.root %>/layouts'
         scripts: '<%= path.source.root %>/scripts'
         sprites: '<%= path.source.root %>/sprites'
         boilerplates: '<%= path.source.root %>/boilerplates'
+
+      temp:
+        root: 'temp'
+        styles: '<%= path.temp.root %>/styles'
 
       build:
         root: 'build'
@@ -79,6 +84,7 @@ module.exports = (grunt) ->
     'copy'
     'nunjucks'
     'sprite'
+    'webfont'
     'sass'
     'autoprefixer'
     'responsive_images:thumbnails'
@@ -94,11 +100,13 @@ module.exports = (grunt) ->
     'copy:build'
     'nunjucks:build'
     'sprite:build'
+    'webfont:build'
     'sass:build'
     'autoprefixer:build'
     'uncss:build'
     'csso:build'
     'clean:styles'
+    'clean:temp'
     'processhtml:build'
     'htmlmin:build'
     'responsive_images:thumbnails'

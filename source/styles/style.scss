@@ -31,7 +31,8 @@
 // Site's custom styling
 // ---------------------------------------
 
-@import 'generated/sprites.map';
+@import './temp/styles/icons';
+@import './temp/styles/sprites.map';
 
 @import 'generic/animations';
 @import 'generic/fonts';

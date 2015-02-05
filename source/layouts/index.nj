@@ -18,6 +18,14 @@
 <p>Main block's content</p>
 
 
+<h2>Generated icons and sprites examples</h2>
+
+<p>Webfont home icon: <i class="icon icon--home icon--right"></i></p>
+
+<p>1px sprite: <i class="sprite sprite--test icon--right"></i></p>
+
+
+
 <h2>Data examples</h2>
 
 

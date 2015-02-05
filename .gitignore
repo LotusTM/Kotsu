@@ -32,7 +32,9 @@ npm-debug.log
 
 ## Sass
 .sass-cache
-/source/styles/generated/
 
 ## Build folder
-/build/
+build
+
+## Temporary folder
+temp

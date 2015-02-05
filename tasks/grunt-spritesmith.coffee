@@ -8,7 +8,7 @@ module.exports = ->
     build:
       src: ['<%= path.source.sprites %>/{,**/}*']
       destImg: '<%= file.build.sprite.compiled %>'
-      destCSS: '<%= path.source.styles %>/generated/_sprites.map.scss'
+      destCSS: '<%= path.temp.styles %>/_sprites.map.scss'
       padding: 2
       engine: 'gm'
       algorithm: 'binary-tree'
