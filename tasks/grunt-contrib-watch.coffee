@@ -6,17 +6,22 @@ Watches scss, js etc for changes and compiles them
 module.exports = ->
   @config 'watch',
     scss:
-      files: ['<%= path.source.styles %>/{,**/}*.scss','<%= path.temp.styles %>/{,**/}*.scss']
+      files: [
+        '<%= path.source.styles %>/{,**/}*.scss'
+        '<%= path.temp.styles %>/{,**/}*.scss'
+      ]
       tasks: [
         'sass'
         'autoprefixer'
       ]
     icon:
       files: ['<%= path.source.icons %>/{,**/}*.svg']
-      tasks: ['newer:webfont']
+      # @todo Add `newer:` when relative `grunt-newer` bug will be fixed
+      tasks: ['webfont']
     sprite:
       files: ['<%= path.source.sprites %>/{,**/}*.{jpg,jpeg,gif,png}']
-      tasks: ['newer:sprite']
+      # @todo Add `newer:` when relative `grunt-newer` bug will be fixed
+      tasks: ['sprite']
     nunjucks:
       files: ['<%= path.source.layouts %>/{,**/}*.nj']
       tasks: ['newer:nunjucks']
