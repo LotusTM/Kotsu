@@ -16,5 +16,8 @@ module.exports = ->
           baseClass: 'icon'
           classPrefix: 'icon--'
         stylesheet: 'scss'
+        # @note Normalize may yeild different results for different engines
+        #       https://github.com/sapegin/grunt-webfont/issues/222
+        normalize: true
         htmlDemo: false
         engine: 'node'
