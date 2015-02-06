@@ -7,9 +7,8 @@ module.exports = ->
   @config 'sprite',
     build:
       src: ['<%= path.source.sprites %>/{,**/}*']
-      destImg: '<%= file.build.sprite.compiled %>'
-      destCSS: '<%= path.temp.styles %>/_sprites.map.scss'
+      dest: '<%= file.build.sprite.compiled %>'
+      destCss: '<%= path.temp.styles %>/_sprites.map.scss'
       padding: 2
-      engine: 'gm'
-      algorithm: 'binary-tree'
+      engine: 'gmsmith'
       cssTemplate: '<%= path.source.styles %>/generic/_sprites.map.mustache'
