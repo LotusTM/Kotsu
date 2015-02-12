@@ -26,5 +26,5 @@ module.exports = ->
       files: ['<%= path.source.layouts %>/{,**/}*.nj']
       tasks: ['newer:nunjucks']
     images:
-      files: ['<%= path.source.images %>/{,**}/*.{jpg,jpeg,gif,png}']
+      files: ['<%= path.source.images %>/{,**/}*.{jpg,jpeg,gif,png}']
       tasks: ['newer:responsive_images:thumbnails']
