@@ -9,4 +9,4 @@ module.exports = ->
       options:
         compact: true
       files:
-        src: ['<%= path.source.styles %>/{,**/}*.scss']
+        src: '<%= path.source.styles %>/{,**/}*.scss'
