@@ -111,6 +111,7 @@ module.exports = (grunt) ->
     'htmlmin:build'
     'responsive_images:thumbnails'
     'tinypng:build'
+    'cacheBust:build'
     'size_report:build'
   ]
 
