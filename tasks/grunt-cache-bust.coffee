@@ -13,5 +13,8 @@ module.exports = ->
         deleteOriginals: true
         baseDir: '<%= path.build.root %>'
       files: [
-        src: '<%= path.build.root %>/{,**/}*.html'
+        src: [
+          '<%= path.build.root %>/{,**/}*.css',
+          '<%= path.build.root %>/{,**/}*.html'
+        ]
       ]
