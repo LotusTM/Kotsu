@@ -35,5 +35,5 @@ $ekzo-sprites-file:      'sprite.png';
 $ekzo-use-svg-fonts:     false;
 
 $ekzo-icon-font:         icons;
-$ekzo-icon-font-version: 79220573;
+$ekzo-icon-font-version: false; // `false` to disable, number to enable. Disable for Kotsu, since all assets are cache-busted by Grunt task
 $ekzo-icon-font-svg-id:  $ekzo-icon-font;
