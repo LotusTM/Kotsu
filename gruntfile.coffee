@@ -60,11 +60,11 @@ module.exports = (grunt) ->
     # Template `<%= path.source.data %>` won't work here
     data:
       path:
-        fonts: 'assets/fonts'
-        images: 'assets/images'
-        styles: 'assets/styles'
-        scripts: 'assets/scripts'
-        thumbnails: 'assets/images/thumbnails'
+        fonts: '<%= grunt.template.process(path.build.fonts).replace(path.build.root + \'/\', \'\') %>'
+        images: '<%= grunt.template.process(path.build.images).replace(path.build.root + \'/\', \'\') %>'
+        styles: '<%= grunt.template.process(path.build.styles).replace(path.build.root + \'/\', \'\') %>'
+        scripts: '<%= grunt.template.process(path.build.scripts).replace(path.build.root + \'/\', \'\') %>'
+        thumbnails: '<%= grunt.template.process(path.build.thumbnails).replace(path.build.root + \'/\', \'\') %>'
       site:
         lang: 'en'
         name: '<%= pkg.name %>'
