@@ -10,8 +10,8 @@ module.exports = ->
       dest: '<%= path.build.fonts %>/'
       destCss: '<%= path.temp.styles %>'
       options:
-        font: icons
-        types: eot,woff,ttf
+        font: 'icons'
+        types: 'eot,woff,ttf'
         hashes: false # disabled, since all assets cache-busted by other Grunt task
         styles: ''
         templateOptions:
