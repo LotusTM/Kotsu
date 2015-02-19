@@ -11,13 +11,13 @@
 // from `sprites.map.scss` file
 //
 // Each sprite will be converted into class with specified
-// in project settings `$sprites-prefix` (by default `sprite--`).
+// in project settings `$ekzo-sprites-prefix` (by default `sprite--`).
 //
 // @dep Ekzo.sass framework ^2.0.0
-//      {map} $sprites                     - 2-dimensional map of sprites
-//      {srintg==sprite--} $sprites-prefix - will be appended to all sprite's classes
+// @dep {map} $map       - 2-dimensional map of sprites
+// @dep {string} $prefix - will be appended to all sprite's classes
 
-@include ekzo-sprites();
+@include ekzo-sprites($map: $kotsu-sprites, $prefix: $ekzo-sprites-prefix);
 
 // ---------------------------------------
 // Sprites extensions
