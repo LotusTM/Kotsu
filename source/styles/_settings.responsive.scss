@@ -17,6 +17,7 @@ $site-padding-right: $ekzo-spacing-unit;
 // Responsiveness
 // ---------------------------------------
 
+$ekzo-enable-responsive-buttons: true;
 $ekzo-enable-responsive-grid:    true;
 $ekzo-enable-responsive-spacing: true;
 $ekzo-enable-responsive-tables:  true;
@@ -31,16 +32,16 @@ $ekzo-desk:        1024px;
 $ekzo-desk-wide:   1200px;
 
 $ekzo-breakpoints: (
-	palm:       'screen and (max-width: #{$ekzo-lap - 1px})',
-	lap:        'screen and (min-width: #{$ekzo-lap}) and (max-width: #{$ekzo-desk - 1px})',
-	lap-and-up: 'screen and (min-width: #{$ekzo-lap})',
-	portable:   'screen and (max-width: #{$ekzo-desk - 1px})',
-	desk:       'screen and (min-width: #{$ekzo-desk})',
-	desk-wide:  'screen and (min-width: #{$ekzo-desk-wide})'
+	breakpoints: (
+		palm:       'screen and (max-width: #{$ekzo-lap - 1px})',
+		lap:        'screen and (min-width: #{$ekzo-lap}) and (max-width: #{$ekzo-desk - 1px})',
+		lap-and-up: 'screen and (min-width: #{$ekzo-lap})',
+		portable:   'screen and (max-width: #{$ekzo-desk - 1px})',
+		desk:       'screen and (min-width: #{$ekzo-desk})',
+		desk-wide:  'screen and (min-width: #{$ekzo-desk-wide})'
+	),
+	types: (
+		retina:     'screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi)'
+	),
+	custom: ()
 );
-
-$ekzo-devices-breakpoints: (
-	retina:     'screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi)'
-);
-
-$ekzo-custom-breakpoints: ();

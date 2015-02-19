@@ -12,6 +12,7 @@ $ekzo-enable-arrows:             true;
 $ekzo-enable-breadcrumb:         true;
 $ekzo-enable-buttons:            true;
 $ekzo-enable-flag:               true;
+$ekzo-enable-floated-nav:        true;
 $ekzo-enable-forms:              true;
 $ekzo-enable-grid:               true;
 $ekzo-enable-iconic-list:        true;
@@ -21,6 +22,7 @@ $ekzo-enable-lists:              true;
 $ekzo-enable-media:              true;
 $ekzo-enable-nav:                true;
 $ekzo-enable-pack:               true;
+$ekzo-enable-sprites:            true;
 $ekzo-enable-tables:             true;
 $ekzo-enable-tooltips:           true;
 
@@ -58,7 +60,7 @@ $ekzo-links--back-content:       '\00AB' '\00A0';
 // BORDER-BOX
 // ---------------------------------------
 
-$ekzo-global-border-box:          false;
+$ekzo-global-border-box:         false;
 
 // ---------------------------------------
 // DEBUG
