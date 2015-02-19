@@ -34,17 +34,18 @@
 @import './temp/styles/icons';
 @import './temp/styles/sprites.map';
 
-@import 'generic/animations';
 @import 'generic/fonts';
 @import 'generic/forms';
-@import 'generic/icons';
 @import 'generic/links';
 @import 'generic/lists';
-@import 'generic/sprites';
-@import 'generic/texts';
+
+@import 'helpers/animations';
+@import 'helpers/colors';
 
 @import 'objects/breadcrumb';
 @import 'objects/buttons';
+@import 'objects/icons';
+@import 'objects/sprites';
 
 @import 'components/outdated-browser';
 
