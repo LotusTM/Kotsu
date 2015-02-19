@@ -1,8 +1,13 @@
 module.exports = (grunt) ->
   'use strict'
 
+  # Track execution time
+  require('time-grunt') grunt;
+
   # Load grunt tasks automatically
-  require('load-grunt-tasks') grunt
+  require('jit-grunt') grunt,
+    nunjucks: 'grunt-nunjucks-2-html'
+    sprite: 'grunt-spritesmith'
 
   # Define the configuration for all the tasks
   grunt.initConfig
