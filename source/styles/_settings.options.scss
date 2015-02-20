@@ -7,60 +7,92 @@
 // ELEMENTS AND ABSTRACTIONS
 // ---------------------------------------
 
-$ekzo-enable-a-nav:              true;
-$ekzo-enable-arrows:             true;
-$ekzo-enable-breadcrumb:         true;
-$ekzo-enable-buttons:            true;
-$ekzo-enable-flag:               true;
-$ekzo-enable-floated-nav:        true;
-$ekzo-enable-forms:              true;
-$ekzo-enable-grid:               true;
-$ekzo-enable-iconic-list:        true;
-$ekzo-enable-icons:              true;
-$ekzo-enable-island:             true;
-$ekzo-enable-lists:              true;
-$ekzo-enable-media:              true;
-$ekzo-enable-nav:                true;
-$ekzo-enable-pack:               true;
-$ekzo-enable-sprites:            true;
-$ekzo-enable-tables:             true;
-$ekzo-enable-tooltips:           true;
+$ekzo-enable-a-nav:                    true;
+$ekzo-enable-arrows:                   true;
+$ekzo-enable-breadcrumb:               true;
+$ekzo-enable-buttons:                  true;
+$ekzo-enable-center-inner:             true;
+$ekzo-enable-flag:                     true;
+$ekzo-enable-floated-nav:              true;
+$ekzo-enable-forms:                    true;
+$ekzo-enable-grid:                     true;
+$ekzo-enable-iconic-list:              true;
+$ekzo-enable-icons:                    true;
+$ekzo-enable-island:                   true;
+$ekzo-enable-lists:                    true;
+$ekzo-enable-media:                    true;
+$ekzo-enable-nav:                      true;
+$ekzo-enable-pack:                     true;
+$ekzo-enable-sprites:                  true;
+$ekzo-enable-tables:                   true;
+$ekzo-enable-tooltips:                 true;
 
 // ---------------------------------------
 // Links options
 // ---------------------------------------
 
-$ekzo-links-underline:           true;
-$ekzo-links-hover-unline:        true;
+$ekzo-links-underline:                 true; // false to force-unline
+$ekzo-links-hover-unline:              true;
+
+$ekzo-links-border-top-width:          false; // false to disable, width to enable
+$ekzo-links-border-top-style:          false; // false to disable, type to enable
+$ekzo-links-border-right-width:        false; // false to disable, width to enable
+$ekzo-links-border-right-style:        false; // false to disable, type to enable
+$ekzo-links-border-bottom-width:       false; // false to disable, width to enable
+$ekzo-links-border-bottom-style:       false; // false to disable, type to enable
+$ekzo-links-border-left-width:         false; // false to disable, width to enable
+$ekzo-links-border-left-style:         false; // false to disable, type to enable
+
+$ekzo-links-hover-border-top-width:    false; // false to disable, width to enable
+$ekzo-links-hover-border-top-style:    false; // false to disable, type to enable
+$ekzo-links-hover-border-right-width:  false; // false to disable, width to enable
+$ekzo-links-hover-border-right-style:  false; // false to disable, type to enable
+$ekzo-links-hover-border-bottom-width: false; // false to disable, width to enable
+$ekzo-links-hover-border-bottom-style: false; // false to disable, type to enable
+$ekzo-links-hover-border-left-width:   false; // false to disable, width to enable
+$ekzo-links-hover-border-left-style:   false; // false to disable, type to enable
 
 // ---------------------------------------
 // Buttons options
 // ---------------------------------------
 
-$ekzo-btn-unline:                true;
+$ekzo-btn-unline:                      true;
 
-$ekzo-btn-radius:                false; // false to disable, px to enable
+$ekzo-btn-radius:                      false; // false to disable, value to enable
 
-$ekzo-btn-border-width:          false; // false to disable, width to enable
-$ekzo-btn-border-style:          false; // false to disable, type to enable
-$ekzo-btn-hover-border-width:    false; // false to disable, width to enable
-$ekzo-btn-hover-border-style:    false; // false to disable, type to enable
+$ekzo-btn-border-top-width:            false; // false to disable, width to enable
+$ekzo-btn-border-top-style:            false; // false to disable, type to enable
+$ekzo-btn-border-right-width:          false; // false to disable, width to enable
+$ekzo-btn-border-right-style:          false; // false to disable, type to enable
+$ekzo-btn-border-bottom-width:         false; // false to disable, width to enable
+$ekzo-btn-border-bottom-style:         false; // false to disable, type to enable
+$ekzo-btn-border-left-width:           false; // false to disable, width to enable
+$ekzo-btn-border-left-style:           false; // false to disable, type to enable
+
+$ekzo-btn-hover-border-top-width:      false; // false to disable, width to enable
+$ekzo-btn-hover-border-top-style:      false; // false to disable, type to enable
+$ekzo-btn-hover-border-right-width:    false; // false to disable, width to enable
+$ekzo-btn-hover-border-right-style:    false; // false to disable, type to enable
+$ekzo-btn-hover-border-bottom-width:   false; // false to disable, width to enable
+$ekzo-btn-hover-border-bottom-style:   false; // false to disable, type to enable
+$ekzo-btn-hover-border-left-width:     false; // false to disable, width to enable
+$ekzo-btn-hover-border-left-style:     false; // false to disable, type to enable
 
 // ---------------------------------------
 // Contents and delimiters
 // ---------------------------------------
 
-$ekzo-breadcrumb-delimiter:      '\00A0' '\2192' '\00A0' '\00A0';
-$ekzo-breadcrumb--rev-delimiter: '\00A0' '\00A0' '\2192' '\00A0';
+$ekzo-breadcrumb-delimiters-content:      '\00A0' '\2192' '\00A0' '\00A0';
+$ekzo-breadcrumb--rev-delimiters-content: '\00A0' '\00A0' '\2192' '\00A0';
 
-$ekzo-links--go-content:         '\00A0' '\00BB';
-$ekzo-links--back-content:       '\00AB' '\00A0';
+$ekzo-links--go-content:                  '\00A0' '\00BB';
+$ekzo-links--back-content:                '\00AB' '\00A0';
 
 // ---------------------------------------
 // BORDER-BOX
 // ---------------------------------------
 
-$ekzo-global-border-box:         false;
+$ekzo-global-border-box:               false;
 
 // ---------------------------------------
 // DEBUG
@@ -69,4 +101,4 @@ $ekzo-global-border-box:         false;
 // Debug mode will visually highlight any potential markup/accessibility quirks
 // in the browser. Set to `true` or `false`.
 
-$ekzo-debug-mode:                false;
+$ekzo-debug-mode:                      false;
