@@ -17,7 +17,7 @@
 // @dep {map} $map       - 2-dimensional map of sprites
 // @dep {string} $prefix - will be appended to all sprite's classes
 
-@include ekzo-sprites($map: $kotsu-sprites, $prefix: $ekzo-sprites-prefix);
+@include ekzo-sprites($map: $grunt-sprites, $prefix: $ekzo-sprites-prefix);
 
 // ---------------------------------------
 // Sprites extensions
