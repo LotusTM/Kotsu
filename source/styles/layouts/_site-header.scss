@@ -13,8 +13,12 @@
 
 	.site-nav {}
 
-		.site-nav__item {}
+		.site-nav__list {}
 
-			.site-nav__link {}
+			.site-nav__item {
 
-		.site-nav__item--is-active {}
+				&--is-active {}
+
+			}
+
+				.site-nav__link {}
