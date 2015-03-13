@@ -86,9 +86,9 @@
 
 
 			<h1 class="site-logo">
-				<a class="site-logo__link" href="#index">
+				<a class="site-logo__link" href="/">
 
-					Site's logo
+					{{ site.name }} logo
 
 				</a>
 			</h1>{# /site-logo #}
