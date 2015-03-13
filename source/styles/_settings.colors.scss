@@ -53,10 +53,10 @@ $ekzo-forms-placeholder-color:         #a9a9a9;
 // Buttons
 // ---------------------------------------
 
-$ekzo-btn-color:                       $ekzo-text-color;
-$ekzo-btn-bg-color:                    $brand-color;
-$ekzo-btn-hover-color:                 false; // false to disable, color value to enable
-$ekzo-btn-hover-bg-color:              false; // false to disable, color value to enable
+$ekzo-btn-color:                       $ekzo-text-color;  // false to disable, color value to enable
+$ekzo-btn-bg-color:                    $brand-color;      // false to disable, color value to enable
+$ekzo-btn-hover-color:                 false;             // false to disable, color value to enable
+$ekzo-btn-hover-bg-color:              false;             // false to disable, color value to enable
 
 // ----
 // Buttons borders
