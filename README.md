@@ -14,7 +14,7 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 2. Download and install latest version of [node.js](http://nodejs.org/)
 3. Install grunt-cli globally: `npm install -g grunt-cli`
 3. Install [Ruby](https://www.ruby-lang.org) and it's [Sass](http://sass-lang.com/install) (3.4.2 or higher) and [SCSS-Lint](https://github.com/causes/scss-lint) (optional) gems
-4. Install [GraphicsMagick](http://www.graphicsmagick.org/download.html) (recommended) or [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) for your OS.
+4. Install [GraphicsMagick](http://www.graphicsmagick.org/download.html) (recommended) or [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) for your OS. *Note: it's mandatory to install one of them before running `npm install`*
 5. Get your TinyPNG [API key](https://tinypng.com/developers) and set it as your environment variable:
   * `set TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Windows
   * `export TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Linux
