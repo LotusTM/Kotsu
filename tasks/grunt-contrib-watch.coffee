@@ -28,6 +28,9 @@ module.exports = ->
     nunjucksPartials:
       files: ['<%= path.source.layouts %>{,**/}_*.nj']
       tasks: ['nunjucks']
+    data:
+      files: ['<%= path.source.data %>{,**/}*.{json,yml}']
+      tasks: ['nunjucks']
     images:
       files: ['<%= path.source.images %>/{,**/}*.{jpg,jpeg,gif,png}']
       tasks: ['newer:responsive_images:thumbnails']
