@@ -1,13 +1,13 @@
 {
   "name": "Kotsu",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "author": "LotusTM",
   "private": true,
   "devDependencies": {
     "gmsmith": "^0.5.0",
     "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^2.2.0",
+    "grunt-autoprefixer": "^3.0.0",
     "grunt-browser-sync": "^2.1.1",
     "grunt-cache-bust": "^0.4.13",
     "grunt-contrib-clean": "^0.6.0",
@@ -20,14 +20,14 @@
     "grunt-nunjucks-2-html": "^0.2.4",
     "grunt-processhtml": "^0.3.7",
     "grunt-responsive-images": "^0.1.6",
-    "grunt-scss-lint": "^0.3.4",
+    "grunt-scss-lint": "^0.3.6",
     "grunt-size-report": "^0.1.1",
     "grunt-spritesmith": "^4.5.1",
     "grunt-tinypng": "^0.5.3",
-    "grunt-uncss": "^0.4.1",
+    "grunt-uncss": "^0.4.2",
     "grunt-webfont": "^0.5.2",
     "jit-grunt": "^0.9.1",
-    "nunjucks": "^1.2.0",
+    "nunjucks": "^1.3.3",
     "time-grunt": "^1.1.0"
   },
   "engines": {
