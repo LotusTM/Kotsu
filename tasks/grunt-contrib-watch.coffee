@@ -5,6 +5,10 @@ Watches scss, js etc for changes and compiles them
 ###
 module.exports = ->
   @config 'watch',
+    configs:
+      files: ['gruntfile.coffee', 'tasks/*']
+      options:
+        reload: true
     scss:
       files: [
         '<%= path.source.styles %>/{,**/}*.scss'
