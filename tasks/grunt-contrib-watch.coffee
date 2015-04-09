@@ -9,6 +9,27 @@ module.exports = ->
       files: ['gruntfile.coffee', 'tasks/*']
       options:
         reload: true
+    boilerplates:
+      files: ['<%= path.source.boilerplates %>/{,**/}*']
+      tasks: ['copy:boilerplates']
+    data:
+      files: ['<%= path.source.data %>{,**/}*.{json,yml}']
+      tasks: ['nunjucks']
+    fonts:
+      files: ['<%= path.source.fonts %>/{,**/}*']
+      tasks: ['copy:fonts']
+    icons:
+      files: ['<%= path.source.icons %>/{,**/}*.svg']
+      tasks: ['webfont']
+    images:
+      files: ['<%= path.source.images %>/{,**/}*']
+      tasks: ['copy:images']
+    nunjucks:
+      files: ['<%= path.source.layouts %>/{,**/}*.nj', '!<%= path.source.layouts %>{,**/}_*.nj']
+      tasks: ['newer:nunjucks']
+    nunjucksPartials:
+      files: ['<%= path.source.layouts %>{,**/}_*.nj']
+      tasks: ['nunjucks']
     scss:
       files: [
         '<%= path.source.styles %>/{,**/}*.scss'
@@ -18,23 +39,9 @@ module.exports = ->
         'sass'
         'autoprefixer'
       ]
-    icon:
-      files: ['<%= path.source.icons %>/{,**/}*.svg']
-      # @todo Add `newer:` when relative `grunt-newer` bug will be fixed
-      tasks: ['webfont']
-    sprite:
+    sprites:
       files: ['<%= path.source.sprites %>/{,**/}*.{jpg,jpeg,gif,png}']
-      # @todo Add `newer:` when relative `grunt-newer` bug will be fixed
       tasks: ['sprite']
-    nunjucks:
-      files: ['<%= path.source.layouts %>/{,**/}*.nj', '!<%= path.source.layouts %>{,**/}_*.nj']
-      tasks: ['newer:nunjucks']
-    nunjucksPartials:
-      files: ['<%= path.source.layouts %>{,**/}_*.nj']
-      tasks: ['nunjucks']
-    data:
-      files: ['<%= path.source.data %>{,**/}*.{json,yml}']
-      tasks: ['nunjucks']
-    images:
+    thubnails:
       files: ['<%= path.source.images %>/{,**/}*.{jpg,jpeg,gif,png}']
       tasks: ['newer:responsive_images:thumbnails']

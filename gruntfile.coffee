@@ -63,9 +63,9 @@ module.exports = (grunt) ->
           hash: '<%= path.build.sprites %>/hash.json'
 
     # Specify data
-    # Template `<%= path.source.data %>` won't work here
     data:
       path:
+        # @note Stripping `build/` part from path
         fonts: '<%= grunt.template.process(path.build.fonts).replace(path.build.root + \'/\', \'\') %>'
         images: '<%= grunt.template.process(path.build.images).replace(path.build.root + \'/\', \'\') %>'
         styles: '<%= grunt.template.process(path.build.styles).replace(path.build.root + \'/\', \'\') %>'
@@ -83,11 +83,20 @@ module.exports = (grunt) ->
   grunt.loadTasks 'tasks'
 
   ###
+  Cumulative copy task
+  ###
+  grunt.registerTask 'copy:build', [
+    'copy:boilerplates'
+    'copy:fonts'
+    'copy:images'
+  ]
+
+  ###
   Default task
   ###
   grunt.registerTask 'default', [
     'clean'
-    'copy'
+    'copy:build'
     'nunjucks'
     'sprite'
     'webfont'
