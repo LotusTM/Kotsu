@@ -17,7 +17,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-csso": "^0.7.1",
     "grunt-newer": "^1.1.0",
-    "grunt-nunjucks-2-html": "^0.2.6",
+    "grunt-nunjucks-2-html": "^0.2.7",
     "grunt-processhtml": "^0.3.7",
     "grunt-responsive-images": "^0.1.6",
     "grunt-scss-lint": "^0.3.6",
