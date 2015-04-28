@@ -1,5 +1,7 @@
 <!-- Main site logic -->
-<script src="{{ path.scripts }}/main.min.js"></script>
+<!-- build:[href] /{{ path.scripts }}/main.min.css -->
+<script src="{{ path.scripts }}/main.js"></script>
+<!-- /build -->
 
 {# <!-- Google Analytics -->
 <script>

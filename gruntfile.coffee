@@ -126,6 +126,7 @@ module.exports = (grunt) ->
     'uncss:build'
     'csso:build'
     'shell:duo'
+    'uglify:build'
     'clean:styles'
     'clean:temp'
     'processhtml:build'
