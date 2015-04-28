@@ -2,7 +2,7 @@
 
 [![devDependency Status](https://img.shields.io/david/dev/LotusTM/Kotsu.svg?style=flat)](https://david-dm.org/LotusTM/Kotsu#info=devDependencies)
 [![Travis Build Status](https://img.shields.io/travis/LotusTM/Kotsu.svg?style=flat)](https://travis-ci.org/LotusTM/Kotsu)
-[![Wercker Build Status](http://img.shields.io/wercker/ci/54330318b4ce963d50020750.svg?style=flat)](https://app.wercker.com/#applications/54330318b4ce963d50020750)
+[![CircleCI](https://img.shields.io/circleci/project/LotusTM/Kotsu.svg?style=flat)](https://github.com/LotusTM/Kotsu)
 
 ## Overview
 
