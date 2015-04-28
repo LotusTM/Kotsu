@@ -5,7 +5,8 @@ PROJECT_NAME=$1
 PROJECT_VERSION=$2
 
 rm -rf $PROJECT_NAME
-unzip $PROJECT_NAME.zip -d $PROJECT_NAME
+mkdir $PROJECT_NAME
+tar xvzf $PROJECT_NAME.tgz --directory $PROJECT_NAME
 
 DOCKER_IMAGE_NAME=$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]')
 
