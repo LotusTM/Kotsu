@@ -141,7 +141,7 @@
 				{% if breadcrumb %}
 				<ul class="breadcrumb--rev">
 					<li class="breadcrumb__entry breadcrumb__root">
-						<a class="breadcrumb__link" href="/">Главная</a>
+						<a class="breadcrumb__link" href="/">Home</a>
 					</li>
 					{% for page, url in breadcrumb %}
 					<li class="breadcrumb__entry">
