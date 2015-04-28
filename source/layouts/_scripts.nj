@@ -1,5 +1,5 @@
 <!-- Main site logic -->
-<script src="{{ path.scripts }}/main.js"></script>
+<script src="{{ path.scripts }}/main.min.js"></script>
 
 {# <!-- Google Analytics -->
 <script>
