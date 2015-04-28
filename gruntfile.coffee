@@ -50,9 +50,13 @@ module.exports = (grunt) ->
     # Specify files
     file:
       source:
+        script: '<%= path.source.scripts %>/main.js'
         style: '<%= path.source.styles %>/style.scss'
 
       build:
+        script:
+          compiled: '<%= path.build.scripts %>/main.js'
+          min: '<%= path.build.scripts %>/main.min.js'
         style:
           compiled: '<%= path.build.styles %>/style.compiled.css'
           prefixed: '<%= path.build.styles %>/style.prefixed.css'
