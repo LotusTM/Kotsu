@@ -1,5 +1,5 @@
 <!-- Main site logic -->
-<!-- build:[href] /{{ path.scripts }}/main.min.css -->
+<!-- build:[src] /{{ path.scripts }}/main.min.js -->
 <script src="/{{ path.scripts }}/main.js"></script>
 <!-- /build -->
 
