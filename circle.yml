@@ -24,4 +24,4 @@ deployment:
       - scp app.tgz core@$DEPLOY_SERVER:~/$CIRCLE_PROJECT_REPONAME.tgz
       - scp deploy.sh core@$DEPLOY_SERVER:~/deploy.sh
       - ssh core@$DEPLOY_SERVER chmod +x deploy.sh
-      - ssh core@$DEPLOY_SERVER ./deploy.sh $CIRCLE_PROJECT_REPONAME $CIRCLE_SHA1
+      - ssh core@$DEPLOY_SERVER ./deploy.sh $CIRCLE_PROJECT_REPONAME $CIRCLE_SHA1 $VHOST_NAME
