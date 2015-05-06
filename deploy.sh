@@ -10,7 +10,7 @@ tar xvzf $PROJECT_NAME.tgz --directory $PROJECT_NAME
 
 DOCKER_IMAGE_NAME=$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]')
 
-docker build -e "SITE_NAME=$SITE_NAME" -t "$DOCKER_IMAGE_NAME:$PROJECT_VERSION" $PROJECT_NAME
+docker build -t "$DOCKER_IMAGE_NAME:$PROJECT_VERSION" $PROJECT_NAME
 
 sudo tee /etc/systemd/system/$PROJECT_NAME.service << EOF
 [Unit]
@@ -22,7 +22,7 @@ Restart=always
 TimeoutStartSec=5s
 ExecStartPre=-/usr/bin/docker kill $PROJECT_NAME
 ExecStartPre=-/usr/bin/docker rm $PROJECT_NAME
-ExecStart=/usr/bin/docker run --name $PROJECT_NAME -p 80:80 $DOCKER_IMAGE_NAME:$PROJECT_VERSION
+ExecStart=/usr/bin/docker run --name $PROJECT_NAME -h $HOSTNAME -p 80:80 -e $DOCKER_IMAGE_NAME:$PROJECT_VERSION
 [Install]
 WantedBy=multi-user.target
 EOF
