@@ -1,0 +1,23 @@
+{% extends "_layout.nj" %}
+
+
+{# --------- #}
+{% set pageTitle        = "404 — page not found" %}
+{% set pageDescription  = "404 — page not found" %}
+{% set pageContentTitle = false %}
+
+{% set pageClass        = "l-404" %}
+
+{% set breadcrumb       = false %}
+{# --------- #}
+
+
+{% block main %}
+
+	<h1 class="text++ margin-bottom+"><b>404</b> — page not found</h1>
+
+	<p>Lost? Just use magic button below:</p>
+
+	<p class="margin-top+"><a class="btn link--back" href="/">Home</a></p>
+
+{% endblock %}
