@@ -1,6 +1,6 @@
 {
   "name": "Kotsu",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "author": "LotusTM",
   "private": true,
@@ -17,18 +17,19 @@
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-csso": "^0.7.1",
-    "grunt-duojs": "^0.1.2",
     "grunt-newer": "^1.1.0",
     "grunt-nunjucks-2-html": "^0.2.8",
     "grunt-processhtml": "^0.3.7",
     "grunt-responsive-images": "^0.1.6",
     "grunt-scss-lint": "^0.3.6",
+    "grunt-shell": "^1.1.2",
     "grunt-size-report": "^0.1.1",
     "grunt-spritesmith": "^4.5.3",
     "grunt-tinypng": "^0.5.3",
     "grunt-uncss": "0.3.8",
     "grunt-webfont": "^0.5.2",
     "jit-grunt": "^0.9.1",
+    "jspm": "^0.15.6",
     "time-grunt": "^1.1.1"
   },
   "engines": {
@@ -36,5 +37,18 @@
   },
   "scripts": {
     "test": "grunt build && git status | grep 'working directory clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
+  },
+  "jspm": {
+    "directories": {
+      "packages": "temp/jspm_packages"
+    },
+    "dependencies": {
+      "jquery": "github:components/jquery@^2.1.4"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.1.13",
+      "babel-runtime": "npm:babel-runtime@^5.1.13",
+      "core-js": "npm:core-js@^0.9.4"
+    }
   }
 }

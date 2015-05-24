@@ -1,5 +1,5 @@
-var $ = require('components/jquery');
+import $ from 'jquery';
 
-$(function() {
+$(() => {
 	console.log('jQuery version is: ' + $().jquery);
 });

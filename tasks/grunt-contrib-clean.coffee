@@ -9,7 +9,6 @@ module.exports = ->
       files:
         src: [
           '<%= path.build.root %>/*'
-          '<%= path.temp.root %>/*'
         ]
     temp:
       files:

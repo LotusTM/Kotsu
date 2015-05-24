@@ -18,6 +18,9 @@ module.exports = (grunt) ->
       tinypng:
         api:
           key: process.env.TINYPNG_API_KEY
+      github:
+        api:
+          key: process.env.GITHUB_API_KEY
 
     # Specify your source and build directory structure
     path:
@@ -50,7 +53,7 @@ module.exports = (grunt) ->
     # Specify files
     file:
       source:
-        script: '<%= path.source.scripts %>/main.js'
+        script: '<%= path.source.scripts %>/main'
         style: '<%= path.source.styles %>/style.scss'
 
       build:
@@ -99,14 +102,14 @@ module.exports = (grunt) ->
   Default task
   ###
   grunt.registerTask 'default', [
-    'clean'
+    'clean:build'
     'copy:build'
-    'duojs'
     'nunjucks'
     'sprite'
     'webfont'
     'sass'
     'autoprefixer'
+    'shell:build'
     'responsive_images:thumbnails'
     'browserSync'
     'watch'
@@ -116,20 +119,20 @@ module.exports = (grunt) ->
   A task for your production environment
   ###
   grunt.registerTask 'build', [
-    'clean:build'
+    'clean'
     'copy:build'
-    'duojs:build'
     'nunjucks:build'
+    'processhtml:build'
     'sprite:build'
     'webfont:build'
     'sass:build'
     'autoprefixer:build'
     'uncss:build'
     'csso:build'
-    'uglify:build'
     'clean:styles'
-    'clean:temp'
-    'processhtml:build'
+    'shell:install'
+    'shell:build'
+    'uglify:build'
     'htmlmin:build'
     'responsive_images:thumbnails'
     'tinypng:build'
