@@ -15,6 +15,12 @@ module.exports = ->
         src: [
           '<%= path.temp.root %>/*'
         ]
+    scripts:
+      files:
+        src: [
+          '<%= path.build.scripts %>/*'
+          '!<%= file.build.script.min %>'
+        ]
     styles:
       files:
         src: [
