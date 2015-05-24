@@ -8,6 +8,7 @@ module.exports = ->
     build:
       options:
         style: 'nested'
+        loadPath: '.'
       files: [
         src: '<%= file.source.style %>'
         dest: '<%= file.build.style.compiled %>'
