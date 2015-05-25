@@ -9,6 +9,7 @@ module.exports = ->
       options:
         style: 'nested'
         loadPath: '.'
+        cacheLocation: '<%= path.temp.styles %>/.sass-cache'
       files: [
         src: '<%= file.source.style %>'
         dest: '<%= file.build.style.compiled %>'
