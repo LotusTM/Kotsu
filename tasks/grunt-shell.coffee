@@ -5,9 +5,9 @@ Run shell commands
 ###
 module.exports = ->
   @config 'shell',
-    config:
+    jspm_config:
       command: 'jspm config registries.github.auth <%= env.github.api.key %>'
-    install:
+    jspm_install:
       command: 'jspm install'
-    build:
+    jspm_build:
       command: 'jspm bundle-sfx <%= file.source.script %> <%= file.build.script.compiled %>'

@@ -20,12 +20,11 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
   * `set TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Windows
   * `export TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Linux
 8. Install project dependencies: `npm install`
-9. Install JavaScript dependencies: `jspm install`
-10. Rename `Kotsu.sublime-project` to project's name
-11. Update `_settings.*.scss` in `styles` directory to suit your needs
-12. Code live with: `grunt`
-13. Build with: `grunt build`
-14. Deploy and enjoy your life
+9. Rename `Kotsu.sublime-project` to project's name
+10. Update `_settings.*.scss` in `styles` directory to suit your needs
+11. Code live with: `grunt`
+12. Build with: `grunt build`
+13. Deploy and enjoy your life
 
 ## What's inside?
 
