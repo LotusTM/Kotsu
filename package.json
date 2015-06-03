@@ -33,7 +33,7 @@
     "time-grunt": "^1.1.1"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=0.12.0"
   },
   "scripts": {
     "test": "grunt build && git status | grep 'working directory clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
