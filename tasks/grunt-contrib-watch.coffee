@@ -32,7 +32,7 @@ module.exports = ->
       tasks: ['nunjucks']
     scripts:
       files: ['<%= path.source.scripts %>/{,**}*.js']
-      tasks: ['shell:build']
+      tasks: ['shell:jspm_build']
     scss:
       files: [
         '<%= path.source.styles %>/{,**/}*.scss'
