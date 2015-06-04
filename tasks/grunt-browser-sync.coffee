@@ -11,6 +11,7 @@ module.exports = ->
         notify: true
         watchTask: true
         debugInfo: true
+        online: false
         ghostMode:
           clicks: true
           links: true
@@ -20,6 +21,10 @@ module.exports = ->
           baseDir: '<%= path.build.root %>'
       files:
         src: [
-          '<%= path.build.root %>/{,**/}*'
-          '!<%= path.build.styles %>/{,**/}*.css.map'
+          '<%= path.build.root %>/{,**/}*.js'
+          '<%= path.build.root %>/{,**/}*.css'
+          '<%= path.build.root %>/{,**/}*.html'
+          '<%= path.build.root %>/{,**/}*.{png,jpg,jpeg,gif,svg,ico}'
+          '<%= path.build.root %>/{,**/}*.{xml,txt}'
+          '<%= path.build.root %>/{,**/}*.{eot,ttf,woff}'
         ]
