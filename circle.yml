@@ -1,6 +1,6 @@
 machine:
   node:
-    version: iojs-v2.1.0
+    version: iojs-v2.3.0
 checkout:
   post:
     - git submodule sync
