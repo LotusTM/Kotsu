@@ -7,7 +7,7 @@ module.exports = ->
   @config 'webfont',
     build:
       src: '<%= path.source.icons %>/{,**/}*.svg'
-      dest: '<%= path.build.fonts %>/'
+      dest: '<%= path.build.fonts %>'
       destCss: '<%= path.temp.styles %>'
       options:
         font: 'icons'

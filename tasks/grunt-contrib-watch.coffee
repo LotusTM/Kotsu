@@ -13,7 +13,7 @@ module.exports = ->
       files: ['<%= path.source.boilerplates %>/{,**/}*']
       tasks: ['copy:boilerplates']
     data:
-      files: ['<%= path.source.data %>{,**/}*.{json,yml}']
+      files: ['<%= path.source.data %>/{,**/}*.{json,yml}']
       tasks: ['nunjucks']
     fonts:
       files: ['<%= path.source.fonts %>/{,**/}*']
@@ -28,10 +28,10 @@ module.exports = ->
       files: ['<%= path.source.layouts %>/{,**/}*.nj', '!<%= path.source.layouts %>{,**/}_*.nj']
       tasks: ['newer:nunjucks']
     nunjucksPartials:
-      files: ['<%= path.source.layouts %>{,**/}_*.nj']
+      files: ['<%= path.source.layouts %>/{,**/}_*.nj']
       tasks: ['nunjucks']
     scripts:
-      files: ['<%= path.source.scripts %>/{,**}*.js']
+      files: ['<%= path.source.scripts %>/{,**/}*.js']
       tasks: ['shell:jspm_build']
     scss:
       files: [
