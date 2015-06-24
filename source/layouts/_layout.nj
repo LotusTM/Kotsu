@@ -68,22 +68,19 @@
 
 </head>
 
-
-
 <body>
 
 
 	{% include "components/_outdated-browser.nj" %}
 
 
-	{% block layout %}{% endblock %}
+	{% block body %}{% endblock %}
 
 
-<!-- Scripts -->
-<!-- ======= -->
+	<!-- Scripts -->
+	<!-- ======= -->
 
-{% include "_scripts.nj" %}
-
+	{% include "_scripts.nj" %}
 
 
 </body>
