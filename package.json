@@ -4,7 +4,7 @@
   "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "author": "LotusTM",
   "private": true,
-  "devDependencies": {
+  "dependencies": {
     "gmsmith": "^0.5.0",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^3.0.3",
@@ -21,7 +21,6 @@
     "grunt-nunjucks-2-html": "^0.2.10",
     "grunt-processhtml": "^0.3.8",
     "grunt-responsive-images": "^0.1.6",
-    "grunt-scss-lint": "^0.3.6",
     "grunt-shell": "^1.1.2",
     "grunt-size-report": "^0.1.1",
     "grunt-spritesmith": "^4.7.1",
@@ -31,6 +30,11 @@
     "jit-grunt": "^0.9.1",
     "jspm": "^0.15.7",
     "time-grunt": "^1.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^3.1.20",
+    "grunt-eslint": "^16.0.0",
+    "grunt-scss-lint": "^0.3.6"
   },
   "engines": {
     "node": ">=0.12.0",
