@@ -7,6 +7,7 @@ module.exports = (grunt) ->
   # Load grunt tasks automatically
   require('jit-grunt') grunt,
     nunjucks: 'grunt-nunjucks-2-html'
+    scsslint: 'grunt-scss-lint'
     sprite: 'grunt-spritesmith'
 
   # Define the configuration for all the tasks
