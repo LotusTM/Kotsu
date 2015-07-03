@@ -143,10 +143,11 @@ module.exports = (grunt) ->
   ]
 
   ###
-  A task for scss files linting
+  A task for scss and js linting
   ###
-  grunt.registerTask 'lint:sass', [
-    'scsslint'
+  grunt.registerTask 'test', [
+    'scsslint:build'
+    'eslint:build'
   ]
 
   ###
