@@ -9,7 +9,7 @@ checkout:
 dependencies:
   pre:
     - npm install -g grunt-cli
-    - gem install sass --no-ri --no-rdoc
+    - gem install sass scss-lint --no-ri --no-rdoc
 
 test:
   post:
