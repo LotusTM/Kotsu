@@ -3,13 +3,11 @@ node_js:
   - '0.12'
   - 'iojs'
 before_install:
-  - gem install sass
+  - gem install sass scss-lint --no-ri --no-rdoc
   - npm install -g grunt-cli
   - sudo add-apt-repository ppa:dhor/myway -y
   - sudo apt-get update -qq
   - sudo apt-get install graphicsmagick -y
-  - npm config set spin=false
-  - npm config set loglevel=warn
 notifications:
   slack:
     rooms:
