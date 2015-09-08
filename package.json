@@ -1,11 +1,12 @@
 {
   "name": "Kotsu",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "author": "LotusTM",
   "private": true,
   "dependencies": {
     "gmsmith": "^0.5.0",
+    "graceful-fs": "^4.1.2",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^3.0.3",
     "grunt-browser-sync": "^2.1.3",
