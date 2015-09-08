@@ -1,6 +1,6 @@
 {
   "name": "Kotsu",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "author": "LotusTM",
   "private": true,
@@ -51,9 +51,9 @@
       "jquery": "github:components/jquery@^2.1.4"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.4.7",
-      "babel-runtime": "npm:babel-runtime@^5.4.7",
-      "core-js": "npm:core-js@^0.9.12"
+      "babel": "npm:babel-core@^5.8.22",
+      "babel-runtime": "npm:babel-runtime@^5.8.20",
+      "core-js": "npm:core-js@^1.1.0"
     }
   }
 }
