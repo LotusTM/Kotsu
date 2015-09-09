@@ -9,6 +9,9 @@ module.exports = ->
       options:
         report: 'min'
       files: [
-        src: '<%= file.build.style.tidy %>'
-        dest: '<%= file.build.style.min %>'
+        expand: true
+        cwd: '<%= path.build.styles %>'
+        src: '{,**/}*.tidy.css'
+        dest: '<%= path.build.styles %>'
+        ext: '.min.css'
       ]

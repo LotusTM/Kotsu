@@ -7,8 +7,6 @@ module.exports = ->
   @config 'cacheBust',
     build:
       options:
-        # @todo Enable length option when PR with fix will be merged
-        # length: 6
         algorithm: 'md5'
         deleteOriginals: true
         baseDir: '<%= path.build.root %>'

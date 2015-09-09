@@ -13,6 +13,8 @@ module.exports = ->
         summarize: true
         stopOnImageError: true
       files: [
-        src: '<%= file.build.sprite.compiled %>'
-        dest: '<%= file.build.sprite.compiled %>'
+        expand: true
+        cwd: '<%= path.build.sprites %>'
+        src: '{,**/}*.png'
+        dest: '<%= path.build.sprites %>'
       ]

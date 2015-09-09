@@ -10,6 +10,9 @@ module.exports = ->
         browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
         map: true
       files: [
-        src: '<%= file.build.style.compiled %>'
-        dest: '<%= file.build.style.prefixed %>'
+        expand: true
+        cwd: '<%= path.build.styles %>'
+        src: '{,**/}*.compiled.css'
+        dest: '<%= path.build.styles %>'
+        ext: '.prefixed.css'
       ]

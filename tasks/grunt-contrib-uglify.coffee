@@ -7,6 +7,9 @@ module.exports = ->
   @config 'uglify',
     build:
       files: [
-        src: '<%= file.build.script.compiled %>'
-        dest: '<%= file.build.script.min %>'
+        expand: true
+        cwd: '<%= path.build.scripts %>'
+        src: '{,**/}*.js'
+        dest: '<%= path.build.scripts %>'
+        ext: '.min.js'
       ]
