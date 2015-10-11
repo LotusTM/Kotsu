@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 4.1.2
+    version: stable
 checkout:
   post:
     - git submodule sync
@@ -8,6 +8,7 @@ checkout:
 
 dependencies:
   pre:
+    - npm install -g npm@latest
     - npm install -g grunt-cli
     - gem install sass scss-lint --no-ri --no-rdoc
 
