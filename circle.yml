@@ -1,6 +1,7 @@
 machine:
   node:
     version: stable
+
 checkout:
   post:
     - git submodule sync

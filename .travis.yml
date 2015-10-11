@@ -1,17 +1,20 @@
 language: node_js
+
 node_js:
-  - '0.12'
+  - 'stable'
   - 'iojs'
+
 before_install:
   - gem install sass scss-lint --no-ri --no-rdoc
+  - npm install -g npm@latest
   - npm install -g grunt-cli
   - sudo add-apt-repository ppa:dhor/myway -y
   - sudo apt-get update -qq
   - sudo apt-get install graphicsmagick -y
+
 notifications:
   slack:
     rooms:
-      - 2bad:$SLACK_TOKEN#general
+      - $SLACK_ACCOUNT:$SLACK_TOKEN#kotsu
     on_success: change
     on_failure: always
-  email: false
