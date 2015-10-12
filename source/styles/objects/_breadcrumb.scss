@@ -3,4 +3,5 @@
 // ^BREADCRUMB
 // =======================================
 
-.breadcrumb--rev { @extend .font-size-; }
+.breadcrumb,
+.breadcrumb--rev {}
