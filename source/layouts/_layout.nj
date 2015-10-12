@@ -1,6 +1,6 @@
 
 {# Calling macros globally #}
-{% import "_macros.nj" as macros %}
+{% import "_macros.nj" as macros with context %}
 {# --------- #}
 
 <!DOCTYPE html>
