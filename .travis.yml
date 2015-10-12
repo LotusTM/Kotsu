@@ -15,6 +15,6 @@ before_install:
 notifications:
   slack:
     rooms:
-      - $SLACK_ACCOUNT:$SLACK_TOKEN#kotsu
+      secure: dvi9Pi1Gi4+EFx5mlfpY2xrm/FIea4fKs8TvmcT+2OzycgBgtXQU+hUYyYhOMc6PvcXT/DZkvY4GHxB0lYt5x8/BYi+oX4HGcNnhu814Dr97SGvOhVWQV+4Psgy5WP7QsfsUB0ovYX/IVyAM2bTPqxscPeUq8qRn8IKOVEdxf7E=
     on_success: change
     on_failure: always
