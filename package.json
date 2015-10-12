@@ -2,6 +2,7 @@
   "name": "Kotsu",
   "version": "0.8.9",
   "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
+  "homepage": "https://kotsu.2bad.me/",
   "author": "LotusTM",
   "private": true,
   "dependencies": {
