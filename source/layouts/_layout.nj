@@ -32,8 +32,8 @@
 	<link rel="stylesheet" href="/{{ path.styles }}/style.prefixed.css">
 	<!-- /build -->
 
-	{# <!-- Sitemap -->
-	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"> #}
+	<!-- Sitemap -->
+	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
 	{# <!-- RSS -->
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> #}
