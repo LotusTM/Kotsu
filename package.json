@@ -22,6 +22,7 @@
     "grunt-responsive-images": "^0.1.7",
     "grunt-sass": "^1.0.0",
     "grunt-shell": "^1.1.2",
+    "grunt-sitemap-xml": "^0.1.1",
     "grunt-size-report": "^0.1.1",
     "grunt-spritesmith": "^5.1.1",
     "grunt-tinypng": "^0.6.1",
