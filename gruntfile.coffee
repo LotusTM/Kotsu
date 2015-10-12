@@ -139,6 +139,7 @@ module.exports = (grunt) ->
     'clean:styles'
     'clean:scripts'
     'cacheBust:build'
+    'sitemap_xml:build'
     'size_report:build'
   ]
 
