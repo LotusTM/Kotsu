@@ -13,11 +13,11 @@
 # KOTSU WEB STARTER KIT TEAM
 
 	Site: lotus.tm
-	Twitter: http://twitter.com/LotusTM
+	Twitter: https://twitter.com/LotusTM
 
 	Developer: Mr.Hyde
 	Site: 2bad.me
-	Twitter: http://twitter.com/2BadMe
+	Twitter: https://twitter.com/2BadMe
 	Location: Europe
 
 	Developer: Serj Lavrin
