@@ -4,13 +4,13 @@
 // =======================================
 
 .trans--all-,
-%trans--all- { transition: all 0.7s ease-in; }
+%trans--all- { transition: all 0.7s ease-in !important; }
 
 .trans--all,
-%trans--all { transition: all .4s ease-in; }
+%trans--all { transition: all .4s ease-in   !important; }
 
 .trans--all\+,
-%trans--all\+ { transition: all .15s ease; }
+%trans--all\+ { transition: all .15s ease   !important; }
 
 .trans--all--flush,
-%trans--all--flush { transition: none; }
+%trans--all--flush { transition: none       !important; }
