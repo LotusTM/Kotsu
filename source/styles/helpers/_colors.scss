@@ -3,6 +3,6 @@
 // ^COLORS
 // =======================================
 
-.color--brand { color: $brand-color; }
-.color--base  { color: $ekzo-text-color; }
-.color--dim   { color: ekzo-tint($ekzo-text-color, 40); }
+.color--brand { color: $brand-color                    !important; }
+.color--base  { color: $ekzo-text-color                !important; }
+.color--dim   { color: ekzo-tint($ekzo-text-color, 40) !important; }
