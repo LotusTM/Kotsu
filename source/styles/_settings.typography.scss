@@ -26,7 +26,9 @@ $ekzo-font-sizes: (
 		\+\+:   72px, // = .text\+\+,   .font-size\+\+,   .line-height\+\+
 		\+:     44px, // = .text\+,     .font-size\+,     .line-height\+
 	),
-	buttons: () // = .btn--*name*
+	// = .btn--*name*
+	// @todo Moved on upper line because of https://github.com/brigade/scss-lint/issues/608
+	buttons: ()
 );
 
 $ekzo-forms-font-size:              ekzo-font-size(h5, headings);
