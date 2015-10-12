@@ -1,10 +1,11 @@
+// scss-lint:disable ImportantRule
 
 // =======================================
 // ^ANIMATIONS
 // =======================================
 
 .trans--all-,
-%trans--all- { transition: all 0.7s ease-in !important; }
+%trans--all- { transition: all .7s ease-in !important; }
 
 .trans--all,
 %trans--all { transition: all .4s ease-in   !important; }
