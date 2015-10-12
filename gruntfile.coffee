@@ -84,6 +84,7 @@ module.exports = (grunt) ->
         name: '<%= pkg.name %>'
         title: '<%= pkg.title %>'
         version: '<%= pkg.version %>'
+      pages: grunt.file.readYAML 'source/data/pages.yml'
       data:
         currentYear: new Date().getFullYear()
         example: grunt.file.readJSON 'source/data/example.json'

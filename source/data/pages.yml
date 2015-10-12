@@ -1,0 +1,22 @@
+---
+home:
+  pageTitle:    Home
+  contentTitle: false
+  menuEntry:    Home
+  metaDesc:     "Generated with %(company)s demo homepage"
+  href:         /
+
+blog:
+  pageTitle:    Blog
+  contentTitle: "%(company)s's blog"
+  menuEntry:    Blog
+  metaDesc:     "%(company)s's blog"
+  sub:
+    2015-10-12-example-article:
+      pageTitle:    Example article
+      contentTitle: Example article
+      menuEntry:    Example article
+      author:       LotusTM
+      date:         2015-10-12T14:48:00
+      metaDesc:     "Example article generated with %(company)s"
+      shortDesc:    "Example article generated with %(company)s. Wanna more?"
