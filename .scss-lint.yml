@@ -1,9 +1,12 @@
-# Default application configuration that all configurations inherit from.
 linters:
   BangFormat:
     enabled: true
     space_before_bang: true
     space_after_bang: false
+
+  BemDepth:
+    enabled: true
+    max_elements: 2
 
   BorderZero:
     enabled: true
@@ -13,9 +16,13 @@ linters:
     enabled: true
 
   ColorVariable:
+    # @todo Temporary disabled due to large quantity of not fulfilling
+    #       requirements color properties.
+    #       Should be enabled in future
     enabled: false
 
   Comment:
+    # @todo Temporary disabled due to some legacy sections which still have CSS comments
     enabled: false
 
   DebugStatement:
@@ -23,6 +30,9 @@ linters:
 
   DeclarationOrder:
     enabled: true
+
+  DisableLinterReason:
+    enabled: false
 
   DuplicateProperty:
     enabled: true
@@ -36,6 +46,9 @@ linters:
     ignore_single_line_blocks: true
 
   EmptyRule:
+    enabled: false
+
+  ExtendDirective:
     enabled: false
 
   FinalNewline:
@@ -57,7 +70,7 @@ linters:
     enabled: true
 
   ImportantRule:
-    enabled: false
+    enabled: true
 
   ImportPath:
     enabled: true
@@ -65,6 +78,9 @@ linters:
     filename_extension: false
 
   Indentation:
+    # @todo Disabled due to unexpected behaviour when intended variables with selectors
+    #       treated as faulty
+    #       Disabled due to non working `// scss-lint:disable Indentation` in mixins
     enabled: false
     allow_non_nested_indentation: true
     character: tab # or 'space'
@@ -81,11 +97,12 @@ linters:
   NameFormat:
     enabled: true
     allow_leading_underscore: true
-    convention: BEM # or 'BEM', or a regex pattern
+    convention: '^[a-z]|-{3}|_{3}|[^_]_[^_]+$' # hyphenated_BEM regex pattern
 
   NestingDepth:
     enabled: true
     max_depth: 4
+    ignore_parent_selectors: false
 
   PlaceholderInExtend:
     enabled: false
@@ -96,13 +113,274 @@ linters:
     max_properties: 10
 
   PropertySortOrder:
+    # @todo Should be enabled when custom order will be completed
     enabled: false
     ignore_unspecified: false
+    min_properties: 2
     separate_groups: true
+    # @todo WIP
+    order:
+
+      # Position
+
+      - position
+
+      - top
+      - right
+      - bottom
+      - left
+
+      - float
+      - clear
+
+      # Display
+
+      - display
+      - flex
+      - box-flex
+
+      - box-sizing
+
+      - overflow
+      - overflow-x
+      - overflow-y
+
+      - clip
+
+      - content
+
+      - z-index
+      - opacity
+      - visibility
+
+      # Tables
+
+      - table-layout
+
+      - border-collapse
+      - border-spacing
+      - empty-cells
+
+      # Lists
+
+      - list-style
+      - list-style-type
+      - list-style-position
+      - list-style-image
+
+      # Columns
+
+      - columns
+      - column-gap
+      - column-fill
+      - column-rule
+      - column-span
+      - column-count
+      - column-width
+
+      # Aligning
+
+      - text-align
+      - vertical-align
+
+      - flex-basis
+      - flex-direction
+      - flex-flow
+      - flex-grow
+      - flex-shrink
+      - flex-wrap
+      - align-content
+      - align-items
+      - align-self
+      - justify-content
+      - order
+
+      - box-align
+      - box-orient
+      - box-pack
+
+      # Dimensions
+
+      - width
+      - min-width
+      - max-height
+      - height
+      - min-height
+      - max-width
+
+      # Spacing
+
+      - padding
+      - padding-top
+      - padding-right
+      - padding-bottom
+      - padding-left
+
+      - margin-collapse
+      - margin-top-collapse
+      - margin-right-collapse
+      - margin-bottom-collapse
+      - margin-left-collapse
+
+      - margin
+      - margin-top
+      - margin-right
+      - margin-bottom
+      - margin-left
+
+      # Text wrapping
+
+      - hyphens
+      - text-overflow
+      - text-wrap
+      - white-space
+      - word-break
+      - word-wrap
+
+      # Text
+
+      - font-size
+      - text-size-adjust
+      - line-height
+
+      - text-indent
+
+      - letter-spacing
+      - word-spacing
+
+      - color
+
+      - font
+      - font-family
+      - font-smoothing
+      - text-rendering
+
+      - font-variant
+      - text-transform
+
+      - font-style
+      - font-weight
+      - text-decoration
+
+      - src
+
+      # Background
+
+      - background-size
+      - background-clip
+      - background
+      - background-color
+      - background-image
+      - background-repeat
+      - background-attachment
+      - background-position
+
+      # Borders
+
+      - border-image
+
+      - border
+      - border-top
+      - border-right
+      - border-bottom
+      - border-left
+      - border-width
+      - border-top-width
+      - border-right-width
+      - border-bottom-width
+      - border-left-width
+      - border-style
+      - border-top-style
+      - border-right-style
+      - border-bottom-style
+      - border-left-style
+      - border-color
+      - border-top-color
+      - border-right-color
+      - border-bottom-color
+      - border-left-color
+
+      - border-radius
+      - border-radius-topright
+      - border-top-right-radius
+      - border-radius-bottomright
+      - border-bottom-right-radius
+      - border-radius-bottomleft
+      - border-bottom-left-radius
+      - border-radius-topleft
+      - border-top-left-radius
+
+      - outline
+      - outline-width
+      - outline-style
+      - outline-color
+      - outline-offset
+
+      # Shadows
+
+      - box-shadow
+      - text-shadow
+
+      # Animations, transitions, transforms
+
+      - animation
+      - animation-delay
+      - animation-duration
+      - animation-iteration-count
+      - animation-name
+      - animation-play-state
+      - animation-timing-function
+      - animation-fill-mode
+
+      - transition
+      - transition-delay
+      - transition-duration
+      - transition-property
+      - transition-timing-function
+
+      - transform
+
+      # Cursor
+
+      - pointer-events
+
+      - cursor
+
+      # Misc
+
+      - quotes
+      - filter
+      - size
+      - zoom
+      - backface-visibility
+      - resize
+      - appearance
+      - user-select
+      - interpolation-mode
+      - direction
+      - marks
+      - page
+      - set-link-source
+      - unicode-bidi
+      - speak
+      - caption-side
 
   PropertySpelling:
     enabled: true
     extra_properties: []
+
+  PropertyUnits:
+    enabled: true
+    global: [
+      'ch', 'em', 'ex', 'rem',                 # Font-relative lengths
+      'cm', 'in', 'mm', 'pc', 'pt', 'px', 'q', # Absolute lengths
+      'vh', 'vw', 'vmin', 'vmax',              # Viewport-percentage lengths
+      'deg', 'grad', 'rad', 'turn',            # Angle
+      'ms', 's',                               # Duration
+      'Hz', 'kHz',                             # Frequency
+      'dpi', 'dpcm', 'dppx',                   # Resolution
+      '%']                                     # Other
+    properties: {}
 
   QualifyingElement:
     enabled: true
@@ -112,7 +390,7 @@ linters:
 
   SelectorDepth:
     enabled: true
-    max_depth: 3
+    max_depth: 4
 
   SelectorFormat:
     enabled: true
@@ -120,6 +398,7 @@ linters:
 
   Shorthand:
     enabled: true
+    allowed_shorthands: [1, 2, 3]
 
   SingleLinePerProperty:
     enabled: true
@@ -138,8 +417,18 @@ linters:
   SpaceAfterPropertyName:
     enabled: true
 
+  SpaceAfterVariableName:
+    enabled: true
+
+  SpaceAroundOperator:
+    # @todo Temporary disabled, since it need option `at least one space`,
+    #       otherwise variables can't be aligned properly
+    enabled: false
+    style: one_space # or 'no_space'
+
   SpaceBeforeBrace:
     enabled: true
+    style: space # or 'new_line'
     allow_single_line_padding: true
 
   SpaceBetweenParens:
@@ -153,8 +442,14 @@ linters:
   TrailingSemicolon:
     enabled: true
 
+  TrailingWhitespace:
+    enabled: true
+
   TrailingZero:
     enabled: true
+
+  TransitionAll:
+    enabled: false
 
   UnnecessaryMantissa:
     enabled: true
@@ -172,11 +467,12 @@ linters:
     enabled: false
     properties: []
 
-  VendorPrefixes:
-    enabled: true
+  VendorPrefix:
+    # @todo Disabled due to non working `// scss-lint:disable VendorPrefixes` inside of mixins
+    enabled: false
     identifier_list: base
-    include: []
-    exclude: []
+    additional_identifiers: []
+    excluded_identifiers: []
 
   ZeroUnit:
     enabled: true
