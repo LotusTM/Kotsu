@@ -1,3 +1,3 @@
-<!--[if lt IE 8]>
+<!--[if lte IE 9]>
 	<p class="site-outdated-browser">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a class="site-outdated-browser__link" href="http://outdatedbrowser.com/{{ language }}" target="_blank">обновите браузер</a> для нормальной работы сайта.</p>
 <![endif]-->
