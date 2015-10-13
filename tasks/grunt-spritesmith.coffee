@@ -11,4 +11,4 @@ module.exports = ->
       destCss: '<%= path.temp.styles %>/_sprites.map.scss'
       padding: 2
       engine: 'gmsmith'
-      cssTemplate: '<%= path.source.styles %>/objects/_sprites.map.mustache'
+      cssTemplate: '<%= path.tasks.root %>/grunt-spritesmith-map.mustache'
