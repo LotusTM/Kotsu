@@ -2,13 +2,17 @@
 
 
 {# --------- #}
-{% set pageTitle        = "Blog" %}
-{% set pageDescription  = "Blog page description" %}
-{% set pageContentTitle = "Blog's page titile" %}
+{% set pageTitle         = getPage(pages, page.breadcrumb).pageTitle|sprintf({ company: site.name }) %}
+{% set pageMetaDesc      = getPage(pages, page.breadcrumb).metaDesc|sprintf({ company: site.name }) %}
+{% set pageContentTitle  = getPage(pages, page.breadcrumb).contentTitle|sprintf({ company: site.name }) %}
 
-{% set pageClass        = "l-index" %}
+{% set pageClass         = "l-blog" %}
+{% set customSiteWrapper = false %}
+{% set pageSidebar       = false %}
 
-{% set breadcrumb       = { "Non-existing demo page" : "/url-to-that-page/" } %}
+{% set showBreadcrumb    = true %}
+{% set breadcrumb        = page.breadcrumb %}
+
 {# --------- #}
 
 

@@ -2,45 +2,48 @@
 
 
 {# --------- #}
-{% set pageTitle        = "Home" %}
-{% set pageDescription  = "Home page description" %}
-{% set pageContentTitle = false %}
+{% set pageTitle         = getPage(pages, ["home"]).pageTitle|sprintf({ company: site.name }) %}
+{% set pageMetaDesc      = getPage(pages, ["home"]).metaDesc|sprintf({ company: site.name }) %}
+{% set pageContentTitle  = getPage(pages, ["home"]).contentTitle|sprintf({ company: site.name }) %}
 
-{% set pageClass        = "l-index" %}
+{% set pageClass         = "l-index" %}
+{% set customSiteWrapper = false %}
+{% set pageSidebar       = false %}
 
-{% set breadcrumb       = false %}
+{% set showBreadcrumb    = false %}
+{% set breadcrumb        = page.breadcrumb %}
 {# --------- #}
 
 
 {% block main %}
 
 
-<p>Main block's content</p>
+	<p>Main block's content</p>
 
 
-<h2>Generated icons and sprites examples</h2>
+	<h2>Generated icons and sprites examples</h2>
 
-<p>Webfont home icon: <i class="icon icon--home icon--right"></i></p>
+	<p>Webfont home icon: <i class="icon icon--home icon--right"></i></p>
 
-<p>1px sprite: <i class="sprite sprite--test icon--right"></i></p>
-
-
-
-<h2>Data examples</h2>
+	<p>1px sprite: <i class="sprite sprite--test icon--right"></i></p>
 
 
-<h3>Inline data</h3>
 
-<p>Current year is {{ data.currentYear }}</p>
-
-<p>Images path is {{ path.images }}</p>
+	<h2>Data examples</h2>
 
 
-<h3>External data</h3>
+	<h3>Inline data</h3>
 
-<h4>{{ data.example.title }}</h4>
+	<p>Current year is {{ data.currentYear }}</p>
 
-<p>{{ data.example.content }}</p>
+	<p>Images path is {{ path.images }}</p>
+
+
+	<h3>External data</h3>
+
+	<h4>{{ data.example.title }}</h4>
+
+	<p>{{ data.example.content }}</p>
 
 
 {% endblock %}
