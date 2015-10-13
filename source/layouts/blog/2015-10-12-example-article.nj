@@ -1,4 +1,4 @@
-{% extends "../_entry.nj" %}
+{% extends "./_entry.nj" %}
 
 
 {# --------- #}
