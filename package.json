@@ -31,6 +31,13 @@
     "grunt-webfont": "^0.5.4",
     "jit-grunt": "^0.9.1",
     "jspm": "^0.16.12",
+    "lodash": "^3.10.0",
+    "marked": "^0.3.3",
+    "moment": "^2.10.3",
+    "numbro": "^1.5.0",
+    "nunjucks-markdown": "^1.1.0",
+    "smart-plurals": "^1.1.0",
+    "sprintf-js": "^1.0.2",
     "time-grunt": "^1.2.1"
   },
   "devDependencies": {
