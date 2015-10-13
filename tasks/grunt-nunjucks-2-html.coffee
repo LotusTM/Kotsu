@@ -168,4 +168,17 @@ module.exports = (grunt) ->
         src: ['{,**/}*.nj', '{,**/}*.html', '!{,**/}_*.nj']
         dest: '<%= path.build.root %>/'
         ext: '.html'
+        # Rename all except matching `exclude` pattern files to `index.html`
+        # and move them to directory named after basename of the file
+        # @example `/posts/2015-10-12-article.nj` -> `/posts/2015-10-12-article.nj/index.html`
+        rename: (dest, src) =>
+          exclude  = /^(index|\d\d\d)$/
+
+          ext      = grunt.task.current.data.files[0].ext
+          basename = path.basename(src, ext)
+
+          if !exclude.test(basename)
+            src = src.replace(basename + ext, basename + '/index' + ext)
+
+          path.join(dest, src);
       ]
