@@ -2,9 +2,9 @@
 
 
 {# --------- #}
-{% set pageTitle         = getPage(pages, page.breadcrumb).pageTitle|_sp({ company: site.name }) %}
-{% set pageMetaDesc      = getPage(pages, page.breadcrumb).metaDesc|_sp({ company: site.name }) %}
-{% set pageContentTitle  = getPage(pages, page.breadcrumb).contentTitle|_sp({ company: site.name }) %}
+{% set pageTitle         = getPage(pages, page.breadcrumb).pageTitle %}
+{% set pageMetaDesc      = getPage(pages, page.breadcrumb).metaDesc %}
+{% set pageContentTitle  = getPage(pages, page.breadcrumb).contentTitle %}
 
 {% set pageClass         = "l-blog" %}
 {% set customSiteWrapper = false %}
@@ -22,14 +22,14 @@
 
 	<article class="margin-top+">
 		<h1 class="h3 margin-bottom--flush">
-			<a href="/blog/{{ slug }}">{{ post.contentTitle }}</a>
+			<a href="/blog/{{ slug }}">{{ post.contentTitle|_sp(globalSprintf) }}</a>
 		</h1>
 		<p class="text- margin-bottom-">
 			<time datetime="{{ post.date }}">{{ post.date|_d() }}</time>
 			-
 			{{ post.author }}
 		</p>
-		<p>{{ post.shortDesc }}</p>
+		<p>{{ post.shortDesc|_sp(globalSprintf) }}</p>
 		<p>
 			<a class="btn text- link--go" href="/blog/{{ slug }}">Read more</a>
 		</p>

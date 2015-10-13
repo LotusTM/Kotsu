@@ -59,7 +59,7 @@
 
 					<ul class="breadcrumb font-size-">
 						<li class="breadcrumb__entry breadcrumb__root">
-							<a class="breadcrumb__link" href="/">{{ getPage(pages, ["home"]).pageTitle|_sp({ company: site.name }) }}</a>
+							<a class="breadcrumb__link" href="/">{{ getPage(pages, ["home"]).pageTitle|_sp(globalSprintf) }}</a>
 						</li>
 
 						{% for key in breadcrumb %}
@@ -81,13 +81,13 @@
 							{% if loop.last and not crumb.href %}
 
 								<li class="breadcrumb__entry">
-									{{ crumb.menuEntry }}
+									{{ crumb.menuEntry|_sp(globalSprintf) }}
 								</li>
 
 							{% elif not crumb.href %}
 
 								<li class="breadcrumb__entry">
-									<a class="breadcrumb__link" href="{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.menuEntry }}</a>
+									<a class="breadcrumb__link" href="{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.menuEntry|_sp(globalSprintf) }}</a>
 								</li>
 
 							{% endif %}
@@ -110,7 +110,7 @@
 
 				{% if pageContentTitle %}
 
-					<h1 class="site-content-title">{{ pageContentTitle }}</h1>
+					<h1 class="site-content-title">{{ pageContentTitle|_sp(globalSprintf) }}</h1>
 
 				{% endif %}
 

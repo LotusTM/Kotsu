@@ -1,6 +1,10 @@
 
 {# Calling macros globally #}
 {% import "_macros.nj" as macros with context %}
+
+{% set globalSprintf = {
+	company: site.name
+} %}
 {# --------- #}
 
 <!DOCTYPE html>
@@ -16,10 +20,10 @@
 	<!-- DNS Prefetching -->
 	<link rel="dns-prefetch" href="https://ajax.googleapis.com">
 
-	<title>{{ pageTitle if pageTitle else site.name }}</title>
+	<title>{{ pageTitle if pageTitle|_sp(globalSprintf) else site.name }}</title>
 
 	<!-- Description -->
-	<meta name="description" content="{{ pageMetaDesc }}">
+	<meta name="description" content="{{ pageMetaDesc|_sp(globalSprintf) }}">
 
 	{# <!-- Mobile devices -->
 	<meta name="viewport" content="width=device-width, initial-scale=1"> #}
