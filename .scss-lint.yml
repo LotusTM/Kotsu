@@ -423,6 +423,7 @@ linters:
   SpaceAroundOperator:
     # @todo Temporary disabled, since it need option `at least one space`,
     #       otherwise variables can't be aligned properly
+    #       Github issue: https://github.com/brigade/scss-lint/issues/615
     enabled: false
     style: one_space # or 'no_space'
 
