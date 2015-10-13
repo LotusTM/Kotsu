@@ -1,11 +1,25 @@
-
-{# Calling macros globally #}
+{# --------- #}
+{# Call macros globally #}
 {% import "_macros.nj" as macros with context %}
 
+{# Set global placeholders value for `_sp` #}
 {% set globalSprintf = {
 	company: site.name
 } %}
+
+{# Set defaults #}
+{% set breadcrumb        = breadcrumb       |default(page.breadcrumb) %}
+
+{% set pageTitle         = pageTitle        |default(getPage(pages, breadcrumb).pageTitle) %}
+{% set pageMetaDesc      = pageMetaDesc     |default(getPage(pages, breadcrumb).metaDesc) %}
+{% set pageContentTitle  = pageContentTitl  |default(getPage(pages, breadcrumb).contentTitle) %}
+
+{% set pageClass         = pageClass        |default("") %}
+{% set customSiteWrapper = customSiteWrapper|default(false) %}
+{% set showBreadcrumb    = showBreadcrumb   |default(true) %}
+{% set pageSidebar       = pageSidebar      |default(false) %}
 {# --------- #}
+
 
 <!DOCTYPE html>
 <html class="{{ pageClass }} no-js" lang="{{ site.lang }}">

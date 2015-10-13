@@ -2,16 +2,10 @@
 
 
 {# --------- #}
-{% set pageTitle         = "404 — page not found" %}
-{% set pageDescription   = "404 — page not found" %}
-{% set pageContentTitle  = false %}
+{% set breadcrumb     = ["404"] %}
 
-{% set pageClass         = "l-404" %}
-{% set customSiteWrapper = false %}
-{% set pageSidebar       = false %}
-
-{% set showBreadcrumb    = false %}
-{% set breadcrumb        = false %}
+{% set pageClass      = "l-404" %}
+{% set showBreadcrumb = false %}
 {# --------- #}
 
 

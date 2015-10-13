@@ -2,17 +2,7 @@
 
 
 {# --------- #}
-{% set pageTitle         = getPage(pages, page.breadcrumb).pageTitle %}
-{% set pageMetaDesc      = getPage(pages, page.breadcrumb).metaDesc %}
-{% set pageContentTitle  = getPage(pages, page.breadcrumb).contentTitle %}
-
-{% set pageClass         = "l-blog" %}
-{% set customSiteWrapper = false %}
-{% set pageSidebar       = false %}
-
-{% set showBreadcrumb    = true %}
-{% set breadcrumb        = page.breadcrumb %}
-
+{% set pageClass = "l-blog" %}
 {# --------- #}
 
 

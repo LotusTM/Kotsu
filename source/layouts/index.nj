@@ -2,16 +2,10 @@
 
 
 {# --------- #}
-{% set pageTitle         = getPage(pages, ["home"]).pageTitle %}
-{% set pageMetaDesc      = getPage(pages, ["home"]).metaDesc %}
-{% set pageContentTitle  = getPage(pages, ["home"]).contentTitle %}
+{% set breadcrumb     = ["home"] %}
 
-{% set pageClass         = "l-index" %}
-{% set customSiteWrapper = false %}
-{% set pageSidebar       = false %}
-
-{% set showBreadcrumb    = false %}
-{% set breadcrumb        = page.breadcrumb %}
+{% set pageClass      = "l-index" %}
+{% set showBreadcrumb = false %}
 {# --------- #}
 
 
