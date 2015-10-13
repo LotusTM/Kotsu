@@ -2,9 +2,9 @@
 
 
 {# --------- #}
-{% set pageTitle         = getPage(pages, page.breadcrumb).pageTitle|sprintf({ company: site.name }) %}
-{% set pageMetaDesc      = getPage(pages, page.breadcrumb).metaDesc|sprintf({ company: site.name }) %}
-{% set pageContentTitle  = getPage(pages, page.breadcrumb).contentTitle|sprintf({ company: site.name }) %}
+{% set pageTitle         = getPage(pages, page.breadcrumb).pageTitle|_sp({ company: site.name }) %}
+{% set pageMetaDesc      = getPage(pages, page.breadcrumb).metaDesc|_sp({ company: site.name }) %}
+{% set pageContentTitle  = getPage(pages, page.breadcrumb).contentTitle|_sp({ company: site.name }) %}
 
 {% set pageClass         = "l-blog-post" %}
 {% set customSiteWrapper = false %}

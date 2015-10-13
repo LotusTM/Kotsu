@@ -59,7 +59,7 @@
 
 					<ul class="breadcrumb font-size-">
 						<li class="breadcrumb__entry breadcrumb__root">
-							<a class="breadcrumb__link" href="/">{{ getPage(pages, ["home"]).pageTitle|sprintf({ company: site.name }) }}</a>
+							<a class="breadcrumb__link" href="/">{{ getPage(pages, ["home"]).pageTitle|_sp({ company: site.name }) }}</a>
 						</li>
 
 						{% for key in breadcrumb %}

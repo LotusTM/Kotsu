@@ -2,9 +2,9 @@
 
 
 {# --------- #}
-{% set pageTitle         = getPage(pages, ["home"]).pageTitle|sprintf({ company: site.name }) %}
-{% set pageMetaDesc      = getPage(pages, ["home"]).metaDesc|sprintf({ company: site.name }) %}
-{% set pageContentTitle  = getPage(pages, ["home"]).contentTitle|sprintf({ company: site.name }) %}
+{% set pageTitle         = getPage(pages, ["home"]).pageTitle|_sp({ company: site.name }) %}
+{% set pageMetaDesc      = getPage(pages, ["home"]).metaDesc|_sp({ company: site.name }) %}
+{% set pageContentTitle  = getPage(pages, ["home"]).contentTitle|_sp({ company: site.name }) %}
 
 {% set pageClass         = "l-index" %}
 {% set customSiteWrapper = false %}
