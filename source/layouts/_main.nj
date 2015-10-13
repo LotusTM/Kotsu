@@ -81,13 +81,13 @@
 							{% if loop.last and not crumb.href %}
 
 								<li class="breadcrumb__entry">
-									{{ crumb.menuEntry|_sp(globalSprintf) }}
+									{{ crumb.breadcrumbTitle|_sp(globalSprintf) }}
 								</li>
 
 							{% elif not crumb.href %}
 
 								<li class="breadcrumb__entry">
-									<a class="breadcrumb__link" href="{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.menuEntry|_sp(globalSprintf) }}</a>
+									<a class="breadcrumb__link" href="{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|_sp(globalSprintf) }}</a>
 								</li>
 
 							{% endif %}
