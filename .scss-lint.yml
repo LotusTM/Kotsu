@@ -81,6 +81,8 @@ linters:
     # @todo Disabled due to unexpected behaviour when intended variables with selectors
     #       treated as faulty
     #       Disabled due to non working `// scss-lint:disable Indentation` in mixins
+    #       Github issues: https://github.com/brigade/scss-lint/issues/617
+    #                      https://github.com/brigade/scss-lint/issues/618
     enabled: false
     allow_non_nested_indentation: true
     character: tab # or 'space'
