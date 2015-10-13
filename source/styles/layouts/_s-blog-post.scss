@@ -1,0 +1,45 @@
+
+// =======================================
+// ^BLOG-POST
+// =======================================
+
+$s-blog-post-font-size:    20px;
+$s-blog-post-line-height:  $s-blog-post-font-size * 1.5;
+$s-blog-post-spacing-unit: $s-blog-post-line-height;
+
+.s-blog-post {
+
+	font-size: $s-blog-post-font-size;
+
+	line-height: $s-blog-post-line-height;
+
+	max-width: 800px;
+
+	margin: 0 auto;
+
+	font-weight: 300;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 { margin-bottom: $s-blog-post-spacing-unit; }
+
+	ul {
+		margin-bottom: $s-blog-post-spacing-unit;
+
+		> li + li { margin-top: $s-blog-post-spacing-unit; }
+
+	}
+
+	p { margin-bottom: $s-blog-post-spacing-unit; }
+
+	// scss-lint:disable ImportantRule
+	// @note We need `!important` here to properly redefine helpers in this layer
+	.margin-bottom  { margin-bottom: $s-blog-post-spacing-unit  !important; }
+	.margin-top     { margin-top: $s-blog-post-spacing-unit     !important; }
+	.margin-top\+   { margin-top: $s-blog-post-spacing-unit * 2 !important; }
+	.margin-top\+\+ { margin-top: $s-blog-post-spacing-unit * 3 !important; }
+
+}
