@@ -470,6 +470,7 @@ linters:
 
   VendorPrefix:
     # @todo Disabled due to non working `// scss-lint:disable VendorPrefixes` inside of mixins
+    #       Github issue: https://github.com/brigade/scss-lint/issues/616
     enabled: false
     identifier_list: base
     additional_identifiers: []
