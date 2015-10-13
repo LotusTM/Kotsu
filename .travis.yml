@@ -4,7 +4,7 @@ node_js:
   - 'stable'
 
 before_install:
-  - gem install sass scss-lint --no-ri --no-rdoc
+  - gem install sass scss_lint --no-ri --no-rdoc
   - npm install -g npm@latest
   - npm install -g grunt-cli
   - sudo add-apt-repository ppa:dhor/myway -y
