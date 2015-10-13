@@ -174,7 +174,10 @@ module.exports = (grunt) ->
         rename: (dest, src) =>
           exclude  = /^(index|\d\d\d)$/
 
-          ext      = grunt.task.current.data.files[0].ext
+          # @todo Find way to get extension from current config dynamically
+          #       `grunt.task.current.data.files[0].ext` will work during initialization
+          #       but will fail when `grunt-newer` will run, since it will override `task.current`
+          ext      = '.html'
           basename = path.basename(src, ext)
 
           if !exclude.test(basename)
