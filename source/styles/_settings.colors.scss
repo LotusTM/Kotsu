@@ -3,7 +3,7 @@
 // ^SETTING.COLORS.DEFAULTS
 // =======================================
 
-$brand-color:                          #f60;
+$brand-color:                          #DA5700;
 
 // ---------------------------------------
 // Text
@@ -55,8 +55,8 @@ $ekzo-forms-placeholder-color:         #a9a9a9;
 
 $ekzo-btn-color:                       $ekzo-text-color;  // false to disable, color value to enable
 $ekzo-btn-bg-color:                    $brand-color;      // false to disable, color value to enable
-$ekzo-btn-hover-color:                 false;             // false to disable, color value to enable
-$ekzo-btn-hover-bg-color:              false;             // false to disable, color value to enable
+$ekzo-btn-hover-color:                 ekzo-tint($ekzo-text-color, 40);             // false to disable, color value to enable
+$ekzo-btn-hover-bg-color:              ekzo-tint($brand-color, 10);             // false to disable, color value to enable
 
 // ----
 // Buttons borders
