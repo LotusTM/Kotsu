@@ -93,7 +93,7 @@ module.exports = (grunt) ->
           ###*
            * Get list of files or directories inside specified directory
            * @param  {string}               path    = ''             Path where to look
-           * @param  {string|array[string]} pattern = '**/*'         What should be matched
+           * @param  {string|array[string]} pattern = '** /*'         What should be matched
            * @param  {string}               filter  = 'isFile'       Type of entity which should be matched
            * @param  {string}               cwd     = buildDir + '/' Root for lookup
            * @return {array} Array of found files or directories
