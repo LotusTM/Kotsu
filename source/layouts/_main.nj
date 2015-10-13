@@ -10,7 +10,6 @@
 	<header class="site-header">
 		<div class="site-wrapper">
 
-
 			<h1 class="site-logo">
 				<a class="site-logo__link" href="/">
 
@@ -18,10 +17,6 @@
 
 				</a>
 			</h1>{# /site-logo #}
-
-
-			Header content
-
 
 			<!--noindex-->
 			<nav class="site-nav">
@@ -40,7 +35,6 @@
 			</nav>{# /site-nav #}
 			<!--/noindex-->
 
-
 		</div>{# /site-wrapper #}
 	</header>{# /site-header #}
 
@@ -50,47 +44,92 @@
 	<!-- ============== -->
 
 	<main class="site-main" role="main">
-		<article class="site-content site-wrapper">
+		<article class="site-content {{ 'site-wrapper' if not customSiteWrapper }}">
 			<div class="site-content-wrapper">
 
 
 				{##
 				 # Display breadcrumb unless it set to `false`
 				 #
-				 # @param {object|false} breadcrumb — contains titles and urls of
-				 #                                    page's parents like:
-				 #                                    `"Page title" : "page path/url"`
-				 #                                    Should be difined as one of page's
-				 #                                    meta variables.
+				 # @todo Better docs
+				 # @todo Needs better way of aliases handling
 				 #}
 
-				{% if breadcrumb %}
-				<ul class="breadcrumb--rev">
-					<li class="breadcrumb__entry breadcrumb__root">
-						<a class="breadcrumb__link" href="/">Home</a>
-					</li>
-					{% for page, url in breadcrumb %}
-					<li class="breadcrumb__entry">
-						<a class="breadcrumb__link" href="{{ url }}">{{ page }}</a>
-					</li>
-					{% endfor %}
-				</ul>
+				{% if showBreadcrumb %}
+
+					<ul class="breadcrumb font-size-">
+						<li class="breadcrumb__entry breadcrumb__root">
+							<a class="breadcrumb__link" href="/">{{ getPage(pages, ["home"]).pageTitle|sprintf({ company: site.name }) }}</a>
+						</li>
+
+						{% for key in breadcrumb %}
+
+							{% if loop.index0 == 0 %}
+
+								{% set crumb = pages[key] %}
+
+								{% set href = key %}
+
+							{% else %}
+
+								{% set crumb = crumb.sub[key] %}
+
+								{% set href = href + "/" + key %}
+
+							{% endif %}
+
+							{% if loop.last and not crumb.href %}
+
+								<li class="breadcrumb__entry">
+									{{ crumb.menuEntry }}
+								</li>
+
+							{% elif not crumb.href %}
+
+								<li class="breadcrumb__entry">
+									<a class="breadcrumb__link" href="{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.menuEntry }}</a>
+								</li>
+
+							{% endif %}
+
+						{% endfor %}
+
+					</ul>
+
 				{% endif %}
 
 
 				{##
 				 # Display title unless it set to `false`
 				 #
-				 # @param {string|false} breadcrumb — display or no specified
-				 #                                    page titile
+				 # @param {string|true|false} pageContentTitle
+				 #                               - display or no specified page titile
+				 #                                 `true` will enable inheriting
+				 #                                 from sections data
 				 #}
 
 				{% if pageContentTitle %}
+
 					<h1 class="site-content-title">{{ pageContentTitle }}</h1>
+
 				{% endif %}
 
 
-				{% block main %}{% endblock %}
+				{% if pageSidebar %}
+					<div class="grid grid+">
+
+						<div class="grid__item 9/12">
+							{% block main %}{% endblock %}
+						</div>
+
+						<aside class="site-sidebar grid__item 3/12">
+							{% block sidebar %}{% endblock %}
+						</aside>{# /site-sidebar #}{# /grid__item #}
+
+					</div>
+				{% else %}
+					{% block main %}{% endblock %}
+				{% endif %}
 
 
 			</div>{# /site-content-wrapper #}
