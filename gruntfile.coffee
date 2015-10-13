@@ -25,6 +25,9 @@ module.exports = (grunt) ->
 
     # Specify your source and build directory structure
     path:
+      tasks:
+        root: 'tasks'
+
       source:
         root: 'source'
         data: '<%= path.source.root %>/data'
