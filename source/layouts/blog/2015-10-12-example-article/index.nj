@@ -1,0 +1,25 @@
+{% extends "../_entry.nj" %}
+
+
+{# --------- #}
+{# --------- #}
+
+
+{% block post %}
+{% markdown %}
+
+Some _surprisingly_ interesting demonstrative text goes here.
+
+It supports `markdown`, btw!
+
+```
+Code block and so on
+```
+
+And some list:
+* Item
+* Item
+* Item
+
+{% endmarkdown %}
+{% endblock %}
