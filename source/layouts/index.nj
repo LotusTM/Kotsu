@@ -12,32 +12,75 @@
 {% block main %}
 
 
-	<p>Main block's content</p>
+	<p>This is very basic page to let you know that everything works fine!</p>
 
 
-	<h2>Generated icons and sprites examples</h2>
+	<section class="grid grid+ grid--middle margin-top+">
 
-	<p>Webfont home icon: <i class="icon icon--home icon--right"></i></p>
+		<div class="grid__item 2/5">
+			<h2 class="margin-bottom--flush">Generated icons and sprites examples</h2>
+		</div>{# /grid__item #}
 
-	<p>1px sprite: <i class="sprite sprite--test icon--right"></i></p>
+		<div class="grid__item 3/5">
+
+			<p>Webfont home icon: <i class="icon icon--home icon--right"></i></p>
+
+			<p>1px sprite: <i class="sprite sprite--test icon--right"></i></p>
+
+		</div>{# /grid__item #}
+
+	</section>{# /grid #}
 
 
+	<section class="grid grid+ grid--middle margin-top+">
 
-	<h2>Data examples</h2>
+		<div class="grid__item 2/5">
+			<h2 class="margin-bottom--flush">Data examples</h2>
+		</div>{# /grid__item #}
+
+		<div class="grid__item 3/5">
+
+			<section class="grid grid+ grid--middle margin-top+">
+
+				<div class="grid__item 2/5">
+					<h3 class="margin-bottom--flush">Inline data</h3>
+				</div>{# /grid__item #}
+
+				<div class="grid__item 3/5">
+
+					<p>Current year is {{ data.currentYear }}</p>
+
+					<p>Images path is <code>{{ path.images }}</code></p>
+
+				</div>{# /grid__item #}
+
+			</section>{# /grid #}
+
+			<section class="grid grid+ grid--middle margin-top+">
+
+				<div class="grid__item 2/5">
+					<h3 class="margin-bottom--flush">External data</h3>
+				</div>{# /grid__item #}
+
+				<div class="grid__item 3/5">
+
+					<h4 class="margin-bottom--flush" class="h5">{{ data.example.title }}</h4>
+
+					<p>{{ data.example.content }}</p>
+
+				</div>{# /grid__item #}
+
+			</section>{# /grid #}
+
+		</div>{# /grid__item #}
+
+	</section>{# /grid #}
 
 
-	<h3>Inline data</h3>
-
-	<p>Current year is {{ data.currentYear }}</p>
-
-	<p>Images path is {{ path.images }}</p>
-
-
-	<h3>External data</h3>
-
-	<h4>{{ data.example.title }}</h4>
-
-	<p>{{ data.example.content }}</p>
+	<p class="margin-top+">
+		Learn more about
+		<a class="btn link--go margin-left-" href="https://github.com/LotusTM/Kotsu" target="blank">Kotsu at Github</a>
+	</p>
 
 
 {% endblock %}
