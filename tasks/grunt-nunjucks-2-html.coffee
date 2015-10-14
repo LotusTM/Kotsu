@@ -61,7 +61,7 @@ module.exports = (grunt) ->
 
       @[locale] = {}
 
-      @[locale].options = {
+      @[locale].options =
         paths: '<%= path.source.layouts %>/'
         autoescape: false
         data:  '<%= data %>'
@@ -228,8 +228,6 @@ module.exports = (grunt) ->
           data.page.dirname    = dirname
 
           data
-      }
-
 
       @[locale].files =  [
         expand: true
