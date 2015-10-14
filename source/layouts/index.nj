@@ -35,6 +35,19 @@
 	<section class="grid grid+ grid--middle margin-top+">
 
 		<div class="grid__item 2/5">
+			<h2 class="margin-bottom--flush">Macros examples</h2>
+		</div>{# /grid__item #}
+
+		<div class="grid__item 3/5">
+			<p>{{ macros.exmapleMacro('this is from index page') }}</p>
+		</div>{# /grid__item #}
+
+	</section>{# /grid #}
+
+
+	<section class="grid grid+ grid--middle margin-top+">
+
+		<div class="grid__item 2/5">
 			<h2 class="margin-bottom--flush">Data examples</h2>
 		</div>{# /grid__item #}
 
