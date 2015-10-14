@@ -5,7 +5,7 @@
  #                          All incorrect language codes will fallback to `en`
  # @example {{ macros.outdatedBrowser('en') }}
  #}
-{% macro outdatedBrowser(langcode) %}
+{% macro outdatedBrowser(langcode = page.locale) %}
 	<!--[if lte IE 9]>
 		<p class="site-outdated-browser">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a class="site-outdated-browser__link" href="http://outdatedbrowser.com/{{ langcode }}" target="_blank">обновите браузер</a> для нормальной работы сайта.</p>
 	<![endif]-->
