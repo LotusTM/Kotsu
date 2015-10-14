@@ -55,13 +55,14 @@ module.exports = (grunt) ->
       i18n.addTextdomain(locale, messages)
 
 
-  # Build task
+  # Construct task
   Task = ->
     # Define targets, with unique options and files, for each locale
     locales.forEach (locale, index, array) =>
       localeDir    = resolveLocaleDir(locale)
 
-      @[locale]         = {}
+      @[locale] = {}
+
       @[locale].options = {
         paths: '<%= path.source.layouts %>/'
         autoescape: false
@@ -255,6 +256,8 @@ module.exports = (grunt) ->
 
           path.join(dest, src);
       ]
+
+    return @
 
 
   @config 'nunjucks', new Task()
