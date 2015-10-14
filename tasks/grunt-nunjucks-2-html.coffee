@@ -58,7 +58,7 @@ module.exports = (grunt) ->
   # Construct task
   Task = ->
     # Define targets, with unique options and files, for each locale
-    locales.forEach (locale, index, array) =>
+    locales.forEach (locale) =>
       localeDir    = resolveLocaleDir(locale)
 
       @[locale] = {}
