@@ -31,9 +31,6 @@
 	<!-- IE compatibility -->
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<!-- DNS Prefetching -->
-	<link rel="dns-prefetch" href="https://ajax.googleapis.com">
-
 	<title>{{ pageTitle if pageTitle|_sp(globalSprintf) else site.name }}</title>
 
 	<!-- Description -->
