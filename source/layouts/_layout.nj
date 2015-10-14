@@ -12,7 +12,7 @@
 
 {% set pageTitle         = pageTitle        |default(getPage(pages, breadcrumb).pageTitle) %}
 {% set pageMetaDesc      = pageMetaDesc     |default(getPage(pages, breadcrumb).metaDesc) %}
-{% set pageContentTitle  = pageContentTitl  |default(getPage(pages, breadcrumb).contentTitle) %}
+{% set pageContentTitle  = pageContentTitle |default(getPage(pages, breadcrumb).contentTitle) %}
 
 {% set pageClass         = pageClass        |default("") %}
 {% set customSiteWrapper = customSiteWrapper|default(false) %}
