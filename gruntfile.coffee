@@ -35,6 +35,7 @@ module.exports = (grunt) ->
         icons: '<%= path.source.root %>/icons'
         images: '<%= path.source.root %>/images'
         styles: '<%= path.source.root %>/styles'
+        locales: '<%= path.source.root %>/locales'
         layouts: '<%= path.source.root %>/layouts'
         scripts: '<%= path.source.root %>/scripts'
         sprites: '<%= path.source.root %>/sprites'
