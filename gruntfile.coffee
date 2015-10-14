@@ -84,7 +84,8 @@ module.exports = (grunt) ->
         scripts: '<%= grunt.template.process(path.build.scripts).replace(path.build.root + \'/\', \'\') %>'
         thumbnails: '<%= grunt.template.process(path.build.thumbnails).replace(path.build.root + \'/\', \'\') %>'
       site:
-        lang: 'en'
+        locales: ['en-US', 'ru', 'zh-CN']
+        baseLocale: 'en-US'
         name: '<%= pkg.name %>'
         title: '<%= pkg.title %>'
         version: '<%= pkg.version %>'
