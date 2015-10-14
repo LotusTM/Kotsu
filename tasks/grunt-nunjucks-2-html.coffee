@@ -57,14 +57,12 @@ module.exports = (grunt) ->
 
   # Build task
   Task = ->
-    self = @
-
     # Define targets, with unique options and files, for each locale
-    locales.forEach (locale, index, array) ->
+    locales.forEach (locale, index, array) =>
       localeDir    = resolveLocaleDir(locale)
 
-      self[locale]         = {}
-      self[locale].options = {
+      @[locale]         = {}
+      @[locale].options = {
         paths: '<%= path.source.layouts %>/'
         autoescape: false
         data:  '<%= data %>'
@@ -234,7 +232,7 @@ module.exports = (grunt) ->
       }
 
 
-      self[locale].files =  [
+      @[locale].files =  [
         expand: true
         cwd: '<%= path.source.layouts %>/'
         src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
