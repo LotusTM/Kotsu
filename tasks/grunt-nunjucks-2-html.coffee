@@ -31,7 +31,7 @@ module.exports = (grunt) ->
 
   buildDir   = grunt.template.process('<%= path.build.root %>')
   layoutsDir = grunt.template.process('<%= path.source.layouts %>')
-  localeSrc  = grunt.template.process('<%= path.source.locales %>')
+  localesDir  = grunt.template.process('<%= path.source.locales %>')
 
 
   # Helpers
@@ -47,9 +47,9 @@ module.exports = (grunt) ->
   #       file will be actually used
   locales.forEach (locale) ->
 
-    grunt.file.expand({ cwd: localeSrc + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (file) ->
+    grunt.file.expand({ cwd: localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (file) ->
 
-      messages = grunt.file.read(localeSrc + '/' + locale + '/' + file, { encoding: null })
+      messages = grunt.file.read(localesDir + '/' + locale + '/' + file, { encoding: null })
       i18n.addTextdomain(locale, messages)
 
 
