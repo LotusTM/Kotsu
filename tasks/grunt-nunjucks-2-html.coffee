@@ -41,11 +41,11 @@ module.exports = (grunt) ->
 
           ###*
            * Get information about page from specified object.
-           * @param  {object} obj             Object with properties of page (titles, meta descriptions, etc.)
-           *                                  Each page can have sub pages, which should be placed inside property
-           *                                  named as `subName`
-           * @param  {array} path             Path to page inside `obj`, without `subName`s
-           * @param  {string} subName = 'sub' Name of property, which holds sub pages
+           * @param {object} obj             Object with properties of page (titles, meta descriptions, etc.)
+           *                                 Each page can have sub pages, which should be placed inside property
+           *                                 named as `subName`
+           * @param {array} path             Path to page inside `obj`, without `subName`s
+           * @param {string} subName = 'sub' Name of property, which holds sub pages
            * @return {object}                 Contains all page's properties, including it's sub pages
           ###
           env.addGlobal 'getPage', (obj, path, subName = 'sub') ->
@@ -61,7 +61,7 @@ module.exports = (grunt) ->
 
           ###*
            * Log specified to Grunt's console for debug purposes
-           * @param  {*} variable Anything we want to log to console
+           * @param {*} variable Anything we want to log to console
            * @return {string} Logs to Grunt console
           ###
           env.addGlobal 'log', (variable) ->
@@ -69,9 +69,9 @@ module.exports = (grunt) ->
 
           ###*
            * Replaces last array element with new value
-           * @warn   Mutates array
-           * @param  {array} array Target array
-           * @param  {*} value     New value
+           * @warn Mutates array
+           * @param {array} array Target array
+           * @param {*} value     New value
            * @return {array} Mutated array
           ###
           env.addFilter 'popIn', (array, value) ->
@@ -81,9 +81,9 @@ module.exports = (grunt) ->
 
           ###*
            * Adds value to the end of an array
-           * @warn   Mutates array
-           * @param  {array} array Target array
-           * @param  {*} value     Value to be pushed in
+           * @warn Mutates array
+           * @param {array} array Target array
+           * @param {*} value     Value to be pushed in
            * @return {array} Mutated array
           ###
           env.addFilter 'pushIn', (array, value) ->
@@ -92,10 +92,10 @@ module.exports = (grunt) ->
 
           ###*
            * Get list of files or directories inside specified directory
-           * @param  {string}               path    = ''             Path where to look
-           * @param  {string|array[string]} pattern = '** /*'         What should be matched
-           * @param  {string}               filter  = 'isFile'       Type of entity which should be matched
-           * @param  {string}               cwd     = buildDir + '/' Root for lookup
+           * @param {string}               path    = ''             Path where to look
+           * @param {string|array[string]} pattern = '** /*'         What should be matched
+           * @param {string}               filter  = 'isFile'       Type of entity which should be matched
+           * @param {string}               cwd     = buildDir + '/' Root for lookup
            * @return {array} Array of found files or directories
           ###
           env.addGlobal 'fileExpand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir + '/') ->
@@ -106,8 +106,8 @@ module.exports = (grunt) ->
 
           ###*
            * Replace placeholders with provided values
-           * @param  {string} string String in which should be made replacement
-           * @param  {object} ph     Collection of placeholders
+           * @param {string} string String in which should be made replacement
+           * @param {object} ph     Collection of placeholders
            * @return {string} String with replaced placeholders
           ###
           env.addFilter '_sp', (string, ph = {}) ->
@@ -115,9 +115,9 @@ module.exports = (grunt) ->
 
           ###*
            * Pluralize string based on count
-           * @param  {number} count           Current count
-           * @param  {array}  forms           List of possible plural forms
-           * @param  {string} locale = locale Locale name
+           * @param {number} count           Current count
+           * @param {array}  forms           List of possible plural forms
+           * @param {string} locale = locale Locale name
            * @return {string} Pluralized string
           ###
           env.addGlobal '_p', (count, locale = locale) ->
@@ -128,9 +128,9 @@ module.exports = (grunt) ->
            * Format number based on given pattern
            * @todo Use global function instead of filter. It's more flexible. For now it's filter
            *       just because it's faster to use and easier replacement for old filter
-           * @param  {number} value               Number which should be formatted
-           * @param  {string} format = '0,0[.]00' Pattern as per http://numbrojs.com/format.html
-           * @param  {string} locale = locale     Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
+           * @param {number} value               Number which should be formatted
+           * @param {string} format = '0,0[.]00' Pattern as per http://numbrojs.com/format.html
+           * @param {string} locale = locale     Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
            * @return {string} Formatted number
           ###
           env.addFilter '_n', (value, format = '0,0[.]00', locale = locale) ->
@@ -141,9 +141,9 @@ module.exports = (grunt) ->
            * Format date based on given pattern
            * @todo Use global function instead of filter. It's more flexible. For now it's filter
            *       just because it's faster to use and easier replacement for old filter
-           * @param  {number} value               Date which should be formatted
-           * @param  {string} format = '0,0[.]00' Pattern as per http://momentjs.com/docs/#/displaying/
-           * @param  {string} locale = locale     Locale name
+           * @param {number} value               Date which should be formatted
+           * @param {string} format = '0,0[.]00' Pattern as per http://momentjs.com/docs/#/displaying/
+           * @param {string} locale = locale     Locale name
            * @return {string} Formatted date
           ###
           env.addFilter '_d', (date, format = 'DD MMM YYYY', locale = locale) ->
