@@ -21,7 +21,7 @@
 {# --------- #}
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html class="{{ pageClass }} no-js" lang="{{ site.lang }}">
 
 <head>
@@ -29,7 +29,7 @@
 	<meta charset="utf-8">
 
 	<!-- IE compatibility -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 	<!-- DNS Prefetching -->
 	<link rel="dns-prefetch" href="https://ajax.googleapis.com">
