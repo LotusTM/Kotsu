@@ -2,7 +2,7 @@
 {# Call macros globally #}
 {% import "components/_outdated-browser.nj" as macros with context %}
 
-{# Set global placeholders value for `_sp` #}
+{# Set global placeholders values for `_sp` #}
 {% set globalSprintf = {
 	company: site.name
 } %}
