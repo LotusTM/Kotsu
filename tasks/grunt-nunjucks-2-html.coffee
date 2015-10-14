@@ -67,8 +67,7 @@ module.exports = (grunt) ->
         data:  '<%= data %>'
         configureEnvironment: (env) ->
           # Append url with locale name based on whether it's base locale or not
-          env.addFilter 'resolveUrl', (url, locale) ->
-            locale = locale || currentLocale
+          env.addFilter 'resolveUrl', (url, locale = currentLocale) ->
             return (if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else '') + url
 
           # Output or not locale name based on whether it's base locale or not.
@@ -76,15 +75,12 @@ module.exports = (grunt) ->
             if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else ''
 
           # Load string from current locale
-          env.addGlobal '_t', (string, ph) ->
-            ph  = ph || {}
+          env.addGlobal '_t', (string, ph = {}) ->
             sprintf(i18n.dgettext(currentLocale, string), ph)
 
           # Load string from specified locale
           # @note So far `sprintf` support only named placeholders
-          env.addGlobal '_dt', (locale, string, ph) ->
-            locale = locale || currentLocale
-            ph  = ph || {}
+          env.addGlobal '_dt', (locale = currentLocale, string, ph = {}) ->
             sprintf(i18n.dgettext(locale, string), ph)
 
           ###*
