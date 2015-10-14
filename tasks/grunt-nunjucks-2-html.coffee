@@ -17,7 +17,7 @@ module.exports = (grunt) ->
   marked       = require('marked')
   markdown     = require('nunjucks-markdown')
 
-  locales    = grunt.template.process('<%= data.site.locales %>')
+  locales    = grunt.template.process('<%= data.site.locales %>').split(',')
   baseLocale = grunt.template.process('<%= data.site.baseLocales %>')
 
   buildDir   = grunt.template.process('<%= path.build.root %>')
