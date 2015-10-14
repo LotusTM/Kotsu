@@ -56,36 +56,36 @@ module.exports = (grunt) ->
   # Construct task
   Task = ->
     # Define targets, with unique options and files, for each locale
-    locales.forEach (locale) =>
-      localeDir    = resolveLocaleDir(locale)
+    locales.forEach (currentLocale) =>
+      localeDir = resolveLocaleDir(currentLocale)
 
-      @[locale] = {}
+      @[currentLocale] = {}
 
-      @[locale].options =
+      @[currentLocale].options =
         paths: '<%= path.source.layouts %>/'
         autoescape: false
         data:  '<%= data %>'
         configureEnvironment: (env) ->
           # Append url with locale name based on whether it's base locale or not
-          env.addFilter 'resolveUrl', (url, loc) ->
-            loc = loc || locale
-            return (if resolveLocaleDir(loc) then '/' + resolveLocaleDir(loc) else '') + url
+          env.addFilter 'resolveUrl', (url, locale) ->
+            locale = locale || currentLocale
+            return (if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else '') + url
 
           # Output or not locale name based on whether it's base locale or not.
-          env.addFilter 'resolveLocaleDir', (loc) ->
-            if resolveLocaleDir(loc) then '/' + resolveLocaleDir(loc) else ''
+          env.addFilter 'resolveLocaleDir', (locale) ->
+            if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else ''
 
           # Load string from current locale
           env.addGlobal '_t', (string, ph) ->
             ph  = ph || {}
-            sprintf(i18n.dgettext(locale, string), ph)
+            sprintf(i18n.dgettext(currentLocale, string), ph)
 
           # Load string from specified locale
           # @note So far `sprintf` support only named placeholders
-          env.addGlobal '_dt', (loc, string, ph) ->
-            loc = loc || locale
+          env.addGlobal '_dt', (locale, string, ph) ->
+            locale = locale || currentLocale
             ph  = ph || {}
-            sprintf(i18n.dgettext(loc, string), ph)
+            sprintf(i18n.dgettext(locale, string), ph)
 
           ###*
            * Nunjucks extension for Markdown support
@@ -174,12 +174,12 @@ module.exports = (grunt) ->
 
           ###*
            * Pluralize string based on count
-           * @param {number} count           Current count
-           * @param {array}  forms           List of possible plural forms
-           * @param {string} locale = locale Locale name
+           * @param {number} count                  Current count
+           * @param {array}  forms                  List of possible plural forms
+           * @param {string} locale = currentLocale Locale name
            * @return {string} Pluralized string
           ###
-          env.addGlobal '_p', (count, locale = locale) ->
+          env.addGlobal '_p', (count, locale = currentLocale) ->
             smartPlurals.Plurals.getRule(locale)
             smartPlurals(count, forms)
 
@@ -187,12 +187,12 @@ module.exports = (grunt) ->
            * Format number based on given pattern
            * @todo Use global function instead of filter. It's more flexible. For now it's filter
            *       just because it's faster to use and easier replacement for old filter
-           * @param {number} value               Number which should be formatted
-           * @param {string} format = '0,0[.]00' Pattern as per http://numbrojs.com/format.html
-           * @param {string} locale = locale     Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
+           * @param {number} value                  Number which should be formatted
+           * @param {string} format = '0,0[.]00'    Pattern as per http://numbrojs.com/format.html
+           * @param {string} locale = currentLocale Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
            * @return {string} Formatted number
           ###
-          env.addFilter '_n', (value, format = '0,0[.]00', locale = locale) ->
+          env.addFilter '_n', (value, format = '0,0[.]00', locale = currentLocale) ->
             numbro.language(locale)
             numbro(value).format(format)
 
@@ -200,12 +200,12 @@ module.exports = (grunt) ->
            * Format date based on given pattern
            * @todo Use global function instead of filter. It's more flexible. For now it's filter
            *       just because it's faster to use and easier replacement for old filter
-           * @param {number} value               Date which should be formatted
-           * @param {string} format = '0,0[.]00' Pattern as per http://momentjs.com/docs/#/displaying/
-           * @param {string} locale = locale     Locale name
+           * @param {number} value                  Date which should be formatted
+           * @param {string} format = '0,0[.]00'    Pattern as per http://momentjs.com/docs/#/displaying/
+           * @param {string} locale = currentLocale Locale name
            * @return {string} Formatted date
           ###
-          env.addFilter '_d', (date, format = 'DD MMM YYYY', locale = locale) ->
+          env.addFilter '_d', (date, format = 'DD MMM YYYY', locale = currentLocale) ->
             moment.locale(locale);
             moment(date).format(format)
 
@@ -221,7 +221,7 @@ module.exports = (grunt) ->
 
           data.page = data.page || {}
 
-          data.page.locale     = locale
+          data.page.locale     = currentLocale
           data.page.url        = '/' + filepath
           data.page.breadcrumb = filepath.split('/')
           data.page.basename   = path.basename(@src[0], '.nj')
@@ -229,7 +229,7 @@ module.exports = (grunt) ->
 
           data
 
-      @[locale].files =  [
+      @[currentLocale].files =  [
         expand: true
         cwd: '<%= path.source.layouts %>/'
         src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
