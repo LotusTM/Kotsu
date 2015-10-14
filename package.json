@@ -39,7 +39,8 @@
     "nunjucks-markdown": "^1.1.0",
     "smart-plurals": "^1.1.0",
     "sprintf-js": "^1.0.2",
-    "time-grunt": "^1.2.1"
+    "time-grunt": "^1.2.1",
+    "urlify": "^0.3.6"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",

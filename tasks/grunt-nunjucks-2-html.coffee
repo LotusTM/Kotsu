@@ -16,6 +16,15 @@ module.exports = (grunt) ->
   i18n         = new Gettext()
   marked       = require('marked')
   markdown     = require('nunjucks-markdown')
+  urlify       = require('urlify').create({
+    addEToUmlauts: true
+    szToSs: true
+    spaces: '-'
+    toLower: true
+    nonPrintable: '-'
+    trim: true
+    failureOutput: 'non-printable-url'
+  })
 
   locales    = grunt.template.process('<%= data.site.locales %>').split(',')
   baseLocale = grunt.template.process('<%= data.site.baseLocale %>')
@@ -27,20 +36,9 @@ module.exports = (grunt) ->
 
   # Helpers
 
-  # Converts `en-US` to ISO type `en_US` or directory type `en-us` and vice versa
-  #
-  # @todo Very basic functionality. Though, since it's unused, so far will remain as it is.
-  normalizeLocale = (loc, type) ->
-    ISODelimiter = '_'
-    dirDelimiter = '-'
-    if type == 'ISO'
-      return loc.replace(dirDelimiter, ISODelimiter)
-    if type == 'dir'
-      return loc.toLowerCase().replace(ISODelimiter, dirDelimiter)
-
   # Output or not locale name based on whether it's base locale or not.
   resolveLocaleDir = (loc) ->
-    if loc == baseLocale then '' else loc
+    urlify(if loc == baseLocale then '' else loc)
 
 
   # Load and invoke content of l10n files
