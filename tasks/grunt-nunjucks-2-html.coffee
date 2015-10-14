@@ -17,15 +17,14 @@ module.exports = (grunt) ->
   marked       = require('marked')
   markdown     = require('nunjucks-markdown')
 
-  # Configuration
-  locales    = ['en-US', 'ru', 'zh-CN']
-  baseLocale = 'en-US'
+  locales    = grunt.template.process('<%= data.site.locales %>')
+  baseLocale = grunt.template.process('<%= data.site.baseLocales %>')
+
+  locale     = grunt.template.process('<%= data.site.lang %>')
+
+  buildDir   = grunt.template.process('<%= path.build.root %>')
+  layoutsDir = grunt.template.process('<%= path.source.layouts %>')
   localeSrc  = grunt.template.process('<%= path.source.locales %>')
-
-  locale       = grunt.template.process('<%= data.site.lang %>')
-
-  buildDir     = grunt.template.process('<%= path.build.root %>')
-  layoutsDir   = grunt.template.process('<%= path.source.layouts %>')
 
   # Helpers
 
