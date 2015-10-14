@@ -31,7 +31,7 @@ module.exports = (grunt) ->
 
   buildDir   = grunt.template.process('<%= path.build.root %>')
   layoutsDir = grunt.template.process('<%= path.source.layouts %>')
-  localesDir  = grunt.template.process('<%= path.source.locales %>')
+  localesDir = grunt.template.process('<%= path.source.locales %>')
 
 
   # Helpers
