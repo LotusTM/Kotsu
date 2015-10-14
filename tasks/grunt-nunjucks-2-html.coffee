@@ -235,9 +235,6 @@ module.exports = (grunt) ->
             filepath = fullFilepath.replace(layoutsDir + '/', '')
             dirname  = fullFilepath.split('/').slice(-1)[0]
 
-          data.locales         = locales
-          data.baseLocale      = baseLocale
-
           data.page = data.page || {}
 
           data.page.locale     = locale
