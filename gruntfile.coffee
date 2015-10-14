@@ -129,7 +129,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'build', [
     'clean'
     'copy:build'
-    'nunjucks:build'
+    'nunjucks'
     'sprite:build'
     'webfont:build'
     'sass:build'
