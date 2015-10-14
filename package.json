@@ -34,6 +34,7 @@
     "lodash": "^3.10.0",
     "marked": "^0.3.3",
     "moment": "^2.10.3",
+    "node-gettext": "^1.0.1",
     "numbro": "^1.5.0",
     "nunjucks-markdown": "^1.1.0",
     "smart-plurals": "^1.1.0",

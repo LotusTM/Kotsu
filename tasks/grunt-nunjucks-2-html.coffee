@@ -12,22 +12,96 @@ module.exports = (grunt) ->
   smartPlurals = require('smart-plurals')
   sprintf      = require('sprintf-js').sprintf
   vsprintf     = require('sprintf-js').vsprintf # @note Not used so far
+  Gettext      = require('node-gettext')
+  i18n         = new Gettext()
   marked       = require('marked')
   markdown     = require('nunjucks-markdown')
+
+  # Configuration
+  locales    = ['en-US', 'ru', 'zh-CN']
+  baseLocale = 'en-US'
+  localeSrc  = grunt.template.process('<%= path.source.locales %>')
 
   locale       = grunt.template.process('<%= data.site.lang %>')
 
   buildDir     = grunt.template.process('<%= path.build.root %>')
-  layoutsDir   = grunt.template.process('<%= path.source.layouts %>/')
+  layoutsDir   = grunt.template.process('<%= path.source.layouts %>')
 
-  @config 'nunjucks',
-    build:
-      options:
+  # Helpers
+
+  # Converts `en-US` to ISO type `en_US` or directory type `en-us` and vice versa
+  #
+  # @todo Very basic functionality. Though, since it's unused, so far will remain as it is.
+  normalizeLocale = (loc, type) ->
+    ISODelimiter = '_'
+    dirDelimiter = '-'
+    if type == 'ISO'
+      return loc.replace(dirDelimiter, ISODelimiter)
+    if type == 'dir'
+      return loc.toLowerCase().replace(ISODelimiter, dirDelimiter)
+
+  # Output or not locale name based on whether it's base locale or not.
+  resolveLocaleDir = (loc) ->
+    if loc == baseLocale then '' else loc
+
+
+
+  # Load and invoke content of l10n files
+  # @note Though that part of code will load all `.po` files, contained in locale's directory,
+  #       including subdirectories, due to limitation of `node-gettext` for now only last loaded
+  #       file will be actually used
+  locales.forEach (locale) ->
+
+    grunt.file.expand({ cwd: localeSrc + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (file) ->
+
+      messages = grunt.file.read(localeSrc + '/' + locale + '/' + file, { encoding: null })
+      i18n.addTextdomain(locale, messages)
+
+
+
+
+
+  # Build task body
+  Task = ->
+
+    self = @
+
+    # Define targets, with unique options and files, for each locale
+    locales.forEach (locale, index, array) ->
+
+      localeDir    = resolveLocaleDir(locale)
+
+
+      self[locale]         = {}
+      self[locale].options = {
         paths: '<%= path.source.layouts %>/'
         autoescape: false
-        data: '<%= data %>'
-
+        data:  '<%= data %>'
         configureEnvironment: (env) ->
+
+          # Append url with locale name based on whether it's base locale or not
+          env.addFilter 'resolveUrl', (url, loc) ->
+            loc = loc || locale
+            return (if resolveLocaleDir(loc) then '/' + resolveLocaleDir(loc) else '') + url
+
+          # Output or not locale name based on whether it's base locale or not.
+          env.addFilter 'resolveLocaleDir', (loc) ->
+            if resolveLocaleDir(loc) then '/' + resolveLocaleDir(loc) else ''
+
+          # Load string from current locale
+          env.addGlobal '_t', (string, ph) ->
+            ph  = ph || {}
+            sprintf(i18n.dgettext(locale, string), ph)
+
+          # Load string from specified locale
+          # @note So far `sprintf` support only named placeholders
+          env.addGlobal '_dt', (loc, string, ph) ->
+            loc = loc || locale
+            ph  = ph || {}
+            sprintf(i18n.dgettext(loc, string), ph)
+
+
+
           ###*
            * Nunjucks extension for Markdown support
            * @example {% markdown %}Markdown _text_ goes **here**{% endmarkdown %}
@@ -150,23 +224,38 @@ module.exports = (grunt) ->
             moment.locale(locale);
             moment(date).format(format)
 
+
         preprocessData: (data) ->
-          filepath = path.dirname(@src[0]).replace(layoutsDir, '').split('/')
-          basename = path.basename(@src[0], '.nj')
+          fullFilepath = path.dirname(@src[0])
+
+          if fullFilepath == layoutsDir
+            filepath = ''
+            dirname  = ''
+          else
+            filepath = fullFilepath.replace(layoutsDir + '/', '')
+            dirname  = fullFilepath.split('/').slice(-1)[0]
+
+          data.locales         = locales
+          data.baseLocale      = baseLocale
 
           data.page = data.page || {}
 
-          data.page.breadcrumb = filepath
-          data.page.basename   = basename
-          data.page.dirname    = filepath.slice(-1)[0]
+          data.page.locale     = locale
+          data.page.url        = '/' + filepath
+          data.page.breadcrumb = filepath.split('/')
+          data.page.basename   = path.basename(@src[0], '.nj')
+          data.page.dirname    = dirname
 
           data
 
-      files: [
+      }
+
+
+      self[locale].files =  [
         expand: true
         cwd: '<%= path.source.layouts %>/'
-        src: ['{,**/}*.nj', '{,**/}*.html', '!{,**/}_*.nj']
-        dest: '<%= path.build.root %>/'
+        src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
+        dest: '<%= path.build.root %>/' + localeDir
         ext: '.html'
         # Rename all except matching `exclude` pattern files to `index.html`
         # and move them to directory named after basename of the file
@@ -185,3 +274,6 @@ module.exports = (grunt) ->
 
           path.join(dest, src);
       ]
+
+
+  @config 'nunjucks', new Task()
