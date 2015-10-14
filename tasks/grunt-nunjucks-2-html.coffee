@@ -26,12 +26,12 @@ module.exports = (grunt) ->
     failureOutput: 'non-printable-url'
   })
 
-  locales    = grunt.template.process('<%= data.site.locales %>').split(',')
-  baseLocale = grunt.template.process('<%= data.site.baseLocale %>')
+  locales    = grunt.config('data.site.locales')
+  baseLocale = grunt.config('data.site.baseLocale')
 
-  buildDir   = grunt.template.process('<%= path.build.root %>')
-  layoutsDir = grunt.template.process('<%= path.source.layouts %>')
-  localesDir = grunt.template.process('<%= path.source.locales %>')
+  buildDir   = grunt.config('path.build.root')
+  layoutsDir = grunt.config('path.source.layouts')
+  localesDir = grunt.config('path.source.locales')
 
 
   # Helpers
