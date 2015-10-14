@@ -24,6 +24,7 @@ module.exports = (grunt) ->
   layoutsDir = grunt.template.process('<%= path.source.layouts %>')
   localeSrc  = grunt.template.process('<%= path.source.locales %>')
 
+
   # Helpers
 
   # Converts `en-US` to ISO type `en_US` or directory type `en-us` and vice versa
@@ -42,7 +43,6 @@ module.exports = (grunt) ->
     if loc == baseLocale then '' else loc
 
 
-
   # Load and invoke content of l10n files
   # @note Though that part of code will load all `.po` files, contained in locale's directory,
   #       including subdirectories, due to limitation of `node-gettext` for now only last loaded
@@ -55,19 +55,13 @@ module.exports = (grunt) ->
       i18n.addTextdomain(locale, messages)
 
 
-
-
-
-  # Build task body
+  # Build task
   Task = ->
-
     self = @
 
     # Define targets, with unique options and files, for each locale
     locales.forEach (locale, index, array) ->
-
       localeDir    = resolveLocaleDir(locale)
-
 
       self[locale]         = {}
       self[locale].options = {
@@ -75,7 +69,6 @@ module.exports = (grunt) ->
         autoescape: false
         data:  '<%= data %>'
         configureEnvironment: (env) ->
-
           # Append url with locale name based on whether it's base locale or not
           env.addFilter 'resolveUrl', (url, loc) ->
             loc = loc || locale
@@ -96,8 +89,6 @@ module.exports = (grunt) ->
             loc = loc || locale
             ph  = ph || {}
             sprintf(i18n.dgettext(loc, string), ph)
-
-
 
           ###*
            * Nunjucks extension for Markdown support
@@ -221,7 +212,6 @@ module.exports = (grunt) ->
             moment.locale(locale);
             moment(date).format(format)
 
-
         preprocessData: (data) ->
           fullFilepath = path.dirname(@src[0])
 
@@ -241,7 +231,6 @@ module.exports = (grunt) ->
           data.page.dirname    = dirname
 
           data
-
       }
 
 
