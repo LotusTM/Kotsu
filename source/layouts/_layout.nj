@@ -23,7 +23,7 @@
 
 
 <!doctype html>
-<html class="{{ pageClass }} no-js" lang="{{ site.lang }}">
+<html class="{{ pageClass }} no-js" lang="{{ page.locale }}">
 
 <head>
 
@@ -88,7 +88,7 @@
 <body>
 
 
-	{{ macros.outdatedBrowser(site.lang) }}
+	{{ macros.outdatedBrowser(page.locale) }}
 
 
 	{% block body %}{% endblock %}
