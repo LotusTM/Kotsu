@@ -1,6 +1,6 @@
 {# --------- #}
 {# Call macros globally #}
-{% import "_macros.nj" as macros with context %}
+{% import "components/_outdated-browser.nj" as macros with context %}
 
 {# Set global placeholders value for `_sp` #}
 {% set globalSprintf = {
@@ -87,7 +87,7 @@
 <body>
 
 
-	{% include "components/_outdated-browser.nj" %}
+	{{ macros.outdatedBrowser(site.lang) }}
 
 
 	{% block body %}{% endblock %}
