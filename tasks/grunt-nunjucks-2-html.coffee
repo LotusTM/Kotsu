@@ -33,6 +33,17 @@ module.exports = (grunt) ->
   layoutsDir = grunt.config('path.source.layouts')
   localesDir = grunt.config('path.source.locales')
 
+  humanReadableUrl = (pagepath, ext) ->
+    exclude  = /^(index|\d\d\d)$/
+
+    # @todo Find way to get extension from current config dynamically
+    #       `grunt.task.current.data.files[0].ext` will work during initialization
+    #       but will fail when `grunt-newer` will run, since it will override `task.current`
+    basename = path.basename(src, ext)
+
+    if !exclude.test(basename)
+      pagepath = pagepath.replace(basename + ext, basename + '/index' + ext)
+    pagepath
 
   # Output or not locale's dir name based on whether it's base locale or not.
   getLocaleDir = (locale) ->
@@ -368,17 +379,7 @@ module.exports = (grunt) ->
         # and move them to directory named after basename of the file
         # @example `/posts/2015-10-12-article.nj` -> `/posts/2015-10-12-article.nj/index.html`
         rename: (dest, src) =>
-          exclude  = /^(index|\d\d\d)$/
-
-          # @todo Find way to get extension from current config dynamically
-          #       `grunt.task.current.data.files[0].ext` will work during initialization
-          #       but will fail when `grunt-newer` will run, since it will override `task.current`
-          ext      = '.html'
-          basename = path.basename(src, ext)
-
-          if !exclude.test(basename)
-            src = src.replace(basename + ext, basename + '/index' + ext)
-
+          src = humanReadableUrl(src, '.html')
           path.join(dest, src);
       ]
 
