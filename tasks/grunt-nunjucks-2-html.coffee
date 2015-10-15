@@ -205,6 +205,15 @@ module.exports = (grunt) ->
             moment.locale(locale);
             moment(date).format(format)
 
+          ###*
+           * Transform string into usable in urls form
+           * @param {string} string       String to transform
+           * @param {object} options = {} Options overrides as per https://github.com/Gottox/node-urlify
+           * @return {string} Urlified string
+          ###
+          env.addFilter 'urlify', (string, options = {}) ->
+            ulrlify(string, options)
+
         preprocessData: (data) ->
           fullFilepath = path.dirname(@src[0])
 
