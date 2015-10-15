@@ -252,16 +252,6 @@ module.exports = (grunt) ->
             array
 
           ###*
-           * Append string with locale name based on whether it's base locale or not
-           * Most useful for urls construction
-           * @param {string} string                 Target string
-           * @param {string} locale = currentLocale Locale name, for which resolving should be made
-           * @return {string} String with resolved locale in front
-          ###
-          env.addFilter 'resolveUrl', (string, locale = currentLocale) ->
-            return (if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else '') + string
-
-          ###*
            * Output or not locale name based on whether it's base locale or not.
            * @param {string} locale Name of locale, for which should be made resolving
            * @return {string} Resolved value
