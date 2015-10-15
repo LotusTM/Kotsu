@@ -38,6 +38,19 @@ module.exports = (grunt) ->
   getLocaleDir = (locale) ->
     urlify(if locale == baseLocale then '' else locale)
 
+  ###*
+   * Get language code from locale, without country
+   * @param {string} locale Locale, from which should be taken language code
+   * @return {string} Language code from locale
+  ###
+  getLangcode = (locale) ->
+    matched = locale.match(/^([\w]*)-?([\w]*)-?([\w]*)/i)
+    # In case of 3 and more matched parts assume that we're dealing with language, wich exists
+    # in few forms (like Latin and Cyrillic Serbian (`sr-Latn-CS` and `sr-Cyrl-CS`)
+    # For such languages we should output few first parts (`sr-Latn` and `sr-Cyrl`),
+    # for other — only first part
+    if matched[3] then matched[1] + '-' + matched[2] else matched[1]
+
 
   # Load and invoke content of l10n files
   # @todo Though that part of code will load all `.po` files, contained in locale's directory,
@@ -261,6 +274,14 @@ module.exports = (grunt) ->
           env.addFilter 'pushIn', (array, value) ->
             array.push(value)
             array
+
+          ###*
+           * Get language code from locale, without country
+           * @param {string} locale = currentLocale Locale, from which should be taken language code
+           * @return {string} Language code from locale
+          ###
+          env.addFilter 'langcode', (locale = currentLocale) ->
+            getLangcode(locale)
 
           ###*
            * Replace placeholders with provided values
