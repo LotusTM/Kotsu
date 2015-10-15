@@ -40,9 +40,10 @@ module.exports = (grunt) ->
 
 
   # Load and invoke content of l10n files
-  # @note Though that part of code will load all `.po` files, contained in locale's directory,
+  # @todo Though that part of code will load all `.po` files, contained in locale's directory,
   #       including subdirectories, due to limitation of `node-gettext` for now only last loaded
   #       file will be actually used
+  #       Github issue: https://github.com/andris9/node-gettext/issues/22
   locales.forEach (locale) ->
     grunt.file.expand({ cwd: localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (file) ->
       messages = grunt.file.read(localesDir + '/' + locale + '/' + file, { encoding: null })
