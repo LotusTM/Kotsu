@@ -124,9 +124,9 @@ module.exports = (grunt) ->
             result = _.get(obj, subbedPath)
             if result then result else grunt.log.error('[getPage] can\'t find requested `' + subbedPath + '` inside specified object')
 
-          # -------
+          # --------------
           # i18n functions
-          # -------
+          # --------------
 
           ###*
           * Load string from current locale
