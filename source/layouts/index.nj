@@ -32,7 +32,10 @@
 	</section>{# /grid #}
 
 
-	<section class="grid grid+ grid--middle margin-top+">
+	<hr class="margin-ends+">
+
+
+	<section class="grid grid+ grid--middle">
 
 		<div class="grid__item 2/5">
 			<h2 class="margin-bottom--flush">Macros examples</h2>
@@ -45,7 +48,40 @@
 	</section>{# /grid #}
 
 
-	<section class="grid grid+ grid--middle margin-top+">
+	<hr class="margin-ends+">
+
+
+	<section class="grid grid+ grid--middle">
+
+		<div class="grid__item 2/5">
+			<h2 class="margin-bottom--flush">i18n examples</h2>
+		</div>{# /grid__item #}
+
+		<div class="grid__item 3/5">
+
+			<p>This site available in following languages:</p>
+
+			<ul>
+				{% for locale in site.locales %}
+					<li>
+						{% if locale == page.locale %}
+							{{ locale }} (current)
+						{% else %}
+							<a href="{{ localeDir(locale) }}/">{{ locale }}</a>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+
+		</div>{# /grid__item #}
+
+	</section>{# /grid #}
+
+
+	<hr class="margin-ends+">
+
+
+	<section class="grid grid+ grid--middle">
 
 		<div class="grid__item 2/5">
 			<h2 class="margin-bottom--flush">Data examples</h2>
@@ -53,7 +89,7 @@
 
 		<div class="grid__item 3/5">
 
-			<section class="grid grid+ grid--middle margin-top+">
+			<section class="grid grid+ grid--middle">
 
 				<div class="grid__item 2/5">
 					<h3 class="margin-bottom--flush">Inline data</h3>
@@ -89,8 +125,10 @@
 
 	</section>{# /grid #}
 
+	<hr class="margin-ends+">
 
-	<p class="margin-top+">
+
+	<p>
 		Learn more about
 		<a class="btn link--go margin-left-" href="https://github.com/LotusTM/Kotsu" target="blank">Kotsu at Github</a>
 	</p>
