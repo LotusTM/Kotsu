@@ -99,7 +99,7 @@ module.exports = (grunt) ->
            * @return {array} Array of found files or directories
           ###
           env.addGlobal 'fileExpand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir + '/') ->
-            files   = []
+            files = []
             grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (file) ->
               files.push(file)
             files
@@ -124,9 +124,13 @@ module.exports = (grunt) ->
             result = _.get(obj, subbedPath)
             if result then result else grunt.log.error('[getPage] can\'t find requested `' + subbedPath + '` inside specified object')
 
+          # -------
+          # i18n functions
+          # -------
+
           ###*
           * Load string from current locale
-          * @note So far `sprintf` support only named placeholders
+          * @note So far `sprintf` supports only named placeholders
           * @param {string} string  String, which should be loaded
           * @param {object} ph = {} Values, which will be inserted instead of placeholders
           * @return {string} Translated string into current locale
@@ -136,7 +140,7 @@ module.exports = (grunt) ->
 
           ###*
            * Load string from specified locale
-           * @note So far `sprintf` support only named placeholders
+           * @note So far `sprintf` supports only named placeholders
            * @param {string} locale = currentLocale Locale, from which string should be loaded
            * @param {string} string                 String, which should be loaded
            * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
@@ -147,7 +151,7 @@ module.exports = (grunt) ->
 
           ###*
           * Load plural string from current locale
-          * @note So far `sprintf` support only named placeholders
+          * @note So far `sprintf` supports only named placeholders
           * @param {string} string       String, which should be loaded
           * @param {string} stringPlural Plural form of string
           * @param {number} count        Count for detecting correct plural form
@@ -159,7 +163,7 @@ module.exports = (grunt) ->
 
           ###*
            * Load plural string from specified locale
-           * @note So far `sprintf` support only named placeholders
+           * @note So far `sprintf` supports only named placeholders
            * @param {string} locale = currentLocale Locale, from which string should be loaded
            * @param {string} string                 String, which should be loaded
            * @param {string} stringPlural           Plural form of string
@@ -172,7 +176,7 @@ module.exports = (grunt) ->
 
           ###*
           * Load string of specific context from current locale
-          * @note So far `sprintf` support only named placeholders
+          * @note So far `sprintf` supports only named placeholders
           * @param {string} context Context of curret string
           * @param {string} string  String, which should be loaded
           * @param {object} ph = {} Values, which will be inserted instead of placeholders
@@ -183,7 +187,7 @@ module.exports = (grunt) ->
 
           ###*
            * Load string of specific context from specified locale
-           * @note So far `sprintf` support only named placeholders
+           * @note So far `sprintf` supports only named placeholders
            * @param {string} locale = currentLocale Locale, from which string should be loaded
            * @param {string} context                Context of curret string
            * @param {string} string                 String, which should be loaded
@@ -195,7 +199,7 @@ module.exports = (grunt) ->
 
           ###*
           * Load plural string of specific context from current locale
-          * @note So far `sprintf` support only named placeholders
+          * @note So far `sprintf` supports only named placeholders
           * @param {string} context      Context of curret string
           * @param {string} string       String, which should be loaded
           * @param {string} stringPlural Plural form of string
@@ -208,7 +212,7 @@ module.exports = (grunt) ->
 
           ###*
            * Load plural string of specific context from specified locale
-           * @note So far `sprintf` support only named placeholders
+           * @note So far `sprintf` supports only named placeholders
            * @param {string} locale = currentLocale Locale, from which string should be loaded
            * @param {string} context                Context of curret string
            * @param {string} string                 String, which should be loaded
