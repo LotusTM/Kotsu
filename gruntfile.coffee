@@ -84,11 +84,11 @@ module.exports = (grunt) ->
         scripts: '<%= grunt.template.process(path.build.scripts).replace(path.build.root + \'/\', \'\') %>'
         thumbnails: '<%= grunt.template.process(path.build.thumbnails).replace(path.build.root + \'/\', \'\') %>'
       site:
-        locales: ['en-US', 'ru', 'zh-CN']
-        baseLocale: 'en-US'
         name: '<%= pkg.name %>'
         title: '<%= pkg.title %>'
         version: '<%= pkg.version %>'
+        locales: ['en-US', 'ru', 'zh-CN']
+        baseLocale: 'en-US'
       pages: grunt.file.readYAML 'source/data/pages.yml'
       data:
         currentYear: new Date().getFullYear()
