@@ -34,9 +34,9 @@ module.exports = (grunt) ->
   localesDir = grunt.config('path.source.locales')
 
 
-  # Output or not locale name based on whether it's base locale or not.
-  resolveLocaleDir = (loc) ->
-    urlify(if loc == baseLocale then '' else loc)
+  # Output or not locale's dir name based on whether it's base locale or not.
+  getLocaleDir = (locale) ->
+    urlify(if locale == baseLocale then '' else locale)
 
 
   # Load and invoke content of l10n files
@@ -54,7 +54,7 @@ module.exports = (grunt) ->
   Task = ->
     # Define targets, with unique options and files, for each locale
     locales.forEach (currentLocale) =>
-      localeDir = resolveLocaleDir(currentLocale)
+      localeDir = getLocaleDir(currentLocale)
 
       @[currentLocale] = {}
 
@@ -136,7 +136,7 @@ module.exports = (grunt) ->
            * @example <a href="{{ localeDir() }}/blog/">blog link</a>
           ###
           env.addGlobal 'localeDir', (locale = currentLocale) ->
-            localeDir = resolveLocaleDir(locale)
+            localeDir = getLocaleDir(locale)
             if localeDir then '/' + localeDir else ''
 
           ###*
