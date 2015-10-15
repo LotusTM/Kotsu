@@ -129,6 +129,17 @@ module.exports = (grunt) ->
           # --------------
 
           ###*
+           * Output or not locale's dir name based on whether it's base locale or not.
+           * Most useful for urls construction
+           * @param {string} locale = currentLocale locale Name of locale, for which should be made resolving
+           * @return {string} Resolved dir name
+           * @example <a href="{{ localeDir() }}/blog/">blog link</a>
+          ###
+          env.addGlobal 'localeDir', (locale = currentLocale) ->
+            localeDir = resolveLocaleDir(locale)
+            if localeDir then '/' + localeDir else ''
+
+          ###*
           * Load string from current locale
           * @note So far `sprintf` supports only named placeholders
           * @param {string} string  String, which should be loaded
@@ -250,14 +261,6 @@ module.exports = (grunt) ->
           env.addFilter 'pushIn', (array, value) ->
             array.push(value)
             array
-
-          ###*
-           * Output or not locale name based on whether it's base locale or not.
-           * @param {string} locale Name of locale, for which should be made resolving
-           * @return {string} Resolved value
-          ###
-          env.addFilter 'resolveLocaleDir', (locale) ->
-            if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else ''
 
           ###*
            * Replace placeholders with provided values
