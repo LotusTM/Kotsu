@@ -204,9 +204,9 @@ module.exports = (grunt) ->
            * @param {number} count                  Current count
            * @param {array}  forms                  List of possible plural forms
            * @param {string} locale = currentLocale Locale name
-           * @return {string} Pluralized string
+           * @return {string} Correct plural form
           ###
-          env.addGlobal '_p', (count, locale = currentLocale) ->
+          env.addFilter '_p', (count, forms, locale = currentLocale) ->
             smartPlurals.Plurals.getRule(locale)
             smartPlurals(count, forms)
 
