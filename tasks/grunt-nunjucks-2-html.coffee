@@ -63,44 +63,9 @@ module.exports = (grunt) ->
         autoescape: false
         data:  '<%= data %>'
         configureEnvironment: (env) ->
-          ###*
-           * Append string with locale name based on whether it's base locale or not
-           * Most useful for urls construction
-           * @param  {string} string                 Target string
-           * @param  {string} locale = currentLocale Locale name, for which resolving should be made
-           * @return {string} String with resolved locale in front
-          ###
-          env.addFilter 'resolveUrl', (string, locale = currentLocale) ->
-            return (if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else '') + string
-
-          ###*
-           * Output or not locale name based on whether it's base locale or not.
-           * @param  {string} locale Name of locale, for which should be made resolving
-           * @return {string} Resolved value
-          ###
-          env.addFilter 'resolveLocaleDir', (locale) ->
-            if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else ''
-
-          ###*
-          * Load string from current locale
-          * @note So far `sprintf` support only named placeholders
-          * @param  {string} string  String, which should be loaded
-          * @param  {object} ph = {} Values, which will be inserted instead of placeholders
-          * @return {string} Translated string into current locale
-          ###
-          env.addGlobal '_t', (string, ph = {}) ->
-            sprintf(i18n.dgettext(currentLocale, string), ph)
-
-          ###*
-           * Load string from specified locale
-           * @note So far `sprintf` support only named placeholders
-           * @param  {string} locale = currentLocale Locale, from which string should be loaded
-           * @param  {string} string                 String, which should be loaded
-           * @param  {object} ph     = {}            Values, which will be inserted instead of placeholders
-           * @return {string} Translated string into specified locale
-          ###
-          env.addGlobal '_dt', (locale = currentLocale, string, ph = {}) ->
-            sprintf(i18n.dgettext(locale, string), ph)
+          # ==========
+          # Extensions
+          # ==========
 
           ###*
            * Nunjucks extension for Markdown support
@@ -108,10 +73,36 @@ module.exports = (grunt) ->
           ###
           markdown.register(env, marked)
 
+          # =======
+          # Globals
+          # =======
+
           ###*
            * Pass lodash inside Nunjucks
           ###
           env.addGlobal '_', _
+
+          ###*
+           * Log specified to Grunt's console for debug purposes
+           * @param {*} variable Anything we want to log to console
+           * @return {string} Logs to Grunt console
+          ###
+          env.addGlobal 'log', (variable) ->
+            console.log(variable)
+
+          ###*
+           * Get list of files or directories inside specified directory
+           * @param {string}               path    = ''             Path where to look
+           * @param {string|array[string]} pattern = '** /*'         What should be matched
+           * @param {string}               filter  = 'isFile'       Type of entity which should be matched
+           * @param {string}               cwd     = buildDir + '/' Root for lookup
+           * @return {array} Array of found files or directories
+          ###
+          env.addGlobal 'fileExpand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir + '/') ->
+            files   = []
+            grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (file) ->
+              files.push(file)
+            files
 
           ###*
            * Get information about page from specified object.
@@ -134,12 +125,29 @@ module.exports = (grunt) ->
             if result then result else grunt.log.error('[getPage] can\'t find requested `' + subbedPath + '` inside specified object')
 
           ###*
-           * Log specified to Grunt's console for debug purposes
-           * @param {*} variable Anything we want to log to console
-           * @return {string} Logs to Grunt console
+          * Load string from current locale
+          * @note So far `sprintf` support only named placeholders
+          * @param  {string} string  String, which should be loaded
+          * @param  {object} ph = {} Values, which will be inserted instead of placeholders
+          * @return {string} Translated string into current locale
           ###
-          env.addGlobal 'log', (variable) ->
-            console.log(variable)
+          env.addGlobal '_t', (string, ph = {}) ->
+            sprintf(i18n.dgettext(currentLocale, string), ph)
+
+          ###*
+           * Load string from specified locale
+           * @note So far `sprintf` support only named placeholders
+           * @param  {string} locale = currentLocale Locale, from which string should be loaded
+           * @param  {string} string                 String, which should be loaded
+           * @param  {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @return {string} Translated string into specified locale
+          ###
+          env.addGlobal '_dt', (locale = currentLocale, string, ph = {}) ->
+            sprintf(i18n.dgettext(locale, string), ph)
+
+          # =======
+          # Filters
+          # =======
 
           ###*
            * Replaces last array element with new value
@@ -165,18 +173,22 @@ module.exports = (grunt) ->
             array
 
           ###*
-           * Get list of files or directories inside specified directory
-           * @param {string}               path    = ''             Path where to look
-           * @param {string|array[string]} pattern = '** /*'         What should be matched
-           * @param {string}               filter  = 'isFile'       Type of entity which should be matched
-           * @param {string}               cwd     = buildDir + '/' Root for lookup
-           * @return {array} Array of found files or directories
+           * Append string with locale name based on whether it's base locale or not
+           * Most useful for urls construction
+           * @param  {string} string                 Target string
+           * @param  {string} locale = currentLocale Locale name, for which resolving should be made
+           * @return {string} String with resolved locale in front
           ###
-          env.addGlobal 'fileExpand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir + '/') ->
-            files   = []
-            grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (file) ->
-              files.push(file)
-            files
+          env.addFilter 'resolveUrl', (string, locale = currentLocale) ->
+            return (if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else '') + string
+
+          ###*
+           * Output or not locale name based on whether it's base locale or not.
+           * @param  {string} locale Name of locale, for which should be made resolving
+           * @return {string} Resolved value
+          ###
+          env.addFilter 'resolveLocaleDir', (locale) ->
+            if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else ''
 
           ###*
            * Replace placeholders with provided values
