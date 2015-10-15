@@ -15,6 +15,6 @@
 
 	<p>Lost? Just use magic button below:</p>
 
-	<p class="margin-top+"><a class="btn link--back" href="/">Home</a></p>
+	<p class="margin-top+"><a class="btn link--back" href="{{ localeDir() }}/">Home</a></p>
 
 {% endblock %}
