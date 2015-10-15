@@ -34,8 +34,6 @@ module.exports = (grunt) ->
   localesDir = grunt.config('path.source.locales')
 
 
-  # Helpers
-
   # Output or not locale name based on whether it's base locale or not.
   resolveLocaleDir = (loc) ->
     urlify(if loc == baseLocale then '' else loc)
@@ -46,9 +44,7 @@ module.exports = (grunt) ->
   #       including subdirectories, due to limitation of `node-gettext` for now only last loaded
   #       file will be actually used
   locales.forEach (locale) ->
-
     grunt.file.expand({ cwd: localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (file) ->
-
       messages = grunt.file.read(localesDir + '/' + locale + '/' + file, { encoding: null })
       i18n.addTextdomain(locale, messages)
 
@@ -66,20 +62,42 @@ module.exports = (grunt) ->
         autoescape: false
         data:  '<%= data %>'
         configureEnvironment: (env) ->
-          # Append url with locale name based on whether it's base locale or not
-          env.addFilter 'resolveUrl', (url, locale = currentLocale) ->
-            return (if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else '') + url
+          ###*
+           * Append string with locale name based on whether it's base locale or not
+           * Most useful for urls construction
+           * @param  {string} string                 Target string
+           * @param  {string} locale = currentLocale Locale name, for which resolving should be made
+           * @return {string} String with resolved locale in front
+          ###
+          env.addFilter 'resolveUrl', (string, locale = currentLocale) ->
+            return (if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else '') + string
 
-          # Output or not locale name based on whether it's base locale or not.
+          ###*
+           * Output or not locale name based on whether it's base locale or not.
+           * @param  {string} locale Name of locale, for which should be made resolving
+           * @return {string} Resolved value
+          ###
           env.addFilter 'resolveLocaleDir', (locale) ->
             if resolveLocaleDir(locale) then '/' + resolveLocaleDir(locale) else ''
 
-          # Load string from current locale
+          ###*
+          * Load string from current locale
+          * @note So far `sprintf` support only named placeholders
+          * @param  {string} string  String, which should be loaded
+          * @param  {object} ph = {} Values, which will be inserted instead of placeholders
+          * @return {string} Translated string into current locale
+          ###
           env.addGlobal '_t', (string, ph = {}) ->
             sprintf(i18n.dgettext(currentLocale, string), ph)
 
-          # Load string from specified locale
-          # @note So far `sprintf` support only named placeholders
+          ###*
+           * Load string from specified locale
+           * @note So far `sprintf` support only named placeholders
+           * @param  {string} locale = currentLocale Locale, from which string should be loaded
+           * @param  {string} string                 String, which should be loaded
+           * @param  {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @return {string} Translated string into specified locale
+          ###
           env.addGlobal '_dt', (locale = currentLocale, string, ph = {}) ->
             sprintf(i18n.dgettext(locale, string), ph)
 
@@ -197,7 +215,7 @@ module.exports = (grunt) ->
            * @todo Use global function instead of filter. It's more flexible. For now it's filter
            *       just because it's faster to use and easier replacement for old filter
            * @param {number} value                  Date which should be formatted
-           * @param {string} format = '0,0[.]00'    Pattern as per http://momentjs.com/docs/#/displaying/
+           * @param {string} format = 'DD MMM YYYY' Pattern as per http://momentjs.com/docs/#/displaying/
            * @param {string} locale = currentLocale Locale name
            * @return {string} Formatted date
           ###
