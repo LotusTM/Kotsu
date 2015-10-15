@@ -348,7 +348,7 @@ module.exports = (grunt) ->
             ulrlify(string, options)
 
         preprocessData: (data) ->
-          fullFilepath = path.dirname(@src[0])
+          fullFilepath = path.dirname(humanReadableUrl(@src[0]))
 
           if fullFilepath == layoutsDir
             filepath = ''
