@@ -127,8 +127,8 @@ module.exports = (grunt) ->
           ###*
           * Load string from current locale
           * @note So far `sprintf` support only named placeholders
-          * @param  {string} string  String, which should be loaded
-          * @param  {object} ph = {} Values, which will be inserted instead of placeholders
+          * @param {string} string  String, which should be loaded
+          * @param {object} ph = {} Values, which will be inserted instead of placeholders
           * @return {string} Translated string into current locale
           ###
           env.addGlobal '_t', (string, ph = {}) ->
@@ -137,13 +137,88 @@ module.exports = (grunt) ->
           ###*
            * Load string from specified locale
            * @note So far `sprintf` support only named placeholders
-           * @param  {string} locale = currentLocale Locale, from which string should be loaded
-           * @param  {string} string                 String, which should be loaded
-           * @param  {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * @param {string} string                 String, which should be loaded
+           * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
            * @return {string} Translated string into specified locale
           ###
           env.addGlobal '_dt', (locale = currentLocale, string, ph = {}) ->
             sprintf(i18n.dgettext(locale, string), ph)
+
+          ###*
+          * Load plural string from current locale
+          * @note So far `sprintf` support only named placeholders
+          * @param {string} string       String, which should be loaded
+          * @param {string} stringPlural Plural form of string
+          * @param {number} count        Count for detecting correct plural form
+          * @param {object} ph = {}      Values, which will be inserted instead of placeholders
+          * @return {string} Pluralized and translated into current locale string
+          ###
+          env.addGlobal '_nt', (string, stringPlural, count, ph = {}) ->
+            sprintf(i18n.dngettext(currentLocale, string, stringPlural, count), ph)
+
+          ###*
+           * Load plural string from specified locale
+           * @note So far `sprintf` support only named placeholders
+           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * @param {string} string                 String, which should be loaded
+           * @param {string} stringPlural           Plural form of string
+           * @param {number} count                  Count for detecting correct plural form
+           * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @return {string} Pluralized and translated into specified loca stringle
+          ###
+          env.addGlobal '_dnt', (locale = currentLocale, string, stringPlural, count, ph = {}) ->
+            sprintf(i18n.dngettext(locale, string, stringPlural, count), ph)
+
+          ###*
+          * Load string of specific context from current locale
+          * @note So far `sprintf` support only named placeholders
+          * @param {string} context Context of curret string
+          * @param {string} string  String, which should be loaded
+          * @param {object} ph = {} Values, which will be inserted instead of placeholders
+          * @return {string} Translated string into current locale
+          ###
+          env.addGlobal '_pt', (context, string, ph = {}) ->
+            sprintf(i18n.dpgettext(currentLocale, context, string), ph)
+
+          ###*
+           * Load string of specific context from specified locale
+           * @note So far `sprintf` support only named placeholders
+           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * @param {string} context                Context of curret string
+           * @param {string} string                 String, which should be loaded
+           * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @return {string} Translated string into specified locale
+          ###
+          env.addGlobal '_dpt', (locale = currentLocale, context, string, ph = {}) ->
+            sprintf(i18n.dpgettext(locale, context, string), ph)
+
+          ###*
+          * Load plural string of specific context from current locale
+          * @note So far `sprintf` support only named placeholders
+          * @param {string} context      Context of curret string
+          * @param {string} string       String, which should be loaded
+          * @param {string} stringPlural Plural form of string
+          * @param {number} count        Count for detecting correct plural form
+          * @param {object} ph = {}      Values, which will be inserted instead of placeholders
+          * @return {string} Pluralized and translated into current locale string
+          ###
+          env.addGlobal '_npt', (context, string, stringPlural, count, ph = {}) ->
+            sprintf(i18n.dnpgettext(currentLocale, context, string, stringPlural, count), ph)
+
+          ###*
+           * Load plural string of specific context from specified locale
+           * @note So far `sprintf` support only named placeholders
+           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * @param {string} context                Context of curret string
+           * @param {string} string                 String, which should be loaded
+           * @param {string} stringPlural           Plural form of string
+           * @param {number} count                  Count for detecting correct plural form
+           * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @return {string} Pluralized and translated into specified loca stringle
+          ###
+          env.addGlobal '_dnpt', (locale = currentLocale, context, string, stringPlural, count, ph = {}) ->
+            sprintf(i18n.dnpgettext(locale, context, string, stringPlural, count), ph)
 
           # =======
           # Filters
@@ -175,8 +250,8 @@ module.exports = (grunt) ->
           ###*
            * Append string with locale name based on whether it's base locale or not
            * Most useful for urls construction
-           * @param  {string} string                 Target string
-           * @param  {string} locale = currentLocale Locale name, for which resolving should be made
+           * @param {string} string                 Target string
+           * @param {string} locale = currentLocale Locale name, for which resolving should be made
            * @return {string} String with resolved locale in front
           ###
           env.addFilter 'resolveUrl', (string, locale = currentLocale) ->
@@ -184,7 +259,7 @@ module.exports = (grunt) ->
 
           ###*
            * Output or not locale name based on whether it's base locale or not.
-           * @param  {string} locale Name of locale, for which should be made resolving
+           * @param {string} locale Name of locale, for which should be made resolving
            * @return {string} Resolved value
           ###
           env.addFilter 'resolveLocaleDir', (locale) ->
