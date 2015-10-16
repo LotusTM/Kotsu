@@ -168,7 +168,7 @@ module.exports = (grunt) ->
           * @param {object} ph = {} Values, which will be inserted instead of placeholders
           * @return {string} Translated string into current locale
           ###
-          env.addGlobal '_t', (string, ph = {}) ->
+          env.addGlobal 'gettext', (string, ph = {}) ->
             sprintf(i18n.dgettext(currentLocale, string), ph)
 
           ###*
@@ -179,7 +179,7 @@ module.exports = (grunt) ->
            * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
            * @return {string} Translated string into specified locale
           ###
-          env.addGlobal '_dt', (locale = currentLocale, string, ph = {}) ->
+          env.addGlobal 'dgettext', (locale = currentLocale, string, ph = {}) ->
             sprintf(i18n.dgettext(locale, string), ph)
 
           ###*
@@ -191,7 +191,7 @@ module.exports = (grunt) ->
           * @param {object} ph = {}      Values, which will be inserted instead of placeholders
           * @return {string} Pluralized and translated into current locale string
           ###
-          env.addGlobal '_nt', (string, stringPlural, count, ph = {}) ->
+          env.addGlobal 'ngettext', (string, stringPlural, count, ph = {}) ->
             sprintf(i18n.dngettext(currentLocale, string, stringPlural, count), ph)
 
           ###*
@@ -204,7 +204,7 @@ module.exports = (grunt) ->
            * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal '_dnt', (locale = currentLocale, string, stringPlural, count, ph = {}) ->
+          env.addGlobal 'dngettext', (locale = currentLocale, string, stringPlural, count, ph = {}) ->
             sprintf(i18n.dngettext(locale, string, stringPlural, count), ph)
 
           ###*
@@ -215,7 +215,7 @@ module.exports = (grunt) ->
           * @param {object} ph = {} Values, which will be inserted instead of placeholders
           * @return {string} Translated string into current locale
           ###
-          env.addGlobal '_pt', (context, string, ph = {}) ->
+          env.addGlobal 'pgettext', (context, string, ph = {}) ->
             sprintf(i18n.dpgettext(currentLocale, context, string), ph)
 
           ###*
@@ -227,7 +227,7 @@ module.exports = (grunt) ->
            * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
            * @return {string} Translated string into specified locale
           ###
-          env.addGlobal '_dpt', (locale = currentLocale, context, string, ph = {}) ->
+          env.addGlobal 'dpgettext', (locale = currentLocale, context, string, ph = {}) ->
             sprintf(i18n.dpgettext(locale, context, string), ph)
 
           ###*
@@ -240,7 +240,7 @@ module.exports = (grunt) ->
           * @param {object} ph = {}      Values, which will be inserted instead of placeholders
           * @return {string} Pluralized and translated into current locale string
           ###
-          env.addGlobal '_npt', (context, string, stringPlural, count, ph = {}) ->
+          env.addGlobal 'npgettext', (context, string, stringPlural, count, ph = {}) ->
             sprintf(i18n.dnpgettext(currentLocale, context, string, stringPlural, count), ph)
 
           ###*
@@ -254,7 +254,7 @@ module.exports = (grunt) ->
            * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal '_dnpt', (locale = currentLocale, context, string, stringPlural, count, ph = {}) ->
+          env.addGlobal 'dnpgettext', (locale = currentLocale, context, string, stringPlural, count, ph = {}) ->
             sprintf(i18n.dnpgettext(locale, context, string, stringPlural, count), ph)
 
           # =======
