@@ -15,6 +15,9 @@ module.exports = ->
     data:
       files: ['<%= path.source.data %>/{,**/}*.{json,yml}']
       tasks: ['nunjucks']
+    locales:
+      files: ['<%= path.source.locales %>/{,**/}*.po']
+      tasks: ['nunjucks']
     fonts:
       files: ['<%= path.source.fonts %>/{,**/}*']
       tasks: ['copy:fonts']
