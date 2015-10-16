@@ -379,6 +379,9 @@ module.exports = (grunt) ->
            * Format number based on given pattern
            * @todo Use global function instead of filter. It's more flexible. For now it's filter
            *       just because it's faster to use and easier replacement for old filter
+           * @todo There are few issues with current lib:
+           *       * https://github.com/foretagsplatsen/numbro/issues/111
+           *       * https://github.com/foretagsplatsen/numbro/issues/112
            * @param {number} value                  Number which should be formatted
            * @param {string} format = '0,0[.]00'    Pattern as per http://numbrojs.com/format.html
            * @param {string} locale = currentLocale Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
