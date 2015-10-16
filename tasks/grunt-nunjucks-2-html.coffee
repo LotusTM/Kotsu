@@ -388,7 +388,7 @@ module.exports = (grunt) ->
            * @return {string} Formatted number
           ###
           env.addFilter '_n', (value, format = '0,0[.]00', locale = currentLocale) ->
-            numbro.language(locale)
+            numbro.setLanguage(locale)
             numbro(value).format(format)
 
           ###*
