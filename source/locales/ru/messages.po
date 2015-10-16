@@ -19,7 +19,7 @@ msgstr "Ваш браузер <strong>устарел</strong>! Пожалуйс�
 
 #: source/layouts/index.nj:76
 msgid "This string will be displayd in selected language"
-msgstr "Эта строка будет отображать на выбранном языке"
+msgstr "Эта строка будет отображаться на выбранном языке"
 
 #: source/layouts/index.nj:79
 msgid "%s apple"
