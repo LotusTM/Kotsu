@@ -11,7 +11,7 @@ module.exports = (grunt) ->
   moment       = require('moment')
   smartPlurals = require('smart-plurals')
   sprintf      = require('sprintf-js').sprintf
-  vsprintf     = require('sprintf-js').vsprintf # @note Not used so far
+  vsprintf     = require('sprintf-js').vsprintf
   Gettext      = require('node-gettext')
   i18n         = new Gettext()
   marked       = require('marked')
@@ -34,6 +34,23 @@ module.exports = (grunt) ->
   buildDir      = grunt.config('path.build.root')
   layoutsDir    = grunt.config('path.source.layouts')
   localesDir    = grunt.config('path.source.locales')
+
+  ###*
+   * Replace placeholders with provided values via `sprintf` or `vsprintf`. Function will choice
+   * proper `printf` depending on povided placeholders
+   * @param {string}              string          String in which should be made replacement
+   * @param {string|object|array} placeholders... List of placeholders, object with named
+   *                                              placeholders or arrays of placeholders
+   * @return {string} String with replaced placeholders
+  ###
+  printf = (string, placeholders...) ->
+    placeholder = placeholders[0]
+
+    if placeholders.length == 1 and Array.isArray placeholder
+      return vsprintf string, placeholder
+    else
+      placeholders.unshift(string)
+      return sprintf.apply null, placeholders
 
   humanReadableUrl = (pagepath) ->
     exclude  = /^(index|\d{3})$/
@@ -177,98 +194,122 @@ module.exports = (grunt) ->
           ###*
           * Load string from current locale
           * @note So far `sprintf` supports only named placeholders
-          * @param {string} string  String, which should be loaded
-          * @param {object} ph = {} Values, which will be inserted instead of placeholders
+          * @param {string}              string          String, which should be loaded
+          * @param {string|object|array} placeholders... List of placeholders, object with named
+          *                                              placeholders or arrays of placeholders
           * @return {string} Translated string into current locale
           ###
-          env.addGlobal 'gettext', (string, ph = {}) ->
-            sprintf(i18n.dgettext(currentLocale, string), ph)
+          env.addGlobal 'gettext', (string, placeholders...) ->
+            string = i18n.dgettext(currentLocale, string)
+            placeholders.unshift(string)
+            printf.apply null, placeholders
 
           ###*
            * Load string from specified locale
            * @note So far `sprintf` supports only named placeholders
-           * @param {string} locale = currentLocale Locale, from which string should be loaded
-           * @param {string} string                 String, which should be loaded
-           * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @param {string}              locale = currentLocale Locale, from which string should be loaded
+           * @param {string}              string                 String, which should be loaded
+           * @param {string|object|array} placeholders...        List of placeholders, object with named
+           *                                                     placeholders or arrays of placeholders
            * @return {string} Translated string into specified locale
           ###
-          env.addGlobal 'dgettext', (locale = currentLocale, string, ph = {}) ->
-            sprintf(i18n.dgettext(locale, string), ph)
+          env.addGlobal 'dgettext', (locale = currentLocale, string, placeholders...) ->
+            string = i18n.dgettext(locale, string)
+            placeholders.unshift(string)
+            printf.apply null, placeholders
 
           ###*
           * Load plural string from current locale
           * @note So far `sprintf` supports only named placeholders
-          * @param {string} string       String, which should be loaded
-          * @param {string} stringPlural Plural form of string
-          * @param {number} count        Count for detecting correct plural form
-          * @param {object} ph = {}      Values, which will be inserted instead of placeholders
+          * @param {string}              string          String, which should be loaded
+          * @param {string}              stringPlural    Plural form of string
+          * @param {number}              count           Count for detecting correct plural form
+          * @param {string|object|array} placeholders... List of placeholders, object with named
+          *                                              placeholders or arrays of placeholders
           * @return {string} Pluralized and translated into current locale string
           ###
-          env.addGlobal 'ngettext', (string, stringPlural, count, ph = {}) ->
-            sprintf(i18n.dngettext(currentLocale, string, stringPlural, count), ph)
+          env.addGlobal 'ngettext', (string, stringPlural, count, placeholders...) ->
+            string = i18n.dngettext(currentLocale, string, stringPlural, count)
+            placeholders.unshift(string)
+            printf.apply null, placeholders
 
           ###*
            * Load plural string from specified locale
            * @note So far `sprintf` supports only named placeholders
-           * @param {string} locale = currentLocale Locale, from which string should be loaded
-           * @param {string} string                 String, which should be loaded
-           * @param {string} stringPlural           Plural form of string
-           * @param {number} count                  Count for detecting correct plural form
-           * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @param {string}              locale = currentLocale Locale, from which string should be loaded
+           * @param {string}              string                 String, which should be loaded
+           * @param {string}              stringPlural           Plural form of string
+           * @param {number}              count                  Count for detecting correct plural form
+           * @param {string|object|array} placeholders...        List of placeholders, object with named
+           *                                                     placeholders or arrays of placeholders
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal 'dngettext', (locale = currentLocale, string, stringPlural, count, ph = {}) ->
-            sprintf(i18n.dngettext(locale, string, stringPlural, count), ph)
+          env.addGlobal 'dngettext', (locale = currentLocale, string, stringPlural, count, placeholders...) ->
+            string = i18n.dngettext(locale, string, stringPlural, count)
+            placeholders.unshift(string)
+            printf.apply null, placeholders
 
           ###*
           * Load string of specific context from current locale
           * @note So far `sprintf` supports only named placeholders
-          * @param {string} context Context of curret string
-          * @param {string} string  String, which should be loaded
-          * @param {object} ph = {} Values, which will be inserted instead of placeholders
+          * @param {string}              context         Context of curret string
+          * @param {string}              string          String, which should be loaded
+          * @param {string|object|array} placeholders... List of placeholders, object with named
+          *                                              placeholders or arrays of placeholders
           * @return {string} Translated string into current locale
           ###
-          env.addGlobal 'pgettext', (context, string, ph = {}) ->
-            sprintf(i18n.dpgettext(currentLocale, context, string), ph)
+          env.addGlobal 'pgettext', (context, string, placeholders...) ->
+            string = i18n.dpgettext(currentLocale, context, string)
+            placeholders.unshift(string)
+            printf.apply null, placeholders
 
           ###*
            * Load string of specific context from specified locale
            * @note So far `sprintf` supports only named placeholders
-           * @param {string} locale = currentLocale Locale, from which string should be loaded
-           * @param {string} context                Context of curret string
-           * @param {string} string                 String, which should be loaded
-           * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @param {string}              locale = currentLocale Locale, from which string should be loaded
+           * @param {string}              context                Context of curret string
+           * @param {string}              string                 String, which should be loaded
+           * @param {string|object|array} placeholders...        List of placeholders, object with named
+           *                                                     placeholders or arrays of placeholders
            * @return {string} Translated string into specified locale
           ###
-          env.addGlobal 'dpgettext', (locale = currentLocale, context, string, ph = {}) ->
-            sprintf(i18n.dpgettext(locale, context, string), ph)
+          env.addGlobal 'dpgettext', (locale = currentLocale, context, string, placeholders...) ->
+            string = i18n.dpgettext(locale, context, string)
+            placeholders.unshift(string)
+            printf.apply null, placeholders
 
           ###*
           * Load plural string of specific context from current locale
           * @note So far `sprintf` supports only named placeholders
-          * @param {string} context      Context of curret string
-          * @param {string} string       String, which should be loaded
-          * @param {string} stringPlural Plural form of string
-          * @param {number} count        Count for detecting correct plural form
-          * @param {object} ph = {}      Values, which will be inserted instead of placeholders
+          * @param {string}              context         Context of curret string
+          * @param {string}              string          String, which should be loaded
+          * @param {string}              stringPlural    Plural form of string
+          * @param {number}              count           Count for detecting correct plural form
+          * @param {string|object|array} placeholders... List of placeholders, object with named
+          *                                              placeholders or arrays of placeholders
           * @return {string} Pluralized and translated into current locale string
           ###
-          env.addGlobal 'npgettext', (context, string, stringPlural, count, ph = {}) ->
-            sprintf(i18n.dnpgettext(currentLocale, context, string, stringPlural, count), ph)
+          env.addGlobal 'npgettext', (context, string, stringPlural, count, placeholders...) ->
+            string = i18n.dnpgettext(currentLocale, context, string, stringPlural, count)
+            placeholders.unshift(string)
+            printf.apply null, placeholders
 
           ###*
            * Load plural string of specific context from specified locale
            * @note So far `sprintf` supports only named placeholders
-           * @param {string} locale = currentLocale Locale, from which string should be loaded
-           * @param {string} context                Context of curret string
-           * @param {string} string                 String, which should be loaded
-           * @param {string} stringPlural           Plural form of string
-           * @param {number} count                  Count for detecting correct plural form
-           * @param {object} ph     = {}            Values, which will be inserted instead of placeholders
+           * @param {string}              locale = currentLocale Locale, from which string should be loaded
+           * @param {string}              context                Context of curret string
+           * @param {string}              string                 String, which should be loaded
+           * @param {string}              stringPlural           Plural form of string
+           * @param {number}              count                  Count for detecting correct plural form
+           * @param {string|object|array} placeholders...        List of placeholders, object with named
+           *                                                     placeholders or arrays of placeholders
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal 'dnpgettext', (locale = currentLocale, context, string, stringPlural, count, ph = {}) ->
-            sprintf(i18n.dnpgettext(locale, context, string, stringPlural, count), ph)
+          env.addGlobal 'dnpgettext', (locale = currentLocale, context, string, stringPlural, count, placeholders...) ->
+            string = i18n.dnpgettext(locale, context, string, stringPlural, count)
+            placeholders.unshift(string)
+            printf.apply null, placeholders
 
           # =======
           # Filters
@@ -307,12 +348,14 @@ module.exports = (grunt) ->
 
           ###*
            * Replace placeholders with provided values
-           * @param {string} string String in which should be made replacement
-           * @param {object} ph     Collection of placeholders
+           * @param {string} string                       String in which should be made replacement
+           * @param {string|object|array} placeholders... List of placeholders, object with named
+           *                                              placeholders or arrays of placeholders
            * @return {string} String with replaced placeholders
           ###
-          env.addFilter '_sp', (string, ph = {}) ->
-            sprintf(string, ph)
+          env.addFilter '_sp', (string, placeholders...) ->
+            placeholders.unshift(string)
+            printf.apply null, placeholders
 
           ###*
            * Pluralize string based on count
