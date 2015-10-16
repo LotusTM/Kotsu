@@ -365,7 +365,7 @@ module.exports = (grunt) ->
             printf.apply null, placeholders
 
           ###*
-           * Pluralize string based on count
+           * Pluralize string based on count. For situations, where full i18n is too much
            * @param {number} count                  Current count
            * @param {array}  forms                  List of possible plural forms
            * @param {string} locale = currentLocale Locale name
