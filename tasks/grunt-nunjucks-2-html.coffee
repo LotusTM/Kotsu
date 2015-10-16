@@ -52,6 +52,13 @@ module.exports = (grunt) ->
       placeholders.unshift(string)
       return sprintf.apply null, placeholders
 
+  ###*
+   * Rename pagepath (except if it's matching `exclude` pattern) to `index.html` and move
+   * to directory named after basename of the file
+   * @example `/posts/2015-10-12-article.nj` -> `/posts/2015-10-12-article.nj/index.html`
+   * @param  {string} pagepath Path to page
+   * @return {string} Renamed path
+  ###
   humanReadableUrl = (pagepath) ->
     exclude  = /^(index|\d{3})$/
 
@@ -429,9 +436,6 @@ module.exports = (grunt) ->
         src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
         dest: '<%= path.build.root %>/' + localeDir
         ext: '.html'
-        # Rename all except matching `exclude` pattern files to `index.html`
-        # and move them to directory named after basename of the file
-        # @example `/posts/2015-10-12-article.nj` -> `/posts/2015-10-12-article.nj/index.html`
         rename: (dest, src) =>
           src = humanReadableUrl(src)
           path.join(dest, src);
