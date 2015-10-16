@@ -392,6 +392,17 @@ module.exports = (grunt) ->
             numbro(value).format(format)
 
           ###*
+           * Convert number into currency based on given locale or pattern
+           * @param {number} value                  Number which should be converted
+           * @param {string} format                 Pattern as per http://numbrojs.com/format.html
+           * @param {string} locale = currentLocale Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
+           * @return {string} Number with currency symbol in proper position
+          ###
+          env.addFilter '_cur', (value, format, locale = currentLocale) ->
+            numbro.setLanguage(locale)
+            numbro(value).formatCurrency(format)
+
+          ###*
            * Format date based on given pattern
            * @todo Use global function instead of filter. It's more flexible. For now it's filter
            *       just because it's faster to use and easier replacement for old filter
