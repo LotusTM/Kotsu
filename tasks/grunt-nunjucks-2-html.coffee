@@ -26,12 +26,14 @@ module.exports = (grunt) ->
     failureOutput: 'non-printable-url'
   })
 
-  locales    = grunt.config('data.site.locales')
-  baseLocale = grunt.config('data.site.baseLocale')
+  locales       = grunt.config('data.site.locales')
+  baseLocale    = grunt.config('data.site.baseLocale')
 
-  buildDir   = grunt.config('path.build.root')
-  layoutsDir = grunt.config('path.source.layouts')
-  localesDir = grunt.config('path.source.locales')
+  defaultDomain = 'messages'
+
+  buildDir      = grunt.config('path.build.root')
+  layoutsDir    = grunt.config('path.source.layouts')
+  localesDir    = grunt.config('path.source.locales')
 
   humanReadableUrl = (pagepath) ->
     exclude  = /^(index|\d{3})$/
@@ -60,16 +62,27 @@ module.exports = (grunt) ->
     # for other — only first part
     if matched[3] then matched[1] + '-' + matched[2] else matched[1]
 
-
   # Load and invoke content of l10n files
-  # @todo Though that part of code will load all `.po` files, contained in locale's directory,
-  #       including subdirectories, due to limitation of `node-gettext` for now only last loaded
-  #       file will be actually used
-  #       Github issue: https://github.com/andris9/node-gettext/issues/22
+  # @note In native `xgettext` you can set as many domains as you wish per locale. Usually domains
+  #       represented in form of separate l10n files per singe locale. However, `node-gettext` using domains
+  #       for holding locales and switching between them. To workaround that issue, following code will
+  #       interpolate locales and domains for you, as well as strip `LC_MESSAGES` from path.
+  #       `/locale/en/{defaultLocale}.po` will result in `en` domain.
+  #       `/locale/en/nav/bar.po` will result in `en:nav:bar` domain.
+  #       `/locale/en/LC_MESSAGES/nav/bar.po` will result in `en:nav:bar` domain.
+  #       Thus you can switch anytime between both locales and domains.
+  #       Related Github issues:
+  #       * https://github.com/andris9/node-gettext/issues/22
+  #       * https://github.com/LotusTM/Kotsu/issues/45
   locales.forEach (locale) ->
-    grunt.file.expand({ cwd: localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (file) ->
-      messages = grunt.file.read(localesDir + '/' + locale + '/' + file, { encoding: null })
-      i18n.addTextdomain(locale, messages)
+    grunt.file.expand({ cwd: localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (filepath) ->
+      defaultDomain = defaultDomain || 'messages'
+
+      domain   = filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(path.extname(filepath), '')
+      domain   = if domain == defaultDomain then locale else locale + ':' + domain
+      messages = grunt.file.read(localesDir + '/' + locale + '/' + filepath, { encoding: null })
+
+      i18n.addTextdomain(domain, messages)
 
 
   # Construct task
