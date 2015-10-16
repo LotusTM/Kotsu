@@ -15,3 +15,13 @@ msgstr ""
 #: source/layouts/components/_outdated-browser.nj:11
 msgid "Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly."
 msgstr ""
+
+#: source/layouts/index.nj:76
+msgid "This string will be displayd in selected language"
+msgstr ""
+
+#: source/layouts/index.nj:79
+msgid "%s apple"
+msgid_plural "%s apples"
+msgstr[0] ""
+msgstr[1] ""

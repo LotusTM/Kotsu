@@ -16,3 +16,14 @@ msgstr ""
 #: source/layouts/components/_outdated-browser.nj:11
 msgid "Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly."
 msgstr "Ваш браузер <strong>устарел</strong>! Пожалуйста, %(linkStart)sобновите браузер%(linkEnd)s для нормальной работы сайта."
+
+#: source/layouts/index.nj:76
+msgid "This string will be displayd in selected language"
+msgstr "Эта строка будет отображать на выбранном языке"
+
+#: source/layouts/index.nj:79
+msgid "%s apple"
+msgid_plural "%s apples"
+msgstr[0] "%s яблоко"
+msgstr[1] "%s яблока"
+msgstr[2] "%s яблок"

@@ -73,6 +73,12 @@
 				{% endfor %}
 			</ul>
 
+			<p>{{ _t("This string will be displayd in selected language") }}</p>
+
+			<p>Singular: {{ _nt("%s apple", "%s apples", 1, 1) }}</p>
+			<p>Plural: {{ _nt("%s apple", "%s apples", 2, 2) }}</p>
+			<p>Other: {{ _nt("%s apple", "%s apples", 5, 5) }}</p>
+
 		</div>{# /grid__item #}
 
 	</section>{# /grid #}
