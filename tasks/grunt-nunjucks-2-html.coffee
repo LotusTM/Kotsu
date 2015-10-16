@@ -34,7 +34,7 @@ module.exports = (grunt) ->
   localesDir = grunt.config('path.source.locales')
 
   humanReadableUrl = (pagepath) ->
-    exclude  = /^(index|\d\d\d)$/
+    exclude  = /^(index|\d{3})$/
 
     ext      = path.extname(pagepath)
     basename = path.basename(pagepath, ext)
