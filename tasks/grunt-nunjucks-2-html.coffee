@@ -53,7 +53,7 @@ module.exports = (grunt) ->
    * @return {string} Language code from locale
   ###
   getLangcode = (locale) ->
-    matched = locale.match(/^([\w]*)-?([\w]*)-?([\w]*)/i)
+    matched = locale.match(/^(\w*)-?(\w*)-?(\w*)/i)
     # In case of 3 and more matched parts assume that we're dealing with language, wich exists
     # in few forms (like Latin and Cyrillic Serbian (`sr-Latn-CS` and `sr-Cyrl-CS`)
     # For such languages we should output few first parts (`sr-Latn` and `sr-Cyrl`),
