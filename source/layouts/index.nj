@@ -59,7 +59,7 @@
 
 		<div class="grid__item 3/5">
 
-			<p>This site available in following languages:</p>
+			<h3 class="h4">This site available in following languages:</h3>
 
 			<ul>
 				{% for locale in site.locales %}
@@ -73,24 +73,30 @@
 				{% endfor %}
 			</ul>
 
-			<p>{{ gettext("This string will be displayd in selected language") }}</p>
+			<h3 class="h4 margin-top+">Output translation into current locale</h3>
+
+			<p><code>{{ gettext("This string will be displayd in selected language") }}</code></p>
+
+			<h3 class="h4 margin-top+">Output translation from other locales and domains</h3>
 
 			<p>
 				Display string from <code>`ru`</code> locale:<br>
 				<code>{{ dgettext("ru", "This string will be displayd in selected language") }}</code>
 			</p>
 			<p>
-				Display string from <code>`ru`</code> locale and <code>`other`</code> domain:<br>
+				Display same string from <code>`ru`</code> locale and <code>`other`</code> domain:<br>
 				<code>{{ dgettext("ru:other", "This string will be displayd in selected language") }}</code>
 			</p>
 			<p>
-				Display string from <code>`ru`</code> locale and <code>`nav:bar`</code> domain:<br>
+				Display same string from <code>`ru`</code> locale and <code>`nav:bar`</code> domain:<br>
 				<code>{{ dgettext("ru:nav:bar", "This string will be displayd in selected language") }}</code>
 			</p>
 
-			<p>Singular: {{ ngettext("%s apple", "%s apples", 1, 1) }}</p>
-			<p>Plural: {{ ngettext("%s apple", "%s apples", 2, 2) }}</p>
-			<p>Other: {{ ngettext("%s apple", "%s apples", 5, 5) }}</p>
+			<h3 class="h4 margin-top+">Translation with plurals</h3>
+
+			<p>Singular: <code>{{ ngettext("%s apple", "%s apples", 1, 1) }}</code></p>
+			<p>Plural: <code>{{ ngettext("%s apple", "%s apples", 2, 2) }}</code></p>
+			<p>Other: <code>{{ ngettext("%s apple", "%s apples", 5, 5) }}</code></p>
 
 		</div>{# /grid__item #}
 
