@@ -377,8 +377,6 @@ module.exports = (grunt) ->
 
           ###*
            * Format number based on given pattern
-           * @todo Use global function instead of filter. It's more flexible. For now it's filter
-           *       just because it's faster to use and easier replacement for old filter
            * @todo There are few issues with current lib:
            *       * https://github.com/foretagsplatsen/numbro/issues/111
            *       * https://github.com/foretagsplatsen/numbro/issues/112
