@@ -87,7 +87,7 @@ module.exports = (grunt) ->
         name: '<%= pkg.name %>'
         title: '<%= pkg.title %>'
         version: '<%= pkg.version %>'
-        locales: ['en-US', 'ru', 'zh-CN']
+        locales: ['en-US', 'ru']
         baseLocale: 'en-US'
       pages: grunt.file.readYAML 'source/data/pages.yml'
       data:
