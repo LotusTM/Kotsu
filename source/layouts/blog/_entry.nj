@@ -13,7 +13,7 @@
 
 
 <footer class="muted bleed-top margin-bottom+">
-	{{ getPage(pages, page.breadcrumb).date|_d() }} — {{ getPage(pages, page.breadcrumb).author }}
+	{{ _d(getPage(pages, page.breadcrumb).date).format('lll') }} — {{ getPage(pages, page.breadcrumb).author }}
 </footer>
 
 

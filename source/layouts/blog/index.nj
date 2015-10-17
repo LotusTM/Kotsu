@@ -15,7 +15,7 @@
 			<a href="{{ localeDir() }}/blog/{{ slug }}">{{ post.contentTitle|_sp(globalSprintf) }}</a>
 		</h1>
 		<p class="text- margin-bottom-">
-			<time datetime="{{ post.date }}">{{ post.date|_d() }}</time>
+			<time datetime="{{ post.date }}">{{ _d(post.date).format('lll') }}</time>
 			-
 			{{ post.author }}
 		</p>
