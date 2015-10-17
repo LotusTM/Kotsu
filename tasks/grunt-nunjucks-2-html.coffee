@@ -413,22 +413,17 @@ module.exports = (grunt) ->
             ulrlify(string, options)
 
         preprocessData: (data) ->
-          fullFilepath = path.dirname(humanReadableUrl(@src[0]))
-
-          if fullFilepath == layoutsDir
-            filepath = ''
-            dirname  = ''
-          else
-            filepath = fullFilepath.replace(layoutsDir + '/', '')
-            dirname  = fullFilepath.split('/').slice(-1)[0]
+          pagepath    = humanReadableUrl(@src[0].replace(layoutsDir + '/', ''))
+          pagedir     = path.dirname(pagepath)
+          pagedirname = path.basename(pagedir)
 
           data.page = data.page || {}
 
           data.page.locale     = currentLocale
-          data.page.url        = '/' + filepath
-          data.page.breadcrumb = filepath.split('/')
-          data.page.basename   = path.basename(@src[0], '.nj')
-          data.page.dirname    = dirname
+          data.page.url        = if pagedir == '.' then '/' else '/' + pagedir
+          data.page.breadcrumb = if pagedir == '.' then ['.'] else pagedir.split('/')
+          data.page.basename   = path.basename(pagepath, path.extname(pagepath))
+          data.page.dirname    = pagedirname
 
           data
 
