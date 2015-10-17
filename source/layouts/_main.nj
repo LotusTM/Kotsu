@@ -3,7 +3,6 @@
 
 {% block body %}
 
-
 	<!-- Site's header -->
 	<!-- ============= -->
 
@@ -39,7 +38,6 @@
 	</header>{# /site-header #}
 
 
-
 	<!-- Site's content -->
 	<!-- ============== -->
 
@@ -50,51 +48,15 @@
 
 				{##
 				 # Display breadcrumb unless it set to `false`
-				 #
-				 # @todo Better docs
-				 # @todo Needs better way of aliases handling
 				 #}
 
 				{% if showBreadcrumb %}
 
-					<ul class="breadcrumb font-size-">
-						<li class="breadcrumb__entry breadcrumb__root">
-							<a class="breadcrumb__link" href="{{ localeDir() }}/">{{ getPage(pages, ["home"]).pageTitle|_sp(globalSprintf) }}</a>
-						</li>
-
-						{% for key in breadcrumb %}
-
-							{% if loop.index0 == 0 %}
-
-								{% set crumb = pages[key] %}
-
-								{% set href = key %}
-
-							{% else %}
-
-								{% set crumb = crumb.sub[key] %}
-
-								{% set href = href + "/" + key %}
-
-							{% endif %}
-
-							{% if loop.last and not crumb.href %}
-
-								<li class="breadcrumb__entry">
-									{{ crumb.breadcrumbTitle|_sp(globalSprintf) }}
-								</li>
-
-							{% elif not crumb.href %}
-
-								<li class="breadcrumb__entry">
-									<a class="breadcrumb__link" href="{{ localeDir() }}{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|_sp(globalSprintf) }}</a>
-								</li>
-
-							{% endif %}
-
-						{% endfor %}
-
-					</ul>
+					{{ macros.breadcrumb(
+						breadcrumbClass = "breadcrumb--rev",
+						class           = "font-size-",
+						displayLast     = false
+					) }}
 
 				{% endif %}
 
@@ -116,6 +78,7 @@
 
 
 				{% if pageSidebar %}
+
 					<div class="grid grid+">
 
 						<div class="grid__item 9/12">
@@ -127,15 +90,17 @@
 						</aside>{# /site-sidebar #}{# /grid__item #}
 
 					</div>
+
 				{% else %}
+
 					{% block main %}{% endblock %}
+
 				{% endif %}
 
 
 			</div>{# /site-content-wrapper #}
 		</article>{# /site-content #}{# /site-wrapper #}
 	</main>{# /site-main #}
-
 
 
 	<!-- Site's footer -->

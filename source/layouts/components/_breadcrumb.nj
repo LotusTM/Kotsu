@@ -1,0 +1,64 @@
+{##
+ # Display breadcrumb block based on provided breadcrumb
+ #
+ # @param {string} class                          Class names to inject
+ # @param {string} breadcrumbClass = "breadcrumb" Override default class name for breadcrumb
+ # @param {bool}   displayLast     = true         Display last crumb or not
+ # @param {array}  breadcrumb      = breadcrumb   Source for generating breadcrumb.
+ #                                                Will look up for titles, hrefs, etc. in `pages`
+ # @param {object} pages           = pages        Complex object with information about each page
+ # @param {string} rootTitle       = getPage(pages, ["home"]).pageTitle Title for root element
+ #
+ # @return {string} Generated `ul` with breadcrumb
+ #
+ # @example {{ macros.breadcrumb() }}
+ #}
+{% macro breadcrumb(
+	class,
+	breadcrumbClass = "breadcrumb",
+	displayLast     = true,
+	breadcrumb      = breadcrumb,
+	pages           = pages,
+	rootTitle       = getPage(pages, ["home"]).pageTitle
+) %}
+	<ul class="{{ breadcrumbClass }} {{ class }}">
+
+		<li class="breadcrumb__entry breadcrumb__root">
+			<a class="breadcrumb__link" href="{{ localeDir() }}/">{{ rootTitle|_sp(globalSprintf) }}</a>
+		</li>
+
+		{% for key in breadcrumb %}
+
+			{% if loop.index0 == 0 %}
+
+				{% set crumb = pages[key] %}
+				{% set href  = key %}
+
+			{% else %}
+
+				{% set crumb = crumb.sub[key] %}
+				{% set href  = href + "/" + key %}
+
+			{% endif %}
+
+			{% if loop.last and not crumb.href %}
+
+				{% if displayLast %}
+
+					<li class="breadcrumb__entry">{{ crumb.breadcrumbTitle|_sp(globalSprintf) }}</li>
+
+				{% endif %}
+
+			{# @todo Needs better way to handle aliases #}
+			{% elif not crumb.href %}
+
+				<li class="breadcrumb__entry">
+					<a class="breadcrumb__link" href="{{ localeDir() }}{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|_sp(globalSprintf) }}</a>
+				</li>
+
+			{% endif %}
+
+		{% endfor %}
+
+	</ul>
+{% endmacro %}
