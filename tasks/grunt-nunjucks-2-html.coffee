@@ -211,7 +211,6 @@ module.exports = (grunt) ->
 
           ###*
           * Load string from current locale
-          * @note So far `sprintf` supports only named placeholders
           * @param {string}              string          String, which should be loaded
           * @param {string|object|array} placeholders... List of placeholders, object with named
           *                                              placeholders or arrays of placeholders
@@ -224,7 +223,6 @@ module.exports = (grunt) ->
 
           ###*
            * Load string from specified locale
-           * @note So far `sprintf` supports only named placeholders
            * @param {string}              locale = currentLocale Locale, from which string should be loaded
            * @param {string}              string                 String, which should be loaded
            * @param {string|object|array} placeholders...        List of placeholders, object with named
@@ -238,7 +236,6 @@ module.exports = (grunt) ->
 
           ###*
           * Load plural string from current locale
-          * @note So far `sprintf` supports only named placeholders
           * @param {string}              string          String, which should be loaded
           * @param {string}              stringPlural    Plural form of string
           * @param {number}              count           Count for detecting correct plural form
@@ -253,7 +250,6 @@ module.exports = (grunt) ->
 
           ###*
            * Load plural string from specified locale
-           * @note So far `sprintf` supports only named placeholders
            * @param {string}              locale = currentLocale Locale, from which string should be loaded
            * @param {string}              string                 String, which should be loaded
            * @param {string}              stringPlural           Plural form of string
@@ -269,7 +265,6 @@ module.exports = (grunt) ->
 
           ###*
           * Load string of specific context from current locale
-          * @note So far `sprintf` supports only named placeholders
           * @param {string}              context         Context of curret string
           * @param {string}              string          String, which should be loaded
           * @param {string|object|array} placeholders... List of placeholders, object with named
@@ -283,7 +278,6 @@ module.exports = (grunt) ->
 
           ###*
            * Load string of specific context from specified locale
-           * @note So far `sprintf` supports only named placeholders
            * @param {string}              locale = currentLocale Locale, from which string should be loaded
            * @param {string}              context                Context of curret string
            * @param {string}              string                 String, which should be loaded
@@ -298,7 +292,6 @@ module.exports = (grunt) ->
 
           ###*
           * Load plural string of specific context from current locale
-          * @note So far `sprintf` supports only named placeholders
           * @param {string}              context         Context of curret string
           * @param {string}              string          String, which should be loaded
           * @param {string}              stringPlural    Plural form of string
@@ -314,7 +307,6 @@ module.exports = (grunt) ->
 
           ###*
            * Load plural string of specific context from specified locale
-           * @note So far `sprintf` supports only named placeholders
            * @param {string}              locale = currentLocale Locale, from which string should be loaded
            * @param {string}              context                Context of curret string
            * @param {string}              string                 String, which should be loaded
