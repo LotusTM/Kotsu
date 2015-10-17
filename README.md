@@ -35,7 +35,7 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 * i18n with [node-gettext](https://github.com/andris9/node-gettext)
 * [Sass](http://sass-lang.com/) compiler with source maps generation, [autoprefixing](https://github.com/nDmitry/grunt-autoprefixer) and [linting](https://github.com/ahmednuaman/grunt-scss-lint)
 * [Ekzo.sass](https://github.com/ArmorDarks/ekzo.sass) framework
-* [jspm](https://github.com/ArmorDarks/ekzo.sass) for managing and bundling JavaScript dependencies
+* [jspm](http://jspm.io) for managing and bundling JavaScript dependencies
 * Live reload powered by [Browser Sync](https://github.com/shakyshane/grunt-browser-sync)
 * HTML5 boilerplate files based on best practices
 * Automatic `sitemap.xml` generation with [grunt-sitemap-xml](https://github.com/lotustm/grunt-sitemap-xml)
