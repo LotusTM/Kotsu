@@ -186,13 +186,13 @@ module.exports = (grunt) ->
           ###*
            * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation, and displaying dates
            * @tutorial http://momentjs.com/docs/
-           * @param {string} locale = currentLocale Locale name, which should be used by default
-           * @param {*}      param...               Any parameters, which should be passed to `moment.js`
+           * @note Will set locale to `currentLocale` before running. To override use `_d(...).locale('de').format(...)`
+           * @param {*} param... Any parameters, which should be passed to `moment.js`
            * @return {moment} `moment.js` expression for further use
           ###
-          env.addGlobal '_d', (locale = currentLocale, params...) ->
-            moment.locale(locale);
-            moment.apply params
+          env.addGlobal '_d', (params...) ->
+            moment.locale(currentLocale);
+            moment.apply null, params
 
           # --------------
           # i18n functions
