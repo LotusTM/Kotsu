@@ -1,7 +1,10 @@
 {##
- # Macros description
+ # Display provided string
  #
- # @param {string} string Param description
+ # @param {string} string String to be displayed
+ #
+ # @return {string} Predefined text with provided string
+ #
  # @example {{ macros.exmapleMacro('demo value') }}
  #}
 {% macro exmapleMacro(string) %}

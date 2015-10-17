@@ -3,6 +3,9 @@
  #
  # @param {string} langcode Language code which will be used in url
  #                          All incorrect language codes will fallback to `en`
+ #
+ # @return {string} IE-specific comment with proposal to update browser
+ #
  # @example {{ macros.outdatedBrowser('en') }}
  #}
 {% macro outdatedBrowser(langcode = page.locale) %}
