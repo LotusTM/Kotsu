@@ -168,9 +168,9 @@ module.exports = (grunt) ->
            * @param {object} obj             Object with properties of page (titles, meta descriptions, etc.)
            *                                 Each page can have sub pages, which should be placed inside property
            *                                 named as `subName`
-           * @param {array} path             Path to page inside `obj`, without `subName`s
+           * @param {array}  path            Path to page inside `obj`, without `subName`s
            * @param {string} subName = 'sub' Name of property, which holds sub pages
-           * @return {object}                 Contains all page's properties, including it's sub pages
+           * @return {object} Contains all page's properties, including it's sub pages
           ###
           env.addGlobal 'getPage', (obj, path, subName = 'sub') ->
             subbedPath = _.clone(path)
@@ -182,6 +182,17 @@ module.exports = (grunt) ->
               i++
             result = _.get(obj, subbedPath)
             if result then result else grunt.log.error('[getPage] can\'t find requested `' + subbedPath + '` inside specified object')
+
+          ###*
+           * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation, and displaying dates
+           * @tutorial http://momentjs.com/docs/
+           * @param {string} locale = currentLocale Locale name, which should be used by default
+           * @param {*}      param...               Any parameters, which should be passed to `moment.js`
+           * @return {moment} `moment.js` expression for further use
+          ###
+          env.addGlobal '_d', (locale = currentLocale, params...) ->
+            moment.locale(locale);
+            moment.apply params
 
           # --------------
           # i18n functions
@@ -399,19 +410,6 @@ module.exports = (grunt) ->
           env.addFilter '_cur', (value, format, locale = currentLocale) ->
             numbro.setLanguage(locale)
             numbro(value).formatCurrency(format)
-
-          ###*
-           * Format date based on given pattern
-           * @todo Use global function instead of filter. It's more flexible. For now it's filter
-           *       just because it's faster to use and easier replacement for old filter
-           * @param {number} value                  Date which should be formatted
-           * @param {string} format = 'DD MMM YYYY' Pattern as per http://momentjs.com/docs/#/displaying/
-           * @param {string} locale = currentLocale Locale name
-           * @return {string} Formatted date
-          ###
-          env.addFilter '_d', (date, format = 'DD MMM YYYY', locale = currentLocale) ->
-            moment.locale(locale);
-            moment(date).format(format)
 
           ###*
            * Transform string into usable in urls form
