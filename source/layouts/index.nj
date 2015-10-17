@@ -73,7 +73,7 @@
 				{% endfor %}
 			</ul>
 
-			<h3 class="h4 margin-top+">Output translation into current locale</h3>
+			<h3 class="h4 margin-top+">Output translation from current locale</h3>
 
 			<p><code>{{ gettext("This string will be displayd in selected language") }}</code></p>
 
