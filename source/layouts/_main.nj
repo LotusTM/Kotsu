@@ -11,26 +11,27 @@
 
 			<h1 class="site-logo">
 				<a class="site-logo__link" href="{{ localeDir() }}/">
-
-					{{ site.name }} logo
-
+					{{ site.name }}'s logo
 				</a>
 			</h1>{# /site-logo #}
 
 			<!--noindex-->
 			<nav class="site-nav">
 				<ul class="site-nav__list nav">
+
 					<li class="site-nav__item site-nav__item--is-active">
 						<a class="site-nav__link" href="{{ localeDir() }}/">
 							Home
 						</a>
 					</li>
+
 					<li class="site-nav__item">
 						<a class="site-nav__link" href="{{ localeDir() }}/blog/">
 							Blog
 						</a>
 					</li>
-				</ul>
+
+				</ul>{# /site-nav__list #}
 			</nav>{# /site-nav #}
 			<!--/noindex-->
 
@@ -47,7 +48,7 @@
 
 
 				{##
-				 # Display breadcrumb unless it set to `false`
+				 # @param {bool} showBreadcrumb Display breadcrumb unless it set to `false`
 				 #}
 
 				{% if showBreadcrumb %}
@@ -62,12 +63,8 @@
 
 
 				{##
-				 # Display title unless it set to `false`
-				 #
-				 # @param {string|true|false} pageContentTitle
-				 #                               - display or no specified page titile
-				 #                                 `true` will enable inheriting
-				 #                                 from sections data
+				 # @param {string|false} pageContentTitle Display specified title as content title
+				 #                                        unless it set to `false`
 				 #}
 
 				{% if pageContentTitle %}
@@ -77,19 +74,23 @@
 				{% endif %}
 
 
+				{##
+				 # @param {bool} pageSidebar Display sidebar unless it set to `false`
+				 #}
+
 				{% if pageSidebar %}
 
 					<div class="grid grid+">
 
 						<div class="grid__item 9/12">
 							{% block main %}{% endblock %}
-						</div>
+						</div>{# /grid__item #}
 
 						<aside class="site-sidebar grid__item 3/12">
 							{% block sidebar %}{% endblock %}
 						</aside>{# /site-sidebar #}{# /grid__item #}
 
-					</div>
+					</div>{# /grid #}
 
 				{% else %}
 
@@ -109,13 +110,9 @@
 	<!--/noindex-->
 	<footer class="site-footer">
 		<div class="site-wrapper">
-
-
 			© 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
-
-
-		</div>
-	</footer>{# /footer #}{# /site-wrapper #}
+		</div>{# /site-wrapper #}
+	</footer>{# /site-footer #}
 	<!--/noindex-->
 
 
