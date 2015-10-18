@@ -154,7 +154,6 @@ module.exports = (grunt) ->
   ###
   grunt.registerTask 'test', [
     'scsslint:build'
-    'eslint:build'
   ]
 
   ###
