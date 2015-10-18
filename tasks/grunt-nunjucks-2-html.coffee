@@ -389,7 +389,7 @@ module.exports = (grunt) ->
            * @return {string} Formatted number
           ###
           env.addFilter '_n', (value, format = '0,0[.]00', locale = currentLocale) ->
-            numbro.setLanguage(locale)
+            numbro.setCulture(locale)
             numbro(value).format(format)
 
           ###*
@@ -400,7 +400,7 @@ module.exports = (grunt) ->
            * @return {string} Number with currency symbol in proper position
           ###
           env.addFilter '_cur', (value, format, locale = currentLocale) ->
-            numbro.setLanguage(locale)
+            numbro.setCulture(locale)
             numbro(value).formatCurrency(format)
 
           ###*
