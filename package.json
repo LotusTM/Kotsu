@@ -1,6 +1,6 @@
 {
   "name": "Kotsu",
-  "version": "0.8.9",
+  "version": "0.9.0",
   "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "homepage": "https://kotsu.2bad.me/",
   "author": "LotusTM",
@@ -15,7 +15,7 @@
     "grunt-contrib-htmlmin": "^0.5.0",
     "grunt-contrib-uglify": "^0.9.2",
     "grunt-csso": "^0.7.1",
-    "grunt-nunjucks-2-html": "^1.0.1",
+    "grunt-nunjucks-2-html": "^1.0.2",
     "grunt-processhtml": "^0.3.8",
     "grunt-responsive-images": "^0.1.7",
     "grunt-sass": "^1.0.0",
@@ -28,14 +28,14 @@
     "grunt-webfont": "^0.5.4",
     "jit-grunt": "^0.9.1",
     "jspm": "^0.16.12",
-    "lodash": "^3.10.0",
-    "marked": "^0.3.3",
-    "moment": "^2.10.3",
+    "lodash": "^3.10.1",
+    "marked": "^0.3.5",
+    "moment": "^2.10.6",
     "node-gettext": "^1.0.1",
-    "numbro": "^1.5.0",
+    "numbro": "^1.6.2",
     "nunjucks-markdown": "^1.1.0",
     "smart-plurals": "^1.1.0",
-    "sprintf-js": "^1.0.2",
+    "sprintf-js": "^1.0.3",
     "time-grunt": "^1.2.1",
     "urlify": "^0.3.6"
   },
@@ -43,15 +43,18 @@
     "babel-eslint": "^4.1.3",
     "grunt-browser-sync": "^2.1.3",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-eslint": "^17.2.0",
     "grunt-newer": "^1.1.1",
-    "grunt-scss-lint": "^0.3.8"
+    "grunt-scss-lint": "^0.3.8",
+    "standard": "^5.3.1"
   },
   "engines": {
     "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "grunt build && grunt test && git status | grep 'working directory clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
+    "test": "grunt build && grunt test && standard && git status | grep 'working directory clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   },
   "jspm": {
     "directories": {
