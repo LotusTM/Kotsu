@@ -54,7 +54,10 @@
     "test": "grunt build && grunt test && standard && git status | grep 'working directory clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "ignore": [
+      "config.js"
+    ]
   },
   "jspm": {
     "directories": {
