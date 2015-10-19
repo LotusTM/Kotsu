@@ -1,9 +1,9 @@
 module.exports = (grunt) ->
   'use strict'
 
+  _ = require('lodash')
   # Track execution time
-  require('time-grunt') grunt;
-
+  require('time-grunt') grunt
   # Load grunt tasks automatically
   require('jit-grunt') grunt,
     nunjucks: 'grunt-nunjucks-2-html'
@@ -85,10 +85,6 @@ module.exports = (grunt) ->
           rtl: false
       ]
       baseLocale: 'en-US'
-      getLocales: ->
-        _locales = []
-        grunt.config('i18n.locales').forEach (locale) -> _locales.push(locale.locale)
-        _locales
 
     # Specify data
     data:
@@ -111,7 +107,7 @@ module.exports = (grunt) ->
         example: grunt.file.readJSON 'source/data/example.json'
 
   # @todo Workaround to get list of locales as {array} instead of {string}
-  grunt.config.set 'i18n.locales.list', grunt.config('i18n').getLocales()
+  grunt.config.set 'i18n.locales.list', _.pluck(grunt.config('i18n.locales'), 'locale')
 
   grunt.loadTasks 'tasks'
 
