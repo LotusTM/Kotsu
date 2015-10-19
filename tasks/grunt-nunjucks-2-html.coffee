@@ -22,8 +22,8 @@ module.exports = (grunt) ->
       enabled           : true
       exclude           : /^(index|\d{3})$/
     i18n:
-      locales           : grunt.config('data.site.locales')
-      baseLocale        : grunt.config('data.site.baseLocale')
+      locales           : grunt.config('i18n.locales')
+      baseLocale        : grunt.config('i18n.baseLocale')
       baseLocaleAsRoot  : true
       defaultDomain     : 'messages'
     numberDefaultFormat : '0,0[.]00'

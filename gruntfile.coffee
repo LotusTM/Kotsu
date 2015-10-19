@@ -74,6 +74,13 @@ module.exports = (grunt) ->
           compiled: '<%= path.build.sprites %>/sprite.png'
           hash: '<%= path.build.sprites %>/hash.json'
 
+    i18n:
+      locales: [
+        'en-US'
+        'ru'
+      ]
+      baseLocale: 'en-US'
+
     # Specify data
     data:
       path:
@@ -87,8 +94,8 @@ module.exports = (grunt) ->
         name: '<%= pkg.name %>'
         title: '<%= pkg.title %>'
         version: '<%= pkg.version %>'
-        locales: ['en-US', 'ru']
-        baseLocale: 'en-US'
+        locales: '<%= i18n.locales %>'
+        baseLocale: '<%= i18n.baseLocale %>'
       pages: grunt.file.readYAML 'source/data/pages.yml'
       data:
         currentYear: new Date().getFullYear()
