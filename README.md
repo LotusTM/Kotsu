@@ -36,6 +36,7 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 * [Sass](http://sass-lang.com/) compiler with source maps generation, [autoprefixing](https://github.com/nDmitry/grunt-autoprefixer) and [linting](https://github.com/ahmednuaman/grunt-scss-lint)
 * [Ekzo.sass](https://github.com/ArmorDarks/ekzo.sass) framework
 * [jspm](http://jspm.io) for managing and bundling JavaScript dependencies
+* [standard](https://github.com/feross/standard) for linting and automatic formatting JavaScript
 * Live reload powered by [Browser Sync](https://github.com/shakyshane/grunt-browser-sync)
 * HTML5 boilerplate files based on best practices
 * Automatic `sitemap.xml` generation with [grunt-sitemap-xml](https://github.com/lotustm/grunt-sitemap-xml)
