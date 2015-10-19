@@ -13,9 +13,9 @@
 {# Set defaults #}
 {% set breadcrumb        = breadcrumb       |default(page.breadcrumb) %}
 
-{% set pageTitle         = pageTitle        |default(getPage(pages, breadcrumb).pageTitle) %}
-{% set pageMetaDesc      = pageMetaDesc     |default(getPage(pages, breadcrumb).metaDesc) %}
-{% set pageContentTitle  = pageContentTitle |default(getPage(pages, breadcrumb).contentTitle) %}
+{% set pageTitle         = pageTitle        |default(getPage(breadcrumb).pageTitle) %}
+{% set pageMetaDesc      = pageMetaDesc     |default(getPage(breadcrumb).metaDesc) %}
+{% set pageContentTitle  = pageContentTitle |default(getPage(breadcrumb).contentTitle) %}
 
 {% set pageClass         = pageClass        |default('') %}
 {% set customSiteWrapper = customSiteWrapper|default(false) %}

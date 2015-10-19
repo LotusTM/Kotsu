@@ -7,7 +7,9 @@ Render nunjucks templates
 module.exports = (grunt) ->
   taskConfig =
     autoescape          : false
-    data                : '<%= data %>'
+    data:
+      all               : '<%= data %>'
+      defaultPages      : grunt.config('data.pages')
     path:
       build             : grunt.config('path.build.root')
       layouts           : grunt.config('path.source.layouts')
@@ -35,7 +37,6 @@ module.exports = (grunt) ->
       nonPrintable      : '-'
       trim              : true
       failureOutput     : 'non-printable-url'
-
 
   _            = require('lodash')
   path         = require('path')
@@ -152,7 +153,7 @@ module.exports = (grunt) ->
       @[currentLocale].options =
         paths                : taskConfig.path.nunjucksEnv
         autoescape           : taskConfig.autoescape
-        data                 : taskConfig.data
+        data                 : taskConfig.data.all
         configureEnvironment : (env) ->
           # ==========
           # Extensions
@@ -197,14 +198,14 @@ module.exports = (grunt) ->
 
           ###*
            * Get information about page from specified object.
-           * @param {object} obj             Object with properties of page (titles, meta descriptions, etc.)
-           *                                 Each page can have sub pages, which should be placed inside property
-           *                                 named as `subName`
            * @param {array}  path            Path to page inside `obj`, without `subName`s
+           * @param {object} pages   = taskConfig.data.defaultPages Object with properties of page (titles, meta descriptions, etc.)
+           *                                                        Each page can have sub pages, which should be placed inside property
+           *                                                        named as `subName`
            * @param {string} subName = 'sub' Name of property, which holds sub pages
            * @return {object} Contains all page's properties, including it's sub pages
           ###
-          env.addGlobal 'getPage', (obj, path, subName = 'sub') ->
+          env.addGlobal 'getPage', (path, pages = taskConfig.data.defaultPages, subName = 'sub') ->
             _subbedPath = _.clone(path)
             _i = 1
             _position = 1
@@ -212,7 +213,7 @@ module.exports = (grunt) ->
               _position = if (_i > 1) then _position + 2 else _position
               _subbedPath.splice(_position, 0, subName)
               _i++
-            result = _.get(obj, _subbedPath)
+            result = _.get(pages, _subbedPath)
             if result then result else grunt.log.error('[getPage] can\'t find requested `' + _subbedPath + '` inside specified object')
 
           ###*
