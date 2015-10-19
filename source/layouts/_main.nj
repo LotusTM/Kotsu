@@ -69,7 +69,7 @@
 
 				{% if pageContentTitle %}
 
-					<h1 class="site-content-title">{{ pageContentTitle|_sp(globalSprintf) }}</h1>
+					<h1 class="site-content-title">{{ pageContentTitle|template(globalSprintf) }}</h1>
 
 				{% endif %}
 

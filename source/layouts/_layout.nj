@@ -4,7 +4,7 @@
 {% import "components/_breadcrumb.nj" as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
 {% import "components/_example-macro.nj" as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
 
-{# Set global placeholders values for `_sp` #}
+{# Set global placeholders values for `template` #}
 {% set globalSprintf = {
 	company: site.name
 } %}
@@ -33,10 +33,10 @@
 	<!-- IE compatibility -->
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<title>{{ pageTitle if pageTitle|_sp(globalSprintf) else site.name }}</title>
+	<title>{{ pageTitle if pageTitle|template(globalSprintf) else site.name }}</title>
 
 	<!-- Description -->
-	<meta name="description" content="{{ pageMetaDesc|_sp(globalSprintf) }}">
+	<meta name="description" content="{{ pageMetaDesc|template(globalSprintf) }}">
 
 	{# <!-- Mobile devices -->
 	<meta name="viewport" content="width=device-width, initial-scale=1"> #}

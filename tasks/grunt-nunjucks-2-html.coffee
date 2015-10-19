@@ -152,12 +152,12 @@ module.exports = (grunt) ->
           ###*
            * Get list of files or directories inside specified directory
            * @param {string}               path    = ''             Path where to look
-           * @param {string|array[string]} pattern = '** /*'         What should be matched
+           * @param {string|array[string]} pattern = '** /*'        What should be matched
            * @param {string}               filter  = 'isFile'       Type of entity which should be matched
            * @param {string}               cwd     = buildDir + '/' Root for lookup
            * @return {array} Array of found files or directories
           ###
-          env.addGlobal 'fileExpand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir + '/') ->
+          env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir + '/') ->
             files = []
             grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (file) ->
               files.push(file)
@@ -190,8 +190,8 @@ module.exports = (grunt) ->
            * @param {*} param... Any parameters, which should be passed to `moment.js`
            * @return {moment} `moment.js` expression for further use
           ###
-          env.addGlobal '_d', (params...) ->
-            moment.locale(currentLocale);
+          env.addGlobal 'moment', (params...) ->
+            moment.locale(currentLocale)
             moment.apply null, params
 
           # --------------
@@ -363,7 +363,7 @@ module.exports = (grunt) ->
            *                                              placeholders or arrays of placeholders
            * @return {string} String with replaced placeholders
           ###
-          env.addFilter '_sp', (string, placeholders...) ->
+          env.addFilter 'template', (string, placeholders...) ->
             placeholders.unshift(string)
             printf.apply null, placeholders
 
@@ -374,7 +374,7 @@ module.exports = (grunt) ->
            * @param {string} locale = currentLocale Locale name
            * @return {string} Correct plural form
           ###
-          env.addFilter '_p', (count, forms, locale = currentLocale) ->
+          env.addFilter 'plural', (count, forms, locale = currentLocale) ->
             smartPlurals.Plurals.getRule(locale)
             smartPlurals(count, forms)
 
@@ -388,7 +388,7 @@ module.exports = (grunt) ->
            * @param {string} locale = currentLocale Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
            * @return {string} Formatted number
           ###
-          env.addFilter '_n', (value, format = '0,0[.]00', locale = currentLocale) ->
+          env.addFilter 'number', (value, format = '0,0[.]00', locale = currentLocale) ->
             numbro.setCulture(locale)
             numbro(value).format(format)
 
@@ -399,7 +399,7 @@ module.exports = (grunt) ->
            * @param {string} locale = currentLocale Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
            * @return {string} Number with currency symbol in proper position
           ###
-          env.addFilter '_cur', (value, format, locale = currentLocale) ->
+          env.addFilter 'currency', (value, format, locale = currentLocale) ->
             numbro.setCulture(locale)
             numbro(value).formatCurrency(format)
 
@@ -435,7 +435,7 @@ module.exports = (grunt) ->
         ext: '.html'
         rename: (dest, src) =>
           src = humanReadableUrl(src)
-          path.join(dest, src);
+          path.join(dest, src)
       ]
 
     return @

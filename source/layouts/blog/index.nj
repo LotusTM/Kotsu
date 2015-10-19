@@ -12,14 +12,14 @@
 
 	<article class="margin-top+">
 		<h1 class="h3 margin-bottom--flush">
-			<a href="{{ localeDir() }}/blog/{{ slug }}">{{ post.contentTitle|_sp(globalSprintf) }}</a>
+			<a href="{{ localeDir() }}/blog/{{ slug }}">{{ post.contentTitle|template(globalSprintf) }}</a>
 		</h1>
 		<p class="text- margin-bottom-">
-			<time datetime="{{ post.date }}">{{ _d(post.date).format('lll') }}</time>
+			<time datetime="{{ post.date }}">{{ moment(post.date).format('lll') }}</time>
 			-
 			{{ post.author }}
 		</p>
-		<p>{{ post.shortDesc|_sp(globalSprintf) }}</p>
+		<p>{{ post.shortDesc|template(globalSprintf) }}</p>
 		<p>
 			<a class="btn text- link--go" href="{{ localeDir() }}/blog/{{ slug }}">Read more</a>
 		</p>
