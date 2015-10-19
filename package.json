@@ -56,13 +56,14 @@
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
-      "config.js"
+      ".jspm.js"
     ]
   },
   "jspm": {
     "directories": {
       "packages": "temp/jspm_packages"
     },
+    "configFile": ".jspm.js",
     "dependencies": {
       "jquery": "github:components/jquery@^2.1.4"
     },
