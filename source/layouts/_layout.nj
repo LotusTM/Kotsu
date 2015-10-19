@@ -25,7 +25,7 @@
 
 
 <!doctype html>
-<html class='{{ pageClass }} no-js' lang='{{ page.locale }}'>
+<html class='{{ pageClass }} no-js' lang='{{ page.locale }}' {{ 'dir=\'rtl\'' if page.rtl }}>
 
 <head>
 
