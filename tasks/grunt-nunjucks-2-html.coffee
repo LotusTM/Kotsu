@@ -5,6 +5,10 @@ Render nunjucks templates
 ###
 
 module.exports = (grunt) ->
+  # ======
+  # Config
+  # ======
+
   taskConfig =
     autoescape          : false
     data:
@@ -38,6 +42,10 @@ module.exports = (grunt) ->
       trim              : true
       failureOutput     : 'non-printable-url'
 
+  # ====================
+  # Requires and caching
+  # ====================
+
   _            = require('lodash')
   path         = require('path')
   numbro       = require('numbro')
@@ -67,6 +75,9 @@ module.exports = (grunt) ->
   layoutsDir    = taskConfig.path.layouts
   localesDir    = taskConfig.path.locales
 
+  # =======
+  # Helpers
+  # =======
 
   ###*
    * Replace placeholders with provided values via `sprintf` or `vsprintf`. Function will choice
@@ -102,7 +113,11 @@ module.exports = (grunt) ->
       pagepath = pagepath.replace(_basename + _ext, _basename + '/index' + _ext)
     pagepath
 
-  # Output or not locale's dir name based on whether it's base locale or not.
+  ###*
+   * Output or not locale's dirname based on whether it's base locale or not
+   * @param  {string} locale Locale name for which should be made resolving
+   * @return {string} Directory name, in which resides build for specified locale
+  ###
   getLocaleDir = (locale) ->
     _baseUrl = _.find(taskConfig.i18n.locales, { locale: locale }).url
     _url = if _baseUrl then _baseUrl else locale
@@ -121,7 +136,9 @@ module.exports = (grunt) ->
     # for other — only first part
     if _matched[3] then _matched[1] + '-' + _matched[2] else _matched[1]
 
-  # Load and invoke content of l10n files
+  # ===============
+  # Load l10n files
+  # ===============
   # @note In native `xgettext` you can set as many domains as you wish per locale. Usually domains
   #       represented in form of separate l10n files per singe locale. However, `node-gettext` using domains
   #       for holding locales and switching between them. To workaround that issue, following code will
@@ -143,8 +160,10 @@ module.exports = (grunt) ->
 
       i18n.addTextdomain(domain, messages)
 
+  # ====================
+  # Construct Grunt Task
+  # ====================
 
-  # Construct task
   Task = ->
     # Define targets, with unique options and files, for each locale
     locales.forEach (currentLocale) =>
