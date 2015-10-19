@@ -59,7 +59,7 @@ module.exports = (grunt) ->
     failureOutput : taskConfig.urlify.failureOutput
   })
 
-  locales       = taskConfig.i18n.locales
+  locales       = _.pluck(taskConfig.i18n.locales, 'locale')
   baseLocale    = taskConfig.i18n.baseLocale
   defaultDomain = taskConfig.i18n.defaultDomain
 

@@ -76,10 +76,17 @@ module.exports = (grunt) ->
 
     i18n:
       locales: [
-        'en-US'
-        'ru'
+          locale: 'en-US', url: 'en', rtl: false
+        ,
+          locale: 'ru-RU', url: 'ru', rtl: false
+        ,
+          locale: 'ar', url: 'ar', rtl: true
       ]
       baseLocale: 'en-US'
+      getLocales: ->
+        _locales = []
+        grunt.config('i18n.locales').forEach (locale) -> _locales.push(locale.locale)
+        _locales
 
     # Specify data
     data:
@@ -94,12 +101,15 @@ module.exports = (grunt) ->
         name: '<%= pkg.name %>'
         title: '<%= pkg.title %>'
         version: '<%= pkg.version %>'
-        locales: '<%= i18n.locales %>'
+        locales: '<%= i18n.locales.list %>'
         baseLocale: '<%= i18n.baseLocale %>'
         pages: grunt.file.readYAML 'source/data/pages.yml'
       data:
         currentYear: new Date().getFullYear()
         example: grunt.file.readJSON 'source/data/example.json'
+
+  # @todo Workaround to get list of locales as {array} instead of {string}
+  grunt.config.set 'i18n.locales.list', grunt.config('i18n').getLocales()
 
   grunt.loadTasks 'tasks'
 
