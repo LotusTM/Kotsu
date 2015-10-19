@@ -24,7 +24,7 @@
 	<ul class="{{ breadcrumbClass }} {{ class }}">
 
 		<li class="breadcrumb__entry breadcrumb__root">
-			<a class="breadcrumb__link" href="{{ localeDir() }}/">{{ rootTitle|template(globalSprintf) }}</a>
+			<a class="breadcrumb__link" href="{{ localeDir() }}/">{{ rootTitle|template(globalPlaceholders) }}</a>
 		</li>
 
 		{% for key in breadcrumb %}
@@ -45,7 +45,7 @@
 
 				{% if displayLast %}
 
-					<li class="breadcrumb__entry">{{ crumb.breadcrumbTitle|template(globalSprintf) }}</li>
+					<li class="breadcrumb__entry">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</li>
 
 				{% endif %}
 
@@ -53,7 +53,7 @@
 			{% elif not crumb.href %}
 
 				<li class="breadcrumb__entry">
-					<a class="breadcrumb__link" href="{{ localeDir() }}{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|template(globalSprintf) }}</a>
+					<a class="breadcrumb__link" href="{{ localeDir() }}{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</a>
 				</li>
 
 			{% endif %}
