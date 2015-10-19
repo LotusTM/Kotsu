@@ -76,11 +76,13 @@ module.exports = (grunt) ->
 
     i18n:
       locales: [
-          locale: 'en-US', url: 'en', rtl: false
+          locale: 'en-US'
+          url: 'en'
+          rtl: false
         ,
-          locale: 'ru-RU', url: 'ru', rtl: false
-        ,
-          locale: 'ar', url: 'ar', rtl: true
+          locale: 'ru-RU'
+          url: 'ru'
+          rtl: false
       ]
       baseLocale: 'en-US'
       getLocales: ->
