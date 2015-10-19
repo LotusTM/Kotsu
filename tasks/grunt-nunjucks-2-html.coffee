@@ -104,7 +104,9 @@ module.exports = (grunt) ->
 
   # Output or not locale's dir name based on whether it's base locale or not.
   getLocaleDir = (locale) ->
-    urlify(if taskConfig.i18n.baseLocaleAsRoot and locale == baseLocale then '' else locale)
+    _baseUrl = _.find(taskConfig.i18n.locales, { locale: locale }).url
+    _url = if _baseUrl then _baseUrl else locale
+    urlify(if taskConfig.i18n.baseLocaleAsRoot and locale == baseLocale then '' else _url)
 
   ###*
    * Get language code from locale, without country
