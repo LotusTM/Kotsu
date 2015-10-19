@@ -84,8 +84,8 @@ linters:
     #                      https://github.com/brigade/scss-lint/issues/618
     enabled: false
     allow_non_nested_indentation: true
-    character: tab # or 'space'
-    width: 1
+    character: space # or 'tab'
+    width: 2
 
   LeadingZero:
     enabled: true
