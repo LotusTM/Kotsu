@@ -6,7 +6,7 @@
  # @param {bool}   displayLast     = true         Display last crumb or not
  # @param {array}  breadcrumb      = breadcrumb   Source for generating breadcrumb.
  #                                                Will look up for titles, hrefs, etc. in `pages`
- # @param {object} pages           = pages        Complex object with information about each page
+ # @param {object} pages           = site.pages   Complex object with information about each page
  # @param {string} rootTitle       = getPage(['home']).pageTitle Title for root element
  #
  # @return {string} Generated `ul` with breadcrumb
@@ -18,7 +18,7 @@
   mainClass   = 'breadcrumb',
   displayLast = true,
   breadcrumb  = breadcrumb,
-  pages       = pages,
+  pages       = site.pages,
   rootTitle   = getPage(['home']).pageTitle
 ) %}
   <ul class='{{ mainClass }} {{ class }}'>

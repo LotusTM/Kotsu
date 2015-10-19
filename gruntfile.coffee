@@ -96,7 +96,7 @@ module.exports = (grunt) ->
         version: '<%= pkg.version %>'
         locales: '<%= i18n.locales %>'
         baseLocale: '<%= i18n.baseLocale %>'
-      pages: grunt.file.readYAML 'source/data/pages.yml'
+        pages: grunt.file.readYAML 'source/data/pages.yml'
       data:
         currentYear: new Date().getFullYear()
         example: grunt.file.readJSON 'source/data/example.json'

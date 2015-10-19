@@ -9,7 +9,7 @@ module.exports = (grunt) ->
     autoescape          : false
     data:
       all               : '<%= data %>'
-      defaultPages      : grunt.config('data.pages')
+      defaultPages      : grunt.config('data.site.pages')
     path:
       build             : grunt.config('path.build.root')
       layouts           : grunt.config('path.source.layouts')
