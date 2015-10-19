@@ -16,7 +16,7 @@
       </h1>{# /site-logo #}
 
       <!--noindex-->
-      {{ macros.menu(mainClass = 'site-nav') }}
+      {{ components.menu(mainClass = 'site-nav') }}
       <!--/noindex-->
 
     </div>{# /site-wrapper #}
@@ -37,7 +37,7 @@
 
         {% if showBreadcrumb %}
 
-          {{ macros.breadcrumb(
+          {{ components.breadcrumb(
             class       = 'breadcrumb--rev font-size-',
             displayLast = false
           ) }}

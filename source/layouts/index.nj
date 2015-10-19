@@ -42,7 +42,7 @@
     </div>{# /grid__item #}
 
     <div class='grid__item 3/5'>
-      <p>{{ macros.exmapleMacro('this is from index page') }}</p>
+      <p>{{ components.exmapleMacro('this is from index page') }}</p>
     </div>{# /grid__item #}
 
   </section>{# /grid #}

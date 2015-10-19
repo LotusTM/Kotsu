@@ -1,9 +1,9 @@
 {# --------- #}
 {# Call macros globally #}
-{% import 'components/_outdated-browser.nj' as macros with context %}
-{% import 'components/_breadcrumb.nj' as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
-{% import 'components/_menu.nj' as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
-{% import 'components/_example-macro.nj' as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
+{% import 'components/_outdated-browser.nj' as components with context %}
+{% import 'components/_breadcrumb.nj' as tempMacros with context %}{% set macro = _.assign(components, tempMacros) %}
+{% import 'components/_menu.nj' as tempMacros with context %}{% set macro = _.assign(components, tempMacros) %}
+{% import 'components/_example-macro.nj' as tempMacros with context %}{% set macro = _.assign(components, tempMacros) %}
 
 {# Set global placeholders values for `template` #}
 {% set globalPlaceholders = {
@@ -90,7 +90,7 @@
 <body>
 
 
-  {{ macros.outdatedBrowser() }}
+  {{ components.outdatedBrowser() }}
 
 
   {% block body %}{% endblock %}
