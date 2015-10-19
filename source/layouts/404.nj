@@ -1,20 +1,20 @@
-{% extends "_main.nj" %}
+{% extends '_main.nj' %}
 
 
 {# --------- #}
-{% set breadcrumb     = ["404"] %}
+{% set breadcrumb     = ['404'] %}
 
-{% set pageClass      = "l-404" %}
+{% set pageClass      = 'l-404' %}
 {% set showBreadcrumb = false %}
 {# --------- #}
 
 
 {% block main %}
 
-  <h1 class="text++ margin-bottom+"><b>404</b> — page not found</h1>
+  <h1 class='text++ margin-bottom+'><b>404</b> — page not found</h1>
 
   <p>Lost? Just use magic button below:</p>
 
-  <p class="margin-top+"><a class="btn link--back" href="{{ localeDir() }}/">Home</a></p>
+  <p class='margin-top+'><a class='btn link--back' href='{{ localeDir() }}/'>Home</a></p>
 
 {% endblock %}

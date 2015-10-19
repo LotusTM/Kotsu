@@ -1,9 +1,9 @@
 {# --------- #}
 {# Call macros globally #}
-{% import "components/_outdated-browser.nj" as macros with context %}
-{% import "components/_breadcrumb.nj" as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
-{% import "components/_menu.nj" as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
-{% import "components/_example-macro.nj" as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
+{% import 'components/_outdated-browser.nj' as macros with context %}
+{% import 'components/_breadcrumb.nj' as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
+{% import 'components/_menu.nj' as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
+{% import 'components/_example-macro.nj' as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
 
 {# Set global placeholders values for `template` #}
 {% set globalPlaceholders = {
@@ -17,7 +17,7 @@
 {% set pageMetaDesc      = pageMetaDesc     |default(getPage(pages, breadcrumb).metaDesc) %}
 {% set pageContentTitle  = pageContentTitle |default(getPage(pages, breadcrumb).contentTitle) %}
 
-{% set pageClass         = pageClass        |default("") %}
+{% set pageClass         = pageClass        |default('') %}
 {% set customSiteWrapper = customSiteWrapper|default(false) %}
 {% set showBreadcrumb    = showBreadcrumb   |default(true) %}
 {% set pageSidebar       = pageSidebar      |default(false) %}
@@ -25,60 +25,60 @@
 
 
 <!doctype html>
-<html class="{{ pageClass }} no-js" lang="{{ page.locale }}">
+<html class='{{ pageClass }} no-js' lang='{{ page.locale }}'>
 
 <head>
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
 
   <!-- IE compatibility -->
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv='x-ua-compatible' content='ie=edge'>
 
   <title>{{ pageTitle if pageTitle|template(globalPlaceholders) else site.name }}</title>
 
   <!-- Description -->
-  <meta name="description" content="{{ pageMetaDesc|template(globalPlaceholders) }}">
+  <meta name='description' content='{{ pageMetaDesc|template(globalPlaceholders) }}'>
 
   {# <!-- Mobile devices -->
-  <meta name="viewport" content="width=device-width, initial-scale=1"> #}
+  <meta name='viewport' content='width=device-width, initial-scale=1'> #}
 
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic'>
 
   <!-- CSS -->
   <!-- build:[href] /{{ path.styles }}/style.min.css -->
-  <link rel="stylesheet" href="/{{ path.styles }}/style.prefixed.css">
+  <link rel='stylesheet' href='/{{ path.styles }}/style.prefixed.css'>
   <!-- /build -->
 
   <!-- Sitemap -->
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <link rel='sitemap' type='application/xml' title='Sitemap' href='/sitemap.xml'>
 
   {# <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> #}
+  <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml'> #}
 
   {#   <!-- Facebook Open Graph -->
-  <meta property="og:title" content="{{ site.name }}">
-  <meta property="og:description" content="{{ site.title }}">
-  <meta property="og:image" content="https://www.example.com/{{ path.images }}/twitter.jpg"> #}
+  <meta property='og:title' content='{{ site.name }}'>
+  <meta property='og:description' content='{{ site.title }}'>
+  <meta property='og:image' content='https://www.example.com/{{ path.images }}/twitter.jpg'> #}
 
   {#   <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@site_account">
-  <meta name="twitter:creator" content="@individual_account">
-  <meta name="twitter:url" content="https://www.example.com/path/to/page.html">
-  <meta name="twitter:title" content="{{ site.name }}">
-  <meta name="twitter:description" content="{{ site.title }}">
-  <meta name="twitter:image" content="https://www.example.com/{{ path.images }}/facebook.jpg"> #}
+  <meta name='twitter:card' content='summary'>
+  <meta name='twitter:site' content='@site_account'>
+  <meta name='twitter:creator' content='@individual_account'>
+  <meta name='twitter:url' content='https://www.example.com/path/to/page.html'>
+  <meta name='twitter:title' content='{{ site.name }}'>
+  <meta name='twitter:description' content='{{ site.title }}'>
+  <meta name='twitter:image' content='https://www.example.com/{{ path.images }}/facebook.jpg'> #}
 
   <!-- Authors -->
-  <link rel="author" href="/humans.txt">
+  <link rel='author' href='/humans.txt'>
 
   <!--[if lte IE 9]>
-    <link rel="stylesheet" href="/{{ path.styles }}/ie.prefixed.css">
+    <link rel='stylesheet' href='/{{ path.styles }}/ie.prefixed.css'>
     <script>
-      var e = ("abbr,article,aside,audio,canvas,datalist,details," +
-        "figure,footer,header,hgroup,main,mark,menu,meter,nav,output," +
-        "progress,section,time,video").split(',');
+      var e = ('abbr,article,aside,audio,canvas,datalist,details,' +
+        'figure,footer,header,hgroup,main,mark,menu,meter,nav,output,' +
+        'progress,section,time,video').split(',');
       for (var i = 0; i < e.length; i++) {
         document.createElement(e[i]);
       }
@@ -99,7 +99,7 @@
   <!-- Scripts -->
   <!-- ======= -->
 
-  {% include "_scripts.nj" %}
+  {% include '_scripts.nj' %}
 
 
 </body>

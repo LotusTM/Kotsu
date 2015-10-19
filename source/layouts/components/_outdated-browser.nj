@@ -10,10 +10,10 @@
  #}
 {% macro outdatedBrowser(langcode = page.locale) %}
   <!--[if lte IE 9]>
-    <p class="site-outdated-browser">
-      {{ gettext("Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly.", {
-        linkStart: "<a class=\"site-outdated-browser__link\" href=\"http://outdatedbrowser.com/" + langcode|langcode + " target=\"_blank\">",
-        linkEnd: "</a>"
+    <p class='site-outdated-browser'>
+      {{ gettext('Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly.', {
+        linkStart: '<a class=\'site-outdated-browser__link\' href=\'http://outdatedbrowser.com/' + langcode|langcode + ' target=\'_blank\'>',
+        linkEnd: '</a>'
       }) }}
     </p>
   <![endif]-->

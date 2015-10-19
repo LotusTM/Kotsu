@@ -1,8 +1,8 @@
-{% extends "_main.nj" %}
+{% extends '_main.nj' %}
 
 
 {# --------- #}
-{% set pageClass = "l-blog-post" %}
+{% set pageClass = 'l-blog-post' %}
 {# --------- #}
 
 
@@ -12,12 +12,12 @@
 {% block main %}
 
 
-<footer class="muted bleed-top margin-bottom+">
+<footer class='muted bleed-top margin-bottom+'>
   {{ moment(getPage(pages, page.breadcrumb).date).format('lll') }} — {{ getPage(pages, page.breadcrumb).author }}
 </footer>
 
 
-<div class="s-blog-post">
+<div class='s-blog-post'>
   {% block post %}{% endblock %}
 </div>
 

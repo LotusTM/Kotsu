@@ -1,6 +1,6 @@
 <!-- Main site logic -->
 <!-- build:[src] /{{ path.scripts }}/main.min.js -->
-<script src="/{{ path.scripts }}/main.js"></script>
+<script src='/{{ path.scripts }}/main.js'></script>
 <!-- /build -->
 
 {# <!-- Google Analytics -->

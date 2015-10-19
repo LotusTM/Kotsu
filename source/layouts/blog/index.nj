@@ -1,8 +1,8 @@
-{% extends "_main.nj" %}
+{% extends '_main.nj' %}
 
 
 {# --------- #}
-{% set pageClass = "l-blog" %}
+{% set pageClass = 'l-blog' %}
 {# --------- #}
 
 
@@ -10,18 +10,18 @@
 
 {% for slug, post in getPage(pages, page.breadcrumb).sub %}
 
-  <article class="margin-top+">
-    <h1 class="h3 margin-bottom--flush">
-      <a href="{{ localeDir() }}/blog/{{ slug }}">{{ post.contentTitle|template(globalPlaceholders) }}</a>
+  <article class='margin-top+'>
+    <h1 class='h3 margin-bottom--flush'>
+      <a href='{{ localeDir() }}/blog/{{ slug }}'>{{ post.contentTitle|template(globalPlaceholders) }}</a>
     </h1>
-    <p class="text- margin-bottom-">
-      <time datetime="{{ post.date }}">{{ moment(post.date).format('lll') }}</time>
+    <p class='text- margin-bottom-'>
+      <time datetime='{{ post.date }}'>{{ moment(post.date).format('lll') }}</time>
       -
       {{ post.author }}
     </p>
     <p>{{ post.shortDesc|template(globalPlaceholders) }}</p>
     <p>
-      <a class="btn text- link--go" href="{{ localeDir() }}/blog/{{ slug }}">Read more</a>
+      <a class='btn text- link--go' href='{{ localeDir() }}/blog/{{ slug }}'>Read more</a>
     </p>
   </article>
 

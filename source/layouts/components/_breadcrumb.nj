@@ -2,12 +2,12 @@
  # Display breadcrumb block based on provided breadcrumb
  #
  # @param {string} class                          Class names to inject
- # @param {string} breadcrumbClass = "breadcrumb" Override default class name for breadcrumb
+ # @param {string} breadcrumbClass = 'breadcrumb' Override default class name for breadcrumb
  # @param {bool}   displayLast     = true         Display last crumb or not
  # @param {array}  breadcrumb      = breadcrumb   Source for generating breadcrumb.
  #                                                Will look up for titles, hrefs, etc. in `pages`
  # @param {object} pages           = pages        Complex object with information about each page
- # @param {string} rootTitle       = getPage(pages, ["home"]).pageTitle Title for root element
+ # @param {string} rootTitle       = getPage(pages, ['home']).pageTitle Title for root element
  #
  # @return {string} Generated `ul` with breadcrumb
  #
@@ -15,16 +15,16 @@
  #}
 {% macro breadcrumb(
   class,
-  mainClass   = "breadcrumb",
+  mainClass   = 'breadcrumb',
   displayLast = true,
   breadcrumb  = breadcrumb,
   pages       = pages,
-  rootTitle   = getPage(pages, ["home"]).pageTitle
+  rootTitle   = getPage(pages, ['home']).pageTitle
 ) %}
-  <ul class="{{ mainClass }} {{ class }}">
+  <ul class='{{ mainClass }} {{ class }}'>
 
-    <li class="{{ mainClass }}__entry {{ mainClass }}__root">
-      <a class="{{ mainClass }}__link" href="{{ localeDir() }}/">{{ rootTitle|template(globalPlaceholders) }}</a>
+    <li class='{{ mainClass }}__entry {{ mainClass }}__root'>
+      <a class='{{ mainClass }}__link' href='{{ localeDir() }}/'>{{ rootTitle|template(globalPlaceholders) }}</a>
     </li>
 
     {% for key in breadcrumb %}
@@ -37,7 +37,7 @@
       {% else %}
 
         {% set crumb = crumb.sub[key] %}
-        {% set href  = href + "/" + key %}
+        {% set href  = href + '/' + key %}
 
       {% endif %}
 
@@ -45,15 +45,15 @@
 
         {% if displayLast %}
 
-          <li class="{{ mainClass }}__entry">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</li>
+          <li class='{{ mainClass }}__entry'>{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</li>
 
         {% endif %}
 
       {# @todo Needs better way to handle aliases #}
       {% elif not crumb.href %}
 
-        <li class="{{ mainClass }}__entry">
-          <a class="{{ mainClass }}__link" href="{{ localeDir() }}{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</a>
+        <li class='{{ mainClass }}__entry'>
+          <a class='{{ mainClass }}__link' href='{{ localeDir() }}{{ '/' + href if key.href == undefined else key.href }}'>{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</a>
         </li>
 
       {% endif %}

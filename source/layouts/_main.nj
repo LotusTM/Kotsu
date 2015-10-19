@@ -1,4 +1,4 @@
-{% extends "_layout.nj" %}
+{% extends '_layout.nj' %}
 
 
 {% block body %}
@@ -6,11 +6,11 @@
   <!-- Site's header -->
   <!-- ============= -->
 
-  <header class="site-header">
-    <div class="site-wrapper">
+  <header class='site-header'>
+    <div class='site-wrapper'>
 
-      <h1 class="site-logo">
-        <a class="site-logo__link" href="{{ localeDir() }}/">
+      <h1 class='site-logo'>
+        <a class='site-logo__link' href='{{ localeDir() }}/'>
           {{ site.name }}'s logo
         </a>
       </h1>{# /site-logo #}
@@ -26,9 +26,9 @@
   <!-- Site's content -->
   <!-- ============== -->
 
-  <main class="site-main" role="main">
-    <article class="site-content {{ 'site-wrapper' if not customSiteWrapper }}">
-      <div class="site-content-wrapper">
+  <main class='site-main' role='main'>
+    <article class='site-content {{ 'site-wrapper' if not customSiteWrapper }}'>
+      <div class='site-content-wrapper'>
 
 
         {##
@@ -38,7 +38,7 @@
         {% if showBreadcrumb %}
 
           {{ macros.breadcrumb(
-            class       = "breadcrumb--rev font-size-",
+            class       = 'breadcrumb--rev font-size-',
             displayLast = false
           ) }}
 
@@ -52,7 +52,7 @@
 
         {% if pageContentTitle %}
 
-          <h1 class="site-content-title">{{ pageContentTitle|template(globalPlaceholders) }}</h1>
+          <h1 class='site-content-title'>{{ pageContentTitle|template(globalPlaceholders) }}</h1>
 
         {% endif %}
 
@@ -63,13 +63,13 @@
 
         {% if pageSidebar %}
 
-          <div class="grid grid+">
+          <div class='grid grid+'>
 
-            <div class="grid__item 9/12">
+            <div class='grid__item 9/12'>
               {% block main %}{% endblock %}
             </div>{# /grid__item #}
 
-            <aside class="site-sidebar grid__item 3/12">
+            <aside class='site-sidebar grid__item 3/12'>
               {% block sidebar %}{% endblock %}
             </aside>{# /site-sidebar #}{# /grid__item #}
 
@@ -91,8 +91,8 @@
   <!-- ============= -->
 
   <!--/noindex-->
-  <footer class="site-footer">
-    <div class="site-wrapper">
+  <footer class='site-footer'>
+    <div class='site-wrapper'>
       © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
     </div>{# /site-wrapper #}
   </footer>{# /site-footer #}

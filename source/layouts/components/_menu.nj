@@ -2,24 +2,24 @@
  # Display menu block
  #
  # @param {string} class                  Class names to inject
- # @param {string} mainClass = "site-nav" Override default root class
+ # @param {string} mainClass = 'site-nav' Override default root class
  #
  # @return {string} Generated `nav` with menu
  #
  # @example {{ macros.menu() }}
  #}
-{% macro menu(class, mainClass = "site-nav") %}
-  <nav class="{{ mainClass }} {{ class }}">
-    <ul class="{{ mainClass }}__list nav">
+{% macro menu(class, mainClass = 'site-nav') %}
+  <nav class='{{ mainClass }} {{ class }}'>
+    <ul class='{{ mainClass }}__list nav'>
 
-      <li class="{{ mainClass }}__item {{ mainClass }}__item--is-active">
-        <a class="{{ mainClass }}__link" href="{{ localeDir() }}/">
+      <li class='{{ mainClass }}__item {{ mainClass }}__item--is-active'>
+        <a class='{{ mainClass }}__link' href='{{ localeDir() }}/'>
           Home
         </a>
       </li>
 
-      <li class="{{ mainClass }}__item">
-        <a class="{{ mainClass }}__link" href="{{ localeDir() }}/blog/">
+      <li class='{{ mainClass }}__item'>
+        <a class='{{ mainClass }}__link' href='{{ localeDir() }}/blog/'>
           Blog
         </a>
       </li>
