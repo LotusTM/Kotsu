@@ -5,6 +5,37 @@ Render nunjucks templates
 ###
 
 module.exports = (grunt) ->
+  taskConfig =
+    autoescape          : false
+    data                : '<%= data %>'
+    path:
+      build             : grunt.config('path.build.root')
+      layouts           : grunt.config('path.source.layouts')
+      nunjucksEnv       : grunt.config('path.source.layouts')
+      locales           : grunt.config('path.source.locales')
+    files:
+      cwd               : '<%= path.source.layouts %>/'
+      src               : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
+      dest              : '<%= path.build.root %>/'
+      ext               : '.html'
+    humanReadableUrls:
+      enabled           : true
+      exclude           : /^(index|\d{3})$/
+    i18n:
+      locales           : grunt.config('data.site.locales')
+      baseLocale        : grunt.config('data.site.baseLocale')
+      defaultDomain     : 'messages'
+    numberDefaultFormat : '0,0[.]00'
+    urlify:
+      addEToUmlauts     : true
+      szToSs            : true
+      spaces            : '-'
+      toLower           : true
+      nonPrintable      : '-'
+      trim              : true
+      failureOutput     : 'non-printable-url'
+
+
   _            = require('lodash')
   path         = require('path')
   numbro       = require('numbro')
@@ -17,23 +48,23 @@ module.exports = (grunt) ->
   marked       = require('marked')
   markdown     = require('nunjucks-markdown')
   urlify       = require('urlify').create({
-    addEToUmlauts: true
-    szToSs: true
-    spaces: '-'
-    toLower: true
-    nonPrintable: '-'
-    trim: true
-    failureOutput: 'non-printable-url'
+    addEToUmlauts : taskConfig.urlify.addEToUmlauts
+    szToSs        : taskConfig.urlify.szToSs
+    spaces        : taskConfig.urlify.spaces
+    toLower       : taskConfig.urlify.toLower
+    nonPrintable  : taskConfig.urlify.nonPrintable
+    trim          : taskConfig.urlify.trim
+    failureOutput : taskConfig.urlify.failureOutput
   })
 
-  locales       = grunt.config('data.site.locales')
-  baseLocale    = grunt.config('data.site.baseLocale')
+  locales       = taskConfig.i18n.locales
+  baseLocale    = taskConfig.i18n.baseLocale
+  defaultDomain = taskConfig.i18n.defaultDomain
 
-  defaultDomain = 'messages'
+  buildDir      = taskConfig.path.build
+  layoutsDir    = taskConfig.path.layouts
+  localesDir    = taskConfig.path.locales
 
-  buildDir      = grunt.config('path.build.root')
-  layoutsDir    = grunt.config('path.source.layouts')
-  localesDir    = grunt.config('path.source.locales')
 
   ###*
    * Replace placeholders with provided values via `sprintf` or `vsprintf`. Function will choice
@@ -60,7 +91,7 @@ module.exports = (grunt) ->
    * @return {string} Renamed path
   ###
   humanReadableUrl = (pagepath) ->
-    exclude  = /^(index|\d{3})$/
+    exclude  = taskConfig.humanReadableUrls.exclude
 
     ext      = path.extname(pagepath)
     basename = path.basename(pagepath, ext)
@@ -118,10 +149,10 @@ module.exports = (grunt) ->
       @[currentLocale] = {}
 
       @[currentLocale].options =
-        paths: '<%= path.source.layouts %>/'
-        autoescape: false
-        data:  '<%= data %>'
-        configureEnvironment: (env) ->
+        paths                : taskConfig.path.nunjucksEnv
+        autoescape           : taskConfig.autoescape
+        data                 : taskConfig.data
+        configureEnvironment : (env) ->
           # ==========
           # Extensions
           # ==========
@@ -383,12 +414,12 @@ module.exports = (grunt) ->
            * @todo There are few issues with current lib:
            *       * https://github.com/foretagsplatsen/numbro/issues/111
            *       * https://github.com/foretagsplatsen/numbro/issues/112
-           * @param {number} value                  Number which should be formatted
-           * @param {string} format = '0,0[.]00'    Pattern as per http://numbrojs.com/format.html
-           * @param {string} locale = currentLocale Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
+           * @param {number} value                                   Number which should be formatted
+           * @param {string} format = taskConfig.numberDefaultFormat Pattern as per http://numbrojs.com/format.html
+           * @param {string} locale = currentLocale                  Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
            * @return {string} Formatted number
           ###
-          env.addFilter 'number', (value, format = '0,0[.]00', locale = currentLocale) ->
+          env.addFilter 'number', (value, format = taskConfig.numberDefaultFormat, locale = currentLocale) ->
             numbro.setLanguage(locale)
             numbro(value).format(format)
 
@@ -429,12 +460,13 @@ module.exports = (grunt) ->
 
       @[currentLocale].files =  [
         expand: true
-        cwd: '<%= path.source.layouts %>/'
-        src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
-        dest: '<%= path.build.root %>/' + localeDir
-        ext: '.html'
+        cwd: taskConfig.files.cwd + '/'
+        src: taskConfig.files.src
+        dest: taskConfig.files.dest + '/' + localeDir
+        ext: taskConfig.files.ext
         rename: (dest, src) =>
-          src = humanReadableUrl(src)
+          if taskConfig.humanReadableUrls.enabled
+            src = humanReadableUrl(src)
           path.join(dest, src)
       ]
 
