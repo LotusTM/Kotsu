@@ -89,7 +89,7 @@ module.exports = (grunt) ->
     # Specify data
     data:
       path:
-        # @note Stripping `build/` part from path
+        # Remove `build/` part from path
         fonts: '<%= grunt.template.process(path.build.fonts).replace(path.build.root + \'/\', \'\') %>'
         images: '<%= grunt.template.process(path.build.images).replace(path.build.root + \'/\', \'\') %>'
         styles: '<%= grunt.template.process(path.build.styles).replace(path.build.root + \'/\', \'\') %>'
