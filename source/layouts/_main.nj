@@ -38,9 +38,8 @@
 				{% if showBreadcrumb %}
 
 					{{ macros.breadcrumb(
-						breadcrumbClass = "breadcrumb--rev",
-						class           = "font-size-",
-						displayLast     = false
+						class       = "breadcrumb--rev font-size-",
+						displayLast = false
 					) }}
 
 				{% endif %}

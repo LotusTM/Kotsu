@@ -15,16 +15,16 @@
  #}
 {% macro breadcrumb(
 	class,
-	breadcrumbClass = "breadcrumb",
-	displayLast     = true,
-	breadcrumb      = breadcrumb,
-	pages           = pages,
-	rootTitle       = getPage(pages, ["home"]).pageTitle
+	mainClass   = "breadcrumb",
+	displayLast = true,
+	breadcrumb  = breadcrumb,
+	pages       = pages,
+	rootTitle   = getPage(pages, ["home"]).pageTitle
 ) %}
-	<ul class="{{ breadcrumbClass }} {{ class }}">
+	<ul class="{{ mainClass }} {{ class }}">
 
-		<li class="breadcrumb__entry breadcrumb__root">
-			<a class="breadcrumb__link" href="{{ localeDir() }}/">{{ rootTitle|template(globalPlaceholders) }}</a>
+		<li class="{{ mainClass }}__entry {{ mainClass }}__root">
+			<a class="{{ mainClass }}__link" href="{{ localeDir() }}/">{{ rootTitle|template(globalPlaceholders) }}</a>
 		</li>
 
 		{% for key in breadcrumb %}
@@ -45,15 +45,15 @@
 
 				{% if displayLast %}
 
-					<li class="breadcrumb__entry">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</li>
+					<li class="{{ mainClass }}__entry">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</li>
 
 				{% endif %}
 
 			{# @todo Needs better way to handle aliases #}
 			{% elif not crumb.href %}
 
-				<li class="breadcrumb__entry">
-					<a class="breadcrumb__link" href="{{ localeDir() }}{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</a>
+				<li class="{{ mainClass }}__entry">
+					<a class="{{ mainClass }}__link" href="{{ localeDir() }}{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</a>
 				</li>
 
 			{% endif %}
