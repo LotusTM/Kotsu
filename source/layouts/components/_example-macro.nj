@@ -8,5 +8,5 @@
  # @example {{ macros.exmapleMacro('demo value') }}
  #}
 {% macro exmapleMacro(string) %}
-	<code>`{{ string }}`</code> displayed by example macro
+  <code>`{{ string }}`</code> displayed by example macro
 {% endmacro %}

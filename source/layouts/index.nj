@@ -12,151 +12,151 @@
 {% block main %}
 
 
-	<p>This is very basic page to let you know that everything works fine!</p>
+  <p>This is very basic page to let you know that everything works fine!</p>
 
 
-	<section class="grid grid+ grid--middle margin-top+">
+  <section class="grid grid+ grid--middle margin-top+">
 
-		<div class="grid__item 2/5">
-			<h2 class="margin-bottom--flush">Generated icons and sprites examples</h2>
-		</div>{# /grid__item #}
+    <div class="grid__item 2/5">
+      <h2 class="margin-bottom--flush">Generated icons and sprites examples</h2>
+    </div>{# /grid__item #}
 
-		<div class="grid__item 3/5">
+    <div class="grid__item 3/5">
 
-			<p>Webfont home icon: <i class="icon icon--home icon--right"></i></p>
+      <p>Webfont home icon: <i class="icon icon--home icon--right"></i></p>
 
-			<p>1px sprite: <i class="sprite sprite--test icon--right"></i></p>
+      <p>1px sprite: <i class="sprite sprite--test icon--right"></i></p>
 
-		</div>{# /grid__item #}
+    </div>{# /grid__item #}
 
-	</section>{# /grid #}
-
-
-	<hr class="margin-ends+">
+  </section>{# /grid #}
 
 
-	<section class="grid grid+ grid--middle">
-
-		<div class="grid__item 2/5">
-			<h2 class="margin-bottom--flush">Macros examples</h2>
-		</div>{# /grid__item #}
-
-		<div class="grid__item 3/5">
-			<p>{{ macros.exmapleMacro('this is from index page') }}</p>
-		</div>{# /grid__item #}
-
-	</section>{# /grid #}
+  <hr class="margin-ends+">
 
 
-	<hr class="margin-ends+">
+  <section class="grid grid+ grid--middle">
+
+    <div class="grid__item 2/5">
+      <h2 class="margin-bottom--flush">Macros examples</h2>
+    </div>{# /grid__item #}
+
+    <div class="grid__item 3/5">
+      <p>{{ macros.exmapleMacro('this is from index page') }}</p>
+    </div>{# /grid__item #}
+
+  </section>{# /grid #}
 
 
-	<section class="grid grid+ grid--middle">
-
-		<div class="grid__item 2/5">
-			<h2 class="margin-bottom--flush">i18n examples</h2>
-		</div>{# /grid__item #}
-
-		<div class="grid__item 3/5">
-
-			<h3 class="h4">This site available in following languages:</h3>
-
-			<ul>
-				{% for locale in site.locales %}
-					<li>
-						{% if locale == page.locale %}
-							{{ locale }} (current)
-						{% else %}
-							<a href="{{ localeDir(locale) }}/">{{ locale }}</a>
-						{% endif %}
-					</li>
-				{% endfor %}
-			</ul>
-
-			<h3 class="h4 margin-top+">Output translation from current locale</h3>
-
-			<p><code>{{ gettext("This string will be displayd in selected language") }}</code></p>
-
-			<h3 class="h4 margin-top+">Output translation from other locales and domains</h3>
-
-			<p>
-				Display string from <code>`ru`</code> locale:<br>
-				<code>{{ dgettext("ru", "This string will be displayd in selected language") }}</code>
-			</p>
-			<p>
-				Display same string from <code>`ru`</code> locale and <code>`other`</code> domain:<br>
-				<code>{{ dgettext("ru:other", "This string will be displayd in selected language") }}</code>
-			</p>
-			<p>
-				Display same string from <code>`ru`</code> locale and <code>`nav:bar`</code> domain:<br>
-				<code>{{ dgettext("ru:nav:bar", "This string will be displayd in selected language") }}</code>
-			</p>
-
-			<h3 class="h4 margin-top+">Translation with plurals</h3>
-
-			<p>Singular: <code>{{ ngettext("%s apple", "%s apples", 1, 1) }}</code></p>
-			<p>Plural: <code>{{ ngettext("%s apple", "%s apples", 2, 2) }}</code></p>
-			<p>Other: <code>{{ ngettext("%s apple", "%s apples", 5, 5) }}</code></p>
-
-		</div>{# /grid__item #}
-
-	</section>{# /grid #}
+  <hr class="margin-ends+">
 
 
-	<hr class="margin-ends+">
+  <section class="grid grid+ grid--middle">
+
+    <div class="grid__item 2/5">
+      <h2 class="margin-bottom--flush">i18n examples</h2>
+    </div>{# /grid__item #}
+
+    <div class="grid__item 3/5">
+
+      <h3 class="h4">This site available in following languages:</h3>
+
+      <ul>
+        {% for locale in site.locales %}
+          <li>
+            {% if locale == page.locale %}
+              {{ locale }} (current)
+            {% else %}
+              <a href="{{ localeDir(locale) }}/">{{ locale }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+
+      <h3 class="h4 margin-top+">Output translation from current locale</h3>
+
+      <p><code>{{ gettext("This string will be displayd in selected language") }}</code></p>
+
+      <h3 class="h4 margin-top+">Output translation from other locales and domains</h3>
+
+      <p>
+        Display string from <code>`ru`</code> locale:<br>
+        <code>{{ dgettext("ru", "This string will be displayd in selected language") }}</code>
+      </p>
+      <p>
+        Display same string from <code>`ru`</code> locale and <code>`other`</code> domain:<br>
+        <code>{{ dgettext("ru:other", "This string will be displayd in selected language") }}</code>
+      </p>
+      <p>
+        Display same string from <code>`ru`</code> locale and <code>`nav:bar`</code> domain:<br>
+        <code>{{ dgettext("ru:nav:bar", "This string will be displayd in selected language") }}</code>
+      </p>
+
+      <h3 class="h4 margin-top+">Translation with plurals</h3>
+
+      <p>Singular: <code>{{ ngettext("%s apple", "%s apples", 1, 1) }}</code></p>
+      <p>Plural: <code>{{ ngettext("%s apple", "%s apples", 2, 2) }}</code></p>
+      <p>Other: <code>{{ ngettext("%s apple", "%s apples", 5, 5) }}</code></p>
+
+    </div>{# /grid__item #}
+
+  </section>{# /grid #}
 
 
-	<section class="grid grid+ grid--middle">
-
-		<div class="grid__item 2/5">
-			<h2 class="margin-bottom--flush">Data examples</h2>
-		</div>{# /grid__item #}
-
-		<div class="grid__item 3/5">
-
-			<section class="grid grid+ grid--middle">
-
-				<div class="grid__item 2/5">
-					<h3 class="margin-bottom--flush">Inline data</h3>
-				</div>{# /grid__item #}
-
-				<div class="grid__item 3/5">
-
-					<p>Current year is {{ data.currentYear }}</p>
-
-					<p>Images path is <code>{{ path.images }}</code></p>
-
-				</div>{# /grid__item #}
-
-			</section>{# /grid #}
-
-			<section class="grid grid+ grid--middle margin-top+">
-
-				<div class="grid__item 2/5">
-					<h3 class="margin-bottom--flush">External data</h3>
-				</div>{# /grid__item #}
-
-				<div class="grid__item 3/5">
-
-					<h4 class="margin-bottom--flush" class="h5">{{ data.example.title }}</h4>
-
-					<p>{{ data.example.content }}</p>
-
-				</div>{# /grid__item #}
-
-			</section>{# /grid #}
-
-		</div>{# /grid__item #}
-
-	</section>{# /grid #}
-
-	<hr class="margin-ends+">
+  <hr class="margin-ends+">
 
 
-	<p>
-		Learn more about
-		<a class="btn link--go margin-left-" href="https://github.com/LotusTM/Kotsu" target="blank">Kotsu at Github</a>
-	</p>
+  <section class="grid grid+ grid--middle">
+
+    <div class="grid__item 2/5">
+      <h2 class="margin-bottom--flush">Data examples</h2>
+    </div>{# /grid__item #}
+
+    <div class="grid__item 3/5">
+
+      <section class="grid grid+ grid--middle">
+
+        <div class="grid__item 2/5">
+          <h3 class="margin-bottom--flush">Inline data</h3>
+        </div>{# /grid__item #}
+
+        <div class="grid__item 3/5">
+
+          <p>Current year is {{ data.currentYear }}</p>
+
+          <p>Images path is <code>{{ path.images }}</code></p>
+
+        </div>{# /grid__item #}
+
+      </section>{# /grid #}
+
+      <section class="grid grid+ grid--middle margin-top+">
+
+        <div class="grid__item 2/5">
+          <h3 class="margin-bottom--flush">External data</h3>
+        </div>{# /grid__item #}
+
+        <div class="grid__item 3/5">
+
+          <h4 class="margin-bottom--flush" class="h5">{{ data.example.title }}</h4>
+
+          <p>{{ data.example.content }}</p>
+
+        </div>{# /grid__item #}
+
+      </section>{# /grid #}
+
+    </div>{# /grid__item #}
+
+  </section>{# /grid #}
+
+  <hr class="margin-ends+">
+
+
+  <p>
+    Learn more about
+    <a class="btn link--go margin-left-" href="https://github.com/LotusTM/Kotsu" target="blank">Kotsu at Github</a>
+  </p>
 
 
 {% endblock %}

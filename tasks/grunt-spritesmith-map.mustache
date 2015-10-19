@@ -23,12 +23,12 @@
 //
 // @example
 //
-//		@include sprites();     // will output to CSS all your sprites
-//		@include sprite(arrow); // will output to CSS `.sprite--arrow { ... }`
+//  @include sprites();     // will output to CSS all your sprites
+//  @include sprite(arrow); // will output to CSS `.sprite--arrow { ... }`
 //
 
 $grunt-sprites: (
-	{{#items}}
-	'{{name}}': ( width: {{px.width}}, height: {{px.height}}, offset-x: {{px.offset_x}}, offset-y: {{px.offset_y}} ),
-	{{/items}}
+  {{#items}}
+  '{{name}}': ( width: {{px.width}}, height: {{px.height}}, offset-x: {{px.offset_x}}, offset-y: {{px.offset_y}} ),
+  {{/items}}
 );

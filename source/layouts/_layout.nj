@@ -7,7 +7,7 @@
 
 {# Set global placeholders values for `template` #}
 {% set globalPlaceholders = {
-	company: site.name
+  company: site.name
 } %}
 
 {# Set defaults #}
@@ -29,77 +29,77 @@
 
 <head>
 
-	<meta charset="utf-8">
+  <meta charset="utf-8">
 
-	<!-- IE compatibility -->
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- IE compatibility -->
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<title>{{ pageTitle if pageTitle|template(globalPlaceholders) else site.name }}</title>
+  <title>{{ pageTitle if pageTitle|template(globalPlaceholders) else site.name }}</title>
 
-	<!-- Description -->
-	<meta name="description" content="{{ pageMetaDesc|template(globalPlaceholders) }}">
+  <!-- Description -->
+  <meta name="description" content="{{ pageMetaDesc|template(globalPlaceholders) }}">
 
-	{# <!-- Mobile devices -->
-	<meta name="viewport" content="width=device-width, initial-scale=1"> #}
+  {# <!-- Mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> #}
 
-	<!-- Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic">
 
-	<!-- CSS -->
-	<!-- build:[href] /{{ path.styles }}/style.min.css -->
-	<link rel="stylesheet" href="/{{ path.styles }}/style.prefixed.css">
-	<!-- /build -->
+  <!-- CSS -->
+  <!-- build:[href] /{{ path.styles }}/style.min.css -->
+  <link rel="stylesheet" href="/{{ path.styles }}/style.prefixed.css">
+  <!-- /build -->
 
-	<!-- Sitemap -->
-	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-	{# <!-- RSS -->
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> #}
+  {# <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> #}
 
-	{# 	<!-- Facebook Open Graph -->
-	<meta property="og:title" content="{{ site.name }}">
-	<meta property="og:description" content="{{ site.title }}">
-	<meta property="og:image" content="https://www.example.com/{{ path.images }}/twitter.jpg"> #}
+  {#   <!-- Facebook Open Graph -->
+  <meta property="og:title" content="{{ site.name }}">
+  <meta property="og:description" content="{{ site.title }}">
+  <meta property="og:image" content="https://www.example.com/{{ path.images }}/twitter.jpg"> #}
 
-	{# 	<!-- Twitter Cards -->
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="@site_account">
-	<meta name="twitter:creator" content="@individual_account">
-	<meta name="twitter:url" content="https://www.example.com/path/to/page.html">
-	<meta name="twitter:title" content="{{ site.name }}">
-	<meta name="twitter:description" content="{{ site.title }}">
-	<meta name="twitter:image" content="https://www.example.com/{{ path.images }}/facebook.jpg"> #}
+  {#   <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@site_account">
+  <meta name="twitter:creator" content="@individual_account">
+  <meta name="twitter:url" content="https://www.example.com/path/to/page.html">
+  <meta name="twitter:title" content="{{ site.name }}">
+  <meta name="twitter:description" content="{{ site.title }}">
+  <meta name="twitter:image" content="https://www.example.com/{{ path.images }}/facebook.jpg"> #}
 
-	<!-- Authors -->
-	<link rel="author" href="/humans.txt">
+  <!-- Authors -->
+  <link rel="author" href="/humans.txt">
 
-	<!--[if lte IE 9]>
-		<link rel="stylesheet" href="/{{ path.styles }}/ie.prefixed.css">
-		<script>
-			var e = ("abbr,article,aside,audio,canvas,datalist,details," +
-				"figure,footer,header,hgroup,main,mark,menu,meter,nav,output," +
-				"progress,section,time,video").split(',');
-			for (var i = 0; i < e.length; i++) {
-				document.createElement(e[i]);
-			}
-		</script>
-	<![endif]-->
+  <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/{{ path.styles }}/ie.prefixed.css">
+    <script>
+      var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+        "figure,footer,header,hgroup,main,mark,menu,meter,nav,output," +
+        "progress,section,time,video").split(',');
+      for (var i = 0; i < e.length; i++) {
+        document.createElement(e[i]);
+      }
+    </script>
+  <![endif]-->
 
 </head>
 
 <body>
 
 
-	{{ macros.outdatedBrowser() }}
+  {{ macros.outdatedBrowser() }}
 
 
-	{% block body %}{% endblock %}
+  {% block body %}{% endblock %}
 
 
-	<!-- Scripts -->
-	<!-- ======= -->
+  <!-- Scripts -->
+  <!-- ======= -->
 
-	{% include "_scripts.nj" %}
+  {% include "_scripts.nj" %}
 
 
 </body>

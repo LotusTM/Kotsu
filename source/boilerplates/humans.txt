@@ -1,36 +1,36 @@
 # humanstxt.org/
 
-	The humans.txt file explains the team, technology, and creative
-	assets behind this site.
+  The humans.txt file explains the team, technology, and creative
+  assets behind this site.
 
 # TEAM
 
-	Developer: -
-	Site: -
-	Twitter: -
-	Location: -
+  Developer: -
+  Site: -
+  Twitter: -
+  Location: -
 
 # KOTSU WEB STARTER KIT TEAM
 
-	Site: lotus.tm
-	Twitter: https://twitter.com/LotusTM
+  Site: lotus.tm
+  Twitter: https://twitter.com/LotusTM
 
-	Developer: Mr.Hyde
-	Site: 2bad.me
-	Twitter: https://twitter.com/2BadMe
-	Location: Europe
+  Developer: Mr.Hyde
+  Site: 2bad.me
+  Twitter: https://twitter.com/2BadMe
+  Location: Europe
 
-	Developer: Serj Lavrin
-	Site: #
-	Twitter: https://twitter.com/ArmorDarks
-	Location: Ukraine
+  Developer: Serj Lavrin
+  Site: #
+  Twitter: https://twitter.com/ArmorDarks
+  Location: Ukraine
 
 # TECHNOLOGY
 
-	Grunt, Kotsu (https://github.com/LotusTM/Kotsu)
-	HTML5, nunjucks
-	CSS3, Sass, Ekzo.sass (https://github.com/ArmorDarks/ekzo.sass)
-	JavaScript, jQuery
+  Grunt, Kotsu (https://github.com/LotusTM/Kotsu)
+  HTML5, nunjucks
+  CSS3, Sass, Ekzo.sass (https://github.com/ArmorDarks/ekzo.sass)
+  JavaScript, jQuery
 
 _______________________________________________________________________________
 

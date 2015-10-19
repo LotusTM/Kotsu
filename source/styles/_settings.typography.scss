@@ -8,27 +8,27 @@
 // ---------------------------------------
 
 $ekzo-font-sizes: (
-	text: (
-		base: 14px, // used for vertical rhythm calculation; = .text--base, .font-size--base, .line-height--base
-		'-':  12px, // = .text-,  .font-size-,  .line-height-
-		'--': 10px, // = .text--, .font-size--, .line-height--
-	),
-	headings: (
-		h1: 36px, // = h1, .h1, .font-size--h1, .line-height--h1
-		h2: 30px, // = h2, .h2, .font-size--h2, .line-height--h2
-		h3: 24px, // = h3, .h3, .font-size--h3, .line-height--h3
-		h4: 21px, // = h4, .h4, .font-size--h4, .line-height--h4
-		h5: 18px, // = h5, .h5, .font-size--h5, .line-height--h5
-		h6: 16px, // = h6, .h6, .font-size--h6, .line-height--h6
-	),
-	extra-headings: (
-		\+\+\+: 96px, // = .text\+\+\+, .font-size\+\+\+, .line-height\+\+\+
-		\+\+:   72px, // = .text\+\+,   .font-size\+\+,   .line-height\+\+
-		\+:     44px, // = .text\+,     .font-size\+,     .line-height\+
-	),
-	// = .btn--*name*
-	// @todo Moved on upper line because of https://github.com/brigade/scss-lint/issues/608
-	buttons: ()
+  text: (
+    base: 14px, // used for vertical rhythm calculation; = .text--base, .font-size--base, .line-height--base
+    '-':  12px, // = .text-,  .font-size-,  .line-height-
+    '--': 10px, // = .text--, .font-size--, .line-height--
+  ),
+  headings: (
+    h1: 36px, // = h1, .h1, .font-size--h1, .line-height--h1
+    h2: 30px, // = h2, .h2, .font-size--h2, .line-height--h2
+    h3: 24px, // = h3, .h3, .font-size--h3, .line-height--h3
+    h4: 21px, // = h4, .h4, .font-size--h4, .line-height--h4
+    h5: 18px, // = h5, .h5, .font-size--h5, .line-height--h5
+    h6: 16px, // = h6, .h6, .font-size--h6, .line-height--h6
+  ),
+  extra-headings: (
+    \+\+\+: 96px, // = .text\+\+\+, .font-size\+\+\+, .line-height\+\+\+
+    \+\+:   72px, // = .text\+\+,   .font-size\+\+,   .line-height\+\+
+    \+:     44px, // = .text\+,     .font-size\+,     .line-height\+
+  ),
+  // = .btn--*name*
+  // @todo Moved on upper line because of https://github.com/brigade/scss-lint/issues/608
+  buttons: ()
 );
 
 $ekzo-forms-font-size:              ekzo-font-size(h5, headings);

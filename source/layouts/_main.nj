@@ -3,100 +3,100 @@
 
 {% block body %}
 
-	<!-- Site's header -->
-	<!-- ============= -->
+  <!-- Site's header -->
+  <!-- ============= -->
 
-	<header class="site-header">
-		<div class="site-wrapper">
+  <header class="site-header">
+    <div class="site-wrapper">
 
-			<h1 class="site-logo">
-				<a class="site-logo__link" href="{{ localeDir() }}/">
-					{{ site.name }}'s logo
-				</a>
-			</h1>{# /site-logo #}
+      <h1 class="site-logo">
+        <a class="site-logo__link" href="{{ localeDir() }}/">
+          {{ site.name }}'s logo
+        </a>
+      </h1>{# /site-logo #}
 
-			<!--noindex-->
-			{{ macros.menu(mainClass = 'site-nav') }}
-			<!--/noindex-->
+      <!--noindex-->
+      {{ macros.menu(mainClass = 'site-nav') }}
+      <!--/noindex-->
 
-		</div>{# /site-wrapper #}
-	</header>{# /site-header #}
-
-
-	<!-- Site's content -->
-	<!-- ============== -->
-
-	<main class="site-main" role="main">
-		<article class="site-content {{ 'site-wrapper' if not customSiteWrapper }}">
-			<div class="site-content-wrapper">
+    </div>{# /site-wrapper #}
+  </header>{# /site-header #}
 
 
-				{##
-				 # @param {bool} showBreadcrumb Display breadcrumb unless it set to `false`
-				 #}
+  <!-- Site's content -->
+  <!-- ============== -->
 
-				{% if showBreadcrumb %}
-
-					{{ macros.breadcrumb(
-						class       = "breadcrumb--rev font-size-",
-						displayLast = false
-					) }}
-
-				{% endif %}
+  <main class="site-main" role="main">
+    <article class="site-content {{ 'site-wrapper' if not customSiteWrapper }}">
+      <div class="site-content-wrapper">
 
 
-				{##
-				 # @param {string|false} pageContentTitle Display specified title as content title
-				 #                                        unless it set to `false`
-				 #}
+        {##
+         # @param {bool} showBreadcrumb Display breadcrumb unless it set to `false`
+         #}
 
-				{% if pageContentTitle %}
+        {% if showBreadcrumb %}
 
-					<h1 class="site-content-title">{{ pageContentTitle|template(globalPlaceholders) }}</h1>
+          {{ macros.breadcrumb(
+            class       = "breadcrumb--rev font-size-",
+            displayLast = false
+          ) }}
 
-				{% endif %}
-
-
-				{##
-				 # @param {bool} pageSidebar Display sidebar unless it set to `false`
-				 #}
-
-				{% if pageSidebar %}
-
-					<div class="grid grid+">
-
-						<div class="grid__item 9/12">
-							{% block main %}{% endblock %}
-						</div>{# /grid__item #}
-
-						<aside class="site-sidebar grid__item 3/12">
-							{% block sidebar %}{% endblock %}
-						</aside>{# /site-sidebar #}{# /grid__item #}
-
-					</div>{# /grid #}
-
-				{% else %}
-
-					{% block main %}{% endblock %}
-
-				{% endif %}
+        {% endif %}
 
 
-			</div>{# /site-content-wrapper #}
-		</article>{# /site-content #}{# /site-wrapper #}
-	</main>{# /site-main #}
+        {##
+         # @param {string|false} pageContentTitle Display specified title as content title
+         #                                        unless it set to `false`
+         #}
+
+        {% if pageContentTitle %}
+
+          <h1 class="site-content-title">{{ pageContentTitle|template(globalPlaceholders) }}</h1>
+
+        {% endif %}
 
 
-	<!-- Site's footer -->
-	<!-- ============= -->
+        {##
+         # @param {bool} pageSidebar Display sidebar unless it set to `false`
+         #}
 
-	<!--/noindex-->
-	<footer class="site-footer">
-		<div class="site-wrapper">
-			© 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
-		</div>{# /site-wrapper #}
-	</footer>{# /site-footer #}
-	<!--/noindex-->
+        {% if pageSidebar %}
+
+          <div class="grid grid+">
+
+            <div class="grid__item 9/12">
+              {% block main %}{% endblock %}
+            </div>{# /grid__item #}
+
+            <aside class="site-sidebar grid__item 3/12">
+              {% block sidebar %}{% endblock %}
+            </aside>{# /site-sidebar #}{# /grid__item #}
+
+          </div>{# /grid #}
+
+        {% else %}
+
+          {% block main %}{% endblock %}
+
+        {% endif %}
+
+
+      </div>{# /site-content-wrapper #}
+    </article>{# /site-content #}{# /site-wrapper #}
+  </main>{# /site-main #}
+
+
+  <!-- Site's footer -->
+  <!-- ============= -->
+
+  <!--/noindex-->
+  <footer class="site-footer">
+    <div class="site-wrapper">
+      © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
+    </div>{# /site-wrapper #}
+  </footer>{# /site-footer #}
+  <!--/noindex-->
 
 
 {% endblock %}

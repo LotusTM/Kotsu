@@ -14,51 +14,51 @@
  # @example {{ macros.breadcrumb() }}
  #}
 {% macro breadcrumb(
-	class,
-	mainClass   = "breadcrumb",
-	displayLast = true,
-	breadcrumb  = breadcrumb,
-	pages       = pages,
-	rootTitle   = getPage(pages, ["home"]).pageTitle
+  class,
+  mainClass   = "breadcrumb",
+  displayLast = true,
+  breadcrumb  = breadcrumb,
+  pages       = pages,
+  rootTitle   = getPage(pages, ["home"]).pageTitle
 ) %}
-	<ul class="{{ mainClass }} {{ class }}">
+  <ul class="{{ mainClass }} {{ class }}">
 
-		<li class="{{ mainClass }}__entry {{ mainClass }}__root">
-			<a class="{{ mainClass }}__link" href="{{ localeDir() }}/">{{ rootTitle|template(globalPlaceholders) }}</a>
-		</li>
+    <li class="{{ mainClass }}__entry {{ mainClass }}__root">
+      <a class="{{ mainClass }}__link" href="{{ localeDir() }}/">{{ rootTitle|template(globalPlaceholders) }}</a>
+    </li>
 
-		{% for key in breadcrumb %}
+    {% for key in breadcrumb %}
 
-			{% if loop.index0 == 0 %}
+      {% if loop.index0 == 0 %}
 
-				{% set crumb = pages[key] %}
-				{% set href  = key %}
+        {% set crumb = pages[key] %}
+        {% set href  = key %}
 
-			{% else %}
+      {% else %}
 
-				{% set crumb = crumb.sub[key] %}
-				{% set href  = href + "/" + key %}
+        {% set crumb = crumb.sub[key] %}
+        {% set href  = href + "/" + key %}
 
-			{% endif %}
+      {% endif %}
 
-			{% if loop.last and not crumb.href %}
+      {% if loop.last and not crumb.href %}
 
-				{% if displayLast %}
+        {% if displayLast %}
 
-					<li class="{{ mainClass }}__entry">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</li>
+          <li class="{{ mainClass }}__entry">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</li>
 
-				{% endif %}
+        {% endif %}
 
-			{# @todo Needs better way to handle aliases #}
-			{% elif not crumb.href %}
+      {# @todo Needs better way to handle aliases #}
+      {% elif not crumb.href %}
 
-				<li class="{{ mainClass }}__entry">
-					<a class="{{ mainClass }}__link" href="{{ localeDir() }}{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</a>
-				</li>
+        <li class="{{ mainClass }}__entry">
+          <a class="{{ mainClass }}__link" href="{{ localeDir() }}{{ "/" + href if key.href == undefined else key.href }}">{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</a>
+        </li>
 
-			{% endif %}
+      {% endif %}
 
-		{% endfor %}
+    {% endfor %}
 
-	</ul>
+  </ul>
 {% endmacro %}
