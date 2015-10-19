@@ -24,6 +24,7 @@ module.exports = (grunt) ->
     i18n:
       locales           : grunt.config('data.site.locales')
       baseLocale        : grunt.config('data.site.baseLocale')
+      baseLocaleAsRoot  : true
       defaultDomain     : 'messages'
     numberDefaultFormat : '0,0[.]00'
     urlify:
@@ -102,7 +103,7 @@ module.exports = (grunt) ->
 
   # Output or not locale's dir name based on whether it's base locale or not.
   getLocaleDir = (locale) ->
-    urlify(if locale == baseLocale then '' else locale)
+    urlify(if taskConfig.i18n.baseLocaleAsRoot and locale == baseLocale then '' else locale)
 
   ###*
    * Get language code from locale, without country
