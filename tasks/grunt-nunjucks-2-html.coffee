@@ -76,10 +76,10 @@ module.exports = (grunt) ->
    * @return {string} String with replaced placeholders
   ###
   printf = (string, placeholders...) ->
-    placeholder = placeholders[0]
+    _placeholder = placeholders[0]
 
-    if placeholders.length == 1 and Array.isArray placeholder
-      return vsprintf string, placeholder
+    if placeholders.length == 1 and Array.isArray _placeholder
+      return vsprintf string, _placeholder
     else
       placeholders.unshift(string)
       return sprintf.apply null, placeholders
@@ -92,13 +92,13 @@ module.exports = (grunt) ->
    * @return {string} Renamed path
   ###
   humanReadableUrl = (pagepath) ->
-    exclude  = taskConfig.humanReadableUrls.exclude
+    _exclude  = taskConfig.humanReadableUrls.exclude
 
-    ext      = path.extname(pagepath)
-    basename = path.basename(pagepath, ext)
+    _ext      = path.extname(pagepath)
+    _basename = path.basename(pagepath, _ext)
 
-    if !exclude.test(basename)
-      pagepath = pagepath.replace(basename + ext, basename + '/index' + ext)
+    if !_exclude.test(_basename)
+      pagepath = pagepath.replace(_basename + _ext, _basename + '/index' + _ext)
     pagepath
 
   # Output or not locale's dir name based on whether it's base locale or not.
@@ -111,12 +111,12 @@ module.exports = (grunt) ->
    * @return {string} Language code from locale
   ###
   getLangcode = (locale) ->
-    matched = locale.match(/^(\w*)-?(\w*)-?(\w*)/i)
+    _matched = locale.match(/^(\w*)-?(\w*)-?(\w*)/i)
     # In case of 3 and more matched parts assume that we're dealing with language, wich exists
     # in few forms (like Latin and Cyrillic Serbian (`sr-Latn-CS` and `sr-Cyrl-CS`)
     # For such languages we should output few first parts (`sr-Latn` and `sr-Cyrl`),
     # for other — only first part
-    if matched[3] then matched[1] + '-' + matched[2] else matched[1]
+    if _matched[3] then _matched[1] + '-' + _matched[2] else _matched[1]
 
   # Load and invoke content of l10n files
   # @note In native `xgettext` you can set as many domains as you wish per locale. Usually domains
@@ -190,10 +190,10 @@ module.exports = (grunt) ->
            * @return {array} Array of found files or directories
           ###
           env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir + '/') ->
-            files = []
+            _files = []
             grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (file) ->
-              files.push(file)
-            files
+              _files.push(file)
+            _files
 
           ###*
            * Get information about page from specified object.
@@ -205,15 +205,15 @@ module.exports = (grunt) ->
            * @return {object} Contains all page's properties, including it's sub pages
           ###
           env.addGlobal 'getPage', (obj, path, subName = 'sub') ->
-            subbedPath = _.clone(path)
-            i = 1
-            position = 1
-            while i < path.length
-              position = if (i > 1) then position + 2 else position
-              subbedPath.splice(position, 0, subName)
-              i++
-            result = _.get(obj, subbedPath)
-            if result then result else grunt.log.error('[getPage] can\'t find requested `' + subbedPath + '` inside specified object')
+            _subbedPath = _.clone(path)
+            _i = 1
+            _position = 1
+            while _i < path.length
+              _position = if (_i > 1) then _position + 2 else _position
+              _subbedPath.splice(_position, 0, subName)
+              _i++
+            result = _.get(obj, _subbedPath)
+            if result then result else grunt.log.error('[getPage] can\'t find requested `' + _subbedPath + '` inside specified object')
 
           ###*
            * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation, and displaying dates
@@ -238,8 +238,8 @@ module.exports = (grunt) ->
            * @example <a href="{{ localeDir() }}/blog/">blog link</a>
           ###
           env.addGlobal 'localeDir', (locale = currentLocale) ->
-            localeDir = getLocaleDir(locale)
-            if localeDir then '/' + localeDir else ''
+            _localeDir = getLocaleDir(locale)
+            if _localeDir then '/' + _localeDir else ''
 
           ###*
           * Load string from current locale
