@@ -2,6 +2,7 @@
 {# Call macros globally #}
 {% import "components/_outdated-browser.nj" as macros with context %}
 {% import "components/_breadcrumb.nj" as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
+{% import "components/_menu.nj" as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
 {% import "components/_example-macro.nj" as tempMacros with context %}{% set macro = _.assign(macros, tempMacros) %}
 
 {# Set global placeholders values for `template` #}

@@ -16,23 +16,7 @@
 			</h1>{# /site-logo #}
 
 			<!--noindex-->
-			<nav class="site-nav">
-				<ul class="site-nav__list nav">
-
-					<li class="site-nav__item site-nav__item--is-active">
-						<a class="site-nav__link" href="{{ localeDir() }}/">
-							Home
-						</a>
-					</li>
-
-					<li class="site-nav__item">
-						<a class="site-nav__link" href="{{ localeDir() }}/blog/">
-							Blog
-						</a>
-					</li>
-
-				</ul>{# /site-nav__list #}
-			</nav>{# /site-nav #}
+			{{ macros.menu(mainClass = 'site-nav') }}
 			<!--/noindex-->
 
 		</div>{# /site-wrapper #}
