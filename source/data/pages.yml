@@ -10,9 +10,9 @@ home:
 blog:
   pageTitle:       Blog
   breadcrumbTitle: Blog
-  contentTitle:    '%(company)s''s blog'
+  contentTitle:    '%(company)s blog'
   menuTitle:       Blog
-  metaDesc:        '%(company)s''s blog'
+  metaDesc:        '%(company)s blog'
   sub:
     2015-10-12-example-article:
       pageTitle:       Example article
