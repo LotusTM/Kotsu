@@ -213,8 +213,8 @@ module.exports = (grunt) ->
           ###
           env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir + '/') ->
             _files = []
-            grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (file) ->
-              _files.push(file)
+            grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (_file) ->
+              _files.push(_file)
             _files
 
           ###*
@@ -234,8 +234,8 @@ module.exports = (grunt) ->
               _position = if (_i > 1) then _position + 2 else _position
               _subbedPath.splice(_position, 0, subName)
               _i++
-            result = _.get(pages, _subbedPath)
-            if result then result else grunt.log.error('[getPage] can\'t find requested `' + _subbedPath + '` inside specified object')
+            _result = _.get(pages, _subbedPath)
+            if _result then _result else grunt.log.error('[getPage] can\'t find requested `' + _subbedPath + '` inside specified object')
 
           ###*
            * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation, and displaying dates
