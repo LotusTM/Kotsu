@@ -98,6 +98,7 @@ module.exports = (grunt) ->
       site:
         name: '<%= pkg.name %>'
         desc: '<%= pkg.description %>'
+        homepage: '<%= pkg.homepage %>'
         version: '<%= pkg.version %>'
         locales: '<%= i18n.locales.list %>'
         baseLocale: '<%= i18n.baseLocale %>'
