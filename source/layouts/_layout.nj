@@ -56,19 +56,22 @@
   {# <!-- RSS -->
   <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml'> #}
 
-  {#   <!-- Facebook Open Graph -->
-  <meta property='og:title' content='{{ site.name }}'>
-  <meta property='og:description' content='{{ site.desc }}'>
-  <meta property='og:image' content='{{ site.homepage }}/{{ path.images }}/twitter.jpg'> #}
+  <!-- Facebook Open Graph -->
+  <meta property='og:type'        content='article'>
+  <meta property='og:site_name'   content='{{ site.name }}'>
+  <meta property='og:locale'      content='{{ page.locale }}'>
+  <meta property='og:url'         content='{{ site.homepage }}/{{ page.url }}'>
+  <meta property='og:title'       content='{{ site.name }}'>
+  <meta property='og:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
+  <meta property='og:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.jpg'>
 
-  {#   <!-- Twitter Cards -->
-  <meta name='twitter:card' content='summary'>
-  <meta name='twitter:site' content='@site_account'>
-  <meta name='twitter:creator' content='@individual_account'>
-  <meta name='twitter:url' content='{{ site.homepage }}/{{ page.url }}'>
-  <meta name='twitter:title' content='{{ site.name }}'>
-  <meta name='twitter:description' content='{{ site.desc }}'>
-  <meta name='twitter:image' content='{{ site.homepage }}/{{ path.images }}/facebook.jpg'> #}
+  <!-- Twitter Card -->
+  <meta name='twitter:card'        content='summary'>
+  <meta name='twitter:site'        content='{{ site.twitter }}'>
+  <meta name='twitter:url'         content='{{ site.homepage }}/{{ page.url }}'>
+  <meta name='twitter:title'       content='{{ site.name }}'>
+  <meta name='twitter:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
+  <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/facebook.jpg'>
 
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
