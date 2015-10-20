@@ -21,27 +21,33 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
   * `set TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Windows
   * `export TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Linux
 8. Install project dependencies: `npm install`
-9. Code live with: `grunt`
-10. Build with: `grunt build`
-11. Deploy and enjoy your life
+9. *(optional)* Add your repository to [Travis](https://travis-ci.org/) for automatic tests
+10. *(optional)* Set up Continuous Deployment with [CircleCI](https://circleci.com/) or [Werker](http://wercker.com/) Docker following our [guide](https://github.com/LotusTM/Kotsu/wiki/Continuous-Delivery-with-Wercker-Docker-and-CoreOS)
+11. Code live with: `grunt`
+12. Build with: `grunt build`
+13. Deploy and enjoy your life
 
 ## What's inside?
 
 * Reasonable structure for frontend projects
+* Static pages generation
+* Prepared configs for quick Continuous Deployment and automatic tests setup
 * [Grunt](http://gruntjs.com/) with pre-configured tasks
-* [Nunjucks](http://mozilla.github.io/nunjucks/), a full featured templating engine with static pages generation
+* [Nunjucks](http://mozilla.github.io/nunjucks/), a full featured templating engine
 * In-built Nunjucks globals and filters for formatting numbers, dates, getting current page url, locale, breadcrumb, etc.
 * Human readable urls
+* HTML5 boilerplate files based on best practices
 * i18n with [node-gettext](https://github.com/andris9/node-gettext)
 * [Sass](http://sass-lang.com/) compiler with source maps generation, [autoprefixing](https://github.com/nDmitry/grunt-autoprefixer) and [linting](https://github.com/ahmednuaman/grunt-scss-lint)
 * [Ekzo.sass](https://github.com/ArmorDarks/ekzo.sass) framework
 * [jspm](http://jspm.io) for managing and bundling JavaScript dependencies
 * [standard](https://github.com/feross/standard) for linting and automatic formatting JavaScript
 * Live reload powered by [Browser Sync](https://github.com/shakyshane/grunt-browser-sync)
-* HTML5 boilerplate files based on best practices
 * Automatic `sitemap.xml` generation with [grunt-sitemap-xml](https://github.com/lotustm/grunt-sitemap-xml)
 * Automatic sprites generation with [Spritesmith](https://github.com/Ensighten/grunt-spritesmith)
 * Automatic images compression via [TinyPNG](https://tinypng.com/)
 * Automatic responsive images generation with [grunt-responsive-images](https://github.com/andismith/grunt-responsive-images)
 * Separate not optimized files in development, and
 * Compiled and minified files for production
+
+And a lot more under the hood. We just didn't have time to document all features. Yet.
