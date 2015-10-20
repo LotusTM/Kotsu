@@ -59,16 +59,16 @@
   {#   <!-- Facebook Open Graph -->
   <meta property='og:title' content='{{ site.name }}'>
   <meta property='og:description' content='{{ site.desc }}'>
-  <meta property='og:image' content='https://www.example.com/{{ path.images }}/twitter.jpg'> #}
+  <meta property='og:image' content='{{ site.homepage }}/{{ path.images }}/twitter.jpg'> #}
 
   {#   <!-- Twitter Cards -->
   <meta name='twitter:card' content='summary'>
   <meta name='twitter:site' content='@site_account'>
   <meta name='twitter:creator' content='@individual_account'>
-  <meta name='twitter:url' content='https://www.example.com/path/to/page.html'>
+  <meta name='twitter:url' content='{{ site.homepage }}/{{ page.url }}'>
   <meta name='twitter:title' content='{{ site.name }}'>
   <meta name='twitter:description' content='{{ site.desc }}'>
-  <meta name='twitter:image' content='https://www.example.com/{{ path.images }}/facebook.jpg'> #}
+  <meta name='twitter:image' content='{{ site.homepage }}/{{ path.images }}/facebook.jpg'> #}
 
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
