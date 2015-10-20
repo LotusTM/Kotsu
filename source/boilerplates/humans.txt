@@ -14,15 +14,18 @@
 
   Site: lotus.tm
   Twitter: https://twitter.com/LotusTM
+  Github: https://github.com/LotusTM
 
   Developer: Mr.Hyde
   Site: 2bad.me
   Twitter: https://twitter.com/2BadMe
+  Github: https://github.com/mrhyde
   Location: Europe
 
   Developer: Serj Lavrin
   Site: #
   Twitter: https://twitter.com/ArmorDarks
+  Github: https://github.com/ArmorDarks
   Location: Ukraine
 
 # TECHNOLOGY
