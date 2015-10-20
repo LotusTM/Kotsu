@@ -62,16 +62,16 @@
   <meta property='og:site_name'   content='{{ site.name }}'>
   <meta property='og:locale'      content='{{ page.locale }}'>
   <meta property='og:url'         content='{{ site.homepage }}/{{ page.url }}'>
-  <meta property='og:title'       content='{{ site.name }}'>
-  <meta property='og:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
+  <meta property='og:title'       content='{{ (pageTitle if pageTitle else site.name)|template(globalPlaceholders) }}'>
+  <meta property='og:description' content='{{ (pageMetaDesc if pageMetaDesc else site.desc)|template(globalPlaceholders) }}'>
   <meta property='og:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.jpg'>
 
   <!-- Twitter Card -->
   <meta name='twitter:card'        content='summary'>
   <meta name='twitter:site'        content='{{ site.twitter }}'>
   <meta name='twitter:url'         content='{{ site.homepage }}/{{ page.url }}'>
-  <meta name='twitter:title'       content='{{ site.name }}'>
-  <meta name='twitter:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
+  <meta name='twitter:title'       content='{{ (pageTitle if pageTitle else site.name)|template(globalPlaceholders) }}'>
+  <meta name='twitter:description' content='{{ (pageMetaDesc if pageMetaDesc else site.desc)|template(globalPlaceholders) }}'>
   <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/facebook.jpg'>
 
   <!-- Authors -->
