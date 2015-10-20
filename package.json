@@ -3,7 +3,7 @@
   "version": "0.9.0",
   "description": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "homepage": "https://kotsu.2bad.me/",
-  "bugs":  "https://github.com/LotusTM/Kotsu/issues",
+  "bugs": "https://github.com/LotusTM/Kotsu/issues",
   "repository": "LotusTM/Kotsu.git",
   "author": "LotusTM (https://github.com/LotusTM)",
   "contributors": [
