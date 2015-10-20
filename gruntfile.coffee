@@ -99,6 +99,7 @@ module.exports = (grunt) ->
         name: '<%= pkg.name %>'
         desc: '<%= pkg.description %>'
         homepage: '<%= pkg.homepage %>'
+        twitter: '@LotusTM'
         version: '<%= pkg.version %>'
         locales: '<%= i18n.locales.list %>'
         baseLocale: '<%= i18n.baseLocale %>'
