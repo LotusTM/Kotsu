@@ -1,0 +1,20 @@
+{##
+ # Polyfil HTML5 tags and load IE-specific stylesheet in IE9 and below
+ #
+ # @return {string} IE-specific comment with IE-specic style and script
+ #
+ # @example {{ macros.IE() }}
+ #}
+{% macro IE() %}
+  <!--[if lte IE 9]>
+    <link rel='stylesheet' href='/{{ path.styles }}/ie.prefixed.css'>
+    <script>
+      var e = ('abbr,article,aside,audio,canvas,datalist,details,' +
+        'figure,footer,header,hgroup,main,mark,menu,meter,nav,output,' +
+        'progress,section,time,video').split(',');
+      for (var i = 0; i < e.length; i++) {
+        document.createElement(e[i]);
+      }
+    </script>
+  <![endif]-->
+{% endmacro %}

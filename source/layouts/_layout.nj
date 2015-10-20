@@ -3,6 +3,7 @@
 {% import 'components/_outdated-browser.nj' as components with context %}
 {% import 'components/_breadcrumb.nj' as temp with context %}{% set macro = _.assign(components, temp) %}
 {% import 'components/_menu.nj' as temp with context %}{% set macro = _.assign(components, temp) %}
+{% import 'components/_ie.nj' as temp with context %}{% set macro = _.assign(components, temp) %}
 {% import 'components/_example-macro.nj' as temp with context %}{% set macro = _.assign(components, temp) %}
 
 {# Set global placeholders values for `template` #}
@@ -76,17 +77,7 @@
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
 
-  <!--[if lte IE 9]>
-    <link rel='stylesheet' href='/{{ path.styles }}/ie.prefixed.css'>
-    <script>
-      var e = ('abbr,article,aside,audio,canvas,datalist,details,' +
-        'figure,footer,header,hgroup,main,mark,menu,meter,nav,output,' +
-        'progress,section,time,video').split(',');
-      for (var i = 0; i < e.length; i++) {
-        document.createElement(e[i]);
-      }
-    </script>
-  <![endif]-->
+  {{ components.IE() }}
 
 </head>
 
