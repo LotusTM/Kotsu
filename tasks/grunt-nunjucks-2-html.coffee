@@ -475,7 +475,7 @@ module.exports = (grunt) ->
 
           data.page.locale     = currentLocale
           data.page.rtl        = _.find(taskConfig.i18n.locales, { locale: currentLocale }).rtl
-          data.page.url        = if pagedir == '.' then '/' else '/' + pagedir
+          data.page.url        = if pagedir == '.' then '' else pagedir
           data.page.breadcrumb = if pagedir == '.' then ['.'] else pagedir.split('/')
           data.page.basename   = path.basename(pagepath, path.extname(pagepath))
           data.page.dirname    = pagedirname
