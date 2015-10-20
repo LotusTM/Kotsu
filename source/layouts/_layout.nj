@@ -58,7 +58,7 @@
 
   {#   <!-- Facebook Open Graph -->
   <meta property='og:title' content='{{ site.name }}'>
-  <meta property='og:description' content='{{ site.title }}'>
+  <meta property='og:description' content='{{ site.desc }}'>
   <meta property='og:image' content='https://www.example.com/{{ path.images }}/twitter.jpg'> #}
 
   {#   <!-- Twitter Cards -->
@@ -67,7 +67,7 @@
   <meta name='twitter:creator' content='@individual_account'>
   <meta name='twitter:url' content='https://www.example.com/path/to/page.html'>
   <meta name='twitter:title' content='{{ site.name }}'>
-  <meta name='twitter:description' content='{{ site.title }}'>
+  <meta name='twitter:description' content='{{ site.desc }}'>
   <meta name='twitter:image' content='https://www.example.com/{{ path.images }}/facebook.jpg'> #}
 
   <!-- Authors -->
