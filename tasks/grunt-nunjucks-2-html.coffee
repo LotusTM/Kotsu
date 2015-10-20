@@ -136,6 +136,26 @@ module.exports = (grunt) ->
     # for other — only first part
     if _matched[3] then _matched[1] + '-' + _matched[2] else _matched[1]
 
+  ###*
+   * Get region code from locale, without language
+   * @param {string} locale Locale, from which should be taken region code
+   * @return {string} Region code from locale
+  ###
+  getRegioncode = (locale) ->
+    _matched = locale.match(/^(\w*)-?(\w*)-?(\w*)/i)
+    # See note for `getLangcode` for explanations. It's same, but just for the region code
+    if _matched[3] then _matched[3] else _matched[2]
+
+  ###*
+   * Convert locale into ISO format: `{langcode}_{REGIONCODE}`
+   * @param {string} locale Locale, which should be converted
+   * @return {string} Locale in ISO format
+  ###
+  isoLocale = (locale) ->
+    _langcode = getLangcode(locale)
+    _region   = getRegioncode(locale).toUpperCase()
+    locale =  _langcode + '_' + _region
+
   # ===============
   # Load l10n files
   # ===============
@@ -474,6 +494,7 @@ module.exports = (grunt) ->
           data.page = data.page || {}
 
           data.page.locale     = currentLocale
+          data.page.isoLocale  = isoLocale(currentLocale)
           data.page.rtl        = _.find(taskConfig.i18n.locales, { locale: currentLocale }).rtl
           data.page.url        = if pagedir == '.' then '' else pagedir
           data.page.breadcrumb = if pagedir == '.' then ['.'] else pagedir.split('/')
