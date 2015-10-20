@@ -1,9 +1,15 @@
 {
   "name": "kotsu",
   "version": "0.9.0",
-  "title": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
+  "description": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "homepage": "https://kotsu.2bad.me/",
-  "author": "LotusTM",
+  "bugs":  "https://github.com/LotusTM/Kotsu/issues",
+  "repository": "LotusTM/Kotsu.git",
+  "author": "LotusTM (https://github.com/LotusTM)",
+  "contributors": [
+    "Mr.Hyde (https://twitter.com/2BadMe)",
+    "Serj Lavrin (https://twitter.com/ArmorDarks)"
+  ],
   "private": true,
   "dependencies": {
     "gmsmith": "^0.5.0",
