@@ -60,7 +60,7 @@
   <!-- Facebook Open Graph -->
   <meta property='og:type'        content='article'>
   <meta property='og:site_name'   content='{{ site.name }}'>
-  <meta property='og:locale'      content='{{ page.locale }}'>
+  <meta property='og:locale'      content='{{ page.isoLocale }}'>
   <meta property='og:url'         content='{{ site.homepage }}/{{ page.url }}'>
   <meta property='og:title'       content='{{ (pageTitle if pageTitle else site.name)|template(globalPlaceholders) }}'>
   <meta property='og:description' content='{{ (pageMetaDesc if pageMetaDesc else site.desc)|template(globalPlaceholders) }}'>
