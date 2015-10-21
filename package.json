@@ -1,16 +1,39 @@
 {
   "name": "kotsu",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Clean, opinionated foundation for new projects — to boldly go where no man has gone before",
   "homepage": "https://kotsu.2bad.me",
-  "bugs": "https://github.com/LotusTM/Kotsu/issues",
-  "repository": "LotusTM/Kotsu.git",
   "author": "LotusTM (https://github.com/LotusTM)",
   "contributors": [
-    "Mr.Hyde (https://twitter.com/2BadMe)",
+    "Mr.Hyde <npm@2bad.me>",
     "Serj Lavrin (https://twitter.com/ArmorDarks)"
   ],
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/LotusTM/Kotsu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LotusTM/Kotsu/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "app",
+    "boilerplate",
+    "build",
+    "es2015",
+    "es6",
+    "front-end",
+    "generator",
+    "jspm",
+    "nunjucks",
+    "scaffold",
+    "stack",
+    "static site generator",
+    "template",
+    "tool",
+    "web",
+    "website"
+  ],
   "dependencies": {
     "gmsmith": "^0.5.0",
     "grunt": "^0.4.5",
