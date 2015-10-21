@@ -138,7 +138,7 @@
 
         <div class='grid__item 3/5'>
 
-          <h4 class='margin-bottom--flush' class='h5'>{{ data.example.title }}</h4>
+          <h4 class='h5'>{{ data.example.title }}</h4>
 
           <p>{{ data.example.content }}</p>
 
