@@ -9,8 +9,8 @@ module.exports = ->
       options:
         htmlroot: '<%= path.build.root %>'
         ignore: [
-          '.site-outdated-browser',
-          '.site-outdated-browser__link'
+          '.outdated-browser',
+          '.outdated-browser__link'
         ]
       files: [
         src: '<%= path.build.root %>/{,**/}*.html'
