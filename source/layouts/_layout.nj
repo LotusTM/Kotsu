@@ -64,7 +64,7 @@
   <meta property='og:url'         content='{{ site.homepage }}{{ localeDir() }}/{{ page.url }}'>
   <meta property='og:title'       content='{{ pageTitle if pageTitle else site.name }}'>
   <meta property='og:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
-  <meta property='og:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.jpg'>
+  <meta property='og:image'       content='{{ site.homepage }}/{{ path.images }}/facebook.png'>
 
   <!-- Twitter Card -->
   <meta name='twitter:card'        content='summary'>
@@ -72,7 +72,7 @@
   <meta name='twitter:url'         content='{{ site.homepage }}{{ localeDir() }}/{{ page.url }}'>
   <meta name='twitter:title'       content='{{ pageTitle if pageTitle else site.name }}'>
   <meta name='twitter:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
-  <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/facebook.jpg'>
+  <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.png'>
 
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
