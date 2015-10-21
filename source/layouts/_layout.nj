@@ -12,7 +12,7 @@
 } %}
 
 {# Set defaults #}
-{% set breadcrumb        = (breadcrumb      |default(page.breadcrumb)) %}
+{% set breadcrumb        = breadcrumb       |default(page.breadcrumb) %}
 
 {% set pageTitle         = (pageTitle       |default(getPage(breadcrumb).pageTitle))   |template(globalPlaceholders) %}
 {% set pageMetaDesc      = (pageMetaDesc    |default(getPage(breadcrumb).metaDesc))    |template(globalPlaceholders) %}
