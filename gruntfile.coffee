@@ -167,7 +167,7 @@ module.exports = (grunt) ->
   ]
 
   ###
-  A task for scss and js linting
+  A task for scss linting
   ###
   grunt.registerTask 'test', [
     'scsslint:build'
