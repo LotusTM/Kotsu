@@ -12,11 +12,11 @@
 } %}
 
 {# Set defaults #}
-{% set breadcrumb        = breadcrumb       |default(page.breadcrumb) %}
+{% set breadcrumb        = (breadcrumb      |default(page.breadcrumb)) %}
 
-{% set pageTitle         = pageTitle        |default(getPage(breadcrumb).pageTitle) %}
-{% set pageMetaDesc      = pageMetaDesc     |default(getPage(breadcrumb).metaDesc) %}
-{% set pageContentTitle  = pageContentTitle |default(getPage(breadcrumb).contentTitle) %}
+{% set pageTitle         = (pageTitle       |default(getPage(breadcrumb).pageTitle))   |template(globalPlaceholders) %}
+{% set pageMetaDesc      = (pageMetaDesc    |default(getPage(breadcrumb).metaDesc))    |template(globalPlaceholders) %}
+{% set pageContentTitle  = (pageContentTitle|default(getPage(breadcrumb).contentTitle))|template(globalPlaceholders) %}
 
 {% set pageClass         = pageClass        |default('') %}
 {% set customSiteWrapper = customSiteWrapper|default(false) %}
@@ -35,10 +35,10 @@
   <!-- IE compatibility -->
   <meta http-equiv='x-ua-compatible' content='ie=edge'>
 
-  <title>{{ pageTitle if pageTitle|template(globalPlaceholders) else site.name }}</title>
+  <title>{{ pageTitle if pageTitle else site.name }}</title>
 
   <!-- Description -->
-  <meta name='description' content='{{ pageMetaDesc|template(globalPlaceholders) }}'>
+  <meta name='description' content='{{ pageMetaDesc }}'>
 
   {# <!-- Mobile devices -->
   <meta name='viewport' content='width=device-width, initial-scale=1'> #}
@@ -62,16 +62,16 @@
   <meta property='og:site_name'   content='{{ site.name }}'>
   <meta property='og:locale'      content='{{ page.isoLocale }}'>
   <meta property='og:url'         content='{{ site.homepage }}/{{ page.url }}'>
-  <meta property='og:title'       content='{{ (pageTitle if pageTitle else site.name)|template(globalPlaceholders) }}'>
-  <meta property='og:description' content='{{ (pageMetaDesc if pageMetaDesc else site.desc)|template(globalPlaceholders) }}'>
+  <meta property='og:title'       content='{{ pageTitle if pageTitle else site.name }}'>
+  <meta property='og:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
   <meta property='og:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.jpg'>
 
   <!-- Twitter Card -->
   <meta name='twitter:card'        content='summary'>
   <meta name='twitter:site'        content='{{ site.twitter }}'>
   <meta name='twitter:url'         content='{{ site.homepage }}/{{ page.url }}'>
-  <meta name='twitter:title'       content='{{ (pageTitle if pageTitle else site.name)|template(globalPlaceholders) }}'>
-  <meta name='twitter:description' content='{{ (pageMetaDesc if pageMetaDesc else site.desc)|template(globalPlaceholders) }}'>
+  <meta name='twitter:title'       content='{{ pageTitle if pageTitle else site.name }}'>
+  <meta name='twitter:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
   <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/facebook.jpg'>
 
   <!-- Authors -->

@@ -52,7 +52,7 @@
 
         {% if pageContentTitle %}
 
-          <h1 class='site-content-title'>{{ pageContentTitle|template(globalPlaceholders) }}</h1>
+          <h1 class='site-content-title'>{{ pageContentTitle }}</h1>
 
         {% endif %}
 
