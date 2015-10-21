@@ -495,6 +495,8 @@ module.exports = (grunt) ->
 
           data.page.locale     = currentLocale
           data.page.isoLocale  = isoLocale(currentLocale)
+          data.page.language   = getLangcode(currentLocale)
+          data.page.region     = getRegioncode(currentLocale)
           data.page.rtl        = _.find(taskConfig.i18n.locales, { locale: currentLocale }).rtl
           data.page.url        = if pagedir == '.' then '' else pagedir
           data.page.breadcrumb = if pagedir == '.' then ['.'] else pagedir.split('/')
