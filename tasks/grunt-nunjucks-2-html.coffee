@@ -152,9 +152,7 @@ module.exports = (grunt) ->
    * @return {string} Locale in ISO format
   ###
   isoLocale = (locale) ->
-    _langcode = getLangcode(locale)
-    _region   = getRegioncode(locale).toUpperCase()
-    locale =  _langcode + '_' + _region
+    getLangcode(locale) + '_' + getRegioncode(locale).toUpperCase()
 
   # ===============
   # Load l10n files
