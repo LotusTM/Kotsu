@@ -93,7 +93,9 @@
   <!-- Scripts -->
   <!-- ======= -->
 
-  {% include '_scripts.nj' %}
+  <!-- build:[src] /{{ path.scripts }}/main.min.js -->
+  <script src='/{{ path.scripts }}/main.js'></script>
+  <!-- /build -->
 
 
 </body>
