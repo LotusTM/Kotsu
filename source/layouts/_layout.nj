@@ -1,10 +1,11 @@
 {# --------- #}
 {# Call macros globally #}
 {% import 'components/_outdated-browser.nj' as components with context %}
-{% import 'components/_breadcrumb.nj'       as temp with context %}{% set macro = _.assign(components, temp) %}
-{% import 'components/_menu.nj'             as temp with context %}{% set macro = _.assign(components, temp) %}
-{% import 'components/_ie.nj'               as temp with context %}{% set macro = _.assign(components, temp) %}
-{% import 'components/_example-macro.nj'    as temp with context %}{% set macro = _.assign(components, temp) %}
+{% import 'components/analytics/_google-analytics.nj' as temp with context %}{% set macro = _.assign(components, temp) %}
+{% import 'components/_breadcrumb.nj'                 as temp with context %}{% set macro = _.assign(components, temp) %}
+{% import 'components/_menu.nj'                       as temp with context %}{% set macro = _.assign(components, temp) %}
+{% import 'components/_ie.nj'                         as temp with context %}{% set macro = _.assign(components, temp) %}
+{% import 'components/_example-macro.nj'              as temp with context %}{% set macro = _.assign(components, temp) %}
 
 {# Set global placeholders values for `template` #}
 {% set globalPlaceholders = {
@@ -96,6 +97,7 @@
   <!-- build:[src] /{{ path.scripts }}/main.min.js -->
   <script src='/{{ path.scripts }}/main.js'></script>
   <!-- /build -->
+  {{ components.googleAnalytics(siteId = 'UA-XXXXX-X') }}
 
 
 </body>
