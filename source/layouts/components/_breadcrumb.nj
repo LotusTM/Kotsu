@@ -11,7 +11,7 @@
  #
  # @return {string} Generated `ul` with breadcrumb
  #
- # @example {{ macros.breadcrumb() }}
+ # @example {{ components.breadcrumb() }}
  #}
 {% macro breadcrumb(
   class,

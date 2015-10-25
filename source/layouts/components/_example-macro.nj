@@ -5,7 +5,7 @@
  #
  # @return {string} Predefined text with provided string
  #
- # @example {{ macros.exmapleMacro('demo value') }}
+ # @example {{ components.exmapleMacro('demo value') }}
  #}
 {% macro exmapleMacro(string) %}
   <code>`{{ string }}`</code> displayed by example macro

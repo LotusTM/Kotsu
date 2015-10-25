@@ -3,7 +3,7 @@
  #
  # @return {string} IE-specific comment with IE-specic style and script
  #
- # @example {{ macros.IE() }}
+ # @example {{ components.IE() }}
  #}
 {% macro IE() %}
   <!--[if lte IE 9]>
