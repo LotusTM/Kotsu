@@ -18,6 +18,7 @@ module.exports = ->
           /^(\.|#)is-[\w_-]*$/
           /^(\.|#)[\w_-]*--is-[\w_-]*$/
         ]
+        ignoreSheets : [/fonts.googleapis/]
       files: [
         src: '<%= path.build.root %>/{,**/}*.html'
         dest: '<%= file.build.style.tidy %>'
