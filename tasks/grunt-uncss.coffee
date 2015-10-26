@@ -9,7 +9,10 @@ module.exports = ->
       options:
         htmlroot: '<%= path.build.root %>'
         ignore: [
-          '.outdated-browser',
+          # @todo Ignore webkit placeholder explicitly
+          #       Github issue: https://github.com/giakki/uncss/issues/199
+          '::-webkit-input-placeholder'
+          '.outdated-browser'
           '.outdated-browser__link'
         ]
       files: [
