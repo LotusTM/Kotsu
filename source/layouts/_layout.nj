@@ -96,6 +96,7 @@
   <script src='/{{ path.scripts }}/main.js'></script>
   <!-- /build -->
   {{ components.googleAnalytics(siteId = 'UA-XXXXX-X') }}
+  {{ components.yandexMetrika(counterId = 'XXXXXX') }}
 
 
 </body>
