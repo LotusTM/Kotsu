@@ -14,6 +14,9 @@ module.exports = ->
           '::-webkit-input-placeholder'
           '.outdated-browser'
           '.outdated-browser__link'
+          # Ignore state-related classes, like `is-active` and `menu-entry--is-active`
+          /^(\.|#)is-[\w_-]*$/
+          /^(\.|#)[\w_-]*--is-[\w_-]*$/
         ]
       files: [
         src: '<%= path.build.root %>/{,**/}*.html'
