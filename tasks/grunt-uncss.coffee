@@ -12,8 +12,10 @@ module.exports = ->
           # @todo Ignore webkit placeholder explicitly
           #       Github issue: https://github.com/giakki/uncss/issues/199
           /^.*::-webkit-input-placeholder.*$/
+
           '.outdated-browser'
           '.outdated-browser__link'
+
           # Ignore state-related classes, like `is-active` and `menu-entry--is-active`
           /^(\.|#)is-[\w_-]*$/
           /^(\.|#)[\w_-]*--is-[\w_-]*$/
