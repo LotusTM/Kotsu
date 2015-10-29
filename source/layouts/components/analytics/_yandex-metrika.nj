@@ -1,7 +1,7 @@
 {##
  # Invoke Yandex Metrika script
  #
- # @param {string} counterId Your counter ID
+ # @param {number} counterId Your counter ID
  #
  # @return {string} `<script>` tag with Yandex Metrika code
  #
