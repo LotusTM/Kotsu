@@ -1,0 +1,18 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kotsu\n"
+"POT-Creation-Date: 2015-10-16 13:19+0300\n"
+"PO-Revision-Date: 2015-10-16 13:29+0300\n"
+"Last-Translator: Serj Lavrin <https://github.com/ArmorDarks>\n"
+"Language-Team: LotusTM <https://github.com/LotusTM>\n"
+"Report-Msgid-Bugs-To: https://github.com/LotusTM/Kotsu/issues\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: source/layouts/index.nj:76
+msgid "This string will be displayd in selected language"
+msgstr "Эта строка вызвана из домена `nav:bar` (this string called from domain `nav:bar`)"

@@ -80,16 +80,16 @@
       <h3 class='h4 margin-top+'>Output translation from other locales and domains</h3>
 
       <p>
-        Display string from <code>`ru`</code> locale:<br>
-        <code>{{ dgettext('ru', 'This string will be displayd in selected language') }}</code>
+        Display string from <code>`ru-RU`</code> locale:<br>
+        <code>{{ dgettext('ru-RU', 'This string will be displayd in selected language') }}</code>
       </p>
       <p>
-        Display same string from <code>`ru`</code> locale and <code>`other`</code> domain:<br>
-        <code>{{ dgettext('ru:other', 'This string will be displayd in selected language') }}</code>
+        Display same string from <code>`ru-RU`</code> locale and <code>`other`</code> domain:<br>
+        <code>{{ dgettext('ru-RU:other', 'This string will be displayd in selected language') }}</code>
       </p>
       <p>
-        Display same string from <code>`ru`</code> locale and <code>`nav:bar`</code> domain:<br>
-        <code>{{ dgettext('ru:nav:bar', 'This string will be displayd in selected language') }}</code>
+        Display same string from <code>`ru-RU`</code> locale and <code>`nav:bar`</code> domain:<br>
+        <code>{{ dgettext('ru-RU:nav:bar', 'This string will be displayd in selected language') }}</code>
       </p>
 
       <h3 class='h4 margin-top+'>Translation with plurals</h3>
