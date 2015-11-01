@@ -94,9 +94,9 @@
 
       <h3 class='h4 margin-top+'>Translation with plurals</h3>
 
-      <p>Singular: <code>{{ ngettext('%s apple', '%s apples', 1, 1) }}</code></p>
-      <p>Plural: <code>{{ ngettext('%s apple', '%s apples', 2, 2) }}</code></p>
-      <p>Other: <code>{{ ngettext('%s apple', '%s apples', 5, 5) }}</code></p>
+      <p>Singular: <code>{{ ngettext('%s apple', '%s apples', 1)|template(1) }}</code></p>
+      <p>Plural: <code>{{ ngettext('%s apple', '%s apples', 2)|template(2) }}</code></p>
+      <p>Other: <code>{{ ngettext('%s apple', '%s apples', 5)|template(5) }}</code></p>
 
     </div>{# /grid__item #}
 

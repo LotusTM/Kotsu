@@ -283,115 +283,83 @@ module.exports = (grunt) ->
 
           ###*
           * Load string from current locale
-          * @param {string}              string          String, which should be loaded
-          * @param {string|object|array} placeholders... List of placeholders, object with named
-          *                                              placeholders or arrays of placeholders
+          * @param {string} string          String, which should be loaded
           * @return {string} Translated string into current locale
           ###
-          env.addGlobal 'gettext', (string, placeholders...) ->
-            string = i18n.dgettext(currentLocale, string)
-            placeholders.unshift(string)
-            printf.apply null, placeholders
+          env.addGlobal 'gettext', (string) ->
+            i18n.dgettext(currentLocale, string)
 
           ###*
            * Load string from specified locale
-           * @param {string}              locale = currentLocale Locale, from which string should be loaded
-           * @param {string}              string                 String, which should be loaded
-           * @param {string|object|array} placeholders...        List of placeholders, object with named
-           *                                                     placeholders or arrays of placeholders
+           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * @param {string} string                 String, which should be loaded
            * @return {string} Translated string into specified locale
           ###
-          env.addGlobal 'dgettext', (locale = currentLocale, string, placeholders...) ->
-            string = i18n.dgettext(locale, string)
-            placeholders.unshift(string)
-            printf.apply null, placeholders
+          env.addGlobal 'dgettext', (locale = currentLocale, string) ->
+            i18n.dgettext(locale, string)
 
           ###*
           * Load plural string from current locale
-          * @param {string}              string          String, which should be loaded
-          * @param {string}              stringPlural    Plural form of string
-          * @param {number}              count           Count for detecting correct plural form
-          * @param {string|object|array} placeholders... List of placeholders, object with named
-          *                                              placeholders or arrays of placeholders
+          * @param {string} string          String, which should be loaded
+          * @param {string} stringPlural    Plural form of string
+          * @param {number} count           Count for detecting correct plural form
           * @return {string} Pluralized and translated into current locale string
           ###
-          env.addGlobal 'ngettext', (string, stringPlural, count, placeholders...) ->
-            string = i18n.dngettext(currentLocale, string, stringPlural, count)
-            placeholders.unshift(string)
-            printf.apply null, placeholders
+          env.addGlobal 'ngettext', (string, stringPlural, count) ->
+            i18n.dngettext(currentLocale, string, stringPlural, count)
 
           ###*
            * Load plural string from specified locale
-           * @param {string}              locale = currentLocale Locale, from which string should be loaded
-           * @param {string}              string                 String, which should be loaded
-           * @param {string}              stringPlural           Plural form of string
-           * @param {number}              count                  Count for detecting correct plural form
-           * @param {string|object|array} placeholders...        List of placeholders, object with named
-           *                                                     placeholders or arrays of placeholders
+           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * @param {string} string                 String, which should be loaded
+           * @param {string} stringPlural           Plural form of string
+           * @param {number} count                  Count for detecting correct plural form
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal 'dngettext', (locale = currentLocale, string, stringPlural, count, placeholders...) ->
-            string = i18n.dngettext(locale, string, stringPlural, count)
-            placeholders.unshift(string)
-            printf.apply null, placeholders
+          env.addGlobal 'dngettext', (locale = currentLocale, string, stringPlural, count) ->
+            i18n.dngettext(locale, string, stringPlural, count)
 
           ###*
           * Load string of specific context from current locale
-          * @param {string}              context         Context of curret string
-          * @param {string}              string          String, which should be loaded
-          * @param {string|object|array} placeholders... List of placeholders, object with named
-          *                                              placeholders or arrays of placeholders
+          * @param {string} context         Context of curret string
+          * @param {string} string          String, which should be loaded
           * @return {string} Translated string into current locale
           ###
-          env.addGlobal 'pgettext', (context, string, placeholders...) ->
-            string = i18n.dpgettext(currentLocale, context, string)
-            placeholders.unshift(string)
-            printf.apply null, placeholders
+          env.addGlobal 'pgettext', (context, string) ->
+            i18n.dpgettext(currentLocale, context, string)
 
           ###*
            * Load string of specific context from specified locale
-           * @param {string}              locale = currentLocale Locale, from which string should be loaded
-           * @param {string}              context                Context of curret string
-           * @param {string}              string                 String, which should be loaded
-           * @param {string|object|array} placeholders...        List of placeholders, object with named
-           *                                                     placeholders or arrays of placeholders
+           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * @param {string} context                Context of curret string
+           * @param {string} string                 String, which should be loaded
            * @return {string} Translated string into specified locale
           ###
-          env.addGlobal 'dpgettext', (locale = currentLocale, context, string, placeholders...) ->
-            string = i18n.dpgettext(locale, context, string)
-            placeholders.unshift(string)
-            printf.apply null, placeholders
+          env.addGlobal 'dpgettext', (locale = currentLocale, context, string) ->
+            i18n.dpgettext(locale, context, string)
 
           ###*
           * Load plural string of specific context from current locale
-          * @param {string}              context         Context of curret string
-          * @param {string}              string          String, which should be loaded
-          * @param {string}              stringPlural    Plural form of string
-          * @param {number}              count           Count for detecting correct plural form
-          * @param {string|object|array} placeholders... List of placeholders, object with named
-          *                                              placeholders or arrays of placeholders
+          * @param {string} context         Context of curret string
+          * @param {string} string          String, which should be loaded
+          * @param {string} stringPlural    Plural form of string
+          * @param {number} count           Count for detecting correct plural form
           * @return {string} Pluralized and translated into current locale string
           ###
-          env.addGlobal 'npgettext', (context, string, stringPlural, count, placeholders...) ->
-            string = i18n.dnpgettext(currentLocale, context, string, stringPlural, count)
-            placeholders.unshift(string)
-            printf.apply null, placeholders
+          env.addGlobal 'npgettext', (context, string, stringPlural, count) ->
+            i18n.dnpgettext(currentLocale, context, string, stringPlural, count)
 
           ###*
            * Load plural string of specific context from specified locale
-           * @param {string}              locale = currentLocale Locale, from which string should be loaded
-           * @param {string}              context                Context of curret string
-           * @param {string}              string                 String, which should be loaded
-           * @param {string}              stringPlural           Plural form of string
-           * @param {number}              count                  Count for detecting correct plural form
-           * @param {string|object|array} placeholders...        List of placeholders, object with named
-           *                                                     placeholders or arrays of placeholders
+           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * @param {string} context                Context of curret string
+           * @param {string} string                 String, which should be loaded
+           * @param {string} stringPlural           Plural form of string
+           * @param {number} count                  Count for detecting correct plural form
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal 'dnpgettext', (locale = currentLocale, context, string, stringPlural, count, placeholders...) ->
-            string = i18n.dnpgettext(locale, context, string, stringPlural, count)
-            placeholders.unshift(string)
-            printf.apply null, placeholders
+          env.addGlobal 'dnpgettext', (locale = currentLocale, context, string, stringPlural, count) ->
+            i18n.dnpgettext(locale, context, string, stringPlural, count)
 
           # =======
           # Filters
