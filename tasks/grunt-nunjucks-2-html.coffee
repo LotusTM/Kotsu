@@ -465,9 +465,10 @@ module.exports = (grunt) ->
             ulrlify(string, options)
 
         preprocessData: (data) ->
-          pagepath    = humanReadableUrl(@src[0].replace(layoutsDir + '/', ''))
-          pagedir     = path.dirname(pagepath)
-          pagedirname = path.basename(pagedir)
+          pagepath     = humanReadableUrl(@src[0].replace(layoutsDir + '/', ''))
+          pagedir      = path.dirname(pagepath)
+          pagedirname  = path.basename(pagedir)
+          pagebasename = path.basename(pagepath, path.extname(pagepath))
 
           data.page = data.page || {}
 
@@ -477,8 +478,8 @@ module.exports = (grunt) ->
           data.page.region     = getRegioncode(currentLocale)
           data.page.rtl        = _.find(taskConfig.i18n.locales, { locale: currentLocale }).rtl
           data.page.url        = if pagedir == '.' then '' else pagedir
-          data.page.breadcrumb = if pagedir == '.' then ['.'] else pagedir.split('/')
-          data.page.basename   = path.basename(pagepath, path.extname(pagepath))
+          data.page.breadcrumb = if pagedir == '.' then [pagebasename] else pagedir.split('/')
+          data.page.basename   = pagebasename
           data.page.dirname    = pagedirname
 
           data

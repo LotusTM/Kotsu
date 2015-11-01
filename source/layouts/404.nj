@@ -2,8 +2,6 @@
 
 
 {# --------- #}
-{% set breadcrumb     = ['404'] %}
-
 {% set pageClass      = 'l-404' %}
 {% set showBreadcrumb = false %}
 {# --------- #}

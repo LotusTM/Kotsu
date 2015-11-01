@@ -2,8 +2,6 @@
 
 
 {# --------- #}
-{% set breadcrumb     = ['home'] %}
-
 {% set pageClass      = 'l-index' %}
 {% set showBreadcrumb = false %}
 {# --------- #}
