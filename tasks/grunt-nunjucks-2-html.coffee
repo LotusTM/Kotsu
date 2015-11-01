@@ -291,11 +291,14 @@ module.exports = (grunt) ->
 
           ###*
            * Load string from specified domain
-           * @param {string} domain = currentLocale Domain, from which string should be loaded
+           * @param {string} domain = currentLocale Domain or locale, from which string should be loaded
+           *                                        `en-US:other:inner` will load from `en-US/other/inner.po`
+           *                                        `:other` will load from `{{currentLocale}}/other.po`
            * @param {string} string                 String, which should be loaded
            * @return {string} Translated string into specified locale
           ###
           env.addGlobal 'dgettext', (domain = currentLocale, string) ->
+            domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
             i18n.dgettext(domain, string)
 
           ###*
@@ -310,13 +313,16 @@ module.exports = (grunt) ->
 
           ###*
            * Load plural string from specified domain
-           * @param {string} domain = currentLocale Domain, from which string should be loaded
+           * @param {string} domain = currentLocale Domain or locale, from which string should be loaded
+           *                                        `en-US:other:inner` will load from `en-US/other/inner.po`
+           *                                        `:other` will load from `{{currentLocale}}/other.po`
            * @param {string} string                 String, which should be loaded
            * @param {string} stringPlural           Plural form of string
            * @param {number} count                  Count for detecting correct plural form
            * @return {string} Pluralized and translated into specified loca stringle
           ###
           env.addGlobal 'dngettext', (domain = currentLocale, string, stringPlural, count) ->
+            domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
             i18n.dngettext(domain, string, stringPlural, count)
 
           ###*
@@ -330,12 +336,15 @@ module.exports = (grunt) ->
 
           ###*
            * Load string of specific context from specified domain
-           * @param {string} domain = currentLocale Domain, from which string should be loaded
+           * @param {string} domain = currentLocale Domain or locale, from which string should be loaded
+           *                                        `en-US:other:inner` will load from `en-US/other/inner.po`
+           *                                        `:other` will load from `{{currentLocale}}/other.po`
            * @param {string} context                Context of curret string
            * @param {string} string                 String, which should be loaded
            * @return {string} Translated string into specified locale
           ###
           env.addGlobal 'dpgettext', (domain = currentLocale, context, string) ->
+            domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
             i18n.dpgettext(domain, context, string)
 
           ###*
@@ -351,7 +360,9 @@ module.exports = (grunt) ->
 
           ###*
            * Load plural string of specific context from specified domain
-           * @param {string} domain = currentLocale Domain, from which string should be loaded
+           * @param {string} domain = currentLocale Domain or locale, from which string should be loaded
+           *                                        `en-US:other:inner` will load from `en-US/other/inner.po`
+           *                                        `:other` will load from `{{currentLocale}}/other.po`
            * @param {string} context                Context of curret string
            * @param {string} string                 String, which should be loaded
            * @param {string} stringPlural           Plural form of string
@@ -359,6 +370,7 @@ module.exports = (grunt) ->
            * @return {string} Pluralized and translated into specified loca stringle
           ###
           env.addGlobal 'dnpgettext', (domain = currentLocale, context, string, stringPlural, count) ->
+            domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
             i18n.dnpgettext(domain, context, string, stringPlural, count)
 
           # =======
