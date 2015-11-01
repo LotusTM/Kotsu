@@ -290,13 +290,13 @@ module.exports = (grunt) ->
             i18n.dgettext(currentLocale, string)
 
           ###*
-           * Load string from specified locale
-           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * Load string from specified domain
+           * @param {string} domain = currentLocale Domain, from which string should be loaded
            * @param {string} string                 String, which should be loaded
            * @return {string} Translated string into specified locale
           ###
-          env.addGlobal 'dgettext', (locale = currentLocale, string) ->
-            i18n.dgettext(locale, string)
+          env.addGlobal 'dgettext', (domain = currentLocale, string) ->
+            i18n.dgettext(domain, string)
 
           ###*
           * Load plural string from current locale
@@ -309,15 +309,15 @@ module.exports = (grunt) ->
             i18n.dngettext(currentLocale, string, stringPlural, count)
 
           ###*
-           * Load plural string from specified locale
-           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * Load plural string from specified domain
+           * @param {string} domain = currentLocale Domain, from which string should be loaded
            * @param {string} string                 String, which should be loaded
            * @param {string} stringPlural           Plural form of string
            * @param {number} count                  Count for detecting correct plural form
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal 'dngettext', (locale = currentLocale, string, stringPlural, count) ->
-            i18n.dngettext(locale, string, stringPlural, count)
+          env.addGlobal 'dngettext', (domain = currentLocale, string, stringPlural, count) ->
+            i18n.dngettext(domain, string, stringPlural, count)
 
           ###*
           * Load string of specific context from current locale
@@ -329,14 +329,14 @@ module.exports = (grunt) ->
             i18n.dpgettext(currentLocale, context, string)
 
           ###*
-           * Load string of specific context from specified locale
-           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * Load string of specific context from specified domain
+           * @param {string} domain = currentLocale Domain, from which string should be loaded
            * @param {string} context                Context of curret string
            * @param {string} string                 String, which should be loaded
            * @return {string} Translated string into specified locale
           ###
-          env.addGlobal 'dpgettext', (locale = currentLocale, context, string) ->
-            i18n.dpgettext(locale, context, string)
+          env.addGlobal 'dpgettext', (domain = currentLocale, context, string) ->
+            i18n.dpgettext(domain, context, string)
 
           ###*
           * Load plural string of specific context from current locale
@@ -350,16 +350,16 @@ module.exports = (grunt) ->
             i18n.dnpgettext(currentLocale, context, string, stringPlural, count)
 
           ###*
-           * Load plural string of specific context from specified locale
-           * @param {string} locale = currentLocale Locale, from which string should be loaded
+           * Load plural string of specific context from specified domain
+           * @param {string} domain = currentLocale Domain, from which string should be loaded
            * @param {string} context                Context of curret string
            * @param {string} string                 String, which should be loaded
            * @param {string} stringPlural           Plural form of string
            * @param {number} count                  Count for detecting correct plural form
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal 'dnpgettext', (locale = currentLocale, context, string, stringPlural, count) ->
-            i18n.dnpgettext(locale, context, string, stringPlural, count)
+          env.addGlobal 'dnpgettext', (domain = currentLocale, context, string, stringPlural, count) ->
+            i18n.dnpgettext(domain, context, string, stringPlural, count)
 
           # =======
           # Filters
