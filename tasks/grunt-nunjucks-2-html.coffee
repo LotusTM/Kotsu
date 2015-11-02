@@ -215,11 +215,11 @@ module.exports = (grunt) ->
 
           ###*
            * Log specified to Grunt's console for debug purposes
-           * @param {*} variable Anything we want to log to console
+           * @param {*} input Anything we want to log to console
            * @return {string} Logs to Grunt console
           ###
-          env.addGlobal 'log', (variable) ->
-            console.log(variable)
+          env.addGlobal 'log', (input) ->
+            console.log(input)
 
           ###*
            * Get list of files or directories inside specified directory
@@ -304,12 +304,12 @@ module.exports = (grunt) ->
           ###*
           * Load plural string from current locale
           * @param {string} string          String, which should be loaded
-          * @param {string} stringPlural    Plural form of string
+          * @param {string} pluralString    Plural form of string
           * @param {number} count           Count for detecting correct plural form
           * @return {string} Pluralized and translated into current locale string
           ###
-          env.addGlobal 'ngettext', (string, stringPlural, count) ->
-            i18n.dngettext(currentLocale, string, stringPlural, count)
+          env.addGlobal 'ngettext', (string, pluralString, count) ->
+            i18n.dngettext(currentLocale, string, pluralString, count)
 
           ###*
            * Load plural string from specified domain
@@ -317,13 +317,13 @@ module.exports = (grunt) ->
            *                                        `en-US:other:inner` will load from `en-US/other/inner.po`
            *                                        `:other` will load from `{{currentLocale}}/other.po`
            * @param {string} string                 String, which should be loaded
-           * @param {string} stringPlural           Plural form of string
+           * @param {string} pluralString           Plural form of string
            * @param {number} count                  Count for detecting correct plural form
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal 'dngettext', (domain = currentLocale, string, stringPlural, count) ->
+          env.addGlobal 'dngettext', (domain = currentLocale, string, pluralString, count) ->
             domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-            i18n.dngettext(domain, string, stringPlural, count)
+            i18n.dngettext(domain, string, pluralString, count)
 
           ###*
           * Load string of specific context from current locale
@@ -351,12 +351,12 @@ module.exports = (grunt) ->
           * Load plural string of specific context from current locale
           * @param {string} context         Context of curret string
           * @param {string} string          String, which should be loaded
-          * @param {string} stringPlural    Plural form of string
+          * @param {string} pluralString    Plural form of string
           * @param {number} count           Count for detecting correct plural form
           * @return {string} Pluralized and translated into current locale string
           ###
-          env.addGlobal 'npgettext', (context, string, stringPlural, count) ->
-            i18n.dnpgettext(currentLocale, context, string, stringPlural, count)
+          env.addGlobal 'npgettext', (context, string, pluralString, count) ->
+            i18n.dnpgettext(currentLocale, context, string, pluralString, count)
 
           ###*
            * Load plural string of specific context from specified domain
@@ -365,13 +365,13 @@ module.exports = (grunt) ->
            *                                        `:other` will load from `{{currentLocale}}/other.po`
            * @param {string} context                Context of curret string
            * @param {string} string                 String, which should be loaded
-           * @param {string} stringPlural           Plural form of string
+           * @param {string} pluralString           Plural form of string
            * @param {number} count                  Count for detecting correct plural form
            * @return {string} Pluralized and translated into specified loca stringle
           ###
-          env.addGlobal 'dnpgettext', (domain = currentLocale, context, string, stringPlural, count) ->
+          env.addGlobal 'dnpgettext', (domain = currentLocale, context, string, pluralString, count) ->
             domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-            i18n.dnpgettext(domain, context, string, stringPlural, count)
+            i18n.dnpgettext(domain, context, string, pluralString, count)
 
           # =======
           # Filters
@@ -381,7 +381,7 @@ module.exports = (grunt) ->
            * Replaces last array element with new value
            * @warn Mutates array
            * @param {array} array Target array
-           * @param {*} value     New value
+           * @param {*}     value New value
            * @return {array} Mutated array
           ###
           env.addFilter 'popIn', (array, value) ->
@@ -393,7 +393,7 @@ module.exports = (grunt) ->
            * Adds value to the end of an array
            * @warn Mutates array
            * @param {array} array Target array
-           * @param {*} value     Value to be pushed in
+           * @param {*}     value Value to be pushed in
            * @return {array} Mutated array
           ###
           env.addFilter 'pushIn', (array, value) ->
@@ -410,9 +410,9 @@ module.exports = (grunt) ->
 
           ###*
            * Replace placeholders with provided values
-           * @param {string} string                       String in which should be made replacement
-           * @param {string|object|array} placeholders... List of placeholders, object with named
-           *                                              placeholders or arrays of placeholders
+           * @param {string}                     string          String in which should be made replacement
+           * @param {number|string|object|array} placeholders... List of arguments as placeholders, object with named
+           *                                                     placeholders or arrays of placeholders
            * @return {string} String with replaced placeholders
           ###
           env.addFilter 'template', (string, placeholders...) ->
