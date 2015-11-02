@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - 'stable'
+  - stable
 
 before_install:
   - gem install sass scss_lint --no-ri --no-rdoc
