@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/LotusTM/Kotsu.git"
+    "url": "https://github.com/LotusTM/Kotsu.git"
   },
   "bugs": {
     "url": "https://github.com/LotusTM/Kotsu/issues"
