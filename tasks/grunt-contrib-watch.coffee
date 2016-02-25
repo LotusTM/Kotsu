@@ -48,6 +48,6 @@ module.exports = ->
     sprites:
       files: ['<%= path.source.sprites %>/{,**/}*.{jpg,jpeg,gif,png}']
       tasks: ['sprite']
-    thubnails:
+    thumbnails:
       files: ['<%= path.source.images %>/{,**/}*.{jpg,jpeg,gif,png}']
       tasks: ['newer:responsive_images:thumbnails']
