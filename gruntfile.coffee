@@ -110,7 +110,7 @@ module.exports = (grunt) ->
         example: grunt.file.readJSON 'source/data/example.json'
 
   # @todo Workaround to get list of locales as {array} instead of {string}
-  grunt.config.set 'i18n.locales.list', _.pluck(grunt.config('i18n.locales'), 'locale')
+  grunt.config.set 'i18n.locales.list', _.map(grunt.config('i18n.locales'), 'locale')
 
   grunt.loadTasks 'tasks'
 
