@@ -1,12 +1,13 @@
 language: node_js
 
 node_js:
-  - stable
+  - '5'
+  - '4'
 
 before_install:
-  - gem install sass scss_lint --no-ri --no-rdoc
   - npm install -g npm@latest
   - npm install -g grunt-cli
+  - gem install sass scss_lint --no-ri --no-rdoc
   - sudo add-apt-repository ppa:dhor/myway -y
   - sudo apt-get update -qq
   - sudo apt-get install graphicsmagick -y
