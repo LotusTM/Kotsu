@@ -61,7 +61,7 @@
          # @param {bool} pageSidebar Display sidebar unless it set to `false`
          #}
 
-        {% if pageSidebar %}
+        {# {% if pageSidebar %} #}
 
           <div class='grid grid+'>
 
@@ -75,11 +75,11 @@
 
           </div>{# /grid #}
 
-        {% else %}
+        {# {% else %}
 
           {% block main %}{% endblock %}
 
-        {% endif %}
+        {% endif %} #}
 
 
       </div>{# /site-content-wrapper #}
