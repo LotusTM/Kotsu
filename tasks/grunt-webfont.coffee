@@ -14,6 +14,7 @@ module.exports = ->
         types: 'eot,woff,ttf'
         hashes: false # disabled, since all assets cache-busted by other Grunt task
         styles: ''
+        template: '' # temporary workaround for node v6 support (see path.extname docs)
         templateOptions:
           baseClass: 'icon'
           classPrefix: 'icon--'
@@ -21,5 +22,6 @@ module.exports = ->
         # @note Normalize may yeild different results for different engines
         #       https://github.com/sapegin/grunt-webfont/issues/222
         normalize: true
+        autoHint: false
         htmlDemo: false
         engine: 'node'
