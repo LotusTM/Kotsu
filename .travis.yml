@@ -11,6 +11,7 @@ addons:
   apt:
     packages:
       - graphicsmagick
+      - net-tools
 
 before_install:
   - npm install -g npm@latest
