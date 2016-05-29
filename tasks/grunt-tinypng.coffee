@@ -15,6 +15,6 @@ module.exports = ->
       files: [
         expand: true
         cwd: '<%= path.build.sprites %>'
-        src: '{,**/}*.png'
+        src: '{,**/}*.{jpg,jpeg,png}'
         dest: '<%= path.build.sprites %>'
       ]
