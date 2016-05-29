@@ -10,9 +10,9 @@ module.exports = ->
         algorithm: 'md5'
         deleteOriginals: true
         baseDir: '<%= path.build.root %>'
+        assets: ['{,**/}*.{css,js}']
       files: [
         src: [
-          '<%= path.build.root %>/{,**/}*.css',
-          '<%= path.build.root %>/{,**/}*.html'
+          '<%= path.build.root %>/{,**/}*.{html,css,js}'
         ]
       ]
