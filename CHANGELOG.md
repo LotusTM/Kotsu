@@ -27,3 +27,4 @@
 - [sass] Predefined breakpoints has been changed
 - [sass] Default style of form's placeholder changer to `normal`
 - [nj] Namespaced all classes with type according to new Ekzo convention
+- [nj] All current examples moved to new Examples page. Still quite messy and limited, but better than nothing
