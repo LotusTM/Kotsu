@@ -1,9 +1,0 @@
-// scss-lint:disable ImportantRule
-
-// =======================================
-// ^COLORS
-// =======================================
-
-.color--brand { color: $brand-color                    !important; }
-.color--base  { color: $ekzo-text-color                !important; }
-.color--dim   { color: ekzo-tint($ekzo-text-color, 40) !important; }
