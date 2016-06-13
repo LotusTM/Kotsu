@@ -13,51 +13,51 @@
   <p>This is very basic page to let you know that everything works fine!</p>
 
 
-  <section class='grid grid+ grid--middle margin-top+'>
+  <section class='o-grid h-childs-displace+ h-flex-y--center h-margin-top+'>
 
-    <div class='grid__item 2/5'>
-      <h2 class='margin-bottom--flush'>Generated icons and sprites examples</h2>
+    <div class='o-grid__item h-2/5'>
+      <h2 class='h-margin-bottom0'>Generated icons and sprites examples</h2>
     </div>{# /grid__item #}
 
-    <div class='grid__item 3/5'>
+    <div class='o-grid__item h-3/5'>
 
-      <p>Webfont home icon: <i class='icon icon--home icon--right'></i></p>
+      <p>Webfont home icon: <i class='o-icon icon--home icon--right'></i></p>
 
-      <p>1px sprite: <i class='sprite sprite--test icon--right'></i></p>
+      <p>1px sprite: <i class='o-sprite sprite--test icon--right'></i></p>
 
     </div>{# /grid__item #}
 
   </section>{# /grid #}
 
 
-  <hr class='margin-ends+'>
+  <hr class='h-margin-ends+'>
 
 
-  <section class='grid grid+ grid--middle'>
+  <section class='o-grid h-childs-displace+ h-flex-y--center'>
 
-    <div class='grid__item 2/5'>
-      <h2 class='margin-bottom--flush'>Macros examples</h2>
+    <div class='o-grid__item h-2/5'>
+      <h2 class='h-margin-bottom0'>Macros examples</h2>
     </div>{# /grid__item #}
 
-    <div class='grid__item 3/5'>
+    <div class='o-grid__item h-3/5'>
       <p>{{ components.exmapleMacro('this is from index page') }}</p>
     </div>{# /grid__item #}
 
   </section>{# /grid #}
 
 
-  <hr class='margin-ends+'>
+  <hr class='h-margin-ends+'>
 
 
-  <section class='grid grid+ grid--middle'>
+  <section class='o-grid h-childs-displace+ h-flex-y--center'>
 
-    <div class='grid__item 2/5'>
-      <h2 class='margin-bottom--flush'>i18n examples</h2>
+    <div class='o-grid__item h-2/5'>
+      <h2 class='h-margin-bottom0'>i18n examples</h2>
     </div>{# /grid__item #}
 
-    <div class='grid__item 3/5'>
+    <div class='o-grid__item h-3/5'>
 
-      <h3 class='h4'>This site available in following languages:</h3>
+      <h3 class='h-h4'>This site available in following languages:</h3>
 
       <ul>
         {% for locale in site.locales %}
@@ -71,11 +71,11 @@
         {% endfor %}
       </ul>
 
-      <h3 class='h4 margin-top+'>Output translation from current locale</h3>
+      <h3 class='h-h4 h-margin-top+'>Output translation from current locale</h3>
 
       <p><code>{{ gettext('This string will be displayd in selected language') }}</code></p>
 
-      <h3 class='h4 margin-top+'>Output translation from other locales and domains</h3>
+      <h3 class='h-h4 h-margin-top+'>Output translation from other locales and domains</h3>
 
       <p>
         Display same string from <code>`ru-RU`</code> locale:<br>
@@ -94,7 +94,7 @@
         <code>{{ dgettext(':nav:bar', 'This string will be displayd in selected language') }}</code>
       </p>
 
-      <h3 class='h4 margin-top+'>Translation with plurals</h3>
+      <h3 class='h-h4 h-margin-top+'>Translation with plurals</h3>
 
       <p>Singular: <code>{{ ngettext('%s apple', '%s apples', 1)|template(1) }}</code></p>
       <p>Plural: <code>{{ ngettext('%s apple', '%s apples', 2)|template(2) }}</code></p>
@@ -105,24 +105,24 @@
   </section>{# /grid #}
 
 
-  <hr class='margin-ends+'>
+  <hr class='h-margin-ends+'>
 
 
-  <section class='grid grid+ grid--middle'>
+  <section class='o-grid h-childs-displace+ h-flex-y--center'>
 
-    <div class='grid__item 2/5'>
-      <h2 class='margin-bottom--flush'>Data examples</h2>
+    <div class='o-grid__item h-2/5'>
+      <h2 class='h-margin-bottom0'>Data examples</h2>
     </div>{# /grid__item #}
 
-    <div class='grid__item 3/5'>
+    <div class='o-grid__item h-3/5'>
 
-      <section class='grid grid+ grid--middle'>
+      <section class='o-grid h-childs-displace+ h-flex-y--center'>
 
-        <div class='grid__item 2/5'>
-          <h3 class='margin-bottom--flush'>Inline data</h3>
+        <div class='o-grid__item h-2/5'>
+          <h3 class='h-margin-bottom0'>Inline data</h3>
         </div>{# /grid__item #}
 
-        <div class='grid__item 3/5'>
+        <div class='o-grid__item h-3/5'>
 
           <p>Current year is {{ data.currentYear }}</p>
 
@@ -132,15 +132,15 @@
 
       </section>{# /grid #}
 
-      <section class='grid grid+ grid--middle margin-top+'>
+      <section class='o-grid h-childs-displace+ h-flex-y--center h-margin-top+'>
 
-        <div class='grid__item 2/5'>
-          <h3 class='margin-bottom--flush'>External data</h3>
+        <div class='o-grid__item h-2/5'>
+          <h3 class='h-margin-bottom0'>External data</h3>
         </div>{# /grid__item #}
 
-        <div class='grid__item 3/5'>
+        <div class='o-grid__item h-3/5'>
 
-          <h4 class='h5'>{{ data.example.title }}</h4>
+          <h4 class='h-h5'>{{ data.example.title }}</h4>
 
           <p>{{ data.example.content }}</p>
 
@@ -152,12 +152,12 @@
 
   </section>{# /grid #}
 
-  <hr class='margin-ends+'>
+  <hr class='h-margin-ends+'>
 
 
   <p>
     Learn more about
-    <a class='btn link--go margin-left-' href='https://github.com/LotusTM/Kotsu' target='blank'>Kotsu at Github</a>
+    <a class='o-btn g-link--go h-margin-left--' href='https://github.com/LotusTM/Kotsu' target='blank'>Kotsu at Github</a>
   </p>
 
 

@@ -20,3 +20,4 @@
 - [sass] Disable of outline of focused elements is now off by default
 - [sass] Predefined breakpoints has been changed
 - [sass] Default style of form's placeholder changer to `normal`
+- [nj] Namespaced all classes with type according to new Ekzo convention

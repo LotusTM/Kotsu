@@ -15,7 +15,7 @@
  #}
 {% macro breadcrumb(
   class,
-  mainClass   = 'breadcrumb',
+  mainClass   = 'o-breadcrumb',
   displayLast = true,
   breadcrumb  = breadcrumb,
   pages       = site.pages,

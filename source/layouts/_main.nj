@@ -38,7 +38,7 @@
         {% if showBreadcrumb %}
 
           {{ components.breadcrumb(
-            class       = 'breadcrumb--rev font-size-',
+            class       = 'o-breadcrumb--rev h-text-',
             displayLast = false
           ) }}
 
@@ -63,13 +63,13 @@
 
         {# {% if pageSidebar %} #}
 
-          <div class='grid grid+'>
+          <div class='o-grid h-childs-displace+'>
 
-            <div class='grid__item 9/12'>
+            <div class='o-grid__item h-9/12'>
               {% block main %}{% endblock %}
             </div>{# /grid__item #}
 
-            <aside class='site-sidebar grid__item 3/12'>
+            <aside class='site-sidebar o-grid__item h-3/12'>
               {% block sidebar %}{% endblock %}
             </aside>{# /site-sidebar #}{# /grid__item #}
 

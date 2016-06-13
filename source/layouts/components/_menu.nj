@@ -10,7 +10,7 @@
  #}
 {% macro menu(class, mainClass = 'site-nav') %}
   <nav class='{{ mainClass }} {{ class }}'>
-    <ul class='{{ mainClass }}__list nav'>
+    <ul class='{{ mainClass }}__list o-nav'>
 
       <li class='{{ mainClass }}__item {{ mainClass }}__item--is-active'>
         <a class='{{ mainClass }}__link' href='{{ localeDir() }}/'>

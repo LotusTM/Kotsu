@@ -12,7 +12,7 @@
 {% block main %}
 
 
-<footer class='muted bleed-top margin-bottom+'>
+<footer class='h-opacity--50 h-bleed-top h-margin-bottom+'>
   {{ moment(getPage(page.breadcrumb).date).format('lll') }} — {{ getPage(page.breadcrumb).author }}
 </footer>
 
