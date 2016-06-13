@@ -30,9 +30,10 @@
       {{ caller()|renderCaller }}
     </div>
 
-    <div class='o-grid__item h-1/1 h-margin-top {{ 'h-5/9@tablet h-margin-top0@tablet' if not full }}'>
+    {# @todo Temporarily disabled due to https://github.com/mozilla/nunjucks/issues/782 #}
+    {# <div class='o-grid__item h-1/1 h-margin-top {{ 'h-5/9@tablet h-margin-top0@tablet' if not full }}'>
       <pre class='h-margin-bottom0'><code>{{ caller()|escape }}</code></pre>
-    </div>
+    </div> #}
 
   </div>
 
