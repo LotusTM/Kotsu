@@ -19,6 +19,12 @@
       </li>
 
       <li class='{{ mainClass }}__item'>
+        <a class='{{ mainClass }}__link' href='{{ localeDir() }}/examples/'>
+          Examples
+        </a>
+      </li>
+
+      <li class='{{ mainClass }}__item'>
         <a class='{{ mainClass }}__link' href='{{ localeDir() }}/blog/'>
           Blog
         </a>

@@ -1,0 +1,917 @@
+{% extends '_main.nj' %}
+
+
+{# --------- #}
+{% set pageClass = 'l-blog' %}
+{# --------- #}
+
+
+{% block main %}
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Grid</h2>
+
+{% call components.example(title = '', classes = ['.o-grid', '.o-grid__item'], full = true) -%}
+<div class='o-grid h-bleed-top'>
+  <div class='o-grid__item h-1/2@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/2 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-1/2@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/2 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-1/3@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-1/3@tablet h-1/2 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3 on tablet+, 1/2 on smaller</div></div>
+  <div class='o-grid__item h-1/3@tablet h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3 on tablet+, 1/3 on smaller</div></div>
+  <div class='o-grid__item h-2/3@tablet h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>2/3 on tablet+, 1/3 on smaller</div></div>
+  <div class='o-grid__item h-1/3@tablet h-2/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3 on tablet+, 2/3 on smaller</div></div>
+  <div class='o-grid__item h-1/7@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/7 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-3/7@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>3/7 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-2/7@tablet h-1/2 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>2/7 on tablet+, 1/2 on smaller</div></div>
+  <div class='o-grid__item h-1/7@tablet h-1/2 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/7 on tablet+, 1/2 on smaller</div></div>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-grid .h-childs-displace0'], full = true) -%}
+<div class='o-grid h-childs-displace0 h-bleed-top--'>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-grid .h-childs-displace--'], full = true) -%}
+<div class='o-grid h-childs-displace-- h-bleed-top--'>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-grid .h-childs-displace+'], full = true) -%}
+<div class='o-grid h-childs-displace+ h-bleed-top+'>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-grid .h-childs-displace++'], full = true) -%}
+<div class='o-grid h-childs-displace++ h-bleed-top+'>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-grid. .h-flex--nowrap'], comment = 'No fallback for IE8 and IE9 — childs will always wrap', full = true) -%}
+<div class='o-grid h-bleed-top h-flex--nowrap'>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-2/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>2/3</div></div>
+  <div class='o-grid__item h-2/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>2/3</div></div>
+  <div class='o-grid__item h-3/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>3/3</div></div>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-grid .h-flex-y--stretch'], comment = 'No fallback for IE8 and IE9 — childs won\'t have similar height and will align to top', full = true) -%}
+<div class='o-grid h-bleed-top h-flex-y--stretch'>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3<br>Second line<br>Third line</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
+  <div class='o-grid__item h-3/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>3/3</div></div>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-grid .h-flex-y--top'], comment = 'Default behaviour on IE8 and IE9', full = true) -%}
+<div class='o-grid h-bleed-top h-flex-y--top'>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3<br>Second line<br>Third line</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
+  <div class='o-grid__item h-3/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>3/3</div></div>
+</div>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Media</h2>
+
+{% call components.example(title = '', classes = ['.o-media .o-media0']) -%}
+<div class='o-media o-media0'>
+  <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
+  <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-media']) -%}
+<div class='o-media'>
+  <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
+  <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-media .o-media+']) -%}
+<div class='o-media o-media+'>
+  <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
+  <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-media .o-media--rev']) -%}
+<div class='o-media o-media--rev'>
+  <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
+  <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-media .h-flex-y--center'], comment = 'No fallback for IE8 and IE9') -%}
+<div class='o-media h-flex-y--center'>
+  <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
+  <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-media .h-flex-y--end'], comment = 'No fallback for IE8 and IE9') -%}
+<div class='o-media h-flex-y--end'>
+  <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
+  <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = 'Alternative markup', classes = ['.o-media .h-flex-y--center'], comment = 'No fallback for IE8 and IE9') -%}
+<div class='o-media h-flex-y--center'>
+  <div class='o-media__aside'>
+    <img src='https://placekitten.com/100/100' alt='Placeholder'>
+  </div>
+  <div class='o-media__content'>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Lorem ipsum.</p>
+  </div>
+</div>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Nav</h2>
+
+{% call components.example(title = '', classes = ['.o-nav'], full = true) -%}
+<ul class='o-nav'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<div class='o-nav'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .o-nav--space'], comment = 'Default behaviour on IE8 and IE9', full = true) -%}
+<ul class='o-nav o-nav--space'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<div class='o-nav o-nav--space'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .h-flex-x--end'], comment = 'No fallback for IE8 and IE9. Use <code>.h-float--right</code> and <code>.o-clearfix</code> to get crossbrowser solution.', full = true) -%}
+<ul class='o-nav h-flex-x--end'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<div class='o-nav h-flex-x--end'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .h-flex-x--around'], comment = 'No fallback for IE8 and IE9', full = true) -%}
+<ul class='o-nav h-flex-x--around'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<div class='o-nav h-flex-x--around'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .h-flex-x--between'], comment = 'No fallback for IE8 and IE9.', full = true) -%}
+<ul class='o-nav h-flex-x--between'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<div class='o-nav h-flex-x--between'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .h-{{width}}'], comment = 'No fallback for IE8 and IE9. Use floats to achieve similar effect on IE8 and IE9', full = true) -%}
+<ul class='o-nav'>
+  <li class='h-bg-color--black-30 h-1/2'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30 h-1/2'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30 h-1/2'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30 h-1/2'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<div class='o-nav'>
+  <a class='h-border h-bg-color--outer-space h-1/2' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space h-1/2' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space h-1/2' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space h-1/2' href='#'>Contact</a>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .o-nav--stacked'], full = true) -%}
+<ul class='o-nav o-nav--stacked'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<div class='o-nav o-nav--stacked'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .o-nav--block'], full = true) -%}
+<ul class='o-nav o-nav--block'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30 h-margin'><a class='h-border h-bg-color--outer-space h-margin' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<nav class='o-nav o-nav--block'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space h-margin' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</nav>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .o-nav--inline'], full = true) -%}
+<ul class='o-nav o-nav--inline'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30 h-margin'><a class='h-border h-bg-color--outer-space h-margin' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<nav class='o-nav o-nav--inline'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space h-margin' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</nav>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .o-nav--keywords'], full = true) -%}
+<ul class='o-nav o-nav--keywords'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .h-anchors-padding--'], full = true) -%}
+<ul class='o-nav h-anchors-padding--'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<nav class='o-nav h-anchors-padding--'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</nav>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .h-anchors-padding'], full = true) -%}
+<ul class='o-nav h-anchors-padding'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<nav class='o-nav h-anchors-padding'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</nav>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .h-anchors-padding+'], full = true) -%}
+<ul class='o-nav h-anchors-padding+'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<nav class='o-nav h-anchors-padding+'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</nav>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .o-nav--pack'], comment = 'Partial fallback for IE8 and IE9 — childs won\'t wrap', full = true) -%}
+<ul class='o-nav o-nav--pack'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<nav class='o-nav o-nav--pack'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Home</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</nav>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav .o-nav--fixed-pack'], comment = 'Partial fallback for IE8 and IE9 — childs won\'t wrap', full = true) -%}
+<ul class='o-nav o-nav--pack'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Much longer menu entry</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+<ul class='o-nav o-nav--fixed-pack'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Much longer menu entry</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+
+<nav class='o-nav o-nav--pack'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Much longer menu entry</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</nav>
+<nav class='o-nav o-nav--fixed-pack'>
+  <a class='h-border h-bg-color--outer-space' href='#'>Much longer menu entry</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>About</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a>
+  <a class='h-border h-bg-color--outer-space' href='#'>Contact</a>
+</nav>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav o-nav--pack', 'h-margin-sides--'], full = true) -%}
+<div class='o-nav  o-nav--pack'>
+  <a class='h-border h-margin-sides--' href='#'>Home</a>
+  <a class='h-border h-margin-sides--' href='#'>About</a>
+  <a class='h-border h-margin-sides--' href='#'>Portfolio</a>
+  <a class='h-border h-margin-sides--' href='#'>Contact</a>
+</div>
+
+<ul class='o-nav  o-nav--pack'>
+  <li class='h-bg-color--black-30 h-margin-sides--'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30 h-margin-sides--'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30 h-margin-sides--'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30 h-margin-sides--'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav o-nav--pack', 'h-margin-sides'], full = true) -%}
+<div class='o-nav o-nav--pack'>
+  <a class='h-border h-margin-sides' href='#'>Home</a>
+  <a class='h-border h-margin-sides' href='#'>About</a>
+  <a class='h-border h-margin-sides' href='#'>Portfolio</a>
+  <a class='h-border h-margin-sides' href='#'>Contact</a>
+</div>
+
+<ul class='o-nav o-nav--pack'>
+  <li class='h-bg-color--black-30 h-margin-sides'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30 h-margin-sides'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30 h-margin-sides'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30 h-margin-sides'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-nav o-nav--pack', 'h-margin-sides+'], full = true) -%}
+<div class='o-nav o-nav--pack'>
+  <a class='h-border h-margin-sides+' href='#'>Home</a>
+  <a class='h-border h-margin-sides+' href='#'>About</a>
+  <a class='h-border h-margin-sides+' href='#'>Portfolio</a>
+  <a class='h-border h-margin-sides+' href='#'>Contact</a>
+</div>
+
+<ul class='o-nav o-nav--pack'>
+  <li class='h-bg-color--black-30 h-margin-sides+'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30 h-margin-sides+'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30 h-margin-sides+'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30 h-margin-sides+'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Typography helpers</h2>
+
+{% call components.example(title = '', classes = ['.h-font-size*'], comment = 'Those aren\'t very useful on it\'s own, but can be used to set font size on elements like buttons, etc.') -%}
+<div class='o-show-grid'>
+  <p class='h-font-size'>Text</p>
+  <p class='h-font-size-'>Text</p>
+  <p class='h-font-size--'>Text</p>
+
+  <p class='h-font-size--h1'>Text</p>
+  <p class='h-font-size--h2'>Text</p>
+  <p class='h-font-size--h3'>Text</p>
+  <p class='h-font-size--h4'>Text</p>
+  <p class='h-font-size--h5'>Text</p>
+  <p class='h-font-size--h6'>Text</p>
+
+  <p class='h-font-size--extra-h++'>Text</p>
+  <p class='h-font-size--extra-h+'>Text</p>
+  <p class='h-font-size--extra-h'>Text</p>
+
+  <p class='h-font-size--em--'>Text</p>
+  <p class='h-font-size--em-'>Text</p>
+  <p class='h-font-size--em+---'>Text</p>
+  <p class='h-font-size--em+--'>Text</p>
+  <p class='h-font-size--em+'>Text</p>
+  <p class='h-font-size--em++---'>Text</p>
+  <p class='h-font-size--em++--'>Text</p>
+  <p class='h-font-size--em++'>Text</p>
+  <p class='h-font-size--em+++'>Text</p>
+  <p class='h-font-size--em++++'>Text</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.h-line-height*']) -%}
+<div class='o-show-grid'>
+  <p class='h-line-height'>First line<br>Second line</p>
+  <p class='h-line-height-'>First line<br>Second line</p>
+  <p class='h-line-height--'>First line<br>Second line</p>
+
+  <p class='h-line-height--h1'>First line<br>Second line</p>
+  <p class='h-line-height--h2'>First line<br>Second line</p>
+  <p class='h-line-height--h3'>First line<br>Second line</p>
+  <p class='h-line-height--h4'>First line<br>Second line</p>
+  <p class='h-line-height--h5'>First line<br>Second line</p>
+  <p class='h-line-height--h6'>First line<br>Second line</p>
+
+  <p class='h-line-height--extra-h++'>First line<br>Second line</p>
+  <p class='h-line-height--extra-h+'>First line<br>Second line</p>
+  <p class='h-line-height--extra-h'>First line<br>Second line</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.h-text*', '.h-h*', '.h-extra-h*']) -%}
+<div class='o-show-grid'>
+  <p class='h-text'>First line<br>Second line</p>
+  <p class='h-text-'>First line<br>Second line</p>
+  <p class='h-text--'>First line<br>Second line</p>
+
+  <p class='h-h1'>First line<br>Second line</p>
+  <p class='h-h2'>First line<br>Second line</p>
+  <p class='h-h3'>First line<br>Second line</p>
+  <p class='h-h4'>First line<br>Second line</p>
+  <p class='h-h5'>First line<br>Second line</p>
+  <p class='h-h6'>First line<br>Second line</p>
+
+  <p class='h-extra-h++'>First line<br>Second line</p>
+  <p class='h-extra-h+'>First line<br>Second line</p>
+  <p class='h-extra-h'>First line<br>Second line</p>
+
+  <p class='h-text--em--'>First line<br>Second line</p>
+  <p class='h-text--em-'>First line<br>Second line</p>
+  <p class='h-text--em+---'>First line<br>Second line</p>
+  <p class='h-text--em+--'>First line<br>Second line</p>
+  <p class='h-text--em+'>First line<br>Second line</p>
+  <p class='h-text--em++---'>First line<br>Second line</p>
+  <p class='h-text--em++--'>First line<br>Second line</p>
+  <p class='h-text--em++'>First line<br>Second line</p>
+  <p class='h-text--em+++'>First line<br>Second line</p>
+  <p class='h-text--em++++'>First line<br>Second line</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.h-text--tracked*']) -%}
+<p class='h-text--tracked--'>Headline</p>
+<p class='h-text--tracked+'><span class='h-text--tracked0'>Headline</span></p>
+<p class='h-text--tracked'>Headline</p>
+<p class='h-text--tracked+'>Headline</p>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Opacity helpers</h2>
+
+{% call components.example(title = '', classes = ['.h-opacity--*', '.h-opacity--*:h']) -%}
+<p class='h-opacity--2.5 h-opacity--100:h'>Hover me</p>
+<p class='h-opacity--5 h-opacity--90:h'>Hover me</p>
+<p class='h-opacity--10 h-opacity--80:h'>Hover me</p>
+<p class='h-opacity--20 h-opacity--70:h'>Hover me</p>
+<p class='h-opacity--30 h-opacity--60:h'>Hover me</p>
+<p class='h-opacity--40 h-opacity--50:h'>Hover me</p>
+<p class='h-opacity--50 h-opacity--40:h'>Hover me</p>
+<p class='h-opacity--60 h-opacity--30:h'>Hover me</p>
+<p class='h-opacity--70 h-opacity--20:h'>Hover me</p>
+<p class='h-opacity--80 h-opacity--10:h'>Hover me</p>
+<p class='h-opacity--90 h-opacity--5:h'>Hover me</p>
+<p class='h-opacity--100 h-opacity--2.5:h'>Hover me</p>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Color helpers</h2>
+
+{% call components.example(title = '', classes = ['.h-color--*', '.h-color--*:h']) -%}
+<p class='h-color--ivory h-color--dull-lavender:h'>Hover me</p>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.h-bg-color--*', '.h-bg-color--*:h']) -%}
+<p class='h-bg-color--dull-lavender h-bg-color--outer-space:h h-padding--'>Hover me</p>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.h-border-color--*', '.h-border-color--*:h']) -%}
+<p class='h-border h-border-color--dull-lavender h-border-color--outer-space:h h-padding--'>Hover me</p>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Images</h2>
+
+{% call components.example(title = '', classes = ['.g-image--left']) -%}
+<p>
+  <img class='g-image--left' src='https://placekitten.com/100/100' alt='Testing image'>
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+</p>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.g-image--right']) -%}
+<p>
+  <img class='g-image--right' src='https://placekitten.com/100/100' alt='Testing image'>
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+</p>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Iconic-list</h2>
+
+{% call components.example(title = 'Input with placeholder', classes = []) -%}
+<ul class="o-iconic-list g-list--indent">
+  <li><i class="o-icon icon--home"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+  <li><i class="o-sprite sprite--test"></i> Has been the industry's standard dummy text ever since the 1500s</li>
+</ul>
+
+<ul class='g-list--indent'>
+  <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+  <li>Has been the industry's standard dummy text ever since the 1500s</li>
+</ul>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Spacing helpers</h2>
+
+{% call components.example(title = '', classes = ['h-childs-space']) -%}
+<ul class='h-childs-space+'>
+  <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+  <li>Has been the industry's standard dummy text ever since the 1500s</li>
+  <li>
+    <ul>
+      <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+      <li>Has been the industry's standard dummy text ever since the 1500s</li>
+      <li>Has been the industry's standard dummy text ever since the 1500s</li>
+    </ul>
+  </li>
+</ul>
+
+<nav class='h-childs-space+ h-margin-bottom'>
+  <a class='h-display--inline-block' href='#'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+  <a class='h-display--inline-block' href='#'>Has been the industry's standard dummy text ever since the 1500s</a>
+</nav>
+
+<form class='h-childs-space++'>
+  <fieldset>1</fieldset>
+  <fieldset>2</fieldset>
+  <fieldset>3</fieldset>
+</form>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['h-childs-displace']) -%}
+<div class='o-grid h-text-- h-childs-displace++ h-childs-margin-top++ h-bleed-top++ h-margin-bottom'>
+  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
+  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
+  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
+  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
+</div>
+
+<div class='o-media h-childs-displace+ o-media--rev'>
+  <div class='o-media__aside'>Aside</div>
+  <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['h-childs-margin']) -%}
+<nav class='o-nav h-childs-margin'>
+  <a class='h-border' href='#'>Home</a>
+  <a class='h-border' href='#'>About</a>
+  <a class='h-border' href='#'>Portfolio</a>
+  <a class='h-border' href='#'>Contact</a>
+</nav>
+
+<ul class='o-nav h-childs-margin'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['h-childs-padding']) -%}
+<nav class='o-nav h-childs-padding'>
+  <a class='h-border' href='#'>Home</a>
+  <a class='h-border' href='#'>About</a>
+  <a class='h-border' href='#'>Portfolio</a>
+  <a class='h-border' href='#'>Contact</a>
+</nav>
+
+<ul class='o-nav h-childs-padding'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['h-anchors-margin']) -%}
+<nav class='o-nav h-anchors-margin'>
+  <a class='h-border' href='#'>Home</a>
+  <a class='h-border' href='#'>About</a>
+  <a class='h-border' href='#'>Portfolio</a>
+  <a class='h-border' href='#'>Contact</a>
+</nav>
+
+<ul class='o-nav h-anchors-margin'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['h-anchors-padding']) -%}
+<nav class='o-nav h-anchors-padding'>
+  <a class='h-border' href='#'>Home</a>
+  <a class='h-border' href='#'>About</a>
+  <a class='h-border' href='#'>Portfolio</a>
+  <a class='h-border' href='#'>Contact</a>
+</nav>
+
+<ul class='o-nav h-anchors-padding'>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Portfolio</a></li>
+  <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Contact</a></li>
+</ul>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['h-cells-padding']) -%}
+<table class='h-cells-padding'>
+  <thead>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </thead>
+  <tbody>
+    <td>Value 1</td>
+    <td>Value 2</td>
+  </tbody>
+</table>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Forms</h2>
+
+{% call components.example(title = 'Input with placeholder', classes = []) -%}
+<form>
+  <label>Label</label>
+  <input type='text' placeholder="Placeholder" />
+</form>
+{% endcall %}
+
+{% call components.example(title = 'Input with value', classes = []) -%}
+<form>
+  <label>Label</label>
+  <input type='text' value="Pretyped in value" />
+</form>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-extra-help']) -%}
+<form>
+  <label>Label</label>
+  <input type='email' class='g-input'>
+  <small class='o-extra-help'>.edu emails only</small>
+</form>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Buttons</h2>
+
+{% call components.example(title = '', classes = ['.o-btn o-btn--inherit']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn--inherit' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn--inherit' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn o-btn--']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn--' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn--' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn o-btn-']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn-' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn-' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn o-btn+']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn+' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn+' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn o-btn++']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn++' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn++' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn o-btn--wide--']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn--wide--' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn--wide--' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn o-btn--wide']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn--wide' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn--wide' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn o-btn--wide++']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn--wide++' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn--wide++' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn o-btn--full']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><a class='o-btn o-btn--full' href='#'>Button label</a></p>
+  <p><a class='o-btn o-btn--full' href='#'>First line<br>Second line</a></p>
+</div>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-btn']) -%}
+<div class='o-show-grid h-padding-bottom'>
+  <p><button class='o-btn' disabled>Disabled button</button></p>
+  <p><a class='o-btn is-disabled' href='#'>Disabled a.button</a></p>
+</div>
+{% endcall %}
+
+
+<h2 class='h-margin-top++ h-margin-bottom+'>Links</h2>
+
+{% call components.example(title = '', classes = ['a', '.g-link']) -%}
+<a class="g-link" href='#'>Base link</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.g-link--inherit']) -%}
+<a class="g-link--inherit" href='g-link--inherit' >Flushed link</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.g-link--inherit']) -%}
+<p class='h-bg-color--dull-lavender'><a class="g-link--inherit" href='g-link--inherit' >Flushed link on background</a></p>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.h-text--underline']) -%}
+<a class='h-border0 h-text--underline' href='#'>Underline link</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.h-text--underline:h']) -%}
+<a class='h-text--underline--flush h-text--underline:h' href='#'>Underline on hover link</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.h-border-bottom']) -%}
+<a class='h-border-bottom' href='#'>Border underline link</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.h-border-bottom:h']) -%}
+<a class='h-border-bottom0 h-border-bottom:h' href='#'>Border on hover link</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-relink']) -%}
+<a class="o-relink" href='#'>
+  :3 <span class="o-relink__to">Relinked link</span> and <span class="o-relink__to">same link</span>
+</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-relink-rev']) -%}
+<a class="o-relink-rev" href='#'>
+  :3 <span class="o-relink-rev__to">Relinked--rev link</span>
+</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-reline']) -%}
+<a class="o-reline" href='#'>
+  :3 <span class="o-reline__to">Relined link</span> and <span class="o-reline__to">same link</span>
+</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-reline--rev']) -%}
+<a class="o-reline--rev" href='#'>
+  :3 <span class="o-reline__to">Relined--rev link</span>
+</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-reline-border-bottom']) -%}
+<a class="o-reline-border-bottom" href='#'>
+  :3 <span class="o-reline-border-bottom__to">Border relined link</span>
+</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-reline-border-bottom', '.h-border--inherit']) -%}
+<a class="o-reline-border-bottom" href='#'>
+  :3 <span class="o-reline-border-bottom__to h-border--inherit">Border relined link with inherit</span>
+</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-reline-border-bottom--rev']) -%}
+<a class="o-reline-border-bottom--rev" href='#'>
+  :3 <span class="o-reline-border-bottom__to">Border relined--rev link</span>
+</a>
+{% endcall %}
+
+{% call components.example(title = '', classes = ['.o-reline-border-bottom--rev', '.h-border--inherit']) -%}
+<a class="o-reline-border-bottom--rev" href='#'>
+  :3 <span class="o-reline-border-bottom__to h-border--inherit">Border relined--rev link with inherit</span>
+</a>
+{% endcall %}
+
+{% endblock %}

@@ -7,6 +7,13 @@ index:
   metaDesc:        Generated with %(company)s demo homepage
   href:            /
 
+examples:
+  pageTitle:       Examples
+  breadcrumbTitle: Examples
+  contentTitle:    Examples
+  menuTitle:       Examples
+  metaDesc:        '%(company)s examples'
+
 blog:
   pageTitle:       Blog
   breadcrumbTitle: Blog
