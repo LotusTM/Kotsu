@@ -1,0 +1,41 @@
+{##
+ # Display provided code as an example
+ #
+ # @param {string} title   Title of example
+ # @param {array}  classes Classes, which showcasing example
+ # @param {string} comment Comment to example
+ # @param {bool}   full    Display example in full width of page or no
+ #
+ # @return {string} Complex html with example
+ #
+ # @example {{ components.example('demo value') }}
+ #}
+{% macro example(title, classes, comment = false, full = false) %}
+
+  <div class='o-grid {{ 'h-childs-space' if full }}'>
+
+    <div class='o-grid__item h-1/1 {{ 'h-2/9@tablet' if not full }}'>
+
+      {{ title }}
+
+      {% for class in classes %}
+        <code class='h-text--nowrap'>{{ class }}</code>{{ ', '  if not loop.last }}
+      {% endfor %}
+
+      {% if comment %}<div class='h-margin-top h-opacity--50'>{{ comment }}</div>{% endif %}
+
+    </div>
+
+    <div class='o-grid__item h-1/1 h-margin-top {{ 'h-2/9@tablet h-margin-top0@tablet' if not full }}'>
+      {{ caller() }}
+    </div>
+
+    <div class='o-grid__item h-1/1 h-margin-top {{ 'h-5/9@tablet h-margin-top0@tablet' if not full }}'>
+      <pre class='h-margin-bottom0'><code>{{ caller()|escape }}</code></pre>
+    </div>
+
+  </div>
+
+  <hr class='h-margin-top'>
+
+{% endmacro %}
