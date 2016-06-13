@@ -57,6 +57,7 @@ module.exports = (grunt) ->
   i18n         = new Gettext()
   marked       = require('marked')
   markdown     = require('nunjucks-markdown')
+  nunjucks     = require('nunjucks')
   urlify       = require('urlify').create({
     addEToUmlauts : taskConfig.urlify.addEToUmlauts
     szToSs        : taskConfig.urlify.szToSs
@@ -399,6 +400,18 @@ module.exports = (grunt) ->
           env.addFilter 'pushIn', (array, value) ->
             array.push(value)
             array
+
+          ###*
+           * Renders output of `caller()` once again. Useful if you're
+           * using `{% raw %}` block inside of call, for example,
+           * to showcase nunjucks code
+           * @param {object} caller Caller to force render
+           * @return {string} Rendered html
+           *
+           * @todo  Related to this issue https://github.com/mozilla/nunjucks/issues/783
+          ###
+          env.addFilter 'renderCaller', (caller) ->
+            nunjucks.renderString(caller.val, this.getVariables());
 
           ###*
            * Get language code from locale, without country
