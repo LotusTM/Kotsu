@@ -20,7 +20,7 @@
 - [grunt] Updated configuration for `grunt-cache-bust` task to reffer breaking changes made in (grunt-cache-bust@1.0.0)[https://github.com/hollandben/grunt-cache-bust/issues/147]
 - [misc] Changed project license from `MIT` to `Apache 2.0` (#58)[https://github.com/lotustm/kotsu/issues/58]
 - [sass] Switched to Ekzo 2.0.0-beta
-- [sass] Updated default settings to work properly with new Ekzo. a lot of changes. Refer to Ekzo 2.0.0 changelog for details.
+- [sass] Updated default settings to work properly with new Ekzo. A lot of changes. Refer to Ekzo 2.0.0 changelog for details.
 - [sass] Replaced depreciated `$ekzo-spacing-unit*` with `ekzo-spacing(*)` function
 - [sass] Default color scheme now mirrors new style of Ekzo
 - [sass] Global `border-box` is now on by default
