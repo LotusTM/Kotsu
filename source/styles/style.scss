@@ -4,11 +4,17 @@
 // =======================================
 
 // ---------------------------------------
-// Functions
+// Predefined variables
 // ---------------------------------------
 
-@import 'ekzo.sass/tools/functions.misc';
-@import 'ekzo.sass/tools/functions.typography';
+@import 'ekzo.sass/helpers/animations';
+@import 'ekzo.sass/helpers/typography.font-stacks';
+
+// ---------------------------------------
+// Tools: functions and mixins
+// ---------------------------------------
+
+@import 'ekzo.sass/tools/index';
 
 // ---------------------------------------
 // Options, styles, colors etc.
@@ -18,6 +24,7 @@
 @import 'settings.framework';
 @import 'settings.colors';
 @import 'settings.assets';
+@import 'settings.misc';
 @import 'settings.options';
 @import 'settings.responsive';
 
@@ -25,7 +32,7 @@
 // Framework
 // ---------------------------------------
 
-@import 'ekzo.sass/framework';
+@import 'ekzo.sass/index';
 
 // ---------------------------------------
 // Site's custom styling
