@@ -2,15 +2,22 @@
 // =======================================
 // ^SETTING.FRAMEWORK.DEFAULTS
 // =======================================
-//
-// Used for various framework calculations
+
+// ---------------------------------------
+// Namespacing
+// ---------------------------------------
+// Used as prefix for every framework's class
+
+$ekzo-ns:                    '';
+
+$ekzo-generics-ns:           'g-';
+$ekzo-objects-ns:            'o-';
+$ekzo-themes-ns:             't-';
+$ekzo-scopes-ns:             's-';
+$ekzo-helpers-ns:            'h-';
+
+// ---------------------------------------
+// Spacing units
+// ---------------------------------------
 
 $ekzo-spacing-unit:          $ekzo-line-height;
-
-$ekzo-spacing-unit--quarter: $ekzo-spacing-unit / 4;
-$ekzo-spacing-unit--half:    $ekzo-spacing-unit / 2;
-$ekzo-spacing-unit--double:  $ekzo-spacing-unit * 2;
-$ekzo-spacing-unit--triple:  $ekzo-spacing-unit * 3;
-$ekzo-spacing-unit--quad:    $ekzo-spacing-unit * 3;
-
-$ekzo-line-height-ratio:     $ekzo-line-height / ekzo-font-size(base);

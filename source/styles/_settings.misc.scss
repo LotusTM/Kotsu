@@ -1,0 +1,49 @@
+
+// =======================================
+// ^SETTING.OPTIONS.DEFAULTS
+// =======================================
+
+// ---------------------------------------
+// Z-indexes
+// ---------------------------------------
+
+$ekzo-z-indexes: (
+  toast:     10000,
+  modal:     9000,
+  overlay:   8000,
+  dropdown:  7000,
+  dialog:    6000,
+  popup:     5000,
+  base:      1,
+  deepdive: -99999,
+);
+
+// ---------------------------------------
+// Links styling
+// ---------------------------------------
+
+$ekzo-links-text-decoration:       underline;
+$ekzo-links-hover-text-decoration: none;
+
+// ---------------------------------------
+// Buttons styling
+// ---------------------------------------
+
+$ekzo-btn-text-decoration:        none;
+$ekzo-btn-hover-text-decoration:  none;
+
+// ---------------------------------------
+// Lists
+// ---------------------------------------
+
+$ekzo-list-style-type: disc;
+
+// ---------------------------------------
+// Contents and delimiters
+// ---------------------------------------
+
+$ekzo-breadcrumb-delimiters-content:      '\00A0' '\2192' '\00A0' '\00A0';
+$ekzo-breadcrumb--rev-delimiters-content: '\00A0' '\2192' '\00A0' '\00A0';
+
+$ekzo-links--go-content:                  '\00A0' '\00BB';
+$ekzo-links--back-content:                '\00AB' '\00A0';

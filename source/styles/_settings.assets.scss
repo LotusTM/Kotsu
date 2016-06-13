@@ -17,23 +17,20 @@ $ekzo-fonts-path:        '#{$ekzo-assets-path}/fonts';
 // Background
 // ---------------------------------------
 
-$ekzo-bg:                $ekzo-bg-color;
+$ekzo-bg:                false; // `background` property on `html`
 
 // ---------------------------------------
-// Icons and sprites
+// Icons
 // ---------------------------------------
 
-// $ekzo-icons-prefix:   icon--; // defined by Grunt task
-$ekzo-sprites-prefix:    sprite--;
-
-$ekzo-sprites-file:      'sprite.png';
-
-// ---------------------------------------
-// Fonts
-// ---------------------------------------
-
-$ekzo-use-svg-fonts:     false;
-
+$ekzo-icons-prefix:      icon--;
 $ekzo-icon-font:         icons;
-$ekzo-icon-font-version: false; // `false` to disable, number to enable. Disable for Kotsu, since all assets are cache-busted by Grunt task
+$ekzo-icon-font-version: false; // `false` to disable, number to enable. Disabled for Kotsu, since all assets are cache-busted by Grunt task
 $ekzo-icon-font-svg-id:  $ekzo-icon-font;
+
+// ---------------------------------------
+// Sprites
+// ---------------------------------------
+
+$ekzo-sprites-prefix:    sprite--;
+$ekzo-sprites-file:      'sprite.png';

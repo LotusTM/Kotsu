@@ -8,11 +8,13 @@
 // ---------------------------------------
 
 $ekzo-font-sizes: (
+
   text: (
     base: 14px, // used for vertical rhythm calculation; = .text--base, .font-size--base, .line-height--base
     '-':  12px, // = .text-,  .font-size-,  .line-height-
     '--': 10px, // = .text--, .font-size--, .line-height--
   ),
+
   headings: (
     h1: 36px, // = h1, .h1, .font-size--h1, .line-height--h1
     h2: 30px, // = h2, .h2, .font-size--h2, .line-height--h2
@@ -21,18 +23,35 @@ $ekzo-font-sizes: (
     h5: 18px, // = h5, .h5, .font-size--h5, .line-height--h5
     h6: 16px, // = h6, .h6, .font-size--h6, .line-height--h6
   ),
+
   extra-headings: (
-    \+\+\+: 96px, // = .text\+\+\+, .font-size\+\+\+, .line-height\+\+\+
-    \+\+:   72px, // = .text\+\+,   .font-size\+\+,   .line-height\+\+
-    \+:     44px, // = .text\+,     .font-size\+,     .line-height\+
+    \+\+: 96px, // = .extra-h\+\+, .font-size\+\+, .line-height\+\+
+    \+:   72px, // = .extra-h\+,   .font-size\+,   .line-height\+
+    '':   44px, // = .extra-h,     .font-size,     .line-height
   ),
-  // = .btn--*name*
-  // @todo Moved on upper line because of https://github.com/brigade/scss-lint/issues/608
-  buttons: ()
+
+  ems: (
+    '--':     .5em,
+    '-':      .75em,
+    \+---:    1.25em,
+    \+--:     1.5em,
+    \+:       2em,
+    \+\+---:  2.25em,
+    \+\+--:   2.5em,
+    \+\+:     3em,
+    \+\+\+:   4em,
+    \+\+\+\+: 5em
+  ),
+
+  buttons: (), // = .btn--*name*
+
 );
 
 $ekzo-forms-font-size:              ekzo-font-size(h5, headings);
 $ekzo-forms-placeholder-font-size:  $ekzo-forms-font-size;
+
+$ekzo-code-font-size:               90%;
+$ekzo-kbd-font-size:                90%;
 
 // ---------------------------------------
 // Line heights
@@ -44,13 +63,22 @@ $ekzo-line-height:                  ekzo-font-size(base) * 1.5;
 // Font famylies
 // ---------------------------------------
 
-$ekzo-font-family:                  'Helvetica', Arial, sans-serif;
-$second-font-family:                sans-serif;
+$ekzo-font-families: (
+  base:           sans-serif,
+  monospace:      'monospace, monospace'
+);
 
-$ekzo-headings-font-family:         false; // false to disable, font name(s) to enable
-$ekzo-extra-headings-font-family:   false; // false to disable, font name(s) to enable
+$ekzo-ui-font-families: (
+  text:           ekzo-font-family(base),
 
-$ekzo-forms-font-family:            $ekzo-font-family;
+  headings:       false, // false to disable, font name(s) to enable
+  extra-headings: false, // false to disable, font name(s) to enable
+
+  forms:          inherit,
+
+  code:           ekzo-font-family(monospace),
+  kbd:            ekzo-font-family(monospace)
+);
 
 // ---------------------------------------
 // Font weights and styles
@@ -63,4 +91,4 @@ $ekzo-extra-headings-font-weight:   normal;
 
 $ekzo-breadcrumb-root-font-weight:  bold;
 
-$ekzo-forms-placeholder-font-style: normal;
+$ekzo-forms-placeholder-font-style: italic;
