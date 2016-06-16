@@ -7,26 +7,30 @@
   <!-- Site's header -->
   <!-- ============= -->
 
-  <header class='site-header'>
+  <header class='site-header h-padding-ends'>
     <div class='site-wrapper'>
+      <div class='o-grid h-flex-y--center h-childs-displace'>
 
-      <h1 class='site-logo'>
-        <a class='site-logo__link' href='{{ localeDir() }}/'>
-          {{ site.name }}
-        </a>
-      </h1>{# /site-logo #}
+        <div class='o-grid__item'>
+          <h1 class='site-logo h-margin-bottom0'>
+            <a class='site-logo__link h-text--underline--flush' href='{{ localeDir() }}/'>{{ site.name }}</a>
+          </h1>
+        </div>
 
-      <!--noindex-->
-      <nav class='site-nav'>
-        {{ components.menu(
-          class        = 'o-nav',
-          itemsClass   = '',
-          anchorsClass = '',
-          activeClass  = 'is-active'
-        ) }}
-      </nav>
-      <!--/noindex-->
+        <div class='o-grid__item h-flex__item--flex'>
+          <!--noindex-->
+          <nav class='site-nav h-float--right'>
+            {{ components.menu(
+              class        = 'o-nav h-childs-space-left',
+              itemsClass   = '',
+              anchorsClass = 'h-text--underline--flush',
+              activeClass  = 'is-active'
+            ) }}
+          </nav>
+          <!--/noindex-->
+        </div>
 
+      </div>
     </div>{# /site-wrapper #}
   </header>{# /site-header #}
 
@@ -34,7 +38,7 @@
   <!-- Site's content -->
   <!-- ============== -->
 
-  <main class='site-main' role='main'>
+  <main class='site-main h-flex__item--flex' role='main'>
     <div class='{{ 'site-wrapper' if not customSiteWrapper }}'>
       <article class='o-grid {{ 'h-childs-displace+' if pageSidebar}}'>
 
@@ -43,7 +47,7 @@
 
           {% if showBreadcrumb %}
           {{ components.breadcrumb(
-            class           = 'o-breadcrumb o-breadcrumb--rev h-text-',
+            class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
             itemsClass      = 'o-breadcrumb__item',
             anchorsClass    = 'h-text--underline--flush',
             rootItemClass   = 'h-font-weight--bolder',
@@ -53,7 +57,7 @@
           {% endif %}
 
           {% if pageContentTitle %}
-          <h1 class='site-content-title'>{{ pageContentTitle }}</h1>
+          <h1 class='site-content-title h-align--center'>{{ pageContentTitle }}</h1>
           {% endif %}
 
         </header>{# /grid__item #}

@@ -31,7 +31,7 @@
 - [sass] Default style of form's placeholder changer to `normal`
 - [nj] Namespaced all classes with type according to new Ekzo convention
 - [nj] All current examples moved to new Examples page. Still quite messy and limited, but better than nothing
-- [nj] Refactored `<main>` of `_main.nj` layout. Now it should be more clear what's happening there
+- [nj] Refactored `<main>` of `_main.nj` layout to use single block call and reduce clutter. It will also from now produce sticking to the bottom footer (in IE8 and IE9 it will fallback to regular, non-flex flow)
 - [nj][breaking] `breadcrumb()` macro will no longer generate `magic` classes like `{{ mainCLass }}__link`. Instead, you will need to specify all classes explicetely with new arguments:
   * `class` for root class;
   * `itemsClass` for all `<li>` classes;
