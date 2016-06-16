@@ -1,7 +1,7 @@
 {# --------- #}
 {# Call macros globally #}
 {% set components = {} %}
-{% for component in expand('/', 'components/{,**/}_*.nj', 'isFile', path.source.layouts) %}
+{% for component in expand('/', 'components/{,**/}_*.nj', 'isFile', path.source.views) %}
   {% import component as temp with context %}{% set macro = _.assign(components, temp) %}
 {% endfor %}
 

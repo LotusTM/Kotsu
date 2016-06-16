@@ -27,11 +27,11 @@ module.exports = ->
     images:
       files: ['<%= path.source.images %>/{,**/}*']
       tasks: ['copy:images']
-    layouts:
-      files: ['<%= path.source.layouts %>/{,**/}*.nj', '!<%= path.source.layouts %>{,**/}_*.nj']
+    views:
+      files: ['<%= path.source.views %>/{,**/}*.nj', '!<%= path.source.views %>{,**/}_*.nj']
       tasks: ['newer:nunjucks']
-    layoutsPartials:
-      files: ['<%= path.source.layouts %>/{,**/}_*.nj']
+    viewsPartials:
+      files: ['<%= path.source.views %>/{,**/}_*.nj']
       tasks: ['nunjucks']
     scripts:
       files: ['<%= path.source.scripts %>/{,**/}*.js']

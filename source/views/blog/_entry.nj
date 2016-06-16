@@ -1,4 +1,4 @@
-{% extends '_main.nj' %}
+{% extends '_layouts/_main.nj' %}
 
 
 {# --------- #}

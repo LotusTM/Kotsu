@@ -31,12 +31,12 @@ module.exports = (grunt) ->
       source:
         root: 'source'
         data: '<%= path.source.root %>/data'
+        views: '<%= path.source.root %>/views'
         fonts: '<%= path.source.root %>/fonts'
         icons: '<%= path.source.root %>/icons'
         images: '<%= path.source.root %>/images'
         styles: '<%= path.source.root %>/styles'
         locales: '<%= path.source.root %>/locales'
-        layouts: '<%= path.source.root %>/layouts'
         scripts: '<%= path.source.root %>/scripts'
         sprites: '<%= path.source.root %>/sprites'
         boilerplates: '<%= path.source.root %>/boilerplates'

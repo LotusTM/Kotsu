@@ -44,3 +44,7 @@
   * `itemsClass` for all `<li>` classes;
   * `anchorsClass` for all `<a>` inside `<li>`;
   * `activeClass` for class of active `<li>`
+
+- [breaking] `layouts` directory has been renamed to `views`
+- [breaking] `_layout.nj` structural layouts has been renamed to `_base.nj`
+- [breaking] Nunjucks stuctural layouts has been moved into own directory `_layouts`

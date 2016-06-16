@@ -16,11 +16,11 @@ module.exports = (grunt) ->
       defaultPages      : grunt.config('data.site.pages')
     path:
       build             : grunt.config('path.build.root')
-      layouts           : grunt.config('path.source.layouts')
-      nunjucksEnv       : grunt.config('path.source.layouts')
+      views             : grunt.config('path.source.views')
+      nunjucksEnv       : grunt.config('path.source.views')
       locales           : grunt.config('path.source.locales')
     files:
-      cwd               : '<%= path.source.layouts %>/'
+      cwd               : '<%= path.source.views %>/'
       src               : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
       dest              : '<%= path.build.root %>/'
       ext               : '.html'
@@ -73,7 +73,7 @@ module.exports = (grunt) ->
   defaultDomain = taskConfig.i18n.defaultDomain
 
   buildDir      = taskConfig.path.build
-  layoutsDir    = taskConfig.path.layouts
+  veiwsDir      = taskConfig.path.views
   localesDir    = taskConfig.path.locales
 
   # =======
@@ -478,7 +478,7 @@ module.exports = (grunt) ->
             ulrlify(string, options)
 
         preprocessData: (data) ->
-          pagepath     = humanReadableUrl(@src[0].replace(layoutsDir + '/', ''))
+          pagepath     = humanReadableUrl(@src[0].replace(veiwsDir + '/', ''))
           pagedir      = path.dirname(pagepath)
           pagedirname  = path.basename(pagedir)
           pagebasename = path.basename(pagepath, path.extname(pagepath))

@@ -1,4 +1,4 @@
-{% extends '_layout.nj' %}
+{% extends '_layouts/_base.nj' %}
 
 
 {% block body %}
