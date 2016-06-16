@@ -32,3 +32,9 @@
 - [nj] Namespaced all classes with type according to new Ekzo convention
 - [nj] All current examples moved to new Examples page. Still quite messy and limited, but better than nothing
 - [nj] Refactored `<main>` of `_main.nj` layout. Now it should be more clear what's happening there
+- [nj][breaking] `breadcrumb()` macro will no longer generate `magic` classes like `{{ mainCLass }}__link`. Instead, you will need to specify all classes explicetely with new arguments:
+  * `class` for root class;
+  * `itemsClass` for all `<li>` classes;
+  * `anchorsClass` for all `<a>` inside `<li>`;
+  * `rootItemClass` for class of `<li>`, which will be root (first);
+  * `rootAnchorClass` for class of `<a>` inside `<li>`, which will be root (first).

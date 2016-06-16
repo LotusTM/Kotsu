@@ -36,8 +36,12 @@
 
           {% if showBreadcrumb %}
           {{ components.breadcrumb(
-            class       = 'o-breadcrumb--rev h-text-',
-            displayLast = false
+            class           = 'o-breadcrumb o-breadcrumb--rev h-text-',
+            itemsClass      = 'o-breadcrumb__item',
+            anchorsClass    = 'h-text--underline--flush',
+            rootItemClass   = 'h-font-weight--bolder',
+            rootAnchorClass = '',
+            displayLast     = false
           ) }}
           {% endif %}
 
