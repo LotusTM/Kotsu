@@ -11,7 +11,7 @@
 
       <h1 class='site-logo'>
         <a class='site-logo__link' href='{{ localeDir() }}/'>
-          {{ site.name }} logo
+          {{ site.name }}
         </a>
       </h1>{# /site-logo #}
 
