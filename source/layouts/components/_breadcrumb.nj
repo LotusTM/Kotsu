@@ -1,16 +1,14 @@
 {##
  # Display breadcrumbs block based on provided data
  #
- # @param {string} class           = 'o-breadcrumb o-breadcrumb--rev',
+ # @param {string} class           = 'o-breadcrumb o-breadcrumb--rev'
  #                                                Class of list
- # @param {string} itemsClass      = 'o-breadcrumb__item',
+ # @param {string} itemsClass      = 'o-breadcrumb__item'
  #                                                Class of list items
- # @param {string} anchorsClass    = ''
- #                                                Class of anchors inside list itmes
+ # @param {string} anchorsClass    = ''           Class of anchors inside list itmes
  # @param {string} rootItemClass   = 'o-breadcrumb__item--root'
  #                                                Class of root (first) list item
- # @param {string} rootAnchorClass = ''
- #                                                Class of anchor inside of root list item
+ # @param {string} rootAnchorClass = ''           Class of anchor inside of root list item
  # @param {bool}   displayLast     = true         Display last crumb or not
  # @param {array}  breadcrumb      = breadcrumb   Array of breadcrumbs to iterate upon
  # @param {object} pages           = site.pages   Complex object with information about all page,
