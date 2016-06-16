@@ -4,14 +4,14 @@
 // ^ANIMATIONS
 // =======================================
 
-.trans--all-,
-%trans--all- { transition: all .7s ease-in !important; }
+.#{$ekzo-helpers-ns}trans--all-,
+%#{$ekzo-helpers-ns}trans--all- { transition: all .7s ease-in !important; }
 
-.trans--all,
-%trans--all { transition: all .4s ease-in   !important; }
+.#{$ekzo-helpers-ns}trans--all,
+%#{$ekzo-helpers-ns}trans--all { transition: all .4s ease-in !important; }
 
-.trans--all\+,
-%trans--all\+ { transition: all .15s ease   !important; }
+.#{$ekzo-helpers-ns}trans--all\+,
+%#{$ekzo-helpers-ns}trans--all\+ { transition: all .15s ease !important; }
 
-.trans--all--flush,
-%trans--all--flush { transition: none       !important; }
+.#{$ekzo-helpers-ns}trans--all0,
+%#{$ekzo-helpers-ns}trans--all0 { transition: none !important; }

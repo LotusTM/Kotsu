@@ -3,7 +3,7 @@
 // ^FONTS
 // =======================================
 
-// @include ekzo-font(
+// @include ekzo-font-face(
 //   $font:      'Myriad Pro Web',
 //   $version:   false,
 //   $file-name: MyriadPro-Regular,
@@ -11,7 +11,7 @@
 //   $style:     normal
 // );
 
-// @include ekzo-font(
+// @include ekzo-font-face(
 //   $font:      'Myriad Pro Web',
 //   $version:   false,
 //   $file-name: MyriadPro-Semibold,
@@ -19,7 +19,7 @@
 //   $style:     normal
 // );
 
-// @include ekzo-font(
+// @include ekzo-font-face(
 //   $font:      'Myriad Pro Web',
 //   $version:   false,
 //   $file-name: MyriadPro-Bold,

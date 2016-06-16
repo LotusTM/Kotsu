@@ -29,6 +29,7 @@
 - [sass] Disable of outline of focused elements is now off by default
 - [sass] Predefined breakpoints has been changed
 - [sass] Default style of form's placeholder changer to `normal`
+- [sass] Predefined classes renamed in accordance with new Ekzo naming convention
 - [nj] Namespaced all classes with type according to new Ekzo convention
 - [nj] All current examples moved to new Examples page. Still quite messy and limited, but better than nothing
 - [nj] Refactored `<main>` of `_main.nj` layout to use single block call and reduce clutter. It will also from now produce sticking to the bottom footer (in IE8 and IE9 it will fallback to regular, non-flex flow)

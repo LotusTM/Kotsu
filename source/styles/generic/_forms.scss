@@ -5,7 +5,8 @@
 
 $forms-border-width: 1px;
 
-input {
+input,
+#{$ekzo-generics-ns}input {
   border: $forms-border-width solid #767676;
 
   padding: ekzo-spacing(.5);
