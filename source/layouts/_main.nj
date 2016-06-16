@@ -17,7 +17,14 @@
       </h1>{# /site-logo #}
 
       <!--noindex-->
-      {{ components.menu(mainClass = 'site-nav') }}
+      <nav class='site-nav'>
+        {{ components.menu(
+          class        = 'o-nav',
+          itemsClass   = '',
+          anchorsClass = '',
+          activeClass  = 'is-active'
+        ) }}
+      </nav>
       <!--/noindex-->
 
     </div>{# /site-wrapper #}

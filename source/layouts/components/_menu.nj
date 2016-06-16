@@ -1,35 +1,41 @@
 {##
  # Display menu block
  #
- # @param {string} class                  Class names to inject
- # @param {string} mainClass = 'site-nav' Override default root class
  #
- # @return {string} Generated `nav` with menu
+ # @param {string} class           = 'nav nav--spacing' Class of list
+ # @param {string} itemsClass      = ''                 Class of list items
+ # @param {string} anchorsClass    = ''                 Class of anchors inside list itmes
+ # @param {string} activeClass     = 'is-active'        Class of active list item
+ #
+ # @return {string} Generated menu
  #
  # @example {{ components.menu() }}
  #}
-{% macro menu(class, mainClass = 'site-nav') %}
-  <nav class='{{ mainClass }} {{ class }}'>
-    <ul class='{{ mainClass }}__list o-nav'>
+{% macro menu(
+  class        = 'nav nav--spacing',
+  itemsClass   = '',
+  anchorsClass = '',
+  activeClass  = 'is-active'
+) %}
+  <ul class='{{ class }}'>
 
-      <li class='{{ mainClass }}__item {{ mainClass }}__item--is-active'>
-        <a class='{{ mainClass }}__link' href='{{ localeDir() }}/'>
-          Home
-        </a>
-      </li>
+    <li class='{{ itemsClass }} {{ activeClass }}'>
+      <a class='{{ anchorsClass }}' href='{{ localeDir() }}/'>
+        Home
+      </a>
+    </li>
 
-      <li class='{{ mainClass }}__item'>
-        <a class='{{ mainClass }}__link' href='{{ localeDir() }}/examples/'>
-          Examples
-        </a>
-      </li>
+    <li class='{{ itemsClass }}'>
+      <a class='{{ anchorsClass }}' href='{{ localeDir() }}/examples/'>
+        Examples
+      </a>
+    </li>
 
-      <li class='{{ mainClass }}__item'>
-        <a class='{{ mainClass }}__link' href='{{ localeDir() }}/blog/'>
-          Blog
-        </a>
-      </li>
+    <li class='{{ itemsClass }}'>
+      <a class='{{ anchorsClass }}' href='{{ localeDir() }}/blog/'>
+        Blog
+      </a>
+    </li>
 
-    </ul>{# /{{ mainClass }}__list #}
-  </nav>{# /{{ mainClass }} #}
+  </ul>
 {% endmacro %}
