@@ -3,6 +3,7 @@
 
 {% block body %}
 
+
   <!-- Site's header -->
   <!-- ============= -->
 
@@ -27,63 +28,38 @@
   <!-- ============== -->
 
   <main class='site-main' role='main'>
-    <article class='site-content {{ 'site-wrapper' if not customSiteWrapper }}'>
-      <div class='site-content-wrapper'>
+    <div class='{{ 'site-wrapper' if not customSiteWrapper }}'>
+      <article class='o-grid {{ 'h-childs-displace+' if pageSidebar}}'>
 
+        {% if showBreadcrumb or pageContentTitle %}
+        <header class='o-grid__item h-1/1'>
 
-        {##
-         # @param {bool} showBreadcrumb Display breadcrumb unless it set to `false`
-         #}
-
-        {% if showBreadcrumb %}
-
+          {% if showBreadcrumb %}
           {{ components.breadcrumb(
             class       = 'o-breadcrumb--rev h-text-',
             displayLast = false
           ) }}
+          {% endif %}
 
-        {% endif %}
-
-
-        {##
-         # @param {string|false} pageContentTitle Display specified title as content title
-         #                                        unless it set to `false`
-         #}
-
-        {% if pageContentTitle %}
-
+          {% if pageContentTitle %}
           <h1 class='site-content-title'>{{ pageContentTitle }}</h1>
+          {% endif %}
 
+        </header>{# /grid__item #}
         {% endif %}
 
-
-        {##
-         # @param {bool} pageSidebar Display sidebar unless it set to `false`
-         #}
-
-        {# {% if pageSidebar %} #}
-
-          <div class='o-grid h-childs-displace+'>
-
-            <div class='o-grid__item h-9/12'>
-              {% block main %}{% endblock %}
-            </div>{# /grid__item #}
-
-            <aside class='site-sidebar o-grid__item h-3/12'>
-              {% block sidebar %}{% endblock %}
-            </aside>{# /site-sidebar #}{# /grid__item #}
-
-          </div>{# /grid #}
-
-        {# {% else %}
-
+        <div class='site-content o-grid__item {{ 'h-1/1' if not pageSidebar else 'h-9/12' }}'>
           {% block main %}{% endblock %}
+        </div>{# /grid__item #}{# /site-content #}
 
-        {% endif %} #}
+        {% if pageSidebar %}
+        <aside class='site-sidebar o-grid__item h-3/12'>
+          {% block sidebar %}{% endblock %}
+        </aside>{# /grid__item #}{# /site-sidebar #}
+        {% endif %}
 
-
-      </div>{# /site-content-wrapper #}
-    </article>{# /site-content #}{# /site-wrapper #}
+      </article>{# /grid #}
+    </div>{# /site-wrapper #}
   </main>{# /site-main #}
 
 
