@@ -70,17 +70,17 @@ $ekzo-colors: (
   hr:                       ekzo-tint(ekzo-color(outer-space), 10),
 
   // ---------------------------------------
-  // Breadcrumb
+  // Breadcrumbs
   // ---------------------------------------
   // @param {string|false} - false to disable, color value to enable
 
-  breadcrumb-links:          ekzo-color(green-white),
-  breadcrumb-delimiters:     ekzo-tint(ekzo-color(green-white), 50),
+  breadcrumbs-links:        ekzo-color(green-white),
+  breadcrumbs-delimiters:   ekzo-tint(ekzo-color(green-white), 50),
 
   // ---------------------------------------
   // Backgrounds
   // ---------------------------------------
 
-  bg:                        ekzo-color(outer-space)
+  bg:                       ekzo-color(outer-space)
 
 ), $default: true);
