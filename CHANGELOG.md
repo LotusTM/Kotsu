@@ -50,3 +50,4 @@
 - [nj][breaking] Renamed `layouts` directory into `views`
 - [nj][breaking] Renamed `_layout.nj` structural layouts into `_base.nj`
 - [nj][breaking] Moved Nunjucks stuctural layouts into its own directory `_layouts`
+- [nj][breaking] Renamed `components` directory into `_components`
