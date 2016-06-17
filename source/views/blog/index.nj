@@ -2,7 +2,7 @@
 
 
 {# --------- #}
-{% set pageClass = 'l-blog' %}
+{% set pageClass = 'v-blog' %}
 {# --------- #}
 
 

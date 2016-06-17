@@ -35,6 +35,8 @@
 - [sass] Scopes `s-` moved into own directory `scopes`
 - [sass] Content of `site-header.scss`, `site-main.scss` and `site-footer.scss` refactored into standalone components and moved into `components` directory. All related class names has been changed to follow components naming convention
 - [sass] For sake of simplicity, `&--is-active` convention changed to `&.is-active`. This is smaller evil we have to accept, otherwise it's a nightmare to apply active state with JavaScript
+- [sass] Moved `layouts` into `views` directory
+- [sass] Changed namespace for views from `.l-` to `.v-`
 - [nj] Namespaced all classes with type according to new Ekzo convention
 - [nj] All current examples moved to new Examples page. Still quite messy and limited, but better than nothing
 - [nj] Refactored `<main>` of `_main.nj` layout to use single block call and reduce clutter. It will also from now produce sticking to the bottom footer (in IE8 and IE9 it will fallback to regular, non-flex flow)
