@@ -29,7 +29,7 @@
 - [sass] Global `border-box` is now on by default
 - [sass] Disable of outline of focused elements is now off by default
 - [sass] Predefined breakpoints has been changed
-- [sass] Default style of form's placeholder changer to `normal`
+- [sass] Default style of form's placeholder changed to `normal`
 - [sass] Predefined classes renamed in accordance with new Ekzo naming convention
 - [nj] Namespaced all classes with type according to new Ekzo convention
 - [nj] All current examples moved to new Examples page. Still quite messy and limited, but better than nothing
@@ -41,12 +41,12 @@
   * `rootItemClass` for class of `<li>`, which will be root (first);
   * `rootAnchorClass` for class of `<a>` inside `<li>`, which will be root (first).
 - [nj][breaking] `menu()` macro will no longer generate `magic` classes too. New arguments:
-- [nj][breaking] all components names capitalized to denote that it's component
   * `class` for root list class;
   * `itemsClass` for all `<li>` classes;
   * `anchorsClass` for all `<a>` inside `<li>`;
   * `activeClass` for class of active `<li>`
 
-- [breaking] `layouts` directory has been renamed to `views`
-- [breaking] `_layout.nj` structural layouts has been renamed to `_base.nj`
-- [breaking] Nunjucks stuctural layouts has been moved into own directory `_layouts`
+- [nj][breaking] Capitalized all components names to denote that it's component
+- [nj][breaking] Renamed `layouts` directory into `views`
+- [nj][breaking] Renamed `_layout.nj` structural layouts into `_base.nj`
+- [nj][breaking] Moved Nunjucks stuctural layouts into its own directory `_layouts`
