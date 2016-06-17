@@ -1,9 +1,13 @@
 
 // =======================================
-// ^SITE-FOOTER
+// ^MAIN
 // =======================================
 
-.site-footer {
+.Main {
   padding-top:    ekzo-spacing(1.5);
   padding-bottom: ekzo-spacing(1.5);
+
+  p:last-child,
+  ul:last-child { margin-bottom: 0; }
+
 }
