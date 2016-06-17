@@ -7,19 +7,19 @@
   <!-- Site's header -->
   <!-- ============= -->
 
-  <header class='site-header h-padding-ends'>
-    <div class='site-wrapper'>
+  <header class='Header h-padding-ends'>
+    <div class='Wrapper'>
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
         <div class='o-grid__item'>
-          <h1 class='site-logo h-margin-bottom0'>
-            <a class='site-logo__link h-text--underline--flush' href='{{ localeDir() }}/'>{{ site.name }}</a>
+          <h1 class='Logo h-margin-bottom0'>
+            <a class='h-text--underline--flush' href='{{ localeDir() }}/'>{{ site.name }}</a>
           </h1>
         </div>
 
         <div class='o-grid__item h-flex__item--flex'>
           <!--noindex-->
-          <nav class='site-nav h-float--right'>
+          <nav class='Nav h-float--right'>
             {{ components.Menu(
               class        = 'o-nav h-childs-space-left',
               itemsClass   = '',
@@ -31,25 +31,25 @@
         </div>
 
       </div>
-    </div>{# /site-wrapper #}
-  </header>{# /site-header #}
+    </div>{# /Wrapper #}
+  </header>{# /Header #}
 
 
   <!-- Site's content -->
   <!-- ============== -->
 
-  <main class='site-main h-flex__item--flex' role='main'>
-    <div class='{{ 'site-wrapper' if not customSiteWrapper }}'>
+  <main class='Main h-flex__item--flex' role='main'>
+    <div class='{{ 'Wrapper' if not customSiteWrapper }}'>
       <article class='o-grid {{ 'h-childs-displace+' if pageSidebar}}'>
 
         {% if showBreadcrumbs or pageContentTitle %}
-        <header class='o-grid__item h-1/1'>
+        <header class='Content-header o-grid__item h-1/1'>
 
           {% if showBreadcrumbs %}
           {{ components.Breadcrumbs(
             class           = 'o-breadcrumbs o-breadcrumbs--rev h-text- h-flex-x--center',
-            itemsClass      = 'o-breadcrumbs__item',
-            anchorsClass    = 'h-text--underline--flush',
+            itemsClass      = 'Nav__item o-breadcrumbs__item',
+            anchorsClass    = 'Nav__link h-text--underline--flush',
             rootItemClass   = 'h-font-weight--bolder',
             rootAnchorClass = '',
             displayLast     = false
@@ -57,36 +57,36 @@
           {% endif %}
 
           {% if pageContentTitle %}
-          <h1 class='site-content-title h-align--center'>{{ pageContentTitle }}</h1>
+          <h1 class='Content-title h-align--center'>{{ pageContentTitle }}</h1>
           {% endif %}
 
         </header>{# /grid__item #}
         {% endif %}
 
-        <div class='site-content o-grid__item {{ 'h-1/1' if not pageSidebar else 'h-9/12' }}'>
+        <div class='Content o-grid__item {{ 'h-1/1' if not pageSidebar else 'h-9/12' }}'>
           {% block main %}{% endblock %}
-        </div>{# /grid__item #}{# /site-content #}
+        </div>{# /grid__item #}
 
         {% if pageSidebar %}
-        <aside class='site-sidebar o-grid__item h-3/12'>
+        <aside class='Sidebar o-grid__item h-3/12'>
           {% block sidebar %}{% endblock %}
-        </aside>{# /grid__item #}{# /site-sidebar #}
+        </aside>{# /grid__item #}
         {% endif %}
 
       </article>{# /grid #}
-    </div>{# /site-wrapper #}
-  </main>{# /site-main #}
+    </div>{# /Wrapper #}
+  </main>{# /Main #}
 
 
   <!-- Site's footer -->
   <!-- ============= -->
 
   <!--/noindex-->
-  <footer class='site-footer'>
-    <div class='site-wrapper'>
+  <footer class='Footer'>
+    <div class='Wrapper'>
       © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
-    </div>{# /site-wrapper #}
-  </footer>{# /site-footer #}
+    </div>{# /Wrapper #}
+  </footer>{# /Footer #}
   <!--/noindex-->
 
 
