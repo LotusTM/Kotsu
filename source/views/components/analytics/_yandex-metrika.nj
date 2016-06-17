@@ -7,7 +7,7 @@
  #
  # @example {{ components.yandexMetrika(counterId = 'XXXXXX') }}
  #}
-{% macro yandexMetrika(counterId) %}
+{% macro YandexMetrika(counterId) %}
   <script type="text/javascript">
       (function (d, w, c) {
           (w[c] = w[c] || []).push(function() {

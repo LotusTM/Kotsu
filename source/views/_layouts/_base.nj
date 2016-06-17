@@ -83,7 +83,7 @@
 <body>
 
 
-  {{ components.outdatedBrowser() }}
+  {{ components.OutdatedBrowser() }}
 
 
   {% block body %}{% endblock %}
@@ -95,8 +95,8 @@
   <!-- build:[src] /{{ path.scripts }}/main.min.js -->
   <script src='/{{ path.scripts }}/main.js'></script>
   <!-- /build -->
-  {{ components.googleAnalytics(siteId = 'UA-XXXXX-X') }}
-  {{ components.yandexMetrika(counterId = 'XXXXXX') }}
+  {{ components.GoogleAnalytics(siteId = 'UA-XXXXX-X') }}
+  {{ components.YandexMetrika(counterId = 'XXXXXX') }}
 
 
 </body>

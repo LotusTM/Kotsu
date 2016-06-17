@@ -11,7 +11,7 @@
  #
  # @example {{ components.menu() }}
  #}
-{% macro menu(
+{% macro Menu(
   class        = 'nav nav--spacing',
   itemsClass   = '',
   anchorsClass = '',

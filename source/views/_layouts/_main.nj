@@ -20,7 +20,7 @@
         <div class='o-grid__item h-flex__item--flex'>
           <!--noindex-->
           <nav class='site-nav h-float--right'>
-            {{ components.menu(
+            {{ components.Menu(
               class        = 'o-nav h-childs-space-left',
               itemsClass   = '',
               anchorsClass = 'h-text--underline--flush',
@@ -46,7 +46,7 @@
         <header class='o-grid__item h-1/1'>
 
           {% if showBreadcrumbs %}
-          {{ components.breadcrumbs(
+          {{ components.Breadcrumbs(
             class           = 'o-breadcrumbs o-breadcrumbs--rev h-text- h-flex-x--center',
             itemsClass      = 'o-breadcrumbs__item',
             anchorsClass    = 'h-text--underline--flush',

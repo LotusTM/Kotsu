@@ -8,9 +8,9 @@
  #
  # @return {string} Complex html with example
  #
- # @example {{ components.example('demo value') }}
+ # @example {{ components.Example('demo value') }}
  #}
-{% macro example(title, classes, comment = false, full = false) %}
+{% macro Example(title, classes, comment = false, full = false) %}
 
   <div class='o-grid {{ 'h-childs-space' if full }}'>
 

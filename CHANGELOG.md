@@ -41,6 +41,7 @@
   * `rootItemClass` for class of `<li>`, which will be root (first);
   * `rootAnchorClass` for class of `<a>` inside `<li>`, which will be root (first).
 - [nj][breaking] `menu()` macro will no longer generate `magic` classes too. New arguments:
+- [nj][breaking] all components names capitalized to denote that it's component
   * `class` for root list class;
   * `itemsClass` for all `<li>` classes;
   * `anchorsClass` for all `<a>` inside `<li>`;

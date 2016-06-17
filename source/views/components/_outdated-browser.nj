@@ -8,7 +8,7 @@
  #
  # @example {{ components.outdatedBrowser('en') }}
  #}
-{% macro outdatedBrowser(langcode = page.language) %}
+{% macro OutdatedBrowser(langcode = page.language) %}
   <!--[if lte IE 9]>
     <p class='outdated-browser'>
       {{ gettext('Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly.')|template({

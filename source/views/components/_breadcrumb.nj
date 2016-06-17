@@ -19,9 +19,9 @@
  #
  # @return {string} Generated `ul` with breadcrumbs
  #
- # @example {{ components.breadcrumbs() }}
+ # @example {{ components.Breadcrumbs() }}
  #}
-{% macro breadcrumbs(
+{% macro Breadcrumbs(
   class           = 'o-breadcrumbs',
   itemsClass      = 'o-breadcrumbs__item',
   anchorsClass    = '',

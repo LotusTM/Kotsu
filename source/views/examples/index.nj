@@ -12,7 +12,7 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Icons and sprites</h2>
 
-{% call components.example(title = 'Generated icons and sprites examples') -%}
+{% call components.Example(title = 'Generated icons and sprites examples') -%}
 <p>Webfont home icon: <i class='o-icon icon--home icon--right'></i></p>
 
 <p>1px sprite: <i class='o-sprite sprite--test icon--right'></i></p>
@@ -21,14 +21,14 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Macros</h2>
 
-{% call components.example(title = 'Macros examples') -%}
-{% raw %}<p>{{ components.exmapleMacro('this is from index page') }}</p>{% endraw %}
+{% call components.Example(title = 'Macros examples') -%}
+{% raw %}<p>{{ components.ExmapleMacro('this is from index page') }}</p>{% endraw %}
 {% endcall %}
 
 
 <h2 class='h-margin-top++ h-margin-bottom+'>L10n</h2>
 
-{% call components.example(title = '', classes = ['localeDir(locale)']) -%}
+{% call components.Example(title = '', classes = ['localeDir(locale)']) -%}
 {% raw %}<p>This site available in following languages:</p>
 
 <ul>
@@ -44,13 +44,13 @@
 </ul>{% endraw %}
 {% endcall %}
 
-{% call components.example(title = '', classes = ['gettext()']) -%}
+{% call components.Example(title = '', classes = ['gettext()']) -%}
 {% raw %}<p>Output translation from current locale:</p>
 
 <p><code>{{ gettext('This string will be displayd in selected language') }}</code></p>{% endraw %}
 {% endcall %}
 
-{% call components.example(title = '', classes = ['dgettext()']) -%}
+{% call components.Example(title = '', classes = ['dgettext()']) -%}
 {% raw %}<p>Output translation from other locales and domains</p>
 
 <p>
@@ -71,7 +71,7 @@
 </p>{% endraw %}
 {% endcall %}
 
-{% call components.example(title = 'Plurals') -%}
+{% call components.Example(title = 'Plurals') -%}
 {% raw %}<p>Singular: <code>{{ ngettext('%s apple', '%s apples', 1)|template(1) }}</code></p>
 <p>Plural: <code>{{ ngettext('%s apple', '%s apples', 2)|template(2) }}</code></p>
 <p>Other: <code>{{ ngettext('%s apple', '%s apples', 5)|template(5) }}</code></p>{% endraw %}
@@ -80,13 +80,13 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Data examples</h2>
 
-{% call components.example(title = 'Inline data') -%}
+{% call components.Example(title = 'Inline data') -%}
 {% raw %}<p>Current year is {{ data.currentYear }}</p>
 
 <p>Images path is <code>{{ path.images }}</code></p>{% endraw %}
 {% endcall %}
 
-{% call components.example(title = 'External data') -%}
+{% call components.Example(title = 'External data') -%}
 {% raw %}<h4 class='h-h5'>{{ data.example.title }}</h4>
 
 <p>{{ data.example.content }}</p>{% endraw %}
@@ -95,7 +95,7 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Grids</h2>
 
-{% call components.example(title = '', classes = ['.o-grid', '.o-grid__item'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-grid', '.o-grid__item'], full = true) -%}
 <div class='o-grid h-bleed-top'>
   <div class='o-grid__item h-1/2@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/2 on tablet+, 1/1 on smaller</div></div>
   <div class='o-grid__item h-1/2@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/2 on tablet+, 1/1 on smaller</div></div>
@@ -111,7 +111,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-grid .h-childs-displace0'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-grid .h-childs-displace0'], full = true) -%}
 <div class='o-grid h-childs-displace0 h-bleed-top--'>
   <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
   <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
@@ -122,7 +122,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-grid .h-childs-displace--'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-grid .h-childs-displace--'], full = true) -%}
 <div class='o-grid h-childs-displace-- h-bleed-top--'>
   <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
   <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
@@ -133,7 +133,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-grid .h-childs-displace+'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-grid .h-childs-displace+'], full = true) -%}
 <div class='o-grid h-childs-displace+ h-bleed-top+'>
   <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
   <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
@@ -144,7 +144,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-grid .h-childs-displace++'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-grid .h-childs-displace++'], full = true) -%}
 <div class='o-grid h-childs-displace++ h-bleed-top+'>
   <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
   <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
@@ -155,7 +155,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-grid. .h-flex--nowrap'], comment = 'No fallback for IE8 and IE9 — childs will always wrap', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-grid. .h-flex--nowrap'], comment = 'No fallback for IE8 and IE9 — childs will always wrap', full = true) -%}
 <div class='o-grid h-bleed-top h-flex--nowrap'>
   <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
   <div class='o-grid__item h-2/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>2/3</div></div>
@@ -164,7 +164,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-grid .h-flex-y--stretch'], comment = 'No fallback for IE8 and IE9 — childs won\'t have similar height and will align to top', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-grid .h-flex-y--stretch'], comment = 'No fallback for IE8 and IE9 — childs won\'t have similar height and will align to top', full = true) -%}
 <div class='o-grid h-bleed-top h-flex-y--stretch'>
   <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
   <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3<br>Second line<br>Third line</div></div>
@@ -173,7 +173,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-grid .h-flex-y--top'], comment = 'Default behaviour on IE8 and IE9', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-grid .h-flex-y--top'], comment = 'Default behaviour on IE8 and IE9', full = true) -%}
 <div class='o-grid h-bleed-top h-flex-y--top'>
   <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
   <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3<br>Second line<br>Third line</div></div>
@@ -185,49 +185,49 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Media</h2>
 
-{% call components.example(title = '', classes = ['.o-media .o-media0']) -%}
+{% call components.Example(title = '', classes = ['.o-media .o-media0']) -%}
 <div class='o-media o-media0'>
   <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
   <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-media']) -%}
+{% call components.Example(title = '', classes = ['.o-media']) -%}
 <div class='o-media'>
   <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
   <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-media .o-media+']) -%}
+{% call components.Example(title = '', classes = ['.o-media .o-media+']) -%}
 <div class='o-media o-media+'>
   <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
   <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-media .o-media--rev']) -%}
+{% call components.Example(title = '', classes = ['.o-media .o-media--rev']) -%}
 <div class='o-media o-media--rev'>
   <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
   <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-media .h-flex-y--center'], comment = 'No fallback for IE8 and IE9') -%}
+{% call components.Example(title = '', classes = ['.o-media .h-flex-y--center'], comment = 'No fallback for IE8 and IE9') -%}
 <div class='o-media h-flex-y--center'>
   <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
   <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-media .h-flex-y--end'], comment = 'No fallback for IE8 and IE9') -%}
+{% call components.Example(title = '', classes = ['.o-media .h-flex-y--end'], comment = 'No fallback for IE8 and IE9') -%}
 <div class='o-media h-flex-y--end'>
   <img class='o-media__aside' src='https://placekitten.com/100/100' alt='Placeholder'>
   <p class='o-media__content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 </div>
 {% endcall %}
 
-{% call components.example(title = 'Alternative markup', classes = ['.o-media .h-flex-y--center'], comment = 'No fallback for IE8 and IE9') -%}
+{% call components.Example(title = 'Alternative markup', classes = ['.o-media .h-flex-y--center'], comment = 'No fallback for IE8 and IE9') -%}
 <div class='o-media h-flex-y--center'>
   <div class='o-media__aside'>
     <img src='https://placekitten.com/100/100' alt='Placeholder'>
@@ -242,7 +242,7 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Nav</h2>
 
-{% call components.example(title = '', classes = ['.o-nav'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav'], full = true) -%}
 <ul class='o-nav'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -258,7 +258,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .o-nav--space'], comment = 'Default behaviour on IE8 and IE9', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .o-nav--space'], comment = 'Default behaviour on IE8 and IE9', full = true) -%}
 <ul class='o-nav o-nav--space'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -274,7 +274,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .h-flex-x--end'], comment = 'No fallback for IE8 and IE9. Use <code>.h-float--right</code> and <code>.o-clearfix</code> to get crossbrowser solution.', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .h-flex-x--end'], comment = 'No fallback for IE8 and IE9. Use <code>.h-float--right</code> and <code>.o-clearfix</code> to get crossbrowser solution.', full = true) -%}
 <ul class='o-nav h-flex-x--end'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -290,7 +290,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .h-flex-x--around'], comment = 'No fallback for IE8 and IE9', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .h-flex-x--around'], comment = 'No fallback for IE8 and IE9', full = true) -%}
 <ul class='o-nav h-flex-x--around'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -306,7 +306,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .h-flex-x--between'], comment = 'No fallback for IE8 and IE9.', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .h-flex-x--between'], comment = 'No fallback for IE8 and IE9.', full = true) -%}
 <ul class='o-nav h-flex-x--between'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -322,7 +322,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .h-{{width}}'], comment = 'No fallback for IE8 and IE9. Use floats to achieve similar effect on IE8 and IE9', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .h-{{width}}'], comment = 'No fallback for IE8 and IE9. Use floats to achieve similar effect on IE8 and IE9', full = true) -%}
 <ul class='o-nav'>
   <li class='h-bg-color--black-30 h-1/2'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30 h-1/2'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -338,7 +338,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .o-nav--stacked'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .o-nav--stacked'], full = true) -%}
 <ul class='o-nav o-nav--stacked'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -354,7 +354,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .o-nav--block'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .o-nav--block'], full = true) -%}
 <ul class='o-nav o-nav--block'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30 h-margin'><a class='h-border h-bg-color--outer-space h-margin' href='#'>About</a></li>
@@ -370,7 +370,7 @@
 </nav>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .o-nav--inline'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .o-nav--inline'], full = true) -%}
 <ul class='o-nav o-nav--inline'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30 h-margin'><a class='h-border h-bg-color--outer-space h-margin' href='#'>About</a></li>
@@ -386,7 +386,7 @@
 </nav>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .o-nav--keywords'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .o-nav--keywords'], full = true) -%}
 <ul class='o-nav o-nav--keywords'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -395,7 +395,7 @@
 </ul>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .h-anchors-padding--'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .h-anchors-padding--'], full = true) -%}
 <ul class='o-nav h-anchors-padding--'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -411,7 +411,7 @@
 </nav>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .h-anchors-padding'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .h-anchors-padding'], full = true) -%}
 <ul class='o-nav h-anchors-padding'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -427,7 +427,7 @@
 </nav>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .h-anchors-padding+'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .h-anchors-padding+'], full = true) -%}
 <ul class='o-nav h-anchors-padding+'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -443,7 +443,7 @@
 </nav>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .o-nav--pack'], comment = 'Partial fallback for IE8 and IE9 — childs won\'t wrap', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .o-nav--pack'], comment = 'Partial fallback for IE8 and IE9 — childs won\'t wrap', full = true) -%}
 <ul class='o-nav o-nav--pack'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Home</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -459,7 +459,7 @@
 </nav>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav .o-nav--fixed-pack'], comment = 'Partial fallback for IE8 and IE9 — childs won\'t wrap', full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav .o-nav--fixed-pack'], comment = 'Partial fallback for IE8 and IE9 — childs won\'t wrap', full = true) -%}
 <ul class='o-nav o-nav--pack'>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>Much longer menu entry</a></li>
   <li class='h-bg-color--black-30'><a class='h-border h-bg-color--outer-space' href='#'>About</a></li>
@@ -487,7 +487,7 @@
 </nav>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav o-nav--pack', 'h-margin-sides--'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav o-nav--pack', 'h-margin-sides--'], full = true) -%}
 <div class='o-nav  o-nav--pack'>
   <a class='h-border h-margin-sides--' href='#'>Home</a>
   <a class='h-border h-margin-sides--' href='#'>About</a>
@@ -503,7 +503,7 @@
 </ul>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav o-nav--pack', 'h-margin-sides'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav o-nav--pack', 'h-margin-sides'], full = true) -%}
 <div class='o-nav o-nav--pack'>
   <a class='h-border h-margin-sides' href='#'>Home</a>
   <a class='h-border h-margin-sides' href='#'>About</a>
@@ -519,7 +519,7 @@
 </ul>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-nav o-nav--pack', 'h-margin-sides+'], full = true) -%}
+{% call components.Example(title = '', classes = ['.o-nav o-nav--pack', 'h-margin-sides+'], full = true) -%}
 <div class='o-nav o-nav--pack'>
   <a class='h-border h-margin-sides+' href='#'>Home</a>
   <a class='h-border h-margin-sides+' href='#'>About</a>
@@ -538,7 +538,7 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Typography helpers</h2>
 
-{% call components.example(title = '', classes = ['.h-font-size*'], comment = 'Those aren\'t very useful on it\'s own, but can be used to set font size on elements like buttons, etc.') -%}
+{% call components.Example(title = '', classes = ['.h-font-size*'], comment = 'Those aren\'t very useful on it\'s own, but can be used to set font size on elements like buttons, etc.') -%}
 <div class='o-show-grid'>
   <p class='h-font-size'>Text</p>
   <p class='h-font-size-'>Text</p>
@@ -568,7 +568,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.h-line-height*']) -%}
+{% call components.Example(title = '', classes = ['.h-line-height*']) -%}
 <div class='o-show-grid'>
   <p class='h-line-height'>First line<br>Second line</p>
   <p class='h-line-height-'>First line<br>Second line</p>
@@ -587,7 +587,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.h-text*', '.h-h*', '.h-extra-h*']) -%}
+{% call components.Example(title = '', classes = ['.h-text*', '.h-h*', '.h-extra-h*']) -%}
 <div class='o-show-grid'>
   <p class='h-text'>First line<br>Second line</p>
   <p class='h-text-'>First line<br>Second line</p>
@@ -617,7 +617,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.h-text--tracked*']) -%}
+{% call components.Example(title = '', classes = ['.h-text--tracked*']) -%}
 <p class='h-text--tracked--'>Headline</p>
 <p class='h-text--tracked+'><span class='h-text--tracked0'>Headline</span></p>
 <p class='h-text--tracked'>Headline</p>
@@ -627,7 +627,7 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Opacity helpers</h2>
 
-{% call components.example(title = '', classes = ['.h-opacity--*', '.h-opacity--*:h']) -%}
+{% call components.Example(title = '', classes = ['.h-opacity--*', '.h-opacity--*:h']) -%}
 <p class='h-opacity--2.5 h-opacity--100:h'>Hover me</p>
 <p class='h-opacity--5 h-opacity--90:h'>Hover me</p>
 <p class='h-opacity--10 h-opacity--80:h'>Hover me</p>
@@ -645,22 +645,22 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Color helpers</h2>
 
-{% call components.example(title = '', classes = ['.h-color--*', '.h-color--*:h']) -%}
+{% call components.Example(title = '', classes = ['.h-color--*', '.h-color--*:h']) -%}
 <p class='h-color--ivory h-color--dull-lavender:h'>Hover me</p>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.h-bg-color--*', '.h-bg-color--*:h']) -%}
+{% call components.Example(title = '', classes = ['.h-bg-color--*', '.h-bg-color--*:h']) -%}
 <p class='h-bg-color--dull-lavender h-bg-color--outer-space:h h-padding--'>Hover me</p>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.h-border-color--*', '.h-border-color--*:h']) -%}
+{% call components.Example(title = '', classes = ['.h-border-color--*', '.h-border-color--*:h']) -%}
 <p class='h-border h-border-color--dull-lavender h-border-color--outer-space:h h-padding--'>Hover me</p>
 {% endcall %}
 
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Images</h2>
 
-{% call components.example(title = '', classes = ['.g-image--left']) -%}
+{% call components.Example(title = '', classes = ['.g-image--left']) -%}
 <p>
   <img class='g-image--left' src='https://placekitten.com/100/100' alt='Testing image'>
   Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -668,7 +668,7 @@
 </p>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.g-image--right']) -%}
+{% call components.Example(title = '', classes = ['.g-image--right']) -%}
 <p>
   <img class='g-image--right' src='https://placekitten.com/100/100' alt='Testing image'>
   Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -679,7 +679,7 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Iconic-list</h2>
 
-{% call components.example(title = 'Input with placeholder', classes = []) -%}
+{% call components.Example(title = 'Input with placeholder', classes = []) -%}
 <ul class="o-iconic-list g-list--indent">
   <li><i class="o-icon icon--home"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
   <li><i class="o-sprite sprite--test"></i> Has been the industry's standard dummy text ever since the 1500s</li>
@@ -694,7 +694,7 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Spacing helpers</h2>
 
-{% call components.example(title = '', classes = ['h-childs-space']) -%}
+{% call components.Example(title = '', classes = ['h-childs-space']) -%}
 <ul class='h-childs-space+'>
   <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
   <li>Has been the industry's standard dummy text ever since the 1500s</li>
@@ -719,7 +719,7 @@
 </form>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['h-childs-displace']) -%}
+{% call components.Example(title = '', classes = ['h-childs-displace']) -%}
 <div class='o-grid h-text-- h-childs-displace++ h-childs-margin-top++ h-bleed-top++ h-margin-bottom'>
   <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
   <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
@@ -738,7 +738,7 @@
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['h-childs-margin']) -%}
+{% call components.Example(title = '', classes = ['h-childs-margin']) -%}
 <nav class='o-nav h-childs-margin'>
   <a class='h-border' href='#'>Home</a>
   <a class='h-border' href='#'>About</a>
@@ -754,7 +754,7 @@
 </ul>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['h-childs-padding']) -%}
+{% call components.Example(title = '', classes = ['h-childs-padding']) -%}
 <nav class='o-nav h-childs-padding'>
   <a class='h-border' href='#'>Home</a>
   <a class='h-border' href='#'>About</a>
@@ -770,7 +770,7 @@
 </ul>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['h-anchors-margin']) -%}
+{% call components.Example(title = '', classes = ['h-anchors-margin']) -%}
 <nav class='o-nav h-anchors-margin'>
   <a class='h-border' href='#'>Home</a>
   <a class='h-border' href='#'>About</a>
@@ -786,7 +786,7 @@
 </ul>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['h-anchors-padding']) -%}
+{% call components.Example(title = '', classes = ['h-anchors-padding']) -%}
 <nav class='o-nav h-anchors-padding'>
   <a class='h-border' href='#'>Home</a>
   <a class='h-border' href='#'>About</a>
@@ -802,7 +802,7 @@
 </ul>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['h-cells-padding']) -%}
+{% call components.Example(title = '', classes = ['h-cells-padding']) -%}
 <table class='h-cells-padding'>
   <thead>
     <th>Header 1</th>
@@ -818,21 +818,21 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Forms</h2>
 
-{% call components.example(title = 'Input with placeholder', classes = []) -%}
+{% call components.Example(title = 'Input with placeholder', classes = []) -%}
 <form>
   <label>Label</label>
   <input type='text' placeholder="Placeholder" />
 </form>
 {% endcall %}
 
-{% call components.example(title = 'Input with value', classes = []) -%}
+{% call components.Example(title = 'Input with value', classes = []) -%}
 <form>
   <label>Label</label>
   <input type='text' value="Pretyped in value" />
 </form>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-extra-help']) -%}
+{% call components.Example(title = '', classes = ['.o-extra-help']) -%}
 <form>
   <label>Label</label>
   <input type='email' class='g-input'>
@@ -843,77 +843,77 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Buttons</h2>
 
-{% call components.example(title = '', classes = ['.o-btn o-btn--inherit']) -%}
+{% call components.Example(title = '', classes = ['.o-btn o-btn--inherit']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn--inherit' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn--inherit' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn o-btn--']) -%}
+{% call components.Example(title = '', classes = ['.o-btn o-btn--']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn--' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn--' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn o-btn-']) -%}
+{% call components.Example(title = '', classes = ['.o-btn o-btn-']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn-' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn-' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn']) -%}
+{% call components.Example(title = '', classes = ['.o-btn']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn o-btn+']) -%}
+{% call components.Example(title = '', classes = ['.o-btn o-btn+']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn+' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn+' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn o-btn++']) -%}
+{% call components.Example(title = '', classes = ['.o-btn o-btn++']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn++' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn++' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn o-btn--wide--']) -%}
+{% call components.Example(title = '', classes = ['.o-btn o-btn--wide--']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn--wide--' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn--wide--' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn o-btn--wide']) -%}
+{% call components.Example(title = '', classes = ['.o-btn o-btn--wide']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn--wide' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn--wide' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn o-btn--wide++']) -%}
+{% call components.Example(title = '', classes = ['.o-btn o-btn--wide++']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn--wide++' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn--wide++' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn o-btn--full']) -%}
+{% call components.Example(title = '', classes = ['.o-btn o-btn--full']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><a class='o-btn o-btn--full' href='#'>Button label</a></p>
   <p><a class='o-btn o-btn--full' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-btn']) -%}
+{% call components.Example(title = '', classes = ['.o-btn']) -%}
 <div class='o-show-grid h-padding-bottom'>
   <p><button class='o-btn' disabled>Disabled button</button></p>
   <p><a class='o-btn is-disabled' href='#'>Disabled a.button</a></p>
@@ -923,77 +923,77 @@
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Links</h2>
 
-{% call components.example(title = '', classes = ['a', '.g-link']) -%}
+{% call components.Example(title = '', classes = ['a', '.g-link']) -%}
 <a class="g-link" href='#'>Base link</a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.g-link--inherit']) -%}
+{% call components.Example(title = '', classes = ['.g-link--inherit']) -%}
 <a class="g-link--inherit" href='g-link--inherit' >Flushed link</a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.g-link--inherit']) -%}
+{% call components.Example(title = '', classes = ['.g-link--inherit']) -%}
 <p class='h-bg-color--dull-lavender'><a class="g-link--inherit" href='g-link--inherit' >Flushed link on background</a></p>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.h-text--underline']) -%}
+{% call components.Example(title = '', classes = ['.h-text--underline']) -%}
 <a class='h-border0 h-text--underline' href='#'>Underline link</a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.h-text--underline:h']) -%}
+{% call components.Example(title = '', classes = ['.h-text--underline:h']) -%}
 <a class='h-text--underline--flush h-text--underline:h' href='#'>Underline on hover link</a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.h-border-bottom']) -%}
+{% call components.Example(title = '', classes = ['.h-border-bottom']) -%}
 <a class='h-border-bottom' href='#'>Border underline link</a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.h-border-bottom:h']) -%}
+{% call components.Example(title = '', classes = ['.h-border-bottom:h']) -%}
 <a class='h-border-bottom0 h-border-bottom:h' href='#'>Border on hover link</a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-relink']) -%}
+{% call components.Example(title = '', classes = ['.o-relink']) -%}
 <a class="o-relink" href='#'>
   :3 <span class="o-relink__to">Relinked link</span> and <span class="o-relink__to">same link</span>
 </a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-relink-rev']) -%}
+{% call components.Example(title = '', classes = ['.o-relink-rev']) -%}
 <a class="o-relink-rev" href='#'>
   :3 <span class="o-relink-rev__to">Relinked--rev link</span>
 </a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-reline']) -%}
+{% call components.Example(title = '', classes = ['.o-reline']) -%}
 <a class="o-reline" href='#'>
   :3 <span class="o-reline__to">Relined link</span> and <span class="o-reline__to">same link</span>
 </a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-reline--rev']) -%}
+{% call components.Example(title = '', classes = ['.o-reline--rev']) -%}
 <a class="o-reline--rev" href='#'>
   :3 <span class="o-reline__to">Relined--rev link</span>
 </a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-reline-border-bottom']) -%}
+{% call components.Example(title = '', classes = ['.o-reline-border-bottom']) -%}
 <a class="o-reline-border-bottom" href='#'>
   :3 <span class="o-reline-border-bottom__to">Border relined link</span>
 </a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-reline-border-bottom', '.h-border--inherit']) -%}
+{% call components.Example(title = '', classes = ['.o-reline-border-bottom', '.h-border--inherit']) -%}
 <a class="o-reline-border-bottom" href='#'>
   :3 <span class="o-reline-border-bottom__to h-border--inherit">Border relined link with inherit</span>
 </a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-reline-border-bottom--rev']) -%}
+{% call components.Example(title = '', classes = ['.o-reline-border-bottom--rev']) -%}
 <a class="o-reline-border-bottom--rev" href='#'>
   :3 <span class="o-reline-border-bottom__to">Border relined--rev link</span>
 </a>
 {% endcall %}
 
-{% call components.example(title = '', classes = ['.o-reline-border-bottom--rev', '.h-border--inherit']) -%}
+{% call components.Example(title = '', classes = ['.o-reline-border-bottom--rev', '.h-border--inherit']) -%}
 <a class="o-reline-border-bottom--rev" href='#'>
   :3 <span class="o-reline-border-bottom__to h-border--inherit">Border relined--rev link with inherit</span>
 </a>
