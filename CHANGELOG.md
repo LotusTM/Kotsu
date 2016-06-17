@@ -11,6 +11,7 @@
 - [nj] Added `example()` macro which allows to quickly output demo of any html or css
 - [nj] Added early version of Examples page, which showcasing large portion (but not all) of Ekzo helpers and objects
 - [nj] Added `renderCaller` filter as workaround of that issue https://github.com/mozilla/nunjucks/issues/783
+- [nj] Added `twitter:creator` and `twitter:image:alt` metas
 
 ### Fixed
 - Fixed typo in Grunt's watch config

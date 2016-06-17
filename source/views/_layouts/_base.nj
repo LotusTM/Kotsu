@@ -68,10 +68,12 @@
   <!-- Twitter Card -->
   <meta name='twitter:card'        content='summary'>
   <meta name='twitter:site'        content='{{ site.twitter }}'>
+  <meta name='twitter:creator'     content='{{ site.twitter }}'>
   <meta name='twitter:url'         content='{{ site.homepage }}{{ localeDir() }}/{{ page.url }}'>
   <meta name='twitter:title'       content='{{ pageTitle if pageTitle else site.name }}'>
   <meta name='twitter:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
   <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.png'>
+  <meta name='twitter:image:alt'   content='{{ pageTitle if pageTitle else site.name }}'>
 
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
