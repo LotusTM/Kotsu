@@ -17,7 +17,7 @@
 @import 'ekzo.sass/tools/index';
 
 // ---------------------------------------
-// Options, styles, colors etc.
+// Framework settings
 // ---------------------------------------
 
 @import 'settings.typography';
@@ -35,28 +35,56 @@
 @import 'ekzo.sass/index';
 
 // ---------------------------------------
-// Site's custom styling
+// Custom styling
 // ---------------------------------------
 
-@import './temp/styles/icons';
-@import './temp/styles/sprites.map';
+// ----
+// Base
+
+@import 'base/main';
+
+// ----
+// Generic
 
 @import 'generic/fonts';
 @import 'generic/forms';
 @import 'generic/links';
 
-@import 'helpers/animations';
+// ----
+// Objects
 
 @import 'objects/buttons';
+@import './temp/styles/icons';
+@import './temp/styles/sprites.map';
 @import 'objects/icons';
 @import 'objects/sprites';
 
-@import 'components/outdated-browser';
+// ----
+// Components
 
-@import 'layouts/site-base';
-@import 'layouts/site-header';
-@import 'layouts/site-main';
-@import 'layouts/site-footer';
+@import 'components/Content-header';
+@import 'components/Content-title';
+@import 'components/Content';
+@import 'components/Footer';
+@import 'components/Header';
+@import 'components/Logo';
+@import 'components/Main';
+@import 'components/Nav';
+@import 'components/Outdated-browser';
+@import 'components/Sidebar';
+@import 'components/Wrapper';
 
-@import 'layouts/index';
-@import 'layouts/s-blog-post';
+// ----
+// Views
+
+@import 'views/index';
+
+// ----
+// Scopes
+
+@import 'scopes/blog-post';
+
+// ----
+// Helpers
+
+@import 'helpers/animations';
