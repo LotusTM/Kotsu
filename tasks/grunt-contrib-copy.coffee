@@ -5,10 +5,10 @@ Copy files and folders
 ###
 module.exports = ->
   @config 'copy',
-    boilerplates:
+    static:
       files: [
         expand: true
-        cwd: '<%= path.source.boilerplates %>/'
+        cwd: '<%= path.source.static %>/'
         src: ['**']
         dest: '<%= path.build.root %>/'
       ]

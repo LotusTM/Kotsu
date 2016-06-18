@@ -39,7 +39,7 @@ module.exports = (grunt) ->
         locales: '<%= path.source.root %>/locales'
         scripts: '<%= path.source.root %>/scripts'
         sprites: '<%= path.source.root %>/sprites'
-        boilerplates: '<%= path.source.root %>/boilerplates'
+        static: '<%= path.source.root %>/static'
 
       temp:
         root: 'temp'
@@ -118,7 +118,7 @@ module.exports = (grunt) ->
   Cumulative copy task
   ###
   grunt.registerTask 'copy:build', [
-    'copy:boilerplates'
+    'copy:static'
     'copy:fonts'
     'copy:images'
   ]

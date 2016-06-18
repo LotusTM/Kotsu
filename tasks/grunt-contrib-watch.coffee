@@ -9,9 +9,9 @@ module.exports = ->
       files: ['gruntfile.coffee', 'tasks/*']
       options:
         reload: true
-    boilerplates:
-      files: ['<%= path.source.boilerplates %>/{,**/}*']
-      tasks: ['copy:boilerplates']
+    static:
+      files: ['<%= path.source.static %>/{,**/}*']
+      tasks: ['copy:static']
     data:
       files: ['<%= path.source.data %>/{,**/}*.{json,yml}']
       tasks: ['nunjucks']

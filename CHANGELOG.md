@@ -59,3 +59,4 @@
 - [nj][breaking] Moved Nunjucks stuctural layouts into its own directory `_layouts`
 - [nj][breaking] Renamed `components` directory into `_components`
 - [nj] Components filenames changed to use PascalCase, same as components declarations
+- [breaking] Changed `boilerplates` directory to more generic `static`
