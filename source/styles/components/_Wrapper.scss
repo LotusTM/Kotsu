@@ -9,9 +9,21 @@
   @if variable-exists(site-padding-right) and $site-padding-right { padding-right: $site-padding-right; }
 }
 
+// ----
+// Define base width of website
+
 .Wrapper--contain {
   @if variable-exists(site-min-width) and $site-min-width { min-width: $site-min-width; }
   @if variable-exists(site-max-width) and $site-max-width { max-width: $site-max-width; }
+
+  margin: 0 auto;
+}
+
+// ----
+// Limit to ~80 characters per line
+
+.Wrapper--readable {
+  max-width: 34em;
 
   margin: 0 auto;
 }
