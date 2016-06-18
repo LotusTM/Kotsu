@@ -36,7 +36,7 @@
 - [sass] For sake of simplicity, `&--is-active` convention changed to `&.is-active`. This is smaller evil we have to accept, otherwise it's a nightmare to apply active state with JavaScript
 - [sass] Moved `layouts` into `views` directory
 - [sass] Changed namespace for views from `.l-` to `.v-`
-- [sass] Site-specific `html` and `body` classes moved into `base/_main.js`
+- [sass] Site-specific `html` and `body` classes moved into `base/_root.scss`
 - [sass] `.Wrapper` split into `.Wrapper`, which defines only paddings, and `.Wrapper--contain` modifiers, which applies min and max width on element
 - [sass] Moved width styles from `.s-blog-post` into standalone `.Wrapper--readable` which defines max-width for approximately 80 chars per line
 - [nj] Namespaced all classes with type according to new Ekzo convention
