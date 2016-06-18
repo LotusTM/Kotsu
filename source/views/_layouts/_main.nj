@@ -8,7 +8,7 @@
   <!-- ============= -->
 
   <header class='Header h-padding-ends'>
-    <div class='Wrapper'>
+    <div class='Wrapper Wrapper--contain'>
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
         <div class='o-grid__item'>
@@ -39,7 +39,7 @@
   <!-- ============== -->
 
   <main class='Main h-flex__item--flex' role='main'>
-    <div class='{{ 'Wrapper' if not customSiteWrapper }}'>
+    <div class='{{ 'Wrapper Wrapper--contain' if not customSiteWrapper }}'>
       <article class='o-grid {{ 'h-childs-displace+' if pageSidebar}}'>
 
         {% if showBreadcrumb or pageContentTitle %}
@@ -83,7 +83,7 @@
 
   <!--/noindex-->
   <footer class='Footer'>
-    <div class='Wrapper'>
+    <div class='Wrapper Wrapper--contain'>
       © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
     </div>{# /Wrapper #}
   </footer>{# /Footer #}

@@ -37,6 +37,7 @@
 - [sass] Moved `layouts` into `views` directory
 - [sass] Changed namespace for views from `.l-` to `.v-`
 - [sass] Site-specific `html` and `body` classes moved into `base/_main.js`
+- [sass] `.Wrapper` split into `.Wrapper`, which defines only paddings, and `.Wrapper--contain` modifiers, which applies min and max width on element
 - [nj] Namespaced all classes with type according to new Ekzo convention
 - [nj] All current examples moved to new Examples page. Still quite messy and limited, but better than nothing
 - [nj] Refactored `<main>` of `_main.nj` layout to use single block call and reduce clutter. It will also from now produce sticking to the bottom footer (in IE8 and IE9 it will fallback to regular, non-flex flow)
