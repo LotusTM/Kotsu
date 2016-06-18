@@ -2,8 +2,8 @@
 
 
 {# --------- #}
-{% set pageClass       = 'v-404' %}
-{% set showBreadcrumbs = false %}
+{% set pageClass      = 'v-404' %}
+{% set showBreadcrumb = false %}
 {# --------- #}
 
 

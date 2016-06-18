@@ -485,15 +485,15 @@ module.exports = (grunt) ->
 
           data.page = data.page || {}
 
-          data.page.locale      = currentLocale
-          data.page.isoLocale   = isoLocale(currentLocale)
-          data.page.language    = getLangcode(currentLocale)
-          data.page.region      = getRegioncode(currentLocale)
-          data.page.rtl         = _.find(taskConfig.i18n.locales, { locale: currentLocale }).rtl
-          data.page.url         = if pagedir == '.' then '' else pagedir
-          data.page.breadcrumbs = if pagedir == '.' then [pagebasename] else pagedir.split('/')
-          data.page.basename    = pagebasename
-          data.page.dirname     = pagedirname
+          data.page.locale     = currentLocale
+          data.page.isoLocale  = isoLocale(currentLocale)
+          data.page.language   = getLangcode(currentLocale)
+          data.page.region     = getRegioncode(currentLocale)
+          data.page.rtl        = _.find(taskConfig.i18n.locales, { locale: currentLocale }).rtl
+          data.page.url        = if pagedir == '.' then '' else pagedir
+          data.page.breadcrumb = if pagedir == '.' then [pagebasename] else pagedir.split('/')
+          data.page.basename   = pagebasename
+          data.page.dirname    = pagedirname
 
           data
 

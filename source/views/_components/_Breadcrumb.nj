@@ -1,36 +1,36 @@
 {##
- # Display breadcrumbs block based on provided data
+ # Display breadcrumb block based on provided data
  #
- # @param {string} class           = 'o-breadcrumbs o-breadcrumbs--rev'
+ # @param {string} class           = 'o-breadcrumb o-breadcrumb--rev'
  #                                                Class of list
- # @param {string} itemsClass      = 'o-breadcrumbs__item'
+ # @param {string} itemsClass      = 'o-breadcrumb__item'
  #                                                Class of list items
  # @param {string} anchorsClass    = ''           Class of anchors inside list itmes
- # @param {string} rootItemClass   = 'o-breadcrumbs__item--root'
+ # @param {string} rootItemClass   = 'o-breadcrumb__item--root'
  #                                                Class of root (first) list item
  # @param {string} rootAnchorClass = ''           Class of anchor inside of root list item
  # @param {bool}   displayLast     = true         Display last crumb or not
- # @param {array}  breadcrumbs     = breadcrumbs  Array of breadcrumbs to iterate upon
+ # @param {array}  breadcrumb      = breadcrumb   Breadcrumb in form of array to iterate upon
  # @param {object} pages           = site.pages   Complex object with information about all page,
  #                                                where component will look for data based on
- #                                                provided breadcrumbs
- # @param {string} rootTitle       = getPage(['index']).breadcrumbsTitle
+ #                                                provided breadcrumb
+ # @param {string} rootTitle       = getPage(['index']).breadcrumbTitle
  #                                                Title for root element
  #
- # @return {string} Generated `ul` with breadcrumbs
+ # @return {string} Generated `ul` with breadcrumb
  #
- # @example {{ components.Breadcrumbs() }}
+ # @example {{ components.Breadcrumb() }}
  #}
-{% macro Breadcrumbs(
-  class           = 'o-breadcrumbs',
-  itemsClass      = 'o-breadcrumbs__item',
+{% macro Breadcrumb(
+  class           = 'o-breadcrumb',
+  itemsClass      = 'o-breadcrumb__item',
   anchorsClass    = '',
-  rootItemClass   = 'o-breadcrumbs__item--root',
+  rootItemClass   = 'o-breadcrumb__item--root',
   rootAnchorClass = '',
   displayLast     = true,
-  breadcrumbs     = breadcrumbs,
+  breadcrumb      = breadcrumb,
   pages           = site.pages,
-  rootTitle       = getPage(['index']).breadcrumbsTitle
+  rootTitle       = getPage(['index']).breadcrumbTitle
 ) %}
   <ul class='{{ class }}'>
 
@@ -38,7 +38,7 @@
       <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}/'>{{ rootTitle|template(globalPlaceholders) }}</a>
     </li>
 
-    {% for key in breadcrumbs %}
+    {% for key in breadcrumb %}
 
       {% if loop.index0 == 0 %}
 
@@ -56,7 +56,7 @@
 
         {% if displayLast %}
 
-          <li class='{{ itemsClass }}'>{{ crumb.breadcrumbsTitle|template(globalPlaceholders) }}</li>
+          <li class='{{ itemsClass }}'>{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</li>
 
         {% endif %}
 
@@ -64,7 +64,7 @@
       {% elif not crumb.href %}
 
         <li class='{{ itemsClass }}'>
-          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ '/' + href if key.href == undefined else key.href }}'>{{ crumb.breadcrumbsTitle|template(globalPlaceholders) }}</a>
+          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ '/' + href if key.href == undefined else key.href }}'>{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</a>
         </li>
 
       {% endif %}

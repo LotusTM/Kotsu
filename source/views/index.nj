@@ -2,8 +2,8 @@
 
 
 {# --------- #}
-{% set pageClass       = 'v-index' %}
-{% set showBreadcrumbs = false %}
+{% set pageClass      = 'v-index' %}
+{% set showBreadcrumb = false %}
 {# --------- #}
 
 

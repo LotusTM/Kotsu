@@ -42,13 +42,13 @@
     <div class='{{ 'Wrapper' if not customSiteWrapper }}'>
       <article class='o-grid {{ 'h-childs-displace+' if pageSidebar}}'>
 
-        {% if showBreadcrumbs or pageContentTitle %}
+        {% if showBreadcrumb or pageContentTitle %}
         <header class='Content-header o-grid__item h-1/1'>
 
-          {% if showBreadcrumbs %}
-          {{ components.Breadcrumbs(
-            class           = 'o-breadcrumbs o-breadcrumbs--rev h-text- h-flex-x--center',
-            itemsClass      = 'Nav__item o-breadcrumbs__item',
+          {% if showBreadcrumb %}
+          {{ components.Breadcrumb(
+            class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
+            itemsClass      = 'Nav__item o-breadcrumb__item',
             anchorsClass    = 'Nav__link h-text--underline--flush',
             rootItemClass   = 'h-font-weight--bolder',
             rootAnchorClass = '',

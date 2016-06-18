@@ -11,15 +11,15 @@
 } %}
 
 {# Set defaults #}
-{% set breadcrumbs       = breadcrumbs      |default(page.breadcrumbs) %}
+{% set breadcrumb        = breadcrumb       |default(page.breadcrumb) %}
 
-{% set pageTitle         = (pageTitle       |default(getPage(breadcrumbs).pageTitle))   |template(globalPlaceholders) %}
-{% set pageMetaDesc      = (pageMetaDesc    |default(getPage(breadcrumbs).metaDesc))    |template(globalPlaceholders) %}
-{% set pageContentTitle  = (pageContentTitle|default(getPage(breadcrumbs).contentTitle))|template(globalPlaceholders) %}
+{% set pageTitle         = (pageTitle       |default(getPage(breadcrumb).pageTitle))   |template(globalPlaceholders) %}
+{% set pageMetaDesc      = (pageMetaDesc    |default(getPage(breadcrumb).metaDesc))    |template(globalPlaceholders) %}
+{% set pageContentTitle  = (pageContentTitle|default(getPage(breadcrumb).contentTitle))|template(globalPlaceholders) %}
 
 {% set pageClass         = pageClass        |default('') %}
 {% set customSiteWrapper = customSiteWrapper|default(false) %}
-{% set showBreadcrumbs   = showBreadcrumbs  |default(true) %}
+{% set showBreadcrumb    = showBreadcrumb   |default(true) %}
 {% set pageSidebar       = pageSidebar      |default(false) %}
 {# --------- #}
 

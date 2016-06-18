@@ -15,7 +15,6 @@
 
 ### Fixed
 - Fixed typo in Grunt's watch config
-- Fixed everywhere wrongly named `breadcrumbs` as `breadcrumb`
 
 ### Changed
 - [ci] Switched to node v6 on CircleCI for builds and deploy

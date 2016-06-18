@@ -8,7 +8,7 @@
 
 {% block main %}
 
-{% for slug, post in getPage(page.breadcrumbs).sub %}
+{% for slug, post in getPage(page.breadcrumb).sub %}
 
   <article class='h-margin-top+'>
     <h1 class='h-h3 h-margin-bottom0'>
