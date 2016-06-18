@@ -7,27 +7,36 @@
 // Font sizes
 // ---------------------------------------
 
+// ----
+// Root font size
+// Used for rhythm calculations. Recommended to keep in pxs
+
+$ekzo-font-size: 14px;
+
+// ----
+// Font-size variations
+
 $ekzo-font-sizes: (
 
   text: (
-    base: 14px, // used for vertical rhythm calculation; = .text--base, .font-size--base, .line-height--base
-    '-':  12px, // = .text-,  .font-size-,  .line-height-
-    '--': 10px, // = .text--, .font-size--, .line-height--
+    '':   $ekzo-font-size, // = .h-text,  .h-font-size,   .h-line-height
+    '-':  12px,            // = .h-text-, .h-font-size-,  .h-line-height-
+    '--': 10px,            // = .h-text--,.h-font-size--, .h-line-height--
   ),
 
   headings: (
-    h1: 36px, // = h1, .h1, .font-size--h1, .line-height--h1
-    h2: 30px, // = h2, .h2, .font-size--h2, .line-height--h2
-    h3: 24px, // = h3, .h3, .font-size--h3, .line-height--h3
-    h4: 21px, // = h4, .h4, .font-size--h4, .line-height--h4
-    h5: 18px, // = h5, .h5, .font-size--h5, .line-height--h5
-    h6: 16px, // = h6, .h6, .font-size--h6, .line-height--h6
+    h1: 36px, // = h1, .h-h1, .h-font-size--h1, .h-line-height--h1
+    h2: 30px, // = h2, .h-h2, .h-font-size--h2, .h-line-height--h2
+    h3: 24px, // = h3, .h-h3, .h-font-size--h3, .h-line-height--h3
+    h4: 21px, // = h4, .h-h4, .h-font-size--h4, .h-line-height--h4
+    h5: 18px, // = h5, .h-h5, .h-font-size--h5, .h-line-height--h5
+    h6: 16px, // = h6, .h-h6, .h-font-size--h6, .h-line-height--h6
   ),
 
   extra-headings: (
-    \+\+: 96px, // = .extra-h\+\+, .font-size\+\+, .line-height\+\+
-    \+:   72px, // = .extra-h\+,   .font-size\+,   .line-height\+
-    '':   44px, // = .extra-h,     .font-size,     .line-height
+    \+\+: 96px, // = .h-extra-h\+\+, .h-font-size\+\+, .h-line-height\+\+
+    \+:   72px, // = .h-extra-h\+,   .h-font-size\+,   .h-line-height\+
+    '':   44px, // = .h-extra-h,     .h-font-size,     .h-line-height
   ),
 
   ems: (
@@ -43,9 +52,12 @@ $ekzo-font-sizes: (
     \+\+\+\+: 5em
   ),
 
-  buttons: (), // = .btn--*name*
+  buttons: (), // = .o-btn{{key}}
 
 );
+
+// ----
+// UI font sizes
 
 $ekzo-forms-font-size:              ekzo-font-size(h5, headings);
 $ekzo-forms-placeholder-font-size:  $ekzo-forms-font-size;
@@ -57,7 +69,7 @@ $ekzo-kbd-font-size:                90%;
 // Line heights
 // ---------------------------------------
 
-$ekzo-line-height:                  ekzo-font-size(base) * 1.5;
+$ekzo-line-height:                  $ekzo-font-size * 1.5;
 
 // ---------------------------------------
 // Font famylies
