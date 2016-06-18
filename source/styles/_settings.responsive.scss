@@ -10,8 +10,8 @@
 $site-min-width: 930px;
 $site-max-width: 1280px;
 
-$site-padding-left:  $ekzo-spacing-unit;
-$site-padding-right: $ekzo-spacing-unit;
+$site-padding-left:  ekzo-spacing(1);
+$site-padding-right: ekzo-spacing(1);
 
 // ---------------------------------------
 // Breakpoints
