@@ -17,7 +17,7 @@
 </footer>
 
 
-<div class='s-blog-post'>
+<div class='s-blog-post Wrapper--readable'>
   {% block post %}{% endblock %}
 </div>
 
