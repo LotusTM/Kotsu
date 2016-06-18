@@ -3,11 +3,27 @@
 // ^MAIN
 // =======================================
 
+// ---------------------------------------
+// Root
+// ---------------------------------------
+
+:root {}
+
+// ---------------------------------------
+// HTML
+// ---------------------------------------
+
 html {}
 
-body {
-  display: flex;
-  flex-direction: column;
+// ---------------------------------------
+// Body
+// ---------------------------------------
+// 1. Display every child of body as flex items. Allows to position them more freely
+//    Also allows to set footer to always stick at bottom, even when there is no content on page
 
-  min-height: 100%;
+body {
+  display: flex;          // 1
+  flex-direction: column; // 1
+
+  min-height: 100%;       // 1
 }
