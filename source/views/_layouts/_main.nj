@@ -7,7 +7,7 @@
   <!-- Site's header -->
   <!-- ============= -->
 
-  <header class='Header h-padding-ends'>
+  <header class='Header h-margin-ends'>
     <div class='Wrapper Wrapper--contain'>
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
@@ -57,18 +57,18 @@
           {% endif %}
 
           {% if pageContentTitle %}
-          <h1 class='Content-title h-align--center'>{{ pageContentTitle }}</h1>
+          <h1 class='Content-title h-align--center h-margin-bottom0'>{{ pageContentTitle }}</h1>
           {% endif %}
 
         </header>{# /grid__item #}
         {% endif %}
 
-        <div class='Content o-grid__item {{ 'h-1/1' if not pageSidebar else 'h-9/12' }}'>
+        <div class='Content o-grid__item {{ 'h-1/1' if not pageSidebar else 'h-9/12' }} h-margin-top'>
           {% block main %}{% endblock %}
         </div>{# /grid__item #}
 
         {% if pageSidebar %}
-        <aside class='Sidebar o-grid__item h-3/12'>
+        <aside class='Sidebar o-grid__item h-3/12 h-margin-top'>
           {% block sidebar %}{% endblock %}
         </aside>{# /grid__item #}
         {% endif %}
@@ -82,7 +82,7 @@
   <!-- ============= -->
 
   <!--/noindex-->
-  <footer class='Footer'>
+  <footer class='Footer h-margin-ends'>
     <div class='Wrapper Wrapper--contain'>
       © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
     </div>{# /Wrapper #}

@@ -10,7 +10,7 @@
 
 {# @todo This is WIP page. Don't be too hard with it yet. #}
 
-<h2 class='h-margin-top++ h-margin-bottom+'>Icons and sprites</h2>
+<h2 class='h-margin-bottom+'>Icons and sprites</h2>
 
 {% call components.Example(title = 'Generated icons and sprites examples') -%}
 <p>Webfont home icon: <i class='o-icon icon--home icon--right'></i></p>
