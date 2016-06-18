@@ -39,6 +39,7 @@
 - [sass] Site-specific `html` and `body` classes moved into `base/_root.scss`
 - [sass] `.Wrapper` split into `.Wrapper`, which defines only paddings, and `.Wrapper--contain` modifiers, which applies min and max width on element
 - [sass] Moved width styles from `.s-blog-post` into standalone `.Wrapper--readable` which defines max-width for approximately 80 chars per line
+- [sass] `.Wrapper`-related settings `$site-min-width`, `$site-max-width`, `$site-padding-left` and `$site-padding-right` removed, their properties moved directly inside `.Wrapper`
 - [nj] Namespaced all classes with type according to new Ekzo convention
 - [nj] All current examples moved to new Examples page. Still quite messy and limited, but better than nothing
 - [nj] Refactored `<main>` of `_main.nj` layout to use single block call and reduce clutter. It will also from now produce sticking to the bottom footer (in IE8 and IE9 it will fallback to regular, non-flex flow)
