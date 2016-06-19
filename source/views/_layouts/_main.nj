@@ -39,29 +39,30 @@
   <!-- ============== -->
 
   <main class='Main h-flex__item--flex' role='main'>
-    <div class='{{ 'Wrapper Wrapper--contain' if not customSiteWrapper }}'>
-      <article class='o-grid {{ 'h-childs-displace+' if pageSidebar}}'>
+    <article class='{{ 'Wrapper Wrapper--contain' if not customSiteWrapper }}'>
 
-        {% if showBreadcrumb or pageContentTitle %}
-        <header class='Content-header o-grid__item h-1/1'>
+      {% if showBreadcrumb or pageContentTitle %}
+      <header class='Content-header'>
 
-          {% if showBreadcrumb %}
-          {{ components.Breadcrumb(
-            class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
-            itemsClass      = 'Nav__item o-breadcrumb__item',
-            anchorsClass    = 'Nav__link h-text--underline--flush',
-            rootItemClass   = 'h-font-weight--bolder',
-            rootAnchorClass = '',
-            displayLast     = false
-          ) }}
-          {% endif %}
-
-          {% if pageContentTitle %}
-          <h1 class='Content-title h-align--center h-margin-bottom0'>{{ pageContentTitle }}</h1>
-          {% endif %}
-
-        </header>{# /grid__item #}
+        {% if showBreadcrumb %}
+        {{ components.Breadcrumb(
+          class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
+          itemsClass      = 'Nav__item o-breadcrumb__item',
+          anchorsClass    = 'Nav__link h-text--underline--flush',
+          rootItemClass   = 'h-font-weight--bolder',
+          rootAnchorClass = '',
+          displayLast     = false
+        ) }}
         {% endif %}
+
+        {% if pageContentTitle %}
+        <h1 class='Content-title h-align--center h-margin-bottom0'>{{ pageContentTitle }}</h1>
+        {% endif %}
+
+      </header>
+      {% endif %}
+
+      <div class='o-grid {{ 'h-childs-displace+' if pageSidebar}}'>
 
         <div class='Content o-grid__item {{ 'h-1/1' if not pageSidebar else 'h-9/12' }} h-margin-top'>
           {% block main %}{% endblock %}
@@ -73,8 +74,9 @@
         </aside>{# /grid__item #}
         {% endif %}
 
-      </article>{# /grid #}
-    </div>{# /Wrapper #}
+      </div>{# /grid #}
+
+    </article>
   </main>{# /Main #}
 
 
