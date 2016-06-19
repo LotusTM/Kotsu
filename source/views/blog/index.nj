@@ -11,9 +11,9 @@
   {% for slug, post in getPage(page.breadcrumb).sub %}
     <article class='h-margin-top+'>
 
-      <h1 class='h-h3 h-margin-bottom0'>
+      <h2 class='h-h3 h-margin-bottom0'>
         <a href='{{ localeDir() }}/blog/{{ slug }}'>{{ post.contentTitle|template(globalPlaceholders) }}</a>
-      </h1>
+      </h2>
 
       <p class='h-text- h-margin-bottom-'>
         <time datetime='{{ post.date }}'>{{ moment(post.date).format('lll') }}</time>

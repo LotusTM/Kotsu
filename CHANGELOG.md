@@ -62,4 +62,5 @@
 - [nj][breaking] Moved Nunjucks stuctural layouts into its own directory `_layouts`
 - [nj][breaking] Renamed `components` directory into `_components`
 - [nj] Components filenames changed to use PascalCase, same as components declarations
+- [nj] Changed the way how headings used. `<h1>` from now used only for main title of the page, and it is no longer recommended to use `<h1>` as root heading of nested sections for now, since no user agent those days support proper HTML Outlines. See details [here](http://html5doctor.com/computer-says-no-to-html5-document-outline/).
 - [breaking] Changed `boilerplates` directory to more generic `static`
