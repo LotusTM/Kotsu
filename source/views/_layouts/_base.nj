@@ -11,21 +11,23 @@
 } %}
 
 {# Set defaults #}
-{% set breadcrumb        = breadcrumb       |default(page.breadcrumb) %}
+{{ config('page', {
+  breadcrumb     : page.breadcrumb,
 
-{% set pageTitle         = (pageTitle       |default(getPage(breadcrumb).pageTitle))   |template(globalPlaceholders) %}
-{% set pageMetaDesc      = (pageMetaDesc    |default(getPage(breadcrumb).metaDesc))    |template(globalPlaceholders) %}
-{% set pageContentTitle  = (pageContentTitle|default(getPage(breadcrumb).contentTitle))|template(globalPlaceholders) %}
+  title          : getPage(page.breadcrumb).pageTitle   |template(globalPlaceholders),
+  metaDesc       : getPage(page.breadcrumb).metaDesc    |template(globalPlaceholders),
+  contentTitle   : getPage(page.breadcrumb).contentTitle|template(globalPlaceholders),
 
-{% set pageClass         = pageClass        |default('') %}
-{% set customSiteWrapper = customSiteWrapper|default(false) %}
-{% set showBreadcrumb    = showBreadcrumb   |default(true) %}
-{% set pageSidebar       = pageSidebar      |default(false) %}
+  class          : '',
+  applyWrapper   : false,
+  showBreadcrumb : true,
+  showSidebar    : false
+}) }}
 {# --------- #}
 
 
 <!doctype html>
-<html class='{{ pageClass }} t-base no-js' lang='{{ page.locale }}' {{ 'dir=\'rtl\'' if page.rtl }}>
+<html class='{{ page.class }} t-base no-js' lang='{{ page.locale }}' {{ 'dir=\'rtl\'' if page.rtl }}>
 
 <head>
 
@@ -34,10 +36,10 @@
   <!-- IE compatibility -->
   <meta http-equiv='x-ua-compatible' content='ie=edge'>
 
-  <title>{{ pageTitle if pageTitle else site.name }}</title>
+  <title>{{ page.title if page.title else site.name }}</title>
 
   <!-- Description -->
-  <meta name='description' content='{{ pageMetaDesc }}'>
+  <meta name='description' content='{{ page.metaDesc }}'>
 
   {# <!-- Mobile devices -->
   <meta name='viewport' content='width=device-width, initial-scale=1'> #}
@@ -61,8 +63,8 @@
   <meta property='og:site_name'   content='{{ site.name }}'>
   <meta property='og:locale'      content='{{ page.isoLocale }}'>
   <meta property='og:url'         content='{{ site.homepage }}{{ localeDir() }}/{{ page.url }}'>
-  <meta property='og:title'       content='{{ pageTitle if pageTitle else site.name }}'>
-  <meta property='og:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
+  <meta property='og:title'       content='{{ page.title if page.title else site.name }}'>
+  <meta property='og:description' content='{{ page.metaDesc if page.metaDesc else site.desc }}'>
   <meta property='og:image'       content='{{ site.homepage }}/{{ path.images }}/facebook.png'>
 
   <!-- Twitter Card -->
@@ -70,10 +72,10 @@
   <meta name='twitter:site'        content='{{ site.twitter }}'>
   <meta name='twitter:creator'     content='{{ site.twitter }}'>
   <meta name='twitter:url'         content='{{ site.homepage }}{{ localeDir() }}/{{ page.url }}'>
-  <meta name='twitter:title'       content='{{ pageTitle if pageTitle else site.name }}'>
-  <meta name='twitter:description' content='{{ pageMetaDesc if pageMetaDesc else site.desc }}'>
+  <meta name='twitter:title'       content='{{ page.title if page.title else site.name }}'>
+  <meta name='twitter:description' content='{{ page.metaDesc if page.metaDesc else site.desc }}'>
   <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.png'>
-  <meta name='twitter:image:alt'   content='{{ pageTitle if pageTitle else site.name }}'>
+  <meta name='twitter:image:alt'   content='{{ page.title if page.title else site.name }}'>
 
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
@@ -84,12 +86,9 @@
 
 <body>
 
-
   {{ components.OutdatedBrowser() }}
 
-
   {% block body %}{% endblock %}
-
 
   <!-- Scripts -->
   <!-- ======= -->
@@ -99,7 +98,6 @@
   <!-- /build -->
   {{ components.GoogleAnalytics(siteId = 'UA-XXXXX-X') }}
   {{ components.YandexMetrika(counterId = 'XXXXXX') }}
-
 
 </body>
 

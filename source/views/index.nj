@@ -2,8 +2,10 @@
 
 
 {# --------- #}
-{% set pageClass      = 'v-index' %}
-{% set showBreadcrumb = false %}
+{{ config('page', {
+  class          : 'v-index',
+  showBreadcrumb : false
+}) }}
 {# --------- #}
 
 

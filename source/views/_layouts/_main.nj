@@ -37,12 +37,12 @@
   <!-- ============== -->
 
   <main class='Main h-flex__item--flex' role='main'>
-    <article class='{{ 'Wrapper Wrapper--contain' if not customSiteWrapper }}'>
+    <article class='{{ 'Wrapper Wrapper--contain' if not page.applyWrapper }}'>
 
-      {% if showBreadcrumb or pageContentTitle %}
+      {% if page.showBreadcrumb or page.contentTitle %}
       <header class='Content-header'>
 
-        {% if showBreadcrumb %}
+        {% if page.showBreadcrumb %}
         {{ components.Breadcrumb(
           class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
           itemsClass      = 'Nav__item o-breadcrumb__item',
@@ -53,20 +53,20 @@
         ) }}
         {% endif %}
 
-        {% if pageContentTitle %}
-        <h1 class='Content-title h-align--center h-margin-bottom0'>{{ pageContentTitle }}</h1>
+        {% if page.contentTitle %}
+        <h1 class='Content-title h-align--center h-margin-bottom0'>{{ page.contentTitle }}</h1>
         {% endif %}
 
       </header>
       {% endif %}
 
-      <div class='o-grid {{ 'h-childs-displace+' if pageSidebar}}'>
+      <div class='o-grid {{ 'h-childs-displace+' if page.showSidebar}}'>
 
-        <div class='Content o-grid__item {{ 'h-1/1' if not pageSidebar else 'h-9/12' }} h-margin-top'>
+        <div class='Content o-grid__item {{ 'h-1/1' if not page.showSidebar else 'h-9/12' }} h-margin-top'>
           {% block main %}{% endblock %}
         </div>{# /grid__item #}
 
-        {% if pageSidebar %}
+        {% if page.showSidebar %}
         <aside class='Sidebar o-grid__item h-3/12 h-margin-top'>
           {% block sidebar %}{% endblock %}
         </aside>{# /grid__item #}

@@ -2,7 +2,9 @@
 
 
 {# --------- #}
-{% set pageClass = 'v-blog-post' %}
+{{ config('page', {
+  class : 'v-blog-post'
+}) }}
 {# --------- #}
 
 

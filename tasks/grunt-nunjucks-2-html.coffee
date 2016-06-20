@@ -237,6 +237,37 @@ module.exports = (grunt) ->
             _files
 
           ###*
+           * Define config in context of current template. If config has been already
+           * defined on parent, it will extend it, unless `merge` set to false.
+           * If no `value` will be provided, it will return value of specified property.
+           * Works similar to `grunt.config()`
+           * @param  {string} prop         Prop name on which should be set `value`
+           *                               Returns `prop` if `value` not set
+           * @param  {*}      value        Value to set on specified `prop`
+           * @param  {bool}   merge = true Should config extend already existing same prop or no
+           * @return {*}                   Value of `prop`
+          ###
+          env.addGlobal 'config', (prop, value, merge = true) ->
+            ctx           = this.ctx
+            valueIsObject = typeof value == 'object' and value and not Array.isArray(value)
+
+            # Set in case `value` provided
+            if value
+
+              if not valueIsObject or not merge or not ctx.hasOwnProperty(prop)
+                ctx[prop] = value
+              else
+                if ctx.hasOwnProperty(prop)
+                  result = Object.assign(value, ctx[prop])
+                  ctx[prop] = result
+
+              return
+
+            # Get if no `value` provided
+            else
+              return ctx[prop]
+
+          ###*
            * Get information about page from specified object.
            * @param {array}  path            Path to page inside `obj`, without `subName`s
            * @param {object} pages   = taskConfig.data.defaultPages Object with properties of page (titles, meta descriptions, etc.)

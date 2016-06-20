@@ -10,7 +10,8 @@
  #                                                Class of root (first) list item
  # @param {string} rootAnchorClass = ''           Class of anchor inside of root list item
  # @param {bool}   displayLast     = true         Display last crumb or not
- # @param {array}  breadcrumb      = breadcrumb   Breadcrumb in form of array to iterate upon
+ # @param {array}  breadcrumb      = page.breadcrumb
+ #                                                Breadcrumb in form of array to iterate upon
  # @param {object} pages           = site.pages   Complex object with information about all page,
  #                                                where component will look for data based on
  #                                                provided breadcrumb
@@ -28,7 +29,7 @@
   rootItemClass   = 'o-breadcrumb__item--root',
   rootAnchorClass = '',
   displayLast     = true,
-  breadcrumb      = breadcrumb,
+  breadcrumb      = page.breadcrumb,
   pages           = site.pages,
   rootTitle       = getPage(['index']).breadcrumbTitle
 ) %}
