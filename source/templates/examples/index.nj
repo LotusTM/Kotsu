@@ -710,8 +710,8 @@
 </ul>
 
 <nav class='h-childs-space+ h-margin-bottom'>
-  <a class='h-display--inline-block' href='#'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-  <a class='h-display--inline-block' href='#'>Has been the industry's standard dummy text ever since the 1500s</a>
+  <a class='h-inline-block' href='#'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+  <a class='h-inline-block' href='#'>Has been the industry's standard dummy text ever since the 1500s</a>
 </nav>
 
 <form class='h-childs-space++'>
