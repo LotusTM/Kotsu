@@ -15,9 +15,9 @@
 <h2 class='h-margin-bottom+'>Icons and sprites</h2>
 
 {% call components.Example(title = 'Generated icons and sprites examples') -%}
-<p>Webfont home icon: <i class='o-icon icon--home icon--right'></i></p>
+<p>Webfont home icon: <i class='o-icon Icon--home icon--right'></i></p>
 
-<p>1px sprite: <i class='o-sprite sprite--test icon--right'></i></p>
+<p>1px sprite: <i class='o-sprite Sprite--test icon--right'></i></p>
 {% endcall %}
 
 
@@ -683,8 +683,8 @@
 
 {% call components.Example(title = 'Input with placeholder', classes = []) -%}
 <ul class="o-iconic-list g-list--indent">
-  <li><i class="o-icon icon--home"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-  <li><i class="o-sprite sprite--test"></i> Has been the industry's standard dummy text ever since the 1500s</li>
+  <li><i class="o-icon Icon--home"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+  <li><i class="o-sprite Sprite--test"></i> Has been the industry's standard dummy text ever since the 1500s</li>
 </ul>
 
 <ul class='g-list--indent'>

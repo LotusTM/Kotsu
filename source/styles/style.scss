@@ -55,24 +55,23 @@
 // Objects
 
 @import 'objects/buttons';
-@import './temp/styles/icons';
-@import './temp/styles/sprites.map';
-@import 'objects/icons';
-@import 'objects/sprites';
 
 // ----
 // Components
-
+@import './temp/styles/icons';
+@import './temp/styles/sprites.map';
+@import 'components/Content';
 @import 'components/Content-header';
 @import 'components/Content-title';
-@import 'components/Content';
 @import 'components/Footer';
 @import 'components/Header';
+@import 'components/Icons';
 @import 'components/Logo';
 @import 'components/Main';
 @import 'components/Nav';
 @import 'components/Outdated-browser';
 @import 'components/Sidebar';
+@import 'components/Sprites';
 @import 'components/Wrapper';
 
 // ----

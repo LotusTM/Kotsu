@@ -17,7 +17,7 @@ module.exports = ->
         template: '' # temporary workaround for node v6 support (see path.extname docs)
         templateOptions:
           baseClass: 'icon'
-          classPrefix: 'icon--'
+          classPrefix: 'Icon--'
         stylesheet: 'scss'
         # @note Normalize may yeild different results for different engines
         #       https://github.com/sapegin/grunt-webfont/issues/222
