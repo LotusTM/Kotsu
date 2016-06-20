@@ -21,74 +21,74 @@ $ekzo-colors: (
   // Text
   // ---------------------------------------
 
-  text:                      ekzo-color(green-white),
+  text:                   ekzo-color(green-white),
 
   // ---------------------------------------
   // Links
   // ---------------------------------------
   // @param {string|false} - false to disable, color value to enable
 
-  links:                     ekzo-color(dull-lavender),
-  links-hover:               ekzo-tint(ekzo-color(dull-lavender), 20),
+  links:                  ekzo-color(dull-lavender),
+  links-hover:            ekzo-tint(ekzo-color(dull-lavender), 20),
 
   // ---------------------------------------
   // Headings
   // ---------------------------------------
   // @param {string|false} - false to disable, color value to enable
 
-  headings:                  false,
-  extra-headings:            false,
+  headings:               false,
+  extra-headings:         false,
 
   // ---------------------------------------
   // Selection
   // ---------------------------------------
   // @param {string|false} - false to disable, color value to enable
 
-  selection:                 false,
-  selection-bg:              false,
+  selection:              false,
+  selection-bg:           false,
 
   // ---------------------------------------
   // Forms
   // ---------------------------------------
 
-  forms:                     ekzo-color(green-white),
-  forms-placeholder:         ekzo-tint(ekzo-color(outer-space), 20),
-  forms-border:              rgba(ekzo-color(green-white), .3),
-  forms-bg:                  ekzo-color(outer-space),
+  forms:                  ekzo-color(green-white),
+  forms-placeholder:      ekzo-tint(ekzo-color(outer-space), 20),
+  forms-border:           rgba(ekzo-color(green-white), .3),
+  forms-bg:               ekzo-color(outer-space),
 
   // ---------------------------------------
   // Buttons
   // ---------------------------------------
   // @param {string|false} - false to disable, color value to enable
 
-  btn:                       ekzo-color(green-white),
-  btn-bg:                    ekzo-color(dull-lavender),
+  btn:                    ekzo-color(green-white),
+  btn-bg:                 ekzo-color(dull-lavender),
 
   // ---------------------------------------
   // Horizontal line
   // ---------------------------------------
 
-  hr:                       ekzo-tint(ekzo-color(outer-space), 10),
+  hr:                    ekzo-tint(ekzo-color(outer-space), 10),
 
   // ---------------------------------------
   // Code
   // ---------------------------------------
 
-  code:                     ekzo-shade(ekzo-color(green-white), 10),
-  code-bg:                  ekzo-color(black-30),
+  code:                  ekzo-shade(ekzo-color(green-white), 10),
+  code-bg:               ekzo-color(black-30),
 
   // ---------------------------------------
   // Breadcrumb
   // ---------------------------------------
   // @param {string|false} - false to disable, color value to enable
 
-  breadcrumb-links:         ekzo-color(green-white),
-  breadcrumb-delimiters:    ekzo-tint(ekzo-color(green-white), 50),
+  breadcrumb-links:      ekzo-color(green-white),
+  breadcrumb-delimiters: ekzo-tint(ekzo-color(green-white), 50),
 
   // ---------------------------------------
   // Backgrounds
   // ---------------------------------------
 
-  bg:                       ekzo-color(outer-space)
+  bg:                    ekzo-color(outer-space)
 
 ), $default: true);
