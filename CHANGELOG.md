@@ -68,3 +68,4 @@
 - [nj] All pages global variables, which have been used for configuration, have been replaced with `config('page', { ... })` expression which works similar to `grunt.config()`
 - [nj] Due to changes in how page configuration variables are declared now, all names has been altered and no longer include `page` word. Just call them via `page.{{property}}`
 - [breaking] Changed `boilerplates` directory to more generic `static`
+- Open Sans font enabled by default

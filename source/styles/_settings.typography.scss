@@ -76,8 +76,8 @@ $ekzo-line-height:                  $ekzo-font-size * 1.5;
 // ---------------------------------------
 
 $ekzo-font-families: (
-  base:           sans-serif,
-  monospace:      'monospace, monospace'
+  base:           '"Open Sans", #{$ekzo-helvetica-font-stack}',
+  monospace:      $ekzo-consolas-font-stack
 );
 
 $ekzo-ui-font-families: (
