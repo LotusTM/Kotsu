@@ -70,6 +70,13 @@ $ekzo-colors: (
   hr:                       ekzo-tint(ekzo-color(outer-space), 10),
 
   // ---------------------------------------
+  // Code
+  // ---------------------------------------
+
+  code:                     ekzo-shade(ekzo-color(green-white), 10),
+  code-bg:                  ekzo-color(black-30),
+
+  // ---------------------------------------
   // Breadcrumb
   // ---------------------------------------
   // @param {string|false} - false to disable, color value to enable

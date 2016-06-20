@@ -13,6 +13,7 @@
 - [nj] Added early version of Examples page, which showcasing large portion (but not all) of Ekzo helpers and objects
 - [nj] Added `renderCaller` filter as workaround of that issue https://github.com/mozilla/nunjucks/issues/783
 - [nj] Added `twitter:creator` and `twitter:image:alt` metas
+- [sass] Added predefined colors for `code` and `pre` elements, since we need them to render Examples page
 
 ### Fixed
 - Fixed typo in Grunt's watch config
