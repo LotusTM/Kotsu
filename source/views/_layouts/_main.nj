@@ -12,7 +12,7 @@
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
         <div class='o-grid__item'>
-          <a class='Logo h-text--underline--flush' href='{{ localeDir() }}/'>{{ site.name }}</a>
+          <a class='Logo h-h1 h-text--underline--flush' href='{{ localeDir() }}/'>{{ site.name }}</a>
         </div>
 
         <div class='o-grid__item h-flex__item--flex'>
