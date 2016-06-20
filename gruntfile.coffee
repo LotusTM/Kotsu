@@ -34,11 +34,11 @@ module.exports = (grunt) ->
         fonts: '<%= path.source.root %>/fonts'
         icons: '<%= path.source.root %>/icons'
         images: '<%= path.source.root %>/images'
-        styles: '<%= path.source.root %>/styles'
         locales: '<%= path.source.root %>/locales'
         scripts: '<%= path.source.root %>/scripts'
         sprites: '<%= path.source.root %>/sprites'
         static: '<%= path.source.root %>/static'
+        styles: '<%= path.source.root %>/styles'
         templates: '<%= path.source.root %>/templates'
 
       temp:
@@ -50,9 +50,9 @@ module.exports = (grunt) ->
         assets: '<%= path.build.root %>/assets'
         fonts: '<%= path.build.assets %>/fonts'
         images: '<%= path.build.assets %>/images'
-        styles: '<%= path.build.assets %>/styles'
         scripts: '<%= path.build.assets %>/scripts'
         sprites: '<%= path.build.assets %>/sprites'
+        styles: '<%= path.build.assets %>/styles'
         thumbnails: '<%= path.build.images %>/thumbnails'
 
     # Specify files
@@ -92,8 +92,8 @@ module.exports = (grunt) ->
         # Remove `build/` part from path
         fonts: '<%= grunt.template.process(path.build.fonts).replace(path.build.root + \'/\', \'\') %>'
         images: '<%= grunt.template.process(path.build.images).replace(path.build.root + \'/\', \'\') %>'
-        styles: '<%= grunt.template.process(path.build.styles).replace(path.build.root + \'/\', \'\') %>'
         scripts: '<%= grunt.template.process(path.build.scripts).replace(path.build.root + \'/\', \'\') %>'
+        styles: '<%= grunt.template.process(path.build.styles).replace(path.build.root + \'/\', \'\') %>'
         thumbnails: '<%= grunt.template.process(path.build.thumbnails).replace(path.build.root + \'/\', \'\') %>'
         source: '<%= path.source %>'
       site:
