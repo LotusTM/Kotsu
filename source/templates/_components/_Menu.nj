@@ -1,0 +1,41 @@
+{##
+ # Display menu block
+ #
+ #
+ # @param {string} class           = 'nav nav--spacing' Class of list
+ # @param {string} itemsClass      = ''                 Class of list items
+ # @param {string} anchorsClass    = ''                 Class of anchors inside list itmes
+ # @param {string} activeClass     = 'is-active'        Class of active list item
+ #
+ # @return {string} Generated menu
+ #
+ # @example {{ components.menu() }}
+ #}
+{% macro Menu(
+  class        = 'nav nav--spacing',
+  itemsClass   = '',
+  anchorsClass = '',
+  activeClass  = 'is-active'
+) %}
+  <ul class='{{ class }}'>
+
+    <li class='{{ itemsClass }} {{ activeClass }}'>
+      <a class='{{ anchorsClass }}' href='{{ localeDir() }}/'>
+        Home
+      </a>
+    </li>
+
+    <li class='{{ itemsClass }}'>
+      <a class='{{ anchorsClass }}' href='{{ localeDir() }}/examples/'>
+        Examples
+      </a>
+    </li>
+
+    <li class='{{ itemsClass }}'>
+      <a class='{{ anchorsClass }}' href='{{ localeDir() }}/blog/'>
+        Blog
+      </a>
+    </li>
+
+  </ul>
+{% endmacro %}

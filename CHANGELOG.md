@@ -35,8 +35,8 @@
 - [sass] Scopes `s-` moved into own directory `scopes`
 - [sass] Content of `site-header.scss`, `site-main.scss` and `site-footer.scss` refactored into standalone components and moved into `components` directory. All related class names has been changed to follow components naming convention
 - [sass] For sake of simplicity, `&--is-active` convention changed to `&.is-active`. This is smaller evil we have to accept, otherwise it's a nightmare to apply active state with JavaScript
-- [sass] Moved `layouts` into `views` directory
-- [sass] Changed namespace for views from `.l-` to `.v-`
+- [sass] Moved `layouts` into `pages` directory
+- [sass] Changed namespace for pages from `.l-` to `.p-`
 - [sass] Site-specific `html` and `body` classes moved into `base/_root.scss`
 - [sass] `.Wrapper` split into `.Wrapper`, which defines only paddings, and `.Wrapper--contain` modifiers, which applies min and max width on element
 - [sass] Moved width styles from `.s-blog-post` into standalone `.Wrapper--readable` which defines max-width for approximately 80 chars per line
@@ -58,7 +58,7 @@
   * `activeClass` for class of active `<li>`
 
 - [nj][breaking] Capitalized all components names to denote that it's component
-- [nj][breaking] Renamed `layouts` directory into `views`
+- [nj][breaking] Renamed `layouts` directory into `templates`
 - [nj][breaking] Renamed `_layout.nj` structural layouts into `_base.nj`
 - [nj][breaking] Moved Nunjucks stuctural layouts into its own directory `_layouts`
 - [nj][breaking] Renamed `components` directory into `_components`

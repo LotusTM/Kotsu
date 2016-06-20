@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: source/views/components/_outdated-browser.nj:11
+#: source/templates/components/_outdated-browser.nj:11
 msgid "Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly."
 msgstr "Ваш браузер <strong>устарел</strong>! Пожалуйста, %(linkStart)sобновите браузер%(linkEnd)s для нормальной работы сайта."
 
-#: source/views/index.nj:76
+#: source/templates/index.nj:76
 msgid "This string will be displayd in selected language"
 msgstr "Эта строка будет отображаться на выбранном языке"
 
-#: source/views/index.nj:79
+#: source/templates/index.nj:79
 msgid "%s apple"
 msgid_plural "%s apples"
 msgstr[0] "%s яблоко"

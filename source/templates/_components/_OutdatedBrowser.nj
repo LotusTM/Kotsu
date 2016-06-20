@@ -1,0 +1,20 @@
+{##
+ # Display message about too old browser in IE9 and below
+ #
+ # @param {string} langcode Language code which will be used in url
+ #                          All incorrect language codes will fallback to `en`
+ #
+ # @return {string} IE-specific comment with proposal to update browser
+ #
+ # @example {{ components.outdatedBrowser('en') }}
+ #}
+{% macro OutdatedBrowser(langcode = page.language) %}
+  <!--[if lte IE 9]>
+    <p class='Outdated-browser'>
+      {{ gettext('Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly.')|template({
+        linkStart: '<a class=\'Outdated-browser__link\' href=\'http://outdatedbrowser.com/' + langcode + ' target=\'_blank\'>',
+        linkEnd: '</a>'
+      }) }}
+    </p>
+  <![endif]-->
+{% endmacro %}

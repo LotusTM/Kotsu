@@ -3,7 +3,7 @@
 
 {# --------- #}
 {{ config('page', {
-  class          : 'v-index',
+  class          : 'p-index',
   showBreadcrumb : false
 }) }}
 {# --------- #}

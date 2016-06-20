@@ -31,7 +31,6 @@ module.exports = (grunt) ->
       source:
         root: 'source'
         data: '<%= path.source.root %>/data'
-        views: '<%= path.source.root %>/views'
         fonts: '<%= path.source.root %>/fonts'
         icons: '<%= path.source.root %>/icons'
         images: '<%= path.source.root %>/images'
@@ -40,6 +39,7 @@ module.exports = (grunt) ->
         scripts: '<%= path.source.root %>/scripts'
         sprites: '<%= path.source.root %>/sprites'
         static: '<%= path.source.root %>/static'
+        templates: '<%= path.source.root %>/templates'
 
       temp:
         root: 'temp'

@@ -1,0 +1,12 @@
+{##
+ # Display provided string
+ #
+ # @param {string} string String to be displayed
+ #
+ # @return {string} Predefined text with provided string
+ #
+ # @example {{ components.ExmapleMacro('demo value') }}
+ #}
+{% macro ExmapleMacro(string) %}
+  <code>`{{ string }}`</code> displayed by example macro
+{% endmacro %}
