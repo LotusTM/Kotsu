@@ -54,12 +54,13 @@
 // ----
 // Objects
 
-@import 'objects/buttons';
 
 // ----
 // Components
+
 @import './temp/styles/icons';
 @import './temp/styles/sprites.map';
+@import 'components/Btn';
 @import 'components/Content';
 @import 'components/Content-header';
 @import 'components/Content-title';
