@@ -53,6 +53,7 @@ $ekzo-colors: (
 
   forms:                     ekzo-color(green-white),
   forms-placeholder:         ekzo-tint(ekzo-color(outer-space), 20),
+  forms-border:              rgba(ekzo-color(green-white), .3),
   forms-bg:                  ekzo-color(outer-space),
 
   // ---------------------------------------

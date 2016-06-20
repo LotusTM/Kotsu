@@ -3,11 +3,10 @@
 // ^FORMS
 // =======================================
 
-$forms-border-width: 1px;
-
 input,
 #{$ekzo-generics-ns}input {
-  border: $forms-border-width solid #767676;
+  border-width: 1px;
+  @include ekzo-theme { border-color: ekzo-theme(forms-border); };
 
   padding: ekzo-space(.5);
 }
