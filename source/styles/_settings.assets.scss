@@ -23,7 +23,7 @@ $ekzo-bg:                false; // `background` property on `html`
 // Icons
 // ---------------------------------------
 
-$ekzo-icons-prefix:      icon--;
+$ekzo-icons-prefix:      icon--; // defined by Grunt task
 $ekzo-icon-font:         icons;
 $ekzo-icon-font-version: false; // `false` to disable, number to enable. Disabled for Kotsu, since all assets are cache-busted by Grunt task
 $ekzo-icon-font-svg-id:  $ekzo-icon-font;
