@@ -18,6 +18,12 @@ $ekzo-colors: (
 @include ekzo-extend-themes(base, (
 
   // ---------------------------------------
+  // Background
+  // ---------------------------------------
+
+  bg:                    ekzo-color(outer-space),
+
+  // ---------------------------------------
   // Text
   // ---------------------------------------
 
@@ -48,6 +54,13 @@ $ekzo-colors: (
   selection-bg:           false,
 
   // ---------------------------------------
+  // Code
+  // ---------------------------------------
+
+  code:                  ekzo-shade(ekzo-color(green-white), 10),
+  code-bg:               ekzo-color(black-30),
+
+  // ---------------------------------------
   // Forms
   // ---------------------------------------
 
@@ -55,6 +68,12 @@ $ekzo-colors: (
   forms-placeholder:      ekzo-tint(ekzo-color(outer-space), 20),
   forms-border:           rgba(ekzo-color(green-white), .3),
   forms-bg:               ekzo-color(outer-space),
+
+  // ---------------------------------------
+  // Horizontal line
+  // ---------------------------------------
+
+  hr:                     ekzo-tint(ekzo-color(outer-space), 10),
 
   // ---------------------------------------
   // Buttons
@@ -65,30 +84,11 @@ $ekzo-colors: (
   btn-bg:                 ekzo-color(dull-lavender),
 
   // ---------------------------------------
-  // Horizontal line
-  // ---------------------------------------
-
-  hr:                    ekzo-tint(ekzo-color(outer-space), 10),
-
-  // ---------------------------------------
-  // Code
-  // ---------------------------------------
-
-  code:                  ekzo-shade(ekzo-color(green-white), 10),
-  code-bg:               ekzo-color(black-30),
-
-  // ---------------------------------------
   // Breadcrumb
   // ---------------------------------------
   // @param {string|false} - false to disable, color value to enable
 
   breadcrumb-links:      ekzo-color(green-white),
   breadcrumb-delimiters: ekzo-tint(ekzo-color(green-white), 50),
-
-  // ---------------------------------------
-  // Backgrounds
-  // ---------------------------------------
-
-  bg:                    ekzo-color(outer-space)
 
 ), $default: true);
