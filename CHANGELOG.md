@@ -67,5 +67,6 @@
 - [nj] Changed the way how headings used. `<h1>` from now used only for main title of the page, and it is no longer recommended to use `<h1>` as root heading of nested sections for now, since no user agent those days support proper HTML Outlines. See details [here](http://html5doctor.com/computer-says-no-to-html5-document-outline/).
 - [nj] All pages global variables, which have been used for configuration, have been replaced with `config('page', { ... })` expression which works similar to `grunt.config()`
 - [nj] Due to changes in how page configuration variables are declared now, all names has been altered and no longer include `page` word. Just call them via `page.{{property}}`
+- [nj] Changed default meta `og:type` from `article` to more generic `website`
 - [breaking] Changed `boilerplates` directory to more generic `static`
 - Open Sans font enabled by default
