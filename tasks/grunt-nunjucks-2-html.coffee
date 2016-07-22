@@ -310,7 +310,7 @@ module.exports = (grunt) ->
               _subbedPath.splice(_position, 0, subName)
               _i++
             _result = _.get(pages, _subbedPath)
-            if _result then _result else grunt.log.error('[getPage] can\'t find requested `' + _subbedPath + '` inside specified object')
+            if _result then _result else grunt.log.error('[getPage] can\'t find requested `' + _subbedPath + '` inside specified object', '[' + this.ctx.page.url + ']')
 
           ###*
            * Explodes string into array breadcrumb. See `pathBreadcrumb` helper for details
