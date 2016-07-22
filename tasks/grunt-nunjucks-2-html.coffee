@@ -240,6 +240,14 @@ module.exports = (grunt) ->
             console.log(input...)
 
           ###*
+           * Log specified to Grunt's console as warning message
+           * @param {*} input Anything we want to log to console
+           * @return {string} Logs to Grunt console
+          ###
+          env.addGlobal 'warn', (input...) ->
+            grunt.log.warn(input..., '[' + this.ctx.page.url + ']')
+
+          ###*
            * Get list of files or directories inside specified directory
            * @param {string}               path    = ''             Path where to look
            * @param {string|array[string]} pattern = '** /*'        What should be matched
