@@ -8,9 +8,9 @@
  #
  # @return {string} Generated menu
  #
- # @example {{ components.menu() }}
+ # @example {{ components.Nav() }}
  #}
-{% macro Menu(
+{% macro Nav(
   class        = 'nav nav--spacing',
   itemsClass   = '',
   anchorsClass = '',

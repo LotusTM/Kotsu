@@ -18,7 +18,7 @@
         <div class='o-grid__item h-flex__item--flex'>
           <!--noindex-->
           <nav class='Nav h-float--right'>
-            {{ components.Menu(
+            {{ components.Nav(
               class        = 'o-nav h-childs-space-left',
               itemsClass   = 'Nav__item',
               anchorsClass = 'Nav__link h-text--underline--flush',
