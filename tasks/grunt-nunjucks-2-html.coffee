@@ -219,8 +219,8 @@ module.exports = (grunt) ->
            * @param {*} input Anything we want to log to console
            * @return {string} Logs to Grunt console
           ###
-          env.addGlobal 'log', (input) ->
-            console.log(input)
+          env.addGlobal 'log', (input...) ->
+            console.log(input...)
 
           ###*
            * Get list of files or directories inside specified directory
