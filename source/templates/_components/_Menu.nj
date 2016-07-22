@@ -1,11 +1,10 @@
 {##
  # Display menu block
  #
- #
- # @param {string} class           = 'nav nav--spacing' Class of list
- # @param {string} itemsClass      = ''                 Class of list items
- # @param {string} anchorsClass    = ''                 Class of anchors inside list itmes
- # @param {string} activeClass     = 'is-active'        Class of active list item
+ # @param {string} class        = 'nav nav--spacing' Class of list
+ # @param {string} itemsClass   = ''                 Class of list items
+ # @param {string} anchorsClass = ''                 Class of anchors inside list itmes
+ # @param {string} activeClass  = 'is-active'        Class of active list item
  #
  # @return {string} Generated menu
  #
@@ -19,23 +18,23 @@
 ) %}
   <ul class='{{ class }}'>
 
-    <li class='{{ itemsClass }} {{ activeClass }}'>
-      <a class='{{ anchorsClass }}' href='{{ localeDir() }}/'>
-        Home
-      </a>
-    </li>
+    {% macro Item(to, label) %}
+      <li class='{{ itemsClass }} {{ activeClass if isActive(to) }}'>
+        {{ components.Link(
+          to = to,
+          label = label,
+          class = anchorsClass,
+          activeClass = activeClass
+        )}}
 
-    <li class='{{ itemsClass }}'>
-      <a class='{{ anchorsClass }}' href='{{ localeDir() }}/examples/'>
-        Examples
-      </a>
-    </li>
+        {# For cases when you need to have sub navs #}
+        {{ caller() if caller }}
+      </li>
+    {% endmacro %}
 
-    <li class='{{ itemsClass }}'>
-      <a class='{{ anchorsClass }}' href='{{ localeDir() }}/blog/'>
-        Blog
-      </a>
-    </li>
+    {{ Item('/', 'Home') }}
+    {{ Item('/examples', 'Examples') }}
+    {{ Item('/blog', 'Blog') }}
 
   </ul>
 {% endmacro %}
