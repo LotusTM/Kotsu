@@ -20,8 +20,8 @@
           <nav class='Nav h-float--right'>
             {{ components.Menu(
               class        = 'o-nav h-childs-space-left',
-              itemsClass   = '',
-              anchorsClass = 'h-text--underline--flush',
+              itemsClass   = 'Nav__item',
+              anchorsClass = 'Nav__link h-text--underline--flush',
               activeClass  = 'is-active'
             ) }}
           </nav>
