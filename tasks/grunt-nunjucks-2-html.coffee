@@ -98,6 +98,23 @@ module.exports = (grunt) ->
       return sprintf.apply null, placeholders
 
   ###*
+   * Explodes string path into array breadcrumb
+   * @param  {string} path Relative or absolute path
+   * @return {array}       Array, which consists of path's fragments
+  ###
+  pathBreadcrumb = (path) ->
+    path = _.trimStart(path, '/')
+    path = _.trimEnd(path, '/')
+
+    breadcrumb = _.split(path, '/')
+
+    # For cases, when path matches root, explicitely set breadcrumb to `index`
+    if breadcrumb.length == 1 and breadcrumb[0] == ''
+      breadcrumb = ['index']
+
+    return breadcrumb
+
+  ###*
    * Rename pagepath (except if it's matching `exclude` pattern) to `index.html` and move
    * to directory named after basename of the file
    * @example `/posts/2015-10-12-article.nj` -> `/posts/2015-10-12-article.nj/index.html`
@@ -286,6 +303,12 @@ module.exports = (grunt) ->
               _i++
             _result = _.get(pages, _subbedPath)
             if _result then _result else grunt.log.error('[getPage] can\'t find requested `' + _subbedPath + '` inside specified object')
+
+          ###*
+           * Explodes string into array breadcrumb. See `pathBreadcrumb` helper for details
+          ###
+          env.addGlobal 'pathBreadcrumb', (path) ->
+            pathBreadcrumb(path)
 
           ###*
            * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation, and displaying dates
