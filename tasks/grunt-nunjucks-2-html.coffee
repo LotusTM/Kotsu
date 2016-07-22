@@ -245,7 +245,7 @@ module.exports = (grunt) ->
            * @return {string} Logs to Grunt console
           ###
           env.addGlobal 'warn', (input...) ->
-            grunt.log.warn(input..., '[' + this.ctx.page.url + ']')
+            grunt.log.error(input..., '[' + this.ctx.page.url + ']')
 
           ###*
            * Get list of files or directories inside specified directory
