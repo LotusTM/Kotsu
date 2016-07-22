@@ -1,0 +1,50 @@
+{##
+ # Display anchor based on provided data. Based on React-router `Link` component idea
+ #
+ # @param {string} to                            Absolute or relative path to page based
+ #                                               on `pages.yml`
+ # @param {string} label                         Label of the anchor
+ # @param {string} class=''                      Class of the anchor
+ # @param {bool}   onlyActiveOnIndex=false       Set anchor to be active only in case current link's
+ #                                               and page's breadcrumbs completely matches
+ # @param {string} activeClass='is-active'       Class for active anchor
+ # @param {string|func} localeDir=localeDir()    L10n leading part of path, like `/de/`
+ # @param {array} pageBreadcrumb=page.breadcrumb Breadcrumb of current page for comparison
+ #
+ # @return {string} Generated `<a>` with properly set active state
+ #
+ # @throws `getPage`'s Error on non-existing in `pages.yml` `to`
+ # @throws Error on relative `href` property in `pages.yml`.
+ #         Only absolute paths for `href` supported by now
+ #
+ # @example
+ #  {{ components.Link(
+ #    to = '/examples/',
+ #    label = 'Examples',
+ #    class = 'your-class'
+ #  )}}
+ #}
+{% macro Link(
+  to,
+  label,
+  class = '',
+  onlyActiveOnIndex = false,
+  activeClass = 'is-active',
+  localeDir = localeDir(),
+  pageBreadcrumb = page.breadcrumb
+) %}
+  {% set isAbsolute = true if _.startsWith(to, '/') else false %}
+  {% set isActive = isActive(to, onlyActiveOnIndex, pageBreadcrumb) %}
+  {% set linkBreadcrumb = pathBreadcrumb(to) %}
+
+  {# Check whether specified path has defined overriding `href` property in `pages.yml` #}
+  {% set href = getPage(linkBreadcrumb).href %}
+  {% set isAbsoluteHref = true if _.startsWith(href, '/') else false %}
+
+  {# @todo Add support of relative paths #}
+  {% if href and not isAbsoluteHref %}
+    {{ log('[components.Link] non absolute hrefs not supported yet, but you\'ve used `' + href + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
+  {% endif %}
+
+  <a href='{{ localeDir if localeDir }}{{ href if href else to }}' class='{{ class }} {{ activeClass if isActive }}'>{{ label }}</a>
+{% endmacro %}
