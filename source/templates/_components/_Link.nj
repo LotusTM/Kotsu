@@ -1,5 +1,6 @@
 {##
  # Display anchor based on provided data. Based on React-router `Link` component idea
+ # Use `call` if you need label to be something more complex, than just a string
  #
  # @param {string} to                            Absolute or relative path to page based
  #                                               on `pages.yml`
@@ -24,6 +25,10 @@
  #    label = 'Examples',
  #    class = 'your-class'
  #  )}}
+ #
+ #  {% call components.Link(to = '/example/', class = 'your-class') %}
+ #    <i>icon</i> Label
+ #  {% endcall %}
  #}
 {% macro Link(
   to,
@@ -50,5 +55,5 @@
     {{ warn('[components.Link] non absolute hrefs not supported yet, but you\'ve used `' + href + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
   {% endif %}
 
-  <a href='{{ localeDir if localeDir }}{{ href if href else to }}' class='{{ class }} {{ activeClass if isActive }}'>{{ label }}</a>
+  <a href='{{ localeDir if localeDir }}{{ href if href else to }}' class='{{ class }} {{ activeClass if isActive }}'>{{ caller() if caller else label }}</a>
 {% endmacro %}
