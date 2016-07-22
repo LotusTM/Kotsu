@@ -311,6 +311,28 @@ module.exports = (grunt) ->
             pathBreadcrumb(path)
 
           ###*
+           * Determinate is current path active relatively to current page breadcrumb or no
+           * @param  {string} to                                         Absolute or relative path to page based
+           *                                                             based on `pages.yml`
+           * @param  {bool} onlyActiveOnIndex = false                    Set anchor to be active only in case current link's
+           *                                                             and page's breadcrumbs completely matches
+           * @param  {array} pageBreadcrumb   = this.ctx.page.breadcrumb Breadcrumb of current page for comparison
+           * @return {bool}                                              Is current path active or no
+          ###
+          env.addGlobal 'isActive', (to, onlyActiveOnIndex = false, pageBreadcrumb = this.ctx.page.breadcrumb) ->
+            isAbsolute = if _.startsWith(to, '/') then true else false
+
+            linkBreadcrumb = pathBreadcrumb(to)
+
+            # Slice only needed for comparison portion of whole page breadcrumb,
+            # unless `onlyActiveOnIndex` set to `true`
+            correspondingPageBreadcrumb = if onlyActiveOnIndex then pageBreadcrumb else _.take(pageBreadcrumb, linkBreadcrumb.length)
+
+            # Determine is link currently active. Relative urls will be always considered as non-active
+            isActive = if _.isEqual(correspondingPageBreadcrumb, linkBreadcrumb) and isAbsolute then true else false
+            return isActive
+
+          ###*
            * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation, and displaying dates
            * @tutorial http://momentjs.com/docs/
            * @note Will set locale to `currentLocale` before running. To override use `_d(...).locale('de').format(...)`
