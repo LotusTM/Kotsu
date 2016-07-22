@@ -14,6 +14,7 @@
  # @return {string} Generated `<a>` with properly set active state
  #
  # @throws `getPage`'s Error on non-existing in `pages.yml` `to`
+ # @throws Error on relative `to`. Only absolute paths for `to` supported by now
  # @throws Error on relative `href` property in `pages.yml`.
  #         Only absolute paths for `href` supported by now
  #
@@ -42,8 +43,11 @@
   {% set isAbsoluteHref = true if _.startsWith(href, '/') else false %}
 
   {# @todo Add support of relative paths #}
+  {% if not isAbsolute %}
+    {{ warn('[components.Link] non absolute `to` not supported yet, but you\'ve used `' + to + '` in `pages.yml` on `' + linkBreadcrumb + '`. This will produce wrong l10n url') }}
+  {% endif %}
   {% if href and not isAbsoluteHref %}
-    {{ log('[components.Link] non absolute hrefs not supported yet, but you\'ve used `' + href + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
+    {{ warn('[components.Link] non absolute hrefs not supported yet, but you\'ve used `' + href + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
   {% endif %}
 
   <a href='{{ localeDir if localeDir }}{{ href if href else to }}' class='{{ class }} {{ activeClass if isActive }}'>{{ label }}</a>
