@@ -8,7 +8,11 @@
 
     .Nav__item {
 
-      &.is-active {}
+      &.is-active {
+
+        > a { @include ekzo-theme() { color: inherit }; }
+
+      }
 
     }
 
