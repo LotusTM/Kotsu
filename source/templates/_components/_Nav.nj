@@ -1,40 +1,69 @@
 {##
- # Display menu block
+ # Display nav block
  #
- # @param {string} class        = 'nav nav--spacing' Class of list
- # @param {string} itemsClass   = ''                 Class of list items
- # @param {string} anchorsClass = ''                 Class of anchors inside list itmes
- # @param {string} activeClass  = 'is-active'        Class of active list item
+ # @param {string} class               = 'nav nav--spacing' Class of list
+ # @param {string} itemsClass          = ''                 Class of list items
+ # @param {string} anchorsClass        = ''                 Class of anchors inside list itmes
+ # @param {string} activeClass         = 'is-active'        Class of active list item
+ # @param {number} startDepth          = 1                  From which depth nav should start
+ #                                                          to print
+ # @param {number} maxDepth            = 999999             Max amount of subnavs to print
+ # @param {bool} showInnerOnlyOnActive = false              Print subnavs only when parent
+ #                                                          is active
  #
- # @return {string} Generated menu
+ # @return {string} Generated nav
  #
  # @example {{ components.Nav() }}
  #}
 {% macro Nav(
-  class        = 'nav nav--spacing',
-  itemsClass   = '',
-  anchorsClass = '',
-  activeClass  = 'is-active'
+  class                 = 'nav nav--spacing',
+  itemsClass            = '',
+  anchorsClass          = '',
+  activeClass           = 'is-active',
+  startDepth            = 1,
+  maxDepth              = 999999,
+  showInnerOnlyOnActive = false
 ) %}
   <ul class='{{ class }}'>
 
-    {% macro Item(to, label) %}
-      <li class='{{ itemsClass }} {{ activeClass if isActive(to) }}'>
-        {{ components.Link(
-          to = to,
-          label = label,
-          class = anchorsClass,
-          activeClass = activeClass
-        )}}
+    {% macro Item(to, label, depth = 1) %}
 
-        {# For cases when you need to have sub navs #}
-        {{ caller() if caller }}
-      </li>
+      {% set itemIsActive = isActive(to) %}
+      {% set itemProps    = getPage(pathBreadcrumb(to)) %}
+
+      {# For cases when you need to have sub navs #}
+      {% set callerDepth = depth + 1 %}
+      {% if (callerDepth <= maxDepth) and (itemIsActive if showInnerOnlyOnActive else true) %}
+        {% set subnav = caller(callerDepth) if caller %}
+      {% endif %}
+
+      {% if depth >= startDepth and itemProps.display != false %}
+
+        <li class='{{ itemsClass }} {{ activeClass if itemIsActive }}'>
+
+          {{ components.Link(
+            to = to,
+            label = label if label else itemProps.navTitle,
+            class = anchorsClass,
+            activeClass = activeClass
+          )}}
+
+          {{ subnav }}
+
+        </li>
+
+      {# Go on to loop over subnavs, untill we reach needed depth #}
+      {% else %}
+
+        {{ subnav }}
+
+      {% endif %}
+
     {% endmacro %}
 
-    {{ Item('/', 'Home') }}
-    {{ Item('/examples', 'Examples') }}
-    {{ Item('/blog', 'Blog') }}
+    {% call Item('/') %}{% endcall %}
+    {% call Item('/examples') %}{% endcall %}
+    {% call Item('/blog') %}{% endcall %}
 
   </ul>
 {% endmacro %}
