@@ -3,7 +3,7 @@ index:
   pageTitle:       Kotsu Web Starter Kit
   breadcrumbTitle: Home
   contentTitle:    false
-  menuTitle:       Home
+  navTitle:        Home
   metaDesc:        Generated with %(company)s demo homepage
   href:            /
 
@@ -11,21 +11,21 @@ examples:
   pageTitle:       Examples
   breadcrumbTitle: Examples
   contentTitle:    Examples
-  menuTitle:       Examples
+  navTitle:        Examples
   metaDesc:        '%(company)s examples'
 
 blog:
   pageTitle:       Blog
   breadcrumbTitle: Blog
   contentTitle:    '%(company)s blog'
-  menuTitle:       Blog
+  navTitle:        Blog
   metaDesc:        '%(company)s blog'
   sub:
     2015-10-12-example-article:
       pageTitle:       Example article
       breadcrumbTitle: Example article
       contentTitle:    Example article
-      menuTitle:       Example article
+      navTitle:        Example article
       metaDesc:        Example article generated with %(company)s
       shortDesc:       Example article generated with %(company)s. Wanna more?
       author:          LotusTM
@@ -35,6 +35,6 @@ blog:
   pageTitle:       404 — page not found
   breadcrumbTitle: 404
   contentTitle:    false
-  menuTitle:       404
+  navTitle:        404
   metaDesc:        404 — page not found
   href:            /404.html
