@@ -128,12 +128,20 @@ module.exports = (grunt) ->
     pagepath
 
   ###*
+   * Return locale's properties
+   * @param  {string} locale Locale name for which should be made resolving
+   * @return {string} Props of locale
+  ###
+  getLocaleProps = (locale) ->
+    _.find(taskConfig.i18n.locales, { locale: locale })
+
+  ###*
    * Output or not locale's dirname based on whether it's base locale or not
    * @param  {string} locale Locale name for which should be made resolving
    * @return {string} Directory name, in which resides build for specified locale
   ###
   getLocaleDir = (locale) ->
-    _baseUrl = _.find(taskConfig.i18n.locales, { locale: locale }).url
+    _baseUrl = getLocaleProps(locale).url
     _url = if _baseUrl then _baseUrl else locale
     urlify(if taskConfig.i18n.baseLocaleAsRoot and locale == baseLocale then '' else _url)
 
@@ -175,7 +183,8 @@ module.exports = (grunt) ->
   Task = ->
     # Define targets, with unique options and files, for each locale
     locales.forEach (currentLocale) =>
-      localeDir = getLocaleDir(currentLocale)
+      localeDir   = getLocaleDir(currentLocale)
+      localeProps = getLocaleProps(currentLocale)
 
       @[currentLocale] = {}
 
@@ -545,7 +554,7 @@ module.exports = (grunt) ->
           data.page.isoLocale  = isoLocale(currentLocale)
           data.page.language   = getLangcode(currentLocale)
           data.page.region     = getRegioncode(currentLocale)
-          data.page.rtl        = _.find(taskConfig.i18n.locales, { locale: currentLocale }).rtl
+          data.page.rtl        = localeProps.rtl
           data.page.url        = if pagedir == '.' then '' else pagedir
           data.page.breadcrumb = if pagedir == '.' then [pagebasename] else pagedir.split('/')
           data.page.basename   = pagebasename
