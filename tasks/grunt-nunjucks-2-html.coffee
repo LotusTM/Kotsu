@@ -62,7 +62,7 @@ module.exports = (grunt) ->
     failureOutput : taskConfig.urlify.failureOutput
   })
 
-  i18n          = taskConfig.i18n.gettext
+  gettext       = taskConfig.i18n.gettext
 
   locales       = _.map(taskConfig.i18n.locales, 'locale')
   baseLocale    = taskConfig.i18n.baseLocale
@@ -353,7 +353,7 @@ module.exports = (grunt) ->
           * @return {string} Translated string into current locale
           ###
           env.addGlobal 'gettext', (string) ->
-            i18n.dgettext(currentLocale, string)
+            gettext.dgettext(currentLocale, string)
 
           ###*
            * Load string from specified domain
@@ -365,7 +365,7 @@ module.exports = (grunt) ->
           ###
           env.addGlobal 'dgettext', (domain = currentLocale, string) ->
             domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-            i18n.dgettext(domain, string)
+            gettext.dgettext(domain, string)
 
           ###*
           * Load plural string from current locale
@@ -375,7 +375,7 @@ module.exports = (grunt) ->
           * @return {string} Pluralized and translated into current locale string
           ###
           env.addGlobal 'ngettext', (string, pluralString, count) ->
-            i18n.dngettext(currentLocale, string, pluralString, count)
+            gettext.dngettext(currentLocale, string, pluralString, count)
 
           ###*
            * Load plural string from specified domain
@@ -389,7 +389,7 @@ module.exports = (grunt) ->
           ###
           env.addGlobal 'dngettext', (domain = currentLocale, string, pluralString, count) ->
             domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-            i18n.dngettext(domain, string, pluralString, count)
+            gettext.dngettext(domain, string, pluralString, count)
 
           ###*
           * Load string of specific context from current locale
@@ -398,7 +398,7 @@ module.exports = (grunt) ->
           * @return {string} Translated string into current locale
           ###
           env.addGlobal 'pgettext', (context, string) ->
-            i18n.dpgettext(currentLocale, context, string)
+            gettext.dpgettext(currentLocale, context, string)
 
           ###*
            * Load string of specific context from specified domain
@@ -411,7 +411,7 @@ module.exports = (grunt) ->
           ###
           env.addGlobal 'dpgettext', (domain = currentLocale, context, string) ->
             domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-            i18n.dpgettext(domain, context, string)
+            gettext.dpgettext(domain, context, string)
 
           ###*
           * Load plural string of specific context from current locale
@@ -422,7 +422,7 @@ module.exports = (grunt) ->
           * @return {string} Pluralized and translated into current locale string
           ###
           env.addGlobal 'npgettext', (context, string, pluralString, count) ->
-            i18n.dnpgettext(currentLocale, context, string, pluralString, count)
+            gettext.dnpgettext(currentLocale, context, string, pluralString, count)
 
           ###*
            * Load plural string of specific context from specified domain
@@ -437,7 +437,7 @@ module.exports = (grunt) ->
           ###
           env.addGlobal 'dnpgettext', (domain = currentLocale, context, string, pluralString, count) ->
             domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-            i18n.dnpgettext(domain, context, string, pluralString, count)
+            gettext.dnpgettext(domain, context, string, pluralString, count)
 
           # =======
           # Filters
