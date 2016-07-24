@@ -92,20 +92,17 @@ module.exports = (grunt) ->
   localesList = _.map(grunt.config('i18n.locales'), 'locale')
   localesDir  = grunt.config('path.source.locales')
 
-  # ===============
-  # Load l10n files
-  # ===============
-  # @note In native `xgettext` you can set as many domains as you wish per locale. Usually domains
-  #       represented in form of separate l10n files per singe locale. However, `node-gettext` using domains
-  #       for holding locales and switching between them. To workaround that issue, following code will
-  #       interpolate locales and domains for you, as well as strip `LC_MESSAGES` from path.
-  #       `/locale/en/{defaultLocale}.po` will result in `en` domain.
-  #       `/locale/en/nav/bar.po` will result in `en:nav:bar` domain.
-  #       `/locale/en/LC_MESSAGES/nav/bar.po` will result in `en:nav:bar` domain.
-  #       Thus you can switch anytime between both locales and domains.
-  #       Related Github issues:
-  #       * https://github.com/andris9/node-gettext/issues/22
-  #       * https://github.com/LotusTM/Kotsu/issues/45
+  ###*
+   * Load l10n files and make l10n class available to Grunt-related tasks
+   * @note Do not use 'LC_MESSAGES' in path to locales
+   * @todo Since node-gettext doesn't have method for switching between languages AND domains,
+   *       use `dgettext('{{locale}}:{{domain'), 'String')` to switch between locales and domains
+   *       `/locale/en/{defaultLocale}.po` will result in `en` domain.
+   *       `/locale/en/nav/bar.po` will result in `en:nav:bar` domain.
+   *       Related Github issues:
+   *       * https://github.com/andris9/node-gettext/issues/22
+   *       * https://github.com/LotusTM/Kotsu/issues/45
+  ###
   localesList.forEach (locale) ->
     grunt.file.expand({ cwd: localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (filepath) ->
       defaultDomain = 'messages'
