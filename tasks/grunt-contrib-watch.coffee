@@ -13,7 +13,7 @@ module.exports = ->
       files: ['<%= path.source.static %>/{,**/}*']
       tasks: ['copy:static']
     data:
-      files: ['<%= path.source.data %>/{,**/}*.{json,yml}']
+      files: ['<%= path.source.data %>/{,**/}*.{json,yml,js,coffee}']
       tasks: ['nunjucks']
     locales:
       files: ['<%= path.source.locales %>/{,**/}*.po']
