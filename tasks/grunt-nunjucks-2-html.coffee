@@ -523,12 +523,12 @@ module.exports = (grunt) ->
 
           ###*
            * Convert number into currency based on given locale or pattern
-           * @param {number} value                  Number which should be converted
-           * @param {string} format                 Pattern as per http://numbrojs.com/format.html
-           * @param {string} locale = currentLocale Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
+           * @param {number} value                             Number which should be converted
+           * @param {string} format=localeProps.currencyFormat Pattern as per http://numbrojs.com/format.html
+           * @param {string} locale = currentLocale            Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
            * @return {string} Number with currency symbol in proper position
           ###
-          env.addFilter 'currency', (value, format, locale = currentLocale) ->
+          env.addFilter 'currency', (value, format = localeProps.currencyFormat, locale = currentLocale) ->
             numbro.setLanguage(locale)
             numbro(value).formatCurrency(format)
 
