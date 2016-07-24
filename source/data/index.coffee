@@ -31,7 +31,7 @@ module.exports = (grunt) ->
 
       when baseLocale then data
 
-      when 'ru-RU' then _.merge data,
+      when 'ru-RU' then _.merge {}, data,
         site:
           pages: grunt.file.readYAML 'source/data/pages_ru-RU.yml'
 
