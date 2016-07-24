@@ -30,7 +30,6 @@ module.exports = (grunt) ->
       locales           : grunt.config('i18n.locales')
       baseLocale        : grunt.config('i18n.baseLocale')
       baseLocaleAsRoot  : true
-    numberDefaultFormat : '0,0[.]00'
     urlify:
       addEToUmlauts     : true
       szToSs            : true
@@ -514,11 +513,11 @@ module.exports = (grunt) ->
            *       * https://github.com/foretagsplatsen/numbro/issues/111
            *       * https://github.com/foretagsplatsen/numbro/issues/112
            * @param {number} value                                   Number which should be formatted
-           * @param {string} format = taskConfig.numberDefaultFormat Pattern as per http://numbrojs.com/format.html
+           * @param {string} format = localeProps.numberFormat       Pattern as per http://numbrojs.com/format.html
            * @param {string} locale = currentLocale                  Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
            * @return {string} Formatted number
           ###
-          env.addFilter 'number', (value, format = taskConfig.numberDefaultFormat, locale = currentLocale) ->
+          env.addFilter 'number', (value, format = localeProps.numberFormat, locale = currentLocale) ->
             numbro.setLanguage(locale)
             numbro(value).format(format)
 
