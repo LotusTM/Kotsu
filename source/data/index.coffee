@@ -1,5 +1,9 @@
+_ = require('lodash')
+
 module.exports = (grunt) ->
-  return {
+  baseLocale = grunt.config('i18n.baseLocale')
+
+  data =
     path:
       # Remove `build/` part from path
       fonts: '<%= grunt.template.process(path.build.fonts).replace(path.build.root + \'/\', \'\') %>'
@@ -20,4 +24,15 @@ module.exports = (grunt) ->
     data:
       currentYear: new Date().getFullYear()
       example: grunt.file.readJSON 'source/data/example.json'
-  }
+
+  return (locale) ->
+
+    switch locale
+
+      when baseLocale then data
+
+      when 'ru-RU' then _.merge data,
+        site:
+          pages: grunt.file.readYAML 'source/data/pages_ru-RU.yml'
+
+      else data

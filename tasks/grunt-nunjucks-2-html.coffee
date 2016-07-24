@@ -11,9 +11,7 @@ module.exports = (grunt) ->
 
   taskConfig =
     autoescape          : false
-    data:
-      all               : '<%= data %>'
-      defaultPages      : grunt.config('data.site.pages')
+    data                : grunt.config('data')
     path:
       build             : grunt.config('path.build.root')
       templates         : grunt.config('path.source.templates')
@@ -30,6 +28,7 @@ module.exports = (grunt) ->
       locales           : grunt.config('i18n.locales')
       baseLocale        : grunt.config('i18n.baseLocale')
       baseLocaleAsRoot  : true
+      gettext           : grunt.config('i18n.gettext')
     urlify:
       addEToUmlauts     : true
       szToSs            : true
@@ -63,13 +62,13 @@ module.exports = (grunt) ->
     failureOutput : taskConfig.urlify.failureOutput
   })
 
+  i18n          = taskConfig.i18n.gettext
+
   locales       = _.map(taskConfig.i18n.locales, 'locale')
   baseLocale    = taskConfig.i18n.baseLocale
 
   buildDir      = taskConfig.path.build
   templatesDir  = taskConfig.path.templates
-
-  i18n = grunt.config('i18n.gettext')
 
   # =======
   # Helpers
@@ -182,15 +181,16 @@ module.exports = (grunt) ->
   Task = ->
     # Define targets, with unique options and files, for each locale
     locales.forEach (currentLocale) =>
-      localeDir   = getLocaleDir(currentLocale)
-      localeProps = getLocaleProps(currentLocale)
+      localeDir     = getLocaleDir(currentLocale)
+      localeProps   = getLocaleProps(currentLocale)
+      localizedData = taskConfig.data(currentLocale)
 
       @[currentLocale] = {}
 
       @[currentLocale].options =
         paths                : taskConfig.path.nunjucksEnv
         autoescape           : taskConfig.autoescape
-        data                 : taskConfig.data.all
+        data                 : localizedData
         configureEnvironment : (env) ->
           # ==========
           # Extensions
@@ -275,13 +275,14 @@ module.exports = (grunt) ->
           ###*
            * Get information about page from specified object.
            * @param {array}  path            Path to page inside `obj`, without `subName`s
-           * @param {object} pages   = taskConfig.data.defaultPages Object with properties of page (titles, meta descriptions, etc.)
-           *                                                        Each page can have sub pages, which should be placed inside property
-           *                                                        named as `subName`
+           * @param {object} pages   = localizedData.site.pages
+           *                                 Object with properties of page (titles, meta descriptions, etc.)
+           *                                 Each page can have sub pages, which should be placed inside property
+           *                                 named as `subName`
            * @param {string} subName = 'sub' Name of property, which holds sub pages
            * @return {object} Contains all page's properties, including it's sub pages
           ###
-          env.addGlobal 'getPage', (path, pages = taskConfig.data.defaultPages, subName = 'sub') ->
+          env.addGlobal 'getPage', (path, pages = localizedData.site.pages, subName = 'sub') ->
             _subbedPath = _.clone(path)
             _i = 1
             _position = 1
