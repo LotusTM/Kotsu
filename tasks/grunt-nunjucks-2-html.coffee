@@ -18,7 +18,6 @@ module.exports = (grunt) ->
       build             : grunt.config('path.build.root')
       templates         : grunt.config('path.source.templates')
       nunjucksEnv       : grunt.config('path.source.templates')
-      locales           : grunt.config('path.source.locales')
     files:
       cwd               : '<%= path.source.templates %>/'
       src               : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
@@ -31,7 +30,6 @@ module.exports = (grunt) ->
       locales           : grunt.config('i18n.locales')
       baseLocale        : grunt.config('i18n.baseLocale')
       baseLocaleAsRoot  : true
-      defaultDomain     : 'messages'
     numberDefaultFormat : '0,0[.]00'
     urlify:
       addEToUmlauts     : true
@@ -53,8 +51,6 @@ module.exports = (grunt) ->
   smartPlurals = require('smart-plurals')
   sprintf      = require('sprintf-js').sprintf
   vsprintf     = require('sprintf-js').vsprintf
-  Gettext      = require('node-gettext')
-  i18n         = new Gettext()
   marked       = require('marked')
   markdown     = require('nunjucks-markdown')
   nunjucks     = require('nunjucks')
@@ -70,11 +66,11 @@ module.exports = (grunt) ->
 
   locales       = _.map(taskConfig.i18n.locales, 'locale')
   baseLocale    = taskConfig.i18n.baseLocale
-  defaultDomain = taskConfig.i18n.defaultDomain
 
   buildDir      = taskConfig.path.build
   templatesDir  = taskConfig.path.templates
-  localesDir    = taskConfig.path.locales
+
+  i18n = grunt.config('i18n.gettext')
 
   # =======
   # Helpers
@@ -171,30 +167,6 @@ module.exports = (grunt) ->
   ###
   isoLocale = (locale) ->
     getLangcode(locale) + '_' + getRegioncode(locale).toUpperCase()
-
-  # ===============
-  # Load l10n files
-  # ===============
-  # @note In native `xgettext` you can set as many domains as you wish per locale. Usually domains
-  #       represented in form of separate l10n files per singe locale. However, `node-gettext` using domains
-  #       for holding locales and switching between them. To workaround that issue, following code will
-  #       interpolate locales and domains for you, as well as strip `LC_MESSAGES` from path.
-  #       `/locale/en/{defaultLocale}.po` will result in `en` domain.
-  #       `/locale/en/nav/bar.po` will result in `en:nav:bar` domain.
-  #       `/locale/en/LC_MESSAGES/nav/bar.po` will result in `en:nav:bar` domain.
-  #       Thus you can switch anytime between both locales and domains.
-  #       Related Github issues:
-  #       * https://github.com/andris9/node-gettext/issues/22
-  #       * https://github.com/LotusTM/Kotsu/issues/45
-  locales.forEach (locale) ->
-    grunt.file.expand({ cwd: localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (filepath) ->
-      defaultDomain = defaultDomain || 'messages'
-
-      domain   = filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(path.extname(filepath), '')
-      domain   = if domain == defaultDomain then locale else locale + ':' + domain
-      messages = grunt.file.read(localesDir + '/' + locale + '/' + filepath, { encoding: null })
-
-      i18n.addTextdomain(domain, messages)
 
   # ====================
   # Construct Grunt Task

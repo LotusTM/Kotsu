@@ -1,7 +1,10 @@
 module.exports = (grunt) ->
   'use strict'
 
-  _ = require('lodash')
+  _       = require('lodash')
+  Gettext = require('node-gettext')
+  i18n    = new Gettext()
+  path    = require('path')
   # Track execution time
   require('time-grunt') grunt
   # Load grunt tasks automatically
@@ -86,7 +89,36 @@ module.exports = (grunt) ->
       ]
       baseLocale: 'en-US'
 
-  grunt.config.set 'i18n.locales.list', _.map(grunt.config('i18n.locales'), 'locale')
+  localesList = _.map(grunt.config('i18n.locales'), 'locale')
+  localesDir  = grunt.config('path.source.locales')
+
+  # ===============
+  # Load l10n files
+  # ===============
+  # @note In native `xgettext` you can set as many domains as you wish per locale. Usually domains
+  #       represented in form of separate l10n files per singe locale. However, `node-gettext` using domains
+  #       for holding locales and switching between them. To workaround that issue, following code will
+  #       interpolate locales and domains for you, as well as strip `LC_MESSAGES` from path.
+  #       `/locale/en/{defaultLocale}.po` will result in `en` domain.
+  #       `/locale/en/nav/bar.po` will result in `en:nav:bar` domain.
+  #       `/locale/en/LC_MESSAGES/nav/bar.po` will result in `en:nav:bar` domain.
+  #       Thus you can switch anytime between both locales and domains.
+  #       Related Github issues:
+  #       * https://github.com/andris9/node-gettext/issues/22
+  #       * https://github.com/LotusTM/Kotsu/issues/45
+  localesList.forEach (locale) ->
+    grunt.file.expand({ cwd: localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (filepath) ->
+      defaultDomain = 'messages'
+
+      domain   = filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(path.extname(filepath), '')
+      domain   = if domain == defaultDomain then locale else locale + ':' + domain
+      messages = grunt.file.read(localesDir + '/' + locale + '/' + filepath, { encoding: null })
+
+      i18n.addTextdomain(domain, messages)
+
+  grunt.config.set 'i18n.gettext', i18n
+  grunt.config.set 'i18n.locales.list', localesList
+
   grunt.config.set 'data', require('./' + grunt.config('path.source.data'))(grunt)
 
   grunt.loadTasks 'tasks'
