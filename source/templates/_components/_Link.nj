@@ -44,7 +44,7 @@
   {% set linkBreadcrumb = pathBreadcrumb(to) %}
 
   {# Check whether specified path has defined overriding `href` property in `pages.yml` #}
-  {% set href = getPage(linkBreadcrumb).href %}
+  {% set href = getPage(linkBreadcrumb).props.href %}
   {% set isAbsoluteHref = true if _.startsWith(href, '/') else false %}
 
   {# @todo Add support of relative paths #}

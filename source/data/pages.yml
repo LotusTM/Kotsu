@@ -1,27 +1,31 @@
 ---
 index:
-  pageTitle:       Kotsu Web Starter Kit
-  breadcrumbTitle: Home
-  contentTitle:    false
-  navTitle:        Home
-  metaDesc:        Generated with %(company)s demo homepage
-  href:            /
+  props:
+    href:            /
+    pageTitle:       Kotsu Web Starter Kit
+    breadcrumbTitle: Home
+    contentTitle:    false
+    navTitle:        Home
+    metaDesc:        Generated with %(company)s demo homepage
 
 examples:
-  pageTitle:       Examples
-  breadcrumbTitle: Examples
-  contentTitle:    Examples
-  navTitle:        Examples
-  metaDesc:        '%(company)s examples'
+  props:
+    pageTitle:       Examples
+    breadcrumbTitle: Examples
+    contentTitle:    Examples
+    navTitle:        Examples
+    metaDesc:        '%(company)s examples'
 
 blog:
-  pageTitle:       Blog
-  breadcrumbTitle: Blog
-  contentTitle:    '%(company)s blog'
-  navTitle:        Blog
-  metaDesc:        '%(company)s blog'
-  sub:
-    2015-10-12-example-article:
+  props:
+    pageTitle:       Blog
+    breadcrumbTitle: Blog
+    contentTitle:    '%(company)s blog'
+    navTitle:        Blog
+    metaDesc:        '%(company)s blog'
+
+  2015-10-12-example-article:
+    props:
       pageTitle:       Example article
       breadcrumbTitle: Example article
       contentTitle:    Example article
@@ -32,9 +36,10 @@ blog:
       date:            2015-10-12T14:48:00
 
 404:
-  pageTitle:       404 — page not found
-  breadcrumbTitle: 404
-  contentTitle:    false
-  navTitle:        404
-  metaDesc:        404 — page not found
-  href:            /404.html
+  props:
+    href:            /404.html
+    pageTitle:       404 — page not found
+    breadcrumbTitle: 404
+    contentTitle:    false
+    navTitle:        404
+    metaDesc:        404 — page not found

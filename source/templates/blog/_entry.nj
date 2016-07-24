@@ -15,7 +15,7 @@
 
 
 <footer class='h-opacity--30 h-bleed-top h-margin-bottom+ h-align--center'>
-  {{ moment(getPage(page.breadcrumb).date).format('lll') }} — {{ getPage(page.breadcrumb).author }}
+  {{ moment(getPage(page.breadcrumb).props.date).format('lll') }} — {{ getPage(page.breadcrumb).props.author }}
 </footer>
 
 

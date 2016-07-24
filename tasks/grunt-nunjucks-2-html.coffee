@@ -273,25 +273,15 @@ module.exports = (grunt) ->
               return ctx[prop]
 
           ###*
-           * Get information about page from specified object.
-           * @param {array}  path            Path to page inside `obj`, without `subName`s
-           * @param {object} pages   = localizedData.site.pages
-           *                                 Object with properties of page (titles, meta descriptions, etc.)
-           *                                 Each page can have sub pages, which should be placed inside property
-           *                                 named as `subName`
-           * @param {string} subName = 'sub' Name of property, which holds sub pages
+           * Get information about page and its childs from specified object.
+           * @param {array}  path                              Path to page inside `obj`
+           * @param {object} pages = localizedData.site.pages  Object with properties of page and its childs
            * @return {object} Contains all page's properties, including it's sub pages
           ###
-          env.addGlobal 'getPage', (path, pages = localizedData.site.pages, subName = 'sub') ->
-            _subbedPath = _.clone(path)
-            _i = 1
-            _position = 1
-            while _i < path.length
-              _position = if (_i > 1) then _position + 2 else _position
-              _subbedPath.splice(_position, 0, subName)
-              _i++
-            _result = _.get(pages, _subbedPath)
-            if _result then _result else grunt.log.error('[getPage] can\'t find requested `' + _subbedPath + '` inside specified object', '[' + this.ctx.page.url + ']')
+          env.addGlobal 'getPage', (path, pages = localizedData.site.pages) ->
+            _result = _.get(pages, path)
+            Object.defineProperty _result, 'props', enumerable: false
+            if _result then _result else grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + this.ctx.page.url + ']')
 
           ###*
            * Explodes string into array breadcrumb. See `pathBreadcrumb` helper for details

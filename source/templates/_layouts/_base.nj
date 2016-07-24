@@ -14,9 +14,9 @@
 {{ config('page', {
   breadcrumb     : page.breadcrumb,
 
-  title          : getPage(page.breadcrumb).pageTitle   |template(globalPlaceholders),
-  metaDesc       : getPage(page.breadcrumb).metaDesc    |template(globalPlaceholders),
-  contentTitle   : getPage(page.breadcrumb).contentTitle|template(globalPlaceholders),
+  title          : getPage(page.breadcrumb).props.pageTitle   |template(globalPlaceholders),
+  metaDesc       : getPage(page.breadcrumb).props.metaDesc    |template(globalPlaceholders),
+  contentTitle   : getPage(page.breadcrumb).props.contentTitle|template(globalPlaceholders),
 
   class          : '',
   applyWrapper   : false,

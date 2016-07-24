@@ -10,20 +10,20 @@
 
 {% block main %}
 
-  {% for slug, post in getPage(page.breadcrumb).sub %}
+  {% for slug, post in getPage(page.breadcrumb) %}
     <article class='h-margin-top+'>
 
       <h2 class='h-h3 h-margin-bottom0'>
-        <a href='{{ localeDir() }}/blog/{{ slug }}'>{{ post.contentTitle|template(globalPlaceholders) }}</a>
+        <a href='{{ localeDir() }}/blog/{{ slug }}'>{{ post.props.contentTitle|template(globalPlaceholders) }}</a>
       </h2>
 
       <p class='h-text- h-margin-bottom-'>
-        <time datetime='{{ post.date }}'>{{ moment(post.date).format('lll') }}</time>
+        <time datetime='{{ post.props.date }}'>{{ moment(post.props.date).format('lll') }}</time>
         -
-        {{ post.author }}
+        {{ post.props.author }}
       </p>
 
-      <p>{{ post.shortDesc|template(globalPlaceholders) }}</p>
+      <p>{{ post.props.shortDesc|template(globalPlaceholders) }}</p>
 
       <p>
         <a class='o-btn h-text- g-link--go' href='{{ localeDir() }}/blog/{{ slug }}'>Read more</a>

@@ -1,27 +1,31 @@
 ---
 index:
-  pageTitle:       Kotsu Web Starter Kit
-  breadcrumbTitle: Главная
-  contentTitle:    false
-  navTitle:        Главная
-  metaDesc:        Демонстрационная страница, сгенерированная с помощью %(company)s
-  href:            /
+  props:
+    href:            /
+    pageTitle:       Kotsu Web Starter Kit
+    breadcrumbTitle: Главная
+    contentTitle:    false
+    navTitle:        Главная
+    metaDesc:        Демонстрационная страница, сгенерированная с помощью %(company)s
 
 examples:
-  pageTitle:       Примеры
-  breadcrumbTitle: Примеры
-  contentTitle:    Примеры
-  navTitle:        Примеры
-  metaDesc:        'Примеры %(company)s'
+  props:
+    pageTitle:       Примеры
+    breadcrumbTitle: Примеры
+    contentTitle:    Примеры
+    navTitle:        Примеры
+    metaDesc:        'Примеры %(company)s'
 
 blog:
-  pageTitle:       Блог
-  breadcrumbTitle: Блог
-  contentTitle:    'Блог %(company)s'
-  navTitle:        Блог
-  metaDesc:        'Блог %(company)s'
-  sub:
-    2015-10-12-example-article:
+  props:
+    pageTitle:       Блог
+    breadcrumbTitle: Блог
+    contentTitle:    'Блог %(company)s'
+    navTitle:        Блог
+    metaDesc:        'Блог %(company)s'
+
+  2015-10-12-example-article:
+    props:
       pageTitle:       Демонстрационный пост
       breadcrumbTitle: Демонстрационный пост
       contentTitle:    Демонстрационный пост
@@ -32,9 +36,10 @@ blog:
       date:            2015-10-12T14:48:00
 
 404:
-  pageTitle:       404 — страница не найдена
-  breadcrumbTitle: 404
-  contentTitle:    false
-  navTitle:        404
-  metaDesc:        404 — страница не найдена
-  href:            /404.html
+  props:
+    href:            /404.html
+    pageTitle:       404 — страница не найдена
+    breadcrumbTitle: 404
+    contentTitle:    false
+    navTitle:        404
+    metaDesc:        404 — страница не найдена

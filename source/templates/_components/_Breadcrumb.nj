@@ -15,7 +15,7 @@
  # @param {object} pages           = site.pages   Complex object with information about all page,
  #                                                where component will look for data based on
  #                                                provided breadcrumb
- # @param {string} rootTitle       = getPage(['index']).breadcrumbTitle
+ # @param {string} rootTitle       = getPage(['index']).props.breadcrumbTitle
  #                                                Title for root element
  #
  # @return {string} Generated `ul` with breadcrumb
@@ -31,7 +31,7 @@
   displayLast     = true,
   breadcrumb      = page.breadcrumb,
   pages           = site.pages,
-  rootTitle       = getPage(['index']).breadcrumbTitle
+  rootTitle       = getPage(['index']).props.breadcrumbTitle
 ) %}
   <ul class='{{ class }}'>
 
@@ -48,24 +48,24 @@
 
       {% else %}
 
-        {% set crumb = crumb.sub[key] %}
+        {% set crumb = crumb[key] %}
         {% set href  = href + '/' + key %}
 
       {% endif %}
 
-      {% if loop.last and not crumb.href %}
+      {% if loop.last and not crumb.props.href %}
 
         {% if displayLast %}
 
-          <li class='{{ itemsClass }}'>{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</li>
+          <li class='{{ itemsClass }}'>{{ crumb.props.breadcrumbTitle|template(globalPlaceholders) }}</li>
 
         {% endif %}
 
       {# @todo Needs better way to handle aliases #}
-      {% elif not crumb.href %}
+      {% elif not crumb.props.href %}
 
         <li class='{{ itemsClass }}'>
-          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ '/' + href if key.href == undefined else key.href }}'>{{ crumb.breadcrumbTitle|template(globalPlaceholders) }}</a>
+          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ '/' + href if key.href == undefined else key.href }}'>{{ crumb.props.breadcrumbTitle|template(globalPlaceholders) }}</a>
         </li>
 
       {% endif %}
