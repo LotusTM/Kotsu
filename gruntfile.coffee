@@ -1,10 +1,10 @@
 module.exports = (grunt) ->
   'use strict'
 
-  _       = require('lodash')
-  Gettext = require('node-gettext')
-  i18n    = new Gettext()
-  path    = require('path')
+  _           = require('lodash')
+  NodeGettext = require('node-gettext')
+  gettext     = new NodeGettext()
+  path        = require('path')
   # Track execution time
   require('time-grunt') grunt
   # Load grunt tasks automatically
@@ -111,9 +111,9 @@ module.exports = (grunt) ->
       domain   = if domain == defaultDomain then locale else locale + ':' + domain
       messages = grunt.file.read(localesDir + '/' + locale + '/' + filepath, { encoding: null })
 
-      i18n.addTextdomain(domain, messages)
+      gettext.addTextdomain(domain, messages)
 
-  grunt.config.set 'i18n.gettext', i18n
+  grunt.config.set 'i18n.gettext', gettext
   grunt.config.set 'i18n.locales.list', localesList
 
   grunt.config.set 'data', require('./' + grunt.config('path.source.data'))(grunt)
