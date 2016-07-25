@@ -39,7 +39,7 @@
       {% if locale == page.locale %}
         {{ locale }} (current)
       {% else %}
-        <a href='{{ localeDir(locale) }}/{{ page.url }}'>{{ locale }}</a>
+        <a href='{{ localeDir(locale) }}{{ page.href }}'>{{ locale }}</a>
       {% endif %}
     </li>
   {% endfor %}

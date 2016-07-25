@@ -282,7 +282,7 @@ module.exports = (grunt) ->
             if _result
               Object.defineProperty _result, 'props', enumerable: false
               return _result
-            else grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + this.ctx.page.url + ']')
+            else grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + this.ctx.page.href + ']')
 
           ###*
            * Explodes string into array breadcrumb. See `pathBreadcrumb` helper for details
