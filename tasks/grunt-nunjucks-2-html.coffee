@@ -546,7 +546,7 @@ module.exports = (grunt) ->
           data.page.language   = getLangcode(currentLocale)
           data.page.region     = getRegioncode(currentLocale)
           data.page.rtl        = localeProps.rtl
-          data.page.url        = if pagedir == '.' then '' else pagedir
+          data.page.href       = if pagedir == '.' then '/' else '/' + pagedir
           data.page.breadcrumb = pathBreadcrumb(pagepath)
           data.page.basename   = pagebasename
           data.page.dirname    = pagedirname
