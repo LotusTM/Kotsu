@@ -93,18 +93,15 @@ module.exports = (grunt) ->
 
   ###*
    * Explodes string path into array breadcrumb
-   * @param  {string} path Relative or absolute path
-   * @return {array}       Array, which consists of path's fragments
+   * @param  {string} to Relative or absolute path
+   * @return {array}     Array, which consists of path's fragments
   ###
-  pathBreadcrumb = (path) ->
-    path = _.trimStart(path, '/')
-    path = _.trimEnd(path, '/')
-
-    breadcrumb = _.split(path, '/')
-
-    # For cases, when path matches root, explicitely set breadcrumb to `index`
-    if breadcrumb.length == 1 and breadcrumb[0] == ''
+  pathBreadcrumb = (to) ->
+    if to == '/'
       breadcrumb = ['index']
+    else
+      extname    = path.extname(to)
+      breadcrumb = _.chain(to).trimStart('/').trimEnd('/').trimEnd(extname).split('/').value()
 
     return breadcrumb
 
