@@ -103,6 +103,8 @@ module.exports = (grunt) ->
       extname    = path.extname(to)
       breadcrumb = _.chain(to).trimStart('/').trimEnd('/').trimEnd(extname).split('/').value()
 
+      if breadcrumb.length >= 2 and _.last(breadcrumb) == 'index' then breadcrumb.pop()
+
     return breadcrumb
 
   ###*
