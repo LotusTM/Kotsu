@@ -2,7 +2,7 @@
 index:
   props:
     href:            /
-    pageTitle:       Kotsu Web Starter Kit
+    title:           Kotsu Web Starter Kit
     breadcrumbTitle: Главная
     contentTitle:    false
     navTitle:        Главная
@@ -10,7 +10,7 @@ index:
 
 examples:
   props:
-    pageTitle:       Примеры
+    title:           Примеры
     breadcrumbTitle: Примеры
     contentTitle:    Примеры
     navTitle:        Примеры
@@ -18,7 +18,7 @@ examples:
 
 blog:
   props:
-    pageTitle:       Блог
+    title:           Блог
     breadcrumbTitle: Блог
     contentTitle:    'Блог %(company)s'
     navTitle:        Блог
@@ -26,7 +26,7 @@ blog:
 
   2015-10-12-example-article:
     props:
-      pageTitle:       Демонстрационный пост
+      title:           Демонстрационный пост
       breadcrumbTitle: Демонстрационный пост
       contentTitle:    Демонстрационный пост
       navTitle:        Демонстрационный пост
@@ -38,7 +38,7 @@ blog:
 404:
   props:
     href:            /404.html
-    pageTitle:       404 — страница не найдена
+    title:           404 — страница не найдена
     breadcrumbTitle: 404
     contentTitle:    false
     navTitle:        404
