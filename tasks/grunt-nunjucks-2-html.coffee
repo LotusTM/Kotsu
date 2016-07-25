@@ -279,8 +279,10 @@ module.exports = (grunt) ->
           ###
           env.addGlobal 'getPage', (path, pages = localizedData.site.pages) ->
             _result = _.get(pages, path)
-            Object.defineProperty _result, 'props', enumerable: false
-            if _result then _result else grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + this.ctx.page.url + ']')
+            if _result
+              Object.defineProperty _result, 'props', enumerable: false
+              return _result
+            else grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + this.ctx.page.url + ']')
 
           ###*
            * Explodes string into array breadcrumb. See `pathBreadcrumb` helper for details
