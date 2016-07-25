@@ -12,9 +12,6 @@
  # @param {bool}   displayLast     = true         Display last crumb or not
  # @param {array}  breadcrumb      = page.breadcrumb
  #                                                Breadcrumb in form of array to iterate upon
- # @param {object} pages           = site.pages   Complex object with information about all page,
- #                                                where component will look for data based on
- #                                                provided breadcrumb
  # @param {string} rootTitle       = getPage(['index']).props.breadcrumbTitle
  #                                                Title for root element
  #
@@ -30,7 +27,6 @@
   rootAnchorClass = '',
   displayLast     = true,
   breadcrumb      = page.breadcrumb,
-  pages           = site.pages,
   rootTitle       = getPage(['index']).props.breadcrumbTitle
 ) %}
   <ul class='{{ class }}'>
@@ -39,34 +35,22 @@
       <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}/'>{{ rootTitle|template(globalPlaceholders) }}</a>
     </li>
 
-    {% for key in breadcrumb %}
+    {% for crumb in breadcrumb %}
 
-      {% if loop.index0 == 0 %}
+      {% set currentCrumb = [crumb] if loop.index0 == 0 else currentCrumb|pushIn(crumb)  %}
+      {% set crumbProps   = getPage(currentCrumb).props %}
+      {% set title        = crumbProps.breadcrumbTitle|template(globalPlaceholders) %}
+      {% set href         = crumb if loop.index0 == 0 else href + '/' + crumb %}
 
-        {% set crumb = pages[key] %}
-        {% set href  = key %}
-
-      {% else %}
-
-        {% set crumb = crumb[key] %}
-        {% set href  = href + '/' + key %}
-
-      {% endif %}
-
-      {% if loop.last and not crumb.props.href %}
-
-        {% if displayLast %}
-
-          <li class='{{ itemsClass }}'>{{ crumb.props.breadcrumbTitle|template(globalPlaceholders) }}</li>
-
-        {% endif %}
-
-      {# @todo Needs better way to handle aliases #}
-      {% elif not crumb.props.href %}
+      {% if not loop.last %}
 
         <li class='{{ itemsClass }}'>
-          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ '/' + href if key.href == undefined else key.href }}'>{{ crumb.props.breadcrumbTitle|template(globalPlaceholders) }}</a>
+          <a class='{{ anchorsClass }}' href='{{ localeDir() }}/{{ href }}'>{{ title }}</a>
         </li>
+
+      {% elif displayLast %}
+
+        <li class='{{ itemsClass }}'>{{ title }}</li>
 
       {% endif %}
 
