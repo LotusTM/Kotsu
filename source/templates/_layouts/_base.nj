@@ -1,10 +1,4 @@
 {# --------- #}
-{# Call macros globally #}
-{% set components = {} %}
-{% for component in expand('/', '_components/{,**/}_*.nj', 'isFile', path.source.templates) %}
-  {% import component as temp with context %}{% set macro = _.assign(components, temp) %}
-{% endfor %}
-
 {# Set global placeholders values for `template` #}
 {% set globalPlaceholders = {
   company: site.name
@@ -22,6 +16,12 @@
   showBreadcrumb : true,
   showSidebar    : false
 }) }}
+
+{# Call macros globally #}
+{% set components = {} %}
+{% for component in expand('/', '_components/{,**/}_*.nj', 'isFile', path.source.templates) %}
+  {% import component as temp with context %}{% set macro = _.assign(components, temp) %}
+{% endfor %}
 {# --------- #}
 
 
