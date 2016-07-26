@@ -16,6 +16,8 @@
   showBreadcrumb : true,
   showSidebar    : false
 }) }}
+{{ config('page', getPage(page.breadcrumb).props) }}
+{{ config('page', page.props) }}
 
 {# Call macros globally #}
 {% set components = {} %}
