@@ -14,7 +14,7 @@
     <article class='h-margin-top+'>
 
       <h2 class='h-h3 h-margin-bottom0'>
-        <a href='{{ localeDir() }}/blog/{{ slug }}'>{{ post.props.contentTitle|template(globalPlaceholders) }}</a>
+        <a href='{{ localeDir() }}/blog/{{ slug }}'>{{ post.props.contentTitle|template(site.placeholders) }}</a>
       </h2>
 
       <p class='h-text- h-margin-bottom-'>
@@ -23,7 +23,7 @@
         {{ post.props.author }}
       </p>
 
-      <p>{{ post.props.shortDesc|template(globalPlaceholders) }}</p>
+      <p>{{ post.props.shortDesc|template(site.placeholders) }}</p>
 
       <p>
         <a class='o-btn h-text- g-link--go' href='{{ localeDir() }}/blog/{{ slug }}'>Read more</a>

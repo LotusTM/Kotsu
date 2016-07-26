@@ -32,14 +32,14 @@
   <ul class='{{ class }}'>
 
     <li class='{{ itemsClass }} {{ rootItemClass }}'>
-      <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}/'>{{ rootTitle|template(globalPlaceholders) }}</a>
+      <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}/'>{{ rootTitle|template(site.placeholders) }}</a>
     </li>
 
     {% for crumb in breadcrumb %}
 
       {% set currentCrumb = [crumb] if loop.index0 == 0 else currentCrumb|pushIn(crumb)  %}
       {% set crumbProps   = getPage(currentCrumb).props %}
-      {% set title        = crumbProps.breadcrumbTitle|template(globalPlaceholders) %}
+      {% set title        = crumbProps.breadcrumbTitle|template(site.placeholders) %}
       {% set href         = crumb if loop.index0 == 0 else href + '/' + crumb %}
 
       {% if not loop.last %}

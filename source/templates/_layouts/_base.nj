@@ -1,15 +1,15 @@
 {# --------- #}
 {# Set global placeholders values for `template` #}
-{% set globalPlaceholders = {
+{{ config('site.placeholders', {
   company: site.name
-} %}
+}) }}
 
 {# Set defaults #}
 {{ config('page', { breadcrumb : page.props.breadcrumb }) }}
 {{ config('page', {
-  title          : getPage(page.breadcrumb).props.title       |template(globalPlaceholders),
-  metaDesc       : getPage(page.breadcrumb).props.metaDesc    |template(globalPlaceholders),
-  contentTitle   : getPage(page.breadcrumb).props.contentTitle|template(globalPlaceholders),
+  title          : getPage(page.breadcrumb).props.title       |template(site.placeholders),
+  metaDesc       : getPage(page.breadcrumb).props.metaDesc    |template(site.placeholders),
+  contentTitle   : getPage(page.breadcrumb).props.contentTitle|template(site.placeholders),
 
   class          : '',
   applyWrapper   : false,
