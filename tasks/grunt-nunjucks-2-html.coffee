@@ -539,19 +539,20 @@ module.exports = (grunt) ->
           pagedirname  = path.basename(pagedir)
           pagebasename = path.basename(pagepath, path.extname(pagepath))
 
-          data.page = data.page || {}
+          data.page       = data.page || {}
+          data.page.props = data.page.props || {}
 
-          data.page.locale     = currentLocale
-          data.page.isoLocale  = isoLocale(currentLocale)
-          data.page.language   = getLangcode(currentLocale)
-          data.page.region     = getRegioncode(currentLocale)
-          data.page.rtl        = localeProps.rtl
-          data.page.href       = if pagedir == '.' then '/' else '/' + pagedir
-          data.page.breadcrumb = pathBreadcrumb(pagepath)
-          data.page.basename   = pagebasename
-          data.page.dirname    = pagedirname
+          data.page.props.locale     = currentLocale
+          data.page.props.isoLocale  = isoLocale(currentLocale)
+          data.page.props.language   = getLangcode(currentLocale)
+          data.page.props.region     = getRegioncode(currentLocale)
+          data.page.props.rtl        = localeProps.rtl
+          data.page.props.href       = if pagedir == '.' then '/' else '/' + pagedir
+          data.page.props.breadcrumb = pathBreadcrumb(pagepath)
+          data.page.props.basename   = pagebasename
+          data.page.props.dirname    = pagedirname
 
-          data
+          return data
 
       @[currentLocale].files =  [
         expand: true
