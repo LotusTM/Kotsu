@@ -255,7 +255,7 @@ module.exports = (grunt) ->
             valueIsObject = typeof value == 'object' and value and not Array.isArray(value)
 
             # Set if `value` provided
-            if value
+            if value != undefined
 
               if not valueIsObject or not merge or not ctx.hasOwnProperty(prop)
                 _.set(ctx, prop, value)
