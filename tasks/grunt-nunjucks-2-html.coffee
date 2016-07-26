@@ -261,7 +261,7 @@ module.exports = (grunt) ->
               if not merge or not ctx.hasOwnProperty(prop)
                 _.set(ctx, prop, value)
               else if ctx.hasOwnProperty(prop)
-                result = if valueIsObject then Object.assign(value, ctx[prop]) else if valueIsArray then _.union(value, ctx[prop]) else ctx[prop]
+                result = if valueIsObject then _.merge(value, ctx[prop]) else if valueIsArray then _.union(value, ctx[prop]) else ctx[prop]
                 _.set(ctx, prop, result)
 
               return
