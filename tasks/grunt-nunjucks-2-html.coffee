@@ -266,7 +266,7 @@ module.exports = (grunt) ->
               return
 
             # Get if no `value` provided
-            else return _.get(prop, prop)
+            else return _.get(ctx, prop)
 
           ###*
            * Get information about page and its childs from specified object.
