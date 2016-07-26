@@ -11,9 +11,8 @@
 } %}
 
 {# Set defaults #}
+{{ config('page', { breadcrumb : page.breadcrumb }) }}
 {{ config('page', {
-  breadcrumb     : page.breadcrumb,
-
   title          : getPage(page.breadcrumb).props.title       |template(globalPlaceholders),
   metaDesc       : getPage(page.breadcrumb).props.metaDesc    |template(globalPlaceholders),
   contentTitle   : getPage(page.breadcrumb).props.contentTitle|template(globalPlaceholders),
