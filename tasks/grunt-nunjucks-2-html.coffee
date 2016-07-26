@@ -252,7 +252,8 @@ module.exports = (grunt) ->
           ###
           env.addGlobal 'config', (prop, value, merge = true) ->
             ctx           = this.ctx
-            valueIsObject = typeof value == 'object' and value and not Array.isArray(value)
+            valueIsArray  = Array.isArray(value)
+            valueIsObject = typeof value == 'object' and value and not valueIsArray
 
             # Set if `value` provided
             if value != undefined
@@ -260,7 +261,7 @@ module.exports = (grunt) ->
               if not merge or not ctx.hasOwnProperty(prop)
                 _.set(ctx, prop, value)
               else if ctx.hasOwnProperty(prop)
-                result = if valueIsObject then Object.assign(value, ctx[prop]) else ctx[prop]
+                result = if valueIsObject then Object.assign(value, ctx[prop]) else if valueIsArray then _.union(value, ctx[prop]) else ctx[prop]
                 _.set(ctx, prop, result)
 
               return
