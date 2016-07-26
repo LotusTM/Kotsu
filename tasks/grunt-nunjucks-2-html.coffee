@@ -245,31 +245,28 @@ module.exports = (grunt) ->
            * defined on parent, it will extend it, unless `merge` set to false.
            * If no `value` will be provided, it will return value of specified property.
            * Works similar to `grunt.config()`
-           * @param  {string} prop         Prop name on which should be set `value`
-           *                               Returns `prop` if `value` not set
-           * @param  {*}      value        Value to set on specified `prop`
+           * @param  {string|array} prop   Prop name or path on which should be set `value`
+           * @param  {*}      value        Value to be set on specified `prop`
            * @param  {bool}   merge = true Should config extend already existing same prop or no
-           * @return {*}                   Value of `prop`
+           * @return {*}                   Value of `prop` if no `value` specified
           ###
           env.addGlobal 'config', (prop, value, merge = true) ->
             ctx           = this.ctx
             valueIsObject = typeof value == 'object' and value and not Array.isArray(value)
 
-            # Set in case `value` provided
+            # Set if `value` provided
             if value
 
               if not valueIsObject or not merge or not ctx.hasOwnProperty(prop)
-                ctx[prop] = value
-              else
-                if ctx.hasOwnProperty(prop)
-                  result = Object.assign(value, ctx[prop])
-                  ctx[prop] = result
+                _.set(ctx, prop, value)
+              else if ctx.hasOwnProperty(prop)
+                result = Object.assign(value, ctx[prop])
+                _.set(ctx, prop, result)
 
               return
 
             # Get if no `value` provided
-            else
-              return ctx[prop]
+            else return _.get(prop, prop)
 
           ###*
            * Get information about page and its childs from specified object.
