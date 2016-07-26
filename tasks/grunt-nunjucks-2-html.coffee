@@ -257,10 +257,10 @@ module.exports = (grunt) ->
             # Set if `value` provided
             if value != undefined
 
-              if not valueIsObject or not merge or not ctx.hasOwnProperty(prop)
+              if not merge or not ctx.hasOwnProperty(prop)
                 _.set(ctx, prop, value)
               else if ctx.hasOwnProperty(prop)
-                result = Object.assign(value, ctx[prop])
+                result = if valueIsObject then Object.assign(value, ctx[prop]) else ctx[prop]
                 _.set(ctx, prop, result)
 
               return
