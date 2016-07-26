@@ -12,14 +12,11 @@ module.exports = (grunt) ->
   taskConfig =
     autoescape          : false
     data                : grunt.config('data')
-    path:
-      build             : grunt.config('path.build.root')
-      templates         : grunt.config('path.source.templates')
-      nunjucksEnv       : grunt.config('path.source.templates')
+    nunjucksEnv         : grunt.config('path.source.templates')
     files:
-      cwd               : '<%= path.source.templates %>/'
+      cwd               : grunt.config('path.source.templates') + '/'
       src               : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
-      dest              : '<%= path.build.root %>/'
+      dest              : grunt.config('path.build.root') + '/'
       ext               : '.html'
     humanReadableUrls:
       enabled           : true
@@ -67,8 +64,8 @@ module.exports = (grunt) ->
   locales       = _.map(taskConfig.i18n.locales, 'locale')
   baseLocale    = taskConfig.i18n.baseLocale
 
-  buildDir      = taskConfig.path.build
-  templatesDir  = taskConfig.path.templates
+  buildDir      = taskConfig.files.dest
+  templatesDir  = taskConfig.files.cwd
 
   # =======
   # Helpers
@@ -187,7 +184,7 @@ module.exports = (grunt) ->
       @[currentLocale] = {}
 
       @[currentLocale].options =
-        paths                : taskConfig.path.nunjucksEnv
+        paths                : taskConfig.nunjucksEnv
         autoescape           : taskConfig.autoescape
         data                 : localizedData
         configureEnvironment : (env) ->
@@ -234,7 +231,7 @@ module.exports = (grunt) ->
            * @param {string}               cwd     = buildDir + '/' Root for lookup
            * @return {array} Array of found files or directories
           ###
-          env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir + '/') ->
+          env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir) ->
             _files = []
             grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (_file) ->
               _files.push(_file)
@@ -533,7 +530,7 @@ module.exports = (grunt) ->
             ulrlify(string, options)
 
         preprocessData: (data) ->
-          pagepath     = humanReadableUrl(@src[0].replace(templatesDir + '/', ''))
+          pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''))
           pagedir      = path.dirname(pagepath)
           pagedirname  = path.basename(pagedir)
           pagebasename = path.basename(pagepath, path.extname(pagepath))
