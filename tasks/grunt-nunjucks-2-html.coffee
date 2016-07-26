@@ -252,22 +252,23 @@ module.exports = (grunt) ->
           ###
           env.addGlobal 'config', (prop, value, merge = true) ->
             ctx           = this.ctx
+            ctxValue      = _.get(ctx, prop)
             valueIsArray  = Array.isArray(value)
             valueIsObject = typeof value == 'object' and value and not valueIsArray
 
             # Set if `value` provided
             if value != undefined
 
-              if not merge or not ctx.hasOwnProperty(prop)
+              if not merge or not ctxValue
                 _.set(ctx, prop, value)
-              else if ctx.hasOwnProperty(prop)
-                result = if valueIsObject then _.merge(value, ctx[prop]) else if valueIsArray then _.union(value, ctx[prop]) else ctx[prop]
+              else
+                result = if valueIsObject then _.merge(value, ctxValue) else if valueIsArray then _.union(value, ctxValue) else ctxValue
                 _.set(ctx, prop, result)
 
               return
 
             # Get if no `value` provided
-            else return _.get(ctx, prop)
+            else return ctxValue
 
           ###*
            * Get information about page and its childs from specified object.
