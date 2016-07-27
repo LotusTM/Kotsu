@@ -30,8 +30,15 @@ module.exports = (grunt) ->
 
           @gettext.addTextdomain(domain, messages)
 
+    resolveDomain: (domain) ->
+      if domain.charAt(0) == ':' then @gettext.textdomain() + domain else domain
+
+    textdomain: (domain) ->
+      @gettext.textdomain(@resolveDomain(domain))
+
     installNunjucksGlobals: (env, currentLocale) ->
-      gettext = @gettext
+
+      @textdomain(currentLocale)
 
       # --------------
       # i18n functions
@@ -42,8 +49,8 @@ module.exports = (grunt) ->
       * @param {string} string          String, which should be loaded
       * @return {string} Translated string into current locale
       ###
-      env.addGlobal 'gettext', (string) ->
-        gettext.dgettext(currentLocale, string)
+      env.addGlobal 'gettext', (string) =>
+        @gettext.gettext(string)
 
       ###*
        * Load string from specified domain
@@ -53,9 +60,8 @@ module.exports = (grunt) ->
        * @param {string} string                 String, which should be loaded
        * @return {string} Translated string into specified locale
       ###
-      env.addGlobal 'dgettext', (domain = currentLocale, string) ->
-        domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-        gettext.dgettext(domain, string)
+      env.addGlobal 'dgettext', (domain, string) =>
+        @gettext.dgettext(@resolveDomain(domain), string)
 
       ###*
       * Load plural string from current locale
@@ -64,8 +70,8 @@ module.exports = (grunt) ->
       * @param {number} count           Count for detecting correct plural form
       * @return {string} Pluralized and translated into current locale string
       ###
-      env.addGlobal 'ngettext', (string, pluralString, count) ->
-        gettext.dngettext(currentLocale, string, pluralString, count)
+      env.addGlobal 'ngettext', (string, pluralString, count) =>
+        @gettext.ngettext(string, pluralString, count)
 
       ###*
        * Load plural string from specified domain
@@ -77,9 +83,8 @@ module.exports = (grunt) ->
        * @param {number} count                  Count for detecting correct plural form
        * @return {string} Pluralized and translated into specified loca stringle
       ###
-      env.addGlobal 'dngettext', (domain = currentLocale, string, pluralString, count) ->
-        domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-        gettext.dngettext(domain, string, pluralString, count)
+      env.addGlobal 'dngettext', (domain, string, pluralString, count) =>
+        @gettext.dngettext(@resolveDomain(domain), string, pluralString, count)
 
       ###*
       * Load string of specific context from current locale
@@ -87,8 +92,8 @@ module.exports = (grunt) ->
       * @param {string} string          String, which should be loaded
       * @return {string} Translated string into current locale
       ###
-      env.addGlobal 'pgettext', (context, string) ->
-        gettext.dpgettext(currentLocale, context, string)
+      env.addGlobal 'pgettext', (context, string) =>
+        @gettext.pgettext(context, string)
 
       ###*
        * Load string of specific context from specified domain
@@ -99,9 +104,8 @@ module.exports = (grunt) ->
        * @param {string} string                 String, which should be loaded
        * @return {string} Translated string into specified locale
       ###
-      env.addGlobal 'dpgettext', (domain = currentLocale, context, string) ->
-        domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-        gettext.dpgettext(domain, context, string)
+      env.addGlobal 'dpgettext', (domain, context, string) =>
+        @gettext.dpgettext(@resolveDomain(domain), context, string)
 
       ###*
       * Load plural string of specific context from current locale
@@ -111,8 +115,8 @@ module.exports = (grunt) ->
       * @param {number} count           Count for detecting correct plural form
       * @return {string} Pluralized and translated into current locale string
       ###
-      env.addGlobal 'npgettext', (context, string, pluralString, count) ->
-        gettext.dnpgettext(currentLocale, context, string, pluralString, count)
+      env.addGlobal 'npgettext', (context, string, pluralString, count) =>
+        @gettext.npgettext(context, string, pluralString, count)
 
       ###*
        * Load plural string of specific context from specified domain
@@ -125,8 +129,7 @@ module.exports = (grunt) ->
        * @param {number} count                  Count for detecting correct plural form
        * @return {string} Pluralized and translated into specified loca stringle
       ###
-      env.addGlobal 'dnpgettext', (domain = currentLocale, context, string, pluralString, count) ->
-        domain = if domain.charAt(0) == ':' then currentLocale + domain else domain
-        gettext.dnpgettext(domain, context, string, pluralString, count)
+      env.addGlobal 'dnpgettext', (domain, context, string, pluralString, count) =>
+        @gettext.dnpgettext(@resolveDomain(domain), context, string, pluralString, count)
 
       return
