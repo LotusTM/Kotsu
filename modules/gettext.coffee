@@ -53,8 +53,7 @@ module.exports = (grunt) ->
      * @return {string} Translated string into specified locale
     ###
     dgettext: (domain, string) ->
-      args = [arguments...]
-      args.shift()
+      [domain, args...] = arguments
       @gt.dgettext(@resolveDomain(domain), args...)
 
     ###*
@@ -78,8 +77,7 @@ module.exports = (grunt) ->
      * @return {string} Pluralized and translated into specified locale string
     ###
     dngettext: (domain, string, pluralString, count) ->
-      args = [arguments...]
-      args.shift()
+      [domain, args...] = arguments
       @gt.dngettext(@resolveDomain(domain), args...)
 
     ###*
@@ -101,8 +99,7 @@ module.exports = (grunt) ->
      * @return {string} Translated string into specified locale
     ###
     dpgettext: (domain, context, string) ->
-      args = [arguments...]
-      args.shift()
+      [domain, args...] = arguments
       @gt.dpgettext(@resolveDomain(domain), args...)
 
     ###*
@@ -128,8 +125,7 @@ module.exports = (grunt) ->
      * @return {string} Pluralized and translated into specified locale string
     ###
     dnpgettext: (domain, context, string, pluralString, count) ->
-      args = [arguments...]
-      args.shift()
+      [domain, args...] = arguments
       @gt.dnpgettext(@resolveDomain(domain), args...)
 
     installNunjucksGlobals: (env) ->
