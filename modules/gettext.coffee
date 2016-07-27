@@ -140,6 +140,8 @@ module.exports = (grunt) ->
       # i18n functions
       # --------------
 
+      env.addGlobal 'textdomain', (domain) => @textdomain(arguments...)
+
       env.addGlobal 'gettext', (string) => @gettext(arguments...)
       env.addGlobal 'dgettext', (domain, string) => @dgettext(arguments...)
       env.addGlobal 'ngettext', (string, pluralString, count) => @ngettext(arguments...)
