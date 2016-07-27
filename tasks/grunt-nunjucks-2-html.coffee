@@ -334,7 +334,8 @@ module.exports = (grunt) ->
             _localeDir = getLocaleDir(locale)
             if _localeDir then '/' + _localeDir else ''
 
-          gettext.installNunjucksGlobals(env, currentLocale)
+          gettext.textdomain(currentLocale)
+          gettext.installNunjucksGlobals(env)
 
           # =======
           # Filters
