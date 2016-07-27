@@ -1,7 +1,6 @@
 _           = require('lodash')
 path        = require('path')
 NodeGettext = require('node-gettext')
-gettext     = new NodeGettext()
 
 module.exports = (grunt) ->
   return class Gettext
@@ -18,6 +17,8 @@ module.exports = (grunt) ->
      *       * https://github.com/LotusTM/Kotsu/issues/45
     ###
     constructor: (@locales, @localesDir) ->
+      @gettext = new NodeGettext()
+
       @locales.forEach (locale) =>
 
         grunt.file.expand({ cwd: @localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (filepath) =>
@@ -27,9 +28,10 @@ module.exports = (grunt) ->
           domain   = if domain == defaultDomain then locale else locale + ':' + domain
           messages = grunt.file.read(@localesDir + '/' + locale + '/' + filepath, { encoding: null })
 
-          gettext.addTextdomain(domain, messages)
+          @gettext.addTextdomain(domain, messages)
 
     installNunjucksGlobals: (env, currentLocale) ->
+      gettext = @gettext
 
       # --------------
       # i18n functions
