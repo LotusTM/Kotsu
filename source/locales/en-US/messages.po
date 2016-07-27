@@ -1,0 +1,26 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kotsu\n"
+"POT-Creation-Date: 2015-10-16 13:19+0300\n"
+"PO-Revision-Date: 2015-10-16 13:29+0300\n"
+"Last-Translator: Serj Lavrin <https://github.com/ArmorDarks>\n"
+"Language-Team: LotusTM <https://github.com/LotusTM>\n"
+"Report-Msgid-Bugs-To: https://github.com/LotusTM/Kotsu/issues\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: source/templates/components/_outdated-browser.nj:11
+msgid "Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly."
+msgstr "Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly."
+
+#: source/templates/index.nj:76
+msgid "This string will be displayd in selected language"
+msgstr "This string will be displayd in selected language"
+
+#: source/templates/index.nj:79
+msgid "%s apple"
+msgid_plural "%s apples"
+msgstr[0] "%s apples"
