@@ -16,7 +16,7 @@ module.exports = ->
       files: ['<%= path.source.data %>/{,**/}*.{json,yml,js,coffee}']
       tasks: ['nunjucks']
     locales:
-      files: ['<%= path.source.locales %>/{,**/}*.{po.mo}']
+      files: ['<%= path.source.locales %>/{,**/}*.{po,mo}']
       tasks: ['nunjucks']
     fonts:
       files: ['<%= path.source.fonts %>/{,**/}*']
