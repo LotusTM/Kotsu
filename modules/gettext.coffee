@@ -21,12 +21,17 @@ module.exports = (grunt) ->
 
       @locales.forEach (locale) =>
 
-        grunt.file.expand({ cwd: @localesDir + '/' + locale, filter: 'isFile' }, '**/*.po').forEach (filepath) =>
-          defaultDomain = 'messages'
+        config =
+          cwd: @localesDir + '/'
+          localeDir: locale
+          src: '**/*.po'
+          domain: false
+          defaultDomain: 'messages'
 
-          domain   = filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(path.extname(filepath), '')
-          domain   = if domain == defaultDomain then locale else locale + ':' + domain
-          messages = grunt.file.read(@localesDir + '/' + locale + '/' + filepath, { encoding: null })
+        grunt.file.expand({ cwd: config.cwd + config.localeDir, filter: 'isFile' }, config.src).forEach (filepath) =>
+          domain = if domain then domain else filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(path.extname(filepath), '')
+          domain = if domain == config.defaultDomain then config.localeDir else config.localeDir + ':' + domain
+          messages = grunt.file.read(config.cwd + config.localeDir + '/' + filepath, { encoding: null })
 
           @gt.addTextdomain(domain, messages)
 
