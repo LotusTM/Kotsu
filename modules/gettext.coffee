@@ -16,15 +16,15 @@ module.exports = (grunt) ->
      *       * https://github.com/andris9/node-gettext/issues/22
      *       * https://github.com/LotusTM/Kotsu/issues/45
     ###
-    constructor: (@locales, @localesDir) ->
+    constructor: (@locales, @cwd, @src = '{,**/}*.{po,mo}', @defaultDomain = 'messages') ->
       @gt = new NodeGettext()
 
       @load = ({
         localeDir
-        cwd = path.join(@localesDir, '/')
-        src = '{,**/}*.{po,mo}'
+        cwd = path.join(@cwd, '/')
+        src = @src
         domain = false
-        defaultDomain = 'messages'
+        defaultDomain = @defaultDomain
       }) ->
         cwd = path.join(cwd, localeDir)
 
@@ -36,7 +36,7 @@ module.exports = (grunt) ->
           @gt.addTextdomain(resolvedDomain, messages)
 
       @locales.forEach (locale) =>
-        @load({ localeDir: locale})
+        @load({ localeDir: locale })
 
     resolveDomain: (domain) ->
       if domain.charAt(0) == ':' then @gt.textdomain() + domain else domain
