@@ -19,7 +19,7 @@ module.exports = (grunt) ->
     constructor: ({
       @locales
       @cwd
-      @src = '{,**/}*.{po,mo}'
+      @src
       @defaultDomain = 'messages'
     }) ->
       @gt = new NodeGettext()

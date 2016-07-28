@@ -94,7 +94,7 @@ module.exports = (grunt) ->
 
   localesList = _.map(grunt.config('i18n.locales'), 'locale')
 
-  grunt.config.set 'i18n.gettext', new Gettext({ locales: localesList, cwd: grunt.config('path.source.locales') })
+  grunt.config.set 'i18n.gettext', new Gettext({ locales: localesList, cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
   grunt.config.set 'i18n.locales.list', localesList
 
   grunt.config.set 'data', require('./' + grunt.config('path.source.data'))(grunt)
