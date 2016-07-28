@@ -20,9 +20,9 @@ module.exports = (grunt) ->
       @gt = new NodeGettext()
 
       @load = ({
-        cwd = path.join(@localesDir, '/')
         localeDir
-        src = '**/*.po'
+        cwd = path.join(@localesDir, '/')
+        src = '{,**/}*.{po,mo}'
         domain = false
         defaultDomain = 'messages'
       }) ->
@@ -36,7 +36,7 @@ module.exports = (grunt) ->
           @gt.addTextdomain(resolvedDomain, messages)
 
       @locales.forEach (locale) =>
-        @load({ localeDir: locale, src: '**/*.po' })
+        @load({ localeDir: locale})
 
     resolveDomain: (domain) ->
       if domain.charAt(0) == ':' then @gt.textdomain() + domain else domain
