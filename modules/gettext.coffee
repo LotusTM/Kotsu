@@ -132,13 +132,13 @@ module.exports = (grunt) ->
 
       env.addGlobal 'textdomain', (domain) => @textdomain(arguments...)
 
-      env.addGlobal 'gettext', (string) => @gettext(arguments...)
-      env.addGlobal 'dgettext', (domain, string) => @dgettext(arguments...)
-      env.addGlobal 'ngettext', (string, pluralString, count) => @ngettext(arguments...)
-      env.addGlobal 'dngettext', (domain, string, pluralString, count) => @dngettext(arguments...)
-      env.addGlobal 'pgettext', (context, string) => @pgettext(arguments...)
-      env.addGlobal 'dpgettext', (domain, context, string) => @dpgettext(arguments...)
-      env.addGlobal 'npgettext', (context, string, pluralString, count) => @npgettext(arguments...)
-      env.addGlobal 'dnpgettext', (domain, context, string, pluralString, count) => @dnpgettext(arguments...)
+      env.addGlobal 'gettext', () => @gettext(arguments...)
+      env.addGlobal 'dgettext', () => @dgettext(arguments...)
+      env.addGlobal 'ngettext', () => @ngettext(arguments...)
+      env.addGlobal 'dngettext', () => @dngettext(arguments...)
+      env.addGlobal 'pgettext', () => @pgettext(arguments...)
+      env.addGlobal 'dpgettext', () => @dpgettext(arguments...)
+      env.addGlobal 'npgettext', () => @npgettext(arguments...)
+      env.addGlobal 'dnpgettext', () => @dnpgettext(arguments...)
 
       return
