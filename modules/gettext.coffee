@@ -19,23 +19,24 @@ module.exports = (grunt) ->
     constructor: (@locales, @localesDir) ->
       @gt = new NodeGettext()
 
-      @locales.forEach (locale) =>
+      @load = ({
+        cwd = path.join(@localesDir, '/')
+        localeDir
+        src = '**/*.po'
+        domain = false
+        defaultDomain = 'messages'
+      }) ->
+        cwd = path.join(cwd, localeDir)
 
-        config =
-          cwd: path.join(@localesDir, '/')
-          localeDir: locale
-          src: '**/*.po'
-          domain: false
-          defaultDomain: 'messages'
-
-        cwd = path.join(config.cwd, config.localeDir)
-
-        grunt.file.expand({ cwd: cwd, filter: 'isFile' }, config.src).forEach (filepath) =>
-          domain = if domain then domain else filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(path.extname(filepath), '')
-          domain = if domain == config.defaultDomain then config.localeDir else config.localeDir + ':' + domain
+        grunt.file.expand({ cwd: cwd, filter: 'isFile' }, src).forEach (filepath) =>
+          resolvedDomain = if domain then domain else filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(path.extname(filepath), '')
+          resolvedDomain = if resolvedDomain == defaultDomain then localeDir else localeDir + ':' + resolvedDomain
           messages = grunt.file.read(path.join(cwd, filepath), { encoding: null })
 
-          @gt.addTextdomain(domain, messages)
+          @gt.addTextdomain(resolvedDomain, messages)
+
+      @locales.forEach (locale) =>
+        @load({ localeDir: locale, src: '**/*.po' })
 
     resolveDomain: (domain) ->
       if domain.charAt(0) == ':' then @gt.textdomain() + domain else domain
