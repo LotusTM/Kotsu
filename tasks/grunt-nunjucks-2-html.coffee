@@ -374,8 +374,7 @@ module.exports = (grunt) ->
            * @return {string} String with replaced placeholders
           ###
           env.addFilter 'template', (string, placeholders...) ->
-            placeholders.unshift(string)
-            printf.apply null, placeholders
+            printf(string, placeholders...)
 
           ###*
            * Pluralize string based on count. For situations, where full i18n is too much
