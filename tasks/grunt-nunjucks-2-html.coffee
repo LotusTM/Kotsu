@@ -44,8 +44,7 @@ module.exports = (grunt) ->
   numbro       = require('numbro')
   moment       = require('moment')
   smartPlurals = require('smart-plurals')
-  sprintf      = require('sprintf-js').sprintf
-  vsprintf     = require('sprintf-js').vsprintf
+  printf       = require('../modules/printf')
   marked       = require('marked')
   markdown     = require('nunjucks-markdown')
   nunjucks     = require('nunjucks')
@@ -70,23 +69,6 @@ module.exports = (grunt) ->
   # =======
   # Helpers
   # =======
-
-  ###*
-   * Replace placeholders with provided values via `sprintf` or `vsprintf`. Function will choice
-   * proper `printf` depending on povided placeholders
-   * @param {string}              string          String in which should be made replacement
-   * @param {string|object|array} placeholders... List of placeholders, object with named
-   *                                              placeholders or arrays of placeholders
-   * @return {string} String with replaced placeholders
-  ###
-  printf = (string, placeholders...) ->
-    _placeholder = placeholders[0]
-
-    if placeholders.length == 1 and Array.isArray _placeholder
-      return vsprintf string, _placeholder
-    else
-      placeholders.unshift(string)
-      return sprintf.apply null, placeholders
 
   ###*
    * Explodes string path into array breadcrumb
