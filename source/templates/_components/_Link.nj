@@ -41,7 +41,7 @@
 ) %}
   {% set isAbsolute = true if _.startsWith(to, '/') else false %}
   {% set isActive = isActive(to, onlyActiveOnIndex, pageBreadcrumb) %}
-  {% set linkBreadcrumb = pathBreadcrumb(to) %}
+  {% set linkBreadcrumb = crumble(to) %}
 
   {# Check whether specified path has defined overriding `href` property in `pages.yml` #}
   {% set href = getPage(linkBreadcrumb).props.href %}

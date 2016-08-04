@@ -75,7 +75,7 @@ module.exports = (grunt) ->
    * @param  {string} to Relative or absolute path
    * @return {array}     Array, which consists of path's fragments
   ###
-  pathBreadcrumb = (to) ->
+  crumble = (to) ->
     if to == '/'
       breadcrumb = ['index']
     else
@@ -263,10 +263,10 @@ module.exports = (grunt) ->
             else grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + this.ctx.page.href + ']')
 
           ###*
-           * Explodes string into array breadcrumb. See `pathBreadcrumb` helper for details
+           * Explodes string into array breadcrumb. See `crumble` helper for details
           ###
-          env.addGlobal 'pathBreadcrumb', (path) ->
-            pathBreadcrumb(path)
+          env.addGlobal 'crumble', (path) ->
+            crumble(path)
 
           ###*
            * Determinate is current path active relatively to current page breadcrumb or no
@@ -280,7 +280,7 @@ module.exports = (grunt) ->
           env.addGlobal 'isActive', (to, onlyActiveOnIndex = false, pageBreadcrumb = this.ctx.page.breadcrumb) ->
             isAbsolute = if _.startsWith(to, '/') then true else false
 
-            linkBreadcrumb = pathBreadcrumb(to)
+            linkBreadcrumb = crumble(to)
 
             # Slice only needed for comparison portion of whole page breadcrumb,
             # unless `onlyActiveOnIndex` set to `true`
@@ -436,7 +436,7 @@ module.exports = (grunt) ->
           data.page.props.region     = getRegioncode(currentLocale)
           data.page.props.rtl        = localeProps.rtl
           data.page.props.href       = if pagedir == '.' then '/' else '/' + pagedir
-          data.page.props.breadcrumb = pathBreadcrumb(pagepath)
+          data.page.props.breadcrumb = crumble(pagepath)
           data.page.props.basename   = pagebasename
           data.page.props.dirname    = pagedirname
 
