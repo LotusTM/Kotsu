@@ -7,6 +7,7 @@ module.exports = ->
   @config 'responsive_images',
     thumbnails:
       options:
+        separator: '@'
         sizes: [
           width: 240
         ]
