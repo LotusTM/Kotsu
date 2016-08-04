@@ -7,7 +7,6 @@ module.exports = (grunt) ->
 
     ###*
      * Load l10n files and make l10n class available to Grunt-related tasks
-     * @note Do not use 'LC_MESSAGES' in path to locales
      * @todo Since node-gettext doesn't have method for switching between languages AND domains,
      *       use `dgettext('{{locale}}:{{domain'), 'String')` to switch between locales and domains
      *       `/locale/en/{defaultLocale}.po` will result in `en` domain.
