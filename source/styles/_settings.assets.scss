@@ -7,11 +7,10 @@
 // Paths
 // ---------------------------------------
 
-$ekzo-assets-path:       '/assets';
-$ekzo-images-path:       '#{$ekzo-assets-path}/images';
-$ekzo-ui-path:           '#{$ekzo-images-path}/ui';
-$ekzo-sprites-path:      '#{$ekzo-assets-path}/sprites';
-$ekzo-fonts-path:        '#{$ekzo-assets-path}/fonts';
+$ekzo-images-path:       '/' + kotsu-path(images);
+$ekzo-ui-path:           '/' + kotsu-path(images) + '/ui';
+$ekzo-sprites-path:      '/' + kotsu-path(sprites);
+$ekzo-fonts-path:        '/' + kotsu-path(fonts);
 
 // ---------------------------------------
 // Background

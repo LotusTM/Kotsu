@@ -70,6 +70,7 @@
     "marked": "0.3.5",
     "moment": "2.13.0",
     "node-gettext": "1.1.0",
+    "node-sass-utils": "^1.1.2",
     "numbro": "1.8.0",
     "nunjucks-markdown": "2.0.0",
     "smart-plurals": "1.1.0",
