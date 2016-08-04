@@ -299,7 +299,7 @@ module.exports = (grunt) ->
           ###
           env.addGlobal 'moment', (params...) ->
             moment.locale(currentLocale)
-            moment.apply null, params
+            moment(params...)
 
           # --------------
           # i18n functions
