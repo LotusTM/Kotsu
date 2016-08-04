@@ -8,7 +8,7 @@ module.exports = ->
     thumbnails:
       options:
         sizes: [
-            width: 240
+          width: 240
         ]
       files: [
         expand: true
@@ -17,5 +17,5 @@ module.exports = ->
         # {,models,blog/posts}
         # @note Remove `!` character to enable resizing of images
         src: '!{,**/}*.{jpg,jpeg,gif,png}'
-        custom_dest: '<%= path.build.thumbnails %>/{%= path %}/{%= width %}'
+        dest: '<%= path.build.images %>'
       ]
