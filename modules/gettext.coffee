@@ -4,20 +4,19 @@ NodeGettext = require('node-gettext')
 
 module.exports = (grunt) ->
   return class Gettext
-
-    ###*
-     * Load l10n files and make l10n class available to Grunt-related tasks
-     * @todo Since node-gettext doesn't have method for switching between languages AND domains,
-     *       use `dgettext('{{locale}}:{{domain'), 'String')` to switch between locales and domains
-     *       `/locale/en/{defaultLocale}.po` will result in `en` domain.
-     *       `/locale/en/nav/bar.po` will result in `en:nav:bar` domain.
-     *       Related Github issues:
-     *       * https://github.com/andris9/node-gettext/issues/22
-     *       * https://github.com/LotusTM/Kotsu/issues/45
-    ###
     constructor: ({ @locales, @cwd, @src, @defaultDomain = 'messages' }) ->
       @gt = new NodeGettext()
 
+      ###*
+       * Load l10n files
+       * @todo Since node-gettext doesn't have method for switching between languages AND domains,
+       *       use `dgettext('{{locale}}:{{domain'), 'String')` to switch between locales and domains
+       *       `/locale/en/{defaultLocale}.po` will result in `en` domain.
+       *       `/locale/en/nav/bar.po` will result in `en:nav:bar` domain.
+       *       Related Github issues:
+       *       * https://github.com/andris9/node-gettext/issues/22
+       *       * https://github.com/LotusTM/Kotsu/issues/45
+      ###
       @load = ({
         localeDir
         cwd = path.join(@cwd, '/')
