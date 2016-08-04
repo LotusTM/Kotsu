@@ -449,8 +449,7 @@ module.exports = (grunt) ->
         dest: taskConfig.files.dest + '/' + localeDir
         ext: taskConfig.files.ext
         rename: (dest, src) =>
-          if taskConfig.humanReadableUrls.enabled
-            src = humanReadableUrl(src)
+          src = if taskConfig.humanReadableUrls.enabled then humanReadableUrl(src) else src
           path.join(dest, src)
       ]
 
