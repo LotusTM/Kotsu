@@ -15,12 +15,7 @@ module.exports = (grunt) ->
      *       * https://github.com/andris9/node-gettext/issues/22
      *       * https://github.com/LotusTM/Kotsu/issues/45
     ###
-    constructor: ({
-      @locales
-      @cwd
-      @src
-      @defaultDomain = 'messages'
-    }) ->
+    constructor: ({ @locales, @cwd, @src, @defaultDomain = 'messages' }) ->
       @gt = new NodeGettext()
 
       @load = ({
