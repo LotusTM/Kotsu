@@ -10,6 +10,7 @@ module.exports = (grunt) ->
       images: '<%= grunt.template.process(path.build.images).replace(path.build.root + \'/\', \'\') %>'
       scripts: '<%= grunt.template.process(path.build.scripts).replace(path.build.root + \'/\', \'\') %>'
       styles: '<%= grunt.template.process(path.build.styles).replace(path.build.root + \'/\', \'\') %>'
+      sprites: '<%= grunt.template.process(path.build.sprites).replace(path.build.root + \'/\', \'\') %>'
       thumbnails: '<%= grunt.template.process(path.build.thumbnails).replace(path.build.root + \'/\', \'\') %>'
       source: '<%= path.source %>'
     site:
