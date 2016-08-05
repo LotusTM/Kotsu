@@ -13,16 +13,12 @@ dependencies:
     - npm install -g grunt-cli
     - gem install sass scss_lint --no-ri --no-rdoc
 
-test:
-  post:
-    - tar cvzf app.tgz Dockerfile build/
-
 deployment:
   production:
     branch: master
     commands:
       - ssh-keyscan $DEPLOY_SERVER > ~/.ssh/known_hosts
-
+      - tar cvzf app.tgz Dockerfile build/
       - scp app.tgz core@$DEPLOY_SERVER:~/$CIRCLE_PROJECT_REPONAME.tgz
       - scp deploy.sh core@$DEPLOY_SERVER:~/deploy.sh
       - ssh core@$DEPLOY_SERVER chmod +x deploy.sh
