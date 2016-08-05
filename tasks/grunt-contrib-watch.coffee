@@ -6,7 +6,7 @@ Watches scss, js etc for changes and compiles them
 module.exports = ->
   @config 'watch',
     configs:
-      files: ['gruntfile.coffee', 'tasks/*']
+      files: ['gruntfile.coffee', '<%= path.tasks.root %>/*']
       options:
         reload: true
     static:

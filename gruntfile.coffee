@@ -1,10 +1,10 @@
-_       = require('lodash')
-Gettext = require('./modules/gettext')(grunt)
-path    = require('path')
+_    = require('lodash')
+path = require('path')
 
 module.exports = (grunt) ->
   'use strict'
 
+  Gettext = require('./modules/gettext')(grunt)
   # Track execution time
   require('time-grunt') grunt
   # Load grunt tasks automatically
@@ -97,7 +97,7 @@ module.exports = (grunt) ->
 
   grunt.config.set 'data', require('./' + grunt.config('path.source.data'))(grunt)
 
-  grunt.loadTasks 'tasks'
+  grunt.loadTasks grunt.config('path.tasks.root')
 
   ###
   Cumulative copy task
