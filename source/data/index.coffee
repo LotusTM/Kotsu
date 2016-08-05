@@ -1,6 +1,8 @@
 _ = require('lodash')
 
 module.exports = (grunt) ->
+  pkg = grunt.file.readJSON 'package.json'
+
   baseLocale = grunt.config('i18n.baseLocale')
 
   data =
@@ -13,11 +15,11 @@ module.exports = (grunt) ->
       sprites: '<%= grunt.template.process(path.build.sprites).replace(path.build.root + \'/\', \'\') %>'
       source: '<%= path.source %>'
     site:
-      name: '<%= pkg.name %>'
-      desc: '<%= pkg.description %>'
-      homepage: '<%= pkg.homepage %>'
-      twitter: '@LotusTM'
-      version: '<%= pkg.version %>'
+      name: pkg.name
+      desc: pkg.description
+      homepage: pkg.homepage
+      twitter: pkg.twitter
+      version: pkg.version
       locales: '<%= i18n.locales.list %>'
       baseLocale: '<%= i18n.baseLocale %>'
       pages: grunt.file.readYAML 'source/data/pages.yml'
