@@ -16,7 +16,6 @@ addons:
 before_install:
   - npm install -g npm@latest
   - npm install -g grunt-cli
-  - gem install sass scss_lint --no-ri --no-rdoc
 
 notifications:
   slack:

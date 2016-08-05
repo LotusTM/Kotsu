@@ -83,7 +83,6 @@
     "grunt-browser-sync": "2.2.0",
     "grunt-contrib-watch": "1.0.0",
     "grunt-newer": "1.2.0",
-    "grunt-scss-lint": "0.3.8",
     "standard": "7.1.2"
   },
   "engines": {

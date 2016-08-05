@@ -9,7 +9,6 @@ module.exports = (grunt) ->
   # Load grunt tasks automatically
   require('jit-grunt') grunt,
     nunjucks: 'grunt-nunjucks-2-html'
-    scsslint: 'grunt-scss-lint'
     sprite: 'grunt-spritesmith'
 
   # Define the configuration for all the tasks
@@ -154,11 +153,9 @@ module.exports = (grunt) ->
   ]
 
   ###
-  A task for scss linting
+  A task for linting and testing
   ###
-  grunt.registerTask 'test', [
-    #'scsslint:build'
-  ]
+  grunt.registerTask 'test', []
 
   ###
   A task for a static server with a watch
