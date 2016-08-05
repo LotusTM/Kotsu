@@ -15,7 +15,6 @@ addons:
 
 before_install:
   - npm install -g npm@latest
-  - npm install -g grunt-cli
 
 notifications:
   slack:

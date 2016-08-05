@@ -10,7 +10,6 @@ checkout:
 dependencies:
   pre:
     - npm install -g npm@latest
-    - npm install -g grunt-cli
 
 deployment:
   production:
