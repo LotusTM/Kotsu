@@ -380,8 +380,7 @@ module.exports = (grunt) ->
            * @return {string} Correct plural form
           ###
           env.addFilter 'plural', (count, forms, locale = currentLocale) ->
-            smartPlurals.Plurals.getRule(locale)
-            smartPlurals(count, forms)
+            smartPlurals.Plurals.getRule(locale)(count, forms)
 
           ###*
            * Format number based on given pattern
