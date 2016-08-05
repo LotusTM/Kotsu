@@ -93,15 +93,11 @@ module.exports = (grunt) ->
    * @param  {string} pagepath Path to page
    * @return {string} Renamed path
   ###
-  humanReadableUrl = (pagepath) ->
-    _exclude  = taskConfig.humanReadableUrls.exclude
-
+  humanReadableUrl = (pagepath, exclude = taskConfig.humanReadableUrls.exclude) ->
     _ext      = path.extname(pagepath)
     _basename = path.basename(pagepath, _ext)
 
-    if !_exclude.test(_basename)
-      pagepath = pagepath.replace(_basename + _ext, _basename + '/index' + _ext)
-    pagepath
+    if !exclude.test(_basename) then pagepath.replace(_basename + _ext, _basename + '/index' + _ext) else pagepath
 
   ###*
    * Return locale's properties
