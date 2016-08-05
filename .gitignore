@@ -30,9 +30,6 @@ results
 node_modules
 npm-debug.log
 
-## Sass
-.sass-cache
-
 ## Build folder
 build
 
