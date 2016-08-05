@@ -1,9 +1,10 @@
+_       = require('lodash')
+Gettext = require('./modules/gettext')(grunt)
+path    = require('path')
+
 module.exports = (grunt) ->
   'use strict'
 
-  _           = require('lodash')
-  Gettext     = require('./modules/gettext')(grunt)
-  path        = require('path')
   # Track execution time
   require('time-grunt') grunt
   # Load grunt tasks automatically
@@ -13,7 +14,6 @@ module.exports = (grunt) ->
 
   # Define the configuration for all the tasks
   grunt.initConfig
-    pkg: grunt.file.readJSON 'package.json'
 
     # Specify environment variables
     env:
