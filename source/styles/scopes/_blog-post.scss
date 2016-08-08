@@ -1,3 +1,5 @@
+// stylelint-disable declaration-no-important, selector-max-compound-selectors, selector-no-type
+// @note We need `!important` here to properly redefine helpers in this layer
 
 // =======================================
 // ^BLOG-POST
@@ -30,8 +32,6 @@ $s-blog-post-spacing:      $s-blog-post-line-height;
 
   p { margin-bottom: $s-blog-post-spacing; }
 
-  // scss-lint:disable ImportantRule
-  // @note We need `!important` here to properly redefine helpers in this layer
   .margin-bottom  { margin-bottom: $s-blog-post-spacing  !important; }
   .margin-top     { margin-top: $s-blog-post-spacing     !important; }
   .margin-top\+   { margin-top: $s-blog-post-spacing * 2 !important; }
