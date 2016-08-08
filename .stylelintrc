@@ -1,2 +1,103 @@
 ---
 extends: stylelint-config-standard
+rules:
+
+  # Issues
+  # ------
+  # Disabled rules due to various issues
+
+  # @todo No way to allow newline after ruleset
+  #       .test {
+  #         border: 1px;
+  #
+  #         > .child {
+  #           margin-top: 21px;
+  #           margin-bottom: 21px;
+  #         }
+  #       // <- no way to force this newline only after ruleset, but not property
+  #       }
+  block-closing-brace-empty-line-before: null
+
+  # @todo No way to provide `at least single space` for aligned groups
+  #                      \/ - here
+  #       .margin-bottom  { margin-bottom: $s-blog-post-spacing; }
+  #       .margin-top     { margin-top: $s-blog-post-spacing; }
+  #       .margin-top\+   { margin-top: $s-blog-post-spacing * 2; }
+  #       .margin-top\+\+ { margin-top: $s-blog-post-spacing * 3; }
+  block-opening-brace-space-before: null
+
+  # @todo No way to provide `at least single space` for aligned groups
+  #                                                            \/ - here
+  #       .margin-bottom  { margin-bottom: $s-blog-post-spacing !important; }
+  #       .margin-top     { margin-top: $s-blog-post-spacing    !important; }
+  declaration-bang-space-before: null
+
+  # @todo No way to provide `at least single space` for aligned groups
+  #                     \/ - here
+  #       padding-top:    21px;
+  #       padding-bottom: 31px;
+  #       padding-right:  10px;
+  #       padding-left:   10px;
+  declaration-colon-space-after: null
+
+  # @todo No way to allow empty lines between property groups
+  #       .blog-post {
+  #         font-size: $s-blog-post-font-size;
+  #         // <- empty line here will be an error
+  #         line-height: $s-blog-post-line-height;
+  #         // <- empty line here will be an error
+  #         font-weight: 300;
+  #       }
+  declaration-empty-line-before: null
+
+  # @todo Doesn't support BEM-like indentation
+  #      .test { display: flex; }
+  #        .test__item { box-sizing: border-box; } <- will yeild an error about wrong indentation
+  # @todo Has issues with comment inside Sass maps
+  #       This will say that test1 and everything beyond have wrong indentation
+  #       $map: (
+  #         test1: (
+  #           val1:  12px, // comment
+  #           val2: 10px // comment
+  #         ),
+  #         test2: (
+  #           val1: 36px, // comment
+  #           val2: 30px // comment
+  #         )
+  #       );
+  indentation: null
+
+  # @todo Raises errors with Sass comment right after selector
+  #       menu, // 1
+  #       nav, // 2
+  #       summary, // 1 <- will raise `Expected single space after "{" of a single-line block block-opening-brace-space-after` and `Expected newline after "{" of a multi-line block block-opening-brace-newline-after`
+  #       section { display: block; } <- will raise `Expected newline before "}" of a multi-line block block-closing-brace-newline-before`
+  block-opening-brace-newline-after: null
+  block-closing-brace-newline-before: null
+  block-opening-brace-space-after: null
+
+  # @todo Has issues with grouped includes
+  #       code {
+  #         @include ekzo-theme() { color: ekzo-theme(code); }
+  #         @include ekzo-theme() { background-color: ekzo-theme(code-bg); } <- will raise `Expected empty line before at-rule at-rule-empty-line-before`
+  #
+  #         border-radius: 2px;
+  #       }
+  at-rule-empty-line-before: null
+
+  # @todo Excepts `Hz` and `kHz` units to be `hz` and `khz` which isn't correct.
+  unit-case: null
+  unit-no-unknown: null
+
+  # Overrides
+  # ---------
+
+  block-no-empty: null
+  function-max-empty-lines: 1
+  no-missing-end-of-source-newline: null
+  rule-nested-empty-line-before:
+    - always-multi-line
+    - ignore:
+      - after-comment
+  selector-pseudo-element-colon-notation: single
+  number-leading-zero: never
