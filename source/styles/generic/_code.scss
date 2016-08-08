@@ -5,8 +5,8 @@
 
 pre,
 code {
-  @include ekzo-theme() { color: ekzo-theme(code) };
-  @include ekzo-theme() { background-color: ekzo-theme(code-bg) };
+  @include ekzo-theme() { color: ekzo-theme(code); }
+  @include ekzo-theme() { background-color: ekzo-theme(code-bg); }
 
   border-radius: 2px;
 }
@@ -17,7 +17,7 @@ pre {
   padding: ekzo-em(ekzo-space(.25));
   overflow: hidden;
 
-  code { @include ekzo-theme() { background-color: transparent }; }
+  code { @include ekzo-theme() { background-color: transparent; } }
 
   &:hover,
   &:focus { min-width: min-content; }

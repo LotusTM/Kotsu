@@ -10,7 +10,7 @@
 
       &.is-active {
 
-        > a { @include ekzo-theme() { color: inherit }; }
+        > a { @include ekzo-theme() { color: inherit; } }
 
       }
 

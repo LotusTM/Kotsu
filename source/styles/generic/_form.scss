@@ -5,8 +5,8 @@
 
 input,
 #{$ekzo-generics-ns}input {
+  @include ekzo-theme { border-color: ekzo-theme(forms-border); }
   border-width: 1px;
-  @include ekzo-theme { border-color: ekzo-theme(forms-border); };
 
   padding: ekzo-space(.5);
 }
