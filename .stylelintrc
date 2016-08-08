@@ -89,8 +89,8 @@ rules:
   unit-case: null
   unit-no-unknown: null
 
-  # Overrides
-  # ---------
+  # Standard overrides
+  # ------------------
 
   block-no-empty: null
   function-max-empty-lines: 1
@@ -101,3 +101,47 @@ rules:
       - after-comment
   selector-pseudo-element-colon-notation: single
   number-leading-zero: never
+
+  # Additions
+  # ---------
+
+  function-url-quotes: always
+  selector-attribute-quotes: always
+  string-quotes: single
+  at-rule-no-vendor-prefix: true
+  media-feature-name-no-vendor-prefix: true
+  property-no-vendor-prefix: true
+  selector-no-vendor-prefix: true
+  value-no-vendor-prefix: true
+  max-nesting-depth: 3
+  selector-max-compound-selectors: 3
+  selector-max-specificity: 0,3,0
+
+  # @todo Falsy reports Sass map properties as color names
+  #       $colors: (
+  #         ivory: #fffff3,
+  #         black: rgba(0, 0, 0, .3)
+  #       );
+  # color-named: never
+
+  declaration-no-important: true
+  property-no-unknown:
+    - true
+    - ignoreProperties:
+      - text-size-adjust
+  selector-no-id: true
+  selector-no-qualifying-type: true
+  selector-no-universal: true
+  font-weight-notation: named-where-possible
+  selector-root-no-composition: true
+  function-url-no-scheme-relative: true
+
+  # @todo Doesn't work with Sass variables sets
+  #       https://github.com/stylelint/stylelint/issues/871
+  # no-browser-hacks: true
+
+  # Optionals
+  # ---------
+
+  # no-unsupported-browser-features: true
+  # no-indistinguishable-colors: true
