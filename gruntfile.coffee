@@ -101,20 +101,11 @@ module.exports = (grunt) ->
   grunt.loadTasks grunt.config('path.tasks.root')
 
   ###
-  Cumulative copy task
-  ###
-  grunt.registerTask 'copy:build', [
-    'copy:static'
-    'copy:fonts'
-    'copy:images'
-  ]
-
-  ###
   Default task
   ###
   grunt.registerTask 'default', [
     'clean:build'
-    'copy:build'
+    'copy'
     'nunjucks'
     'sprite'
     'webfont'
@@ -132,7 +123,7 @@ module.exports = (grunt) ->
   ###
   grunt.registerTask 'build', [
     'clean'
-    'copy:build'
+    'copy'
     'nunjucks'
     'sprite:build'
     'webfont:build'
