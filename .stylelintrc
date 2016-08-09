@@ -105,6 +105,18 @@ rules:
   # Additions
   # ---------
 
+  # @todo Falsy reports Sass map properties as color names
+  #       $colors: (
+  #         ivory: #fffff3,
+  #         black: rgba(0, 0, 0, .3)
+  #       );
+  # color-named: never
+
+  # @todo Doesn't work with Sass variables sets
+  #       https://github.com/stylelint/stylelint/issues/871
+  # no-browser-hacks: true
+
+  font-family-name-quotes: always-where-required
   function-url-quotes: always
   selector-attribute-quotes: always
   string-quotes: single
@@ -116,14 +128,6 @@ rules:
   max-nesting-depth: 3
   selector-max-compound-selectors: 3
   selector-max-specificity: 0,3,0
-
-  # @todo Falsy reports Sass map properties as color names
-  #       $colors: (
-  #         ivory: #fffff3,
-  #         black: rgba(0, 0, 0, .3)
-  #       );
-  # color-named: never
-
   declaration-no-important: true
   property-no-unknown:
     - true
@@ -135,13 +139,103 @@ rules:
   font-weight-notation: named-where-possible
   selector-root-no-composition: true
   function-url-no-scheme-relative: true
+  declaration-block-no-duplicate-properties: true
+  at-rule-no-unknown:
+    - true
+    - ignoreAtRules:
+      - extend
+      - include
+      - mixin
+      - function
+      - if
+      - else
+      - each
+      - for
+      - content
+      - error
+      - return
+      - warn
+  selector-no-type:
+    - true
+    - ignoreTypes:
+      - a
+      - li
+      - tr
+      - th
+      - td
 
-  # @todo Doesn't work with Sass variables sets
-  #       https://github.com/stylelint/stylelint/issues/871
-  # no-browser-hacks: true
+  # Accepts:
+  #
+  # m
+  # main
+  # main-check--modif
+  # main-check__block--modif
+  # M
+  # Main
+  # Main-check\+
+  # Main-check\+-
+  # Main-check--
+  # Main-check--modif
+  # Main-check__block
+  # Main-check__block--modif
+  #
+  # Rejects:
+  #
+  # mainWrong
+  # MainWrong
+  # MainWrong--modif
+  # MainWrong__block
+  # MainWrong___block
+  # MainWrong__block--modif
+  # MainWrong___block--modif
+  # mainWrong--modif
+  # mainWrong__block--modif
+  # mainWrong___block--modif
+  #
+  # main_wrong
+  # main_Wrong
+  # Main_wrong
+  # Main_wrong--modif
+  # Main_wrong__block
+  # Main_wrong___block
+  # Main_wrong__block--modif
+  # Main_wrong___block--modif
+  # main_wrong--modif
+  # main_wrong__block--modif
+  # main_wrong___block--modif
+  selector-class-pattern:
+    - ^([A-Z]?[a-z]*[-]?[a-z0-9\-]*)(\.[a-z0-9\-]*)?(__[a-z0-9]*[-]?[a-z0-9\-]*)?(--[a-z0-9]*[-]?[a-z0-9\-]*)?(\:[a-z]*)*([\\+\-]*?)*$
+    # @todo Temporary disabled due to issue with Sass `#{}` inside selectors
+    # - resolveNestedSelectors: true
+  selector-id-pattern: ^([A-Z]?[a-z]*[-]?[a-z0-9\-]*)(\.[a-z0-9\-]*)?(__[a-z0-9]*[-]?[a-z0-9\-]*)?(--[a-z0-9]*[-]?[a-z0-9\-]*)?(\:[a-z]*)*([\\+\-]*?)*$
+  declaration-block-semicolon-newline-before: never-multi-line
+  function-comma-newline-before: never-multi-line
+  media-query-list-comma-newline-before: never-multi-line
+  no-unknown-animations: true
+  root-no-standard-properties: true
+  selector-list-comma-newline-before: never-multi-line
+  selector-list-comma-space-after: always-single-line
+  time-no-imperceptible: true
+  value-keyword-case:
+    - lower
+    - ignoreKeywords:
+      - currentColor
+      # @todo Wrongly checks values of Sass variables too
+      - Icon--
+      - Sprite--
+  value-list-comma-newline-before: never-multi-line
+  no-duplicate-selectors: true
+  rule-non-nested-empty-line-before:
+    - always-multi-line
+    - ignore:
+      - after-comment
+  # @todo Have some issues with Sass placeholders:
+  #       `Expected selector "%#{$ekzo-objects-ns}nav > li > a" to come before selector ".#{$ekzo-objects-ns}nav > a"`
+  no-descending-specificity: true
 
   # Optionals
   # ---------
 
+  # selector-no-attribute: true
   # no-unsupported-browser-features: true
   # no-indistinguishable-colors: true
