@@ -93,6 +93,9 @@ rules:
   unit-case: null
   unit-no-unknown: null
 
+  # @todo No way to dissalow newlines after colon
+  declaration-colon-newline-after: null
+
   # Standard overrides
   # ------------------
 
