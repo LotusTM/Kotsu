@@ -157,7 +157,7 @@ module.exports = (grunt) ->
   A task for linting and testing
   ###
   grunt.registerTask 'test', [
-    'stylelint:build'
+    'stylelint:lint'
     'standard:lint'
   ]
 

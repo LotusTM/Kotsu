@@ -5,7 +5,7 @@ Lint CSS files with stylelint
 ###
 module.exports = ->
   @config 'stylelint',
-    build:
+    lint:
       files: [
         expand: true
         cwd: '<%= path.source.styles %>'
