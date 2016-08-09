@@ -6,7 +6,7 @@ Watches scss, js etc for changes and compiles them
 module.exports = ->
   @config 'watch',
     configs:
-      files: ['gruntfile.coffee', '<%= path.tasks.root %>/*']
+      files: ['gruntfile.coffee', '<%= path.tasks.root %>/{,**/}*']
       options:
         reload: true
     static:
@@ -26,7 +26,10 @@ module.exports = ->
       tasks: ['webfont']
     images:
       files: ['<%= path.source.images %>/{,**/}*']
-      tasks: ['copy:images']
+      tasks: [
+        'newer:copy:images'
+        'newer:responsive_images:thumbnails'
+      ]
     templates:
       files: ['<%= path.source.templates %>/{,**/}*.nj', '!<%= path.source.templates %>{,**/}_*.nj']
       tasks: ['newer:nunjucks']
@@ -48,6 +51,3 @@ module.exports = ->
     sprites:
       files: ['<%= path.source.sprites %>/{,**/}*.{jpg,jpeg,gif,png}']
       tasks: ['sprite']
-    thumbnails:
-      files: ['<%= path.source.images %>/{,**/}*.{jpg,jpeg,gif,png}']
-      tasks: ['newer:responsive_images:thumbnails']
