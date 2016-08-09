@@ -23,7 +23,6 @@ module.exports = ->
           '{,**/}*.*'
           '!{,**/}*.min.js'
         ]
-        dest: '<%= path.build.styles %>'
       ]
     styles:
       files: [
@@ -33,5 +32,4 @@ module.exports = ->
           '{,**/}*.*'
           '!{,**/}*.min.css'
         ]
-        dest: '<%= path.build.styles %>'
       ]
