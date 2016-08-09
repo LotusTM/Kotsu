@@ -43,7 +43,7 @@ module.exports = ->
       ]
       tasks: [
         'sass'
-        'autoprefixer'
+        'postcss:autoprefix'
       ]
     sprites:
       files: ['<%= path.source.sprites %>/{,**/}*.{jpg,jpeg,gif,png}']
