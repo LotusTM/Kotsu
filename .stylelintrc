@@ -1,5 +1,9 @@
 ---
+plugins:
+  - stylelint-scss
+
 extends: stylelint-config-standard
+
 rules:
 
   # Issues
@@ -239,3 +243,43 @@ rules:
   # selector-no-attribute: true
   # no-unsupported-browser-features: true
   # no-indistinguishable-colors: true
+
+  # Scss
+  # ---------
+
+  scss/at-function-pattern: ^([A-Z]?[a-z]*[-]?[a-z0-9\-]*)(\.[a-z0-9\-]*)?(__[a-z0-9]*[-]?[a-z0-9\-]*)?(--[a-z0-9]*[-]?[a-z0-9\-]*)?(\:[a-z]*)*([\\+\-]*?)*$
+  scss/at-mixin-pattern: ^([A-Z]?[a-z]*[-]?[a-z0-9\-]*)(\.[a-z0-9\-]*)?(__[a-z0-9]*[-]?[a-z0-9\-]*)?(--[a-z0-9]*[-]?[a-z0-9\-]*)?(\:[a-z]*)*([\\+\-]*?)*$
+  scss/dollar-variable-pattern: ^([A-Z]?[a-z]*[-]?[a-z0-9\-]*)(\.[a-z0-9\-]*)?(__[a-z0-9]*[-]?[a-z0-9\-]*)?(--[a-z0-9]*[-]?[a-z0-9\-]*)?(\:[a-z]*)*([\\+\-]*?)*$
+
+  # @todo Doesn't work with `#{}` inside selectors
+  #       `Expected %-placeholder "%#{$ekzo-generics-ns}link" to match specified pattern`
+  # scss/percent-placeholder-pattern: ^([A-Z]?[a-z]*[-]?[a-z0-9\-]*)(\.[a-z0-9\-]*)?(__[a-z0-9]*[-]?[a-z0-9\-]*)?(--[a-z0-9]*[-]?[a-z0-9\-]*)?(\:[a-z]*)*([\\+\-]*?)*$
+
+  scss/at-import-no-partial-leading-underscore: true
+  scss/at-import-partial-extension-blacklist:
+    - scss
+  scss/at-mixin-argumentless-call-parentheses: always
+
+  # @todo No way to disallow newlines after colon
+  # scss/dollar-variable-colon-newline-after: never
+
+  # @todo No way to require at least single space
+  #               \/ - here
+  #       $test:     20px;
+  #       $test-val: 25px;
+  # scss/dollar-variable-colon-space-after: always-single-line
+
+  scss/dollar-variable-colon-space-before: never
+  scss/dollar-variable-no-missing-interpolation: true
+  scss/double-slash-comment-whitespace-inside: always
+  scss/operator-no-newline-after: true
+  scss/operator-no-newline-before: true
+
+  # @todo Wrongly reports Sass maps keys
+  #       $test: (
+  #         \+:   10px,
+  #         \+\+: 20px,
+  #       );
+  scss/operator-no-unspaced: true
+
+  scss/selector-no-redundant-nesting-selector: true
