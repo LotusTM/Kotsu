@@ -4,6 +4,17 @@ https://github.com/vitkarpov/grunt-nunjucks-2-html
 Render nunjucks templates
 ###
 
+_            = require('lodash')
+path         = require('path')
+numbro       = require('numbro')
+moment       = require('moment')
+smartPlurals = require('smart-plurals')
+printf       = require('../modules/printf')
+marked       = require('marked')
+markdown     = require('nunjucks-markdown')
+nunjucks     = require('nunjucks')
+urlify       = require('urlify')
+
 module.exports = (grunt) ->
   # ======
   # Config
@@ -35,20 +46,7 @@ module.exports = (grunt) ->
       trim              : true
       failureOutput     : 'non-printable-url'
 
-  # ====================
-  # Requires and caching
-  # ====================
-
-  _            = require('lodash')
-  path         = require('path')
-  numbro       = require('numbro')
-  moment       = require('moment')
-  smartPlurals = require('smart-plurals')
-  printf       = require('../modules/printf')
-  marked       = require('marked')
-  markdown     = require('nunjucks-markdown')
-  nunjucks     = require('nunjucks')
-  urlify       = require('urlify').create({
+  urlify = urlify.create({
     addEToUmlauts : taskConfig.urlify.addEToUmlauts
     szToSs        : taskConfig.urlify.szToSs
     spaces        : taskConfig.urlify.spaces
@@ -58,13 +56,13 @@ module.exports = (grunt) ->
     failureOutput : taskConfig.urlify.failureOutput
   })
 
-  gettext       = taskConfig.i18n.gettext
+  gettext      = taskConfig.i18n.gettext
 
-  locales       = _.map(taskConfig.i18n.locales, 'locale')
-  baseLocale    = taskConfig.i18n.baseLocale
+  locales      = _.map(taskConfig.i18n.locales, 'locale')
+  baseLocale   = taskConfig.i18n.baseLocale
 
-  buildDir      = taskConfig.files.dest
-  templatesDir  = taskConfig.files.cwd
+  buildDir     = taskConfig.files.dest
+  templatesDir = taskConfig.files.cwd
 
   # =======
   # Helpers
