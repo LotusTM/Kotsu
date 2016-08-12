@@ -148,20 +148,19 @@ module.exports = (grunt) ->
   isoLocale = (locale) ->
     getLangcode(locale) + '_' + getRegioncode(locale).toUpperCase()
 
-  # ====================
-  # Construct Grunt Task
-  # ====================
+  # =======================
+  # Config l10n of Nunjucks
+  # =======================
 
-  Task = ->
-    # Define targets, with unique options and files, for each locale
-    locales.forEach (currentLocale) =>
-      localeDir     = getLocaleDir(currentLocale)
-      localeProps   = getLocaleProps(currentLocale)
-      localizedData = taskConfig.data(currentLocale)
+  locales.forEach (currentLocale) =>
+    localeDir     = getLocaleDir(currentLocale)
+    localeProps   = getLocaleProps(currentLocale)
+    localizedData = taskConfig.data(currentLocale)
 
-      @[currentLocale] = {}
+    # Define targets, with unique options and files for each locale
+    @config "nunjucks.#{currentLocale}",
 
-      @[currentLocale].options =
+      options:
         paths                : taskConfig.nunjucksEnv
         autoescape           : taskConfig.autoescape
         data                 : localizedData
@@ -437,7 +436,7 @@ module.exports = (grunt) ->
 
           return data
 
-      @[currentLocale].files =  [
+      files: [
         expand: true
         cwd: taskConfig.files.cwd + '/'
         src: taskConfig.files.src
@@ -447,8 +446,3 @@ module.exports = (grunt) ->
           src = if taskConfig.humanReadableUrls.enabled then humanReadableUrl(src) else src
           path.join(dest, src)
       ]
-
-    return @
-
-
-  @config 'nunjucks', new Task()
