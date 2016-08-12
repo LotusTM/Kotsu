@@ -11,7 +11,7 @@ module.exports = ->
         reload: true
     static:
       files: ['<%= path.source.static %>/{,**/}*']
-      tasks: ['copy:static']
+      tasks: ['newer:copy:static']
     data:
       files: ['<%= path.source.data %>/{,**/}*.{json,yml,js,coffee}']
       tasks: ['nunjucks']
@@ -20,7 +20,7 @@ module.exports = ->
       tasks: ['nunjucks']
     fonts:
       files: ['<%= path.source.fonts %>/{,**/}*']
-      tasks: ['copy:fonts']
+      tasks: ['newer:copy:fonts']
     icons:
       files: ['<%= path.source.icons %>/{,**/}*.svg']
       tasks: ['webfont']
