@@ -1,5 +1,4 @@
-_    = require('lodash')
-path = require('path')
+{ map } = require('lodash')
 
 module.exports = (grunt) ->
   'use strict'
@@ -90,7 +89,7 @@ module.exports = (grunt) ->
       ]
       baseLocale: 'en-US'
 
-  localesList = _.map(grunt.config('i18n.locales'), 'locale')
+  localesList = map(grunt.config('i18n.locales'), 'locale')
 
   grunt.config.set 'i18n.gettext', new Gettext({ locales: localesList, cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
   # @todo For reasons why it has been set that way refer to https://github.com/gruntjs/grunt/issues/1541
