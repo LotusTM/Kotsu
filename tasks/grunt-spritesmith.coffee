@@ -1,5 +1,3 @@
-{ template } = require('lodash')
-
 ###
 Spritesmith
 https://github.com/Ensighten/grunt-spritesmith
@@ -15,7 +13,7 @@ module.exports = ->
       engine: 'gmsmith'
       cssTemplate: (data) ->
 
-        tmpl = """
+        return """
           // =======================================
           // ^SPRITES.MAP
           // =======================================
@@ -39,9 +37,7 @@ module.exports = ->
           //  @include sprites();     // will output to CSS all your sprites
           //  @include sprite(arrow); // will output to CSS `.sprite--arrow { ... }`
 
-          $grunt-sprites: (<% for (sprite of sprites) { %>
-            '<%= sprite.name %>': ( width: <%= sprite.px.width %>, height: <%= sprite.px.height %>, offset-x: <%= sprite.px.offset_x %>, offset-y: <%= sprite.px.offset_y %> ),
-          <% } %>);
+          $grunt-sprites: (
+            #{ data.sprites.map((sprite) -> "'#{ sprite.name }': ( width: #{ sprite.px.width }, height: #{ sprite.px.height }, offset-x: #{ sprite.px.offset_x }, offset-y: #{ sprite.px.offset_y } )").join(',\n  ') }
+          );
         """
-
-        return template(tmpl)(data)
