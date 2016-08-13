@@ -58,17 +58,12 @@ module.exports = (grunt) ->
     file:
       source:
         script: '<%= path.source.scripts %>/main'
-        style: '<%= path.source.styles %>/style.scss'
 
       build:
         script:
           compiled: '<%= path.build.scripts %>/main.js'
-          min: '<%= path.build.scripts %>/main.min.js'
         style:
-          compiled: '<%= path.build.styles %>/style.compiled.css'
-          prefixed: '<%= path.build.styles %>/style.prefixed.css'
           tidy: '<%= path.build.styles %>/style.tidy.css'
-          min: '<%= path.build.styles %>/style.min.css'
         sprite:
           compiled: '<%= path.build.sprites %>/sprite.png'
           hash: '<%= path.build.sprites %>/hash.json'
