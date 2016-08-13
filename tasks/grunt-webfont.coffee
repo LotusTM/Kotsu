@@ -16,7 +16,6 @@ module.exports = ->
         styles: '' # `.Icon` class and font-face declared by Ekzo.sass
         template: '' # temporary workaround for node v6 support (see path.extname docs)
         templateOptions:
-          baseClass: 'icon'
           classPrefix: 'Icon--'
         stylesheet: 'scss'
         # @note Normalize may yeild different results for different engines
