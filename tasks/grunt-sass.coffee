@@ -16,6 +16,13 @@ module.exports = ->
         sourceMap: true
         functions:
 
+          ###*
+           * Get specified path from shared Grunt `data.path`
+           * @param  {array|string} query Query to property in `data.path`, which contains
+           *                              needed path, according to https://lodash.com/docs#get
+           * @return {string}             Requested path
+           * @example `$images-path: '/' + kotsu-path(images);`
+          ###
           'kotsu-path($query)': (query) =>
             query = query.getValue()
             baseLocale = @config('i18n.baseLocale')
