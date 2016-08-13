@@ -10,6 +10,8 @@ module.exports = ->
         open: true
         notify: true
         watchTask: true
+        # @todo Figure out does it do anything or no
+        #       https://github.com/BrowserSync/grunt-browser-sync/issues/136
         debugInfo: true
         online: false
         ghostMode:
