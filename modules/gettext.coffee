@@ -1,4 +1,3 @@
-_           = require('lodash')
 path        = require('path')
 NodeGettext = require('node-gettext')
 
