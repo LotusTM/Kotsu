@@ -10,7 +10,7 @@ numbro       = require('numbro')
 moment       = require('moment')
 smartPlurals = require('smart-plurals')
 printf       = require('../modules/printf')
-marked       = require('marked')
+md           = require('markdown-it')()
 markdown     = require('nunjucks-markdown')
 nunjucks     = require('nunjucks')
 urlify       = require('urlify')
@@ -171,7 +171,7 @@ module.exports = (grunt) ->
            * Nunjucks extension for Markdown support
            * @example {% markdown %}Markdown _text_ goes **here**{% endmarkdown %}
           ###
-          markdown.register(env, marked)
+          markdown.register(env, md.render.bind(md))
 
           # =======
           # Globals
@@ -234,8 +234,8 @@ module.exports = (grunt) ->
               if not merge or not ctxValue
                 _.set(ctx, prop, value)
               else
-                result = if valueIsObject then _.merge(value, ctxValue) else if valueIsArray then _.union(value, ctxValue) else ctxValue
-                _.set(ctx, prop, result)
+                value = if valueIsObject then _.merge(value, ctxValue) else if valueIsArray then _.union(value, ctxValue) else ctxValue
+                _.set(ctx, prop, value)
 
               return
 
