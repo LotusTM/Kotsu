@@ -18,6 +18,7 @@ module.exports = ->
 
           ###*
            * Get specified path from shared Grunt `data.path`
+           * @todo Add proper handling of localized data
            * @param  {array|string} query Query to property in `data.path`, which contains
            *                              needed path, according to https://lodash.com/docs#get
            * @return {string}             Requested path
