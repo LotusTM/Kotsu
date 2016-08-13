@@ -13,8 +13,9 @@ module.exports = ->
           #       Github issue: https://github.com/giakki/uncss/issues/199
           /^.*::-webkit-input-placeholder.*$/
 
-          '.outdated-browser'
-          '.outdated-browser__link'
+          # Write explanation
+          '.Outdated-browser'
+          '.Outdated-browser__link'
 
           # Ignore state-related classes, like `is-active` and `menu-entry--is-active`
           /^(\.|#)is-[\w_-]*$/
