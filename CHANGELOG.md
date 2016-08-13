@@ -34,6 +34,7 @@
 - [grunt] `standard` replaced with `grunt-standard`
 - [grunt] `stylelint` replaced with `grunt-stylelint`
 - [grunt] Using `path.tasks.root` variable to reference tasks folder in gruntfile
+- [grunt] Exclude common custom error pages from sitemap
 - [misc] Changed project license from `MIT` to `Apache 2.0` (#58)[https://github.com/lotustm/kotsu/issues/58]
 - [sass] Switched to Ekzo 2.0.0-beta
 - [sass] Updated default settings to work properly with new Ekzo. A lot of changes. Refer to Ekzo 2.0.0 changelog for details.
