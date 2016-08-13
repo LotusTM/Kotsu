@@ -10,10 +10,9 @@ vsprintf = require('sprintf-js').vsprintf
  * @return {string} String with replaced placeholders
 ###
 module.exports = (string, placeholders...) ->
-  _placeholder = placeholders[0]
+  [placeholder, ...] = placeholders
 
-  if placeholders.length == 1 and Array.isArray _placeholder
-    return vsprintf string, _placeholder
+  if placeholders.length == 1 and Array.isArray placeholder
+    return vsprintf string, placeholder
   else
-    placeholders.unshift(string)
-    return sprintf.apply null, placeholders
+    return sprintf string, placeholders...
