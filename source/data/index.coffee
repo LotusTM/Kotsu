@@ -20,7 +20,7 @@ module.exports = (grunt) ->
       homepage: pkg.homepage
       twitter: pkg.twitter
       version: pkg.version
-      locales: '<%= i18n.locales.list %>'
+      locales: '<%= i18n.localesNames %>'
       baseLocale: '<%= i18n.baseLocale %>'
       pages: grunt.file.readYAML 'source/data/pages.yml'
     data:

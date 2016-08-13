@@ -84,11 +84,11 @@ module.exports = (grunt) ->
       ]
       baseLocale: 'en-US'
 
-  localesList = map(grunt.config('i18n.locales'), 'locale')
+  localesNames = map(grunt.config('i18n.locales'), 'locale')
 
-  grunt.config.set 'i18n.gettext', new Gettext({ locales: localesList, cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
+  grunt.config.set 'i18n.gettext', new Gettext({ locales: localesNames, cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
   # @todo For reasons why it has been set that way refer to https://github.com/gruntjs/grunt/issues/1541
-  grunt.config.set 'i18n.locales.list', localesList
+  grunt.config.set 'i18n.localesNames', localesNames
 
   grunt.config.set 'data', require('./' + grunt.config('path.source.data'))(grunt)
 
