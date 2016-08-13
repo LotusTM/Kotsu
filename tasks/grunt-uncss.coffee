@@ -9,11 +9,8 @@ module.exports = ->
       options:
         htmlroot: '<%= path.build.root %>'
         ignore: [
-          # @todo Ignore webkit placeholder explicitly
-          #       Github issue: https://github.com/giakki/uncss/issues/199
-          /^.*::-webkit-input-placeholder.*$/
-
-          # Write explanation
+          # @note Classes inside IE conditional blocks have to be ignored explicitly
+          #       See https://github.com/giakki/uncss/issues/112
           '.Outdated-browser'
           '.Outdated-browser__link'
 
