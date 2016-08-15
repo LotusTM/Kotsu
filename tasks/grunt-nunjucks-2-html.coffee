@@ -89,6 +89,8 @@ module.exports = (grunt) ->
    * to directory named after basename of the file
    * @example `/posts/2015-10-12-article.nj` -> `/posts/2015-10-12-article.nj/index.html`
    * @param  {string} pagepath Path to page
+   * @param  {regex}  exclude = taskConfig.humanReadableUrls.exclude
+   *                           Patterns of page names or paths, which shouldn't be transformed
    * @return {string} Renamed path
   ###
   humanReadableUrl = (pagepath, exclude = taskConfig.humanReadableUrls.exclude) ->
@@ -309,6 +311,7 @@ module.exports = (grunt) ->
             _localeDir = getLocaleDir(locale)
             if _localeDir then '/' + _localeDir else ''
 
+          # 123
           gettext.textdomain(currentLocale)
           gettext.installNunjucksGlobals(env)
 
