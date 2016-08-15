@@ -10,6 +10,7 @@ numbro       = require('numbro')
 moment       = require('moment')
 smartPlurals = require('smart-plurals')
 printf       = require('../modules/printf')
+crumble      = require('../modules/crumble')
 md           = require('markdown-it')()
 markdown     = require('nunjucks-markdown')
 nunjucks     = require('nunjucks')
@@ -67,22 +68,6 @@ module.exports = (grunt) ->
   # =======
   # Helpers
   # =======
-
-  ###*
-   * Explodes string path into array breadcrumb
-   * @param  {string} to Relative or absolute path
-   * @return {array}     Array, which consists of path's fragments
-  ###
-  crumble = (to) ->
-    if to == '/'
-      breadcrumb = ['index']
-    else
-      extname    = path.extname(to)
-      breadcrumb = _.chain(to).trimStart('/').trimEnd('/').trimEnd(extname).split('/').value()
-
-      if breadcrumb.length >= 2 and _.last(breadcrumb) == 'index' then breadcrumb.pop()
-
-    return breadcrumb
 
   ###*
    * Rename pagepath (except if it's matching `exclude` pattern) to `index.html` and move
