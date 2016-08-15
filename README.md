@@ -38,7 +38,7 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 * Human readable urls
 * HTML5 boilerplate files based on best practices
 * i18n with [node-gettext](https://github.com/andris9/node-gettext)
-* [Sass](http://sass-lang.com/) compiler with source maps generation, [autoprefixing](https://github.com/nDmitry/grunt-autoprefixer)
+* [Sass](http://sass-lang.com/) compiler with source maps generation, [autoprefixing](https://github.com/postcss/autoprefixer), [optimization](https://github.com/giakki/uncss), [minification](https://github.com/css/csso) and [linting](https://github.com/stylelint/stylelint)
 * [Ekzo.sass](https://github.com/ArmorDarks/ekzo.sass) framework
 * [jspm](http://jspm.io) with ES6 support, managing and bundling JavaScript dependencies
 * [standard](https://github.com/feross/standard) for linting and automatic formatting JavaScript
