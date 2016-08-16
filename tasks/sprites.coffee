@@ -1,9 +1,11 @@
-###
-Spritesmith
-https://github.com/Ensighten/grunt-spritesmith
-Generates sprites and scss from set of images
-###
-module.exports = ->
+module.exports = () ->
+
+  ###
+  Spritesmith
+  https://github.com/Ensighten/grunt-spritesmith
+  Generates sprites and scss from set of images
+  ###
+
   @config 'sprite',
     build:
       src: '<%= path.source.sprites %>/{,**/}*'
@@ -41,3 +43,15 @@ module.exports = ->
             #{ data.sprites.map((sprite) -> "'#{ sprite.name }': ( width: #{ sprite.px.width }, height: #{ sprite.px.height }, offset-x: #{ sprite.px.offset_x }, offset-y: #{ sprite.px.offset_y } )").join(',\n  ') }
           );
         """
+
+  ###
+  Watch
+  https://github.com/gruntjs/grunt-contrib-watch
+  Watches scss, js etc for changes and compiles them
+  ###
+
+  @config.merge
+    watch:
+      sprites:
+        files: ['<%= path.source.sprites %>/{,**/}*.{jpg,jpeg,gif,png}']
+        tasks: ['sprite']

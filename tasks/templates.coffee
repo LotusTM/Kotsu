@@ -1,9 +1,3 @@
-###
-Nunjucks to HTML
-https://github.com/vitkarpov/grunt-nunjucks-2-html
-Render nunjucks templates
-###
-
 _                = require('lodash')
 path             = require('path')
 numbro           = require('numbro')
@@ -18,6 +12,13 @@ nunjucks         = require('nunjucks')
 urlify           = require('urlify')
 
 module.exports = (grunt) ->
+
+  ###
+  Nunjucks to HTML
+  https://github.com/vitkarpov/grunt-nunjucks-2-html
+  Render nunjucks templates
+  ###
+
   # ======
   # Config
   # ======
@@ -418,3 +419,57 @@ module.exports = (grunt) ->
           src = if taskConfig.humanReadableUrls.enabled then humanReadableUrl(src, taskConfig.humanReadableUrls.exclude) else src
           path.join(dest, src)
       ]
+
+  ###
+  Process HTML
+  https://github.com/dciccale/grunt-processhtml
+  Process html files to modify them depending on the release environment
+  ###
+
+  @config 'processhtml',
+    build:
+      files: [
+        expand: true
+        cwd: '<%= path.build.root %>'
+        src: '{,**/}*.html'
+        dest: '<%= path.build.root %>'
+      ]
+
+  ###
+  Minify HTML
+  https://github.com/gruntjs/grunt-contrib-htmlmin
+  Minify HTML code
+  ###
+
+  @config 'htmlmin',
+    build:
+      options:
+        removeComments: true
+        removeCommentsFromCDATA: true
+        collapseWhitespace: true
+        conservativeCollapse: true
+        collapseBooleanAttributes: true
+        removeEmptyAttributes: true
+        removeScriptTypeAttributes: true
+        removeStyleLinkTypeAttributes: true
+      files: [
+        expand: true
+        cwd: '<%= path.build.root %>'
+        src: '{,**/}*.html'
+        dest: '<%= path.build.root %>'
+      ]
+
+  ###
+  Watch
+  https://github.com/gruntjs/grunt-contrib-watch
+  Watches scss, js etc for changes and compiles them
+  ###
+
+  @config.merge
+    watch:
+      templates:
+        files: ['<%= path.source.templates %>/{,**/}*.nj', '!<%= path.source.templates %>{,**/}_*.nj']
+        tasks: ['newer:nunjucks']
+      templatesPartials:
+        files: ['<%= path.source.templates %>/{,**/}_*.nj']
+        tasks: ['nunjucks']

@@ -1,9 +1,11 @@
-###
-SVG to webfont converter for Grunt
-https://github.com/sapegin/grunt-webfont
-Generate custom icon webfonts from SVG files
-###
-module.exports = ->
+module.exports = () ->
+
+  ###
+  SVG to webfont converter for Grunt
+  https://github.com/sapegin/grunt-webfont
+  Generate custom icon webfonts from SVG files
+  ###
+
   @config 'webfont',
     build:
       src: '<%= path.source.icons %>/{,**/}*.svg'
@@ -24,3 +26,16 @@ module.exports = ->
         autoHint: false
         htmlDemo: false
         engine: 'node'
+
+
+  ###
+  Watch
+  https://github.com/gruntjs/grunt-contrib-watch
+  Watches scss, js etc for changes and compiles them
+  ###
+
+  @config.merge
+    watch:
+      icons:
+        files: ['<%= path.source.icons %>/{,**/}*.svg']
+        tasks: ['webfont']
