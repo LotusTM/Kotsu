@@ -4,17 +4,18 @@ https://github.com/vitkarpov/grunt-nunjucks-2-html
 Render nunjucks templates
 ###
 
-_            = require('lodash')
-path         = require('path')
-numbro       = require('numbro')
-moment       = require('moment')
-smartPlurals = require('smart-plurals')
-printf       = require('../modules/printf')
-crumble      = require('../modules/crumble')
-md           = require('markdown-it')()
-markdown     = require('nunjucks-markdown')
-nunjucks     = require('nunjucks')
-urlify       = require('urlify')
+_                = require('lodash')
+path             = require('path')
+numbro           = require('numbro')
+moment           = require('moment')
+smartPlurals     = require('smart-plurals')
+printf           = require('../modules/printf')
+crumble          = require('../modules/crumble')
+humanReadableUrl = require('../modules/humanReadableUrl')
+md               = require('markdown-it')()
+markdown         = require('nunjucks-markdown')
+nunjucks         = require('nunjucks')
+urlify           = require('urlify')
 
 module.exports = (grunt) ->
   # ======
@@ -68,21 +69,6 @@ module.exports = (grunt) ->
   # =======
   # Helpers
   # =======
-
-  ###*
-   * Rename pagepath (except if it's matching `exclude` pattern) to `index.html` and move
-   * to directory named after basename of the file
-   * @example `/posts/2015-10-12-article.nj` -> `/posts/2015-10-12-article.nj/index.html`
-   * @param  {string} pagepath Path to page
-   * @param  {regex}  exclude = taskConfig.humanReadableUrls.exclude
-   *                           Patterns of page names or paths, which shouldn't be transformed
-   * @return {string} Renamed path
-  ###
-  humanReadableUrl = (pagepath, exclude = taskConfig.humanReadableUrls.exclude) ->
-    _ext      = path.extname(pagepath)
-    _basename = path.basename(pagepath, _ext)
-
-    if !exclude.test(_basename) then pagepath.replace(_basename + _ext, _basename + '/index' + _ext) else pagepath
 
   ###*
    * Return locale's properties
@@ -402,7 +388,7 @@ module.exports = (grunt) ->
             ulrlify(string, options)
 
         preprocessData: (data) ->
-          pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''))
+          pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''), taskConfig.humanReadableUrls.exclude)
           pagedir      = path.dirname(pagepath)
           pagedirname  = path.basename(pagedir)
           pagebasename = path.basename(pagepath, path.extname(pagepath))
@@ -429,6 +415,6 @@ module.exports = (grunt) ->
         dest: taskConfig.files.dest + '/' + localeDir
         ext: taskConfig.files.ext
         rename: (dest, src) =>
-          src = if taskConfig.humanReadableUrls.enabled then humanReadableUrl(src) else src
+          src = if taskConfig.humanReadableUrls.enabled then humanReadableUrl(src, taskConfig.humanReadableUrls.exclude) else src
           path.join(dest, src)
       ]
