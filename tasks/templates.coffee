@@ -8,7 +8,6 @@ crumble          = require('../modules/crumble')
 humanReadableUrl = require('../modules/humanReadableUrl')
 md               = require('markdown-it')()
 markdown         = require('nunjucks-markdown')
-nunjucks         = require('nunjucks')
 urlify           = require('urlify')
 
 module.exports = (grunt) ->
@@ -324,7 +323,7 @@ module.exports = (grunt) ->
            * @todo  Related to this issue https://github.com/mozilla/nunjucks/issues/783
           ###
           env.addFilter 'renderCaller', (caller) ->
-            nunjucks.renderString(caller.val, this.getVariables());
+            env.renderString(caller.val, this.getVariables());
 
           ###*
            * Get language code from locale, without country
