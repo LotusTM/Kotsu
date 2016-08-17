@@ -6,6 +6,7 @@ smartPlurals     = require('smart-plurals')
 printf           = require('../modules/printf')
 crumble          = require('../modules/crumble')
 humanReadableUrl = require('../modules/humanReadableUrl')
+render           = require('../modules/nunjucks-render')
 md               = require('markdown-it')()
 markdown         = require('nunjucks-markdown')
 urlify           = require('urlify')
@@ -314,16 +315,11 @@ module.exports = (grunt) ->
             array
 
           ###*
-           * Renders output of `caller()` once again. Useful if you're
-           * using `{% raw %}` block inside of call, for example,
-           * to showcase nunjucks code
-           * @param {object} caller Caller to force render
-           * @return {string} Rendered html
-           *
-           * @todo  Related to this issue https://github.com/mozilla/nunjucks/issues/783
+           * Force rendering of input via Nunjucks. Refer to `nunjucks-render` module for docs
+           * @todo Related issue https://github.com/mozilla/nunjucks/issues/783
           ###
-          env.addFilter 'renderCaller', (caller) ->
-            env.renderString(caller.val, this.getVariables());
+          env.addFilter 'render', (input, isCaller = false, logUndefined = false) ->
+            render(env, @getVariables(), input, isCaller, grunt.log.error, logUndefined, this.ctx.page.props.href)
 
           ###*
            * Get language code from locale, without country

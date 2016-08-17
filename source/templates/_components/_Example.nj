@@ -27,7 +27,7 @@
     </div>
 
     <div class='o-grid__item h-1/1 h-margin-top {{ 'h-2/9@tablet h-margin-top0@tablet' if not full }}'>
-      {{ caller()|renderCaller }}
+      {{ caller()|render(isCaller = true) }}
     </div>
 
     {# @todo Temporarily disabled due to https://github.com/mozilla/nunjucks/issues/782 #}
