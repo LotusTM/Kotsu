@@ -4,15 +4,19 @@ vsprintf = require('sprintf-js').vsprintf
 ###*
  * Replace placeholders with provided values via `sprintf` or `vsprintf`. Function will choice
  * proper `printf` depending on povided placeholders
- * @param {string}              string          String in which should be made replacement
+ * @param {string|object|array} input           Input in which should be made replacement
  * @param {string|object|array} placeholders... List of placeholders, object with named
  *                                              placeholders or arrays of placeholders
  * @return {string} String with replaced placeholders
 ###
-module.exports = (string, placeholders...) ->
+module.exports = (input, placeholders...) ->
+  isObject = typeof input == 'object'
+  input = if isObject then JSON.stringify(input) else input
   [placeholder, ...] = placeholders
 
   if placeholders.length == 1 and Array.isArray placeholder
-    return vsprintf string, placeholder
+    result = vsprintf input, placeholder
   else
-    return sprintf string, placeholders...
+    result = sprintf input, placeholders...
+
+  return if isObject then JSON.parse(result) else result

@@ -335,14 +335,9 @@ module.exports = (grunt) ->
             getLangcode(locale)
 
           ###*
-           * Replace placeholders with provided values
-           * @param {string}                     string          String in which should be made replacement
-           * @param {number|string|object|array} placeholders... List of arguments as placeholders, object with named
-           *                                                     placeholders or arrays of placeholders
-           * @return {string} String with replaced placeholders
+           * Replace placeholders with provided values. Refer to `printf` module for docs
           ###
-          env.addFilter 'template', (string, placeholders...) ->
-            printf(string, placeholders...)
+          env.addFilter 'template', printf
 
           ###*
            * Pluralize string based on count. For situations, where full i18n is too much
