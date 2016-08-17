@@ -10,6 +10,8 @@ vsprintf = require('sprintf-js').vsprintf
  * @return {string} String with replaced placeholders
 ###
 module.exports = (input, placeholders...) ->
+  if typeof input == 'number' then return
+
   isObject = typeof input == 'object'
   input = if isObject then JSON.stringify(input) else input
   [placeholder, ...] = placeholders
