@@ -6,17 +6,13 @@
 
 {# Set defaults #}
 {{ config('page', { breadcrumb : page.props.breadcrumb }) }}
+{{ config('page', getPage(page.breadcrumb).props|render|template(site.placeholders)) }}
 {{ config('page', {
-  title          : getPage(page.breadcrumb).props.title       |template(site.placeholders),
-  metaDesc       : getPage(page.breadcrumb).props.metaDesc    |template(site.placeholders),
-  contentTitle   : getPage(page.breadcrumb).props.contentTitle|template(site.placeholders),
-
   class          : '',
   applyWrapper   : false,
   showBreadcrumb : true,
   showSidebar    : false
 }) }}
-{{ config('page', getPage(page.breadcrumb).props) }}
 {{ config('page', page.props) }}
 
 {# Call macros globally #}
@@ -46,10 +42,11 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'> #}
 
   <!-- Fonts -->
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic'>
+
 
   <!-- CSS -->
   <!-- build:[href] /{{ path.styles }}/style.min.css -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic'>
   <link rel='stylesheet' href='/{{ path.styles }}/style.prefixed.css'>
   <!-- /build -->
 
