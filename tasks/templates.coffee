@@ -199,13 +199,13 @@ module.exports = (grunt) ->
             else return ctxValue
 
           ###*
-           * Get information about page and its childs from specified object.
-           * @param {array}  path                              Path to page inside `obj`
-           * @param {object} pages = localizedData.site.pages  Object with properties of page and its childs
-           * @return {object} Contains all page's properties, including it's sub pages
+           * Get properties of page and its childs from specified object.
+           * @param {array}  path                             Path to page inside `data`
+           * @param {object} data = localizedData.site.pages  Object with properties of page and its childs
+           * @return {object} Properties of the page, including its sub pages
           ###
-          env.addGlobal 'getPage', (path, pages = localizedData.site.pages) ->
-            result = _.get(pages, path)
+          env.addGlobal 'getPage', (path, data = localizedData.site.pages) ->
+            result = _.get(data, path)
 
             if result
               Object.defineProperty result, 'props', enumerable: false
