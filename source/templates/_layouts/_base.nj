@@ -1,4 +1,3 @@
-{# --------- #}
 {# Set global placeholders values for `template` #}
 {{ config('site.placeholders', {
   company: site.name
@@ -20,8 +19,6 @@
 {% for component in expand('/', '_components/{,**/}_*.nj', 'isFile', path.source.templates) %}
   {% import component as temp with context %}{% set macro = _.assign(components, temp) %}
 {% endfor %}
-{# --------- #}
-
 
 <!doctype html>
 <html class='{{ page.class }} t-base no-js' lang='{{ page.locale }}' {{ 'dir=\'rtl\'' if page.rtl }}>
@@ -42,11 +39,10 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'> #}
 
   <!-- Fonts -->
-
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic'>
 
   <!-- CSS -->
   <!-- build:[href] /{{ path.styles }}/style.min.css -->
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic'>
   <link rel='stylesheet' href='/{{ path.styles }}/style.prefixed.css'>
   <!-- /build -->
 

@@ -1,12 +1,8 @@
 {% extends '_layouts/_main.nj' %}
 
-
-{# --------- #}
 {{ config('page', {
   class : 'p-blog'
 }) }}
-{# --------- #}
-
 
 {% block main %}
 
