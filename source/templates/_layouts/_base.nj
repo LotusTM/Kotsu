@@ -1,9 +1,9 @@
-{# Set global placeholders values for `template` #}
+{# Global placeholders values #}
 {{ config('site.placeholders', {
   company: site.name
 }) }}
 
-{# Set defaults #}
+{# Default configs #}
 {{ config('page', { breadcrumb : page.props.breadcrumb }) }}
 {{ config('page', getPage(page.breadcrumb).props|render|template(site.placeholders)) }}
 {{ config('page', {
@@ -14,7 +14,7 @@
 }) }}
 {{ config('page', page.props) }}
 
-{# Call macros globally #}
+{# Global macros #}
 {% set components = {} %}
 {% for component in expand('/', '_components/{,**/}_*.nj', 'isFile', path.source.templates) %}
   {% import component as temp with context %}{% set macro = _.assign(components, temp) %}
