@@ -205,11 +205,13 @@ module.exports = (grunt) ->
            * @return {object} Contains all page's properties, including it's sub pages
           ###
           env.addGlobal 'getPage', (path, pages = localizedData.site.pages) ->
-            _result = _.get(pages, path)
-            if _result
-              Object.defineProperty _result, 'props', enumerable: false
-              return _result
-            else grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + this.ctx.page.href + ']')
+            result = _.get(pages, path)
+
+            if result
+              Object.defineProperty result, 'props', enumerable: false
+              return result
+            else
+              grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + this.ctx.page.href + ']')
 
           ###*
            * Explodes string into array breadcrumb. See `crumble` helper for details
