@@ -7,9 +7,9 @@ printf           = require('../modules/printf')
 crumble          = require('../modules/crumble')
 humanReadableUrl = require('../modules/humanReadableUrl')
 render           = require('../modules/nunjucks-render')
+urlify           = require('../modules/urlify')
 md               = require('markdown-it')()
 markdown         = require('nunjucks-markdown')
-urlify           = require('urlify')
 
 module.exports = (grunt) ->
 
@@ -40,24 +40,6 @@ module.exports = (grunt) ->
       baseLocale        : grunt.config('i18n.baseLocale')
       baseLocaleAsRoot  : true
       gettext           : grunt.config('i18n.gettext')
-    urlify:
-      addEToUmlauts     : true
-      szToSs            : true
-      spaces            : '-'
-      toLower           : true
-      nonPrintable      : '-'
-      trim              : true
-      failureOutput     : 'non-printable-url'
-
-  urlify = urlify.create({
-    addEToUmlauts : taskConfig.urlify.addEToUmlauts
-    szToSs        : taskConfig.urlify.szToSs
-    spaces        : taskConfig.urlify.spaces
-    toLower       : taskConfig.urlify.toLower
-    nonPrintable  : taskConfig.urlify.nonPrintable
-    trim          : taskConfig.urlify.trim
-    failureOutput : taskConfig.urlify.failureOutput
-  })
 
   gettext      = taskConfig.i18n.gettext
 
