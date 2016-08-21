@@ -33,6 +33,7 @@ module.exports = (grunt) ->
       src               : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
       dest              : grunt.config('path.build.root') + '/'
       ext               : '.html'
+      matter            : grunt.config('file.temp.data.matter')
     humanReadableUrls:
       enabled           : true
       exclude           : /^(index|\d{3})$/
@@ -317,6 +318,11 @@ module.exports = (grunt) ->
           pagedir      = path.dirname(pagepath)
           pagedirname  = path.basename(pagedir)
           pagebasename = path.basename(pagepath, path.extname(pagepath))
+          matterData   = grunt.file.readJSON(taskConfig.files.matter)
+
+          data.site = data.site || {}
+
+          data.site.__matter__ = matterData
 
           data.page       = data.page || {}
           data.page.props = data.page.props || {}
