@@ -22,7 +22,6 @@ module.exports = (grunt) ->
       version: pkg.version
       locales: '<%= i18n.localesNames %>'
       baseLocale: '<%= i18n.baseLocale %>'
-      pages: grunt.file.readYAML 'source/data/pages.yml'
     data:
       currentYear: new Date().getFullYear()
       example: grunt.file.readJSON 'source/data/example.json'
@@ -34,7 +33,5 @@ module.exports = (grunt) ->
       when baseLocale then data
 
       when 'ru-RU' then _.merge {}, data,
-        site:
-          pages: grunt.file.readYAML 'source/data/pages_ru-RU.yml'
 
       else data
