@@ -1,0 +1,20 @@
+---
+title:           Newer article
+breadcrumbTitle: Newer article
+contentTitle:    Newer article
+navTitle:        Newer article
+metaDesc:        Newer example article generated with %(company)s
+shortDesc:       Newer example article generated with %(company)s. Wanna more?
+author:          LotusTM
+date:            2016-08-18T01:54:00
+---
+
+{% extends './_entry.nj' %}
+
+{% block post %}
+{% markdown %}
+
+This is another article just to test out sorting. Yeap, nothing interesting here.
+
+{% endmarkdown %}
+{% endblock %}
