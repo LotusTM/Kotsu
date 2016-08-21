@@ -155,7 +155,7 @@ module.exports = (grunt) ->
            * @param {object} data = localizedData.site.pages  Object with properties of page and its childs
            * @return {object} Properties of the page, including its sub pages
           ###
-          env.addGlobal 'getPage', (path, data = localizedData.site.pages) ->
+          env.addGlobal 'getPage', (path, data = this.ctx.site.__matter__) ->
             result = _.get(data, path)
 
             if result
