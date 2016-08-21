@@ -1,3 +1,5 @@
+crumble = require('../modules/crumble')
+
 module.exports = () ->
 
   ###
@@ -10,6 +12,9 @@ module.exports = () ->
     build:
       options:
         baseDir: '<%= path.source.templates %>'
+
+        preprocessPath: (path) ->
+          return [crumble(path)..., 'props']
 
       files: [
         expand: true
