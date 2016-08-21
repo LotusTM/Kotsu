@@ -29,7 +29,7 @@
     {% macro Item(to, label, depth = 1) %}
 
       {% set itemIsActive = isActive(to) %}
-      {% set itemProps    = getPage(crumble(to)).props|render|template(site.placeholders) %}
+      {% set itemProps    = getPage(crumble(to)).props|template(site.placeholders) %}
 
       {# For cases when you need to have sub navs #}
       {% set callerDepth = depth + 1 %}
