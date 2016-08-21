@@ -1,9 +1,16 @@
-{% extends '_layouts/_main.nj' %}
+---
+href:            /
+title:           Kotsu Web Starter Kit
+breadcrumbTitle: Home
+contentTitle:    false
+navTitle:        Home
+metaDesc:        Generated with %(company)s demo homepage
 
-{{ config('page', {
-  class          : 'p-index',
-  showBreadcrumb : false
-}) }}
+class:           p-index
+showBreadcrumb:  false
+---
+
+{% extends '_layouts/_main.nj' %}
 
 {% block main %}
 

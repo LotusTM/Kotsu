@@ -1,8 +1,14 @@
-{% extends '_layouts/_main.nj' %}
+---
+title:           Examples
+breadcrumbTitle: Examples
+contentTitle:    Examples
+navTitle:        Examples
+metaDesc:        '%(company)s examples'
 
-{{ config('page', {
-  class : 'p-examples'
-}) }}
+class:           p-examples
+---
+
+{% extends '_layouts/_main.nj' %}
 
 {% block main %}
 

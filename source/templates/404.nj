@@ -1,9 +1,16 @@
-{% extends '_layouts/_main.nj' %}
+---
+href:            /404.html
+title:           404 — page not found
+breadcrumbTitle: 404
+contentTitle:    false
+navTitle:        404
+metaDesc:        404 — page not found
 
-{{ config('page', {
-  class          : 'p-404',
-  showBreadcrumb : false
-}) }}
+class:           p-404
+showBreadcrumb:  false
+---
+
+{% extends '_layouts/_main.nj' %}
 
 {% block main %}
 

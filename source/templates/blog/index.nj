@@ -1,8 +1,14 @@
-{% extends '_layouts/_main.nj' %}
+---
+title:           Blog
+breadcrumbTitle: Blog
+contentTitle:    '%(company)s blog'
+navTitle:        Blog
+metaDesc:        '%(company)s blog'
 
-{{ config('page', {
-  class : 'p-blog'
-}) }}
+class:           p-blog
+---
+
+{% extends '_layouts/_main.nj' %}
 
 {% block main %}
 
