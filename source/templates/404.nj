@@ -1,10 +1,10 @@
 ---
 href:            /404.html
-title:           ={{ gettext('404 — page not found') }}
+title:           ={{ gettext('404 &mdash; page not found') }}
 breadcrumbTitle: '404'
 contentTitle:    false
 navTitle:        '404'
-metaDesc:        ={{ gettext('404 — page not found') }}
+metaDesc:        ={{ gettext('404 &mdash; page not found') }}
 
 class:           p-404
 showBreadcrumb:  false
