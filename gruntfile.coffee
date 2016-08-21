@@ -126,6 +126,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'build', [
     'clean'
     'copy'
+    'grayMatter'
     'nunjucks'
     'sprite'
     'webfont'
