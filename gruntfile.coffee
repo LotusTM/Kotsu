@@ -4,6 +4,7 @@ module.exports = (grunt) ->
   'use strict'
 
   Gettext = require('./modules/gettext')(grunt)
+  require('./modules/grunt-gray-matter')(grunt)
   # Track execution time
   require('time-grunt') grunt
   # Load grunt tasks automatically
@@ -43,6 +44,7 @@ module.exports = (grunt) ->
 
       temp:
         root: 'temp'
+        data: '<%= path.temp.root %>/data'
         styles: '<%= path.temp.root %>/styles'
 
       build:
@@ -58,6 +60,10 @@ module.exports = (grunt) ->
     file:
       source:
         script: '<%= path.source.scripts %>/main'
+
+      temp:
+        data:
+          matter: '<%= path.temp.data %>/matter.json'
 
       build:
         script:
@@ -101,6 +107,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'clean:build'
     'copy'
+    'grayMatter'
     'nunjucks'
     'sprite'
     'webfont'
