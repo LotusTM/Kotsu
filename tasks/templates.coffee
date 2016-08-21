@@ -315,10 +315,9 @@ module.exports = (grunt) ->
 
         preprocessData: (data) ->
           pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''), taskConfig.humanReadableUrls.exclude)
-          pagedir      = path.dirname(pagepath)
-          pagedirname  = path.basename(pagedir)
-          pagebasename = path.basename(pagepath, path.extname(pagepath))
+          breadcrumb   = crumble(pagepath)
           matterData   = grunt.file.readJSON(taskConfig.files.matter)
+          pageProps    = _.get(matterData, breadcrumb)
 
           data.site = data.site || {}
 
@@ -332,10 +331,8 @@ module.exports = (grunt) ->
           data.page.props.language   = getLangcode(currentLocale)
           data.page.props.region     = getRegioncode(currentLocale)
           data.page.props.rtl        = localeProps.rtl
-          data.page.props.href       = if pagedir == '.' then '/' else '/' + pagedir
-          data.page.props.breadcrumb = crumble(pagepath)
-          data.page.props.basename   = pagebasename
-          data.page.props.dirname    = pagedirname
+
+          data.page = _.merge(data.page, pageProps)
 
           return data
 
