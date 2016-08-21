@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Kotsu\n"
+"Report-Msgid-Bugs-To: https://github.com/LotusTM/Kotsu/issues\n"
 "POT-Creation-Date: 2015-10-16 13:19+0300\n"
 "PO-Revision-Date: 2015-10-16 13:29+0300\n"
 "Last-Translator: Serj Lavrin <https://github.com/ArmorDarks>\n"
 "Language-Team: LotusTM <https://github.com/LotusTM>\n"
-"Report-Msgid-Bugs-To: https://github.com/LotusTM/Kotsu/issues\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,17 +13,88 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: source/templates/components/_outdated-browser.nj:11
-msgid "Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly."
-msgstr "Ваш браузер <strong>устарел</strong>! Пожалуйста, %(linkStart)sобновите браузер%(linkEnd)s для нормальной работы сайта."
+#: source/templates/404.nj:3 source/templates/404.nj:7
+msgid "404 &mdash; page not found"
+msgstr "404 &mdash; страница не найдена"
 
-#: source/templates/index.nj:76
+#: source/templates/_components/_OutdatedBrowser.nj:14
+msgid ""
+"Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate "
+"your browser%(linkEnd)s to view this website correctly."
+msgstr ""
+"Ваш браузер <strong>устарел</strong>! Пожалуйста, %(linkStart)sобновите "
+"браузер%(linkEnd)s для нормальной работы сайта."
+
+#: source/templates/blog/2015-10-12-example-article.nj:2
+#: source/templates/blog/2015-10-12-example-article.nj:3
+#: source/templates/blog/2015-10-12-example-article.nj:4
+#: source/templates/blog/2015-10-12-example-article.nj:5
+msgid "Example article"
+msgstr "Демонстрационный пост"
+
+#: source/templates/blog/2015-10-12-example-article.nj:6
+msgid "Example article generated with %(company)s"
+msgstr "Демонстрационный пост, сгенерированный с помощью %(company)s"
+
+#: source/templates/blog/2015-10-12-example-article.nj:7
+msgid "Example article generated with %(company)s. Wanna more?"
+msgstr "Демонстрационный пост, сгенерированный с помощью %(company)s. Хотите еще?"
+
+#: source/templates/blog/2016-08-18-newer-article.nj:2
+#: source/templates/blog/2016-08-18-newer-article.nj:3
+#: source/templates/blog/2016-08-18-newer-article.nj:4
+#: source/templates/blog/2016-08-18-newer-article.nj:5
+msgid "Newer article"
+msgstr "Более новый пост"
+
+#: source/templates/blog/2016-08-18-newer-article.nj:6
+msgid "Newer example article generated with %(company)s"
+msgstr "Более новый пост, сгенерированный с помощью %(company)s"
+
+#: source/templates/blog/2016-08-18-newer-article.nj:7
+msgid "Newer example article generated with %(company)s. Wanna more?"
+msgstr "Более новый пост, сгенерированный с помощью %(company)s. Еще?"
+
+#: source/templates/blog/index.nj:2 source/templates/blog/index.nj:3
+#: source/templates/blog/index.nj:5
+msgid "Blog"
+msgstr "Блог"
+
+#: source/templates/blog/index.nj:4 source/templates/blog/index.nj:6
+msgid "%(company)s blog"
+msgstr "Блог %(company)s"
+
+#: source/templates/examples/index.nj:2 source/templates/examples/index.nj:3
+#: source/templates/examples/index.nj:4 source/templates/examples/index.nj:5
+msgid "Examples"
+msgstr "Примеры"
+
+#: source/templates/examples/index.nj:6
+msgid "%(company)s examples"
+msgstr "Примеры %(company)s"
+
+#: source/templates/examples/index.nj:54 source/templates/examples/index.nj:62
+#: source/templates/examples/index.nj:66 source/templates/examples/index.nj:70
+#: source/templates/examples/index.nj:74
 msgid "This string will be displayd in selected language"
 msgstr "Эта строка будет отображаться на выбранном языке"
 
-#: source/templates/index.nj:79
+#: source/templates/examples/index.nj:79 source/templates/examples/index.nj:80
+#: source/templates/examples/index.nj:81
 msgid "%s apple"
 msgid_plural "%s apples"
 msgstr[0] "%s яблоко"
 msgstr[1] "%s яблока"
 msgstr[2] "%s яблок"
+
+#: source/templates/index.nj:3
+msgid "Kotsu Web Starter Kit"
+msgstr "Kotsu Web Starter Kit"
+
+#: source/templates/index.nj:4 source/templates/index.nj:6
+msgid "Home"
+msgstr "Главная"
+
+#: source/templates/index.nj:7
+msgid "Generated with %(company)s demo homepage"
+msgstr "Демонстрационная страница, сгенерированная с помощью %(company)s"
