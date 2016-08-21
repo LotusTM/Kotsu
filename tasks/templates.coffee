@@ -393,7 +393,7 @@ module.exports = (grunt) ->
     watch:
       templates:
         files: ['<%= path.source.templates %>/{,**/}*.nj', '!<%= path.source.templates %>{,**/}_*.nj']
-        tasks: ['newer:nunjucks']
+        tasks: ['grayMatter', 'newer:nunjucks']
       templatesPartials:
         files: ['<%= path.source.templates %>/{,**/}_*.nj']
-        tasks: ['nunjucks']
+        tasks: ['grayMatter', 'nunjucks']
