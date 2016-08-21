@@ -7,6 +7,7 @@ printf           = require('../modules/printf')
 crumble          = require('../modules/crumble')
 humanReadableUrl = require('../modules/humanReadableUrl')
 render           = require('../modules/nunjucks-render')
+i18nTools        = require('../modules/i18n-tools')
 urlify           = require('../modules/urlify')
 md               = require('markdown-it')()
 markdown         = require('nunjucks-markdown')
@@ -41,66 +42,15 @@ module.exports = (grunt) ->
       baseLocaleAsRoot  : true
       gettext           : grunt.config('i18n.gettext')
 
-  gettext      = taskConfig.i18n.gettext
+  gettext    = taskConfig.i18n.gettext
+  baseLocale = taskConfig.i18n.baseLocale
+
+  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools(taskConfig.i18n.locales, baseLocale, taskConfig.i18n.baseLocaleAsRoot)
 
   locales      = _.map(taskConfig.i18n.locales, 'locale')
-  baseLocale   = taskConfig.i18n.baseLocale
 
   buildDir     = taskConfig.files.dest
   templatesDir = taskConfig.files.cwd
-
-  # =======
-  # Helpers
-  # =======
-
-  ###*
-   * Return locale's properties
-   * @param  {string} locale Locale name for which should be made resolving
-   * @return {string} Props of locale
-  ###
-  getLocaleProps = (locale) ->
-    _.find(taskConfig.i18n.locales, { locale: locale })
-
-  ###*
-   * Output or not locale's dirname based on whether it's base locale or not
-   * @param  {string} locale Locale name for which should be made resolving
-   * @return {string} Directory name, in which resides build for specified locale
-  ###
-  getLocaleDir = (locale) ->
-    _baseUrl = getLocaleProps(locale).url
-    _url = if _baseUrl then _baseUrl else locale
-    urlify(if taskConfig.i18n.baseLocaleAsRoot and locale == baseLocale then '' else _url)
-
-  ###*
-   * Get language code from locale, without country
-   * @param {string} locale Locale, from which should be taken language code
-   * @return {string} Language code from locale
-  ###
-  getLangcode = (locale) ->
-    _matched = locale.match(/^(\w*)-?(\w*)-?(\w*)/i)
-    # In case of 3 and more matched parts assume that we're dealing with language, wich exists
-    # in few forms (like Latin and Cyrillic Serbian (`sr-Latn-CS` and `sr-Cyrl-CS`)
-    # For such languages we should output few first parts (`sr-Latn` and `sr-Cyrl`),
-    # for other — only first part
-    if _matched[3] then _matched[1] + '-' + _matched[2] else _matched[1]
-
-  ###*
-   * Get region code from locale, without language
-   * @param {string} locale Locale, from which should be taken region code
-   * @return {string} Region code from locale
-  ###
-  getRegioncode = (locale) ->
-    _matched = locale.match(/^(\w*)-?(\w*)-?(\w*)/i)
-    # See note for `getLangcode` for explanations. It's same, but just for the region code
-    if _matched[3] then _matched[3] else _matched[2]
-
-  ###*
-   * Convert locale into ISO format: `{langcode}_{REGIONCODE}`
-   * @param {string} locale Locale, which should be converted
-   * @return {string} Locale in ISO format
-  ###
-  isoLocale = (locale) ->
-    getLangcode(locale) + '_' + getRegioncode(locale).toUpperCase()
 
   # =======================
   # Config l10n of Nunjucks
