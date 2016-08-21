@@ -218,7 +218,9 @@ module.exports = (grunt) ->
             _localeDir = getLocaleDir(locale)
             if _localeDir then '/' + _localeDir else ''
 
-          # 123
+          ###*
+           * Init gettext for Nunjucks. See `gettext` module for docs
+          ###
           gettext.textdomain(currentLocale)
           gettext.installNunjucksGlobals(env)
 
