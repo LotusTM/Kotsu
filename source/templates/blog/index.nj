@@ -1,9 +1,9 @@
 ---
-title:           Blog
-breadcrumbTitle: Blog
-contentTitle:    '%(company)s blog'
-navTitle:        Blog
-metaDesc:        '%(company)s blog'
+title:           ={{ gettext('Blog') }}
+breadcrumbTitle: ={{ gettext('Blog') }}
+contentTitle:    ={{ gettext('%(company)s blog') }}
+navTitle:        ={{ gettext('Blog') }}
+metaDesc:        ={{ gettext('%(company)s blog') }}
 
 class:           p-blog
 ---

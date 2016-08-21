@@ -1,10 +1,10 @@
 ---
 href:            /
-title:           Kotsu Web Starter Kit
-breadcrumbTitle: Home
+title:           ={{ gettext('Kotsu Web Starter Kit') }}
+breadcrumbTitle: ={{ gettext('Home') }}
 contentTitle:    false
-navTitle:        Home
-metaDesc:        Generated with %(company)s demo homepage
+navTitle:        ={{ gettext('Home') }}
+metaDesc:        ={{ gettext('Generated with %(company)s demo homepage') }}
 
 class:           p-index
 showBreadcrumb:  false

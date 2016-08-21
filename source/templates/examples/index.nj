@@ -1,9 +1,9 @@
 ---
-title:           Examples
-breadcrumbTitle: Examples
-contentTitle:    Examples
-navTitle:        Examples
-metaDesc:        '%(company)s examples'
+title:           ={{ gettext('Examples') }}
+breadcrumbTitle: ={{ gettext('Examples') }}
+contentTitle:    ={{ gettext('Examples') }}
+navTitle:        ={{ gettext('Examples') }}
+metaDesc:        ={{ gettext('%(company)s examples') }}
 
 class:           p-examples
 ---

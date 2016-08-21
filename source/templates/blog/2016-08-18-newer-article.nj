@@ -1,10 +1,10 @@
 ---
-title:           Newer article
-breadcrumbTitle: Newer article
-contentTitle:    Newer article
-navTitle:        Newer article
-metaDesc:        Newer example article generated with %(company)s
-shortDesc:       Newer example article generated with %(company)s. Wanna more?
+title:           ={{ gettext('Newer article') }}
+breadcrumbTitle: ={{ gettext('Newer article') }}
+contentTitle:    ={{ gettext('Newer article') }}
+navTitle:        ={{ gettext('Newer article') }}
+metaDesc:        ={{ gettext('Newer example article generated with %(company)s') }}
+shortDesc:       ={{ gettext('Newer example article generated with %(company)s. Wanna more?') }}
 author:          LotusTM
 date:            2016-08-18T01:54:00
 ---
