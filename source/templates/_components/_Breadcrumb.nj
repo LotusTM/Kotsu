@@ -43,7 +43,7 @@
       {% set currentCrumb = [crumb] if loop.index0 == 0 else currentCrumb|pushIn(crumb)  %}
       {% set crumbProps   = getPage(currentCrumb).props|render|template(placeholders) %}
       {% set title        = crumbProps.breadcrumbTitle %}
-      {% set href         = crumb if loop.index0 == 0 else href + '/' + crumb %}
+      {% set href         = crumbProps.href %}
 
       {% if not loop.last %}
 
