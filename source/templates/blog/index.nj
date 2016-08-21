@@ -12,26 +12,28 @@ class:           p-blog
 
 {% block main %}
 
-  {% for slug, post in getPage(page.breadcrumb) %}
-    <article class='h-margin-top+'>
+  {% set posts = _.orderBy(getPage(page.breadcrumb)|render|template(site.placeholders), 'props.date', 'desc') %}
 
-      <h2 class='h-h3 h-margin-bottom0'>
-        <a href='{{ localeDir() }}/blog/{{ slug }}'>{{ post.props.contentTitle|template(site.placeholders) }}</a>
-      </h2>
+  {% for post in posts %}
+  <article class='h-margin-top+'>
 
-      <p class='h-text- h-margin-bottom-'>
-        <time datetime='{{ post.props.date }}'>{{ moment(post.props.date).format('lll') }}</time>
-        -
-        {{ post.props.author }}
-      </p>
+    <h2 class='h-h3 h-margin-bottom0'>
+      <a href='{{ localeDir() }}{{ post.props.href }}'>{{ post.props.contentTitle }}</a>
+    </h2>
 
-      <p>{{ post.props.shortDesc|template(site.placeholders) }}</p>
+    <p class='h-text- h-margin-bottom-'>
+      <time datetime='{{ post.props.date }}'>{{ moment(post.props.date).format('lll') }}</time>
+      -
+      {{ post.props.author }}
+    </p>
 
-      <p>
-        <a class='o-btn h-text- g-link--go' href='{{ localeDir() }}/blog/{{ slug }}'>Read more</a>
-      </p>
+    <p>{{ post.props.shortDesc }}</p>
 
-    </article>
+    <p>
+      <a class='o-btn h-text- g-link--go' href='{{ localeDir() }}{{ post.props.href }}'>Read more</a>
+    </p>
+
+  </article>
   {% endfor %}
 
 {% endblock %}
