@@ -23,7 +23,7 @@ module.exports = (env, context, input, isCaller = false, logger = console.log, l
   input = if isObject then JSON.stringify(input) else input
   # Remove escaping of wrapping string litrals quotes inside Nunjucks templates, otherwise they won't be recognized by Nunjucks
   # @example ={{ fn("Text \" quote\") }} -> {{ fn(\"Text \\\" quote\") }} -> {{ fn("Text \\\" quote") }} -> "Text \" quote"
-  input = input.replace(/(?={{)*([^\\])(\\")(?=.*}})/g, '$1"').replace(/"\={{/g, '"{{')
+  input = input.replace(/(?={{)*([^\\])(\\")(?=.*}})/g, '$1"').replace(/(^|["])\={{/g, '$1{{')
 
   result = env.renderString(input, context)
 
