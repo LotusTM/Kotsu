@@ -8,6 +8,14 @@ module.exports = class i18Tools
 
   ###*
    * Return locale's properties
+   * @param  {object} = @locales locales Special Kotsu object with info about locales
+   * @return {string} Props of locale
+  ###
+  getLocalesNames: (locales = @locales) =>
+    map(locales, 'locale')
+
+  ###*
+   * Return locale's properties
    * @param  {string} locale             Locale name for which should be made resolving
    * @param  {object} locales = @locales Special Kotsu object with info about locales
    * @return {string} Props of locale

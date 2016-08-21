@@ -47,7 +47,7 @@ module.exports = (grunt) ->
 
   { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools(taskConfig.i18n.locales, baseLocale, taskConfig.i18n.baseLocaleAsRoot)
 
-  locales      = _.map(taskConfig.i18n.locales, 'locale')
+  locales      = getLocalesNames()
 
   buildDir     = taskConfig.files.dest
   templatesDir = taskConfig.files.cwd
