@@ -8,8 +8,60 @@
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: source/templates/404.nj:3 source/templates/404.nj:7
+msgid "404 &mdash; page not found"
+msgstr ""
+
 #: source/templates/_components/_OutdatedBrowser.nj:14
 msgid "Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly."
+msgstr ""
+
+#: source/templates/blog/2015-10-12-example-article.nj:2
+#: source/templates/blog/2015-10-12-example-article.nj:3
+#: source/templates/blog/2015-10-12-example-article.nj:4
+#: source/templates/blog/2015-10-12-example-article.nj:5
+msgid "Example article"
+msgstr ""
+
+#: source/templates/blog/2015-10-12-example-article.nj:6
+msgid "Example article generated with %(company)s"
+msgstr ""
+
+#: source/templates/blog/2015-10-12-example-article.nj:7
+msgid "Example article generated with %(company)s. Wanna more?"
+msgstr ""
+
+#: source/templates/blog/2016-08-18-newer-article.nj:2
+#: source/templates/blog/2016-08-18-newer-article.nj:3
+#: source/templates/blog/2016-08-18-newer-article.nj:4
+#: source/templates/blog/2016-08-18-newer-article.nj:5
+msgid "Newer article"
+msgstr ""
+
+#: source/templates/blog/2016-08-18-newer-article.nj:6
+msgid "Newer example article generated with %(company)s"
+msgstr ""
+
+#: source/templates/blog/2016-08-18-newer-article.nj:7
+msgid "Newer example article generated with %(company)s. Wanna more?"
+msgstr ""
+
+#: source/templates/blog/index.nj:2 source/templates/blog/index.nj:3
+#: source/templates/blog/index.nj:5
+msgid "Blog"
+msgstr ""
+
+#: source/templates/blog/index.nj:4 source/templates/blog/index.nj:6
+msgid "%(company)s blog"
+msgstr ""
+
+#: source/templates/examples/index.nj:2 source/templates/examples/index.nj:3
+#: source/templates/examples/index.nj:4 source/templates/examples/index.nj:5
+msgid "Examples"
+msgstr ""
+
+#: source/templates/examples/index.nj:6
+msgid "%(company)s examples"
 msgstr ""
 
 #: source/templates/examples/index.nj:54 source/templates/examples/index.nj:62
@@ -24,3 +76,15 @@ msgid "%s apple"
 msgid_plural "%s apples"
 msgstr[0] ""
 msgstr[1] ""
+
+#: source/templates/index.nj:3
+msgid "Kotsu Web Starter Kit"
+msgstr ""
+
+#: source/templates/index.nj:4 source/templates/index.nj:6
+msgid "Home"
+msgstr ""
+
+#: source/templates/index.nj:7
+msgid "Generated with %(company)s demo homepage"
+msgstr ""
