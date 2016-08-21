@@ -317,22 +317,19 @@ module.exports = (grunt) ->
           pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''), taskConfig.humanReadableUrls.exclude)
           breadcrumb   = crumble(pagepath)
           matterData   = grunt.file.readJSON(taskConfig.files.matter)
-          pageProps    = _.get(matterData, breadcrumb)
+          pageProps    = _.get(matterData, breadcrumb).props
 
-          data.site = data.site || {}
+          _.set data, 'site.__matter__', matterData
 
-          data.site.__matter__ = matterData
-
-          data.page       = data.page || {}
-          data.page.props = data.page.props || {}
-
-          data.page.props.locale     = currentLocale
-          data.page.props.isoLocale  = isoLocale(currentLocale)
-          data.page.props.language   = getLangcode(currentLocale)
-          data.page.props.region     = getRegioncode(currentLocale)
-          data.page.props.rtl        = localeProps.rtl
-
-          data.page = _.merge(data.page, pageProps)
+          data.page = _.merge data.page,
+            props:
+              locale    : currentLocale
+              isoLocale : isoLocale(currentLocale)
+              language  : getLangcode(currentLocale)
+              region    : getRegioncode(currentLocale)
+              rtl       : localeProps.rtl
+            ,
+              props: pageProps
 
           return data
 
