@@ -30,8 +30,6 @@ module.exports = (grunt) ->
 
     switch locale
 
-      when baseLocale then data
-
       when 'ru-RU' then _.merge {}, data,
 
       else data
