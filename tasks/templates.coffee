@@ -152,13 +152,17 @@ module.exports = (grunt) ->
           ###*
            * Get properties of page and its childs from specified object.
            * @param {array}  path                             Path to page inside `data`
+           * @param {bool}   forceRender   = true             Force rendering of output via Nunjucks
+           * @param {object} renderContext = @getVariables()  Context with which should be made forced rendering
+           * @param {bool}   logUndefined  = false            Log or no undefined values
            * @param {object} data = localizedData.site.pages  Object with properties of page and its childs
            * @return {object} Properties of the page, including its sub pages
           ###
-          env.addGlobal 'getPage', (path, data = this.ctx.site.__matter__) ->
+          env.addGlobal 'getPage', (path, forceRender = true, renderContext = @getVariables(), logUndefined = false, data = this.ctx.site.__matter__) ->
             result = _.get(data, path)
 
             if result
+              result = if forceRender then render(env, renderContext, result, false, grunt.log.error, logUndefined,  this.ctx.page.props.href) else result
               Object.defineProperty result, 'props', enumerable: false
               return result
             else
