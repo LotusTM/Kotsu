@@ -7,7 +7,7 @@
 {% block main %}
 
   <footer class='h-opacity--30 h-bleed-top h-margin-bottom+ h-align--center'>
-    {{ moment(getPage(page.breadcrumb).props.date).format('lll') }} — {{ getPage(page.breadcrumb).props.author }}
+    {{ moment(page.date).format('lll') }} — {{ page.author|render }}
   </footer>
 
   <div class='s-blog-post Wrapper--readable'>
