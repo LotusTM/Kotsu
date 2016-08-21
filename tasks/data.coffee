@@ -26,6 +26,7 @@ module.exports = () ->
             slug:       path.slice(-2)[0]
             href:       if breadcrumb.length == 1 and  breadcrumb[0] == 'index' then '/' else resolve('/', breadcrumb.join('/'))
             breadcrumb: breadcrumb
+            depth:      breadcrumb.length
             dirname:    basename(dirname(src))
             basename:   basename(src, extname(src))
           }, data
