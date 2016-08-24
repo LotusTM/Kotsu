@@ -1,13 +1,17 @@
 {##
  # Polyfil HTML5 tags and load IE-specific stylesheet in IE9 and below
  #
+ # @param {string} version = 'lte IE 9' Targeted versions of IE
+ #
  # @return {string} IE-specific comment with IE-specic style and script
  #
  # @example {{ components.IE() }}
  #}
-{% macro IE() %}
-  <!--[if lte IE 9]>
+{% macro IE(version = 'lte IE 9') %}
+  <!--[if {{ version }}]>
+
     <link rel='stylesheet' href='/{{ path.styles }}/ie.prefixed.css'>
+
     <script>
       var e = ('abbr,article,aside,audio,canvas,datalist,details,' +
         'figure,footer,header,hgroup,main,mark,menu,meter,nav,output,' +
@@ -16,5 +20,6 @@
         document.createElement(e[i]);
       }
     </script>
+
   <![endif]-->
 {% endmacro %}
