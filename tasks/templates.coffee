@@ -340,7 +340,7 @@ module.exports = (grunt) ->
           pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''), taskConfig.humanReadableUrls.exclude)
           breadcrumb   = crumble(pagepath)
           matterData   = grunt.file.readJSON(taskConfig.files.matter)
-          pageProps    = _.get(matterData, breadcrumb).props
+          pageProps    = (_.get(matterData, breadcrumb) or {}).props
 
           _.set data, 'site.__matter__', matterData
 
