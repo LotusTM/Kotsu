@@ -56,7 +56,7 @@
   <meta property='og:type'        content='website'>
   <meta property='og:site_name'   content='{{ site.name }}'>
   <meta property='og:locale'      content='{{ page.isoLocale }}'>
-  <meta property='og:url'         content='{{ site.homepage }}{{ localeDir() }}/{{ page.url }}'>
+  <meta property='og:url'         content='{{ site.homepage }}{{ localeDir() }}{{ page.href }}'>
   <meta property='og:title'       content='{{ page.title if page.title else site.name }}'>
   <meta property='og:description' content='{{ page.metaDesc if page.metaDesc else site.desc }}'>
   <meta property='og:image'       content='{{ site.homepage }}/{{ path.images }}/facebook.png'>
@@ -65,7 +65,7 @@
   <meta name='twitter:card'        content='summary'>
   <meta name='twitter:site'        content='{{ site.twitter }}'>
   <meta name='twitter:creator'     content='{{ site.twitter }}'>
-  <meta name='twitter:url'         content='{{ site.homepage }}{{ localeDir() }}/{{ page.url }}'>
+  <meta name='twitter:url'         content='{{ site.homepage }}{{ localeDir() }}{{ page.href }}'>
   <meta name='twitter:title'       content='{{ page.title if page.title else site.name }}'>
   <meta name='twitter:description' content='{{ page.metaDesc if page.metaDesc else site.desc }}'>
   <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.png'>
