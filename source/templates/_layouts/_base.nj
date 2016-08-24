@@ -83,13 +83,13 @@
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
 
-  {{ components.IE() }}
+  {{ components.IE(version = 'lte IE 9') }}
 
 </head>
 
 <body>
 
-  {{ components.OutdatedBrowser() }}
+  {{ components.OutdatedBrowser(version = 'lte IE 9') }}
 
   {% block body %}{% endblock %}
 
