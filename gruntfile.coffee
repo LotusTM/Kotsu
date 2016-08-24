@@ -79,12 +79,14 @@ module.exports = (grunt) ->
           locale: 'en-US'
           url: 'en'
           rtl: false
+          defaultForLanguage: true
           numberFormat: '0,0.[00]'
           currencyFormat: '0,0.00 $'
         ,
           locale: 'ru-RU'
           url: 'ru'
           rtl: false
+          defaultForLanguage: true
           numberFormat: '0,0.[00]'
           currencyFormat: '0,0.00 $'
       ]

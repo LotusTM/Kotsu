@@ -74,6 +74,9 @@
   <!-- Alternate urls -->
   {% for locale in site.locales %}
   <link rel='alternate' hreflang='{{ locale.locale }}' href='{{ site.homepage }}{{ localeDir(locale.locale) }}{{ page.href }}'>
+  {% if locale.defaultForLanguage %}
+  <link rel='alternate' hreflang='{{ locale.locale|langcode }}' href='{{ site.homepage }}{{ localeDir(locale.locale) }}{{ page.href }}'>
+  {% endif %}
   {% endfor %}
 
   <!-- Authors -->
