@@ -319,6 +319,23 @@ module.exports = (grunt) ->
           env.addFilter 'urlify', (string, options = {}) ->
             ulrlify(string, options)
 
+          ###*
+           * Spread object in form of string with formed attributes pairs. Think of React's `<div {...props}></div>` for Nunjucks
+           * @param {object} input Object to be spread
+           * @return {string} Spread object
+           * @example <div {{ { class: 'h-margin', hidden: 'hidden' }|spread }}>Content</div> -> <div class='h-margin' hidden='hidden'>Content</div>
+          ###
+          env.addFilter 'spread', (input, delimiter = ' ') ->
+            if typeof input != 'object'
+              grunt.log.error('[spread] input should be object, but `' + typeof input + '` has been specified', '[' + this.ctx.page.href + ']')
+              return
+
+            spreaded = ' '
+            for property, value of input
+              spreaded += "#{property}='#{value}' "
+
+            return spreaded
+
         preprocessData: (data) ->
           pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''), taskConfig.humanReadableUrls.exclude)
           breadcrumb   = crumble(pagepath)
