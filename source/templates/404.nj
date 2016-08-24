@@ -1,13 +1,14 @@
 ---
-href:            /404.html
-title:           ={{ gettext('404 &mdash; page not found') }}
-breadcrumbTitle: '404'
-contentTitle:    false
-navTitle:        '404'
-metaDesc:        ={{ gettext('404 &mdash; page not found') }}
+href:             /404.html
+title:            ={{ gettext('404 &mdash; page not found') }}
+breadcrumbTitle:  '404'
+contentTitle:     ={{ gettext('404 &mdash; page not found') }}
+navTitle:         '404'
+metaDesc:         ={{ gettext('404 &mdash; page not found') }}
 
-class:           p-404
-showBreadcrumb:  false
+class:            p-404
+showContentTitle: false
+showBreadcrumb:   false
 ---
 
 {% extends '_layouts/_main.nj' %}

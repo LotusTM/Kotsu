@@ -52,7 +52,7 @@
         ) }}
         {% endif %}
 
-        {% if page.contentTitle %}
+        {% if page.showContentTitle %}
         <h1 class='Content-title h-align--center h-margin-bottom0'>{{ page.contentTitle }}</h1>
         {% endif %}
 
