@@ -7,7 +7,7 @@ module.exports = class i18Tools
     return
 
   ###*
-   * Return locale's properties
+   * Return list of locales names
    * @param  {object} = @locales locales Special Kotsu object with info about locales
    * @return {string} Props of locale
   ###
