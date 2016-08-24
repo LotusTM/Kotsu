@@ -6,6 +6,7 @@
  #                                               on `pages.yml`
  # @param {string} label                         Label of the anchor
  # @param {string} class=''                      Class of the anchor
+ # @param {object} attrs={}                      Any HTML5 attributes, except `class`
  # @param {bool}   onlyActiveOnIndex=false       Set anchor to be active only in case current link's
  #                                               and page's breadcrumbs completely matches
  # @param {string} activeClass='is-active'       Class for active anchor
@@ -34,6 +35,7 @@
   to,
   label,
   class = '',
+  attrs = {},
   onlyActiveOnIndex = false,
   activeClass = 'is-active',
   localeDir = localeDir(),
@@ -55,5 +57,5 @@
     {{ warn('[components.Link] non absolute hrefs not supported yet, but you\'ve used `' + href + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
   {% endif %}
 
-  <a href='{{ localeDir if localeDir }}{{ href if href else to }}' class='{{ class }} {{ activeClass if isActive }}'>{{ caller() if caller else label }}</a>
+  <a href='{{ localeDir if localeDir }}{{ href if href else to }}' class='{{ class }} {{ activeClass if isActive }}' {{ attrs|spread }}>{{ caller() if caller else label }}</a>
 {% endmacro %}
