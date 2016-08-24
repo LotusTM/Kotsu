@@ -99,6 +99,7 @@
   <!-- build:[src] /{{ path.scripts }}/main.min.js -->
   <script src='/{{ path.scripts }}/main.js'></script>
   <!-- /build -->
+
   {{ components.GoogleAnalytics(siteId = 'UA-XXXXX-X') }}
   {{ components.YandexMetrika(counterId = 'XXXXXX') }}
 
