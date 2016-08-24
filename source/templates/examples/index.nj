@@ -36,7 +36,7 @@ class:           p-examples
 {% raw %}<p>This site available in following languages:</p>
 
 <ul>
-  {% for locale in site.locales %}
+  {% for locale in site.localesNames %}
     <li>
       {% if locale == page.locale %}
         {{ locale }} (current)
