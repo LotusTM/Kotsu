@@ -71,6 +71,11 @@
   <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.png'>
   <meta name='twitter:image:alt'   content='{{ page.title if page.title else site.name }}'>
 
+  <!-- Alternate urls -->
+  {% for locale in site.locales %}
+  <link rel='alternate' hreflang='{{ locale.locale }}' href='{{ site.homepage }}{{ localeDir(locale.locale) }}{{ page.href }}'>
+  {% endfor %}
+
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
 
