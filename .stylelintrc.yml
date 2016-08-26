@@ -139,8 +139,8 @@ rules:
   property-no-unknown:
     - true
     - ignoreProperties:
-      - text-size-adjust # @todo https://github.com/stylelint/stylelint/issues/1838
-      - font-display     # @todo https://github.com/stylelint/stylelint/issues/1837
+      - text-size-adjust # @todo https://github.com/betit/known-css-properties/issues/5
+      - font-display     # @todo https://github.com/betit/known-css-properties/issues/4
   selector-no-id: true
   selector-no-qualifying-type: true
   selector-no-universal: true
