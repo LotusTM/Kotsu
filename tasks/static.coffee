@@ -13,7 +13,7 @@ module.exports = () ->
           expand: true
           cwd: '<%= path.source.static %>/'
           src: ['**']
-          dest: '<%= path.build.root %>/'
+          dest: '<%= path.build.static %>/'
         ]
 
   ###

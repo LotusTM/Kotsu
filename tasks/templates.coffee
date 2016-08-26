@@ -24,7 +24,7 @@ module.exports = (grunt) ->
     files:
       cwd               : grunt.config('path.source.templates')
       src               : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
-      dest              : grunt.config('path.build.root')
+      dest              : grunt.config('path.build.templates')
       ext               : '.html'
       matter            : grunt.config('file.temp.data.matter')
     humanReadableUrls:

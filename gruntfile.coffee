@@ -54,7 +54,9 @@ module.exports = (grunt) ->
         images: '<%= path.build.assets %>/images'
         scripts: '<%= path.build.assets %>/scripts'
         sprites: '<%= path.build.assets %>/sprites'
+        static: '<%= path.build.root %>'
         styles: '<%= path.build.assets %>/styles'
+        templates: '<%= path.build.root %>'
 
     # Specify files
     file:
