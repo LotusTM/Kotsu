@@ -1,4 +1,4 @@
-_ = require('lodash')
+{ merge } = require('lodash')
 
 module.exports = (grunt) ->
   pkg = grunt.file.readJSON 'package.json'
@@ -32,6 +32,6 @@ module.exports = (grunt) ->
 
     switch locale
 
-      when 'ru-RU' then _.merge {}, data,
+      when 'ru-RU' then merge {}, data,
 
       else data
