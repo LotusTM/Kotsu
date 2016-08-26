@@ -44,7 +44,7 @@ module.exports = (env, grunt, buildDir, currentLocale, numberFormat, currencyFor
    * @return {string} Logs to Grunt console
   ###
   env.addGlobal 'warn', (input...) ->
-    grunt.log.error(input..., '[' + this.ctx.page.href + ']')
+    grunt.log.error(input..., '[' + @ctx.page.href + ']')
 
   ###*
    * Get list of files or directories inside specified directory
@@ -73,7 +73,7 @@ module.exports = (env, grunt, buildDir, currentLocale, numberFormat, currencyFor
    * @return {*}                   Value of `prop` if no `value` specified
   ###
   env.addGlobal 'config', (prop, value, merge = true) ->
-    ctx           = this.ctx
+    ctx           = @ctx
     ctxValue      = _.get(ctx, prop)
     valueIsArray  = Array.isArray(value)
     valueIsObject = typeof value == 'object' and value and not valueIsArray
@@ -94,22 +94,22 @@ module.exports = (env, grunt, buildDir, currentLocale, numberFormat, currencyFor
 
   ###*
    * Get properties of page and its childs from specified object.
-   * @param {array}  path                             Path to page inside `data`
-   * @param {bool}   forceRender   = true             Force rendering of output via Nunjucks
-   * @param {object} renderContext = @getVariables()  Context with which should be made forced rendering
-   * @param {bool}   logUndefined  = false            Log or no undefined values
-   * @param {object} data = this.ctx.site.__matter__  Object with properties of page and its childs
+   * @param {array}  path                            Path to page inside `data`
+   * @param {bool}   forceRender   = true            Force rendering of output via Nunjucks
+   * @param {object} renderContext = @getVariables() Context with which should be made forced rendering
+   * @param {bool}   logUndefined  = false           Log or no undefined values
+   * @param {object} data = @ctx.site.__matter__     Object with properties of page and its childs
    * @return {object} Properties of the page, including its sub pages
   ###
-  env.addGlobal 'getPage', (path, forceRender = true, renderContext = @getVariables(), logUndefined = false, data = this.ctx.site.__matter__) ->
+  env.addGlobal 'getPage', (path, forceRender = true, renderContext = @getVariables(), logUndefined = false, data = @ctx.site.__matter__) ->
     result = _.get(data, path)
 
     if result
-      result = if forceRender then render(env, renderContext, result, false, grunt.log.error, logUndefined,  this.ctx.page.props.href) else result
+      result = if forceRender then render(env, renderContext, result, false, grunt.log.error, logUndefined,  @ctx.page.props.href) else result
       Object.defineProperty result, 'props', enumerable: false
       return result
     else
-      grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + this.ctx.page.href + ']')
+      grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + @ctx.page.href + ']')
 
   ###*
    * Explodes string into array breadcrumb. See `crumble` helper for details
@@ -119,14 +119,14 @@ module.exports = (env, grunt, buildDir, currentLocale, numberFormat, currencyFor
 
   ###*
    * Determinate is current path active relatively to current page breadcrumb or no
-   * @param  {string} to                                         Absolute or relative path to page based
-   *                                                             based on `pages.yml`
-   * @param  {bool} onlyActiveOnIndex = false                    Set anchor to be active only in case current link's
-   *                                                             and page's breadcrumbs completely matches
-   * @param  {array} pageBreadcrumb   = this.ctx.page.breadcrumb Breadcrumb of current page for comparison
-   * @return {bool}                                              Is current path active or no
+   * @param  {string} to                                     Absolute or relative path to page based
+   *                                                         based on `pages.yml`
+   * @param  {bool} onlyActiveOnIndex = false                Set anchor to be active only in case current link's
+   *                                                         and page's breadcrumbs completely matches
+   * @param  {array} pageBreadcrumb   = @ctx.page.breadcrumb Breadcrumb of current page for comparison
+   * @return {bool} Is current path active or no
   ###
-  env.addGlobal 'isActive', (to, onlyActiveOnIndex = false, pageBreadcrumb = this.ctx.page.breadcrumb) ->
+  env.addGlobal 'isActive', (to, onlyActiveOnIndex = false, pageBreadcrumb = @ctx.page.breadcrumb) ->
     isAbsolute = if _.startsWith(to, '/') then true else false
 
     linkBreadcrumb = crumble(to)
@@ -182,7 +182,7 @@ module.exports = (env, grunt, buildDir, currentLocale, numberFormat, currencyFor
    * @todo Related issue https://github.com/mozilla/nunjucks/issues/783
   ###
   env.addFilter 'render', (input, isCaller = false, logUndefined = false) ->
-    render(env, @getVariables(), input, isCaller, grunt.log.error, logUndefined, this.ctx.page.props.href)
+    render(env, @getVariables(), input, isCaller, grunt.log.error, logUndefined, @ctx.page.props.href)
 
   ###*
    * Replace placeholders with provided values. Refer to `printf` module for docs
@@ -241,7 +241,7 @@ module.exports = (env, grunt, buildDir, currentLocale, numberFormat, currencyFor
   ###
   env.addFilter 'spread', (input, delimiter = ' ') ->
     if typeof input != 'object'
-      grunt.log.error('[spread] input should be object, but `' + typeof input + '` has been specified', '[' + this.ctx.page.href + ']')
+      grunt.log.error('[spread] input should be object, but `' + typeof input + '` has been specified', '[' + @ctx.page.href + ']')
       return
 
     spreaded = ' '
