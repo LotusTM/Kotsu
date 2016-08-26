@@ -18,23 +18,23 @@ module.exports = (grunt) ->
   # ======
 
   options =
-    autoescape          : false
-    data                : grunt.config('data')
-    nunjucksEnv         : grunt.config('path.source.templates')
+    autoescape         : false
+    data               : grunt.config('data')
+    paths              : grunt.config('path.source.templates')
     files:
-      cwd               : grunt.config('path.source.templates')
-      src               : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
-      dest              : grunt.config('path.build.templates')
-      ext               : '.html'
-      matter            : grunt.config('file.temp.data.matter')
+      cwd              : grunt.config('path.source.templates')
+      src              : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
+      dest             : grunt.config('path.build.templates')
+      ext              : '.html'
+      matter           : grunt.config('file.temp.data.matter')
     humanReadableUrls:
-      enabled           : true
-      exclude           : /^(index|\d{3})$/
+      enabled          : true
+      exclude          : /^(index|\d{3})$/
     i18n:
-      locales           : grunt.config('i18n.locales')
-      baseLocale        : grunt.config('i18n.baseLocale')
-      baseLocaleAsRoot  : true
-      gettext           : grunt.config('i18n.gettext')
+      locales          : grunt.config('i18n.locales')
+      baseLocale       : grunt.config('i18n.baseLocale')
+      baseLocaleAsRoot : true
+      gettext          : grunt.config('i18n.gettext')
 
   { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools(options.i18n.locales, options.i18n.baseLocale, options.i18n.baseLocaleAsRoot)
 
@@ -54,7 +54,7 @@ module.exports = (grunt) ->
     @config "nunjucks.#{currentLocale}",
 
       options:
-        paths                : options.nunjucksEnv
+        paths                : options.paths
         autoescape           : options.autoescape
         data                 : localizedData
         configureEnvironment : (env) ->
