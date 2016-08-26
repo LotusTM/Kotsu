@@ -14,6 +14,7 @@ module.exports = (grunt) ->
       styles: '<%= grunt.template.process(path.build.styles).replace(path.build.root + \'/\', \'\') %>'
       sprites: '<%= grunt.template.process(path.build.sprites).replace(path.build.root + \'/\', \'\') %>'
       source: '<%= path.source %>'
+      build: '<%= path.build %>'
     site:
       name: pkg.name
       desc: pkg.description
