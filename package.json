@@ -66,7 +66,7 @@
     "grunt-spritesmith": "6.3.1",
     "grunt-tinypng": "0.6.1",
     "grunt-uncss": "0.6.1",
-    "grunt-webfont": "1.5.0",
+    "grunt-webfont": "1.6.0",
     "jit-grunt": "0.10.0",
     "jspm": "0.16.42",
     "lodash": "4.15.0",
