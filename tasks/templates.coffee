@@ -1,5 +1,5 @@
 _                  = require('lodash')
-path               = require('path')
+{ join }           = require('path')
 crumble            = require('../modules/crumble')
 humanReadableUrl   = require('../modules/humanReadableUrl')
 i18nTools          = require('../modules/i18n-tools')
@@ -22,9 +22,9 @@ module.exports = (grunt) ->
     data                : grunt.config('data')
     nunjucksEnv         : grunt.config('path.source.templates')
     files:
-      cwd               : grunt.config('path.source.templates') + '/'
+      cwd               : grunt.config('path.source.templates')
       src               : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
-      dest              : grunt.config('path.build.root') + '/'
+      dest              : grunt.config('path.build.root')
       ext               : '.html'
       matter            : grunt.config('file.temp.data.matter')
     humanReadableUrls:
@@ -120,13 +120,13 @@ module.exports = (grunt) ->
 
       files: [
         expand: true
-        cwd: taskConfig.files.cwd + '/'
+        cwd: taskConfig.files.cwd
         src: taskConfig.files.src
-        dest: taskConfig.files.dest + '/' + localeDir
+        dest: join(taskConfig.files.dest, localeDir)
         ext: taskConfig.files.ext
         rename: (dest, src) =>
           src = if taskConfig.humanReadableUrls.enabled then humanReadableUrl(src, taskConfig.humanReadableUrls.exclude) else src
-          path.join(dest, src)
+          join(dest, src)
       ]
 
   ###
