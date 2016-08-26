@@ -140,6 +140,7 @@ rules:
     - true
     - ignoreProperties:
       - text-size-adjust
+      - font-display
   selector-no-id: true
   selector-no-qualifying-type: true
   selector-no-universal: true
