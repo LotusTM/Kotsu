@@ -36,15 +36,10 @@ module.exports = (grunt) ->
       baseLocaleAsRoot  : true
       gettext           : grunt.config('i18n.gettext')
 
-  gettext    = options.i18n.gettext
-  baseLocale = options.i18n.baseLocale
+  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools(options.i18n.locales, options.i18n.baseLocale, options.i18n.baseLocaleAsRoot)
 
-  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools(options.i18n.locales, baseLocale, options.i18n.baseLocaleAsRoot)
-
-  locales      = getLocalesNames()
-
-  buildDir     = options.files.dest
-  templatesDir = options.files.cwd
+  gettext = options.i18n.gettext
+  locales = getLocalesNames()
 
   # =======================
   # Config l10n of Nunjucks
@@ -99,7 +94,7 @@ module.exports = (grunt) ->
             getLangcode(locale)
 
         preprocessData: (data) ->
-          pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''), options.humanReadableUrls.exclude)
+          pagepath     = humanReadableUrl(@src[0].replace(options.files.cwd, ''), options.humanReadableUrls.exclude)
           breadcrumb   = crumble(pagepath)
           matterData   = grunt.file.readJSON(options.files.matter)
           pageProps    = (get(matterData, breadcrumb) or {}).props
