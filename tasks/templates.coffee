@@ -1,9 +1,9 @@
-_                  = require('lodash')
-{ join }           = require('path')
-crumble            = require('../modules/crumble')
-humanReadableUrl   = require('../modules/humanReadableUrl')
-i18nTools          = require('../modules/i18n-tools')
-nunjucksExtensions = require('../modules/nunjucks-extensions')
+{ set, get, merge } = require('lodash')
+{ join }            = require('path')
+crumble             = require('../modules/crumble')
+humanReadableUrl    = require('../modules/humanReadableUrl')
+i18nTools           = require('../modules/i18n-tools')
+nunjucksExtensions  = require('../modules/nunjucks-extensions')
 
 module.exports = (grunt) ->
 
@@ -102,11 +102,11 @@ module.exports = (grunt) ->
           pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''), taskConfig.humanReadableUrls.exclude)
           breadcrumb   = crumble(pagepath)
           matterData   = grunt.file.readJSON(taskConfig.files.matter)
-          pageProps    = (_.get(matterData, breadcrumb) or {}).props
+          pageProps    = (get(matterData, breadcrumb) or {}).props
 
-          _.set data, 'site.__matter__', matterData
+          set data, 'site.__matter__', matterData
 
-          data.page = _.merge data.page,
+          data.page = merge data.page,
             props:
               locale    : currentLocale
               isoLocale : isoLocale(currentLocale)
