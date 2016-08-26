@@ -67,7 +67,7 @@ module.exports = (grunt) ->
           ###*
            * Init built-in Nunjucks extensions, globals and filters. See `nunjucks-extensions` module for docs
           ###
-          nunjucksExtensions(env, grunt, buildDir, currentLocale, localeProps.numberFormat, localeProps.currencyFormat)
+          nunjucksExtensions(env, grunt, currentLocale, localeProps.numberFormat, localeProps.currencyFormat)
 
           # -----
           # i18n

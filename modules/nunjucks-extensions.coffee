@@ -9,7 +9,7 @@ numbro       = require('numbro')
 moment       = require('moment')
 smartPlurals = require('smart-plurals')
 
-module.exports = (env, grunt, buildDir, currentLocale, numberFormat, currencyFormat) ->
+module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
 
   # ==========
   # Extensions
@@ -48,13 +48,13 @@ module.exports = (env, grunt, buildDir, currentLocale, numberFormat, currencyFor
 
   ###*
    * Get list of files or directories inside specified directory
-   * @param {string}               path    = ''             Path where to look
-   * @param {string|array[string]} pattern = '** /*'        What should be matched
-   * @param {string}               filter  = 'isFile'       Type of entity which should be matched
-   * @param {string}               cwd     = buildDir + '/' Root for lookup
+   * @param {string}               path    = ''                        Path where to look
+   * @param {string|array[string]} pattern = '** /*'                   What should be matched
+   * @param {string}               filter  = 'isFile'                  Type of entity which should be matched
+   * @param {string}               cwd     = @ctx.path.build.templates Root for lookup
    * @return {array} Array of found files or directories
   ###
-  env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = buildDir) ->
+  env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = @ctx.path.build.templates) ->
     files = []
 
     grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (file) ->
