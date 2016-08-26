@@ -26,6 +26,7 @@
 - [ci] Switched TravisCI builds to run on (container-based infrastructure)[https://docs.travis-ci.com/user/workers/container-based-infrastructure/]
 - [ci] Archivation proccess moved to deployment step in cyrcle.yml
 - [ci] Fetch submodules recursively
+- [ci] Fixed issue with `git status` check on Travis and Circle not giving the same output
 - [font] Open Sans font enabled by default
 - [grunt] Replaced deprecated `_.pluck` with `_.map` (lodash@4.0.0)[https://github.com/lodash/lodash/wiki/Changelog#v400]
 - [grunt] Updated configuration for `grunt-cache-bust` task to reffer breaking changes made in (grunt-cache-bust@1.0.0)[https://github.com/hollandben/grunt-cache-bust/issues/147]
