@@ -17,7 +17,7 @@ module.exports = (grunt) ->
   # Config
   # ======
 
-  taskConfig =
+  options =
     autoescape          : false
     data                : grunt.config('data')
     nunjucksEnv         : grunt.config('path.source.templates')
@@ -36,15 +36,15 @@ module.exports = (grunt) ->
       baseLocaleAsRoot  : true
       gettext           : grunt.config('i18n.gettext')
 
-  gettext    = taskConfig.i18n.gettext
-  baseLocale = taskConfig.i18n.baseLocale
+  gettext    = options.i18n.gettext
+  baseLocale = options.i18n.baseLocale
 
-  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools(taskConfig.i18n.locales, baseLocale, taskConfig.i18n.baseLocaleAsRoot)
+  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools(options.i18n.locales, baseLocale, options.i18n.baseLocaleAsRoot)
 
   locales      = getLocalesNames()
 
-  buildDir     = taskConfig.files.dest
-  templatesDir = taskConfig.files.cwd
+  buildDir     = options.files.dest
+  templatesDir = options.files.cwd
 
   # =======================
   # Config l10n of Nunjucks
@@ -53,14 +53,14 @@ module.exports = (grunt) ->
   locales.forEach (currentLocale) =>
     localeDir     = getLocaleDir(currentLocale)
     localeProps   = getLocaleProps(currentLocale)
-    localizedData = taskConfig.data(currentLocale)
+    localizedData = options.data(currentLocale)
 
     # Define targets, with unique options and files for each locale
     @config "nunjucks.#{currentLocale}",
 
       options:
-        paths                : taskConfig.nunjucksEnv
-        autoescape           : taskConfig.autoescape
+        paths                : options.nunjucksEnv
+        autoescape           : options.autoescape
         data                 : localizedData
         configureEnvironment : (env) ->
 
@@ -99,9 +99,9 @@ module.exports = (grunt) ->
             getLangcode(locale)
 
         preprocessData: (data) ->
-          pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''), taskConfig.humanReadableUrls.exclude)
+          pagepath     = humanReadableUrl(@src[0].replace(templatesDir, ''), options.humanReadableUrls.exclude)
           breadcrumb   = crumble(pagepath)
-          matterData   = grunt.file.readJSON(taskConfig.files.matter)
+          matterData   = grunt.file.readJSON(options.files.matter)
           pageProps    = (get(matterData, breadcrumb) or {}).props
 
           set data, 'site.__matter__', matterData
@@ -120,12 +120,12 @@ module.exports = (grunt) ->
 
       files: [
         expand: true
-        cwd: taskConfig.files.cwd
-        src: taskConfig.files.src
-        dest: join(taskConfig.files.dest, localeDir)
-        ext: taskConfig.files.ext
+        cwd: options.files.cwd
+        src: options.files.src
+        dest: join(options.files.dest, localeDir)
+        ext: options.files.ext
         rename: (dest, src) =>
-          src = if taskConfig.humanReadableUrls.enabled then humanReadableUrl(src, taskConfig.humanReadableUrls.exclude) else src
+          src = if options.humanReadableUrls.enabled then humanReadableUrl(src, options.humanReadableUrls.exclude) else src
           join(dest, src)
       ]
 
