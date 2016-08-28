@@ -15,6 +15,25 @@ showBreadcrumb:   false
 
 {% block main %}
 
+
+  <div class='h-margin-top+'>
+    {% for icon in expand('/', '{,**/}*.svg', 'isFile', path.source.icons) %}
+      {% set icon = icon.replace('.svg', '') %}
+
+      {{ { name: icon, width: false, height: false, class: 'h-fill--current', title: '`' + icon + '` title', desc: '`' + icon + '` description', preserveAspectRatio: 'xMidYMid' }|Icon }}
+
+    {% endfor %}
+  </div>
+
+  <div class='h-margin-bottom+'>
+    {% for icon in expand('/', '{,**/}*.svg', 'isFile', path.source.icons) %}
+      {% set icon = icon.replace('.svg', '') %}
+
+      <i class='o-icon Icon--{{ icon }} h-text--em+++'></i>
+
+    {% endfor %}
+  </div>
+
   <p>
     Learn more about
     <a class='o-btn g-link--go h-margin-left--' href='https://github.com/LotusTM/Kotsu' target='blank'>Kotsu at Github</a>
