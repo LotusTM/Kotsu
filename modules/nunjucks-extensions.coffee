@@ -8,6 +8,7 @@ urlify       = require('./urlify')
 numbro       = require('numbro')
 moment       = require('moment')
 smartPlurals = require('smart-plurals')
+{ join }     = require('path')
 
 module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
 
@@ -57,7 +58,7 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
   env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = @ctx.path.build.templates) ->
     files = []
 
-    grunt.file.expand({ cwd: cwd + path, filter: filter }, pattern).forEach (file) ->
+    grunt.file.expand({ cwd: join(cwd, path), filter: filter }, pattern).forEach (file) ->
       files.push(file)
 
     return files
