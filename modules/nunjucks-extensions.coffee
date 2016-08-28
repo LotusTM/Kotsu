@@ -9,6 +9,29 @@ numbro       = require('numbro')
 moment       = require('moment')
 smartPlurals = require('smart-plurals')
 { join }     = require('path')
+cheerio      = require('cheerio')
+SVGO         = require('svgo')
+
+svgo         = new SVGO
+  plugins: [
+    # ransformsWithOnePath: true
+    # convertPathData:
+    #   applyTransforms: true
+    #   applyTransformsStroked: true
+    #   makeArcs:
+    #       threshold: 2.5 // coefficient of rounding error
+    #       tolerance: 0.5  // percentage of radius
+    #   straightCurves: true
+    #   lineShorthands: true
+    #   curveSmoothShorthands: true
+    #   floatPrecision: 3
+    #   transformPrecision: 5
+    #   removeUseless: true
+    #   collapseRepeated: true
+    #   utilizeAbsolute: false #### important to be false
+    #   leadingZero: true,
+    #   negativeExtraSpace: true
+  ]
 
 module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
 
@@ -154,6 +177,56 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
   # =======
   # Filters
   # =======
+
+  ###*
+   * Load, process and inline SVG icon
+   * @param  {object} options  Icon parameters to be injected into SVG code
+   * @param  {func}   complete Callback for Nunjucks async filters
+   * @return {string} Prepared code of SVG icon
+   * @example
+   *   {{ { name: 'search', class: 'h-fill--current', title: 'Search' }|Icon }} ->
+   *   <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 63 66" class="Icon--search h-fill--current" role="img"><title>Search</title><path ... ></svg>
+   * @todo Should be asyc global, not filter. https://github.com/mozilla/nunjucks/issues/819
+   * @todo All arguments packed into single `options` due to https://github.com/mozilla/nunjucks/issues/820
+   * @todo Forced to use async filter only due to async-only nature of `svgo`: https://github.com/svg/svgo/issues/584
+   * @todo Should be better way to get real boundries of SVG and set it in `viewbox`. So far, it's better to normilize size and viewbox manually in original file
+   * @todo svgo probably shouldn't be part of filter
+   * @todo `grunt.file.read` for _each_ included file might slow down generation of page wtth lots of icons.
+   * @todo All IE browsers do not respect `height: auto` and sets it to `height: 150px` literally, which makes impossible scacling based on width only:
+   *       http://tympanus.net/Tutorials/ResponsiveSVGs/index4.html
+   *       https://jsfiddle.net/4p73n364/
+   *       Very ugly fix and limiting: http://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/ (SVG embedded inline using the <svg> tag)
+  ###
+  env.addFilter 'Icon', (options, complete) ->
+    { name, title, desc, width, height, viewbox, preserveAspectRatio } = options
+    className = options.class
+    filepath = "#{join(@ctx.path.source.icons, name)}.svg"
+    icon = grunt.file.read filepath
+
+    svgo.optimize icon, (result) ->
+      $ = cheerio.load(result.data)
+
+      originViewbox = $('svg').attr('viewbox')
+      originWidth = $('svg').attr('width')
+      originHeight = $('svg').attr('height')
+      # viebox is mandatory for IE browsers, so we should get it in any possible way
+      viewbox = if viewbox then viewbox else if originWidth and originHeight then "0 0 #{originWidth} #{originHeight}" else originViewbox
+
+      $('svg').addClass("Icon--#{name} #{className}")
+      $('svg').attr('width', if width then width else null)
+      $('svg').attr('height', if height then height else null)
+      $('svg').attr('viewbox', if viewbox then viewbox)
+      $('svg').attr('preserveAspectRatio', if preserveAspectRatio then preserveAspectRatio)
+      $('svg').attr('role', 'img')
+      $('svg').attr('aria-hidden', if not title and not desc then 'true')
+      $('svg').prepend(if desc then "<desc>#{desc}</desc>")
+      $('svg').prepend(if title then "<title>#{title}</title>")
+
+      if not $('svg').attr('viewbox')
+        grunt.log.error("`#{filepath}` doesn't have viewbox. It might cause issues during resizing")
+
+      complete(null, $.html())
+  , true
 
   ###*
    * Replaces last array element with new value
