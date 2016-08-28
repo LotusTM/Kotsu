@@ -1,0 +1,2 @@
+msgmerge source\locales\en-US\messages.po source\locales\_templates\messages.pot -o source\locales\en-US\messages.po
+msgmerge source\locales\ru-RU\messages.po source\locales\_templates\messages.pot -o source\locales\ru-RU\messages.po

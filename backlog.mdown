@@ -1,0 +1,498 @@
+# backlog
+
+- reply to Byrak email
+
+- [ ] update changelog (e180e83dcf1c17c8279e2f1d3eb8f7ea9ba3685e)
+- [ ] replace `href` with `url`
+
+```
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+```
+
+---
+
+android header color change
+
+<meta name="theme-color" content="#000000">
+
+----
+
+-  <meta property='og:type'        content='article'>
++  <meta property='og:type'        content='website'> // check this. It's unclear where to use website, and where — article
+
+---
+
+<div class='h-display--flex h-flex--wrap h-flex-x--center h-margin-ends+'>
+  <div>
+
+    <blockquote class='h-h2 h-font-weight--light h-margin-bottom+'>
+      In darkness, <b class='h-font-weight--semibold'>I shall be light</b><br>
+      In times of doubt, <b class='h-font-weight--semibold'>I shall keep faith</b><br>
+      In throws of iterations, <b class='h-font-weight--semibold'>I shall hone my craft</b><br>
+      In refactoring, <b class='h-font-weight--semibold'>I shall have no mercy</b><br>
+      In the midst of development, <b class='h-font-weight--semibold'>I shall have no fear</b><br>
+      In the face of deployment, <b class='h-font-weight--semibold'>I shall have no remorse</b>
+    </blockquote>
+
+    <p>
+      <a class='o-btn o-btn+ h-h4' href='https://github.com/LotusTM/Kotsu' target='blank'>Kotsu at Github</a>
+    </p>
+
+  </div>
+</div>
+
+https://philipwalton.com/articles/normalizing-cross-browser-flexbox-bugs/
+
+- [ ] check Ekzo with linter
+
+- [ ] change grunt-cash with images to apply only query, do not rename files
+- [ ] rename Menu() to Nav()
+
+- [ ] Move helpers.animations into Ekzo.sass?
+- [ ] Move font-stacks and animations vars into `constants` dir?
+- [ ] Move h-hide to objects
+- [ ] Move h-text--hide to hide-text object
+- [ ] Use `_` for helpers?
+- [ ] camelCase for classes?
+
+- [ ] g-input. move in helpers, like it is for `h-h1-h6`?
+- [ ] Or maybe move h-h1-h6 back to `g-`?
+- [-] g-image--left,right,center .... is it generic or something else?
+- [ ] g-link... maybe helper?
+- [ ] g-link--inherit...
+- [ ] g-link--go, back - objects? o-go, o-go--back?
+- [ ] g-list--flush
+
+<section class='grid grid*2 grid--*2.25 grid(2) grid--middle margin-top*2.5 margin-top(2.5) font-size--em*2 font-size(??px) font-size(1) font-size(6) font-size(-2)'>
+
+------------------
+
+- [ ] max and min width helpers?
+- [ ] loop over borders widths
+- [ ] use extend in breadcrumb to avoid sensless mixin?
+- [-] remove buttons wide and add em side paddings? // so far leave it as it is, since we need new em paddings
+- [ ] add helper to get same styling as ::placeholder has, in case you want to emulate placeholder with js
+- [ ] add ::selection as possible helper
+
+
+
+--------------
+
+
+https://github.com/thoughtbot/bourbon/blob/master/core/bourbon/library/_hide-visually.scss
+https://github.com/thoughtbot/bourbon/blob/master/core/bourbon/library/_word-wrap.scss
+https://github.com/thoughtbot/bourbon/blob/master/core/bourbon/validators/_is-light.scss
+
+
+
+--------------
+
+
+/**
+ * Make an element shrink wrap its content.
+ */
+
+%u-width-shrink-wrap,
+.u-width-shrink-wrap {
+  display: block !important;
+  float: left !important;
+  width: auto !important;
+}
+
+@if $u-width-apply-at-breakpoints-for-shrink-wrap {
+  @include generate-at-breakpoints('.u-width-shrink-wrap',
+    $u-width-intrinsic-apply-at-breakpoints) {
+    display: block !important;
+    float: left !important;
+    width: auto !important;
+  }
+}
+
+// Float it right
+%u-width-shrink-wrap--right,
+.u-width-shrink-wrap--right {
+  float: right !important;
+}
+
+@if $u-width-apply-at-breakpoints-for-shrink-wrap {
+  @include generate-at-breakpoints('.u-width-shrink-wrap--right',
+    $u-width-intrinsic-apply-at-breakpoints) {
+    float: right !important;
+  }
+}
+
+
+/**
+ * Make an element fill the remaining space.
+ *
+ * N.B. for the alternative method do not use if child elements might be wider
+ * than the remaining space because in Chrome, Safari, and Firefox it results
+ * in undesired layout.
+ */
+
+%u-width-fill-remaining-space,
+.u-width-fill-remaining-space {
+  display: block !important;
+  overflow: hidden !important;
+  width: auto !important;
+}
+
+@if $u-width-apply-at-breakpoints-for-fill-remaining-space {
+  @include generate-at-breakpoints('.u-width-fill-remaining-space',
+    $u-width-intrinsic-apply-at-breakpoints) {
+    display: block !important;
+    overflow: hidden !important;
+    width: auto !important;
+  }
+}
+
+// Alternative method
+%u-width-fill-remaining-space-alt,
+.u-width-fill-remaining-space-alt {
+  display: table-cell !important;
+  max-width: 100% !important;
+  width: 10000px !important;
+}
+
+@if $u-width-apply-at-breakpoints-for-fill-remaining-space-alt {
+  @include generate-at-breakpoints('.u-width-fill-remaining-space-alt',
+    $u-width-intrinsic-apply-at-breakpoints) {
+    display: table-cell !important;
+    max-width: 100% !important;
+    width: 10000px !important;
+  }
+}
+
+https://github.com/chris-pearce/scally/blob/master/objects/_o-flexible-embed.scss
+
+https://github.com/suitcss/components-flex-embed/blob/master/lib/flex-embed.css
+
+https://github.com/chris-pearce/scally/blob/master/layout/_l-columns.scss
+
+----
+
+.bgi-n, %bgi-n { background-image: none; }
+
+.bgr-sp, %bgr-sp { background-repeat: space; }
+.bgr-rd, %bgr-rd { background-repeat: round; }
+
+.bga-f, %bga-f { background-attachment: fixed; }
+.bga-s, %bga-s { background-attachment: scroll; }
+
+.bgp-0, %bgp-0 { background-position: 0 0; }
+
+
+
+.bg-cover   { background-size: cover }
+.bg-contain { background-size: contain }
+
+.bg-center  { background-position: center }
+.bg-top     { background-position: top }
+.bg-right   { background-position: right }
+.bg-bottom  { background-position: bottom }
+.bg-left    { background-position: left }
+
+.bg-no-repeat { background-repeat: no-repeat }
+.bg-repeat-x { background-repeat: repeat-x }
+.bg-repeat-y { background-repeat: repeat-y }
+
+
+// border styles
+
+.bds-h,      %bds-h {      border-style: hidden; }
+.bds-dt,     %bds-dt {     border-style: dotted; }
+.bds-ds,     %bds-ds {     border-style: dashed; }
+.bds-db,     %bds-db {     border-style: double; }
+.bds-dtds,   %bds-dtds {   border-style: dot-dash; }
+.bds-dtdtds, %bds-dtdtds { border-style: dot-dot-dash; }
+.bds-w,      %bds-w {      border-style: wave; }
+.bds-g,      %bds-g {      border-style: groove; }
+.bds-r,      %bds-r {      border-style: ridge; }
+.bds-i,      %bds-i {      border-style: inset; }
+.bds-o,      %bds-o {      border-style: outset; }
+
+
+--------------------
+
+
+http://acss.io/
+
+// config object
+'custom': {
+    'brandColor': '#0280ae',
+    'columnWidth': '20px'
+}
+<div class="Pos(a) Bgc(brandColor) W(columnWidth) H(90px)"></div>
+<div class="C(brandColor) BdB Bdc(brandColor) Mstart(columnWidth) P(10px)">
+     Lorem ipsum
+</div>
+
+
+<div class="Bd Bgc(#0280ae):h C(#0280ae):h P(20px)">
+    Lorem ipsum
+</div>
+
+
+You can also combine descendant selectors with pseudo-classes. In this example, the nested box is revealed when a user hovers over its parent:
+
+<div class="foo Bd C(#0280ae) Ta(c)">
+    <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
+</div>
+
+
+--------------
+
+
+
+http://www.basscss.com/#basscss-grid
+max-width-4 for wrappers?
+.max-width-1 { max-width: var(--width-1) }
+.max-width-2 { max-width: var(--width-2) }
+.max-width-3 { max-width: var(--width-3) }
+.max-width-4 { max-width: var(--width-4) }
+<div class="max-width-4 mx-auto">
+  <div class="clearfix">
+  </div>
+</div>
+
+
+.rounded { border-radius: var(--border-radius) }
+.circle  { border-radius: 50% }
+
+.rounded-top    { border-radius: var(--border-radius) var(--border-radius) 0 0 }
+.rounded-right  { border-radius: 0 var(--border-radius) var(--border-radius) 0 }
+.rounded-bottom { border-radius: 0 0 var(--border-radius) var(--border-radius) }
+.rounded-left   { border-radius: var(--border-radius) 0 0 var(--border-radius) }
+
+.not-rounded { border-radius: 0 }
+
+:root {
+  --border-radius: 3px;
+}
+
+
+http://tachyons.io/docs/themes/border-radius/
+  .br0 {        border-radius: 0; }
+  .br1 {        border-radius: .125rem; }
+  .br2 {        border-radius: .25rem; }
+  .br3 {        border-radius: .5rem; }
+  .br4 {        border-radius: 1rem; }
+  .br-100 {     border-radius: 100%; }
+  .br--bottom {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+  }
+  .br--top {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+  }
+
+?
+.bw1 { border-width: .125rem; }
+.bw2 { border-width: .25rem; }
+.bw3 { border-width: .5rem; }
+.bw4 { border-width: 1rem; }
+.bw5 { border-width: 2rem; }
+
+.b--none {   border-style: none; }
+.b--dotted { border-style: dotted; }
+.b--dashed { border-style: dashed; }
+.b--solid {  border-style: solid; }
+
+-----
+
+
+https://github.com/picturepan2/spectre/blob/master/src/badges.less
+
+https://github.com/picturepan2/spectre/blob/master/src/buttons.less#L127
+
+https://github.com/picturepan2/spectre/blob/master/src/forms.less
+
+https://github.com/picturepan2/spectre/blob/master/src/utilities.less#L186 // loading animation
+
+------
+
+additional, rem/em based margins and paddings? useful for nav links
+
+.cl { clear: left; }
+.cr { clear: right; }
+.cb { clear: both; }
+.cn { clear: none; }
+
+.top-1    { top:    1rem; }
+.right-1  { right:  1rem; }
+.bottom-1 { bottom: 1rem; }
+.left-1   { left:   1rem; }
+
+.top-2    { top:    2rem; }
+.right-2  { right:  2rem; }
+.bottom-2 { bottom: 2rem; }
+.left-2   { left:   2rem; }
+
+.top--1    { top:    -1rem; }
+.right--1  { right:  -1rem; }
+.bottom--1 { bottom: -1rem; }
+.left--1   { left:   -1rem; }
+
+.top--2    { top:    -2rem; }
+.right--2  { right:  -2rem; }
+.bottom--2 { bottom: -2rem; }
+.left--2   { left:   -2rem; }
+
+
+
+/* Measure is limited to ~66 characters */
+.measure {
+  max-width: 30em;
+}
+
+/* Measure is limited to ~80 characters */
+.measure-wide {
+  max-width: 34em;
+}
+
+/* Measure is limited to ~45 characters */
+.measure-narrow {
+  max-width: 20em;
+}
+
+/* Book paragraph style - paragraphs are indented with no vertical spacing. */
+.indent {
+  text-indent: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Combine this class with a width or max-width to truncate text */
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+.mw-100  { max-width: 100%; }
+
+/* Max Width Scale */
+
+.mw1  {  max-width: 1rem; }
+.mw2  {  max-width: 2rem; }
+.mw3  {  max-width: 4rem; }
+.mw4  {  max-width: 8rem; }
+.mw5  {  max-width: 16rem; }
+.mw6  {  max-width: 32rem; }
+.mw7  {  max-width: 48rem; }
+.mw8  {  max-width: 64rem; }
+.mw9  {  max-width: 96rem; }
+
+
+/* Height Scale */
+
+.h1 { height: 1rem; }
+.h2 { height: 2rem; }
+.h3 { height: 4rem; }
+.h4 { height: 8rem; }
+.h5 { height: 16rem; }
+
+/* Height Percentages */
+
+.h-25 {  height:  25%; }
+.h-50 {  height:  50%; }
+.h-75 {  height:  75%; }
+.h-100 { height: 100%; }
+
+/* String Properties */
+
+.h-auto {     height: auto; }
+.h-inherit {  height: inherit; }
+
+
+http://tachyons.io/docs/themes/hovers/
+/*
+  Hide child on hover:
+  Put the hide-child class on a parent element and any nested element with the
+  child class will be hidden and displayed on hover or focus.
+  <div class="hide-child">
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+  </div>
+*/
+
+.hide-child .child {
+  opacity: 0;
+  transition: opacity .15s ease-in;
+}
+.hide-child:hover  .child,
+.hide-child:focus  .child,
+.hide-child:active .child {
+  opacity: 1;
+  transition: opacity .15s ease-in;
+}
+
+
+/* Can combine this with overflow-hidden to make background images grow on hover
+ * even if you are using background-size: cover */
+.grow {
+  transition: transform .2s;
+}
+.grow:hover {
+  transform: scale(1.05);
+}
+.grow-large {
+  transition: transform .2s;
+}
+.grow-large:hover {
+  transform: scale(1.2);
+}
+
+
+https://github.com/tachyons-css/tachyons-visibility/blob/master/src/tachyons-visibility.css
+
+--------------
+
+
+https://github.com/cferdinandi/kraken/blob/master/src/sass/components/_svg.scss
+
+----------------
+
+https://github.com/dropbox/scooter/blob/master/scss/mixins/_arrow.scss
+https://github.com/dropbox/scooter/blob/master/scss/components/_arrow.scss
+https://github.com/dropbox/scooter/blob/master/scss/components/_cards.scss#L35
+
+https://github.com/dropbox/scooter/blob/master/scss/components/_loading-indicator.scss
+
+
+https://github.com/dropbox/scooter/blob/master/scss/components/_buttons.scss#L198 // btn-group https://github.com/philipwalton/flexbugs#9-some-html-elements-cant-be-flex-containers
+
+https://github.com/daneden/Toast/blob/master/scss/_grid.scss#L269
+
+
+
+----------------
+
+FAQ
+===
+
+## Why shortwords not used?
+
+## Is Ekzo opionated or not?
+
+Yes in terms of structure, no in terms of design
+
+## Where inspired?
+
+## Do you use it?
+
+## Why yet another Sass framework&
+
+
+Benefits
+========
+
+## Expressive, fulle class names, no unreadable `pa3 pa5-ns`
+## True isolated BEM syntax
+## True theming support
