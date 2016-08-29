@@ -57,4 +57,4 @@ module.exports = () ->
     watch:
       icons:
         files: ['<%= path.source.icons %>/{,**/}*.svg']
-        tasks: ['webfont']
+        tasks: ['newer:svgmin', 'webfont']
