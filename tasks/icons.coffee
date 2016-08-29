@@ -8,11 +8,6 @@ module.exports = () ->
 
   @config 'svgmin',
     build:
-      options:
-        plugins: [
-          removeAttrs:
-            attrs: ['width', 'height']
-        ]
       files: [
         expand: true
         cwd: '<%= path.source.icons %>/'
