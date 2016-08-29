@@ -1,6 +1,26 @@
 module.exports = () ->
 
   ###
+  Minify SVG
+  https://github.com/sindresorhus/grunt-svgmin
+  Minify SVG using SVGO
+  ###
+
+  @config 'svgmin',
+    build:
+      options:
+        plugins: [
+          removeAttrs:
+            attrs: ['width', 'height']
+        ]
+      files: [
+        expand: true
+        cwd: '<%= path.source.icons %>/'
+        src: ['{,**/}*.svg']
+        dest: '<%= path.build.icons %>/'
+      ]
+
+  ###
   SVG to webfont converter for Grunt
   https://github.com/sapegin/grunt-webfont
   Generate custom icon webfonts from SVG files
@@ -26,7 +46,6 @@ module.exports = () ->
         autoHint: false
         htmlDemo: false
         engine: 'node'
-
 
   ###
   Watch
