@@ -136,6 +136,7 @@ rules:
   selector-max-compound-selectors: 3
   selector-max-specificity: 0,3,0
   declaration-no-important: true
+  value-list-max-empty-lines: 1
   property-no-unknown:
     - true
     - ignoreProperties:
@@ -144,10 +145,10 @@ rules:
   selector-no-id: true
   selector-no-qualifying-type: true
   selector-no-universal: true
+  declaration-block-no-redundant-longhand-properties: null # harmful rule
   font-weight-notation: named-where-possible
   selector-root-no-composition: true
   function-url-no-scheme-relative: true
-  declaration-block-no-duplicate-properties: true
   at-rule-no-unknown:
     - true
     - ignoreAtRules:
