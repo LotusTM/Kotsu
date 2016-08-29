@@ -162,7 +162,7 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
    * @param  {func}   complete Callback for Nunjucks async filters
    * @return {string} Prepared code of SVG icon
    * @example
-   *   {{ Icon({ name: 'search', class: 'h-fill--current', title: 'Search' }) }} ->
+   *   {{ Icon('search', 'h-fill--current', { title: 'Search' }) }} ->
    *   <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 63 66" class="Icon--search h-fill--current" role="img"><title>Search</title><path ... ></svg>
    * @todo Should be better way to get real boundries of SVG and set it in `viewbox`. So far, it's better to normilize size and viewbox manually in original file
    * @todo `grunt.file.read` for _each_ included file might slow down generation of page wtth lots of icons.
