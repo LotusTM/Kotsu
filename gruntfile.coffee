@@ -112,6 +112,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'clean:build'
     'copy'
+    'svgmin'
     'grayMatter'
     'nunjucks'
     'sprite'
@@ -131,6 +132,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'build', [
     'clean'
     'copy'
+    'svgmin'
     'grayMatter'
     'nunjucks'
     'sprite'
