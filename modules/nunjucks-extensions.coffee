@@ -10,28 +10,6 @@ moment       = require('moment')
 smartPlurals = require('smart-plurals')
 { join }     = require('path')
 cheerio      = require('cheerio')
-SVGO         = require('svgo')
-
-svgo         = new SVGO
-  plugins: [
-    # ransformsWithOnePath: true
-    # convertPathData:
-    #   applyTransforms: true
-    #   applyTransformsStroked: true
-    #   makeArcs:
-    #       threshold: 2.5 // coefficient of rounding error
-    #       tolerance: 0.5  // percentage of radius
-    #   straightCurves: true
-    #   lineShorthands: true
-    #   curveSmoothShorthands: true
-    #   floatPrecision: 3
-    #   transformPrecision: 5
-    #   removeUseless: true
-    #   collapseRepeated: true
-    #   utilizeAbsolute: false #### important to be false
-    #   leadingZero: true,
-    #   negativeExtraSpace: true
-  ]
 
 module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
 
@@ -190,7 +168,6 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
    * @todo All arguments packed into single `options` due to https://github.com/mozilla/nunjucks/issues/820
    * @todo Forced to use async filter only due to async-only nature of `svgo`: https://github.com/svg/svgo/issues/584
    * @todo Should be better way to get real boundries of SVG and set it in `viewbox`. So far, it's better to normilize size and viewbox manually in original file
-   * @todo svgo probably shouldn't be part of filter
    * @todo `grunt.file.read` for _each_ included file might slow down generation of page wtth lots of icons.
    * @todo All IE browsers do not respect `height: auto` and sets it to `height: 150px` literally, which makes impossible scacling based on width only:
    *       http://tympanus.net/Tutorials/ResponsiveSVGs/index4.html
@@ -203,29 +180,28 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
     filepath = "#{join(@ctx.path.source.icons, name)}.svg"
     icon = grunt.file.read filepath
 
-    svgo.optimize icon, (result) ->
-      $ = cheerio.load(result.data)
+    $ = cheerio.load(icon)
 
-      originViewbox = $('svg').attr('viewbox')
-      originWidth = $('svg').attr('width')
-      originHeight = $('svg').attr('height')
-      # viebox is mandatory for IE browsers, so we should get it in any possible way
-      viewbox = if viewbox then viewbox else if originWidth and originHeight then "0 0 #{originWidth} #{originHeight}" else originViewbox
+    originViewbox = $('svg').attr('viewbox')
+    originWidth = $('svg').attr('width')
+    originHeight = $('svg').attr('height')
+    # viebox is mandatory for IE browsers, so we should get it in any possible way
+    viewbox = if viewbox then viewbox else if originWidth and originHeight then "0 0 #{originWidth} #{originHeight}" else originViewbox
 
-      $('svg').addClass("Icon--#{name} #{className}")
-      $('svg').attr('width', if width then width else null)
-      $('svg').attr('height', if height then height else null)
-      $('svg').attr('viewbox', if viewbox then viewbox)
-      $('svg').attr('preserveAspectRatio', if preserveAspectRatio then preserveAspectRatio)
-      $('svg').attr('role', 'img')
-      $('svg').attr('aria-hidden', if not title and not desc then 'true')
-      $('svg').prepend(if desc then "<desc>#{desc}</desc>")
-      $('svg').prepend(if title then "<title>#{title}</title>")
+    $('svg').addClass("Icon--#{name} #{className}")
+    $('svg').attr('width', if width then width)
+    $('svg').attr('height', if height then height)
+    $('svg').attr('viewbox', if viewbox then viewbox)
+    $('svg').attr('preserveAspectRatio', if preserveAspectRatio then preserveAspectRatio)
+    $('svg').attr('role', 'img')
+    $('svg').attr('aria-hidden', if not title and not desc then 'true')
+    $('svg').prepend(if desc then "<desc>#{desc}</desc>")
+    $('svg').prepend(if title then "<title>#{title}</title>")
 
-      if not $('svg').attr('viewbox')
-        grunt.log.error("`#{filepath}` doesn't have viewbox. It might cause issues during resizing")
+    if not $('svg').attr('viewbox')
+      grunt.log.error("`#{filepath}` doesn't have viewbox. It might cause issues during resizing")
 
-      complete(null, $.html())
+    complete(null, $.html())
   , true
 
   ###*
