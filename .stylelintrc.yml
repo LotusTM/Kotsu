@@ -140,8 +140,7 @@ rules:
   property-no-unknown:
     - true
     - ignoreProperties:
-      - text-size-adjust # @todo https://github.com/betit/known-css-properties/issues/5
-      - font-display     # @todo https://github.com/betit/known-css-properties/issues/4
+      - font-display # @todo https://github.com/betit/known-css-properties/issues/4
   selector-no-id: true
   selector-no-qualifying-type: true
   selector-no-universal: true
