@@ -162,11 +162,9 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
    * @param  {func}   complete Callback for Nunjucks async filters
    * @return {string} Prepared code of SVG icon
    * @example
-   *   {{ { name: 'search', class: 'h-fill--current', title: 'Search' }|Icon }} ->
+   *   {{ Icon({ name: 'search', class: 'h-fill--current', title: 'Search' }) }} ->
    *   <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 63 66" class="Icon--search h-fill--current" role="img"><title>Search</title><path ... ></svg>
-   * @todo Should be asyc global, not filter. https://github.com/mozilla/nunjucks/issues/819
    * @todo All arguments packed into single `options` due to https://github.com/mozilla/nunjucks/issues/820
-   * @todo Forced to use async filter only due to async-only nature of `svgo`: https://github.com/svg/svgo/issues/584
    * @todo Should be better way to get real boundries of SVG and set it in `viewbox`. So far, it's better to normilize size and viewbox manually in original file
    * @todo `grunt.file.read` for _each_ included file might slow down generation of page wtth lots of icons.
    * @todo All IE browsers do not respect `height: auto` and sets it to `height: 150px` literally, which makes impossible scacling based on width only:
@@ -174,7 +172,7 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
    *       https://jsfiddle.net/4p73n364/
    *       Very ugly fix and limiting: http://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/ (SVG embedded inline using the <svg> tag)
   ###
-  env.addFilter 'Icon', (options, complete) ->
+  env.addGlobal 'Icon', (options) ->
     { name, title, desc, width, height, viewbox, preserveAspectRatio } = options
     className = options.class
     filepath = "#{join(@ctx.path.source.icons, name)}.svg"
@@ -201,8 +199,7 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
     if not $('svg').attr('viewbox')
       grunt.log.error("`#{filepath}` doesn't have viewbox. It might cause issues during resizing")
 
-    complete(null, $.html())
-  , true
+    return $.html()
 
   ###*
    * Replaces last array element with new value
