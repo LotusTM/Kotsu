@@ -20,7 +20,7 @@ showBreadcrumb:   false
     {% for icon in expand('/', '{,**/}*.svg', 'isFile', path.source.icons) %}
       {% set icon = icon.replace('.svg', '') %}
 
-      {{ Icon({ name: icon, width: 24, height: 24, class: 'h-fill--current', title: '`' + icon + '` title', desc: '`' + icon + '` description' }) }}
+      {{ Icon(icon, 'h-fill--current', { width: 24, height: 24, title: '`' + icon + '` title', desc: '`' + icon + '` description' }) }}
 
     {% endfor %}
   </div>

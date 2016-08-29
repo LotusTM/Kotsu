@@ -164,7 +164,6 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
    * @example
    *   {{ Icon({ name: 'search', class: 'h-fill--current', title: 'Search' }) }} ->
    *   <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 63 66" class="Icon--search h-fill--current" role="img"><title>Search</title><path ... ></svg>
-   * @todo All arguments packed into single `options` due to https://github.com/mozilla/nunjucks/issues/820
    * @todo Should be better way to get real boundries of SVG and set it in `viewbox`. So far, it's better to normilize size and viewbox manually in original file
    * @todo `grunt.file.read` for _each_ included file might slow down generation of page wtth lots of icons.
    * @todo All IE browsers do not respect `height: auto` and sets it to `height: 150px` literally, which makes impossible scacling based on width only:
@@ -172,12 +171,9 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
    *       https://jsfiddle.net/4p73n364/
    *       Very ugly fix and limiting: http://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/ (SVG embedded inline using the <svg> tag)
   ###
-  env.addGlobal 'Icon', (options) ->
-    { name, title, desc, width, height, viewbox, preserveAspectRatio } = options
-    className = options.class
+  env.addGlobal 'Icon', (name, className, { title, desc, width, height, viewbox, preserveAspectRatio }) ->
     filepath = "#{join(@ctx.path.build.icons, name)}.svg"
     icon = grunt.file.read filepath
-
     $ = cheerio.load(icon)
 
     originViewbox = $('svg').attr('viewbox')
