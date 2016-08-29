@@ -175,7 +175,7 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
   env.addGlobal 'Icon', (options) ->
     { name, title, desc, width, height, viewbox, preserveAspectRatio } = options
     className = options.class
-    filepath = "#{join(@ctx.path.source.icons, name)}.svg"
+    filepath = "#{join(@ctx.path.build.icons, name)}.svg"
     icon = grunt.file.read filepath
 
     $ = cheerio.load(icon)
