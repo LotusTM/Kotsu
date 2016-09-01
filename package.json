@@ -57,7 +57,7 @@
     "grunt-csso": "2.0.1",
     "grunt-nunjucks-2-html": "1.0.5",
     "grunt-postcss": "0.8.0",
-    "grunt-processhtml": "0.4.0",
+    "grunt-processhtml": "0.4.1",
     "grunt-responsive-images": "0.1.9",
     "grunt-sass": "1.2.1",
     "grunt-shell": "1.3.1",
