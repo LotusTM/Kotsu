@@ -68,7 +68,7 @@
     "grunt-uncss": "0.6.1",
     "grunt-webfont": "1.6.0",
     "jit-grunt": "0.10.0",
-    "jspm": "0.16.45",
+    "jspm": "0.17.0-beta.28",
     "lodash": "4.15.0",
     "markdown-it": "7.0.1",
     "moment": "2.15.0",
@@ -94,6 +94,21 @@
   "engines": {
     "node": ">=4.0.0"
   },
+  "jspm": {
+    "name": "kotsu",
+    "main": "main.js",
+    "dependencies": {
+      "jquery": "npm:jquery@^3.1.0"
+    },
+    "devDependencies": {
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.13"
+    },
+    "overrides": {
+      "npm:jquery@3.1.0": {
+        "format": "amd"
+      }
+    }
+  },
   "scripts": {
     "test": "grunt lint && grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
   },
@@ -102,19 +117,5 @@
     "ignore": [
       ".jspm.js"
     ]
-  },
-  "jspm": {
-    "directories": {
-      "packages": "temp/jspm_packages"
-    },
-    "configFile": ".jspm.js",
-    "dependencies": {
-      "jquery": "github:components/jquery@^2.1.4"
-    },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    }
   }
 }

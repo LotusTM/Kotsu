@@ -61,7 +61,7 @@ module.exports = (grunt) ->
     # Specify files
     file:
       source:
-        script: '<%= path.source.scripts %>/main'
+        script: '<%= path.source.scripts %>/main.js'
 
       temp:
         data:

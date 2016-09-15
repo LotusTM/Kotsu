@@ -12,7 +12,7 @@ module.exports = () ->
     jspm_install:
       command: 'jspm install'
     jspm_build:
-      command: 'jspm bundle-sfx <%= file.source.script %> <%= file.build.script.compiled %>'
+      command: 'jspm build <%= file.source.script %> <%= file.build.script.compiled %> --minify'
 
   ###
   Uglify
