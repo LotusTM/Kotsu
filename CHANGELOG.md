@@ -2,6 +2,8 @@
 
 ## HEAD
 
+## 1.0.0
+
 ### Removed
 - [ci] Removed `grunt-cli` install from ci instances since it was not needed
 - [misc] Removed obsolete .sass-cache folder from git ignore file
@@ -83,3 +85,4 @@
 - [nj] Due to changes in how page configuration variables are declared now, all names has been altered and no longer include `page` word. Just call them via `page.{{property}}`
 - [nj] Changed default meta `og:type` from `article` to more generic `website`
 - [breaking] Changed `boilerplates` directory to more generic `static`
+- [breaking] jspm updated to `0.17.beta` version
