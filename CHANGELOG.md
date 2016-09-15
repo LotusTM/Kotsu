@@ -2,6 +2,11 @@
 
 ## HEAD
 
+## 1.0.1
+
+### Fixed
+- [grunt] fixed `standard` options to ignore `jspm.config.js`
+
 ## 1.0.0
 
 ### Removed
