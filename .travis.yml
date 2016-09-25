@@ -13,6 +13,9 @@ addons:
       - graphicsmagick
       - net-tools
 
+before_install:
+  - npm install -g npm@latest
+
 notifications:
   slack:
     rooms:
