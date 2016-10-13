@@ -45,7 +45,7 @@
     "website"
   ],
   "dependencies": {
-    "autoprefixer": "6.5.0",
+    "autoprefixer": "6.5.1",
     "gmsmith": "1.1.2",
     "gray-matter": "2.0.2",
     "grunt": "1.0.1",
