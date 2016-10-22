@@ -2,10 +2,20 @@
 
 ## HEAD
 
+## 1.1.0
+
+### Added
+- [sass] Added `print` to list of predefined breakpoints
+- [sass] Added `1em` to list of predefined font sizes for cases, when you need to reset font size
+
+### Fixed
+- [sass] Fixed mistyped predefined `link` class name
+- [sass] Fixed remained by accident `$default: true` for `$ekzo-themes`, which caused unexpected merges with Ekzo's default theme
+
 ## 1.0.1
 
 ### Fixed
-- [grunt] fixed `standard` options to ignore `jspm.config.js`
+- [grunt] Fixed `standard` options to ignore `jspm.config.js`
 
 ## 1.0.0
 
