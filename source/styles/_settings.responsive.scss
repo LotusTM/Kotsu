@@ -27,8 +27,9 @@ $ekzo-breakpoints: (
   desk:       'screen and (min-width: #{$ekzo-bp-desk})',
 
   // ----
-  // Screens
+  // Misc
 
+  print:      print,
   retina:     'screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi)'
 
 );
