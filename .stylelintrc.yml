@@ -142,6 +142,7 @@ rules:
     - ignoreProperties:
       - font-display # @todo https://github.com/betit/known-css-properties/issues/4
   selector-no-id: true
+  # @todo No way to qualifying by speicifc classes or attributes
   selector-no-qualifying-type: true
   selector-no-universal: true
   declaration-block-no-redundant-longhand-properties: null # harmful rule
@@ -284,6 +285,7 @@ rules:
   #         \+:   10px,
   #         \+\+: 20px,
   #       );
+  # @todo Wrongly reports `@extend .h-trans--all\+;`
   scss/operator-no-unspaced: true
 
   scss/selector-no-redundant-nesting-selector: true
