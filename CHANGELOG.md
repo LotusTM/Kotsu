@@ -2,6 +2,24 @@
 
 ## HEAD
 
+### Removed
+- [sass] Removed all `$ekzo-enable-*` options in favor of modular imports. Now just comment out import of part, which you don't want to use.
+
+### Changed
+- [sass] Updated Ekzo to version 2.0.0.
+- [misc] Renamed Ekzo submodule directory from `ekzo.sass` to `ekzo`.
+- [sass] Changed main stylesheet to import parts directly from Ekzo 2.0.0 in modular fashion. All `$ekzo-enable-*` options have been dropped.
+- [sass] Kotsu from now own do not inherit defaults of Ekzo settings.
+- [sass] Changed namespace variables' names according to Ekzo 2.0.0.
+- [sass] Updated `blog-post` scope to use similar to Ekzo variable names.
+- [sass] All `--flush` modifiers has been replaced with `0` as per Ekzo 2.0.0.
+- [misc] Moved settings into `settings` directory.
+- [sass] Changed headings to `inherit` font-weight by default instead of enforcing `normal`.
+- [sass] Renamed colors settings file to `_themes.scss`
+
+# Fixed
+- [nj] Fixed wrong urls in descendants of Breadcrumb component.
+
 ## 1.1.0
 
 ### Added
