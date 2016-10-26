@@ -17,7 +17,7 @@
 - [sass] Changed headings to `inherit` font-weight by default instead of enforcing `normal`.
 - [sass] Renamed colors settings file to `_themes.scss`
 
-# Fixed
+### Fixed
 - [nj] Fixed wrong urls in descendants of Breadcrumb component.
 
 ## 1.1.0
