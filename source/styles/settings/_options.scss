@@ -5,44 +5,8 @@
 // =======================================
 
 // ---------------------------------------
-// ELEMENTS AND ABSTRACTIONS
+// Varations
 // ---------------------------------------
-
-$ekzo-enable-forms:                      true;
-$ekzo-enable-lists:                      true;
-$ekzo-enable-tables:                     true;
-
-$ekzo-enable-a-nav:                      true;
-$ekzo-enable-arrows:                     true;
-$ekzo-enable-breadcrumb:                 true;
-$ekzo-enable-buttons:                    true;
-$ekzo-enable-center-inner:               true;
-$ekzo-enable-extra-help:                 true;
-$ekzo-enable-flag:                       true;
-$ekzo-enable-floated-nav:                true;
-$ekzo-enable-grid:                       true;
-$ekzo-enable-iconic-list:                true;
-$ekzo-enable-icons:                      true;
-$ekzo-enable-island:                     true;
-$ekzo-enable-media:                      true;
-$ekzo-enable-nav:                        true;
-$ekzo-enable-pack:                       true;
-$ekzo-enable-reline:                     true;
-$ekzo-enable-reline-border:              true;
-$ekzo-enable-relink:                     true;
-$ekzo-enable-show-grid:                  true;
-$ekzo-enable-sprites:                    true;
-$ekzo-enable-tooltips:                   true;
-
-$ekzo-enable-colors-helpers:             true;
-$ekzo-enable-display-helpers:            true;
-$ekzo-enable-flex-helpers:               true;
-$ekzo-enable-font-families-helpers:      true;
-$ekzo-enable-positioning-helpers:        true;
-$ekzo-enable-typography-helpers:         true;
-$ekzo-enable-ui-colors-helpers:          true;
-$ekzo-enable-ui-font-families-helpers:   true;
-$ekzo-enable-widths-helpers:             true;
 
 $ekzo-margin-helpers-variations: (
   '--':     ekzo-space(.5),
@@ -67,7 +31,7 @@ $ekzo-padding-helpers-variations: (
   '0':  0
 );
 
-$ekzo-widths-helpers-fractions:          (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+$ekzo-widths-helpers-fractions: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
 // ---------------------------------------
 // Theming
@@ -91,9 +55,3 @@ $ekzo-global-border-box: true;
 $ekzo-disable-links-outline: false;
 $ekzo-disable-forms-outline: false;
 $ekzo-disable-btn-outline:   false;
-
-// ---------------------------------------
-// Fonts
-// ---------------------------------------
-
-$ekzo-use-svg-fonts: false;
