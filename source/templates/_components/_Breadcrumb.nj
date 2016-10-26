@@ -48,7 +48,7 @@
       {% if not loop.last %}
 
         <li class='{{ itemsClass }}'>
-          <a class='{{ anchorsClass }}' href='{{ localeDir() }}/{{ href }}'>{{ title }}</a>
+          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ href }}'>{{ title }}</a>
         </li>
 
       {% elif displayLast %}
