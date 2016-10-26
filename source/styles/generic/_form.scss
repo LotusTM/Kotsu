@@ -4,7 +4,7 @@
 // =======================================
 
 input,
-#{$ekzo-generics-ns}input {
+#{$ekzo-g-ns}input {
   @include ekzo-theme() { border-color: ekzo-theme(forms-border); }
   border-width: 1px;
 
