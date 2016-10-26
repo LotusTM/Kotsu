@@ -32,7 +32,7 @@
 
   Grunt, Kotsu (https://github.com/LotusTM/Kotsu)
   HTML5, nunjucks
-  CSS3, Sass, Ekzo.sass (https://github.com/ArmorDarks/ekzo.sass)
+  CSS3, Sass, Ekzo (https://github.com/ArmorDarks/ekzo)
   JavaScript, jQuery
 
 _______________________________________________________________________________
