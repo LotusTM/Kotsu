@@ -7,9 +7,9 @@
 
 $s-blog-post-font-size:    20px;
 $s-blog-post-line-height:  $s-blog-post-font-size * 1.5;
-$s-blog-post-spacing:      $s-blog-post-line-height;
+$s-blog-post-space:        $s-blog-post-line-height;
 
-.#{$ekzo-scopes-ns}blog-post {
+.#{$ekzo-s-ns}blog-post {
   font-size: $s-blog-post-font-size;
 
   line-height: $s-blog-post-line-height;
@@ -21,20 +21,25 @@ $s-blog-post-spacing:      $s-blog-post-line-height;
   h3,
   h4,
   h5,
-  h6 { margin-bottom: $s-blog-post-spacing; }
+  h6 { margin-bottom: $s-blog-post-space; }
 
   ul {
-    margin-bottom: $s-blog-post-spacing;
+    margin-bottom: $s-blog-post-space;
 
-    > li + li { margin-top: $s-blog-post-spacing; }
+    > li + li { margin-top: $s-blog-post-space; }
 
   }
 
-  p { margin-bottom: $s-blog-post-spacing; }
+  p {
+    margin-bottom: $s-blog-post-space;
 
-  .margin-bottom  { margin-bottom: $s-blog-post-spacing  !important; }
-  .margin-top     { margin-top: $s-blog-post-spacing     !important; }
-  .margin-top\+   { margin-top: $s-blog-post-spacing * 2 !important; }
-  .margin-top\+\+ { margin-top: $s-blog-post-spacing * 3 !important; }
+    &:last-child { margin-bottom: 0; }
+
+  }
+
+  .h-margin-bottom  { margin-bottom: $s-blog-post-space  !important; }
+  .h-margin-top     { margin-top: $s-blog-post-space     !important; }
+  .h-margin-top\+   { margin-top: $s-blog-post-space * 2 !important; }
+  .h-margin-top\+\+ { margin-top: $s-blog-post-space * 3 !important; }
 
 }
