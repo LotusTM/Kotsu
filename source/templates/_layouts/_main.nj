@@ -11,7 +11,7 @@
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
         <div class='o-grid__item'>
-          <a class='Logo h-h1 h-text--underline--flush' href='{{ localeDir() }}/'>{{ site.name }}</a>
+          <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/'>{{ site.name }}</a>
         </div>
 
         <div class='o-grid__item h-flex__item--flex'>
@@ -20,7 +20,7 @@
             {{ components.Nav(
               class        = 'o-nav h-childs-space-left',
               itemsClass   = 'Nav__item',
-              anchorsClass = 'Nav__link h-text--underline--flush',
+              anchorsClass = 'Nav__link h-text--underline0',
               activeClass  = 'is-active'
             ) }}
           </nav>
@@ -45,7 +45,7 @@
         {{ components.Breadcrumb(
           class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
           itemsClass      = 'Nav__item o-breadcrumb__item',
-          anchorsClass    = 'Nav__link h-text--underline--flush',
+          anchorsClass    = 'Nav__link h-text--underline0',
           rootItemClass   = 'h-font-weight--bolder',
           rootAnchorClass = '',
           displayLast     = false
