@@ -10,6 +10,9 @@
 @import 'ekzo.sass/helpers/animations';
 @import 'ekzo.sass/helpers/typography.font-stacks';
 
+@import './temp/styles/icons';
+@import './temp/styles/sprites.map';
+
 // ---------------------------------------
 // Tools: functions and mixins
 // ---------------------------------------
@@ -20,19 +23,13 @@
 // Framework settings
 // ---------------------------------------
 
-@import 'settings.typography';
-@import 'settings.framework';
-@import 'settings.colors';
-@import 'settings.assets';
-@import 'settings.misc';
-@import 'settings.options';
-@import 'settings.responsive';
-
-// ---------------------------------------
-// Framework
-// ---------------------------------------
-
-@import 'ekzo.sass/index';
+@import 'settings/typography';
+@import 'settings/framework';
+@import 'settings/themes';
+@import 'settings/assets';
+@import 'settings/misc';
+@import 'settings/options';
+@import 'settings/responsive';
 
 // ---------------------------------------
 // Custom styling
@@ -41,21 +38,59 @@
 // ----
 // Base
 
+@import 'ekzo.sass/base/normalize';
+@import 'ekzo.sass/base/box-sizing';
+@import 'ekzo.sass/base/print';
+@import 'ekzo.sass/base/root';
+
 @import 'base/root';
 
 // ----
 // Generic
+
+@import 'ekzo.sass/generic/shared';
+@import 'ekzo.sass/generic/code';
+@import 'ekzo.sass/generic/form';
+@import 'ekzo.sass/generic/headings';
+@import 'ekzo.sass/generic/hr';
+@import 'ekzo.sass/generic/img';
+@import 'ekzo.sass/generic/kbd';
+@import 'ekzo.sass/generic/link';
+@import 'ekzo.sass/generic/list';
+@import 'ekzo.sass/generic/table';
+@import 'ekzo.sass/generic/text';
 
 @import 'generic/code';
 @import 'generic/font-faces';
 @import 'generic/form';
 @import 'generic/link';
 
+// ---------------------------------------
+// Objects
+// ---------------------------------------
+
+@import 'ekzo.sass/objects/arrow';
+@import 'ekzo.sass/objects/breadcrumb';
+@import 'ekzo.sass/objects/btn';
+@import 'ekzo.sass/objects/center-inner';
+@import 'ekzo.sass/objects/clearfix';
+@import 'ekzo.sass/objects/extra-help';
+@import 'ekzo.sass/objects/grid';
+@import 'ekzo.sass/objects/hide';
+@import 'ekzo.sass/objects/icon';
+@import 'ekzo.sass/objects/iconic-list';
+@import 'ekzo.sass/objects/media';
+@import 'ekzo.sass/objects/nav';
+@import 'ekzo.sass/objects/reline-border';
+@import 'ekzo.sass/objects/reline';
+@import 'ekzo.sass/objects/relink';
+@import 'ekzo.sass/objects/show-grid';
+@import 'ekzo.sass/objects/sprite';
+@import 'ekzo.sass/objects/tooltip';
+
 // ----
 // Components
 
-@import './temp/styles/icons';
-@import './temp/styles/sprites.map';
 @import 'components/Btn';
 @import 'components/Content';
 @import 'components/Content-header';
@@ -83,5 +118,20 @@
 
 // ----
 // Helpers
+
+@import 'ekzo.sass/helpers/animations';
+@import 'ekzo.sass/helpers/border';
+@import 'ekzo.sass/helpers/colors';
+@import 'ekzo.sass/helpers/colors.ui';
+@import 'ekzo.sass/helpers/display';
+@import 'ekzo.sass/helpers/flex';
+@import 'ekzo.sass/helpers/misc';
+@import 'ekzo.sass/helpers/positioning';
+@import 'ekzo.sass/helpers/spacing';
+@import 'ekzo.sass/helpers/typography.font-families';
+@import 'ekzo.sass/helpers/typography.font-families.ui';
+@import 'ekzo.sass/helpers/typography';
+@import 'ekzo.sass/helpers/typography.misc';
+@import 'ekzo.sass/helpers/widths';
 
 @import 'helpers/animations';
