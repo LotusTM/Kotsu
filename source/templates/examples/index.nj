@@ -944,7 +944,7 @@ class:           p-examples
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.h-text--underline:h']) -%}
-<a class='h-text--underline--flush h-text--underline:h' href='#'>Underline on hover link</a>
+<a class='h-text--underline0 h-text--underline:h' href='#'>Underline on hover link</a>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.h-border-bottom']) -%}
