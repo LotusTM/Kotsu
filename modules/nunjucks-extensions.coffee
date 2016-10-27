@@ -9,6 +9,7 @@ numbro       = require('numbro')
 moment       = require('moment')
 smartPlurals = require('smart-plurals')
 { join }     = require('path')
+{ escape }   = require('nunjucks/src/lib')
 
 module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
 
@@ -250,3 +251,13 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
       spreaded += "#{property}='#{value}' "
 
     return spreaded
+
+  ###*
+   * Same as Nunjucks `|escape` filter, but enforces escaping in any case, even if input previously has been
+   * marked as `safe`. Can be applied on `caller()` of `macro` to enforce escaping of its content
+   * @todo  Temporal solution for https://github.com/mozilla/nunjucks/issues/782
+   * @param {string|object} input Entity in to be escaped
+   * @return {string} Escaped entity
+   * @example {{ caller()|forceescape }} -> &lt;p&gt;Example text&lt;/p&gt;
+  ###
+  env.addFilter 'forceescape', (input) -> escape(input)

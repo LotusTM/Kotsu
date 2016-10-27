@@ -5,6 +5,9 @@
 ### Removed
 - [sass] Removed all `$ekzo-enable-*` options in favor of modular imports. Now just comment out import of part, which you don't want to use.
 
+### Added
+- [modules] Added `|forceescape` filter for Nunjucks as temporal solution of https://github.com/mozilla/nunjucks/issues/782
+
 ### Changed
 - [sass] Updated Ekzo to version 2.0.0.
 - [misc] Renamed Ekzo submodule directory from `ekzo.sass` to `ekzo`.
