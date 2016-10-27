@@ -94,88 +94,88 @@ class:           p-examples
 
 {% call components.Example(title = '', classes = ['.o-grid', '.o-grid__item'], full = true) -%}
 <div class='o-grid h-bleed-top'>
-  <div class='o-grid__item h-1/2@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/2 on tablet+, 1/1 on smaller</div></div>
-  <div class='o-grid__item h-1/2@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/2 on tablet+, 1/1 on smaller</div></div>
-  <div class='o-grid__item h-1/3@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3 on tablet+, 1/1 on smaller</div></div>
-  <div class='o-grid__item h-1/3@tablet h-1/2 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3 on tablet+, 1/2 on smaller</div></div>
-  <div class='o-grid__item h-1/3@tablet h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3 on tablet+, 1/3 on smaller</div></div>
-  <div class='o-grid__item h-2/3@tablet h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>2/3 on tablet+, 1/3 on smaller</div></div>
-  <div class='o-grid__item h-1/3@tablet h-2/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3 on tablet+, 2/3 on smaller</div></div>
-  <div class='o-grid__item h-1/7@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/7 on tablet+, 1/1 on smaller</div></div>
-  <div class='o-grid__item h-3/7@tablet h-1/1 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>3/7 on tablet+, 1/1 on smaller</div></div>
-  <div class='o-grid__item h-2/7@tablet h-1/2 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>2/7 on tablet+, 1/2 on smaller</div></div>
-  <div class='o-grid__item h-1/7@tablet h-1/2 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/7 on tablet+, 1/2 on smaller</div></div>
+  <div class='o-grid__item h-1/2@tablet h-1/1 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>1/2 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-1/2@tablet h-1/1 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>1/2 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-1/3@tablet h-1/1 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>1/3 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-1/3@tablet h-1/2 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>1/3 on tablet+, 1/2 on smaller</div></div>
+  <div class='o-grid__item h-1/3@tablet h-1/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>1/3 on tablet+, 1/3 on smaller</div></div>
+  <div class='o-grid__item h-2/3@tablet h-1/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>2/3 on tablet+, 1/3 on smaller</div></div>
+  <div class='o-grid__item h-1/3@tablet h-2/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>1/3 on tablet+, 2/3 on smaller</div></div>
+  <div class='o-grid__item h-1/7@tablet h-1/1 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>1/7 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-3/7@tablet h-1/1 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>3/7 on tablet+, 1/1 on smaller</div></div>
+  <div class='o-grid__item h-2/7@tablet h-1/2 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>2/7 on tablet+, 1/2 on smaller</div></div>
+  <div class='o-grid__item h-1/7@tablet h-1/2 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>1/7 on tablet+, 1/2 on smaller</div></div>
 </div>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.o-grid .h-childs-displace0'], full = true) -%}
 <div class='o-grid h-childs-displace0 h-bleed-top--'>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
 </div>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.o-grid .h-childs-displace--'], full = true) -%}
 <div class='o-grid h-childs-displace-- h-bleed-top--'>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top--'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
 </div>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.o-grid .h-childs-displace+'], full = true) -%}
 <div class='o-grid h-childs-displace+ h-bleed-top+'>
-  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top+'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
 </div>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.o-grid .h-childs-displace++'], full = true) -%}
 <div class='o-grid h-childs-displace++ h-bleed-top+'>
-  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top++'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
 </div>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.o-grid. .h-flex--nowrap'], comment = 'No fallback for IE8 and IE9 — childs will always wrap', full = true) -%}
 <div class='o-grid h-bleed-top h-flex--nowrap'>
-  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>1/3</div></div>
-  <div class='o-grid__item h-2/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>2/3</div></div>
-  <div class='o-grid__item h-2/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>2/3</div></div>
-  <div class='o-grid__item h-3/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--'>3/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>1/3</div></div>
+  <div class='o-grid__item h-2/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>2/3</div></div>
+  <div class='o-grid__item h-2/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>2/3</div></div>
+  <div class='o-grid__item h-3/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--'>3/3</div></div>
 </div>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.o-grid .h-flex-y--stretch'], comment = 'No fallback for IE8 and IE9 — childs won\'t have similar height and will align to top', full = true) -%}
 <div class='o-grid h-bleed-top h-flex-y--stretch'>
-  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3<br>Second line<br>Third line</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
-  <div class='o-grid__item h-3/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>3/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--' style='height: 100%;'>1/3<br>Second line<br>Third line</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
+  <div class='o-grid__item h-3/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--' style='height: 100%;'>3/3</div></div>
 </div>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.o-grid .h-flex-y--top'], comment = 'Default behaviour on IE8 and IE9', full = true) -%}
 <div class='o-grid h-bleed-top h-flex-y--top'>
-  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3<br>Second line<br>Third line</div></div>
-  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
-  <div class='o-grid__item h-3/3 h-margin-top'><div class='h-bg-color--dull-lavender h-padding-- h-text--' style='height: 100%;'>3/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--' style='height: 100%;'>1/3<br>Second line<br>Third line</div></div>
+  <div class='o-grid__item h-1/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--' style='height: 100%;'>1/3</div></div>
+  <div class='o-grid__item h-3/3 h-margin-top'><div class='h-bg-color--primary h-padding-- h-text--' style='height: 100%;'>3/3</div></div>
 </div>
 {% endcall %}
 
@@ -643,15 +643,15 @@ class:           p-examples
 <h2 class='h-margin-top++ h-margin-bottom+'>Color helpers</h2>
 
 {% call components.Example(title = '', classes = ['.h-color--*', '.h-color--*:h']) -%}
-<p class='h-color--ivory h-color--dull-lavender:h'>Hover me</p>
+<p class='h-color--ivory h-color--primary:h'>Hover me</p>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.h-bg-color--*', '.h-bg-color--*:h']) -%}
-<p class='h-bg-color--dull-lavender h-bg-color--outer-space:h h-padding--'>Hover me</p>
+<p class='h-bg-color--primary h-bg-color--outer-space:h h-padding--'>Hover me</p>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.h-border-color--*', '.h-border-color--*:h']) -%}
-<p class='h-border h-border-color--dull-lavender h-border-color--outer-space:h h-padding--'>Hover me</p>
+<p class='h-border h-border-color--primary h-border-color--outer-space:h h-padding--'>Hover me</p>
 {% endcall %}
 
 
@@ -718,10 +718,10 @@ class:           p-examples
 
 {% call components.Example(title = '', classes = ['h-childs-displace']) -%}
 <div class='o-grid h-text-- h-childs-displace++ h-childs-margin-top++ h-bleed-top++ h-margin-bottom'>
-  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
-  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
-  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
-  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--dull-lavender'>1/2</div></div>
+  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--primary'>1/2</div></div>
+  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--primary'>1/2</div></div>
+  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--primary'>1/2</div></div>
+  <div class='o-grid__item h-1/2'><div class='h-bg-color h-bg-color--primary'>1/2</div></div>
 </div>
 
 <div class='o-media h-childs-displace+ o-media--rev'>
@@ -929,7 +929,7 @@ class:           p-examples
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.g-link--inherit']) -%}
-<p class='h-bg-color--dull-lavender'><a class="g-link--inherit" href='g-link--inherit' >Flushed link on background</a></p>
+<p class='h-bg-color--primary'><a class="g-link--inherit" href='g-link--inherit' >Flushed link on background</a></p>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.h-text--underline']) -%}

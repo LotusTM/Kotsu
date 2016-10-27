@@ -3,7 +3,7 @@
 // =======================================
 
 $ekzo-colors: (
-  dull-lavender: #a593e0,
+  primary:       kotsu-theme-color(),
   green-white:   #e0e3da,
   ivory:         #fffff3,
   outer-space:   #313840,
@@ -33,8 +33,8 @@ $ekzo-colors: (
   // ---------------------------------------
   // @param {string|false} False to disable, color value to enable
 
-  links:                  ekzo-color(dull-lavender),
-  links-hover:            ekzo-tint(ekzo-color(dull-lavender), 20),
+  links:                  ekzo-color(primary),
+  links-hover:            ekzo-tint(ekzo-color(primary), 20),
 
   // ---------------------------------------
   // Headings
@@ -80,7 +80,7 @@ $ekzo-colors: (
   // @param {string|false} False to disable, color value to enable
 
   btn:                    ekzo-color(green-white),
-  btn-bg:                 ekzo-color(dull-lavender),
+  btn-bg:                 ekzo-color(primary),
 
   // ---------------------------------------
   // Breadcrumb
