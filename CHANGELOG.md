@@ -22,6 +22,7 @@
 - [sass] Changed headings to `inherit` font-weight by default instead of enforcing `normal`.
 - [sass] Renamed colors settings file to `_themes.scss`
 - [nj] Thanks to `|forceescape` filter code example section of Example component has been enabled.
+- [data][nj] Make Google Analytics and Yandex.Metrika IDs definable in data instead of templates.
 
 ### Fixed
 - [nj] Fixed wrong urls in descendants of Breadcrumb component.

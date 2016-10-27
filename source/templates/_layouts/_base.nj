@@ -100,8 +100,8 @@
   <script src='/{{ path.scripts }}/main.js'></script>
   <!-- /build -->
 
-  {{ components.GoogleAnalytics(siteId = 'UA-XXXXX-X') }}
-  {{ components.YandexMetrika(counterId = 'XXXXXX') }}
+  {{ components.GoogleAnalytics(siteId = site.googleAnalyticsId) if site.googleAnalyticsId }}
+  {{ components.YandexMetrika(counterId = site.yandexMetrikaId) if site.yandexMetrikaId }}
 
 </body>
 
