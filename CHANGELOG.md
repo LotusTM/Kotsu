@@ -4,6 +4,7 @@
 
 ### Removed
 - [sass] Removed all `$ekzo-enable-*` options in favor of modular imports. Now just comment out import of part, which you don't want to use.
+- [nj] Removed `ExampleMacro`. Nobody liked it, nobody needed it.
 
 ### Added
 - [modules] Added `|forceescape` filter for Nunjucks as temporal solution of https://github.com/mozilla/nunjucks/issues/782

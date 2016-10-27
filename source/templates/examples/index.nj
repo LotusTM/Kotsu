@@ -23,13 +23,6 @@ class:           p-examples
 {% endcall %}
 
 
-<h2 class='h-margin-top++ h-margin-bottom+'>Macros</h2>
-
-{% call components.Example(title = 'Macros examples') -%}
-{% raw %}<p>{{ components.ExmapleMacro('this is from index page') }}</p>{% endraw %}
-{% endcall %}
-
-
 <h2 class='h-margin-top++ h-margin-bottom+'>L10n</h2>
 
 {% call components.Example(title = '', classes = ['localeDir(locale)']) -%}
