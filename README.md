@@ -52,6 +52,32 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 
 And a lot more under the hood. We just didn't have time to document all features. Yet.
 
+## Browsers support
+
+### JavaScript
+
+Works in:
+
+IE9+, Edge 12+, Chrome 21+, Firefox 28+, Safari 6.1+, Opera 12.1+, Opera Mobile 12.1+, iOS Safari 7.1+, Android 4.4+.
+
+If you need to support advanced ES6 features in IE11 and below like `Promise` or `Objest.assign`, uncomment `import 'babel-polyfill'` in `main.js`. See details [here](https://babeljs.io/docs/usage/polyfill/).
+
+Default build shipped with jQuery 3.1.0+ which doesn't support IE8. Replace it with pre 3.0.0 version if you need support of IE8.
+
+### CSS
+
+Default layouts powered by [Ekzo](https://github.com/ArmorDarks/ekzo.sass), which implies following requirements to fully work:
+
+IE10+, Edge 12+, Chrome 21+, Firefox 28+, Safari 6.1+, Opera 12.1+, Opera Mobile 12.1+, iOS Safari 7.1+, Android 4.4+.
+
+Provides graceful degradation for IE9 and IE8. Details can be found [here](https://github.com/ArmorDarks/ekzo#browsers-support).
+
+If you don't want support of IE9 and below, remove `IE()` macro call from base layout.
+
+### Outdated Browser message
+
+In IE9 and below will be displayed banner before page content with message that user's browser is outdated and link to [Outdated Browser](http://outdatedbrowser.com). If you don't want that message to be displayed, remove `OutdatedBrowser()` macro call.
+
 ## License
 
 Copyright 2014 LotusTM. Licensed under the [Apache 2.0 license](https://github.com/LotusTM/Kotsu/blob/master/LICENSE.md).
