@@ -19,6 +19,7 @@
 - [misc] Moved settings into `settings` directory.
 - [sass] Changed headings to `inherit` font-weight by default instead of enforcing `normal`.
 - [sass] Renamed colors settings file to `_themes.scss`
+- [nj] Thanks to `|forceescape` filter code example section of Example component has been enabled.
 
 ### Fixed
 - [nj] Fixed wrong urls in descendants of Breadcrumb component.
