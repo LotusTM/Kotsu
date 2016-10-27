@@ -12,7 +12,7 @@
  #}
 {% macro Example(title, classes, comment = false, full = false) %}
 
-  <div class='o-grid {{ 'h-childs-space' if full }}'>
+  <div class='o-grid h-childs-displace {{ 'h-childs-space-top' if full }}'>
 
     <div class='o-grid__item h-1/1 {{ 'h-2/9@tablet' if not full }}'>
 
@@ -26,11 +26,11 @@
 
     </div>
 
-    <div class='o-grid__item h-1/1 h-margin-top {{ 'h-2/9@tablet h-margin-top0@tablet' if not full }}'>
+    <div class='o-grid__item h-1/1 {{ 'h-2/9@tablet' if not full }}'>
       {{ caller()|render(isCaller = true) }}
     </div>
 
-    <div class='o-grid__item h-1/1 h-margin-top {{ 'h-5/9@tablet h-margin-top0@tablet' if not full }}'>
+    <div class='o-grid__item h-1/1 {{ 'h-5/9@tablet' if not full }}'>
       <pre class='h-margin-bottom0'><code>{{ caller()|forceescape }}</code></pre>
     </div>
 
