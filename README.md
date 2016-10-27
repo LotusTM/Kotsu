@@ -58,7 +58,7 @@ And a lot more under the hood. We just didn't have time to document all features
 
 Works in:
 
-IE9+, Edge 12+, Chrome 21+, Firefox 28+, Safari 6.1+, Opera 12.1+, Opera Mobile 12.1+, iOS Safari 7.1+, Android 4.4+.
+IE9+, Edge 12+, Chrome 21+, Firefox 28+, Safari 6.1+, Opera 12.1+, Opera Mobile 12.1+, iOS Safari 7+, Android 4+.
 
 If you need to support advanced ES6 features in IE11 and below like `Promise` or `Objest.assign`, uncomment `import 'babel-polyfill'` in `main.js`. See details [here](https://babeljs.io/docs/usage/polyfill/).
 
