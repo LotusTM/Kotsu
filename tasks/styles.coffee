@@ -28,8 +28,18 @@ module.exports = () ->
           'kotsu-path($query)': (query) =>
             query = query.getValue()
             baseLocale = @config('i18n.baseLocale')
-            paths = @config.process(@config('data')(baseLocale).path)
-            return castToSass(get(paths, query))
+            data = @config.process(@config('data')(baseLocale))
+            return castToSass(get(data.path, query))
+          'kotsu-theme-color()': () =>
+            baseLocale = @config('i18n.baseLocale')
+            data = @config.process(@config('data')(baseLocale))
+            color = get(data, 'site.themeColor')
+
+            if color.indexOf('#') == -1
+              return throw new Error('[kotsu-theme-color] value should be a hex color')
+
+            color = color.replace('#', '0xff')
+            return sass.types.Color(parseInt(color, 16))
 
       files: [
         expand: true

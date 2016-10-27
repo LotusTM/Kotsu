@@ -10,6 +10,7 @@
 - [modules] Added `|forceescape` filter for Nunjucks as temporal solution of https://github.com/mozilla/nunjucks/issues/782
 - [js] added commented out `import 'babel-polyfill'` to `main.js`, otherwise it's easy to oversight lack of Promises support in IE11 and some older browsers.
 - [data][nj] Added ability to specify color via `data.site.themeColor` for `<meta name='theme-color'>`.
+- [grunt][sass] Added ability for Sass to get `data.site.themeColor` via `kotsu-theme-color()` function
 
 ### Changed
 - [sass] Updated Ekzo to version 2.0.0.
