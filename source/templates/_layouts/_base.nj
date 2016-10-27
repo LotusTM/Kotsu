@@ -47,6 +47,9 @@
   <link rel='stylesheet' href='/{{ path.styles }}/style.prefixed.css'>
   <!-- /build -->
 
+  <!-- Theme -->
+  <meta name='theme-color' content='{{ site.themeColor }}'>
+
   <!-- Sitemap -->
   <link rel='sitemap' type='application/xml' title='Sitemap' href='/sitemap.xml'>
 
