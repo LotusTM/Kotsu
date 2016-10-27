@@ -698,8 +698,8 @@ class:           p-examples
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Spacing helpers</h2>
 
-{% call components.Example(title = '', classes = ['h-childs-space']) -%}
-<ul class='h-childs-space+'>
+{% call components.Example(title = '', classes = ['h-childs-space-top']) -%}
+<ul class='h-childs-space-top--'>
   <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
   <li>Has been the industry's standard dummy text ever since the 1500s</li>
   <li>
@@ -711,12 +711,12 @@ class:           p-examples
   </li>
 </ul>
 
-<nav class='h-childs-space+ h-margin-bottom'>
+<nav class='h-childs-space-top+ h-margin-bottom'>
   <a class='h-inline-block' href='#'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
   <a class='h-inline-block' href='#'>Has been the industry's standard dummy text ever since the 1500s</a>
 </nav>
 
-<form class='h-childs-space++'>
+<form class='h-childs-space-top++'>
   <fieldset>1</fieldset>
   <fieldset>2</fieldset>
   <fieldset>3</fieldset>
