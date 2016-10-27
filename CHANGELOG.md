@@ -25,6 +25,7 @@
 
 ### Fixed
 - [nj] Fixed wrong urls in descendants of Breadcrumb component.
+- [nj] Fixed bug with sticky footer being positioned wrongly in IE10 and IE11.
 
 ## 1.1.0
 

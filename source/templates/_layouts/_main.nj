@@ -6,7 +6,7 @@
   <!-- Site's header -->
   <!-- ============= -->
 
-  <header class='Header h-margin-ends'>
+  <header class='Header o-container__fixed h-margin-ends'>
     <div class='Wrapper Wrapper--contain'>
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
@@ -35,7 +35,7 @@
   <!-- Site's content -->
   <!-- ============== -->
 
-  <main class='Main h-flex__item--flex' role='main'>
+  <main class='Main o-container__flex' role='main'>
     <article class='{{ 'Wrapper Wrapper--contain' if not page.applyWrapper }}'>
 
       {% if page.showBreadcrumb or page.contentTitle %}
@@ -81,7 +81,7 @@
   <!-- ============= -->
 
   <!--/noindex-->
-  <footer class='Footer h-margin-ends'>
+  <footer class='Footer o-container__fixed h-padding-ends'>
     <div class='Wrapper Wrapper--contain'>
       © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
     </div>{# /Wrapper #}

@@ -87,7 +87,7 @@
 
 </head>
 
-<body>
+<body class='o-container'>
 
   {{ components.OutdatedBrowser(version = 'lte IE 9') }}
 
