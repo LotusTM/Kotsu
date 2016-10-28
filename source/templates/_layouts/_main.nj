@@ -38,7 +38,7 @@
   <main class='Main o-container__flex' role='main'>
     <article class='{{ 'Wrapper Wrapper--contain' if not page.applyWrapper }}'>
 
-      {% if page.showBreadcrumb or page.contentTitle %}
+      {% if page.showBreadcrumb or page.showContentTitle %}
       <header class='Content-header'>
 
         {% if page.showBreadcrumb %}
