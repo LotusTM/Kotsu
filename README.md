@@ -39,7 +39,7 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 * HTML5 boilerplate files based on best practices
 * i18n with [node-gettext](https://github.com/andris9/node-gettext)
 * [Sass](http://sass-lang.com/) compiler with source maps generation, [autoprefixing](https://github.com/postcss/autoprefixer), [optimization](https://github.com/giakki/uncss), [minification](https://github.com/css/csso) and [linting](https://github.com/stylelint/stylelint)
-* [Ekzo.sass](https://github.com/ArmorDarks/ekzo.sass) framework
+* [Ekzo](https://github.com/ArmorDarks/ekzo) Sass framework
 * [jspm](http://jspm.io) with ES6 support, managing and bundling JavaScript dependencies
 * [standard](https://github.com/feross/standard) for linting and automatic formatting JavaScript
 * Live reload powered by [Browser Sync](https://github.com/shakyshane/grunt-browser-sync)
@@ -66,7 +66,7 @@ Default build shipped with jQuery 3.1.0+ which doesn't support IE8. Replace it w
 
 ### CSS
 
-Default layouts powered by [Ekzo](https://github.com/ArmorDarks/ekzo.sass), which implies following requirements to fully work:
+Default layouts powered by [Ekzo](https://github.com/ArmorDarks/ekzo), which implies following requirements to fully work:
 
 IE10+, Edge 12+, Chrome 21+, Firefox 28+, Safari 6.1+, Opera 12.1+, Opera Mobile 12.1+, iOS Safari 7.1+, Android 4.4+.
 

@@ -15,7 +15,7 @@ module.exports = () ->
         font: 'icons'
         types: 'eot,woff,ttf'
         hashes: false # disabled, since all assets cache-busted by other Grunt task
-        styles: '' # `.Icon` class and font-face declared by Ekzo.sass
+        styles: '' # `.Icon` class and font-face declared by Ekzo
         template: '' # temporary workaround for node v6 support (see path.extname docs)
         templateOptions:
           classPrefix: 'Icon--'
