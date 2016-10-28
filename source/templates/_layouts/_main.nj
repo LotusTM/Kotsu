@@ -14,7 +14,7 @@
           <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/'>{{ site.name }}</a>
         </div>
 
-        <div class='o-grid__item h-flex__item--flex'>
+        <div class='o-grid__item h-flex+'>
           <!--noindex-->
           <nav class='Nav h-float--right'>
             {{ components.Nav(
