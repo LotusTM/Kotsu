@@ -35,8 +35,8 @@
   <!-- Site's content -->
   <!-- ============== -->
 
-  <main class='Main o-container__flex' role='main'>
-    <article class='{{ 'Wrapper Wrapper--contain' if not page.applyWrapper }}'>
+  <main class='Main o-container__flex o-container' role='main'>
+    <article class='o-container o-container__flex h-1/1 {{ 'Wrapper Wrapper--contain' if not page.applyWrapper }}'>
 
       {% if page.showBreadcrumb or page.showContentTitle %}
       <header class='Content-header'>
@@ -59,7 +59,7 @@
       </header>
       {% endif %}
 
-      <div class='o-grid {{ 'h-childs-displace+' if page.showSidebar}}'>
+      <div class='o-grid o-container__flex {{ 'h-childs-displace+' if page.showSidebar}}'>
 
         <div class='Content o-grid__item {{ 'h-1/1' if not page.showSidebar else 'h-9/12' }} h-margin-top'>
           {% block main %}{% endblock %}

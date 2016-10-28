@@ -24,6 +24,7 @@
 - [sass] Changed headings to `inherit` font-weight by default instead of enforcing `normal`.
 - [sass] Renamed colors settings file to `_themes.scss`
 - [nj] Thanks to `|forceescape` filter code example section of Example component has been enabled.
+- [nj] With help of `.o-container` even empty `.Content` area will expand to fit page height too, without kicking footer out of view. This grants more flexibility in vertical content placement with flexbox.
 - [data][nj] Make Google Analytics and Yandex.Metrika IDs definable in data instead of templates.
 - [sass] Used new `kotsu-theme-color()` for getting primary color out of data.
 - [sass][nj] Default primary color `dull-lavender` renamed into `primary`.
