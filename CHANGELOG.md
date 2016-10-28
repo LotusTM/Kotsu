@@ -13,21 +13,21 @@
 - [grunt][sass] Added ability for Sass to get `data.site.themeColor` via `kotsu-theme-color()` function.
 
 ### Changed
-- [sass] Updated Ekzo to version 2.0.0.
 - [misc] Renamed Ekzo submodule directory from `ekzo.sass` to `ekzo`.
+- [misc] Moved Ekzo settings into `settings` directory.
+- [sass] Updated Ekzo to version 2.0.0.
 - [sass] Changed main stylesheet to import parts directly from Ekzo 2.0.0 in modular fashion. All `$ekzo-enable-*` options have been dropped.
 - [sass] Kotsu from now own do not inherit defaults of Ekzo settings.
 - [sass] Changed namespace variables' names according to Ekzo 2.0.0.
 - [sass] Updated `blog-post` scope to use similar to Ekzo variable names.
 - [sass] All `--flush` modifiers has been replaced with `0` as per Ekzo 2.0.0.
-- [misc] Moved settings into `settings` directory.
 - [sass] Changed headings to `inherit` font-weight by default instead of enforcing `normal`.
 - [sass] Renamed colors settings file to `_themes.scss`
+- [sass] Used new `kotsu-theme-color()` for getting primary color out of data.
+- [sass][nj] Default primary color `dull-lavender` renamed into `primary`.
 - [nj] Thanks to `|forceescape` filter code example section of Example component has been enabled.
 - [nj] With help of `.o-container` even empty `.Content` area will expand to fit page height too, without kicking footer out of view. This grants more flexibility in vertical content placement with flexbox.
 - [data][nj] Make Google Analytics and Yandex.Metrika IDs definable in data instead of templates.
-- [sass] Used new `kotsu-theme-color()` for getting primary color out of data.
-- [sass][nj] Default primary color `dull-lavender` renamed into `primary`.
 
 ### Fixed
 - [nj] Fixed wrong urls in descendants of Breadcrumb component.
