@@ -1,5 +1,5 @@
 ---
-href:             /
+url:              /
 title:            ={{ gettext('Kotsu Web Starter Kit') }}
 breadcrumbTitle:  ={{ gettext('Home') }}
 contentTitle:     ={{ gettext('Home') }}

@@ -13,6 +13,7 @@
 - [grunt][sass] Added ability for Sass to get `data.site.themeColor` via `kotsu-theme-color()` function.
 
 ### Changed
+- [grunt][modules][nj] [breaking] Renamed all `href` variables to `url`.
 - [misc] Renamed Ekzo submodule directory from `ekzo.sass` to `ekzo`.
 - [misc] Moved Ekzo settings into `settings` directory.
 - [sass] Updated Ekzo to version 2.0.0.

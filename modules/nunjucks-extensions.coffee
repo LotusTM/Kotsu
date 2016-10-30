@@ -46,7 +46,7 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
    * @return {string} Logs to Grunt console
   ###
   env.addGlobal 'warn', (input...) ->
-    grunt.log.error(input..., '[' + @ctx.page.href + ']')
+    grunt.log.error(input..., '[' + @ctx.page.url + ']')
 
   ###*
    * Get list of files or directories inside specified directory
@@ -107,11 +107,11 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
     result = _.get(data, path)
 
     if result
-      result = if forceRender then render(env, renderContext, result, false, grunt.log.error, logUndefined,  @ctx.page.props.href) else result
+      result = if forceRender then render(env, renderContext, result, false, grunt.log.error, logUndefined,  @ctx.page.url) else result
       Object.defineProperty result, 'props', enumerable: false
       return result
     else
-      grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + @ctx.page.href + ']')
+      grunt.log.error('[getPage] can\'t find requested `' + path + '` inside specified object', '[' + @ctx.page.url + ']')
 
   ###*
    * Explodes string into array breadcrumb. See `crumble` helper for details
@@ -184,7 +184,7 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
    * @todo Related issue https://github.com/mozilla/nunjucks/issues/783
   ###
   env.addFilter 'render', (input, isCaller = false, logUndefined = false) ->
-    render(env, @getVariables(), input, isCaller, grunt.log.error, logUndefined, @ctx.page.props.href)
+    render(env, @getVariables(), input, isCaller, grunt.log.error, logUndefined, @ctx.page.url)
 
   ###*
    * Replace placeholders with provided values. Refer to `printf` module for docs
@@ -243,7 +243,7 @@ module.exports = (env, grunt, currentLocale, numberFormat, currencyFormat) ->
   ###
   env.addFilter 'spread', (input, delimiter = ' ') ->
     if typeof input != 'object'
-      grunt.log.error('[spread] input should be object, but `' + typeof input + '` has been specified', '[' + @ctx.page.href + ']')
+      grunt.log.error('[spread] input should be object, but `' + typeof input + '` has been specified', '[' + @ctx.page.url + ']')
       return
 
     spreaded = ' '

@@ -1,5 +1,5 @@
 ---
-href:             /404.html
+url:              /404.html
 title:            ={{ gettext('404 &mdash; page not found') }}
 breadcrumbTitle:  '404'
 contentTitle:     ={{ gettext('404 &mdash; page not found') }}

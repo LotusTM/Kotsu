@@ -17,8 +17,7 @@
  #
  # @throws `getPage`'s Error on non-existing in `pages.yml` `to`
  # @throws Error on relative `to`. Only absolute paths for `to` supported by now
- # @throws Error on relative `href` property in `pages.yml`.
- #         Only absolute paths for `href` supported by now
+ # @throws Error on relative `url` property in page Gray Matter
  #
  # @example
  #  {{ components.Link(
@@ -45,17 +44,17 @@
   {% set isActive = isActive(to, onlyActiveOnIndex, pageBreadcrumb) %}
   {% set linkBreadcrumb = crumble(to) %}
 
-  {# Check whether specified path has defined overriding `href` property in `pages.yml` #}
-  {% set href = getPage(linkBreadcrumb).props.href %}
-  {% set isAbsoluteHref = true if _.startsWith(href, '/') else false %}
+  {# Check whether specified path has defined overriding `url` property in Gray Matter #}
+  {% set url = getPage(linkBreadcrumb).props.url %}
+  {% set isAbsoluteUrl = true if _.startsWith(url, '/') else false %}
 
   {# @todo Add support of relative paths #}
   {% if not isAbsolute %}
     {{ warn('[components.Link] non absolute `to` not supported yet, but you\'ve used `' + to + '` in `pages.yml` on `' + linkBreadcrumb + '`. This will produce wrong l10n url') }}
   {% endif %}
-  {% if href and not isAbsoluteHref %}
-    {{ warn('[components.Link] non absolute hrefs not supported yet, but you\'ve used `' + href + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
+  {% if url and not isAbsoluteUrl %}
+    {{ warn('[components.Link] non absolute urls not supported yet, but you\'ve used `' + url + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
   {% endif %}
 
-  <a href='{{ localeDir if localeDir }}{{ href if href else to }}' class='{{ class }} {{ activeClass if isActive }}' {{ attrs|spread }}>{{ caller() if caller else label }}</a>
+  <a href='{{ localeDir if localeDir }}{{ url if url else to }}' class='{{ class }} {{ activeClass if isActive }}' {{ attrs|spread }}>{{ caller() if caller else label }}</a>
 {% endmacro %}

@@ -43,12 +43,12 @@
       {% set currentCrumb = [crumb] if loop.index0 == 0 else currentCrumb|pushIn(crumb)  %}
       {% set crumbProps   = getPage(currentCrumb).props|template(placeholders) %}
       {% set title        = crumbProps.breadcrumbTitle %}
-      {% set href         = crumbProps.href %}
+      {% set url          = crumbProps.url %}
 
       {% if not loop.last %}
 
         <li class='{{ itemsClass }}'>
-          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ href }}'>{{ title }}</a>
+          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ url }}'>{{ title }}</a>
         </li>
 
       {% elif displayLast %}
