@@ -1,4 +1,4 @@
-{ map } = require('lodash')
+{ map, includes } = require('lodash')
 
 module.exports = (grunt) ->
   'use strict'
@@ -17,6 +17,7 @@ module.exports = (grunt) ->
 
     # Specify environment variables
     env:
+      production: if includes(grunt.cli.tasks, 'build') then true else false
       tinypng:
         api:
           key: process.env.TINYPNG_API_KEY
@@ -138,7 +139,6 @@ module.exports = (grunt) ->
     'postcss:autoprefix'
     'uncss'
     'csso'
-    'processhtml'
     'shell'
     'uglify'
     'htmlmin'

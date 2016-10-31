@@ -5,12 +5,14 @@
 ### Removed
 - [sass] Removed all `$ekzo-enable-*` options in favor of modular imports. Now just comment out import of part, which you don't want to use.
 - [nj] Removed `ExampleMacro`. Nobody liked it, nobody needed it.
+- [packages][grunt] Removed `grunt-processhtml` in favor of newly added `env.production`.
 
 ### Added
 - [modules] Added `|forceescape` filter for Nunjucks as temporal solution of https://github.com/mozilla/nunjucks/issues/782
 - [js] added commented out `import 'babel-polyfill'` to `main.js`, otherwise it's easy to oversight lack of Promises support in IE11 and some older browsers.
 - [data][nj] Added ability to specify color via `data.site.themeColor` for `<meta name='theme-color'>`.
 - [grunt][sass] Added ability for Sass to get `data.site.themeColor` via `kotsu-theme-color()` function.
+- [nj] added `env.production` which returns `true` if current environment is production (invoked via `grunt build`).
 
 ### Changed
 - [grunt][modules][nj] [breaking] Renamed all `href` variables to `url`.
@@ -29,6 +31,7 @@
 - [nj] Thanks to `|forceescape` filter code example section of Example component has been enabled.
 - [nj] With help of `.o-container` even empty `.Content` area will expand to fit page height too, without kicking footer out of view. This grants more flexibility in vertical content placement with flexbox.
 - [data][nj] Make Google Analytics and Yandex.Metrika IDs definable in data instead of templates.
+- [nj] CSS and JavaScript filenames from now determinated based on `env.production` truthfulness instead of relaying on `grunt-processhtml` task transformation.
 
 ### Fixed
 - [nj] Fixed wrong urls in descendants of Breadcrumb component.

@@ -27,6 +27,8 @@ module.exports = (grunt) ->
       baseLocale: '<%= i18n.baseLocale %>'
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
+    env:
+      production: '<%= env.production %>'
     data:
       currentYear: new Date().getFullYear()
       example: grunt.file.readJSON 'source/data/example.json'
