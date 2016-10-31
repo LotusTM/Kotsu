@@ -12,7 +12,7 @@
  #}
 {% macro Example(title, classes, comment = false, full = false) %}
 
-  <div class='o-grid h-childs-displace h-childs-space-top h-childs-space-top0@tablet'>
+  <div class='o-grid h-childs-displace h-childs-space-top {{ 'h-childs-space-top0@tablet' if not full }}'>
 
     <div class='o-grid__item h-1/1 {{ 'h-2/9@tablet' if not full }}'>
 
