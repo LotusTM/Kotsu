@@ -18,7 +18,7 @@
 - [grunt][modules][nj] [breaking] Renamed all `href` variables to `url`.
 - [misc] Renamed Ekzo submodule directory from `ekzo.sass` to `ekzo`.
 - [misc] Moved Ekzo settings into `settings` directory.
-- [sass] Updated Ekzo to version 2.0.0.
+- [sass] Updated Ekzo to version 2.1.0.
 - [sass] Changed main stylesheet to import parts directly from Ekzo 2.0.0 in modular fashion. All `$ekzo-enable-*` options have been dropped.
 - [sass] Kotsu from now own do not inherit defaults of Ekzo settings.
 - [sass] Changed namespace variables' names according to Ekzo 2.0.0.
