@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.2.0
 
 ### Removed
 - [sass] Removed all `$ekzo-enable-*` options in favor of modular imports. Now just comment out import of part, which you don't want to use.
