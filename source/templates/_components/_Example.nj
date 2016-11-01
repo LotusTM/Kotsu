@@ -36,6 +36,6 @@
 
   </div>
 
-  <hr class='h-margin-top'>
+  <hr class='h-margin-ends+'>
 
 {% endmacro %}
