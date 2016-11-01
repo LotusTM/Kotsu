@@ -52,6 +52,12 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 
 And a lot more under the hood. We just didn't have time to document all features. Yet.
 
+## Examples
+
+Deployed version of Kotsu from master branch can be found [here](https://kotsu.2bad.me).
+
+Note that Examples section so far features only least part of predefined elements and features.
+
 ## Browsers support
 
 ### JavaScript
