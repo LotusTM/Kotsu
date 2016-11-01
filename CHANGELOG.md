@@ -37,6 +37,7 @@
 - [nj] Fixed wrong urls in descendants of Breadcrumb component.
 - [nj] Fixed bug with sticky footer being positioned wrongly in IE10 and IE11.
 - [nj] Fixed `.Content-header` being visible based on `page.contentTitle` instead of `page.showContentTitle`.
+- [nj] Fixed wrong link to IE-specific stylesheet in production mode.
 
 ## 1.1.0
 
