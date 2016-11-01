@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Changed
+- [nj] Moved content of Item component from Nav into standalone NavItem component, which later should be re-used in Nav. This should reduce clutter in Nav component.
+
 ## 1.2.0
 
 ### Removed
