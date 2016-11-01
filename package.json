@@ -68,7 +68,7 @@
     "grunt-webfont": "1.6.0",
     "jit-grunt": "0.10.0",
     "jspm": "0.17.0-beta.28",
-    "lodash": "4.16.4",
+    "lodash": "4.16.6",
     "markdown-it": "8.0.1",
     "moment": "2.15.1",
     "node-gettext": "1.1.0",
