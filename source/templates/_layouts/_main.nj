@@ -44,8 +44,8 @@
         {% if page.showBreadcrumb %}
         {{ components.Breadcrumb(
           class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
-          itemsClass      = 'Nav__item o-breadcrumb__item',
-          anchorsClass    = 'Nav__link h-text--underline0',
+          itemsClass      = 'o-breadcrumb__item',
+          anchorsClass    = 'h-text--underline0',
           rootItemClass   = 'h-font-weight--bolder',
           rootAnchorClass = '',
           displayLast     = false
