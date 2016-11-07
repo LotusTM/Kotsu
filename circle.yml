@@ -10,9 +10,9 @@ deployment:
   production:
     branch: master
     commands:
-      - ssh-keyscan $DEPLOY_SERVER > ~/.ssh/known_hosts
+      - ssh-keyscan $DEPLOY_SERVER_IP > ~/.ssh/known_hosts
       - tar cvzf app.tgz Dockerfile build/
-      - scp app.tgz core@$DEPLOY_SERVER:~/$CIRCLE_PROJECT_REPONAME.tgz
-      - scp deploy.sh core@$DEPLOY_SERVER:~/deploy.sh
-      - ssh core@$DEPLOY_SERVER chmod +x deploy.sh
-      - ssh core@$DEPLOY_SERVER ./deploy.sh $CIRCLE_PROJECT_REPONAME $CIRCLE_SHA1
+      - scp app.tgz core@$DEPLOY_SERVER_IP:~/$CIRCLE_PROJECT_REPONAME.tgz
+      - scp deploy.sh core@$DEPLOY_SERVER_IP:~/deploy.sh
+      - ssh core@$DEPLOY_SERVER_IP chmod +x deploy.sh
+      - ssh core@$DEPLOY_SERVER_IP ./deploy.sh $CIRCLE_PROJECT_REPONAME $CIRCLE_SHA1
