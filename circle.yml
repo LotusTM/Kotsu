@@ -11,7 +11,7 @@ deployment:
     branch: master
     commands:
       - ssh-keyscan $DEPLOY_SERVER_IP > ~/.ssh/known_hosts
-      - tar cvzf app.tgz Dockerfile build/
+      - tar cvzf app.tgz dockerfile build/
       - scp app.tgz core@$DEPLOY_SERVER_IP:~/$CIRCLE_PROJECT_REPONAME.tgz
       - scp deploy.sh core@$DEPLOY_SERVER_IP:~/deploy.sh
       - ssh core@$DEPLOY_SERVER_IP chmod +x deploy.sh
