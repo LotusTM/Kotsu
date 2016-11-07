@@ -5,6 +5,10 @@
 ### Changed
 - [nj] Moved content of Item component from Nav into standalone NavItem component, which later should be re-used in Nav. This should reduce clutter in Nav component.
 
+### Fixed
+- [sass] Fixed duplicate import of animations.
+- [nj] Fixed wrongly applied Nav items styles to breadcrumb items.
+
 ## 1.2.0
 
 ### Removed
