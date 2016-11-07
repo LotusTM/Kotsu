@@ -3,6 +3,7 @@ set -e
 
 PROJECT_NAME=$1
 PROJECT_VERSION=$2
+PROJECT_VHOST_NAME=$3
 
 rm -rf $PROJECT_NAME
 mkdir $PROJECT_NAME
@@ -10,7 +11,7 @@ tar xvzf $PROJECT_NAME.tgz --directory $PROJECT_NAME
 
 DOCKER_IMAGE_NAME=$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]')
 
-docker build --pull=true -t "$DOCKER_IMAGE_NAME:$PROJECT_VERSION" $PROJECT_NAME --build-arg VHOST_NAME=$VHOST_NAME
+docker build --pull=true -t "$DOCKER_IMAGE_NAME:$PROJECT_VERSION" $PROJECT_NAME --build-arg VHOST_NAME=$PROJECT_VHOST_NAME
 
 sudo tee /etc/systemd/system/$PROJECT_NAME.service << EOF
 [Unit]
