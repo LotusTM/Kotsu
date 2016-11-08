@@ -8,10 +8,11 @@ PROJECT_VHOST_NAME=$3
 rm -rf $PROJECT_NAME
 mkdir $PROJECT_NAME
 tar xvzf $PROJECT_NAME.tgz --directory $PROJECT_NAME
+sed -i "s/\$VHOST_NAME/$PROJECT_VHOST_NAME/g" $PROJECT_NAME/dockerfile
 
 DOCKER_IMAGE_NAME=$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]')
 
-docker build --pull=true -t "$DOCKER_IMAGE_NAME:$PROJECT_VERSION" --build-arg VHOST_NAME=$PROJECT_VHOST_NAME $PROJECT_NAME
+docker build --pull=true -t "$DOCKER_IMAGE_NAME:$PROJECT_VERSION" $PROJECT_NAME
 
 sudo tee /etc/systemd/system/$PROJECT_NAME.service << EOF
 [Unit]

@@ -1,6 +1,5 @@
 FROM lotustm/nginx
 
-ARG VHOST_NAME
 ENV VHOST_NAME $VHOST_NAME
 
 ADD ./build /var/domains/$VHOST_NAME/www
