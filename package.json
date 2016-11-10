@@ -70,7 +70,7 @@
     "jspm": "0.17.0-beta.28",
     "lodash": "4.16.6",
     "markdown-it": "8.1.0",
-    "moment": "2.15.1",
+    "moment": "2.16.0",
     "node-gettext": "1.1.0",
     "node-sass-utils": "1.1.2",
     "numbro": "1.9.3",
