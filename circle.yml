@@ -24,10 +24,10 @@ test:
 
 deployment:
   production:
-    branch: master
+    branch: feature/ci-env-variables
     commands:
       - ssh-keyscan $DEPLOY_SERVER_IP > ~/.ssh/known_hosts
-      - envsubst < dockerfile > dockerfile
+      - cat dockerfile.template | envsubst > dockerfile
       - tar cvzf app.tgz dockerfile build/
       - scp app.tgz core@$DEPLOY_SERVER_IP:~/$CIRCLE_PROJECT_REPONAME.tgz
       - scp deploy.sh core@$DEPLOY_SERVER_IP:~/deploy.sh
