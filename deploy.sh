@@ -3,12 +3,10 @@ set -e
 
 PROJECT_NAME=$1
 PROJECT_VERSION=$2
-PROJECT_VHOST_NAME=$3
 
 rm -rf $PROJECT_NAME
 mkdir $PROJECT_NAME
 tar xvzf $PROJECT_NAME.tgz --directory $PROJECT_NAME
-sed -i "s/\$VHOST_NAME/$PROJECT_VHOST_NAME/g" $PROJECT_NAME/dockerfile
 
 DOCKER_IMAGE_NAME=$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]')
 
