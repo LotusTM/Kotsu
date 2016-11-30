@@ -5,12 +5,14 @@
 ### Added
 - [grunt][data] added `env.staging` which returns `true` if `--staging` flag provided (example: `grunt build --staging`).
 - [nj] From now on `robots.txt` in staging environment will disallow everything.
+- [sass] Added `.Wrapper--bleed`.
 
 ### Changed
 - [ci] pass environment variables to docker using envsubst.
 - [nj] Moved content of Item component from Nav into standalone NavItem component, which later should be re-used in Nav. This should reduce clutter in Nav component.
 - [static] `robots.txt` now points to `sitemap.xml` as per [Google guidelines](https://support.google.com/webmasters/answer/183668?hl=en#addsitemap). See https://github.com/LotusTM/Kotsu/issues/88 for details.
 - [static] Converted `robots.txt` into template and moved to `source/temaplates`. Now it can be formatted based on any data, provided to Nunjucks.
+- [sass] Renamed `.Wrapper--contain` to `.Wrapper--content`.
 
 ### Fixed
 - [sass] Fixed duplicate import of animations.

@@ -2,15 +2,22 @@
 // ^WRAPPER
 // =======================================
 
+$wrapper-padding: ekzo-space();
+
 .Wrapper {
-  padding-left:  ekzo-space(1);
-  padding-right: ekzo-space(1);
+  padding-left:  $wrapper-padding;
+  padding-right: $wrapper-padding;
+}
+
+.Wrapper--bleed {
+  margin-left:  - $wrapper-padding;
+  margin-right: - $wrapper-padding;
 }
 
 // ----
 // Base width of website
 
-.Wrapper--contain {
+.Wrapper--content {
   min-width: 320px;
   max-width: 1280px;
 

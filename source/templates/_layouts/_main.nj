@@ -7,7 +7,7 @@
   <!-- ============= -->
 
   <header class='Header h-margin-ends'>
-    <div class='Wrapper Wrapper--contain'>
+    <div class='Wrapper Wrapper--content'>
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
         <div class='o-grid__item'>
@@ -36,7 +36,7 @@
   <!-- ============== -->
 
   <main class='Main o-panel__body o-panel' role='main'>
-    <article class='o-panel o-panel__body h-1/1 {{ 'Wrapper Wrapper--contain' if not page.applyWrapper }}'>
+    <article class='o-panel o-panel__body h-1/1 {{ 'Wrapper Wrapper--content' if not page.applyWrapper }}'>
 
       {% if page.showBreadcrumb or page.showContentTitle %}
       <header class='Content-header'>
@@ -82,7 +82,7 @@
 
   <!--/noindex-->
   <footer class='Footer o-panel__footer h-padding-ends'>
-    <div class='Wrapper Wrapper--contain'>
+    <div class='Wrapper Wrapper--content'>
       © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
     </div>
   </footer>
