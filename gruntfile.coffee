@@ -19,7 +19,7 @@ module.exports = (grunt) ->
     env:
       sitename: process.env.SITENAME
       production: process.env.PRODUCTION or includes(grunt.cli.tasks, 'build')
-      staging: process.env.STAGING or grunt.options('staging')
+      staging: process.env.STAGING or grunt.option('staging')
       tinypng:
         api:
           key: process.env.TINYPNG_API_KEY
