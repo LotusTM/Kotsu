@@ -28,8 +28,8 @@
         </div>
 
       </div>
-    </div>{# /Wrapper #}
-  </header>{# /Header #}
+    </div>
+  </header>
 
 
   <!-- Site's content -->
@@ -63,18 +63,18 @@
 
         <div class='Content o-grid__item {{ 'h-1/1' if not page.showSidebar else 'h-9/12' }} h-margin-top'>
           {% block main %}{% endblock %}
-        </div>{# /grid__item #}
+        </div>
 
         {% if page.showSidebar %}
         <aside class='Sidebar o-grid__item h-3/12 h-margin-top'>
           {% block sidebar %}{% endblock %}
-        </aside>{# /grid__item #}
+        </aside>
         {% endif %}
 
-      </div>{# /grid #}
+      </div>
 
     </article>
-  </main>{# /Main #}
+  </main>
 
 
   <!-- Site's footer -->
@@ -84,8 +84,8 @@
   <footer class='Footer o-panel__footer h-padding-ends'>
     <div class='Wrapper Wrapper--contain'>
       © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
-    </div>{# /Wrapper #}
-  </footer>{# /Footer #}
+    </div>
+  </footer>
   <!--/noindex-->
 
 
