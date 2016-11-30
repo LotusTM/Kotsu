@@ -4,6 +4,7 @@
 
 ### Added
 - [grunt][data] added `env.staging` which returns `true` if `--staging` flag provided (example: `grunt build --staging`).
+- [nj] From now on `robots.txt` in staging environment will disallow everything.
 
 ### Changed
 - [ci] pass environment variables to docker using envsubst
