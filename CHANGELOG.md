@@ -17,6 +17,7 @@
 ### Fixed
 - [sass] Fixed duplicate import of animations.
 - [nj] Fixed wrongly applied Nav items styles to breadcrumb items.
+- [nj] Fixed applied `.Wrapper` on `page.applyWrapper: false` instead of `true`.
 
 ## 1.2.0
 

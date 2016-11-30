@@ -8,7 +8,7 @@
 {{ config('page', getPage(page.breadcrumb).props|template(site.placeholders)) }}
 {{ config('page', {
   class            : '',
-  applyWrapper     : false,
+  applyWrapper     : true,
   showContentTitle : true,
   showBreadcrumb   : true,
   showSidebar      : false
