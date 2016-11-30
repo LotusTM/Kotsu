@@ -88,7 +88,7 @@
 
 </head>
 
-<body class='o-container o-container--max'>
+<body class='o-panel o-panel--max'>
 
   {{ components.OutdatedBrowser(version = 'lte IE 9') }}
 

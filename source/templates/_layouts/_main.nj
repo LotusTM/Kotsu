@@ -6,7 +6,7 @@
   <!-- Site's header -->
   <!-- ============= -->
 
-  <header class='Header o-container__fixed h-margin-ends'>
+  <header class='Header h-margin-ends'>
     <div class='Wrapper Wrapper--contain'>
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
@@ -35,8 +35,8 @@
   <!-- Site's content -->
   <!-- ============== -->
 
-  <main class='Main o-container__flex o-container' role='main'>
-    <article class='o-container o-container__flex h-1/1 {{ 'Wrapper Wrapper--contain' if not page.applyWrapper }}'>
+  <main class='Main o-panel__body o-panel' role='main'>
+    <article class='o-panel o-panel__body h-1/1 {{ 'Wrapper Wrapper--contain' if not page.applyWrapper }}'>
 
       {% if page.showBreadcrumb or page.showContentTitle %}
       <header class='Content-header'>
@@ -59,7 +59,7 @@
       </header>
       {% endif %}
 
-      <div class='o-grid o-container__flex {{ 'h-childs-displace+' if page.showSidebar}}'>
+      <div class='o-grid o-panel__body {{ 'h-childs-displace+' if page.showSidebar}}'>
 
         <div class='Content o-grid__item {{ 'h-1/1' if not page.showSidebar else 'h-9/12' }} h-margin-top'>
           {% block main %}{% endblock %}
@@ -81,7 +81,7 @@
   <!-- ============= -->
 
   <!--/noindex-->
-  <footer class='Footer o-container__fixed h-padding-ends'>
+  <footer class='Footer o-panel__footer h-padding-ends'>
     <div class='Wrapper Wrapper--contain'>
       © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
     </div>{# /Wrapper #}

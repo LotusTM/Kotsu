@@ -17,7 +17,7 @@ showBreadcrumb:   false
 
   <div class='h-flex h-flex--column h-flex-x--center h-flex-y--center h-padding-bottom+ h-height-1/1'>
 
-      <div class='h-margin-bottom+ h-font-weight--light'>
+      <div class='h-margin-bottom+ h-font-weight--semilight'>
 
         <hr>
 
