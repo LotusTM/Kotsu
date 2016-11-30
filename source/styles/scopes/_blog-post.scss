@@ -23,7 +23,8 @@ $s-blog-post-space:        $s-blog-post-line-height;
   h5,
   h6 { margin-bottom: $s-blog-post-space; }
 
-  ul {
+  ul,
+  ol {
     margin-bottom: $s-blog-post-space;
 
     > li + li { margin-top: $s-blog-post-space; }
@@ -37,9 +38,9 @@ $s-blog-post-space:        $s-blog-post-line-height;
 
   }
 
-  .h-margin-bottom  { margin-bottom: $s-blog-post-space  !important; }
-  .h-margin-top     { margin-top: $s-blog-post-space     !important; }
-  .h-margin-top\+   { margin-top: $s-blog-post-space * 2 !important; }
-  .h-margin-top\+\+ { margin-top: $s-blog-post-space * 3 !important; }
+  .#{$ekzo-h-ns}margin-bottom  { margin-bottom: $s-blog-post-space  !important; }
+  .#{$ekzo-h-ns}margin-top     { margin-top: $s-blog-post-space     !important; }
+  .#{$ekzo-h-ns}margin-top\+   { margin-top: $s-blog-post-space * 2 !important; }
+  .#{$ekzo-h-ns}margin-top\+\+ { margin-top: $s-blog-post-space * 3 !important; }
 
 }
