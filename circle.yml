@@ -8,7 +8,7 @@ checkout:
 
 deployment:
   production:
-    branch: feature/ci-env-variables
+    branch: master
     commands:
       - ssh-keyscan $DEPLOY_SERVER_IP > ~/.ssh/known_hosts
       - cat dockerfile.template | envsubst > dockerfile
