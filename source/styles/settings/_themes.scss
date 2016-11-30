@@ -10,10 +10,6 @@ $ekzo-colors: (
   black-30:      rgba(#000, .3)
 );
 
-// Extend themes via `ekzo-extend-theme` mixin
-// @example
-//   @include ekzo-extend-themes(flat, ( brand: red ) );
-
 @include ekzo-extend-themes(base, (
 
   // ---------------------------------------
