@@ -2,6 +2,9 @@
 
 ## HEAD
 
+### Added
+- [grunt][data] added `env.staging` which returns `true` if `--staging` flag provided (example: `grunt build --staging`).
+
 ### Changed
 - [ci] pass environment variables to docker using envsubst
 - [nj] Moved content of Item component from Nav into standalone NavItem component, which later should be re-used in Nav. This should reduce clutter in Nav component.
@@ -24,7 +27,7 @@
 - [js] added commented out `import 'babel-polyfill'` to `main.js`, otherwise it's easy to oversight lack of Promises support in IE11 and some older browsers.
 - [data][nj] Added ability to specify color via `data.site.themeColor` for `<meta name='theme-color'>`.
 - [grunt][sass] Added ability for Sass to get `data.site.themeColor` via `kotsu-theme-color()` function.
-- [nj] added `env.production` which returns `true` if current environment is production (invoked via `grunt build`).
+- [grunt][data] added `env.production` which returns `true` if current environment is production (invoked via `grunt build`).
 
 ### Changed
 - [grunt][modules][nj] [breaking] Renamed all `href` variables to `url`.
