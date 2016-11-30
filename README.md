@@ -27,6 +27,14 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 11. Build with: `grunt build`
 12. Deploy and enjoy your life
 
+### List of used environment variables
+
+* TINYPNG_API_KEY
+* GITHUB_API_KEY
+* SERVER_IP
+* PRODUCTION
+* STAGING
+
 ## What's inside?
 
 * Reasonable structure for frontend projects
