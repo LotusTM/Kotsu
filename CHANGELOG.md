@@ -15,6 +15,7 @@
 - [static] Converted `robots.txt` into template and moved to `source/temaplates`. Now it can be formatted based on any data, provided to Nunjucks.
 - [sass] Renamed `.Wrapper--contain` to `.Wrapper--content`.
 - [sass] `pre` will no longer show in full width on hover by default.
+- [sass] Changed default font size from `14px` to `16px`.
 
 ### Fixed
 - [sass] Fixed duplicate import of animations.
