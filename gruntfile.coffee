@@ -17,7 +17,8 @@ module.exports = (grunt) ->
 
     # Specify environment variables
     env:
-      production: if includes(grunt.cli.tasks, 'build') then true else false
+      production: process.env.PRODUCTION or includes(grunt.cli.tasks, 'build')
+      staging: process.env.STAGING or grunt.options('staging')
       tinypng:
         api:
           key: process.env.TINYPNG_API_KEY
