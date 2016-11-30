@@ -32,6 +32,7 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 * TINYPNG_API_KEY
 * GITHUB_API_KEY
 * SERVER_IP
+* SITENAME
 * PRODUCTION
 * STAGING
 
