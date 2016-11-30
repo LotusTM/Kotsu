@@ -2,6 +2,7 @@
 
 module.exports = (grunt) ->
   pkg = grunt.file.readJSON 'package.json'
+  sitename = grunt.config('env.sitename')
 
   baseLocale = grunt.config('i18n.baseLocale')
 
@@ -19,7 +20,7 @@ module.exports = (grunt) ->
       name: pkg.name
       desc: pkg.description
       themeColor: '#a593e0'
-      homepage: pkg.homepage
+      homepage: if sitename then "https://#{sitename}" else pkg.homepage
       twitter: pkg.twitter
       version: pkg.version
       locales: '<%= i18n.locales %>'
