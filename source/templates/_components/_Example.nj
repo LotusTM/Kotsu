@@ -1,41 +1,39 @@
 {##
  # Display provided code as an example
  #
- # @param {string} title   Title of example
- # @param {array}  classes Classes, which showcasing example
- # @param {string} comment Comment to example
- # @param {bool}   full    Display example in full width of page or no
+ # @param {string} [title]   Title of example
+ # @param {array}  [classes] Classes, which showcasing example
+ # @param {string} [comment] Comment for example
  #
  # @return {string} Complex html with example
  #
- # @example {{ components.Example('demo value') }}
+ # @example
+ #   {% call components.Example(title = 'External data') -%}
+ #   {% raw %}<h4 class='h-h5'>{{ data.example.title }}</h4>{% endraw %}
+ #   {% endcall %}
  #}
-{% macro Example(title, classes, comment = false, full = false) %}
+{% macro Example(title, classes, comment = false) %}
+<article class='h-margin-bottom+'>
 
-  <div class='o-grid h-childs-displace h-childs-space-top {{ 'h-childs-space-top0@tablet' if not full }}'>
+  <header>
 
-    <div class='o-grid__item h-1/1 {{ 'h-2/9@tablet' if not full }}'>
+    <h3>{{ title }}</h3>
 
-      {{ title }}
+    {% for class in classes %}
+    <code class='h-text--nowrap'>{{ class }}</code>{{ ', '  if not loop.last }}
+    {% endfor %}
 
-      {% for class in classes %}
-        <code class='h-text--nowrap'>{{ class }}</code>{{ ', '  if not loop.last }}
-      {% endfor %}
+    {% if comment %}
+    <div class='h-margin-top h-opacity--50'>{{ comment }}</div>
+    {% endif %}
 
-      {% if comment %}<div class='h-margin-top h-opacity--50'>{{ comment }}</div>{% endif %}
+  </header>
 
-    </div>
-
-    <div class='o-grid__item h-1/1 {{ 'h-2/9@tablet' if not full }}'>
-      {{ caller()|render(isCaller = true) }}
-    </div>
-
-    <div class='o-grid__item h-1/1 {{ 'h-5/9@tablet' if not full }}'>
-      <pre class='h-margin-bottom0'><code>{{ caller()|forceescape }}</code></pre>
-    </div>
-
+  <div class='h-border h-border-bottom0 h-border-r h-border-r-bottom-left0 h-border-r-bottom-right0 h-padding+ h-margin-top o-clearfix' style='border-color: rgba(34, 39, 45, .6)'>
+    {{ caller()|render(isCaller = true) }}
   </div>
 
-  <hr class='h-margin-ends+'>
+  <pre class='h-border-r-top-left0 h-border-r-top-right0 h-padding-ends+ h-padding+ h-margin-bottom0'><code>{{ caller()|forceescape }}</code></pre>
 
+</article>
 {% endmacro %}
