@@ -4,4 +4,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://kotsu.2bad.me/sitemap.xml
+Sitemap: {{ site.homepage }}/sitemap.xml

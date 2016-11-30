@@ -114,14 +114,24 @@ module.exports = (grunt) ->
           return data
 
       files: [
-        expand: true
-        cwd: options.files.cwd
-        src: options.files.src
-        dest: join(options.files.dest, localeDir)
-        ext: options.files.ext
-        rename: (dest, src) =>
-          src = if options.humanReadableUrls.enabled then humanReadableUrl(src, options.humanReadableUrls.exclude) else src
-          join(dest, src)
+          expand: true
+          cwd: options.files.cwd
+          src: options.files.src
+          dest: join(options.files.dest, localeDir)
+          ext: options.files.ext
+          rename: (dest, src) =>
+            src = if options.humanReadableUrls.enabled then humanReadableUrl(src, options.humanReadableUrls.exclude) else src
+            join(dest, src)
+        ,
+          # @note So far used for generation of `robots.txt` only.
+          # @todo Keep in mind, this will generate `robots.txt` _for each_ locale, but all of them
+          #       will end up in root of build dir. Thus, `robots.txt` of last locale be final file.
+          #       This should be improved in future.
+          expand: true
+          cwd: options.files.cwd
+          src: ['{,**/}*.txt.nj']
+          dest: join(options.files.dest, localeDir)
+          ext: '.txt'
       ]
 
   ###
