@@ -30,6 +30,7 @@ module.exports = (grunt) ->
       yandexMetrikaId: false # 'XXXXXX'
     env:
       production: '<%= env.production %>'
+      staging: '<%= env.staging %>'
     data:
       currentYear: new Date().getFullYear()
       example: grunt.file.readJSON 'source/data/example.json'
