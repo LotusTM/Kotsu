@@ -16,6 +16,7 @@
 - [sass] Renamed `.Wrapper--contain` to `.Wrapper--content`.
 - [sass] `pre` will no longer show in full width on hover by default.
 - [sass] Changed default font size from `14px` to `16px`.
+- [misc] Updated Stylelint rules.
 
 ### Fixed
 - [sass] Fixed duplicate import of animations.
