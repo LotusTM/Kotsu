@@ -13,6 +13,7 @@
 - [nj] Completely reworked Example component.
 - [static] `robots.txt` now points to `sitemap.xml` as per [Google guidelines](https://support.google.com/webmasters/answer/183668?hl=en#addsitemap). See https://github.com/LotusTM/Kotsu/issues/88 for details.
 - [static] Converted `robots.txt` into template and moved to `source/temaplates`. Now it can be formatted based on any data, provided to Nunjucks.
+- [sass] Updated Ekzo to 2.3.1.
 - [sass] Renamed `.Wrapper--contain` to `.Wrapper--content`.
 - [sass] `pre` will no longer show in full width on hover by default.
 - [sass] Changed default font size from `14px` to `16px`.
@@ -22,6 +23,7 @@
 - [sass] Fixed duplicate import of animations.
 - [nj] Fixed wrongly applied Nav items styles to breadcrumb items.
 - [nj] Fixed applied `.Wrapper` on `page.applyWrapper: false` instead of `true`.
+- [nj] Fixed some components docs.
 - [package] Reverted to Nunjucks 2.5.2 due to yet not fixed  bugs ([#912](https://github.com/mozilla/nunjucks/issues/912), [#120](https://github.com/LotusTM/Kotsu/issues/120)) in Nunjucks 3.0.0 by fixing `grunt-nunjucks-2-html` at 2.0.0.
 
 ## 1.2.0
