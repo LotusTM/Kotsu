@@ -26,14 +26,11 @@
 ) %}
   <ul class='{{ class }}'>
 
-    {##
-     # @todo We have to pass values directly until will be fixed https://github.com/LotusTM/Kotsu/issues/120
-     #}
-    {# {% macro Item(to, label, depth = 1) %}{% call components.NavItem(to = to, label = label, depth = depth, class = itemsClass, anchorClass = anchorsClass, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{{ caller() }}{% endcall %}{% endmacro %} #}
+    {% macro Item(to, label, depth = 1) %}{% call components.NavItem(to = to, label = label, depth = depth, class = itemsClass, anchorClass = anchorsClass, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{{ caller() }}{% endcall %}{% endmacro %}
 
-    {% call components.NavItem('/', label, depth = 1, class = itemsClass, anchorClass = anchorsClass, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{% endcall %}
-    {% call components.NavItem('/examples', label, depth = 1, class = itemsClass, anchorClass = anchorsClass, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{% endcall %}
-    {% call components.NavItem('/blog', label, depth = 1, class = itemsClass, anchorClass = anchorsClass, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{% endcall %}
+    {% call Item('/') %}{% endcall %}
+    {% call Item('/examples') %}{% endcall %}
+    {% call Item('/blog') %}{% endcall %}
 
   </ul>
 {% endmacro %}

@@ -22,6 +22,7 @@
 - [sass] Fixed duplicate import of animations.
 - [nj] Fixed wrongly applied Nav items styles to breadcrumb items.
 - [nj] Fixed applied `.Wrapper` on `page.applyWrapper: false` instead of `true`.
+- [package] Reverted to Nunjucks 2.5.2 due to yet not fixed  bugs ([#912](https://github.com/mozilla/nunjucks/issues/912), [#120](https://github.com/LotusTM/Kotsu/issues/120)) in Nunjucks 3.0.0 by fixing `grunt-nunjucks-2-html` at 2.0.0.
 
 ## 1.2.0
 
