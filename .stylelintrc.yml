@@ -123,6 +123,9 @@ rules:
   #       https://github.com/stylelint/stylelint/issues/871
   # no-browser-hacks: true
 
+  declaration-block-no-ignored-properties: true
+  media-feature-no-missing-punctuation: true
+  selector-no-empty: true
   font-family-name-quotes: always-where-required
   function-url-quotes: always
   selector-attribute-quotes: always
