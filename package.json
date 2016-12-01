@@ -55,7 +55,7 @@
     "grunt-contrib-htmlmin": "2.0.0",
     "grunt-contrib-uglify": "2.0.0",
     "grunt-csso": "2.1.0",
-    "grunt-nunjucks-2-html": "1.0.5",
+    "grunt-nunjucks-2-html": "2.0.0",
     "grunt-postcss": "0.8.0",
     "grunt-responsive-images": "1.10.1",
     "grunt-sass": "1.2.1",
