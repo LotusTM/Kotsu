@@ -1,15 +1,13 @@
 {##
  # Display nav block
  #
- # @param {string} class               = 'nav nav--spacing' Class of list
- # @param {string} itemsClass          = ''                 Class of list items
- # @param {string} anchorsClass        = ''                 Class of anchors inside list itmes
- # @param {string} activeClass         = 'is-active'        Class of active list item
- # @param {number} startDepth          = 1                  From which depth nav should start
- #                                                          to print
- # @param {number} maxDepth            = 999999             Max amount of subnavs to print
- # @param {bool} showInnerOnlyOnActive = false              Print subnavs only when parent
- #                                                          is active
+ # @param {string} [class]                 = 'nav nav--spacing' Class of list
+ # @param {string} [itemsClass]            = ''                 Class of list items
+ # @param {string} [anchorsClass]          = ''                 Class of anchors inside list itmes
+ # @param {string} [activeClass]           = 'is-active'        Class of active list item
+ # @param {number} [startDepth]            = 1                  From which depth nav should start to print
+ # @param {number} [maxDepth]              = 999999             Max amount of subnavs to print
+ # @param {bool}   [showInnerOnlyOnActive] = false              Print subnavs only when parent is active
  #
  # @return {string} Generated nav
  #
