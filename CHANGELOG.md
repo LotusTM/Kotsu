@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.3.0
 
 ### Added
 - [grunt][data] added `env.staging` which returns `true` if `--staging` flag provided (example: `grunt build --staging`).
