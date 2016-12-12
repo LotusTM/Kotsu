@@ -3,12 +3,14 @@
 ## 1.3.0
 
 ### Added
-- [grunt][data] added `env.staging` which returns `true` if `--staging` flag provided (example: `grunt build --staging`).
+- [ci] Added `env.SITENAME` variable to setup site domain name in nginx and templates.
+- [grunt][data] Added `env.STAGING` which returns `true` if `--staging` flag provided or environment variable is set (example: `grunt build --staging`).
 - [nj] From now on `robots.txt` in staging environment will disallow everything.
 - [sass] Added `.Wrapper--bleed`.
 
 ### Changed
-- [ci] pass environment variables to docker using envsubst.
+- [ci] Replace environment variables in dockerfile using envsubst (not passing them to docker itself actually).
+- [ci] `env.DEPLOY_SERVER` renamed to `env.DEPLOY_IP`
 - [nj] Moved content of Item component from Nav into standalone NavItem component, which later should be re-used in Nav. This should reduce clutter in Nav component.
 - [nj] Completely reworked Example component.
 - [static] `robots.txt` now points to `sitemap.xml` as per [Google guidelines](https://support.google.com/webmasters/answer/183668?hl=en#addsitemap). See https://github.com/LotusTM/Kotsu/issues/88 for details.
