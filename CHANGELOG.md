@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Added
+- [ci] Added support for [AppVoyer](https://www.appveyor.com/)
+
 ## 1.3.0
 
 ### Added
