@@ -1,9 +1,11 @@
 # Kotsu
 
-[![Dependency Status](https://david-dm.org/LotusTM/Kotsu/status.svg)](https://david-dm.org/LotusTM/Kotsu)
-[![DevDependency Status](https://david-dm.org/LotusTM/Kotsu/dev-status.svg)](https://david-dm.org/LotusTM/Kotsu?type=dev)
-[![Travis Build Status](https://img.shields.io/travis/LotusTM/Kotsu.svg?style=flat)](https://travis-ci.org/LotusTM/Kotsu)
-[![CircleCI Build Status](https://img.shields.io/circleci/project/LotusTM/Kotsu.svg?style=flat)](https://circleci.com/gh/LotusTM/Kotsu)
+[![Travis Build Status](https://img.shields.io/travis/LotusTM/Kotsu.svg?label=travis)](https://travis-ci.org/LotusTM/Kotsu)
+[![CircleCI Build Status](https://img.shields.io/circleci/project/LotusTM/Kotsu.svg?label=circle)](https://circleci.com/gh/LotusTM/Kotsu)
+[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/LotusTM/Kotsu.svg?label=appveyor)](https://ci.appveyor.com/project/LotusTM/Kotsu)
+
+[![Dependency Status](https://img.shields.io/david/LotusTM/Kotsu.svg)](https://david-dm.org/LotusTM/Kotsu)
+[![DevDependency Status](https://img.shields.io/david/dev/LotusTM/Kotsu.svg)](https://david-dm.org/LotusTM/Kotsu?type=dev)
 
 ## Overview
 
