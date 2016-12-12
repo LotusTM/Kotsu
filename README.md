@@ -17,24 +17,13 @@ Clean, opinionated foundation for new projects — to boldly go where no man has
 4. Install [jspm](http://jspm.io/) globally: `npm install -g jspm`
 5. Install [GraphicsMagick](http://www.graphicsmagick.org/download.html) (recommended) or [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) for your OS.
   *Note: it's mandatory to install one of them before running `npm install`*
-6. Get your TinyPNG [API key](https://tinypng.com/developers) and set it as your environment variable:
-  * `set TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Windows
-  * `export TINYPNG_API_KEY=YOUR_API_KEY_HERE` for Linux
+6. Set your environment variables [[guide](https://github.com/LotusTM/Kotsu/wiki/Set-up-environment-variables)]
 7. Install project dependencies: `npm install`
 8. *(optional)* Add your repository to [Travis](https://travis-ci.org/) for automatic tests
 9. *(optional)* Set up Continuous Deployment with [CircleCI](https://circleci.com/) or [Werker](http://wercker.com/) Docker following our [guide](https://github.com/LotusTM/Kotsu/wiki/Continuous-Delivery-with-Wercker-Docker-and-CoreOS)
 10. Code live with: `grunt`
 11. Build with: `grunt build`
 12. Deploy and enjoy your life
-
-### List of used environment variables
-
-* TINYPNG_API_KEY
-* GITHUB_API_KEY
-* SERVER_IP
-* SITENAME
-* PRODUCTION
-* STAGING
 
 ## What's inside?
 
