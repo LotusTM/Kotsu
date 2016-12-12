@@ -1,0 +1,28 @@
+version: "{build}"
+
+environment:
+  matrix:
+    - NODE_VERSION: 7
+    - NODE_VERSION: 6
+    - NODE_VERSION: 5
+
+cache:
+  - node_modules -> package.json
+
+init:
+  - git config --global core.autocrlf true
+
+install:
+  # Install GraphicsMagick
+  - appveyor DownloadFile http://downloads.sourceforge.net/graphicsmagick/GraphicsMagick-1.3.25-Q16-win64-dll.exe
+  - GraphicsMagick-1.3.25-Q16-win64-dll.exe /SP /VERYSILENT /NORESTART /NOICONS /DIR=%CD%\gm
+  - set PATH=%CD%\gm;%PATH%
+
+  - git submodule update --init --recursive
+  - ps: Install-Product node $env:NODE_VERSION x64
+  - npm install
+
+test_script:
+  - npm test
+
+build: off # Don't actually build using MSBuild
