@@ -90,8 +90,7 @@ module.exports = () ->
           '.Outdated-browser__link'
 
           # Ignore state-related classes, like `is-active` and `menu-entry--is-active`
-          /^(\.|#)is-[\w_-]*$/
-          /^(\.|#)[\w_-]*--is-[\w_-]*$/
+          /[-\.#](is|has|not)-/
         ]
         ignoreSheets : [/fonts.googleapis/]
       files: [

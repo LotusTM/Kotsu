@@ -6,6 +6,7 @@
 - [ci] Added support for [AppVoyer](https://www.appveyor.com/)
 
 ### Fixed
+- [grunt] Updated `uncss` rules to ignore not only `.is-*`, but also `.*is-*`, `.*has-*` and `.*not-*`. This allow to use more specific selectors, like `.nav-is-active` when needed.
 - [nj] Fixed Nav component not passing depth to Items caller.
 
 ## 1.3.0
