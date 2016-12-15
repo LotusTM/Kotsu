@@ -24,11 +24,11 @@
 ) %}
   <ul class='{{ class }}'>
 
-    {% macro Item(to, label, depth = 1) %}{% call components.NavItem(to = to, label = label, depth = depth, class = itemsClass, anchorClass = anchorsClass, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{{ caller() }}{% endcall %}{% endmacro %}
+    {% macro Item(to, label, depth = 1) %}{% call(depth) components.NavItem(to = to, label = label, depth = depth, class = itemsClass, anchorClass = anchorsClass, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{{ caller(depth) }}{% endcall %}{% endmacro %}
 
-    {% call Item('/') %}{% endcall %}
-    {% call Item('/examples') %}{% endcall %}
-    {% call Item('/blog') %}{% endcall %}
+    {% call(depth) Item('/') %}{% endcall %}
+    {% call(depth) Item('/examples') %}{% endcall %}
+    {% call(depth) Item('/blog') %}{% endcall %}
 
   </ul>
 {% endmacro %}

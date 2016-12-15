@@ -5,6 +5,9 @@
 ### Added
 - [ci] Added support for [AppVoyer](https://www.appveyor.com/)
 
+### Fixed
+- [nj] Fixed Nav component not passing depth to Items caller.
+
 ## 1.3.0
 
 ### Added
