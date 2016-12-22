@@ -1,9 +1,12 @@
 # Changelog
 
-## HEAD
+## 1.3.1
 
 ### Added
 - [ci] Added support for [AppVoyer](https://www.appveyor.com/)
+
+### Changed
+- [package] removed `devDepencencies` section and all packages moved to `dependencies` section since it's impossible to use kotsu with `npm install --production` [see](https://docs.npmjs.com/cli/install)
 
 ### Fixed
 - [grunt] Updated `uncss` rules to ignore not only `.is-*`, but also `.*is-*`, `.*has-*` and `.*not-*`. This allow to use more specific selectors, like `.nav-is-active` when needed.
