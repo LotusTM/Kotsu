@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Changed
+- [ci] switched to `alpine` linux distribution as base layer for nginx container
+
 ## 1.3.1
 
 ### Added

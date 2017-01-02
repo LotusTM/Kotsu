@@ -1,4 +1,4 @@
-FROM lotustm/nginx
+FROM lotustm/nginx:alpine
 
 ENV SITENAME $SITENAME
 
