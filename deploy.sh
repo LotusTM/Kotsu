@@ -14,7 +14,7 @@ docker build --pull=true -t "$DOCKER_IMAGE_NAME:$PROJECT_VERSION" $PROJECT_NAME
 
 sudo tee /etc/systemd/system/$PROJECT_NAME.service << EOF
 [Unit]
-Description=Nginx based application
+Description=$PROJECT_NAME-nginx
 After=docker.service
 Requires=docker.service
 [Service]
