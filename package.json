@@ -45,7 +45,7 @@
     "website"
   ],
   "dependencies": {
-    "autoprefixer": "6.5.4",
+    "autoprefixer": "6.6.1",
     "babel-eslint": "7.1.1",
     "gmsmith": "1.1.2",
     "gray-matter": "2.1.0",
