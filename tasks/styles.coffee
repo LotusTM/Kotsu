@@ -84,10 +84,14 @@ module.exports = () ->
       options:
         htmlroot: '<%= path.build.root %>'
         ignore: [
-          # @note Classes inside IE conditional blocks have to be ignored explicitly
-          #       See https://github.com/giakki/uncss/issues/112
+          # Classes inside IE conditional blocks have to be ignored explicitly
+          # See https://github.com/giakki/uncss/issues/112
           '.Outdated-browser'
           '.Outdated-browser__link'
+
+          # This class usually not occurs in original templates, but you might want
+          # to use it occasionally on production
+          '.o-show-grid'
 
           # Ignore state-related classes, like `is-active` and `menu-entry--is-active`
           /[-\.#](is|has|not)-/

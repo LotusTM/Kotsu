@@ -2,6 +2,9 @@
 
 ## HEAD
 
+### Added
+- [grunt] Added `.o-show-grid` to exceptions in `uncss` task.
+
 ### Changed
 - [ci] switched to `alpine` linux distribution as base layer for nginx container
 
