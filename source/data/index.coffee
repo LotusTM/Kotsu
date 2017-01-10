@@ -33,7 +33,6 @@ module.exports = (grunt) ->
       staging: '<%= env.staging %>'
     data:
       currentYear: new Date().getFullYear()
-      example: grunt.file.readJSON 'source/data/example.json'
 
   return (locale) ->
 

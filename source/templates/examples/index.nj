@@ -83,12 +83,6 @@ class:           p-examples
 <p>Images path is <code>{{ path.images }}</code></p>{% endraw %}
 {% endcall %}
 
-{% call components.Example(title = 'External data') -%}
-{% raw %}<h4 class='h-h5'>{{ data.example.title }}</h4>
-
-<p>{{ data.example.content }}</p>{% endraw %}
-{% endcall %}
-
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Grids</h2>
 

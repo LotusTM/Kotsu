@@ -2,6 +2,9 @@
 
 ## HEAD
 
+### Removed
+- [data] Removed `example.json`. Finally there won't be need to delete it every time new project bootstrapped with Kotsu.
+
 ### Added
 - [grunt] Added `.o-show-grid` to exceptions in `uncss` task.
 
