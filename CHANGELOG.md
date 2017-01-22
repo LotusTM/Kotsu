@@ -7,6 +7,7 @@
 
 ### Added
 - [grunt] Added `.o-show-grid` to exceptions in `uncss` task.
+- [nj] Added ability to specify specific for page `themeColor` via `themeColor` in Gray Matter.
 
 ### Changed
 - [ci] switched to `alpine` linux distribution as base layer for nginx container

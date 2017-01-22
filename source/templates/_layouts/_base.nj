@@ -46,7 +46,7 @@
   <link rel='stylesheet' href='/{{ path.styles }}/{{ 'style.min.css' if env.production else 'style.prefixed.css' }}'>
 
   <!-- Theme -->
-  <meta name='theme-color' content='{{ site.themeColor }}'>
+  <meta name='theme-color' content='{{ page.themeColor if page.themeColor else site.themeColor }}'>
 
   <!-- Sitemap -->
   <link rel='sitemap' type='application/xml' title='Sitemap' href='/sitemap.xml'>
