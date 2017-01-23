@@ -10,8 +10,13 @@
 - [nj] Added ability to specify specific for page `themeColor` via `themeColor` in Gray Matter.
 
 ### Changed
-- [ci] switched to `alpine` linux distribution as base layer for nginx container
-- [package] linting and testing dependencies moved to `devDependencies`.
+- [ci] Switched to `alpine` linux distribution as base layer for nginx container.
+- [package] Moved linting and testing dependencies to `devDependencies`.
+- [sass] Updated Ekzo to 2.4.0
+- [sass] Followed Ekzo changes:
+  * Set settings, which shouldn't generate CSS properties, to `null`;
+  * Converted `$ekzo-line-height` to `$ekzo-line-heights` map and using new `ekzo-line-height()` to retrieve values from it;
+  * Added `.o-svg-icon` to imports.
 
 ## 1.3.1
 
@@ -19,7 +24,7 @@
 - [ci] Added support for [AppVoyer](https://www.appveyor.com/)
 
 ### Changed
-- [package] removed `devDependencies` section and all packages moved to `dependencies` section since it's impossible to use kotsu with `npm install --production` or `--only` flag, [see](https://docs.npmjs.com/cli/install)
+- [package] Removed `devDependencies` section and all packages moved to `dependencies` section since it's impossible to use kotsu with `npm install --production` or `--only` flag, [see](https://docs.npmjs.com/cli/install)
 
 ### Fixed
 - [grunt] Updated `uncss` rules to ignore not only `.is-*`, but also `.*is-*`, `.*has-*` and `.*not-*`. This allow to use more specific selectors, like `.nav-is-active` when needed.

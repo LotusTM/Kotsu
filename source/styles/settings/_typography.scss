@@ -70,7 +70,9 @@ $ekzo-kbd-font-size:                90%;
 // Line heights
 // ---------------------------------------
 
-$ekzo-line-height:                  $ekzo-font-size * 1.5;
+$ekzo-line-heights: (
+  '': $ekzo-font-size * 1.5,
+);
 
 // ---------------------------------------
 // Font famylies
@@ -84,8 +86,8 @@ $ekzo-font-families: (
 $ekzo-ui-font-families: (
   text:           ekzo-font-family(base),
 
-  headings:       false, // false to disable, font name(s) to enable
-  extra-headings: false, // false to disable, font name(s) to enable
+  headings:       false,
+  extra-headings: false,
 
   forms:          inherit,
 

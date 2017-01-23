@@ -27,7 +27,6 @@ $ekzo-colors: (
   // ---------------------------------------
   // Links
   // ---------------------------------------
-  // @param {string|false} False to disable, color value to enable
 
   links:                  ekzo-color(primary),
   links-hover:            ekzo-tint(ekzo-color(primary), 20),
@@ -35,18 +34,16 @@ $ekzo-colors: (
   // ---------------------------------------
   // Headings
   // ---------------------------------------
-  // @param {string|false} False to disable, color value to enable
 
-  headings:               false,
-  extra-headings:         false,
+  headings:               null,
+  extra-headings:         null,
 
   // ---------------------------------------
   // Selection
   // ---------------------------------------
-  // @param {string|false} False to disable, color value to enable
 
-  selection:              false,
-  selection-bg:           false,
+  selection:              null,
+  selection-bg:           null,
 
   // ---------------------------------------
   // Code
@@ -73,7 +70,6 @@ $ekzo-colors: (
   // ---------------------------------------
   // Buttons
   // ---------------------------------------
-  // @param {string|false} False to disable, color value to enable
 
   btn:                    ekzo-color(green-white),
   btn-bg:                 ekzo-color(primary),
@@ -81,7 +77,6 @@ $ekzo-colors: (
   // ---------------------------------------
   // Breadcrumb
   // ---------------------------------------
-  // @param {string|false} False to disable, color value to enable
 
   breadcrumb-links:      ekzo-color(green-white),
   breadcrumb-delimiters: ekzo-tint(ekzo-color(green-white), 50),
