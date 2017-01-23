@@ -30,7 +30,7 @@ class:           p-blog
     <p>{{ post.props.shortDesc }}</p>
 
     <p>
-      <a class='o-btn h-text- g-link--go' href='{{ localeDir() }}{{ post.props.url }}'>Read more</a>
+      <a class='Btn h-text- g-link--go' href='{{ localeDir() }}{{ post.props.url }}'>Read more</a>
     </p>
 
   </article>

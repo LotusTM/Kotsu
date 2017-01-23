@@ -17,9 +17,9 @@ class:           p-examples
 <h2 class='h-margin-bottom+'>Icons and sprites</h2>
 
 {% call components.Example(title = 'Generated icons and sprites examples') -%}
-<p>Webfont home icon: <i class='o-icon Icon--home icon--right'></i></p>
+<p>Webfont home icon: <i class='Icon Icon--home Icon--right'></i></p>
 
-<p>1px sprite: <i class='o-sprite Sprite--test icon--right'></i></p>
+<p>1px sprite: <i class='o-sprite Sprite--test Icon--right'></i></p>
 {% endcall %}
 
 
@@ -668,11 +668,11 @@ class:           p-examples
 {% endcall %}
 
 
-<h2 class='h-margin-top++ h-margin-bottom+'>Iconic-list</h2>
+<h2 class='h-margin-top++ h-margin-bottom+'>Iconic list</h2>
 
-{% call components.Example(title = 'Input with placeholder', classes = []) -%}
+{% call components.Example(title = '', classes = ['o-iconic-list', 'o-iconic-list__icon']) -%}
 <ul class="o-iconic-list g-list--indent">
-  <li><i class="o-icon Icon--home"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+  <li><i class="o-iconic-list__icon Icon Icon--home"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
   <li><i class="o-sprite Sprite--test"></i> Has been the industry's standard dummy text ever since the 1500s</li>
 </ul>
 
@@ -834,80 +834,80 @@ class:           p-examples
 
 <h2 class='h-margin-top++ h-margin-bottom+'>Buttons</h2>
 
-{% call components.Example(title = '', classes = ['.o-btn o-btn--inherit']) -%}
+{% call components.Example(title = '', classes = ['.Btn o-btn--inherit']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn--inherit' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn--inherit' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn o-btn--inherit' href='#'>Button label</a></p>
+  <p><a class='Btn o-btn--inherit' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn o-btn--']) -%}
+{% call components.Example(title = '', classes = ['.Btn Btn--']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn--' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn--' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn Btn--' href='#'>Button label</a></p>
+  <p><a class='Btn Btn--' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn o-btn-']) -%}
+{% call components.Example(title = '', classes = ['.Btn Btn-']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn-' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn-' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn Btn-' href='#'>Button label</a></p>
+  <p><a class='Btn Btn-' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn']) -%}
+{% call components.Example(title = '', classes = ['.Btn']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn Btn' href='#'>Button label</a></p>
+  <p><a class='Btn Btn' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn o-btn+']) -%}
+{% call components.Example(title = '', classes = ['.Btn Btn+']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn+' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn+' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn Btn+' href='#'>Button label</a></p>
+  <p><a class='Btn Btn+' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn o-btn++']) -%}
+{% call components.Example(title = '', classes = ['.Btn Btn++']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn++' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn++' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn Btn++' href='#'>Button label</a></p>
+  <p><a class='Btn Btn++' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn o-btn--wide--']) -%}
+{% call components.Example(title = '', classes = ['.Btn Btn--wide--']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn--wide--' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn--wide--' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn Btn--wide--' href='#'>Button label</a></p>
+  <p><a class='Btn Btn--wide--' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn o-btn--wide']) -%}
+{% call components.Example(title = '', classes = ['.Btn Btn--wide']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn--wide' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn--wide' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn Btn--wide' href='#'>Button label</a></p>
+  <p><a class='Btn Btn--wide' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn o-btn--wide++']) -%}
+{% call components.Example(title = '', classes = ['.Btn Btn--wide++']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn--wide++' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn--wide++' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn Btn--wide++' href='#'>Button label</a></p>
+  <p><a class='Btn Btn--wide++' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn o-btn--full']) -%}
+{% call components.Example(title = '', classes = ['.Btn o-btn--full']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><a class='o-btn o-btn--full' href='#'>Button label</a></p>
-  <p><a class='o-btn o-btn--full' href='#'>First line<br>Second line</a></p>
+  <p><a class='Btn o-btn--full' href='#'>Button label</a></p>
+  <p><a class='Btn o-btn--full' href='#'>First line<br>Second line</a></p>
 </div>
 {% endcall %}
 
-{% call components.Example(title = '', classes = ['.o-btn']) -%}
+{% call components.Example(title = '', classes = ['.Btn']) -%}
 <div class='o-show-grid h-padding-bottom'>
-  <p><button class='o-btn' disabled>Disabled button</button></p>
-  <p><a class='o-btn is-disabled' href='#'>Disabled a.button</a></p>
+  <p><button class='Btn' disabled>Disabled button</button></p>
+  <p><a class='Btn is-disabled' href='#'>Disabled a.button</a></p>
 </div>
 {% endcall %}
 
