@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.4.0
 
 ### Removed
 - [data] Removed `example.json`. Finally there won't be need to delete it every time new project bootstrapped with Kotsu.
