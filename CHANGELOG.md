@@ -13,6 +13,8 @@
 - [ci] Switched to `alpine` linux distribution as base layer for nginx container.
 - [package] Moved linting and testing dependencies to `devDependencies`.
 - [sass] Updated Ekzo to 2.4.0
+- [sass] Since Ekzo 2.4.0 doesn't provide spacing for icons and sprites any more, added them to Kotsu in form of `.Icon--left` and `.Icon--right`.
+- [sass] Renamed `_Icons.scss` to `_Icon.scss`.
 - [sass] Since Ekzo 2.4.0 also doesn't provide `.o-btn` size variations and default paddings for buttons, added them in form of `.Btn*` component.
 - [sass] `.Btn` by default extends `.o-btn`.
 - [sass] Followed Ekzo changes:
