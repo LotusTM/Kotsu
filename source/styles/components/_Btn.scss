@@ -2,4 +2,75 @@
 // ^BUTTON
 // =======================================
 
-.Btn {}
+.Btn {
+  @extend .#{$ekzo-o-ns}btn;
+
+  padding-top:    ekzo-em(ekzo-space(.5));
+  padding-bottom: ekzo-em(ekzo-space(.5));
+  padding-right:  1em;
+  padding-left:   1em;
+}
+
+@mixin ekzo-buttons-sizes($postfix: '') {
+
+  .Btn--#{$postfix} {
+    padding-top:     0;
+    padding-bottom:  0;
+    padding-right:  .6em;
+    padding-left:   .6em;
+  }
+
+  .Btn-#{$postfix} {
+    padding-top:    ekzo-em(ekzo-space(.5) / 3);
+    padding-bottom: ekzo-em(ekzo-space(.5) / 3);
+    padding-right:  .8em;
+    padding-left:   .8em;
+  }
+
+  .Btn\+#{$postfix} {
+    padding-top:    ekzo-em(ekzo-space(1) * .84);
+    padding-bottom: ekzo-em(ekzo-space(1) * .84);
+    padding-right:  1.5em;
+    padding-left:   1.5em;
+  }
+
+  .Btn\+\+#{$postfix} {
+    padding-top:    ekzo-em(ekzo-space(1) * 1.17);
+    padding-bottom: ekzo-em(ekzo-space(1) * 1.17);
+    padding-right:  2em;
+    padding-left:   2em;
+  }
+
+  // ----
+  // Wide version of button
+
+  .Btn--wide--#{$postfix} {
+    padding-right: 1.5em;
+    padding-left:  1.5em;
+  }
+
+  .Btn--wide#{$postfix} {
+    padding-right: 2em;
+    padding-left:  2em;
+  }
+
+  .Btn--wide\+\+#{$postfix} {
+    padding-right: 4em;
+    padding-left:  4em;
+  }
+
+}
+
+// ---------------------------------------
+// Call all buttons modifiers
+// ---------------------------------------
+
+@include ekzo-buttons-sizes();
+
+// ---------------------------------------
+// Responsive buttons modifiers
+// ---------------------------------------
+
+@include ekzo-for-each-breakpoint($matches: $ekzo-responsive-buttons-breakpoints) {
+  @include ekzo-buttons-sizes($postfix: ekzo-temp());
+}

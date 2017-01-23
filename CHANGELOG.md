@@ -13,6 +13,8 @@
 - [ci] Switched to `alpine` linux distribution as base layer for nginx container.
 - [package] Moved linting and testing dependencies to `devDependencies`.
 - [sass] Updated Ekzo to 2.4.0
+- [sass] Since Ekzo 2.4.0 also doesn't provide `.o-btn` size variations and default paddings for buttons, added them in form of `.Btn*` component.
+- [sass] `.Btn` by default extends `.o-btn`.
 - [sass] Followed Ekzo changes:
   * Set settings, which shouldn't generate CSS properties, to `null`;
   * Converted `$ekzo-line-height` to `$ekzo-line-heights` map and using new `ekzo-line-height()` to retrieve values from it;
