@@ -13,6 +13,7 @@
 - [ci] Switched to `alpine` linux distribution as base layer for nginx container.
 - [package] Updated dependencies.
 - [package] Moved linting and testing dependencies to `devDependencies`.
+- [misc] Upated Stylelint scss rules to 1.4.1.
 - [sass] Updated Ekzo to 2.4.0
 - [sass] Since Ekzo 2.4.0 doesn't provide spacing for icons and sprites any more, added them to Kotsu in form of `.Icon--left` and `.Icon--right`.
 - [sass] Renamed `_Icons.scss` to `_Icon.scss`.

@@ -288,3 +288,39 @@ rules:
   scss/operator-no-unspaced: true
 
   scss/selector-no-redundant-nesting-selector: true
+
+  # Those are unused due to codestyle and setted by `block-closing-brace-newline-after` value
+  # scss/at-else-closing-brace-newline-after:
+  # scss/at-if-closing-brace-newline-after:
+  # scss/at-else-empty-line-before:
+
+
+  # @todo Wrongly reports unneded space after `}` when there is a newlines
+  # scss/at-if-closing-brace-space-after: never-intermediate
+  # scss/at-else-closing-brace-space-after: never-intermediate
+
+  # @todo Wrongly reports:
+  #  .#{$ekzo-o-ns}aspect-ratio4\:3  { @include ekzo-aspect-ratio(4, 3); }
+  #  .#{$ekzo-o-ns}aspect-ratio16\:9 { @include ekzo-aspect-ratio(16, 9); }
+  #  .#{$ekzo-o-ns}aspect-ratio21\:9 { @include ekzo-aspect-ratio(21, 9); }
+  scss/declaration-nested-properties: never
+
+  scss/declaration-nested-properties-no-divided-groups: true
+
+  # @todo `ignore after-comment` seems to no work:
+  #   // comment
+  #   $ekzo-tooltip-height: 1px;
+  # @todo There is no way to allow dividing of variables groups by newline:
+  #   $var1: 1;
+  #   $var2: 2;
+  #
+  #   $other1: 11;
+  #   $other2: 22;
+  # scss/dollar-variable-empty-line-before:
+  #   - always
+  #   - except:
+  #     - first-nested
+  #     - after-dollar-variable
+  #   - ignore:
+  #     - after-comment
+  #     - inside-single-line-block
