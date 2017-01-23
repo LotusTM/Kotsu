@@ -24,7 +24,7 @@
   * Converted `$ekzo-line-height` to `$ekzo-line-heights` map and using new `ekzo-line-height()` to retrieve values from it;
   * Added `.o-svg-icon` to imports.
 
-[nj] Used new `.Btn*` instead of `.o-btn*` and `.Icon*` instead of `.o-icon*`.
+- [nj] Used new `.Btn*` instead of `.o-btn*` and `.Icon*` instead of `.o-icon*`.
 
 ## 1.3.1
 
