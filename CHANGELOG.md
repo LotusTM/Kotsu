@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Changed
+- [nj] Added `onlyActiveOnIndex` option to `Nav` and `NavItem` components, which allows to force item be active only when current route matches link route not partially, but completely. Disabled by default.
+
 ## 1.4.0
 
 ### Removed

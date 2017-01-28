@@ -4,6 +4,7 @@
  # @param {string} [class]                 = 'nav nav--spacing' Class of list
  # @param {string} [itemsClass]            = ''                 Class of list items
  # @param {string} [anchorsClass]          = ''                 Class of anchors inside list itmes
+ # @param {bool}   [onlyActiveOnIndex]     = false              Set items to be active only in case current route matches link's route
  # @param {string} [activeClass]           = 'is-active'        Class of active list item
  # @param {number} [startDepth]            = 1                  From which depth nav should start to print
  # @param {number} [maxDepth]              = 999999             Max amount of subnavs to print
@@ -17,6 +18,7 @@
   class                 = 'nav nav--spacing',
   itemsClass            = '',
   anchorsClass          = '',
+  onlyActiveOnIndex     = false,
   activeClass           = 'is-active',
   startDepth            = 1,
   maxDepth              = 999999,
@@ -24,7 +26,7 @@
 ) %}
   <ul class='{{ class }}'>
 
-    {% macro Item(to, label, depth = 1) %}{% call(depth) components.NavItem(to = to, label = label, depth = depth, class = itemsClass, anchorClass = anchorsClass, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{{ caller(depth) }}{% endcall %}{% endmacro %}
+    {% macro Item(to, label, depth = 1, onlyActiveOnIndex = onlyActiveOnIndex) %}{% call(depth) components.NavItem(to = to, label = label, depth = depth, class = itemsClass, anchorClass = anchorsClass, onlyActiveOnIndex = onlyActiveOnIndex, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{{ caller(depth) }}{% endcall %}{% endmacro %}
 
     {% call(depth) Item('/') %}{% endcall %}
     {% call(depth) Item('/examples') %}{% endcall %}
