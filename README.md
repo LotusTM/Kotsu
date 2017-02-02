@@ -3,6 +3,7 @@
 [![Travis Build Status](https://img.shields.io/travis/LotusTM/Kotsu.svg?label=travis)](https://travis-ci.org/LotusTM/Kotsu)
 [![CircleCI Build Status](https://img.shields.io/circleci/project/LotusTM/Kotsu.svg?label=circle)](https://circleci.com/gh/LotusTM/Kotsu)
 [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/LotusTM/Kotsu.svg?label=appveyor)](https://ci.appveyor.com/project/LotusTM/Kotsu)
+[![Greenkeeper Status](https://badges.greenkeeper.io/LotusTM/Kotsu.svg)](https://greenkeeper.io/)
 
 [![Dependency Status](https://img.shields.io/david/LotusTM/Kotsu.svg)](https://david-dm.org/LotusTM/Kotsu)
 [![DevDependency Status](https://img.shields.io/david/dev/LotusTM/Kotsu.svg)](https://david-dm.org/LotusTM/Kotsu?type=dev)
