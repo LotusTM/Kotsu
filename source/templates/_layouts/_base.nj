@@ -74,10 +74,10 @@
   <meta name='twitter:image:alt'   content='{{ page.title if page.title else site.name }}'>
 
   <!-- Alternate urls -->
-  {% for locale in site.locales %}
-  <link rel='alternate' hreflang='{{ locale.locale }}' href='{{ site.homepage }}{{ localeDir(locale.locale) }}{{ page.url }}'>
-  {% if locale.defaultForLanguage %}
-  <link rel='alternate' hreflang='{{ locale.locale|langcode }}' href='{{ site.homepage }}{{ localeDir(locale.locale) }}{{ page.url }}'>
+  {% for locale, props in site.locales %}
+  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ site.homepage }}{{ localeDir(props.locale) }}{{ page.url }}'>
+  {% if props.defaultForLanguage %}
+  <link rel='alternate' hreflang='{{ props.locale|langcode }}' href='{{ site.homepage }}{{ localeDir(props.locale) }}{{ page.url }}'>
   {% endif %}
   {% endfor %}
 

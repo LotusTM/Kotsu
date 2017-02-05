@@ -79,29 +79,25 @@ module.exports = (grunt) ->
           compiled: '<%= path.build.sprites %>/sprite.png'
           hash: '<%= path.build.sprites %>/hash.json'
 
-    locales: [
+    locales:
+      'en-US':
         locale: 'en-US'
         url: 'en'
         rtl: false
         defaultForLanguage: true
         numberFormat: '0,0.[00]'
         currencyFormat: '0,0.00 $'
-      ,
+      'ru-RU':
         locale: 'ru-RU'
         url: 'ru'
         rtl: false
         defaultForLanguage: true
         numberFormat: '0,0.[00]'
         currencyFormat: '0,0.00 $'
-    ]
     baseLocale: 'en-US'
 
-  localesNames = map(grunt.config('locales'), 'locale')
-
   grunt.config.merge
-    gettext: new Gettext({ locales: localesNames, cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
-    localesNames: localesNames
-
+    gettext: new Gettext({ locales: Object.keys(grunt.config('locales')), cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
     data: require('./' + grunt.config('path.source.data'))(grunt)
 
   grunt.loadTasks grunt.config('path.tasks.root')

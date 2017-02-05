@@ -1,5 +1,4 @@
 urlify = require('./urlify')
-{ find, map } = require('lodash')
 
 module.exports = class i18Tools
 
@@ -9,19 +8,17 @@ module.exports = class i18Tools
   ###*
    * Return list of locales names
    * @param  {object} = @locales locales Special Kotsu object with info about locales
-   * @return {string} Props of locale
+   * @return {array} Array of locales
   ###
-  getLocalesNames: (locales = @locales) =>
-    map(locales, 'locale')
+  getLocalesNames: (locales = @locales) => Object.keys(locales)
 
   ###*
    * Return locale's properties
    * @param  {string} locale             Locale name for which should be made resolving
    * @param  {object} locales = @locales Special Kotsu object with info about locales
-   * @return {string} Props of locale
+   * @return {object} Props of locale
   ###
-  getLocaleProps: (locale, locales = @locales) =>
-    find(locales, { locale: locale })
+  getLocaleProps: (locale, locales = @locales) => locales[locale]
 
   ###*
    * Output or not locale's dirname based on whether it's base locale or not
