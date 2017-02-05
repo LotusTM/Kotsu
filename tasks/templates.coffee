@@ -31,10 +31,10 @@ module.exports = (grunt) ->
       enabled          : true
       exclude          : /^(index|\d{3})$/
     i18n:
-      locales          : grunt.config('i18n.locales')
-      baseLocale       : grunt.config('i18n.baseLocale')
+      locales          : grunt.config('locales')
+      baseLocale       : grunt.config('baseLocale')
       baseLocaleAsRoot : true
-      gettext          : grunt.config('i18n.gettext')
+      gettext          : grunt.config('gettext')
 
   { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools(options.i18n.locales, options.i18n.baseLocale, options.i18n.baseLocaleAsRoot)
 
