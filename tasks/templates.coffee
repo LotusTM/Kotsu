@@ -82,7 +82,7 @@ module.exports = (grunt) ->
           ###*
            * Init gettext for Nunjucks. See `gettext` module for docs
           ###
-          gettext.installNunjucksGlobals(env, currentLocale)
+          gettext.nunjucksExtensions(env, currentLocale)
 
           ###*
            * Get language code from locale, without country

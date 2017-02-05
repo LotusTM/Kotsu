@@ -6,7 +6,8 @@
 - [grunt][data] Removed property `localesNames`, since with updated `locales` structure it's easy to extract locale names.
 
 ### Changed
-- [grunt][modules] `gettext.installNunjucksGlobals()` will now require current locale as second argument, and it will set gettext default textdomain to it during invoking, so there is no need to call `gettext.textdomain(currentLocale`) in Grunt task.
+- [grunt][modules] Renamed `gettext.installNunjucksGlobals` to `gettext.nunjucksExtensions` to be unified with other similar calls.
+- [grunt][modules] `gettext.nunjucksExtensions()` will now require current locale as second argument, and it will set gettext default textdomain to it during invoking, so there is no need to call `gettext.textdomain(currentLocale`) in Grunt task.
 - [grunt][modules][nj] Changed structure of `locales` to be normalized database-like, with accessible locale names as keys for each locale object, instead of being just an array. It makes working with locales much easier, both in JS and Nunjucks environments.
 - [grunt][data] Moved `locales`, `baseLocale` and `gettext` config properties one level higher, thus removing `i18n` property. Any website requires at least single instance of locale anyway, so there is no more reason to keep those mandatory properties so deep.
 - [nj] Added `onlyActiveOnIndex` option to `Nav` and `NavItem` components, which allows to force item be active only when current route matches link route not partially, but completely. Disabled by default.
