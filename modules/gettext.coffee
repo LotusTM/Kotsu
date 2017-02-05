@@ -133,7 +133,7 @@ module.exports = (grunt) ->
       [domain, args...] = arguments
       @gt.dnpgettext(@resolveDomain(domain), args...)
 
-    installNunjucksGlobals: (env, currentLocale) ->
+    nunjucksExtensions: (env, currentLocale) ->
       @textdomain(currentLocale)
 
       env.addGlobal 'textdomain', (domain) => @textdomain(arguments...)
