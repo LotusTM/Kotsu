@@ -79,30 +79,28 @@ module.exports = (grunt) ->
           compiled: '<%= path.build.sprites %>/sprite.png'
           hash: '<%= path.build.sprites %>/hash.json'
 
-    i18n:
-      locales: [
-          locale: 'en-US'
-          url: 'en'
-          rtl: false
-          defaultForLanguage: true
-          numberFormat: '0,0.[00]'
-          currencyFormat: '0,0.00 $'
-        ,
-          locale: 'ru-RU'
-          url: 'ru'
-          rtl: false
-          defaultForLanguage: true
-          numberFormat: '0,0.[00]'
-          currencyFormat: '0,0.00 $'
-      ]
-      baseLocale: 'en-US'
+    locales: [
+        locale: 'en-US'
+        url: 'en'
+        rtl: false
+        defaultForLanguage: true
+        numberFormat: '0,0.[00]'
+        currencyFormat: '0,0.00 $'
+      ,
+        locale: 'ru-RU'
+        url: 'ru'
+        rtl: false
+        defaultForLanguage: true
+        numberFormat: '0,0.[00]'
+        currencyFormat: '0,0.00 $'
+    ]
+    baseLocale: 'en-US'
 
-  localesNames = map(grunt.config('i18n.locales'), 'locale')
+  localesNames = map(grunt.config('locales'), 'locale')
 
   grunt.config.merge
-    i18n:
-      gettext: new Gettext({ locales: localesNames, cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
-      localesNames: localesNames
+    gettext: new Gettext({ locales: localesNames, cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
+    localesNames: localesNames
 
     data: require('./' + grunt.config('path.source.data'))(grunt)
 

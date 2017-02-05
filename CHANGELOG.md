@@ -3,6 +3,7 @@
 ## HEAD
 
 ### Changed
+- [grunt][data] Moved `locales`, `localesNames`, `baseLocale`, `gettext` config properties one level higher, thus removing `i18n` property. Any website requires at least single instance of locale anyway, so there is no more reason to keep those mandatory properties so deep.
 - [nj] Added `onlyActiveOnIndex` option to `Nav` and `NavItem` components, which allows to force item be active only when current route matches link route not partially, but completely. Disabled by default.
 
 ## 1.4.0

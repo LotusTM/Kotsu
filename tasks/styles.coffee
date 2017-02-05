@@ -27,11 +27,11 @@ module.exports = () ->
           ###
           'kotsu-path($query)': (query) =>
             query = query.getValue()
-            baseLocale = @config('i18n.baseLocale')
+            baseLocale = @config('baseLocale')
             data = @config.process(@config('data')(baseLocale))
             return castToSass(get(data.path, query))
           'kotsu-theme-color()': () =>
-            baseLocale = @config('i18n.baseLocale')
+            baseLocale = @config('baseLocale')
             data = @config.process(@config('data')(baseLocale))
             color = get(data, 'site.themeColor')
 
