@@ -13,10 +13,6 @@ module.exports = (grunt) ->
   Render nunjucks templates
   ###
 
-  # ======
-  # Config
-  # ======
-
   options =
     autoescape         : false
     data               : grunt.config('data')
@@ -60,17 +56,7 @@ module.exports = (grunt) ->
         autoescape           : options.autoescape
         data                 : localizedData
         configureEnvironment : (env) ->
-
-          ###*
-           * Init built-in Nunjucks extensions, globals and filters. See `nunjucks-extensions` module for docs
-          ###
           nunjucksExtensions(env, grunt, currentLocale, localeProps.numberFormat, localeProps.currencyFormat)
-
-          # -----
-          # i18n
-          # -----
-          # See `nunjucks-extensions`, `gettext` and  `i18nTools` module for docs
-
           gettext.nunjucksExtensions(env, currentLocale)
           i18nTools.nunjucksExtensions(env, locales, currentLocale, baseLocale, baseLocaleAsRoot)
 
