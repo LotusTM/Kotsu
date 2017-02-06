@@ -1,4 +1,4 @@
-{ map, includes } = require('lodash')
+{ includes } = require('lodash')
 
 module.exports = (grunt) ->
   'use strict'
