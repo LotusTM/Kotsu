@@ -1,4 +1,5 @@
 { includes } = require('lodash')
+{ getLocalesNames } = require('./modules/i18n-tools')
 
 module.exports = (grunt) ->
   'use strict'
@@ -97,7 +98,7 @@ module.exports = (grunt) ->
     baseLocale: 'en-US'
 
   grunt.config.merge
-    gettext: new Gettext({ locales: Object.keys(grunt.config('locales')), cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
+    gettext: new Gettext({ locales: getLocalesNames(grunt.config('locales')), cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
     data: require('./' + grunt.config('path.source.data'))(grunt)
 
   grunt.loadTasks grunt.config('path.tasks.root')
