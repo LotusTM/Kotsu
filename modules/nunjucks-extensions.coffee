@@ -3,7 +3,7 @@ md                        = require('markdown-it')()
 markdown                  = require('nunjucks-markdown')
 crumble                   = require('./crumble')
 render                    = require('./nunjucks-render')
-printf                    = require('./printf')
+sprintf                   = require('./sprintf')
 urlify                    = require('./urlify')
 numbro                    = require('numbro')
 moment                    = require('moment')
@@ -185,9 +185,9 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
     render(env, @getVariables(), input, isCaller, log.error, logUndefined, @ctx.page.url)
 
   ###*
-   * Replace placeholders with provided values. Refer to `printf` module for docs
+   * Replace placeholders with provided values. Refer to `sprintf` module for docs
   ###
-  env.addFilter 'template', printf
+  env.addFilter 'template', sprintf
 
   ###*
    * Pluralize string based on count. For situations, where full i18n is too much
