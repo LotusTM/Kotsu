@@ -6,7 +6,7 @@
 - [grunt][data] Removed property `localesNames`, since with updated `locales` structure it's easy to extract locale names.
 
 ### Changed
-- [modules][grunt] Updated `i18-tools` method so that they no longer require declaration of locales properties during class invocation. Instead, every methods now expects relevant only for it locales properties. This makes methods more usable in other places.
+- [modules][grunt] Refactored `i18-tools` to be completely static and class-less, so it no longer requires invocation with `new`. Instead of providing locales properties for whole class, now only relevant properties should be provided for invoked methods.
 - [modules][grunt] Made `i18-tools`-related Nunjucks extensions to be declared by `i18-tools` tools newly added method `nunjucksExtensions()`. This not only added not available before i18n methods like `regioncode` and `isoLocale` to Nunjucks as filters, but finally effectively removed all manual declarations of filters from Nunjucks grunt task, leaving clear place for custom filters and globals of project.
 - [module] Unified behaviour of `i18-tools` method `getLocaleDir()` with declared as Nunjucks global `localeDir()`. Now it will always output `''` for base locale and `/ + localeName/url` for others.
 - [grunt][modules] Renamed `gettext.installNunjucksGlobals` to `gettext.nunjucksExtensions` to be unified with other similar calls.

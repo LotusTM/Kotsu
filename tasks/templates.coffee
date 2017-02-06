@@ -2,7 +2,7 @@
 { join }            = require('path')
 crumble             = require('../modules/crumble')
 humanReadableUrl    = require('../modules/humanReadableUrl')
-I18nTools           = require('../modules/i18n-tools')
+i18nTools           = require('../modules/i18n-tools')
 nunjucksExtensions  = require('../modules/nunjucks-extensions')
 
 module.exports = (grunt) ->
@@ -33,8 +33,7 @@ module.exports = (grunt) ->
       gettext          : grunt.config('gettext')
 
   { locales, baseLocale, baseLocaleAsRoot, gettext } = options.i18n
-  i18nTools = new I18nTools()
-  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new I18nTools()
+  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = i18nTools
 
   # =======================
   # Config l10n of Nunjucks
