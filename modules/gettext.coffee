@@ -3,8 +3,9 @@ NodeGettext                = require('node-gettext')
 { file: { expand, read } } = require('grunt')
 
 module.exports = class Gettext
-  constructor: ({ @locales, @cwd, @src, @defaultDomain = 'messages' }) ->
+  constructor: ({ @cwd, @src = '{,**/}*.{po,mo}', @defaultDomain = 'messages' }) ->
     @gt = new NodeGettext()
+    locales = expand({ cwd: @cwd, filter: 'isDirectory' }, '*', '!*templates')
 
     ###*
      * Load l10n files
@@ -16,24 +17,17 @@ module.exports = class Gettext
      *       * https://github.com/andris9/node-gettext/issues/22
      *       * https://github.com/LotusTM/Kotsu/issues/45
     ###
-    @load = ({
-      localeDir
-      cwd = join(@cwd, '/')
-      src = @src
-      domain = false
-      defaultDomain = @defaultDomain
-    }) ->
-      cwd = join(cwd, localeDir)
+    @load = ({ locale, cwd = @cwd, src = @src, domain = false, defaultDomain = @defaultDomain }) ->
+      cwd = join(cwd, locale)
 
-      expand({ cwd: cwd, filter: 'isFile' }, src).forEach (filepath) =>
+      expand({ cwd, filter: 'isFile' }, src).forEach (filepath) =>
         resolvedDomain = if domain then domain else filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(extname(filepath), '')
-        resolvedDomain = if resolvedDomain == defaultDomain then localeDir else localeDir + ':' + resolvedDomain
+        resolvedDomain = if resolvedDomain == defaultDomain then locale else locale + ':' + resolvedDomain
         messages = read(join(cwd, filepath), { encoding: null })
 
         @gt.addTextdomain(resolvedDomain, messages)
 
-    @locales.forEach (locale) =>
-      @load({ localeDir: locale })
+    locales.forEach (locale) => @load({ locale })
 
   resolveDomain: (domain) ->
     if domain.charAt(0) == ':' then @gt.textdomain() + domain else domain

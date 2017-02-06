@@ -12,6 +12,7 @@
 - [grunt][nj] Added `regioncode` and `isoLocale` to Nunjucks filters.
 
 ### Changed
+- [modules][grunt] `Gettext` no longer requires list of locales for invocation and instead will determinate available l10n files based on directories you have in `/source/locales` (except `templates`, of course). Note, that `Gettext` will load all messages, even for not declared in Grunt config locales, but for which you have l10n files.
 - [modules][grunt] Refactored `i18-tools` to be completely static and class-less, so it no longer requires invocation with `new`. Instead of providing locales properties for whole class, now only relevant properties should be provided for invoked methods.
 - [modules][grunt] Made `i18-tools`-related Nunjucks extensions to be declared by newly added method `nunjucksExtensions()` to  `i18-tools` . This finally removed all manual declarations of extensions from Nunjucks task, leaving clear space for projects-specific filters and globals.
 - [modules] Unified behaviour of `i18-tools` method `getLocaleDir()` with declared as Nunjucks global `localeDir()`. Now it will always output `''` for base locale and `'/' + localeName` (`'/' + localeUrl`) for others.
