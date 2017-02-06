@@ -36,14 +36,11 @@ module.exports = (grunt) ->
   i18nTools = new I18nTools()
   { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new I18nTools()
 
-  gettext = options.i18n.gettext
-  localesList = getLocalesNames(locales)
-
   # =======================
   # Config l10n of Nunjucks
   # =======================
 
-  localesList.forEach (currentLocale) =>
+  getLocalesNames(locales).forEach (currentLocale) =>
     localeProps   = getLocaleProps(locales, currentLocale)
     localeDir     = getLocaleDir(localeProps, baseLocale, baseLocaleAsRoot)
     localizedData = options.data(currentLocale)
