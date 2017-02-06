@@ -1,35 +1,34 @@
 urlify = require('./urlify')
 
 module.exports = class i18Tools
-
-  constructor: (@locales, @baseLocale, @baseLocaleAsRoot) ->
-    return
-
   ###*
    * Return list of locales names
-   * @param  {object} = @locales locales Special Kotsu object with info about locales
+   * @param  {object} locales Special Kotsu object with info about locales
    * @return {array} Array of locales
   ###
-  getLocalesNames: (locales = @locales) => Object.keys(locales)
+  getLocalesNames: (locales) => Object.keys(locales)
 
   ###*
    * Return locale's properties
-   * @param  {string} locale             Locale name for which should be made resolving
-   * @param  {object} locales = @locales Special Kotsu object with info about locales
+   * @param  {string} locale  Locale name for which should be made resolving
+   * @param  {object} locales Special Kotsu object with info about locales
    * @return {object} Props of locale
   ###
-  getLocaleProps: (locale, locales = @locales) => locales[locale]
+  getLocaleProps: (locales, locale) => locales[locale]
 
   ###*
    * Output or not locale's dirname based on whether it's base locale or not
-   * @param  {string} locale                               Locale name for which should be made resolving
-   * @param  {string} baseLocale       = @baseLocale       Name of base locale
-   * @param  {bool}   baseLocaleAsRoot = @baseLocaleAsRoot Locale name for which should be made resolving
+   * @param  {object} localeProps        Locale props for which should be made resolving
+   * @param  {string} localeProps.locale Locale name
+   * @param  {string} [localeProps.url]  Locale url, if different from locale
+   * @param  {string} baseLocale         Name of base locale
+   * @param  {bool}   [baseLocaleAsRoot] Locale name for which should be made resolving
    * @return {string} Directory name, in which resides build for specified locale
   ###
-  getLocaleDir: (locale, baseLocale = @baseLocale, baseLocaleAsRoot = @baseLocaleAsRoot) =>
-    baseUrl = @getLocaleProps(locale).url
-    url = if baseUrl then baseUrl else locale
+  getLocaleDir: (localeProps, baseLocale, baseLocaleAsRoot) =>
+    locale = localeProps.locale
+    localeUrl = localeProps.url
+    url = if localeUrl then localeUrl else locale
     urlify(if baseLocaleAsRoot and locale == baseLocale then '' else url)
 
   ###*
