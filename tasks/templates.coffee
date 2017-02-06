@@ -2,7 +2,7 @@
 { join }            = require('path')
 crumble             = require('../modules/crumble')
 humanReadableUrl    = require('../modules/humanReadableUrl')
-i18nTools           = require('../modules/i18n-tools')
+I18nTools           = require('../modules/i18n-tools')
 nunjucksExtensions  = require('../modules/nunjucks-extensions')
 
 module.exports = (grunt) ->
@@ -37,7 +37,8 @@ module.exports = (grunt) ->
       gettext          : grunt.config('gettext')
 
   { locales, baseLocale, baseLocaleAsRoot, gettext } = options.i18n
-  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools()
+  i18nTools = new I18nTools()
+  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new I18nTools()
 
   gettext = options.i18n.gettext
   localesList = getLocalesNames(locales)
@@ -68,30 +69,10 @@ module.exports = (grunt) ->
           # -----
           # i18n
           # -----
+          # See `nunjucks-extensions`, `gettext` and  `i18nTools` module for docs
 
-          ###*
-           * Output or not locale's dir name based on whether it's base locale or not.
-           * Most useful for urls construction
-           * @param {string} locale = currentLocale locale Name of locale, for which should be made resolving
-           * @return {string} Resolved dir name
-           * @example <a href="{{ localeDir() }}/blog/">blog link</a>
-          ###
-          env.addGlobal 'localeDir', (locale = currentLocale) ->
-            _localeDir = getLocaleDir(getLocaleProps(locales, locale), baseLocale, baseLocaleAsRoot)
-            if _localeDir then '/' + _localeDir else ''
-
-          ###*
-           * Init gettext for Nunjucks. See `gettext` module for docs
-          ###
           gettext.nunjucksExtensions(env, currentLocale)
-
-          ###*
-           * Get language code from locale, without country
-           * @param {string} locale = currentLocale Locale, from which should be taken language code
-           * @return {string} Language code from locale
-          ###
-          env.addFilter 'langcode', (locale = currentLocale) ->
-            getLangcode(locale)
+          i18nTools.nunjucksExtensions(env, locales, currentLocale, baseLocale, baseLocaleAsRoot)
 
         preprocessData: (data) ->
           pagepath     = humanReadableUrl(@src[0].replace(options.files.cwd, ''), options.humanReadableUrls.exclude)
