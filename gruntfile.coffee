@@ -1,3 +1,4 @@
+kotsu = require('./kotsu')
 { includes } = require('lodash')
 { getLocalesNames } = require('./modules/i18n-tools')
 
@@ -14,7 +15,9 @@ module.exports = (grunt) ->
     sprite: 'grunt-spritesmith'
 
   # Define the configuration for all the tasks
-  grunt.initConfig
+  grunt.initConfig kotsu
+
+  grunt.config.merge
 
     # Specify environment variables
     env:
@@ -28,80 +31,11 @@ module.exports = (grunt) ->
         api:
           key: process.env.GITHUB_API_KEY
 
-    # Specify your source and build directory structure
-    path:
-      tasks:
-        root: 'tasks'
-
-      source:
-        root: 'source'
-        data: '<%= path.source.root %>/data'
-        fonts: '<%= path.source.root %>/fonts'
-        icons: '<%= path.source.root %>/icons'
-        images: '<%= path.source.root %>/images'
-        locales: '<%= path.source.root %>/locales'
-        scripts: '<%= path.source.root %>/scripts'
-        sprites: '<%= path.source.root %>/sprites'
-        static: '<%= path.source.root %>/static'
-        styles: '<%= path.source.root %>/styles'
-        templates: '<%= path.source.root %>/templates'
-
-      temp:
-        root: 'temp'
-        data: '<%= path.temp.root %>/data'
-        styles: '<%= path.temp.root %>/styles'
-
-      build:
-        root: 'build'
-        assets: '<%= path.build.root %>/assets'
-        fonts: '<%= path.build.assets %>/fonts'
-        images: '<%= path.build.assets %>/images'
-        scripts: '<%= path.build.assets %>/scripts'
-        sprites: '<%= path.build.assets %>/sprites'
-        static: '<%= path.build.root %>'
-        styles: '<%= path.build.assets %>/styles'
-        templates: '<%= path.build.root %>'
-
-    # Specify files
-    file:
-      source:
-        script: '<%= path.source.scripts %>/main.js'
-
-      temp:
-        data:
-          matter: '<%= path.temp.data %>/matter.json'
-
-      build:
-        script:
-          compiled: '<%= path.build.scripts %>/main.js'
-        style:
-          tidy: '<%= path.build.styles %>/style.tidy.css'
-        sprite:
-          compiled: '<%= path.build.sprites %>/sprite.png'
-          hash: '<%= path.build.sprites %>/hash.json'
-
-    locales:
-      'en-US':
-        locale: 'en-US'
-        url: 'en'
-        rtl: false
-        defaultForLanguage: true
-        numberFormat: '0,0.[00]'
-        currencyFormat: '0,0.00 $'
-      'ru-RU':
-        locale: 'ru-RU'
-        url: 'ru'
-        rtl: false
-        defaultForLanguage: true
-        numberFormat: '0,0.[00]'
-        currencyFormat: '0,0.00 $'
-    baseLocale: 'en-US'
-
-  grunt.config.merge
     gettext: new Gettext({ locales: getLocalesNames(grunt.config('locales')), cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
-    data: require('./' + grunt.config('path.source.data'))(grunt)
 
-  grunt.loadTasks grunt.config('path.tasks.root')
+    data: require('./' + kotsu.path.source.data)(grunt)
+
+  grunt.loadTasks kotsu.path.tasks.root
 
   ###
   Default task
