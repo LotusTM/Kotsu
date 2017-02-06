@@ -7,7 +7,7 @@ module.exports = () ->
 
   ###
   Gray Matter
-  /modules/grunt-gray-matter
+  https://www.npmjs.com/package/grunt-gray-matter
   Extract data from specified files with Gray Matter
   ###
 
