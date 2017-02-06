@@ -27,9 +27,7 @@ module.exports = class i18Tools
   ###
   getLocaleDir: (localeProps, baseLocale, baseLocaleAsRoot) =>
     locale = localeProps.locale
-    localeUrl = localeProps.url
-    url = if localeUrl then localeUrl else locale
-    urlify(if baseLocaleAsRoot and locale == baseLocale then '' else url)
+    return if baseLocaleAsRoot and locale == baseLocale then '' else "/#{urlify(localeProps.url or locale)}"
 
   ###*
    * Get language code from locale, without country
@@ -70,8 +68,7 @@ module.exports = class i18Tools
      * @example <a href="{{ localeDir() }}/blog/">blog link</a>
     ###
     env.addGlobal 'localeDir', (locale = currentLocale, baseLocale = currentBaseLocale, baseLocaleAsRoot = currentBaseLocaleAsRoot) =>
-      localeDir = @getLocaleDir(@getLocaleProps(locales, locale), baseLocale, baseLocaleAsRoot, true)
-      if localeDir then '/' + localeDir else ''
+      @getLocaleDir(@getLocaleProps(locales, locale), baseLocale, baseLocaleAsRoot)
 
     env.addFilter 'langcode', (locale = currentLocale) => @getLangcode(locale)
     env.addFilter 'regioncode', (locale = currentLocale) => @getRegioncode(locale)
