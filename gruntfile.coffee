@@ -1,4 +1,3 @@
-{ includes } = require('lodash')
 { getLocalesNames } = require('./modules/i18n-tools')
 
 module.exports = (grunt) ->
@@ -19,7 +18,7 @@ module.exports = (grunt) ->
     # Specify environment variables
     env:
       sitename: process.env.SITENAME
-      production: process.env.PRODUCTION or includes(grunt.cli.tasks, 'build')
+      production: process.env.PRODUCTION or grunt.cli.tasks.includes('build')
       staging: process.env.STAGING or grunt.option('staging')
       tinypng:
         api:
