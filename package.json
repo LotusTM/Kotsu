@@ -91,7 +91,7 @@
     "stylelint-scss": "1.4.1"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   },
   "jspm": {
     "name": "kotsu",
