@@ -36,18 +36,19 @@ module.exports = (grunt) ->
       baseLocaleAsRoot : true
       gettext          : grunt.config('gettext')
 
-  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools(options.i18n.locales, options.i18n.baseLocale, options.i18n.baseLocaleAsRoot)
+  { locales, baseLocale, baseLocaleAsRoot, gettext } = options.i18n
+  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = new i18nTools()
 
   gettext = options.i18n.gettext
-  locales = getLocalesNames()
+  localesList = getLocalesNames(locales)
 
   # =======================
   # Config l10n of Nunjucks
   # =======================
 
-  locales.forEach (currentLocale) =>
-    localeDir     = getLocaleDir(currentLocale)
-    localeProps   = getLocaleProps(currentLocale)
+  localesList.forEach (currentLocale) =>
+    localeProps   = getLocaleProps(locales, currentLocale)
+    localeDir     = getLocaleDir(localeProps, baseLocale, baseLocaleAsRoot)
     localizedData = options.data(currentLocale)
 
     # Define targets, with unique options and files for each locale
@@ -76,7 +77,7 @@ module.exports = (grunt) ->
            * @example <a href="{{ localeDir() }}/blog/">blog link</a>
           ###
           env.addGlobal 'localeDir', (locale = currentLocale) ->
-            _localeDir = getLocaleDir(locale)
+            _localeDir = getLocaleDir(getLocaleProps(locales, locale), baseLocale, baseLocaleAsRoot)
             if _localeDir then '/' + _localeDir else ''
 
           ###*

@@ -6,6 +6,7 @@
 - [grunt][data] Removed property `localesNames`, since with updated `locales` structure it's easy to extract locale names.
 
 ### Changed
+- [modules][grunt] Updated `i18-tools` method so that they no longer require declaration of locales properties during class invocation. Instead, every methods now expects relevant only for it locales properties. This makes methods more usable in other places.
 - [grunt][modules] Renamed `gettext.installNunjucksGlobals` to `gettext.nunjucksExtensions` to be unified with other similar calls.
 - [grunt][modules] `gettext.nunjucksExtensions()` will now require current locale as second argument, and it will set gettext default textdomain to it during invoking, so there is no need to call `gettext.textdomain(currentLocale`) in Grunt task.
 - [grunt][modules][nj] Changed structure of `locales` to be normalized database-like, with accessible locale names as keys for each locale object, instead of being just an array. It makes working with locales much easier, both in JS and Nunjucks environments.
