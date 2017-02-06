@@ -61,3 +61,20 @@ module.exports = class i18Tools
   ###
   isoLocale: (locale) =>
     @getLangcode(locale) + '_' + @getRegioncode(locale).toUpperCase()
+
+  nunjucksExtensions: (env, locales, currentLocale, currentBaseLocale, currentBaseLocaleAsRoot) ->
+    ###*
+     * Output or not locale's dir name based on whether it's base locale or not.
+     * Most useful for urls construction
+     * @return {string} Resolved dir name
+     * @example <a href="{{ localeDir() }}/blog/">blog link</a>
+    ###
+    env.addGlobal 'localeDir', (locale = currentLocale, baseLocale = currentBaseLocale, baseLocaleAsRoot = currentBaseLocaleAsRoot) =>
+      localeDir = @getLocaleDir(@getLocaleProps(locales, locale), baseLocale, baseLocaleAsRoot, true)
+      if localeDir then '/' + localeDir else ''
+
+    env.addFilter 'langcode', (locale = currentLocale) => @getLangcode(locale)
+    env.addFilter 'regioncode', (locale = currentLocale) => @getRegioncode(locale)
+    env.addFilter 'isoLocale', (locale = currentLocale) => @isoLocale(locale)
+
+    return

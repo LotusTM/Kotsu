@@ -7,6 +7,7 @@
 
 ### Changed
 - [modules][grunt] Updated `i18-tools` method so that they no longer require declaration of locales properties during class invocation. Instead, every methods now expects relevant only for it locales properties. This makes methods more usable in other places.
+- [modules][grunt] Made `i18-tools`-related Nunjucks extensions to be declared by `i18-tools` tools newly added method `nunjucksExtensions()`. This not only added not available before i18n methods like `regioncode` and `isoLocale` to Nunjucks as filters, but finally effectively removed all manual declarations of filters from Nunjucks grunt task, leaving clear place for custom filters and globals of project.
 - [grunt][modules] Renamed `gettext.installNunjucksGlobals` to `gettext.nunjucksExtensions` to be unified with other similar calls.
 - [grunt][modules] `gettext.nunjucksExtensions()` will now require current locale as second argument, and it will set gettext default textdomain to it during invoking, so there is no need to call `gettext.textdomain(currentLocale`) in Grunt task.
 - [grunt][modules][nj] Changed structure of `locales` to be normalized database-like, with accessible locale names as keys for each locale object, instead of being just an array. It makes working with locales much easier, both in JS and Nunjucks environments.
