@@ -1,19 +1,26 @@
 { merge } = require('lodash')
 
 module.exports = (grunt) ->
-  pkg = grunt.file.readJSON 'package.json'
-  sitename = grunt.config('env.sitename')
+  pkg = require('../../package.json')
+  kotsu = require('../../kotsu.coffee')
+
+  if grunt
+    sitename = grunt.config('env.sitename')
+    production = '<%= env.production %>'
+    staging = '<%= env.staging %>'
+  else
+    { production } = require('@system-env')
 
   data =
     path:
       # Remove `build/` part from path
-      fonts: '<%= grunt.template.process(path.build.fonts).replace(path.build.root + \'/\', \'\') %>'
-      images: '<%= grunt.template.process(path.build.images).replace(path.build.root + \'/\', \'\') %>'
-      scripts: '<%= grunt.template.process(path.build.scripts).replace(path.build.root + \'/\', \'\') %>'
-      styles: '<%= grunt.template.process(path.build.styles).replace(path.build.root + \'/\', \'\') %>'
-      sprites: '<%= grunt.template.process(path.build.sprites).replace(path.build.root + \'/\', \'\') %>'
-      source: '<%= path.source %>'
-      build: '<%= path.build %>'
+      fonts: kotsu.path.build.fonts.replace(kotsu.path.build.root + '/', '')
+      images: kotsu.path.build.images.replace(kotsu.path.build.root + '/', '')
+      scripts: kotsu.path.build.scripts.replace(kotsu.path.build.root + '/', '')
+      styles: kotsu.path.build.styles.replace(kotsu.path.build.root + '/', '')
+      sprites: kotsu.path.build.sprites.replace(kotsu.path.build.root + '/', '')
+      source: kotsu.path.source
+      build: kotsu.path.build
     site:
       name: pkg.name
       desc: pkg.description
@@ -21,13 +28,13 @@ module.exports = (grunt) ->
       homepage: if sitename then "https://#{sitename}" else pkg.homepage
       twitter: pkg.twitter
       version: pkg.version
-      locales: grunt.config('locales')
-      baseLocale: grunt.config('baseLocale')
+      locales: kotsu.locales
+      baseLocale: kotsu.baseLocale
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
     env:
-      production: '<%= env.production %>'
-      staging: '<%= env.staging %>'
+      production: production
+      staging: staging
     data:
       currentYear: new Date().getFullYear()
 
