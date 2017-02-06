@@ -1,5 +1,5 @@
-_ = require('lodash')
-path = require('path')
+_           = require('lodash')
+{ extname } = require('path')
 
 ###*
  * Explodes string path into array breadcrumb
@@ -13,8 +13,7 @@ module.exports = (to) ->
   if to == '/'
     breadcrumb = ['index']
   else
-    extname    = path.extname(to)
-    breadcrumb = _.chain(to).trimStart('/').trimEnd('/').trimEnd(extname).split('/').value()
+    breadcrumb = _.chain(to).trimStart('/').trimEnd('/').trimEnd(extname(to)).split('/').value()
 
     if breadcrumb.length >= 2 and _.last(breadcrumb) == 'index' then breadcrumb.pop()
 

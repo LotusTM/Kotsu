@@ -1,4 +1,4 @@
-path = require('path')
+{ extname, basename } = require('path')
 
 ###*
  * Rename pagepath (except if it's matching `exclude` pattern) to `index.html` and move
@@ -9,7 +9,7 @@ path = require('path')
  * @example `/posts/2015-10-12-article.nj` -> `/posts/2015-10-12-article.nj/index.html`
 ###
 module.exports =  (pagepath, exclude) ->
-  ext      = path.extname(pagepath)
-  basename = path.basename(pagepath, ext)
+  ext  = extname(pagepath)
+  name = basename(pagepath, ext)
 
-  return if !exclude.test(basename) then pagepath.replace(basename + ext, basename + '/index' + ext) else pagepath
+  return if !exclude.test(name) then pagepath.replace(name + ext, name + '/index' + ext) else pagepath
