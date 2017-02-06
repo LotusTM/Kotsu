@@ -4,6 +4,7 @@
 
 ### Removed
 - [grunt][data] Removed property `localesNames`, since with updated `locales` structure it's easy to extract locale names.
+- [package][grunt][module] Removed `grunt-gray-matter` module in favour of published to NPM version.
 
 ### Changed
 - [modules][grunt] Refactored `i18-tools` to be completely static and class-less, so it no longer requires invocation with `new`. Instead of providing locales properties for whole class, now only relevant properties should be provided for invoked methods.

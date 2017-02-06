@@ -4,7 +4,6 @@ module.exports = (grunt) ->
   'use strict'
 
   Gettext = require('./modules/gettext')(grunt)
-  require('./modules/grunt-gray-matter')(grunt)
   # Track execution time
   require('time-grunt') grunt
   # Load grunt tasks automatically
