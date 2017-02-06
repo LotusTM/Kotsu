@@ -5,6 +5,7 @@
 ### Removed
 - [grunt][data] Removed property `localesNames`, since with updated `locales` structure it's easy to extract locale names.
 - [package][grunt][module] Removed `grunt-gray-matter` module in favour of published to NPM version.
+- [modules] Removed need to pass Grunt instance inside `gettext` and `nunjucks-extensions` modules.
 
 ### Changed
 - [misc] dropped support for node < 6.0.0

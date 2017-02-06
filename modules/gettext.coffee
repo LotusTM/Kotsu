@@ -1,7 +1,8 @@
-path        = require('path')
-NodeGettext = require('node-gettext')
+path                       = require('path')
+NodeGettext                = require('node-gettext')
+{ file: { expand, read } } = require('grunt')
 
-module.exports = (grunt) -> class Gettext
+module.exports = class Gettext
   constructor: ({ @locales, @cwd, @src, @defaultDomain = 'messages' }) ->
     @gt = new NodeGettext()
 
@@ -24,10 +25,10 @@ module.exports = (grunt) -> class Gettext
     }) ->
       cwd = path.join(cwd, localeDir)
 
-      grunt.file.expand({ cwd: cwd, filter: 'isFile' }, src).forEach (filepath) =>
+      expand({ cwd: cwd, filter: 'isFile' }, src).forEach (filepath) =>
         resolvedDomain = if domain then domain else filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(path.extname(filepath), '')
         resolvedDomain = if resolvedDomain == defaultDomain then localeDir else localeDir + ':' + resolvedDomain
-        messages = grunt.file.read(path.join(cwd, filepath), { encoding: null })
+        messages = read(path.join(cwd, filepath), { encoding: null })
 
         @gt.addTextdomain(resolvedDomain, messages)
 

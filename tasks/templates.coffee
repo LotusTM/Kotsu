@@ -52,7 +52,7 @@ module.exports = (grunt) ->
         autoescape           : options.autoescape
         data                 : localizedData
         configureEnvironment : (env) ->
-          nunjucksExtensions(env, grunt, currentLocale, localeProps.numberFormat, localeProps.currencyFormat)
+          nunjucksExtensions(env, currentLocale, localeProps.numberFormat, localeProps.currencyFormat)
           gettext.nunjucksExtensions(env, currentLocale)
           i18nTools.nunjucksExtensions(env, locales, currentLocale, baseLocale, baseLocaleAsRoot)
 

@@ -1,9 +1,9 @@
 { getLocalesNames } = require('./modules/i18n-tools')
+Gettext = require('./modules/gettext')
 
 module.exports = (grunt) ->
   'use strict'
 
-  Gettext = require('./modules/gettext')(grunt)
   # Track execution time
   require('time-grunt') grunt
   # Load grunt tasks automatically
