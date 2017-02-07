@@ -7,12 +7,25 @@
 - [grunt][data] Removed property `localesNames`, since with updated `locales` structure it's easy to extract locale names.
 - [package][grunt][module] Removed `grunt-gray-matter` module in favour of published to NPM version.
 - [modules] Removed need to pass Grunt instance inside `gettext` and `nunjucks-extensions` modules.
+- [breaking][modules] Dropped `locales` option in `Gettext`. Class will determinate available l10n files based on directories structure you have in `/source/locales`. Note, that `Gettext` will load all messages, even for not declared in Grunt config locales, but for which you have l10n files.
+- [breaking][modules] Dropped `src` option in `Gettext`. Expected directories structure hardcoded in `Gettext`. Path to locales still have to be specified with `cwd`, but everything beyond will be resolved by `Gettext` itself.
+- [breaking][modules] Dropped support of tricky domains like `en-US:nav:bar` in `dgettext()`, which were used before to workaround inability of `node-gettext` to sustain few locales in single instance. With updated `Gettext` you can use provided methods to switch locales on the go, and access domains as normal, sane person.
+- [breaking][modules] Dropped `textdomain()` method of `Gettext` and it's Nunjucks counterpart. Use new `setTextdomain()` instead to set domains, and `setLocale()` to change locale.
+- [modules] Dropped `resolveDomain()` method of `Gettext`.
+- [modules] Dropped `load()` method of `Gettext` in favour of new methods.
 
 ### Added
-- [grunt][nj] Added `regioncode` and `isoLocale` to Nunjucks filters.
+- [modules] Added `setLocale()` method for `Gettext` and it's counterpart for Nunjucks. Use it to switch current locale. Don't forget to switch it back, though... Note, that you have to call `setLocale` with locale of you environment at least once on top level of your project to invoke proper Gettext instance. For Nunjucks it already does updated `nunjucksIExtensions()` of `Gettext`.
+- [modules] Added `setTextdomain()` method for `Gettext`, and same global for Nunjucks. Call it to change default locale to specified one. If you have any, except default.
+- [modules] Added `bindTextdomain()` method for `Gettext`, similar to GNU one. So far it used externally to load messages for active locales, but you can join the party and spawn more domains based on your delicate preferences. It expects your l10n files to be under `{localeName}/LC_MESSAGES/..` or `{localeName}/..` paths.
+- [modules] Added `autobindTextdomain()` method for `Gettext`. It crawls active locale directory and automatically discovers all files, then loads them as domains. For example, `en-US/nav/bar.po` l10n file will end up as `nav/bar` domain of `en-US` locale. Used externally, during `Gettext` invocation to load all l10n files.
+- [modules][grunt][nj] Added missing before `regioncode` and `isoLocale` to Nunjucks filters.
 
 ### Changed
-- [modules][grunt] `Gettext` no longer requires list of locales for invocation and instead will determinate available l10n files based on directories you have in `/source/locales` (except `templates`, of course). Note, that `Gettext` will load all messages, even for not declared in Grunt config locales, but for which you have l10n files.
+- [modules] Refactored `Gettext`, so now it handles locales and domains in similar to GNU gettext way, by creating new instance for each locales. Finally you don't need to use domain to store locale any more.
+- [modules] `nunjucksExtensions()` of `Gettext` on invocation will now set locale to current locale of task and set domain to default.
+- [modules] `load` method of `Gettext` has been split into `bindTextdomain()` and `autobindTextdomain()` methods, and it's discovery mechanism now works slightly different.
+- [breaking][modules] `dgettext()` and other domain-related gettext functions now expects as domain not `:nav:bar` for current locale or `en-US:nav:bar` for specific one, but `nav/bar`... for both cases. If you want to call domain from other locale, change it with new `setLocale()` first.
 - [modules][grunt] Refactored `i18-tools` to be completely static and class-less, so it no longer requires invocation with `new`. Instead of providing locales properties for whole class, now only relevant properties should be provided for invoked methods.
 - [modules][grunt] Made `i18-tools`-related Nunjucks extensions to be declared by newly added method `nunjucksExtensions()` to  `i18-tools` . This finally removed all manual declarations of extensions from Nunjucks task, leaving clear space for projects-specific filters and globals.
 - [modules] Unified behaviour of `i18-tools` method `getLocaleDir()` with declared as Nunjucks global `localeDir()`. Now it will always output `''` for base locale and `'/' + localeName` (`'/' + localeUrl`) for others.

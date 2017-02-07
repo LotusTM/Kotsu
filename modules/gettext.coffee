@@ -3,142 +3,85 @@ NodeGettext                = require('node-gettext')
 { file: { expand, read } } = require('grunt')
 
 module.exports = class Gettext
-  constructor: ({ @cwd, @src = '{,**/}*.{po,mo}', @defaultDomain = 'messages' }) ->
-    @gt = new NodeGettext()
-    locales = expand({ cwd: @cwd, filter: 'isDirectory' }, '*', '!*templates')
+  constructor: ({ @cwd, @defaultDomain = 'messages' }) ->
+    @localesDirs = expand({ cwd: @cwd, filter: 'isDirectory' }, '*', '!*templates')
 
     ###*
-     * Load l10n files
-     * @todo Since node-gettext doesn't have method for switching between languages AND domains,
-     *       use `dgettext('{{locale}}:{{domain'), 'String')` to switch between locales and domains
-     *       `/locale/en/{defaultLocale}.po` will result in `en` domain.
-     *       `/locale/en/nav/bar.po` will result in `en:nav:bar` domain.
-     *       Related Github issues:
-     *       * https://github.com/andris9/node-gettext/issues/22
-     *       * https://github.com/LotusTM/Kotsu/issues/45
+     * Selects corresponding to specified locale Gettext instance, otherwise creates new.
+     * @param {string} locale Name of locale which should be invoked or created
     ###
-    @load = ({ locale, cwd = @cwd, src = @src, domain = false, defaultDomain = @defaultDomain }) ->
-      cwd = join(cwd, locale)
+    @setLocale = (locale) ->
+      if not @[locale]
+        @[locale] = new NodeGettext()
+        @[locale].locale = locale
 
-      expand({ cwd, filter: 'isFile' }, src).forEach (filepath) =>
-        resolvedDomain = if domain then domain else filepath.replace('LC_MESSAGES/', '').replace('/', ':').replace(extname(filepath), '')
-        resolvedDomain = if resolvedDomain == defaultDomain then locale else locale + ':' + resolvedDomain
-        messages = read(join(cwd, filepath), { encoding: null })
+      @gt = @[locale]
+      return
 
-        @gt.addTextdomain(resolvedDomain, messages)
+    ###*
+     * Binds new domain to current active locale.
+     * Expects your l10n files to be under `{localeName}/LC_MESSAGES/..` or `{localeName}/..` paths.
+     * @param  {string} domain       Package name for new domain
+     * @param  {string} [cwd] = @cwd Full path to locales dir
+    ###
+    @bindTextdomain = (domain, cwd = @cwd) ->
+      cwd = join(cwd, @gt.locale)
+      # Discover possible file names and select first matching
+      domainFile = expand({ cwd, filter: 'isFile' }, "{,LC_MESSAGES/}#{domain}.{mo,po}")[0]
+      domainPath = join(cwd, domainFile)
+      messages = read(domainPath, encoding: null)
 
-    locales.forEach (locale) => @load({ locale })
+      @gt.addTextdomain(domain, messages)
+      return
 
-  resolveDomain: (domain) ->
-    if domain.charAt(0) == ':' then @gt.textdomain() + domain else domain
+    ###*
+     * Load l10n files and bind them to domains based on filepaths for current locale.
+     * @param  {string} [cwd] = @cwd Full path to locales dir
+     * @example `/locales/en/foo/bar.po` will result in `foo/bar` domain.
+    ###
+    @autobindTextdomains = (cwd = @cwd) ->
+      cwd = join(cwd, @gt.locale)
 
-  textdomain: (domain) ->
-    @gt.textdomain(@resolveDomain(domain))
+      expand({ cwd, filter: 'isFile' }, '{,**/}*.{mo,po}').forEach (domainpath) =>
+        domain = domainpath.replace(extname(domainpath), '')
+        @bindTextdomain(domain)
 
-  ###*
-  * Load string from current locale
-  * @param {string} string String, which should be loaded
-  * @return {string} Translated string into current locale
-  ###
-  gettext: (string) ->
-    @gt.gettext(arguments...)
+      return
 
-  ###*
-   * Load string from specified domain
-   * @param {string} domain Domain or locale, from which string should be loaded
-   *                        `en-US:other:inner` will load from `en-US/other/inner.po`
-   *                        `:other` will load from `{{currentLocale}}/other.po`
-   * @param {string} string String, which should be loaded
-   * @return {string} Translated string into specified locale
-  ###
-  dgettext: (domain, string) ->
-    [domain, args...] = arguments
-    @gt.dgettext(@resolveDomain(domain), args...)
+    # Load existing l10n files as locales
+    @localesDirs.forEach (locale) =>
+      @setLocale(locale)
+      @autobindTextdomains()
 
-  ###*
-  * Load plural string from current locale
-  * @param {string} string       String, which should be loaded
-  * @param {string} pluralString Plural form of string
-  * @param {number} count        Count for detecting correct plural form
-  * @return {string} Pluralized and translated into current locale string
-  ###
-  ngettext: (string, pluralString, count) ->
-    @gt.ngettext(arguments...)
+    # Ensure that no locale set as active during init
+    @gt = null
 
-  ###*
-   * Load plural string from specified domain
-   * @param {string} domain       Domain or locale, from which string should be loaded
-   *                              `en-US:other:inner` will load from `en-US/other/inner.po`
-   *                              `:other` will load from `{{currentLocale}}/other.po`
-   * @param {string} string       String, which should be loaded
-   * @param {string} pluralString Plural form of string
-   * @param {number} count        Count for detecting correct plural form
-   * @return {string} Pluralized and translated into specified locale string
-  ###
-  dngettext: (domain, string, pluralString, count) ->
-    [domain, args...] = arguments
-    @gt.dngettext(@resolveDomain(domain), args...)
+  setTextdomain: (domain = @defaultDomain) -> @gt.textdomain(domain)
 
-  ###*
-  * Load string of specific context from current locale
-  * @param {string} context Context of curret string
-  * @param {string} string  String, which should be loaded
-  * @return {string} Translated string into current locale
-  ###
-  pgettext: (context, string) ->
-    @gt.pgettext(arguments...)
-
-  ###*
-   * Load string of specific context from specified domain
-   * @param {string} domain  Domain or locale, from which string should be loaded
-   *                         `en-US:other:inner` will load from `en-US/other/inner.po`
-   *                         `:other` will load from `{{currentLocale}}/other.po`
-   * @param {string} context Context of curret string
-   * @param {string} string  String, which should be loaded
-   * @return {string} Translated string into specified locale
-  ###
-  dpgettext: (domain, context, string) ->
-    [domain, args...] = arguments
-    @gt.dpgettext(@resolveDomain(domain), args...)
-
-  ###*
-  * Load plural string of specific context from current locale
-  * @param {string} context         Context of curret string
-  * @param {string} string          String, which should be loaded
-  * @param {string} pluralString    Plural form of string
-  * @param {number} count           Count for detecting correct plural form
-  * @return {string} Pluralized and translated into current locale string
-  ###
-  npgettext: (context, string, pluralString, count) ->
-    @gt.npgettext(arguments...)
-
-  ###*
-   * Load plural string of specific context from specified domain
-   * @param {string} domain       Domain or locale, from which string should be loaded
-   *                              `en-US:other:inner` will load from `en-US/other/inner.po`
-   *                              `:other` will load from `{{currentLocale}}/other.po`
-   * @param {string} context      Context of curret string
-   * @param {string} string       String, which should be loaded
-   * @param {string} pluralString Plural form of string
-   * @param {number} count        Count for detecting correct plural form
-   * @return {string} Pluralized and translated into specified locale string
-  ###
-  dnpgettext: (domain, context, string, pluralString, count) ->
-    [domain, args...] = arguments
-    @gt.dnpgettext(@resolveDomain(domain), args...)
+  # See https://github.com/alexanderwallin/node-gettext/tree/master#translation-methods
+  gettext: (message) -> @gt.gettext(arguments...)
+  dgettext: (domain, message) -> @gt.dgettext(arguments...)
+  ngettext: (message, pluralMessage, count) -> @gt.ngettext(arguments...)
+  dngettext: (domain, message, pluralMessage, count) -> @gt.dngettext(arguments...)
+  pgettext: (context, message) -> @gt.pgettext(arguments...)
+  dpgettext: (domain, context, message) -> @gt.dpgettext(arguments...)
+  npgettext: (context, message, pluralMessage, count) -> @gt.npgettext(arguments...)
+  dnpgettext: (domain, context, message, pluralMessage, count) -> @gt.dnpgettext(arguments...)
 
   nunjucksExtensions: (env, currentLocale) ->
-    @textdomain(currentLocale)
+    @setLocale(currentLocale)
+    @setTextdomain(@defaultDomain)
 
-    env.addGlobal 'textdomain', (domain) => @textdomain(arguments...)
+    env.addGlobal 'setLocale', (locale = currentLocale) => @setLocale(locale)
+    env.addGlobal 'setTextdomain', (domain = @defaultDomain) => @textdomain(arguments...)
 
-    env.addGlobal 'gettext', () => @gettext(arguments...)
-    env.addGlobal 'dgettext', () => @dgettext(arguments...)
-    env.addGlobal 'ngettext', () => @ngettext(arguments...)
-    env.addGlobal 'dngettext', () => @dngettext(arguments...)
-    env.addGlobal 'pgettext', () => @pgettext(arguments...)
-    env.addGlobal 'dpgettext', () => @dpgettext(arguments...)
-    env.addGlobal 'npgettext', () => @npgettext(arguments...)
-    env.addGlobal 'dnpgettext', () => @dnpgettext(arguments...)
+    env.addGlobal 'gettext', (message) => @gettext(arguments...)
+    env.addGlobal 'dgettext', (domain, message) => @dgettext(arguments...)
+    env.addGlobal 'ngettext', (message, pluralMessage, count) => @ngettext(arguments...)
+    env.addGlobal 'dngettext', (domain, message, pluralMessage, count) => @dngettext(arguments...)
+    env.addGlobal 'pgettext', (context, message) => @pgettext(arguments...)
+    env.addGlobal 'dpgettext', (domain, context, message) => @dpgettext(arguments...)
+    env.addGlobal 'npgettext', (context, message, pluralMessage, count) => @npgettext(arguments...)
+    env.addGlobal 'dnpgettext', (domain, context, message, pluralString, count) => @dnpgettext(arguments...)
 
     return

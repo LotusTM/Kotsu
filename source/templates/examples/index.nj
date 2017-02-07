@@ -52,19 +52,21 @@ class:           p-examples
 
 <p>
   Display same string from <code>`ru-RU`</code> locale:<br>
-  <code>{{ dgettext('ru-RU', 'This string will be displayd in selected language') }}</code>
+  {{ setLocale('ru-RU') }}
+  <code>{{ gettext('This string will be displayd in selected language') }}</code>
 </p>
 <p>
   Display same string from <code>`ru-RU`</code> locale and <code>`other`</code> domain:<br>
-  <code>{{ dgettext('ru-RU:other', 'This string will be displayd in selected language') }}</code>
+  <code>{{ dgettext('other', 'This string will be displayd in selected language') }}</code>
 </p>
 <p>
   Display same string from <code>`ru-RU`</code> locale and <code>`nav:bar`</code> domain:<br>
-  <code>{{ dgettext('ru-RU:nav:bar', 'This string will be displayd in selected language') }}</code>
+  <code>{{ dgettext('nav/bar', 'This string will be displayd in selected language') }}</code>
 </p>
 <p>
+  {{ setLocale() }}
   Display same string from current locale and <code>`nav:bar`</code> domain:<br>
-  <code>{{ dgettext(':nav:bar', 'This string will be displayd in selected language') }}</code>
+  <code>{{ dgettext('nav/bar', 'This string will be displayd in selected language') }}</code>
 </p>{% endraw %}
 {% endcall %}
 

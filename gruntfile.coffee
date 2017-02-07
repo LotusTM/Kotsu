@@ -95,7 +95,7 @@ module.exports = (grunt) ->
     baseLocale: 'en-US'
 
   grunt.config.merge
-    gettext: new Gettext({ cwd: grunt.config('path.source.locales'), src: '{,**/}*.{po,mo}' })
+    gettext: new Gettext({ cwd: grunt.config('path.source.locales') })
     data: require('./' + grunt.config('path.source.data'))(grunt)
 
   grunt.loadTasks grunt.config('path.tasks.root')
