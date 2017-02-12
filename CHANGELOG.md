@@ -22,6 +22,7 @@
 - [modules][grunt][nj] Added missing before `regioncode` and `isoLocale` to Nunjucks filters.
 
 ### Changed
+- [package] Updated dependencies.
 - [modules] Refactored `Gettext`, so now it handles locales and domains in similar to GNU gettext way, by creating new instance for each locales. Finally you don't need to use domain to store locale any more.
 - [modules] `nunjucksExtensions()` of `Gettext` on invocation will now set locale to current locale of task and set domain to default.
 - [modules] `load` method of `Gettext` has been split into `bindTextdomain()` and `autobindTextdomain()` methods, and it's discovery mechanism now works slightly different.
@@ -34,6 +35,7 @@
 - [grunt][modules] `gettext.nunjucksExtensions()` will now require current locale as second argument, and it will set gettext default textdomain to it during invoking, so there is no need to call `gettext.textdomain(currentLocale`) in Grunt task.
 - [grunt][modules][nj] Changed structure of `locales` to be normalized database-like, with accessible locale names as keys for each locale object, instead of being just an array. It makes working with locales much easier, both in JavaScript and Nunjucks environments.
 - [grunt][data] Moved `locales`, `baseLocale` and `gettext` config properties one level higher, thus removing `i18n` property. There is no reason to keep those mandatory properties so deep.
+- [grunt] `grayMatter` task no longer uses `expand: true` option, since it writes to single file, thus doesn't need expanding.
 - [nj] Added `onlyActiveOnIndex` option to `Nav` and `NavItem` components, which allows to force item be active only when current route matches link route not partially, but completely. Disabled by default.
 
 ## 1.4.0

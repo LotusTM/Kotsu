@@ -34,9 +34,7 @@ module.exports = () ->
           return composedData
 
       files: [
-        expand: true
-        cwd: '<%= path.source.templates %>'
-        src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
+        src: ['<%= path.source.templates %>/{,**/}*.{nj,html}', '!<%= path.source.templates %>/{,**/}_*.{nj,html}']
         dest: '<%= file.temp.data.matter %>'
       ]
 
