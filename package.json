@@ -85,8 +85,12 @@
   },
   "devDependencies": {
     "babel-eslint": "7.1.1",
+    "babel-jest": "18.0.0",
+    "babel-polyfill": "6.22.0",
+    "babel-preset-latest": "6.22.0",
     "grunt-standard": "2.0.0",
     "grunt-stylelint": "0.6.0",
+    "jest": "18.1.0",
     "stylelint-config-standard": "15.0.1",
     "stylelint-scss": "1.4.1"
   },
@@ -109,12 +113,29 @@
     }
   },
   "scripts": {
-    "test": "grunt lint && grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
+    "test": "grunt lint && jest && grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)",
+    "test:watch": "jest --watch"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ]
   },
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
       "jspm.config.js"
     ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "coffee",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.js?$": "babel-jest",
+      "^.+\\.coffee$": "<rootDir>/tests/utils/jest-preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(coffee|js)?$"
   }
 }
