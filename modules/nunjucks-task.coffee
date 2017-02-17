@@ -19,6 +19,9 @@ module.exports = (config) =>
     { configureEnvironment, preprocessData, matter, humanReadableUrls, humanReadableUrlsExclude, currentLocale, locales, baseLocale, baseLocaleAsRoot, gettext } = config.options
     { getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = i18nTools
 
+    if typeof matter != 'function' and typeof matter != 'object'
+      throw new Error('[nunjucks-task] matter should be a function, which returns matter object, or a plain matter object')
+
     if not currentLocale and typeof currentLocale != 'string'
       throw new Error('[nunjucks-task] current locale should be specified as `options.currentLocale` string')
 
@@ -48,9 +51,10 @@ module.exports = (config) =>
             configureEnvironment.call(@, env, nunjucks)
 
         preprocessData: (data) ->
-          pagepath     = humanReadableUrl(@src[0].replace(@orig.cwd, ''), humanReadableUrlsExclude)
-          breadcrumb   = crumble(pagepath)
-          pageProps    = (get(matter, breadcrumb) or {}).props
+          pagepath   = humanReadableUrl(@src[0].replace(@orig.cwd, ''), humanReadableUrlsExclude)
+          breadcrumb = crumble(pagepath)
+          matter     = if typeof matter == 'function' then matter() else matter
+          pageProps  = (get(matter, breadcrumb) or {}).props
 
           set data, 'site.__matter__', matter
 

@@ -39,7 +39,7 @@
 - [grunt] `grayMatter` task no longer uses `expand: true` option, since it writes to single file, thus doesn't need expanding.
 - [grunt] l10n-specific logic of Nunjucks task moved into standalone module `nunjucks-task`. This allowed to make Nunjucks task file much cleaner and to contain mostly options with minimum of logic.
 - [grunt] All options of Nunjucks task has been flatten by moving `options.i18n.*` and `options.humanReadableUrls.*` directly to `options`.
-- [grunt] Option `options.files.matter` of Nunjucks task moved to `options.matter` and now excepts prepared object instead of path to matter file.
+- [grunt] Option `options.files.matter` of Nunjucks task moved to `options.matter` and now excepts function, which will return prepared object, or matter object itself instead of path to matter file.
 - [nj] Added `onlyActiveOnIndex` option to `Nav` and `NavItem` components, which allows to force item be active only when current route matches link route not partially, but completely. Disabled by default.
 
 ## 1.4.0

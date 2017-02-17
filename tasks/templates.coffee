@@ -15,7 +15,7 @@ module.exports = ({ config, file: { readJSON } }) ->
     autoescape: false
     paths: config('path.source.templates')
     data: config('data')
-    matter: readJSON config('file.temp.data.matter')
+    matter: () => readJSON(config('file.temp.data.matter'))
     locales: config('locales')
     baseLocale: config('baseLocale')
     baseLocaleAsRoot: true
