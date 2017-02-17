@@ -161,4 +161,4 @@ module.exports = (grunt) ->
     'watch'
   ]
 
-  return
+  return grunt

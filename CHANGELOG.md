@@ -21,6 +21,7 @@
 - [modules] Added `bindTextdomain()` method for `Gettext`, similar to GNU one. So far it used externally to load messages for active locales, but you can join the party and spawn more domains based on your delicate preferences. It expects your l10n files to be under `{localeName}/LC_MESSAGES/..` or `{localeName}/..` paths.
 - [modules] Added `autobindTextdomain()` method for `Gettext`. It crawls active locale directory and automatically discovers all files, then loads them as domains. For example, `en-US/nav/bar.po` l10n file will end up as `nav/bar` domain of `en-US` locale. Used externally, during `Gettext` invocation to load all l10n files.
 - [modules][grunt][nj] Added missing before `regioncode` and `isoLocale` to Nunjucks filters.
+- [grunt] Gruntfile now returns `grunt` instance. This allows to invoke gruntfile in other environments and use Gruntfile config and methods.
 
 ### Changed
 - [package] Updated dependencies.
