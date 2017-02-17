@@ -1,11 +1,8 @@
-{ set, get, merge } = require('lodash')
-{ join }            = require('path')
-crumble             = require('../modules/crumble')
-humanReadableUrl    = require('../modules/humanReadableUrl')
-i18nTools           = require('../modules/i18n-tools')
-nunjucksExtensions  = require('../modules/nunjucks-extensions')
+{ getLocalesNames } = require('../modules/i18n-tools')
+nunjucksTask = require('../modules/nunjucks-task')
+{ merge } = require('lodash')
 
-module.exports = (grunt) ->
+module.exports = ({ config, file: { readJSON } }) ->
 
   ###
   Nunjucks to HTML
@@ -13,89 +10,45 @@ module.exports = (grunt) ->
   Render nunjucks templates
   ###
 
+  # common options
   options =
-    autoescape         : false
-    data               : grunt.config('data')
-    paths              : grunt.config('path.source.templates')
-    files:
-      cwd              : grunt.config('path.source.templates')
-      src              : ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}']
-      dest             : grunt.config('path.build.templates')
-      ext              : '.html'
-      matter           : grunt.config('file.temp.data.matter')
-    humanReadableUrls:
-      enabled          : true
-      exclude          : /^(index|\d{3})$/
-    i18n:
-      locales          : grunt.config('locales')
-      baseLocale       : grunt.config('baseLocale')
-      baseLocaleAsRoot : true
-      gettext          : grunt.config('gettext')
+    autoescape: false
+    paths: config('path.source.templates')
+    data: config('data')
+    matter: readJSON config('file.temp.data.matter')
+    locales: config('locales')
+    baseLocale: config('baseLocale')
+    baseLocaleAsRoot: true
+    gettext: config('gettext')
 
-  { locales, baseLocale, baseLocaleAsRoot, gettext } = options.i18n
-  { getLocalesNames, getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = i18nTools
+    configureEnvironment : (env) ->
+      # Make additional configurations of Nunjucks env here
 
-  # =======================
-  # Config l10n of Nunjucks
-  # =======================
-
-  getLocalesNames(locales).forEach (currentLocale) =>
-    localeProps   = getLocaleProps(locales, currentLocale)
-    localeDir     = getLocaleDir(localeProps, baseLocale, baseLocaleAsRoot)
-    localizedData = options.data(currentLocale)
-
-    # Define targets, with unique options and files for each locale
-    @config "nunjucks.#{currentLocale}",
-
-      options:
-        paths                : options.paths
-        autoescape           : options.autoescape
-        data                 : localizedData
-        configureEnvironment : (env) ->
-          nunjucksExtensions(env, currentLocale, localeProps.numberFormat, localeProps.currencyFormat)
-          gettext.nunjucksExtensions(env, currentLocale)
-          i18nTools.nunjucksExtensions(env, locales, currentLocale, baseLocale, baseLocaleAsRoot)
-
-        preprocessData: (data) ->
-          pagepath     = humanReadableUrl(@src[0].replace(options.files.cwd, ''), options.humanReadableUrls.exclude)
-          breadcrumb   = crumble(pagepath)
-          matterData   = grunt.file.readJSON(options.files.matter)
-          pageProps    = (get(matterData, breadcrumb) or {}).props
-
-          set data, 'site.__matter__', matterData
-
-          data.page = merge data.page,
-            props:
-              locale    : currentLocale
-              isoLocale : isoLocale(currentLocale)
-              language  : getLangcode(currentLocale)
-              region    : getRegioncode(currentLocale)
-              rtl       : localeProps.rtl
-            ,
-              props: pageProps
-
-          return data
-
+  getLocalesNames(options.locales).forEach (currentLocale) =>
+    @config "nunjucks.#{currentLocale}", nunjucksTask
+      options: merge {}, options,
+        currentLocale: currentLocale
+        data: options.data(currentLocale)
+        humanReadableUrls: true
       files: [
-          expand: true
-          cwd: options.files.cwd
-          src: options.files.src
-          dest: join(options.files.dest, localeDir)
-          ext: options.files.ext
-          rename: (dest, src) =>
-            src = if options.humanReadableUrls.enabled then humanReadableUrl(src, options.humanReadableUrls.exclude) else src
-            join(dest, src)
-        ,
-          # @note So far used for generation of `robots.txt` only.
-          # @todo Keep in mind, this will generate `robots.txt` _for each_ locale, but all of them
-          #       will end up in root of build dir. Thus, `robots.txt` of last locale be final file.
-          #       This should be improved in future.
-          expand: true
-          cwd: options.files.cwd
-          src: ['{,**/}*.txt.nj']
-          dest: join(options.files.dest, localeDir)
-          ext: '.txt'
+        expand: true
+        cwd: config('path.source.templates')
+        src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}', '!{,**/}*.txt.nj']
+        dest: config('path.build.templates')
+        ext: '.html'
       ]
+
+  @config 'nunjucks.txt', nunjucksTask
+    options: merge {}, options,
+      currentLocale: options.baseLocale
+      data: options.data(options.baseLocale)
+    files: [
+      expand: true
+      cwd: config('path.source.templates')
+      src: ['{,**/}*.txt.nj']
+      dest: config('path.build.templates')
+      ext: '.txt'
+    ]
 
   ###
   Minify HTML

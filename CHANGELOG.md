@@ -15,6 +15,7 @@
 - [modules] Dropped `load()` method of `Gettext` in favour of new methods.
 
 ### Added
+- [modules] Added `nunjucks-task` module, which encapsulates l10n-specific logic stored in Grunt Nunjucks task itself before. Module exposes a single method to which should be passed usual Nunjucks options and some new, module-specific, options (mostly related to l10n). Module will return prepared configuration for task target with injected l10n and matter data and configurated Kotsu and l10n Nunjucks environment extensions.
 - [modules] Added `setLocale()` method for `Gettext` and it's counterpart for Nunjucks. Use it to switch current locale. Don't forget to switch it back, though... Note, that you have to call `setLocale` with locale of you environment at least once on top level of your project to invoke proper Gettext instance. For Nunjucks it already does updated `nunjucksIExtensions()` of `Gettext`.
 - [modules] Added `setTextdomain()` method for `Gettext`, and same global for Nunjucks. Call it to change default locale to specified one. If you have any, except default.
 - [modules] Added `bindTextdomain()` method for `Gettext`, similar to GNU one. So far it used externally to load messages for active locales, but you can join the party and spawn more domains based on your delicate preferences. It expects your l10n files to be under `{localeName}/LC_MESSAGES/..` or `{localeName}/..` paths.
@@ -36,6 +37,9 @@
 - [grunt][modules][nj] Changed structure of `locales` to be normalized database-like, with accessible locale names as keys for each locale object, instead of being just an array. It makes working with locales much easier, both in JavaScript and Nunjucks environments.
 - [grunt][data] Moved `locales`, `baseLocale` and `gettext` config properties one level higher, thus removing `i18n` property. There is no reason to keep those mandatory properties so deep.
 - [grunt] `grayMatter` task no longer uses `expand: true` option, since it writes to single file, thus doesn't need expanding.
+- [grunt] l10n-specific logic of Nunjucks task moved into standalone module `nunjucks-task`. This allowed to make Nunjucks task file much cleaner and to contain mostly options with minimum of logic.
+- [grunt] All options of Nunjucks task has been flatten by moving `options.i18n.*` and `options.humanReadableUrls.*` directly to `options`.
+- [grunt] Option `options.files.matter` of Nunjucks task moved to `options.matter` and now excepts prepared object instead of path to matter file.
 - [nj] Added `onlyActiveOnIndex` option to `Nav` and `NavItem` components, which allows to force item be active only when current route matches link route not partially, but completely. Disabled by default.
 
 ## 1.4.0
