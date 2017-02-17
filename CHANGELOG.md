@@ -45,6 +45,9 @@
 - [grunt] Option `options.files.matter` of Nunjucks task moved to `options.matter` and now excepts function, which will return prepared object, or matter object itself instead of path to matter file.
 - [nj] Added `onlyActiveOnIndex` option to `Nav` and `NavItem` components, which allows to force item be active only when current route matches link route not partially, but completely. Disabled by default.
 
+### Fixed
+- [modules] Fixed occasionally swallowed by `crumble` last characters of path with file extension.
+
 ## 1.4.0
 
 ### Removed
