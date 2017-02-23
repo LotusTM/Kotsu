@@ -921,7 +921,7 @@ class:           p-examples
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.g-link--inherit']) -%}
-<a class="g-link--inherit" href='g-link--inherit' >Flushed link</a>
+<a class="g-link--inherit" href='#' >Flushed link</a>
 {% endcall %}
 
 {% call components.Example(title = '', classes = ['.g-link--inherit']) -%}
