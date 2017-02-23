@@ -13,6 +13,7 @@
 - [breaking][modules] Dropped `textdomain()` method of `Gettext` and it's Nunjucks counterpart. Use new `setTextdomain()` instead to set domains, and `setLocale()` to change locale.
 - [modules] Dropped `resolveDomain()` method of `Gettext`.
 - [modules] Dropped `load()` method of `Gettext` in favour of new methods.
+- [nj] Removed `<link>` referencing `sitemap.xml` from header, since none of search providers supports this method. See [#88](https://github.com/LotusTM/Kotsu/issues/88). Sitemap referenced in `robots.txt` instead.
 
 ### Added
 - [tests] Added [Jest](https://facebook.github.io/jest/) for running tests.
@@ -47,6 +48,7 @@
 
 ### Fixed
 - [modules] Fixed occasionally swallowed by `crumble` last characters of path with file extension.
+- [nj] Fixed wrong urls on Example page.
 
 ## 1.4.0
 
