@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.5.0
 
 ### Removed
 - [package] Dropped support of node < 6.0.0.
