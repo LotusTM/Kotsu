@@ -47,6 +47,7 @@
 - [nj] Added `onlyActiveOnIndex` option to `Nav` and `NavItem` components, which allows to force item be active only when current route matches link route not partially, but completely. Disabled by default.
 
 ### Fixed
+- [grunt] Fixed wrong default currency format for base locale.
 - [modules] Fixed occasionally swallowed by `crumble` last characters of path with file extension.
 - [nj] Fixed wrong urls on Example page.
 
