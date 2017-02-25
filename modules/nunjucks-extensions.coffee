@@ -17,6 +17,8 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
   numbro.defaultFormat(numberFormat)
   numbro.defaultCurrencyFormat(currencyFormat)
 
+  moment.locale(currentLocale)
+
   # ==========
   # Extensions
   # ==========
@@ -143,19 +145,16 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
     return isActive
 
   ###*
-   * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation, and displaying dates
-   * @tutorial http://momentjs.com/docs/
-   * @note Will set locale to `currentLocale` before running. To override use `_d(...).locale('de').format(...)`
+   * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation and displaying dates
+   * @docs http://momentjs.com/docs/
    * @param {*} param... Any parameters, which should be passed to `moment.js`
    * @return {moment} `moment.js` expression for further use
   ###
-  env.addGlobal 'moment', (params...) ->
-    moment.locale(currentLocale)
-    moment(params...)
+  env.addGlobal 'moment', moment
 
   ###*
    * Expose `numbro.js` to Nunjucks' for formatting numbers and currencies
-   * @tutorial http://numbrojs.com/format.html
+   * @docs http://numbrojs.com/format.html
    * @note Change locale on the go with `numbro(...).setCulture('de-DE')`
    * @param {*} param... Any parameters, which should be passed to `numbro.js`
    * @return {moment} `numbro.js` expression for further use

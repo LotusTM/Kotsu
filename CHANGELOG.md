@@ -31,6 +31,8 @@
 ### Changed
 - [package] Updated dependencies.
 - [modules][nj] `nunjucks-extensions` module will set `numbro` locale, default formatting and currency formatting to current locale's parameters on initialization.
+- [modules][nj] `moment` now exposed to Nunjucks as pure function and no longer sets locale to current locale internally.
+- [modules][nj] `nunjucks-extensions` module will set `moment` locale to current locale on initialization.
 - [modules] Refactored `Gettext`, so now it handles locales and domains in similar to GNU gettext way, by creating new instance for each locales. Finally you don't need to use domain to store locale any more.
 - [modules] `nunjucksExtensions()` of `Gettext` on invocation will now set locale to current locale of task and set domain to default.
 - [modules] `load` method of `Gettext` has been split into `bindTextdomain()` and `autobindTextdomain()` methods, and it's discovery mechanism now works slightly different.
