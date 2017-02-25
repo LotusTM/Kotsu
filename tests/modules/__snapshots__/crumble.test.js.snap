@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Crumble function should explode absolute path into array 1`] = `
 Array [
   "this",
