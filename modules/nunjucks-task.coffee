@@ -51,7 +51,7 @@ module.exports = (config) =>
             configureEnvironment.call(@, env, nunjucks)
 
         preprocessData: (data) ->
-          pagepath   = humanReadableUrl(@src[0].replace(@orig.cwd, ''), humanReadableUrlsExclude)
+          pagepath   = humanReadableUrl(@src[0].replace((@orig.cwd or @orig.orig.cwd), ''), humanReadableUrlsExclude)
           breadcrumb = crumble(pagepath)
           matter     = if typeof matter == 'function' then matter() else matter
           pageProps  = (get(matter, breadcrumb) or {}).props
