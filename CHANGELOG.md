@@ -6,6 +6,7 @@
 - [package] Dropped support of node < 6.0.0.
 - [grunt][data] Removed property `localesNames`, since with updated `locales` structure it's easy to extract locale names.
 - [package][grunt][module] Removed `grunt-gray-matter` module in favour of published to NPM version.
+- [modules][nj] Removed Nunjucks filters `|number` and `|currencyFormat`. Use new global function `numbro` instead.
 - [modules] Removed need to pass Grunt instance inside `gettext` and `nunjucks-extensions` modules.
 - [breaking][modules] Dropped `locales` option in `Gettext`. Class will determinate available l10n files based on directories structure you have in `/source/locales`. Note, that `Gettext` will load all messages, even for not declared in Grunt config locales, but for which you have l10n files.
 - [breaking][modules] Dropped `src` option in `Gettext`. Expected directories structure hardcoded in `Gettext`. Path to locales still have to be specified with `cwd`, but everything beyond will be resolved by `Gettext` itself.
@@ -18,6 +19,7 @@
 ### Added
 - [tests] Added [Jest](https://facebook.github.io/jest/) for running tests.
 - [tests] Added some basic tests for existing Kotsu modules.
+- [modules][nj] Added [numbro.js](http://numbrojs.com) as global Nunjucks function `numbro`.
 - [modules] Added `nunjucks-task` module, which encapsulates l10n-specific logic stored in Grunt Nunjucks task itself before. Module exposes a single method to which should be passed usual Nunjucks options and some new, module-specific, options (mostly related to l10n). Module will return prepared configuration for task target with injected l10n and matter data and configurated Kotsu and l10n Nunjucks environment extensions.
 - [modules] Added `setLocale()` method for `Gettext` and it's counterpart for Nunjucks. Use it to switch current locale. Don't forget to switch it back, though... Note, that you have to call `setLocale` with locale of you environment at least once on top level of your project to invoke proper Gettext instance. For Nunjucks it already does updated `nunjucksIExtensions()` of `Gettext`.
 - [modules] Added `setTextdomain()` method for `Gettext`, and same global for Nunjucks. Call it to change default locale to specified one. If you have any, except default.
@@ -28,6 +30,7 @@
 
 ### Changed
 - [package] Updated dependencies.
+- [modules][nj] `nunjucks-extensions` module will set `numbro` locale, default formatting and currency formatting to current locale's parameters on initialization.
 - [modules] Refactored `Gettext`, so now it handles locales and domains in similar to GNU gettext way, by creating new instance for each locales. Finally you don't need to use domain to store locale any more.
 - [modules] `nunjucksExtensions()` of `Gettext` on invocation will now set locale to current locale of task and set domain to default.
 - [modules] `load` method of `Gettext` has been split into `bindTextdomain()` and `autobindTextdomain()` methods, and it's discovery mechanism now works slightly different.
@@ -49,6 +52,7 @@
 ### Fixed
 - [grunt] Fixed wrong default currency format for base locale.
 - [modules] Fixed occasionally swallowed by `crumble` last characters of path with file extension.
+- [modules][nj] Fixed `numbro` deprecation of `setLanguage` method warning.
 - [nj] Fixed wrong urls on Example page.
 
 ## 1.4.0

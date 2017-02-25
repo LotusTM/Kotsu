@@ -13,6 +13,9 @@ smartPlurals              = require('smart-plurals')
 { file: { expand }, log } = require('grunt')
 
 module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
+  numbro.setCulture(currentLocale)
+  numbro.defaultFormat(numberFormat)
+  numbro.defaultCurrencyFormat(currencyFormat)
 
   # ==========
   # Extensions
@@ -150,6 +153,15 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
     moment.locale(currentLocale)
     moment(params...)
 
+  ###*
+   * Expose `numbro.js` to Nunjucks' for formatting numbers and currencies
+   * @tutorial http://numbrojs.com/format.html
+   * @note Change locale on the go with `numbro(...).setCulture('de-DE')`
+   * @param {*} param... Any parameters, which should be passed to `numbro.js`
+   * @return {moment} `numbro.js` expression for further use
+  ###
+  env.addGlobal 'numbro', numbro
+
   # =======
   # Filters
   # =======
@@ -198,31 +210,6 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
   ###
   env.addFilter 'plural', (count, forms, locale = currentLocale) ->
     smartPlurals.Plurals.getRule(locale)(count, forms)
-
-  ###*
-   * Format number based on given pattern
-   * @todo There are few issues with current lib:
-   *       * https://github.com/foretagsplatsen/numbro/issues/111
-   *       * https://github.com/foretagsplatsen/numbro/issues/112
-   * @param {number} value                  Number which should be formatted
-   * @param {string} format = numberFormat  Pattern as per http://numbrojs.com/format.html
-   * @param {string} locale = currentLocale Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
-   * @return {string} Formatted number
-  ###
-  env.addFilter 'number', (value, format = numberFormat, locale = currentLocale) ->
-    numbro.setLanguage(locale)
-    numbro(value).format(format)
-
-  ###*
-   * Convert number into currency based on given locale or pattern
-   * @param {number} value                  Number which should be converted
-   * @param {string} format= currencyFormat Pattern as per http://numbrojs.com/format.html
-   * @param {string} locale = currentLocale Locale name as per https://github.com/foretagsplatsen/numbro/tree/master/languages
-   * @return {string} Number with currency symbol in proper position
-  ###
-  env.addFilter 'currency', (value, format = currencyFormat, locale = currentLocale) ->
-    numbro.setLanguage(locale)
-    numbro(value).formatCurrency(format)
 
   ###*
    * Transform string into usable in urls form
