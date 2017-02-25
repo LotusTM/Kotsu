@@ -17,6 +17,7 @@
 - [nj] Removed `<link>` referencing `sitemap.xml` from header, since none of search providers supports this method. See [#88](https://github.com/LotusTM/Kotsu/issues/88). Sitemap referenced in `robots.txt` instead.
 
 ### Added
+- [package] Moved development related tasks to `npm run` scripts.
 - [tests] Added [Jest](https://facebook.github.io/jest/) for running tests.
 - [tests] Added some basic tests for existing Kotsu modules.
 - [modules][nj] Added [numbro.js](http://numbrojs.com) as global Nunjucks function `numbro`.
@@ -30,6 +31,9 @@
 
 ### Changed
 - [package] Updated dependencies.
+- [package] Replace `grunt-standard` with `standard`.
+- [package] Replace `grunt-stylelint` with `stylelint`.
+- [package] Install `jspm` modules during npm `postinstall` step.
 - [modules][nj] `nunjucks-extensions` module will set `numbro` locale, default formatting and currency formatting to current locale's parameters on initialization.
 - [modules][nj] `moment` now exposed to Nunjucks as pure function and no longer sets locale to current locale internally.
 - [modules][nj] `nunjucks-extensions` module will set `moment` locale to current locale on initialization.
@@ -56,6 +60,7 @@
 - [modules] Fixed occasionally swallowed by `crumble` last characters of path with file extension.
 - [modules][nj] Fixed `numbro` deprecation of `setLanguage` method warning.
 - [nj] Fixed wrong urls on Example page.
+- [nj] Fix not retrieved `this.orig.cwd` when `grunt-newer` used.
 
 ## 1.4.0
 
