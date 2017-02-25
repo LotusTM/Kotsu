@@ -150,7 +150,6 @@ module.exports = (grunt) ->
   ###
   grunt.registerTask 'lint', [
     'stylelint:lint'
-    'standard:lint'
   ]
 
   ###

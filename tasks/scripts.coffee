@@ -49,28 +49,6 @@ module.exports = () ->
         ]
 
   ###
-  Standard
-  https://github.com/pdehaan/grunt-standard
-  Lint JS files with standard
-  ###
-
-  @config 'standard',
-    lint:
-      files: [
-        expand: true
-        cwd: '<%= path.source.scripts %>'
-        src: '{,**/}*.js'
-      ]
-    format:
-      options:
-        format: true
-      files: [
-        expand: true
-        cwd: '<%= path.source.scripts %>'
-        src: '{,**/}*.js'
-      ]
-
-  ###
   Watch
   https://github.com/gruntjs/grunt-contrib-watch
   Watches scss, js etc for changes and compiles them

@@ -88,9 +88,9 @@
     "babel-jest": "19.0.0",
     "babel-polyfill": "6.22.0",
     "babel-preset-latest": "6.22.0",
-    "grunt-standard": "2.0.0",
     "grunt-stylelint": "0.7.0",
     "jest": "19.0.2",
+    "standard": "8.6.0",
     "stylelint-config-standard": "15.0.1",
     "stylelint-scss": "1.4.3"
   },
@@ -113,7 +113,8 @@
     }
   },
   "scripts": {
-    "test": "grunt lint && jest && grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)",
+    "lint": "grunt lint && standard",
+    "test": "npm run lint && jest && grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)",
     "test:watch": "jest --watch"
   },
   "babel": {
