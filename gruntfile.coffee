@@ -112,7 +112,6 @@ module.exports = (grunt) ->
     'webfont'
     'sass'
     'postcss:autoprefix'
-    'shell:jspm_install'
     'shell:jspm_build'
     'responsive_images:thumbnails'
     'browserSync'

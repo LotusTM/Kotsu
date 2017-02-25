@@ -113,9 +113,8 @@
     }
   },
   "scripts": {
-    "lint:scripts": "standard",
-    "lint:styles": "stylelint ./**/*.{css,scss,sass}",
-    "lint": "npm run lint:scripts && npm run lint:styles",
+    "postinstall": "jspm config registries.github.auth $GITHUB_API_KEY && jspm install",
+    "lint": "standard && stylelint ./**/*.{css,scss,sass}",
     "test": "npm run lint && jest && grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)",
     "test:watch": "jest --watch"
   },
