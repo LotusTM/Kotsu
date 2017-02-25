@@ -10,6 +10,10 @@ plugins:
 extends: stylelint-config-standard
 
 rules:
+  rule-empty-line-before:
+    - always-multi-line
+    - ignore:
+      - after-comment
 
   # Issues
   # ------
@@ -107,30 +111,13 @@ rules:
   block-no-empty: null
   function-max-empty-lines: 1
   no-missing-end-of-source-newline: null
-  rule-nested-empty-line-before:
-    - always-multi-line
-    - ignore:
-      - after-comment
   selector-pseudo-element-colon-notation: single
   number-leading-zero: never
 
   # Additions
   # ---------
 
-  # @todo Falsy reports Sass map properties as color names
-  #       $colors: (
-  #         ivory: #fffff3,
-  #         black: rgba(0, 0, 0, .3)
-  #       );
-  # color-named: never
-
-  # @todo Doesn't work with Sass variables sets
-  #       https://github.com/stylelint/stylelint/issues/871
-  # no-browser-hacks: true
-
-  declaration-block-no-ignored-properties: true
-  media-feature-no-missing-punctuation: true
-  selector-no-empty: true
+  color-named: never
   font-family-name-quotes: always-where-required
   function-url-quotes: always
   selector-attribute-quotes: always
@@ -140,7 +127,10 @@ rules:
   property-no-vendor-prefix: true
   selector-no-vendor-prefix: true
   value-no-vendor-prefix: true
-  max-nesting-depth: 3
+  max-nesting-depth:
+    - 3
+    - ignore:
+      - blockless-at-rules
   selector-max-compound-selectors: 3
   selector-max-specificity: 0,3,0
   declaration-no-important: true
@@ -151,7 +141,6 @@ rules:
   selector-no-universal: true
   declaration-block-no-redundant-longhand-properties: null # harmful rule
   font-weight-notation: named-where-possible
-  selector-root-no-composition: true
   function-url-no-scheme-relative: true
   at-rule-no-unknown:
     - true
@@ -218,17 +207,15 @@ rules:
   # main_wrong___block--modif
   selector-class-pattern:
     - ^([A-Z]?[a-z]*[-]?[a-z0-9\-]*)(\.[a-z0-9\-]*)?(__[a-z0-9]*[-]?[a-z0-9\-]*)?(--[a-z0-9]*[-]?[a-z0-9\-]*)?(\:[a-z]*)*([\\+\-]*?)*$
-    # @todo Temporary disabled due to issue with Sass `#{}` inside selectors
-    # - resolveNestedSelectors: true
+    - resolveNestedSelectors: true
   selector-id-pattern: ^([A-Z]?[a-z]*[-]?[a-z0-9\-]*)(\.[a-z0-9\-]*)?(__[a-z0-9]*[-]?[a-z0-9\-]*)?(--[a-z0-9]*[-]?[a-z0-9\-]*)?(\:[a-z]*)*([\\+\-]*?)*$
   declaration-block-semicolon-newline-before: never-multi-line
   function-comma-newline-before: never-multi-line
   media-query-list-comma-newline-before: never-multi-line
   no-unknown-animations: true
-  root-no-standard-properties: true
   selector-list-comma-newline-before: never-multi-line
   selector-list-comma-space-after: always-single-line
-  time-no-imperceptible: true
+  time-min-milliseconds: 100
   value-keyword-case:
     - lower
     - ignoreKeywords:
@@ -238,10 +225,6 @@ rules:
       - Sprite--
   value-list-comma-newline-before: never-multi-line
   no-duplicate-selectors: true
-  rule-non-nested-empty-line-before:
-    - always-multi-line
-    - ignore:
-      - after-comment
   # @todo Have some issues with Sass placeholders:
   #       `Expected selector "%#{$ekzo-objects-ns}nav > li > a" to come before selector ".#{$ekzo-objects-ns}nav > a"`
   no-descending-specificity: true
@@ -250,8 +233,6 @@ rules:
   # ---------
 
   # selector-no-attribute: true
-  # no-unsupported-browser-features: true
-  # no-indistinguishable-colors: true
 
   # Scss
   # ---------
