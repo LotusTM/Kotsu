@@ -89,7 +89,7 @@
     "babel-polyfill": "6.22.0",
     "babel-preset-latest": "6.22.0",
     "grunt-standard": "2.0.0",
-    "grunt-stylelint": "0.6.0",
+    "grunt-stylelint": "0.7.0",
     "jest": "19.0.2",
     "stylelint-config-standard": "15.0.1",
     "stylelint-scss": "1.4.1"
