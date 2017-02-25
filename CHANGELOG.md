@@ -5,6 +5,7 @@
 ### Removed
 - [package] Dropped support of node < 6.0.0.
 - [grunt][data] Removed property `localesNames`, since with updated `locales` structure it's easy to extract locale names.
+- [grunt] Removed Grunt `shell:jspm_config` and `shell:jspm_install` tasks. Those steps will be done automatically during npm `postinstall`.
 - [package][grunt][module] Removed `grunt-gray-matter` module in favour of published to NPM version.
 - [modules][nj] Removed Nunjucks filters `|number` and `|currencyFormat`. Use new global function `numbro` instead.
 - [modules] Removed need to pass Grunt instance inside `gettext` and `nunjucks-extensions` modules.
@@ -33,7 +34,7 @@
 - [package] Updated dependencies.
 - [package] Replaced `grunt-standard` with `standard`.
 - [package] Replaced `grunt-stylelint` with `stylelint`.
-- [package] Install `jspm` modules during npm `postinstall` step.
+- [package] `jspm` modules will be installed automatically during npm `postinstall` step.
 - [misc] Updated Stylelint rules to support `^7.9.0`.
 - [modules][nj] `nunjucks-extensions` module will set `numbro` locale, default formatting and currency formatting to current locale's parameters on initialization.
 - [modules][nj] `moment` now exposed to Nunjucks as pure function and no longer sets locale to current locale internally.
