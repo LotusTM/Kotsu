@@ -146,13 +146,6 @@ module.exports = (grunt) ->
   ]
 
   ###
-  A task for linting
-  ###
-  grunt.registerTask 'lint', [
-    'stylelint:lint'
-  ]
-
-  ###
   A task for a static server with a watch
   ###
   grunt.registerTask 'serve', [

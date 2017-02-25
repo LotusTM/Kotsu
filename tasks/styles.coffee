@@ -139,20 +139,6 @@ module.exports = () ->
         ]
 
   ###
-  Stylelint
-  https://github.com/wikimedia/grunt-stylelint
-  Lint CSS files with stylelint
-  ###
-
-  @config 'stylelint',
-    lint:
-      files: [
-        expand: true
-        cwd: '<%= path.source.styles %>'
-        src: '{,**/}*.scss'
-      ]
-
-  ###
   Watch
   https://github.com/gruntjs/grunt-contrib-watch
   Watches scss, js etc for changes and compiles them
