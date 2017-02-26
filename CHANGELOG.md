@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Added
+- [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
+
 ## 1.5.0
 
 ### Removed

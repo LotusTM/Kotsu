@@ -9,6 +9,7 @@ numbro                    = require('numbro')
 moment                    = require('moment')
 smartPlurals              = require('smart-plurals')
 { join }                  = require('path')
+urljoin                   = require('url-join')
 { escape }                = require('nunjucks/src/lib')
 { file: { expand }, log } = require('grunt')
 
@@ -157,9 +158,17 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @docs http://numbrojs.com/format.html
    * @note Change locale on the go with `numbro(...).setCulture('de-DE')`
    * @param {*} param... Any parameters, which should be passed to `numbro.js`
-   * @return {moment} `numbro.js` expression for further use
+   * @return {numbro} `numbro.js` expression for further use
   ###
   env.addGlobal 'numbro', numbro
+
+  ###*
+   * Expose `url-join` to Nunjucks' for joining urls
+   * @docs https://github.com/jfromaniello/url-join
+   * @param {*} param... Url fragments, which should be joined
+   * @return {string} Joined url
+  ###
+  env.addGlobal 'urljoin', urljoin
 
   # =======
   # Filters
