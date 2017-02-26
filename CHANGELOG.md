@@ -5,6 +5,9 @@
 ### Added
 - [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
 
+### Changed
+- [sass] Updated Ekzo to 2.4.1
+
 ## 1.5.0
 
 ### Removed
