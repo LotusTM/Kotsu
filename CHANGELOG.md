@@ -12,7 +12,7 @@
 - [grunt][data] Removed property `localesNames`, since with updated `locales` structure it's easy to extract locale names.
 - [grunt] Removed Grunt `shell:jspm_config` and `shell:jspm_install` tasks. Those steps will be done automatically during npm `postinstall`.
 - [package][grunt][module] Removed `grunt-gray-matter` module in favour of published to NPM version.
-- [modules][nj] Removed Nunjucks filters `|number` and `|currencyFormat`. Use new global function `numbro` instead.
+- [modules][nj] Removed Nunjucks filters `|number` and `|currency`. Use new global function `numbro` instead.
 - [modules] Removed need to pass Grunt instance inside `gettext` and `nunjucks-extensions` modules.
 - [breaking][modules] Dropped `locales` option in `Gettext`. Class will determinate available l10n files based on directories structure you have in `/source/locales`. Note, that `Gettext` will load all messages, even for not declared in Grunt config locales, but for which you have l10n files.
 - [breaking][modules] Dropped `src` option in `Gettext`. Expected directories structure hardcoded in `Gettext`. Path to locales still have to be specified with `cwd`, but everything beyond will be resolved by `Gettext` itself.
@@ -67,7 +67,7 @@
 - [modules] Fixed occasionally swallowed by `crumble` last characters of path with file extension.
 - [modules][nj] Fixed `numbro` deprecation of `setLanguage` method warning.
 - [nj] Fixed wrong urls on Example page.
-- [nj] Fix not retrieved `this.orig.cwd` when `grunt-newer` used.
+- [nj] Fixed not retrieved `this.orig.cwd` when `grunt-newer` used.
 
 ## 1.4.0
 
