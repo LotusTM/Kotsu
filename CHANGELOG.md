@@ -8,6 +8,9 @@
 ### Changed
 - [sass] Updated Ekzo to 2.4.1
 
+### Fixed
+- [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).
+
 ## 1.5.0
 
 ### Removed
