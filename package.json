@@ -90,7 +90,7 @@
     "babel-polyfill": "6.23.0",
     "babel-preset-latest": "6.22.0",
     "jest": "19.0.2",
-    "standard": "8.6.0",
+    "standard": "9.0.0",
     "stylelint": "7.9.0",
     "stylelint-config-standard": "16.0.0",
     "stylelint-scss": "1.4.3"
