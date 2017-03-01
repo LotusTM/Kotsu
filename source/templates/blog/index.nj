@@ -12,7 +12,7 @@ class:           p-blog
 
 {% block main %}
 
-  {% set posts = _.orderBy(getPage(page.breadcrumb)|template(site.placeholders), 'props.date', 'desc') %}
+  {% set posts = _.orderBy(getPage(page.breadcrumb)|format(site.placeholders), 'props.date', 'desc') %}
 
   {% for post in posts %}
   <article class='h-margin-top+'>

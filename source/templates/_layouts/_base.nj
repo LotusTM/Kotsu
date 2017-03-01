@@ -5,7 +5,7 @@
 
 {# Default configs #}
 {{ config('page', { breadcrumb : page.props.breadcrumb }) }}
-{{ config('page', getPage(page.breadcrumb).props|template(site.placeholders)) }}
+{{ config('page', getPage(page.breadcrumb).props|format(site.placeholders)) }}
 {{ config('page', {
   class            : '',
   applyWrapper     : true,

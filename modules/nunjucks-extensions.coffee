@@ -207,7 +207,7 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
   ###*
    * Replace placeholders with provided values. Refer to `sprintf` module for docs
   ###
-  env.addFilter 'template', sprintf
+  env.addFilter 'format', sprintf
 
   ###*
    * Pluralize string based on count. For situations, where full i18n is too much

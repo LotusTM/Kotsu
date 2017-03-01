@@ -71,9 +71,9 @@ class:           p-examples
 {% endcall %}
 
 {% call components.Example(title = 'Plurals') -%}
-{% raw %}<p>Singular: <code>{{ ngettext('%s apple', '%s apples', 1)|template(1) }}</code></p>
-<p>Plural: <code>{{ ngettext('%s apple', '%s apples', 2)|template(2) }}</code></p>
-<p>Other: <code>{{ ngettext('%s apple', '%s apples', 5)|template(5) }}</code></p>{% endraw %}
+{% raw %}<p>Singular: <code>{{ ngettext('%s apple', '%s apples', 1)|format(1) }}</code></p>
+<p>Plural: <code>{{ ngettext('%s apple', '%s apples', 2)|format(2) }}</code></p>
+<p>Other: <code>{{ ngettext('%s apple', '%s apples', 5)|format(5) }}</code></p>{% endraw %}
 {% endcall %}
 
 
