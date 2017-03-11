@@ -4,7 +4,6 @@ environment:
   matrix:
     - NODE_VERSION: 7
     - NODE_VERSION: 6
-    - NODE_VERSION: 5
 
 cache:
   - node_modules -> package.json
