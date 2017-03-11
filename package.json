@@ -66,7 +66,7 @@
     "grunt-sitemap-xml": "0.2.1",
     "grunt-size-report": "0.1.4",
     "grunt-spritesmith": "6.4.0",
-    "grunt-tinypng": "0.6.1",
+    "grunt-tinypng": "0.7.0",
     "grunt-uncss": "0.6.1",
     "grunt-webfont": "1.6.0",
     "jit-grunt": "0.10.0",
