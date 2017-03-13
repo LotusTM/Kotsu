@@ -119,7 +119,7 @@
     "lint": "standard | snazzy && stylelint \"**/*.{css,scss,sass}\" \"!{jspm_packages,build,temp}/**\"",
     "test": "npm run lint && jest",
     "test:watch": "jest --watch",
-    "build": "grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)",
+    "build": "grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
   },
   "babel": {
     "presets": [
