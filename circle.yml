@@ -6,6 +6,10 @@ checkout:
   post:
     - git submodule update --init --recursive
 
+test:
+  post:
+    - npm run build
+
 deployment:
   production:
     branch: master
