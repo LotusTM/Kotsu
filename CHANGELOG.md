@@ -9,6 +9,7 @@
 ### Changed
 - [modules][nj] Renamed `|template()` Nunjucks filter to `|format`. This will unify naming with identical filter in Jinja2.
 - [sass] Updated Ekzo to 2.4.2.
+- [package] Updated dependencies.
 
 ### Fixed
 - [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).
