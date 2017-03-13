@@ -1,6 +1,5 @@
-
 // =======================================
-// ^IMPORTS
+// IMPORTS
 // =======================================
 
 // ---------------------------------------
@@ -20,7 +19,7 @@
 @import './temp/styles/sprites.map';
 
 // ---------------------------------------
-// Framework settings
+// Settings
 // ---------------------------------------
 
 @import 'settings/typography';
@@ -32,11 +31,8 @@
 @import 'settings/responsive';
 
 // ---------------------------------------
-// Custom styling
-// ---------------------------------------
-
-// ----
 // Base
+// ---------------------------------------
 
 @import 'ekzo/base/normalize';
 @import 'ekzo/base/box-sizing';
@@ -45,8 +41,9 @@
 
 @import 'base/root';
 
-// ----
+// ---------------------------------------
 // Generic
+// ---------------------------------------
 
 @import 'ekzo/generic/shared';
 @import 'ekzo/generic/code';
@@ -91,8 +88,9 @@
 @import 'ekzo/objects/svg-icon';
 @import 'ekzo/objects/tooltip';
 
-// ----
+// ---------------------------------------
 // Components
+// ---------------------------------------
 
 @import 'components/Btn';
 @import 'components/Content';
@@ -109,18 +107,21 @@
 @import 'components/Sprites';
 @import 'components/Wrapper';
 
-// ----
+// ---------------------------------------
 // Pages
+// ---------------------------------------
 
 @import 'pages/index';
 
-// ----
+// ---------------------------------------
 // Scopes
+// ---------------------------------------
 
 @import 'scopes/blog-post';
 
-// ----
+// ---------------------------------------
 // Helpers
+// ---------------------------------------
 
 @import 'ekzo/helpers/bg';
 @import 'ekzo/helpers/border';
