@@ -1,4 +1,6 @@
-# Kotsu
+![Kotsu](https://cloud.githubusercontent.com/assets/4460311/23858130/1da87904-0808-11e7-9748-9f56fb8a55e0.png)
+
+Clean, opinionated foundation for new projects — to boldly go where no man has gone before.
 
 [![Travis Build Status](https://img.shields.io/travis/LotusTM/Kotsu.svg?label=travis)](https://travis-ci.org/LotusTM/Kotsu)
 [![CircleCI Build Status](https://img.shields.io/circleci/project/LotusTM/Kotsu.svg?label=circle)](https://circleci.com/gh/LotusTM/Kotsu)
@@ -7,10 +9,6 @@
 
 [![Dependency Status](https://img.shields.io/david/LotusTM/Kotsu.svg)](https://david-dm.org/LotusTM/Kotsu)
 [![DevDependency Status](https://img.shields.io/david/dev/LotusTM/Kotsu.svg)](https://david-dm.org/LotusTM/Kotsu?type=dev)
-
-## Overview
-
-Clean, opinionated foundation for new projects — to boldly go where no man has gone before.
 
 ## How to use
 
