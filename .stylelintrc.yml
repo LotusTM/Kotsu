@@ -1,9 +1,4 @@
 ---
-ignoreFiles:
-  - jspm_config/{,**/}*
-  - build/{,**/}*
-  - temp/{,**/}*
-
 plugins:
   - stylelint-scss
 
