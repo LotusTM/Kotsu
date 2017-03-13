@@ -5,6 +5,7 @@
 ### Added
 - [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
 - [misc] Added logo in readme.
+- [package] Added `snazzy` for prettier `standard` output.
 
 ### Changed
 - [modules][nj] Renamed `|template()` Nunjucks filter to `|format`. This will unify naming with identical filter in Jinja2.
