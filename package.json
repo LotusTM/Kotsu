@@ -136,7 +136,8 @@
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
-      "jspm.config.js"
+      "jspm.config.js",
+      "jspm_packages/**"
     ]
   },
   "jest": {

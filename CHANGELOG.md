@@ -6,6 +6,7 @@
 - [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
 - [misc] Added logo in readme.
 - [package] Added `snazzy` for prettier `standard` output.
+- [package] Added `jspm_packages` to ignored by `standard` paths.
 
 ### Changed
 - [ci] Split monolithic npm `test` script into `test` and `build` steps for more flexibility and separation of concerns.
