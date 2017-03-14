@@ -8,7 +8,7 @@
 - [package] Added `snazzy` for prettier `standard` output.
 
 ### Changed
-- [ci] Split monolithic npm `test` script in to `test` and `build` steps for more flexibility and separation of concerns.
+- [ci] Split monolithic npm `test` script into `test` and `build` steps for more flexibility and separation of concerns.
 - [modules][nj] Renamed `|template()` Nunjucks filter to `|format`. This will unify naming with identical filter in Jinja2.
 - [sass] Updated Ekzo to 2.4.2.
 - [package] Updated dependencies.
