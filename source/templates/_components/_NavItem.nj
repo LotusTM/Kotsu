@@ -1,12 +1,13 @@
 {##
- # Display nav item. Should be used in context of Nav component
+ # Display Nav item. Should be used in context of Nav component
  #
- # @param {string} to                                    Absolute or relative path passed to Link
+ # @param {string} to                                    Absolute path to page
  # @param {string} [label]                               Label of the anchor
  # @param {number} [depth]                 = 1           Depth of current nav item
  # @param {string} [itemsClass]            = ''          Class of list item
  # @param {string} [anchorsClass]          = ''          Class of anchor inside list itme
- # @param {bool}   [onlyActiveOnIndex]     = false       Set item to be active only in case current route matches link's route
+ # @param {bool}   [exact]                 = false       Set item to be active only if item
+ #                                                       path completely matches current breadcrumb
  # @param {string} [activeClass]           = 'is-active' Class of active list item
  # @param {number} [startDepth]            = 1           From which depth nav should start to print
  # @param {number} [maxDepth]              = 999999      Max amount of subnavs to print
@@ -22,14 +23,14 @@
   depth                 = 1,
   class                 = '',
   anchorClass           = '',
-  onlyActiveOnIndex     = false,
+  exact                 = false,
   activeClass           = 'is-active',
   startDepth            = 1,
   maxDepth              = 999999,
   showInnerOnlyOnActive = false
 ) %}
 
-  {% set itemIsActive = isActive(to, onlyActiveOnIndex) %}
+  {% set itemIsActive = isActive(to, exact) %}
   {% set itemProps    = getPage(crumble(to)).props|format(site.placeholders) %}
 
   {# For cases when you need to have sub navs #}
@@ -46,7 +47,7 @@
         to = to,
         label = label if label else itemProps.navTitle,
         class = anchorClass,
-        onlyActiveOnIndex = onlyActiveOnIndex,
+        exact = exact,
         activeClass = activeClass
       )}}
 

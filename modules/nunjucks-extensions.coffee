@@ -125,23 +125,22 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
 
   ###*
    * Determinate is current path active relatively to current page breadcrumb or no
-   * @param  {string} to                                     Absolute or relative path to page based
-   *                                                         based on `pages.yml`
-   * @param  {bool} onlyActiveOnIndex = false                Set anchor to be active only in case current link's
-   *                                                         and page's breadcrumbs completely matches
-   * @param  {array} pageBreadcrumb   = @ctx.page.breadcrumb Breadcrumb of current page for comparison
+   * @param  {string} to                      Absolute or relative path to page
+   * @param  {bool}  [exact]          = false Return `true` only if path completely matches
+   *                                          current breadcrumb
+   * @param  {array} [pageBreadcrumb] = @ctx.page.breadcrumb
+   *                                          Breadcrumb of current page for comparison
    * @return {bool} Is current path active or no
   ###
-  env.addGlobal 'isActive', (to, onlyActiveOnIndex = false, pageBreadcrumb = @ctx.page.breadcrumb) ->
+  env.addGlobal 'isActive', (to, exact = false, pageBreadcrumb = @ctx.page.breadcrumb) ->
     isAbsolute = if _.startsWith(to, '/') then true else false
 
     linkBreadcrumb = crumble(to)
 
-    # Slice only needed for comparison portion of whole page breadcrumb,
-    # unless `onlyActiveOnIndex` set to `true`
-    correspondingPageBreadcrumb = if onlyActiveOnIndex then pageBreadcrumb else _.take(pageBreadcrumb, linkBreadcrumb.length)
+    # Unless `exact` set to `true`, slice only needed for comparison portion of page breadcrumb,
+    correspondingPageBreadcrumb = if exact then pageBreadcrumb else _.take(pageBreadcrumb, linkBreadcrumb.length)
 
-    # Determine is link currently active. Relative urls will be always considered as non-active
+    # @note Relative urls will be always considered as non-active
     isActive = if _.isEqual(correspondingPageBreadcrumb, linkBreadcrumb) and isAbsolute then true else false
     return isActive
 
