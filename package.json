@@ -149,6 +149,10 @@
       "^.+\\.js?$": "babel-jest",
       "^.+\\.coffee$": "<rootDir>/tests/utils/jest-preprocessor.js"
     },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/jspm_packages/"
+    ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(coffee|js)?$"
   }
 }

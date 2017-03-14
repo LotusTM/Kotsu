@@ -7,6 +7,7 @@
 - [misc] Added logo in readme.
 - [package] Added `snazzy` for prettier `standard` output.
 - [package] Added `jspm_packages` to ignored by `standard` paths.
+- [package] Added `jspm_packages` to ignored by `Jest` paths.
 
 ### Changed
 - [ci] Split monolithic npm `test` script into `test` and `build` steps for more flexibility and separation of concerns.
