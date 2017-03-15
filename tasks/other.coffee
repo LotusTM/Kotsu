@@ -71,6 +71,7 @@ module.exports = () ->
           links: true
           forms: true
           scroll: true
+        watchEvents: ['add', 'change']
         server:
           baseDir: '<%= path.build.root %>'
       files:
