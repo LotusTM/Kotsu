@@ -14,6 +14,7 @@
 - [modules][nj] Renamed `|template()` Nunjucks filter to `|format`. This will unify naming with identical filter in Jinja2.
 - [sass] Updated Ekzo to 2.4.2.
 - [package] Updated dependencies.
+- [package] Moved `grunt-browser-sync`, `grunt-contrib-watch` and `grunt-newer` to development dependencies, since they are needed only during development.
 - [package] Replaced `babel-preset-latest` with `babel-preset-env` configured to run on current Node.
 - [package] Ignored paths which shouldn't be linted by Stylelint directly in npm script command instead of Stylelint config file to make files discovery process faster. See [related issue](https://github.com/stylelint/stylelint/issues/2399) for details.
 - [sass] Moved predefined variables imports after tools imports, to follow Ekzo 2.4.2 guidelines.
