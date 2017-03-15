@@ -24,6 +24,7 @@
 
 ### Fixed
 - [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).
+- [grunt] Fixed Browser Sync not discovering new files without reload. See related [issue](https://github.com/BrowserSync/grunt-browser-sync/issues/106#issuecomment-286878540) for details.
 
 ## 1.5.0
 

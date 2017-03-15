@@ -74,12 +74,12 @@ module.exports = () ->
         watchEvents: ['add', 'change']
         server:
           baseDir: '<%= path.build.root %>'
-      files:
+      bsFiles:
         src: [
-          '<%= path.build.root %>/{,**/}*.js'
-          '<%= path.build.root %>/{,**/}*.css'
-          '<%= path.build.root %>/{,**/}*.html'
-          '<%= path.build.root %>/{,**/}*.{png,jpg,jpeg,gif,svg,ico}'
-          '<%= path.build.root %>/{,**/}*.{xml,txt}'
-          '<%= path.build.root %>/{,**/}*.{eot,ttf,woff}'
+          '<%= path.build.root %>/**/*.js'
+          '<%= path.build.root %>/**/*.css'
+          '<%= path.build.root %>/**/*.html'
+          '<%= path.build.root %>/**/*.{png,jpg,jpeg,gif,svg,ico}'
+          '<%= path.build.root %>/**/*.{xml,txt}'
+          '<%= path.build.root %>/**/*.{eot,ttf,woff}'
         ]
