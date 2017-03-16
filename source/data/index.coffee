@@ -3,15 +3,15 @@
 module.exports = (grunt) ->
   pkg = grunt.file.readJSON 'package.json'
   sitename = grunt.config('env.sitename')
+  buildRoot = grunt.config('path.build.root') + '/'
 
   data =
     path:
-      # Remove `build/` part from path
-      fonts: '<%= grunt.template.process(path.build.fonts).replace(path.build.root + \'/\', \'\') %>'
-      images: '<%= grunt.template.process(path.build.images).replace(path.build.root + \'/\', \'\') %>'
-      scripts: '<%= grunt.template.process(path.build.scripts).replace(path.build.root + \'/\', \'\') %>'
-      styles: '<%= grunt.template.process(path.build.styles).replace(path.build.root + \'/\', \'\') %>'
-      sprites: '<%= grunt.template.process(path.build.sprites).replace(path.build.root + \'/\', \'\') %>'
+      fonts: grunt.config('path.build.fonts').replace(buildRoot, '')
+      images: grunt.config('path.build.images').replace(buildRoot, '')
+      scripts: grunt.config('path.build.scripts').replace(buildRoot, '')
+      styles: grunt.config('path.build.styles').replace(buildRoot, '')
+      sprites: grunt.config('path.build.sprites').replace(buildRoot, '')
       source: '<%= path.source %>'
       build: '<%= path.build %>'
     site:

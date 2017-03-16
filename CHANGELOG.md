@@ -21,6 +21,7 @@
 - [sass] Moved predefined variables imports after tools imports, to follow Ekzo 2.4.2 guidelines.
 - [sass] Improved main file comment headers.
 - [nj][modules] Renamed all occurrences of `onlyActiveOnIndex` argument to `exact`.
+- [data] Replaced tricky template string within `data.path` with plain `grunt.config` and `replace`. It's now much easier to understand, that it actually just strips build root from path.
 
 ### Fixed
 - [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).
