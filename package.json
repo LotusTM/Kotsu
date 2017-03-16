@@ -90,6 +90,7 @@
     "grunt-contrib-watch": "1.0.0",
     "grunt-newer": "1.2.0",
     "jest": "19.0.2",
+    "jest-jspm": "^0.1.2",
     "snazzy": "6.0.0",
     "standard": "10.0.0-beta.0",
     "stylelint": "7.9.0",
@@ -117,8 +118,8 @@
   "scripts": {
     "postinstall": "jspm config registries.github.auth $GITHUB_API_KEY && jspm install",
     "lint": "standard | snazzy && stylelint \"**/*.{css,scss,sass}\" \"!{jspm_packages,build,temp}/**\"",
-    "test": "npm run lint && jest",
-    "test:watch": "jest --watch",
+    "test": "npm run lint && node tests/utils/jest.js",
+    "test:watch": "node tests/utils/jest.js --watch",
     "build": "grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
   },
   "babel": {

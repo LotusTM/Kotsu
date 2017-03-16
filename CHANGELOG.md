@@ -5,6 +5,7 @@
 ### Added
 - [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
 - [misc] Added logo in readme.
+- [tests][oackage] Added ability to test JSPM scripts with Jest thanks to [jest-jspm](https://github.com/yoavniran/jest-jspm). Just import scripts from `source/scripts` in your tests as usual and Jest will properly resolve all JSPM-related imports.
 - [package] Added `snazzy` for prettier `standard` output.
 - [package] Added `jspm_packages` to ignored by `standard` paths.
 - [package] Added `jspm_packages` to ignored by `Jest` paths.
