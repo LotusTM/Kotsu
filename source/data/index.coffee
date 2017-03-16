@@ -1,17 +1,17 @@
 { merge } = require('lodash')
 
-module.exports = (grunt) ->
-  pkg = grunt.file.readJSON 'package.json'
-  sitename = grunt.config('env.sitename')
-  buildRoot = grunt.config('path.build.root') + '/'
+module.exports = ({ config, file: { readJSON } }) ->
+  pkg = readJSON('package.json')
+  sitename = config('env.sitename')
+  buildRoot = config('path.build.root') + '/'
 
   data =
     path:
-      fonts: grunt.config('path.build.fonts').replace(buildRoot, '')
-      images: grunt.config('path.build.images').replace(buildRoot, '')
-      scripts: grunt.config('path.build.scripts').replace(buildRoot, '')
-      styles: grunt.config('path.build.styles').replace(buildRoot, '')
-      sprites: grunt.config('path.build.sprites').replace(buildRoot, '')
+      fonts: config('path.build.fonts').replace(buildRoot, '')
+      images: config('path.build.images').replace(buildRoot, '')
+      scripts: config('path.build.scripts').replace(buildRoot, '')
+      styles: config('path.build.styles').replace(buildRoot, '')
+      sprites: config('path.build.sprites').replace(buildRoot, '')
       source: '<%= path.source %>'
       build: '<%= path.build %>'
     site:
@@ -21,8 +21,8 @@ module.exports = (grunt) ->
       homepage: if sitename then "https://#{sitename}" else pkg.homepage
       twitter: pkg.twitter
       version: pkg.version
-      locales: grunt.config('locales')
-      baseLocale: grunt.config('baseLocale')
+      locales: config('locales')
+      baseLocale: config('baseLocale')
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
     env:
