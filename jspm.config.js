@@ -29,7 +29,7 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
-    "jquery": "npm:jquery@3.1.0"
+    "jquery": "npm:jquery@3.1.1"
   },
   packages: {}
 });
