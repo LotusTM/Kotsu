@@ -22,6 +22,7 @@
 - [sass] Improved main file comment headers.
 - [nj][modules] Renamed all occurrences of `onlyActiveOnIndex` argument to `exact`.
 - [data] Replaced tricky template string within `data.path` with plain `grunt.config` and `replace`. It's now much easier to understand, that it actually just strips build root from path.
+- [data] `package.json` now loaded by ordinary `require` instead of `grunt.file.readJSON`. This is done as an effort to make data cross-environment friendly, so that it can be required and by Grunt, and by JSPM.
 
 ### Fixed
 - [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).

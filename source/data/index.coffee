@@ -1,7 +1,7 @@
 { merge } = require('lodash')
+pkg = require('../../package.json')
 
-module.exports = ({ config, file: { readJSON } }) ->
-  pkg = readJSON('package.json')
+module.exports = ({ config }) ->
   sitename = config('env.sitename')
   buildRoot = config('path.build.root') + '/'
 
