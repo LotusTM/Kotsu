@@ -15,6 +15,7 @@
 - [ci] Split monolithic npm `test` script into `test` and `build` steps for more flexibility and separation of concerns.
 - [modules][nj] Renamed `|template()` Nunjucks filter to `|format`. This will unify naming with identical filter in Jinja2.
 - [sass] Updated Ekzo to 2.4.2.
+- [package] Updated JSPM to `0.17.0-beta.41`. Note, that this might introduce breaking changes due to SystemJS upgrade above `0.20.0`. For instance, named imports from non-ES modules no longer supported. See [SystemJS 0.20.0 release notes](https://github.com/systemjs/systemjs/releases/tag/0.20.0) for details.
 - [package] Updated dependencies.
 - [package] Moved `grunt-browser-sync`, `grunt-contrib-watch` and `grunt-newer` to development dependencies, since they are needed only during development.
 - [package] Replaced `babel-preset-latest` with `babel-preset-env` configured to run on current Node.

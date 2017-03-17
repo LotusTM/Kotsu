@@ -6,7 +6,7 @@ SystemJS.config({
   },
   devConfig: {
     "map": {
-      "plugin-babel": "npm:systemjs-plugin-babel@0.0.13"
+      "plugin-babel": "npm:systemjs-plugin-babel@0.0.21"
     }
   },
   transpiler: "plugin-babel",
@@ -29,7 +29,7 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
-    "jquery": "npm:jquery@3.1.1"
+    "jquery": "npm:jquery@3.2.0"
   },
   packages: {}
 });

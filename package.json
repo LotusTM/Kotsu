@@ -67,7 +67,7 @@
     "grunt-uncss": "0.6.1",
     "grunt-webfont": "1.6.0",
     "jit-grunt": "0.10.0",
-    "jspm": "0.17.0-beta.28",
+    "jspm": "0.17.0-beta.41",
     "lodash": "4.17.4",
     "markdown-it": "8.3.1",
     "moment": "2.17.1",
@@ -104,13 +104,13 @@
     "name": "kotsu",
     "main": "main.js",
     "dependencies": {
-      "jquery": "npm:jquery@^3.1.1"
+      "jquery": "npm:jquery@^3.2.0"
     },
     "devDependencies": {
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.13"
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.21"
     },
     "overrides": {
-      "npm:jquery@3.1.1": {
+      "npm:jquery@3.2.0": {
         "format": "amd"
       }
     }
@@ -156,4 +156,4 @@
     ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(coffee|js)?$"
   }
-}
+}
