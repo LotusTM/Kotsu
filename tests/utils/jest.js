@@ -12,6 +12,6 @@ const argv = process.argv.slice(2)
 // })
 
 // argv.push('--config', JSON.stringify(jestConfig))
-argv.push('--config', pkg.jest)
+argv.push('--config', JSON.stringify(pkg.jest))
 
 run(argv)
