@@ -6,7 +6,13 @@ SystemJS.config({
   },
   devConfig: {
     "map": {
-      "plugin-babel": "npm:systemjs-plugin-babel@0.0.21"
+      "plugin-babel": "npm:systemjs-plugin-babel@0.0.21",
+      "systemjs-plugin-json": "npm:systemjs-plugin-json@0.3.0"
+    }
+  },
+  meta: {
+    "*.json": {
+      "loader": "systemjs-plugin-json"
     }
   },
   transpiler: "plugin-babel",

@@ -5,10 +5,11 @@
 ### Added
 - [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
 - [misc] Added logo in readme.
-- [tests][oackage] Added ability to test JSPM scripts with Jest thanks to [jest-jspm](https://github.com/yoavniran/jest-jspm). Just import scripts from `source/scripts` in your tests as usual and Jest will properly resolve all JSPM-related imports.
+- [tests][package] Added ability to test JSPM scripts with Jest thanks to [jest-jspm](https://github.com/yoavniran/jest-jspm). Just import scripts from `source/scripts` in your tests as usual and Jest will properly resolve all JSPM-related imports.
 - [package] Added `snazzy` for prettier `standard` output.
 - [package] Added `jspm_packages` to ignored by `standard` paths.
 - [package] Added `jspm_packages` to ignored by `Jest` paths.
+- [package] Added JSON loader for JSPM. Now you can use `import data from './yourdata.json'` to import any JSON-file.
 - [grunt] Added `watchEvents` for Browser Sync to watch not only for changes, but also for addition of files, see [2.18.8](https://github.com/BrowserSync/browser-sync/releases/tag/v2.18.8).
 
 ### Changed
