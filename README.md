@@ -1,14 +1,32 @@
 ![Kotsu](https://cloud.githubusercontent.com/assets/4460311/23858130/1da87904-0808-11e7-9748-9f56fb8a55e0.png)
 
-Clean, opinionated foundation for new projects — to boldly go where no man has gone before.
+<header align='center'>
+  <h3>Advanced Web Starter Kit</h3>
+  <p>To boldly go where no man has gone before</p>
+</header>
 
-[![Travis Build Status](https://img.shields.io/travis/LotusTM/Kotsu.svg?label=travis)](https://travis-ci.org/LotusTM/Kotsu)
-[![CircleCI Build Status](https://img.shields.io/circleci/project/LotusTM/Kotsu.svg?label=circle)](https://circleci.com/gh/LotusTM/Kotsu)
-[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/LotusTM/Kotsu.svg?label=appveyor)](https://ci.appveyor.com/project/LotusTM/Kotsu)
-[![Greenkeeper Status](https://badges.greenkeeper.io/LotusTM/Kotsu.svg)](https://greenkeeper.io/)
+---
 
-[![Dependency Status](https://img.shields.io/david/LotusTM/Kotsu.svg)](https://david-dm.org/LotusTM/Kotsu)
-[![DevDependency Status](https://img.shields.io/david/dev/LotusTM/Kotsu.svg)](https://david-dm.org/LotusTM/Kotsu?type=dev)
+<p align='center'>
+  <a href='https://travis-ci.org/LotusTM/Kotsu'>
+    <img src='https://img.shields.io/travis/LotusTM/Kotsu.svg?label=travis' alt='Travis Build Status' />
+  </a>
+  <a href='https://circleci.com/gh/LotusTM/Kotsu'>
+    <img src='https://img.shields.io/circleci/project/LotusTM/Kotsu.svg?label=circle' alt='CircleCI Build Status' />
+  </a>
+  <a href='https://ci.appveyor.com/project/LotusTM/Kotsu'>
+    <img src='https://img.shields.io/appveyor/ci/LotusTM/Kotsu.svg?label=appveyor' alt='AppVeyor Build Status' />
+  </a>
+  <a href='https://greenkeeper.io'>
+    <img src='https://badges.greenkeeper.io/LotusTM/Kotsu.svg' alt='Greenkeeper Status' />
+  </a>
+  <a href='https://david-dm.org/LotusTM/Kotsu'>
+    <img src='https://img.shields.io/david/LotusTM/Kotsu.svg' alt='Dependency Status' />
+  </a>
+  <a href='https://david-dm.org/LotusTM/Kotsu?type=dev'>
+    <img src='https://img.shields.io/david/dev/LotusTM/Kotsu.svg' alt='DevDependency Status' />
+  </a>
+</p>
 
 ## How to use
 
