@@ -1,13 +1,16 @@
 ![Kotsu](https://cloud.githubusercontent.com/assets/4460311/23858130/1da87904-0808-11e7-9748-9f56fb8a55e0.png)
 
-<header align='center'>
+<div align='center'>
   <h3>Advanced Web Starter Kit</h3>
   <p>To boldly go where no man has gone before</p>
-</header>
+</div>
 
 ---
 
 <p align='center'>
+  <a href='https://www.npmjs.com/package/kotsu'>
+    <img src='https://img.shields.io/npm/v/kotsu.svg' alt='Travis Build Status' />
+  </a>
   <a href='https://travis-ci.org/LotusTM/Kotsu'>
     <img src='https://img.shields.io/travis/LotusTM/Kotsu.svg?label=travis' alt='Travis Build Status' />
   </a>
