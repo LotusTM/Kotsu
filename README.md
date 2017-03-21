@@ -9,7 +9,7 @@
 
 <p align='center'>
   <a href='https://www.npmjs.com/package/kotsu'>
-    <img src='https://img.shields.io/npm/v/kotsu.svg' alt='Travis Build Status' />
+    <img src='https://img.shields.io/npm/v/kotsu.svg' alt='NPM version' />
   </a>
   <a href='https://travis-ci.org/LotusTM/Kotsu'>
     <img src='https://img.shields.io/travis/LotusTM/Kotsu.svg?label=travis' alt='Travis Build Status' />
