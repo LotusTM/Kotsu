@@ -5,7 +5,7 @@
  #
  # @return {string} `<script>` tag with Google Analytics code
  #
- # @example {{ components.googleAnalytics(siteId = 'UA-XXXXX-X') }}
+ # @example {{ GoogleAnalytics(siteId = 'UA-XXXXX-X') }}
  #}
 {% macro GoogleAnalytics(siteId) %}
   <script>

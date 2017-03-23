@@ -8,7 +8,7 @@
  # @return {string} Complex html with example
  #
  # @example
- #   {% call components.Example(title = 'External data') -%}
+ #   {% call Example(title = 'External data') -%}
  #   {% raw %}<h4 class='h-h5'>{{ data.example.title }}</h4>{% endraw %}
  #   {% endcall %}
  #}

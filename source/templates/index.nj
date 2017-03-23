@@ -14,6 +14,9 @@ showBreadcrumb:   false
 {% extends '_layouts/_main.nj' %}
 
 {% block main %}
+  {% set nav = 'value' %}
+  test: {{ nav }}
+  test: {{ Nav() }}
 
   <div class='h-flex h-flex--column h-flex-x--center h-flex-y--center h-padding-bottom+ h-height-1/1'>
 

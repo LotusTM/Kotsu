@@ -19,13 +19,13 @@
  # @throws Error on relative `url` property in page Gray Matter
  #
  # @example
- #  {{ components.Link(
+ #  {{ Link(
  #    to = '/examples/',
  #    label = 'Examples',
  #    class = 'your-class'
  #  )}}
  #
- #  {% call components.Link(to = '/example/', class = 'your-class') %}
+ #  {% call Link(to = '/example/', class = 'your-class') %}
  #    <i>icon</i> Label
  #  {% endcall %}
  #}
@@ -49,10 +49,10 @@
 
   {# @todo Add support of relative paths #}
   {% if not isAbsolute %}
-    {{ warn('[components.Link] non absolute `to` not supported yet, but you\'ve used `' + to + '` in `pages.yml` on `' + linkBreadcrumb + '`. This will produce wrong l10n url') }}
+    {{ warn('[Link] non absolute `to` not supported yet, but you\'ve used `' + to + '` in `pages.yml` on `' + linkBreadcrumb + '`. This will produce wrong l10n url') }}
   {% endif %}
   {% if url and not isAbsoluteUrl %}
-    {{ warn('[components.Link] non absolute urls not supported yet, but you\'ve used `' + url + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
+    {{ warn('[Link] non absolute urls not supported yet, but you\'ve used `' + url + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
   {% endif %}
 
   <a href='{{ localeDir if localeDir }}{{ url if url else to }}' class='{{ class }} {{ activeClass if isActive }}' {{ attrs|spread }}>{{ caller() if caller else label }}</a>

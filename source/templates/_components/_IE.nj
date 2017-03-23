@@ -5,7 +5,7 @@
  #
  # @return {string} IE-specific comment with IE-specic style and script
  #
- # @example {{ components.IE() }}
+ # @example {{ IE() }}
  #}
 {% macro IE(version = 'lte IE 9') %}
   <!--[if {{ version }}]>

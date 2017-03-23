@@ -16,10 +16,15 @@
 {{ config('page', page.props) }}
 
 {# Global macros #}
-{% set components = {} %}
-{% for component in expand('/', '_components/{,**/}_*.nj', 'isFile', path.source.templates) %}
-  {% import component as temp with context %}{% set macro = _.assign(components, temp) %}
-{% endfor %}
+{% from '_components/analytics/_GoogleAnalytics.nj' import GoogleAnalytics with context %}
+{% from '_components/analytics/_YandexMetrika.nj' import YandexMetrika with context %}
+{% from '_components/_Breadcrumb.nj' import Breadcrumb with context %}
+{% from '_components/_Example.nj' import Example with context %}
+{% from '_components/_IE.nj' import IE with context %}
+{% from '_components/_Link.nj' import Link with context %}
+{% from '_components/_NavItem.nj' import NavItem with context %}
+{% from '_components/_Nav.nj' import Nav with context %}
+{% from '_components/_OutdatedBrowser.nj' import OutdatedBrowser with context %}
 
 <!doctype html>
 <html class='{{ page.class }} t-base no-js' lang='{{ page.locale }}' {{ 'dir=\'rtl\'' if page.rtl }}>
@@ -81,13 +86,13 @@
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
 
-  {{ components.IE(version = 'lte IE 9') }}
+  {{ IE(version = 'lte IE 9') }}
 
 </head>
 
 <body class='o-panel o-panel--max'>
 
-  {{ components.OutdatedBrowser(version = 'lte IE 9') }}
+  {{ OutdatedBrowser(version = 'lte IE 9') }}
 
   {% block body %}{% endblock %}
 
@@ -96,8 +101,8 @@
 
   <script src='/{{ path.scripts }}/{{ 'main.min.js' if env.production else 'main.js' }}'></script>
 
-  {{ components.GoogleAnalytics(siteId = site.googleAnalyticsId) if site.googleAnalyticsId }}
-  {{ components.YandexMetrika(counterId = site.yandexMetrikaId) if site.yandexMetrikaId }}
+  {{ GoogleAnalytics(siteId = site.googleAnalyticsId) if site.googleAnalyticsId }}
+  {{ YandexMetrika(counterId = site.yandexMetrikaId) if site.yandexMetrikaId }}
 
 </body>
 

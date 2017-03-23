@@ -7,7 +7,7 @@
  #
  # @return {string} IE-specific comment with proposal to update browser
  #
- # @example {{ components.outdatedBrowser('en') }}
+ # @example {{ OutdatedBrowser('en') }}
  #}
 {% macro OutdatedBrowser(version = 'lte IE 9', langcode = page.language) %}
   <!--[if {{ version }}]>

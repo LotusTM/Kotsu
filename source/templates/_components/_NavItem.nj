@@ -43,7 +43,7 @@
 
     <li class='{{ class }} {{ activeClass if itemIsActive }}'>
 
-      {{ components.Link(
+      {{ Link(
         to = to,
         label = label if label else itemProps.navTitle,
         class = anchorClass,

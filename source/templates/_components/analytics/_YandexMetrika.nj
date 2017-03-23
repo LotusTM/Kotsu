@@ -5,7 +5,7 @@
  #
  # @return {string} `<script>` tag with Yandex Metrika code
  #
- # @example {{ components.yandexMetrika(counterId = 'XXXXXX') }}
+ # @example {{ YandexMetrika(counterId = 'XXXXXX') }}
  #}
 {% macro YandexMetrika(counterId) %}
   <script type="text/javascript">

@@ -13,7 +13,7 @@
  #
  # @return {string} Generated nav
  #
- # @example {{ components.Nav() }}
+ # @example {{ Nav() }}
  #}
 {% macro Nav(
   class                 = 'nav nav--spacing',
@@ -27,7 +27,7 @@
 ) %}
   <ul class='{{ class }}'>
 
-    {% macro Item(to, label, depth = 1, exact = exact) %}{% call(depth) components.NavItem(to = to, label = label, depth = depth, class = itemsClass, anchorClass = anchorsClass, exact = exact, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{{ caller(depth) }}{% endcall %}{% endmacro %}
+    {% macro Item(to, label, depth = 1, exact = exact) %}{% call(depth) NavItem(to = to, label = label, depth = depth, class = itemsClass, anchorClass = anchorsClass, exact = exact, activeClass = activeClass, startDepth = startDepth, maxDepth = maxDepth, showInnerOnlyOnActive = showInnerOnlyOnActive) %}{{ caller(depth) }}{% endcall %}{% endmacro %}
 
     {% call(depth) Item('/') %}{% endcall %}
     {% call(depth) Item('/examples') %}{% endcall %}
