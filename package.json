@@ -82,7 +82,7 @@
     "urlify": "0.3.6"
   },
   "devDependencies": {
-    "babel-eslint": "7.2.0",
+    "babel-eslint": "7.2.1",
     "babel-jest": "19.0.0",
     "babel-polyfill": "6.23.0",
     "babel-preset-env": "1.2.2",
