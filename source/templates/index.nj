@@ -14,35 +14,32 @@ showBreadcrumb:   false
 {% extends '_layouts/_main.nj' %}
 
 {% block main %}
-  {% set nav = 'value' %}
-  test: {{ nav }}
-  test: {{ Nav() }}
 
-  <div class='h-flex h-flex--column h-flex-x--center h-flex-y--center h-padding-bottom+ h-height-1/1'>
+<div class='h-flex h-flex--column h-flex-x--center h-flex-y--center h-padding-bottom+ h-height-1/1'>
 
-      <div class='h-margin-bottom+ h-font-weight--semilight'>
+    <div class='h-margin-bottom+ h-font-weight--semilight'>
 
-        <hr>
+      <hr>
 
-        <blockquote class='h-h2'>
-          In darkness, <b class='h-font-weight--semibold'>I shall be light</b><br>
-          In times of doubt, <b class='h-font-weight--semibold'>I shall keep faith</b><br>
-          In throws of iterations, <b class='h-font-weight--semibold'>I shall hone my craft</b><br>
-          In refactoring, <b class='h-font-weight--semibold'>I shall have no mercy</b><br>
-          In the midst of development, <b class='h-font-weight--semibold'>I shall have no fear</b><br>
-          In the face of deployment, <b class='h-font-weight--semibold'>I shall have no remorse</b>
-        </blockquote>
+      <blockquote class='h-h2'>
+        In darkness, <b class='h-font-weight--semibold'>I shall be light</b><br>
+        In times of doubt, <b class='h-font-weight--semibold'>I shall keep faith</b><br>
+        In throws of iterations, <b class='h-font-weight--semibold'>I shall hone my craft</b><br>
+        In refactoring, <b class='h-font-weight--semibold'>I shall have no mercy</b><br>
+        In the midst of development, <b class='h-font-weight--semibold'>I shall have no fear</b><br>
+        In the face of deployment, <b class='h-font-weight--semibold'>I shall have no remorse</b>
+      </blockquote>
 
-        <p class='h-align--right'><i>Inspired by <a href='https://www.youtube.com/watch?v=N_ZgyNoHtjw' target='_blank'>Dawn of War III trailer</a></i></p>
+      <p class='h-align--right'><i>Inspired by <a href='https://www.youtube.com/watch?v=N_ZgyNoHtjw' target='_blank'>Dawn of War III trailer</a></i></p>
 
-        <hr>
+      <hr>
 
-      </div>
+    </div>
 
-      <p>
-        <a class='Btn Btn+ h-h4' href='https://github.com/LotusTM/Kotsu' target='blank'>Kotsu at Github</a>
-      </p>
+    <p>
+      <a class='Btn Btn+ h-h4' href='https://github.com/LotusTM/Kotsu' target='blank'>Kotsu at Github</a>
+    </p>
 
-  </div>
+</div>
 
 {% endblock %}
