@@ -11,6 +11,8 @@ module.exports = () ->
   Compiles Sass with node-sass
   ###
 
+  data = @config.process @config('data')(@config('baseLocale'))
+
   @config 'sass',
     build:
       options:
@@ -24,16 +26,19 @@ module.exports = () ->
            * @param  {array|string} query Query to property in `data.path`, which contains
            *                              needed path, according to https://lodash.com/docs#get
            * @return {string}             Requested path
-           * @example `$images-path: '/' + kotsu-path(images);`
+           * @example $images-path: '/' + kotsu-path(images);
           ###
-          'kotsu-path($query)': (query) =>
-            query = query.getValue()
-            baseLocale = @config('baseLocale')
-            data = @config.process(@config('data')(baseLocale))
-            return castToSass(get(data.path, query))
+          'kotsu-path($query)': (query) => castToSass(get(data.path, query.getValue()))
+
+          ###*
+           * Get current theme color from `data.site.themeColor`, which used for `theme-color` meta
+           * @todo Add proper handling of localized data
+           * @return {string} Requested color as Sass rgba value
+           * @example $primary-color: kotsu-theme-color();
+          ###
           'kotsu-theme-color()': () =>
-            color = onecolor(@config('data')(@config('baseLocale')).site.themeColor)
-            return sass.types.Color(color.red() * 255, color.green() * 255, color.blue() * 255, color.alpha())
+            c = onecolor(data.site.themeColor)
+            return sass.types.Color(c.red() * 255, c.green() * 255, c.blue() * 255, c.alpha())
 
       files: [
         expand: true

@@ -32,6 +32,7 @@
 ### Fixed
 - [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).
 - [grunt] Fixed Browser Sync not discovering new files without reload. See related [issue](https://github.com/BrowserSync/grunt-browser-sync/issues/106#issuecomment-286878540) for details.
+- [grunt][sass] Optimized Sass custom functions ce9dab51ae7460887127d4ac1197125a393479aa.
 
 ## 1.5.0
 
