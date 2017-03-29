@@ -11,7 +11,7 @@
 - [package] Added `jspm_packages` to ignored by `Jest` paths.
 - [package] Added JSON loader for JSPM. Now you can use `import data from './yourdata.json'` to import any JSON-file.
 - [grunt] Added `watchEvents` for Browser Sync to watch not only for changes, but also for addition of files, see [2.18.8](https://github.com/BrowserSync/browser-sync/releases/tag/v2.18.8).
-- [grunt][sass][data] Added support of any valid CSS color (colorname, hex, rgb, rgba or hsl) for `data.site.themeColor` (which will be used for `theme-color` meta and `kotsu-theme-color()` Sass function) thanks to [one-color](https://github.com/One-com/one-color) f50c1a35cf594fe180bdf9f955da6dc62d101e89.
+- [grunt][sass][data] Added support of any valid CSS color (colorname, hex, rgb, rgba or hsl) for `data.site.themeColor` (which will be used for `theme-color` meta and `kotsu-theme-color()` Sass function) thanks to [one-color](https://github.com/One-com/one-color) a07ffec3b00b864fa5eb98e62080a0be7e9e9a47.
 
 ### Changed
 - [ci] Split monolithic npm `test` script into `test` and `build` steps for more flexibility and separation of concerns.
@@ -32,7 +32,7 @@
 ### Fixed
 - [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).
 - [grunt] Fixed Browser Sync not discovering new files without reload. See related [issue](https://github.com/BrowserSync/grunt-browser-sync/issues/106#issuecomment-286878540) for details.
-- [grunt][sass] Optimized Sass custom functions ce9dab51ae7460887127d4ac1197125a393479aa.
+- [grunt][sass] Optimized Sass custom functions b1dc4384ecf953d4a865423ca85a2128b19276b9.
 
 ## 1.5.0
 
