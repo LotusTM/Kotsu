@@ -1,6 +1,7 @@
 sass = require('node-sass')
 { castToSass } = require('node-sass-utils')(sass)
 { get } = require('lodash')
+onecolor = require('onecolor')
 
 module.exports = () ->
 
@@ -31,15 +32,8 @@ module.exports = () ->
             data = @config.process(@config('data')(baseLocale))
             return castToSass(get(data.path, query))
           'kotsu-theme-color()': () =>
-            baseLocale = @config('baseLocale')
-            data = @config.process(@config('data')(baseLocale))
-            color = get(data, 'site.themeColor')
-
-            if color.indexOf('#') == -1
-              return throw new Error('[kotsu-theme-color] value should be a hex color')
-
-            color = color.replace('#', '0xff')
-            return sass.types.Color(parseInt(color, 16))
+            color = onecolor(@config('data')(@config('baseLocale')).site.themeColor)
+            return sass.types.Color(color.red() * 255, color.green() * 255, color.blue() * 255, color.alpha())
 
       files: [
         expand: true

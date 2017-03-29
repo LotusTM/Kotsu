@@ -75,6 +75,7 @@
     "node-sass-utils": "1.1.2",
     "numbro": "1.10.0",
     "nunjucks-markdown": "2.0.1",
+    "onecolor": "3.0.4",
     "smart-plurals": "1.1.0",
     "sprintf-js": "1.0.3",
     "time-grunt": "1.4.0",
@@ -157,4 +158,4 @@
     ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(coffee|js)?$"
   }
-}
+}
