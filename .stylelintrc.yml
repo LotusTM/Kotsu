@@ -93,6 +93,8 @@ rules:
   #       }
   at-rule-empty-line-before: null
 
+  at-rule-semicolon-space-before: 'never'
+
   # @todo Excepts `Hz` and `kHz` units to be `hz` and `khz` which isn't correct.
   unit-case: null
   unit-no-unknown: null
@@ -214,7 +216,6 @@ rules:
   value-keyword-case:
     - lower
     - ignoreKeywords:
-      - currentColor
       # @todo Wrongly checks values of Sass variables too
       - Icon--
       - Sprite--
