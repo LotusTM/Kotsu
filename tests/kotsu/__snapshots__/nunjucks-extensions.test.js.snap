@@ -8,6 +8,22 @@ exports[`Nunjucks global function \`getPage()\` should get from nested Array-bas
 
 exports[`Nunjucks global function \`getPage()\` should get from nested dot-notation path 1`] = `"{\\"url\\":\\"/blog/2015-10-12-example-article\\"}"`;
 
+exports[`Nunjucks global function \`getPage()\` should get from nested url-like path 1`] = `"{\\"url\\":\\"/blog/2015-10-12-example-article\\"}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from nested url-like path with leading and trailing slash 1`] = `"{\\"url\\":\\"/blog/2015-10-12-example-article\\"}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from nested url-like path with leading slash 1`] = `"{\\"url\\":\\"/blog/2015-10-12-example-article\\"}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from nested url-like path with trailing slash 1`] = `"{\\"url\\":\\"/blog/2015-10-12-example-article\\"}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from root 1`] = `"{\\"url\\":\\"/\\"}"`;
+
 exports[`Nunjucks global function \`getPage()\` should get from root Array-based path 1`] = `"{\\"2015-10-12-example-article\\":{\\"props\\":{\\"url\\":\\"/blog/2015-10-12-example-article\\"}}}"`;
 
 exports[`Nunjucks global function \`getPage()\` should get from root string-based path 1`] = `"{\\"2015-10-12-example-article\\":{\\"props\\":{\\"url\\":\\"/blog/2015-10-12-example-article\\"}}}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from root string-based path with leading and trailing slashes 1`] = `"{\\"2015-10-12-example-article\\":{\\"props\\":{\\"url\\":\\"/blog/2015-10-12-example-article\\"}}}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from root string-based path with leading slash 1`] = `"{\\"2015-10-12-example-article\\":{\\"props\\":{\\"url\\":\\"/blog/2015-10-12-example-article\\"}}}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from root string-based path with trailing slash 1`] = `"{\\"2015-10-12-example-article\\":{\\"props\\":{\\"url\\":\\"/blog/2015-10-12-example-article\\"}}}"`;

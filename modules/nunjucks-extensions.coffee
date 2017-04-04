@@ -100,15 +100,20 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
 
   ###*
    * Get properties of page and its childs from specified object.
-   * @param {array}  path                            Path to page inside `data`
-   * @param {bool}   forceRender   = true            Force rendering of output via Nunjucks
-   * @param {object} renderContext = @getVariables() Context with which should be made forced rendering
-   * @param {bool}   logUndefined  = false           Log or no undefined values
-   * @param {object} data = @ctx.site.__matter__     Object with properties of page and its childs
+   * @param {string|string[]}  path                              Path to page inside `data` in form Array of crumbs,
+   *                                                             dot-notation string or url
+   * @param {bool}             [forceRender]   = true            Force rendering of output via Nunjucks
+   * @param {object}           [renderContext] = @getVariables() Context with which should be made forced rendering
+   * @param {bool}             [logUndefined]  = false           Log or no undefined values
+   * @param {object}           [data] = @ctx.site.__matter__     Object with properties of page and its childs
    * @return {object} Properties of the page, including its sub pages
+   * @example
+   *   getPage('blog.post')
+   *   getPage('blog/post')
+   *   getPage(['blog', 'post'])
   ###
   env.addGlobal 'getPage', (path, forceRender = true, renderContext = @getVariables(), logUndefined = false, data = @ctx.site.__matter__) ->
-    result = _.get(data, path)
+    result = _.get(data, path.includes('/') and crumble(path) or path)
 
     if result
       result = if forceRender then render(env, renderContext, result, false, log.error, logUndefined,  @ctx.page.url) else result

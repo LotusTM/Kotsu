@@ -13,6 +13,9 @@ const mockContext = {
   page: { url: 'mockContext' },
   site: {
     __matter__: {
+      'index': {
+        'props': { 'url': '/' }
+      },
       'blog': {
         'props': { 'url': '/blog' },
         '2015-10-12-example-article': {
@@ -37,6 +40,22 @@ describe('Nunjucks global function `getPage()`', () => {
       expect(renderString(`{{ getPage('blog')|dump|safe }}`)).toMatchSnapshot()
     })
 
+    it('root', () => {
+      expect(renderString(`{{ getPage('/').props|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('root string-based path with leading slash', () => {
+      expect(renderString(`{{ getPage('/blog')|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('root string-based path with trailing slash', () => {
+      expect(renderString(`{{ getPage('blog/')|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('root string-based path with leading and trailing slashes', () => {
+      expect(renderString(`{{ getPage('/blog/')|dump|safe }}`)).toMatchSnapshot()
+    })
+
     it('root Array-based path', () => {
       expect(renderString(`{{ getPage(['blog'])|dump|safe }}`)).toMatchSnapshot()
     })
@@ -47,6 +66,22 @@ describe('Nunjucks global function `getPage()`', () => {
 
     it('nested Array-based path', () => {
       expect(renderString(`{{ getPage(['blog', '2015-10-12-example-article']).props|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('nested url-like path', () => {
+      expect(renderString(`{{ getPage('blog/2015-10-12-example-article').props|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('nested url-like path with leading slash', () => {
+      expect(renderString(`{{ getPage('/blog/2015-10-12-example-article').props|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('nested url-like path with trailing slash', () => {
+      expect(renderString(`{{ getPage('blog/2015-10-12-example-article/').props|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('nested url-like path with leading and trailing slash', () => {
+      expect(renderString(`{{ getPage('/blog/2015-10-12-example-article/').props|dump|safe }}`)).toMatchSnapshot()
     })
   })
 

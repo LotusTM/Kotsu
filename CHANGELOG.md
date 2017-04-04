@@ -12,6 +12,7 @@
 - [package] Added JSON loader for JSPM. Now you can use `import data from './yourdata.json'` to import any JSON-file.
 - [grunt] Added `watchEvents` for Browser Sync to watch not only for changes, but also for addition of files, see [2.18.8](https://github.com/BrowserSync/browser-sync/releases/tag/v2.18.8).
 - [grunt][sass][data] Added support of any valid CSS color (colorname, hex, rgb, rgba or hsl) for `data.site.themeColor` (which will be used for `theme-color` meta and `kotsu-theme-color()` Sass function) thanks to [one-color](https://github.com/One-com/one-color).
+- [modules][nj] Added support of url paths to Nunjucks `getPage()` function. Now you can do `getPage('blog/post`) [[#211](https://github.com/LotusTM/Kotsu/issues/211)].
 - [tests] Added `grunt.js` testing util, which allows to get current Grunt config with `grunt` method and force run Grunt specific tasks with `runGrunt` method.
 - [tests] Added tests for Nunjucks `getPage()` global function.
 
