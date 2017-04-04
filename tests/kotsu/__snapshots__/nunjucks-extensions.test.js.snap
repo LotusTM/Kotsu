@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nunjucks global function \`getPage()\` should force-render received data with current context 1`] = `"__globarvar value: testing __globalvar value"`;
+
+exports[`Nunjucks global function \`getPage()\` should force-render received data with current custom functions 1`] = `"Blog url: /blog"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from nested Array-based path 1`] = `"{\\"url\\":\\"/blog/2015-10-12-example-article\\"}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from nested dot-notation path 1`] = `"{\\"url\\":\\"/blog/2015-10-12-example-article\\"}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from root Array-based path 1`] = `"{\\"2015-10-12-example-article\\":{\\"props\\":{\\"url\\":\\"/blog/2015-10-12-example-article\\"}}}"`;
+
+exports[`Nunjucks global function \`getPage()\` should get from root string-based path 1`] = `"{\\"2015-10-12-example-article\\":{\\"props\\":{\\"url\\":\\"/blog/2015-10-12-example-article\\"}}}"`;
