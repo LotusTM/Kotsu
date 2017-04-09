@@ -93,9 +93,8 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
     if typeof value != 'object'
       return
 
-    # prevent leaking when merging Objects or Arrays
-    value = _.cloneDeep(value)
-    value = _.isArray(value) and _.union(value, ctxValue) or _.merge(value, ctxValue)
+    # Shallow cloning prevents leaking when merging
+    value = _.isArray(value) and _.union([], value, ctxValue) or _.merge({}, value, ctxValue)
 
     _.set(@ctx, prop, value)
     return
