@@ -36,6 +36,8 @@
 - [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).
 - [grunt] Fixed Browser Sync not discovering new files without reload. See related [issue](https://github.com/BrowserSync/grunt-browser-sync/issues/106#issuecomment-286878540) for details.
 - [grunt][sass] Optimized Sass custom functions.
+- [modules][nj] Optimized Nunjucks `config()` function. Now it will exit early if nothing can be merged.
+- [modules][nj] Fixed occasional leaks in Nunjucks `config()` function. In some cases merging of external object properties into `page` variable with `config(page, extObject)` caused other properties, like `breadcrumb`, to leak from one template to another.
 
 ## 1.5.0
 

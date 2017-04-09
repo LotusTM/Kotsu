@@ -73,30 +73,32 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * defined on parent, it will extend it, unless `merge` set to false.
    * If no `value` will be provided, it will return value of specified property.
    * Works similar to `grunt.config()`
-   * @param  {string|array} prop   Prop name or path on which should be set `value`
-   * @param  {*}      value        Value to be set on specified `prop`
-   * @param  {bool}   merge = true Should config extend already existing same prop or no
-   * @return {*}                   Value of `prop` if no `value` specified
+   * @param  {string|array} prop           Prop name or path on which should be set `value`
+   * @param  {*}            [value]        Value to be set on specified `prop`
+   * @param  {bool}         [merge] = true Should config extend already existing same prop or no
+   * @return {*}                           Value of `prop` if no `value` specified
   ###
   env.addGlobal 'config', (prop, value, merge = true) ->
-    ctx           = @ctx
-    ctxValue      = _.get(ctx, prop)
-    valueIsArray  = Array.isArray(value)
-    valueIsObject = typeof value == 'object' and value and not valueIsArray
+    ctxValue = _.get(@ctx, prop)
 
-    # Set if `value` provided
-    if value != undefined
+    # Get current contenxt value if no `value` provided
+    if value == undefined
+      return ctxValue
 
-      if not merge or not ctxValue
-        _.set(ctx, prop, value)
-      else
-        value = if valueIsObject then _.merge(value, ctxValue) else if valueIsArray then _.union(value, ctxValue) else ctxValue
-        _.set(ctx, prop, value)
-
+    if not merge or not ctxValue
+      _.set(@ctx, prop, value)
       return
 
-    # Get if no `value` provided
-    else return ctxValue
+    # If this isn't Object, nothing we can do here, exit without changes to context
+    if typeof value != 'object'
+      return
+
+    # prevent leaking when merging Objects or Arrays
+    value = _.cloneDeep(value)
+    value = _.isArray(value) and _.union(value, ctxValue) or _.merge(value, ctxValue)
+
+    _.set(@ctx, prop, value)
+    return
 
   ###*
    * Get properties of page and its childs from specified object.
