@@ -25,6 +25,12 @@ module.exports = ({ config }) ->
       baseLocale: config('baseLocale')
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
+    pageDefaults:
+      class: ''
+      applyWrapper: true
+      showContentTitle: true
+      showBreadcrumb: true
+      showSidebar: false
     env:
       production: '<%= env.production %>'
       staging: '<%= env.staging %>'

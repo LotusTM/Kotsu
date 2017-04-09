@@ -3,16 +3,10 @@
   company: site.name
 }) }}
 
-{# Default configs #}
+{# Load page props #}
 {{ config('page', { breadcrumb : page.props.breadcrumb }) }}
 {{ config('page', getPage(page.breadcrumb).props|format(site.placeholders)) }}
-{{ config('page', {
-  class            : '',
-  applyWrapper     : true,
-  showContentTitle : true,
-  showBreadcrumb   : true,
-  showSidebar      : false
-}) }}
+{{ config('page', pageDefaults) }}
 {{ config('page', page.props) }}
 
 {# Global macros #}

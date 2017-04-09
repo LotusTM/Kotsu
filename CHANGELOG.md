@@ -27,6 +27,7 @@
 - [package] Ignored paths which shouldn't be linted by Stylelint directly in npm script command instead of Stylelint config file to make files discovery process faster. See [related issue](https://github.com/stylelint/stylelint/issues/2399) for details.
 - [sass] Moved predefined variables imports after tools imports, to follow Ekzo 2.4.2 guidelines.
 - [sass] Improved main file comment headers.
+- [nj][data] Move all page defaults from `_base.nj` layout `config()` declaration into data index under `pageDefaults` property. Finally Nunjucks does not declare any values, everything stored in data.
 - [nj][modules] Renamed all occurrences of `onlyActiveOnIndex` argument to `exact`.
 - [nj] Replaced sligtly enigmatic automatic importing of `_components` in `_base.nj` layout with explicit `from ... import ...` declarations. Due to this, there is no longer need to use `components` global variable to store all components, they are imported in root instead. Besides, it gives better control of what should be imported and how should it be named.
 - [data] Replaced tricky template string within `data.path` with plain `grunt.config` and `replace`. It's now much easier to understand, that it actually just strips build root from path.
