@@ -11,6 +11,21 @@ nunjucksExtensions(env, grunt.config('baseLocale'))
 
 const mockContext = {
   page: { url: 'mockContext' },
+  // Used for `config()` tests
+  originalObject: {
+    some: {
+      object: {
+        originalValue: 'some object original value',
+        nestedOriginalValue: {
+          deepOriginalValue: 'deep object original value'
+        }
+      },
+      array: ['original value', 2, 100, ['original deep array']]
+    }
+  },
+  originalArray: ['original value', 2, 100, ['original deep array']],
+  originalValue: 'original value',
+  // Used for `getPage()` tests
   site: {
     __matter__: {
       'index': {
@@ -92,6 +107,93 @@ describe('Nunjucks global function `getPage()`', () => {
 
     it('with current custom functions', () => {
       expect(renderString(`{{ getPage('testFunc').props.func }}`)).toMatchSnapshot()
+    })
+  })
+})
+
+describe('Nunjucks global function `config()`', () => {
+  describe('when value argument not provided', () => {
+    it('should return property value', () => {
+      expect(renderString(`{{ config('originalValue')|dump|safe }}`)).toMatchSnapshot()
+    })
+  })
+
+  // @todo Add leaking variables test from template to template when merging external object
+  describe('when value argument provided', () => {
+    it('should set in context specified value', () => {
+      expect(renderString(`{{ config('test', 'test value') }}{{ test|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should set in context specified value with deep path', () => {
+      expect(renderString(`{{ config('test.some.path', 'test some path value') }}{{ test.some.path|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should set in context specified value with array-based deep path', () => {
+      expect(renderString(`{{ config(['test', 'some', 'path'], 'test array path value') }}{{ test.array.path.value|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should merge context property with specified Object', () => {
+      expect(renderString(`{{ config('originalObject', { test: 'new test value', some: { test2: 'new nested test2 value' } }) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should merge context property with specified Object with deep path', () => {
+      expect(renderString(`{{ config('originalObject.some.object', { test: 'new test value', nestedOriginalValue: { test2: 'new nested test2 value' } }) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should merge context property with specified Object with array-based deep path', () => {
+      expect(renderString(`{{ config(['originalObject', 'some', 'object'], { test: 'new test value', nestedOriginalValue: { test2: 'new nested test2 value' } }) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should merge context property with specified Array', () => {
+      expect(renderString(`{{ config('originalArray', [null, null, null, null, 'new value1', 'new value2', null, 'new value3']) }}{{ originalArray|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should merge context property with specified Array with deep path', () => {
+      expect(renderString(`{{ config('originalObject.some.array', [null, null, null, null, 'new value1', 'new value2', null, 'new value3']) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should merge context property with specified Array with array-based deep path', () => {
+      expect(renderString(`{{ config(['originalObject', 'some', 'array'], [null, null, null, null, 'new value1', 'new value2', null, 'new value3']) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should merge context property with mixed Object and Array values', () => {
+      expect(renderString(`{{ config('originalObject', { test: 'new test value', some: { array: [null, null, null, null, 'new value1', 'new value2', null, 'new value3'] } }) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should not override already existing context value when setting property value', () => {
+      expect(renderString(`{{ config('originalValue', 'newValue') }}{{ originalValue|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should not override already existing context value when setting property value with deep path', () => {
+      expect(renderString(`{{ config('originalObject.some.object.originalValue', 'new value') }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should not override already existing context value when setting property value with array-based deep path', () => {
+      expect(renderString(`{{ config(['originalObject', 'some', 'object', 'originalValue'], 'new value') }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should not override already existing context values when merging Object', () => {
+      expect(renderString(`{{ config('originalObject', { some: { object: { originalValue: 'new value', nestedOriginalValue: { deepOriginalValue: 'deep object new value' } } } }) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should not override already existing context values when merging Object with deep path', () => {
+      expect(renderString(`{{ config('originalObject.some.object', { originalValue: 'new value', nestedOriginalValue: { deepOriginalValue: 'deep object new value' } }) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should not override already existing context values when merging Object with array-based deep path', () => {
+      expect(renderString(`{{ config(['originalObject', 'some', 'object'], { originalValue: 'new value', nestedOriginalValue: { deepOriginalValue: 'deep object new value' } }) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should not override already existing context values when merging Array', () => {
+      expect(renderString(`{{ config('originalArray', ['new value1', 'new value2', 'new value3']) }}{{ originalArray|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should not override already existing context values when merging Array with deep path', () => {
+      expect(renderString(`{{ config('originalObject.some.array', ['new value1', 'new value2', 'new value3']) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
+    })
+
+    it('should not override already existing context values when merging Array with array-based deep path', () => {
+      expect(renderString(`{{ config(['originalObject', 'some', 'array'], ['new value1', 'new value2', 'new value3']) }}{{ originalObject|dump|safe }}`)).toMatchSnapshot()
     })
   })
 })

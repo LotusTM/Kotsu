@@ -15,6 +15,7 @@
 - [modules][nj] Added support of url paths to Nunjucks `getPage()` function. Now you can do `getPage('blog/post`) [[#211](https://github.com/LotusTM/Kotsu/issues/211)].
 - [tests] Added `grunt.js` testing util, which allows to get current Grunt config with `grunt` method and force run Grunt specific tasks with `runGrunt` method.
 - [tests] Added tests for Nunjucks `getPage()` global function.
+- [tests] Added tests for Nunjucks `config()` global function.
 
 ### Changed
 - [ci] Split monolithic npm `test` script into `test` and `build` steps for more flexibility and separation of concerns.
