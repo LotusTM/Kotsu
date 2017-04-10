@@ -47,7 +47,15 @@ const mockContext = {
   }
 }
 
-const renderString = (template) => env.renderString(template, cloneDeep(mockContext))
+const renderString = (template, parse = true) => {
+  const rendered = env.renderString(template, cloneDeep(mockContext))
+
+  if (parse) {
+    return JSON.parse(rendered)
+  }
+
+  return rendered
+}
 
 describe('Nunjucks global function `getPage()`', () => {
   describe('should get from', () => {
@@ -102,11 +110,11 @@ describe('Nunjucks global function `getPage()`', () => {
 
   describe('should force-render received data', () => {
     it('with current context', () => {
-      expect(renderString(`{% set __globalvar = 'testing __globalvar value' %}{{ getPage('testVar').props.var }}`)).toMatchSnapshot()
+      expect(renderString(`{% set __globalvar = 'testing __globalvar value' %}{{ getPage('testVar').props.var }}`, false)).toMatchSnapshot()
     })
 
     it('with current custom functions', () => {
-      expect(renderString(`{{ getPage('testFunc').props.func }}`)).toMatchSnapshot()
+      expect(renderString(`{{ getPage('testFunc').props.func }}`, false)).toMatchSnapshot()
     })
   })
 })
@@ -114,22 +122,22 @@ describe('Nunjucks global function `getPage()`', () => {
 describe('Nunjucks global function `config()`', () => {
   describe('when value argument not provided', () => {
     it('should return property value', () => {
-      expect(renderString(`{{ config('originalValue')|dump|safe }}`)).toMatchSnapshot()
+      expect(renderString(`{{ config('originalValue') }}`, false)).toMatchSnapshot()
     })
   })
 
   // @todo Add leaking variables test from template to template when merging external object
   describe('when value argument provided', () => {
     it('should set in context specified value', () => {
-      expect(renderString(`{{ config('test', 'test value') }}{{ test|dump|safe }}`)).toMatchSnapshot()
+      expect(renderString(`{{ config('test', 'test value') }}{{ test }}`, false)).toMatchSnapshot()
     })
 
     it('should set in context specified value with deep path', () => {
-      expect(renderString(`{{ config('test.some.path', 'test some path value') }}{{ test.some.path|dump|safe }}`)).toMatchSnapshot()
+      expect(renderString(`{{ config('test.some.path', 'test some path value') }}{{ test.some.path }}`, false)).toMatchSnapshot()
     })
 
     it('should set in context specified value with array-based deep path', () => {
-      expect(renderString(`{{ config(['test', 'some', 'path'], 'test array path value') }}{{ test.array.path.value|dump|safe }}`)).toMatchSnapshot()
+      expect(renderString(`{{ config(['test', 'some', 'path'], 'test array path value') }}{{ test.some.path }}`, false)).toMatchSnapshot()
     })
 
     it('should merge context property with specified Object', () => {
