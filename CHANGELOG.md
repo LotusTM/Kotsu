@@ -16,6 +16,8 @@
 - [tests] Added `grunt.js` testing util, which allows to get current Grunt config with `grunt` method and force run Grunt specific tasks with `runGrunt` method.
 - [tests] Added tests for Nunjucks `getPage()` global function.
 - [tests] Added tests for Nunjucks `config()` global function.
+- [nj] Added `Host` directive to `robots.txt`
+- [nj] Added `Clean-Param` directive to `robots.txt` (Yandex specific)
 
 ### Changed
 - [ci] Split monolithic npm `test` script into `test` and `build` steps for more flexibility and separation of concerns.
