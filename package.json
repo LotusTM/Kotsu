@@ -93,7 +93,7 @@
     "jest": "19.0.2",
     "jest-jspm": "^0.1.2",
     "snazzy": "6.0.0",
-    "standard": "10.0.1",
+    "standard": "10.0.2",
     "stylelint": "7.10.0",
     "stylelint-config-standard": "16.0.0",
     "stylelint-scss": "1.4.3"
