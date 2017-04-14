@@ -5,3 +5,8 @@ Sitemap: {{ site.homepage }}/sitemap.xml
 # Allow crawling of all content
 User-agent: *
 Disallow: {{ '/' if env.staging }}
+# Yandex specific directives
+Clean-param: yclid
+Clean-param: frommarket
+Clean-param: _openstat
+Clean-param: utm_source&utm_medium&utm_campaign
