@@ -33,6 +33,7 @@
 - [nj] Replaced sligtly enigmatic automatic importing of `_components` in `_base.nj` layout with explicit `from ... import ...` declarations. Due to this, there is no longer need to use `components` global variable to store all components, they are imported in root instead. Besides, it gives better control of what should be imported and how should it be named.
 - [data] Replaced tricky template string within `data.path` with plain `grunt.config` and `replace`. It's now much easier to understand, that it actually just strips build root from path.
 - [data] `package.json` now loaded by ordinary `require` instead of `grunt.file.readJSON`. This is done as an effort to make data cross-environment friendly, so that it can be required and by Grunt, and by JSPM.
+- [conf] Explicitly set `insert_final_newline` in editorconfig to `true` for `.js` files, due to standard requirements.
 
 ### Fixed
 - [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).
