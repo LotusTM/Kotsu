@@ -231,7 +231,7 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @return {string} Urlified string
   ###
   env.addFilter 'urlify', (string, options = {}) ->
-    ulrlify(string, options)
+    urlify(string, options)
 
   ###*
    * Spread object in form of string with formed attributes pairs. Think of React's `<div {...props}></div>` for Nunjucks

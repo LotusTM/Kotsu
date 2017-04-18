@@ -45,6 +45,7 @@
 - [grunt][sass] Optimized Sass custom functions.
 - [modules][nj] Optimized Nunjucks `config()` function. Now it will exit early if nothing can be merged.
 - [modules][nj] Fixed occasional leaks in Nunjucks `config()` function. In some cases merging of external object properties into `page` variable with `config(page, extObject)` caused other properties, like `breadcrumb`, to leak from one template to another.
+- [modules] Fixed terrible typo in `urlify` Nunjucks function.
 
 ## 1.5.0
 
