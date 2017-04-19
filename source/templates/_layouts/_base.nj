@@ -42,7 +42,7 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic'>
 
   <!-- CSS -->
-  <link rel='stylesheet' href='/{{ path.styles }}/{{ 'style.min.css' if env.production else 'style.prefixed.css' }}'>
+  <link rel='stylesheet' href='/{{ path.styles }}/{{ 'style.min.css' if env.build else 'style.prefixed.css' }}'>
 
   <!-- Theme -->
   <meta name='theme-color' content='{{ page.themeColor if page.themeColor else site.themeColor }}'>
@@ -93,7 +93,7 @@
   <!-- Scripts -->
   <!-- ======= -->
 
-  <script src='/{{ path.scripts }}/{{ 'main.min.js' if env.production else 'main.js' }}'></script>
+  <script src='/{{ path.scripts }}/{{ 'main.min.js' if env.build else 'main.js' }}'></script>
 
   {{ GoogleAnalytics(siteId = site.googleAnalyticsId) if site.googleAnalyticsId }}
   {{ YandexMetrika(counterId = site.yandexMetrikaId) if site.yandexMetrikaId }}

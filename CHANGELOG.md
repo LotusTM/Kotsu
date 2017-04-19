@@ -11,6 +11,8 @@
 - [package] Added `jspm_packages` to ignored by `Jest` paths.
 - [package] Added JSON loader for JSPM. Now you can use `import data from './yourdata.json'` to import any JSON-file.
 - [grunt] Added `watchEvents` for Browser Sync to watch not only for changes, but also for addition of files, see [2.18.8](https://github.com/BrowserSync/browser-sync/releases/tag/v2.18.8).
+- [grunt] Added new variable `env.build`, which set to true if has been run `grunt build` command. Checking against this variable inside templates or tasks allows to change output depending on whether it is regular `grunt` build, or optimized `grunt build` [#218](https://github.com/LotusTM/Kotsu/issues/218).
+- [grunt] Added support of `--production` flag, which sets `env.production` to true [#218](https://github.com/LotusTM/Kotsu/issues/218).
 - [grunt][sass][data] Added support of any valid CSS color (colorname, hex, rgb, rgba or hsl) for `data.site.themeColor` (which will be used for `theme-color` meta and `kotsu-theme-color()` Sass function) thanks to [one-color](https://github.com/One-com/one-color).
 - [modules][nj] Added support of url paths to Nunjucks `getPage()` function. Now you can do `getPage('blog/post`) [[#211](https://github.com/LotusTM/Kotsu/issues/211)].
 - [tests] Added `grunt.js` testing util, which allows to get current Grunt config with `grunt` method and force run Grunt specific tasks with `runGrunt` method.
@@ -25,6 +27,8 @@
 - [ci] Move `gm` install directory to root on `appveyor`
 - [modules][nj] Renamed `|template()` Nunjucks filter to `|format`. This will unify naming with identical filter in Jinja2.
 - [sass] Updated Ekzo to 2.4.2.
+- [grunt] `env.production` is no longer set to `true` when has been run `grunt build` command. Now it should be triggered explicitly with `--production` flag or `process.env.PRODUCTION` set to `true` [#218](https://github.com/LotusTM/Kotsu/issues/218).
+- [grunt][nj] All uses of `env.production` to differ output for `grunt` and `grunt build` have been replaced with more relevant `env.build` [#218](https://github.com/LotusTM/Kotsu/issues/218).
 - [package] Updated JSPM to `0.17.0-beta.41`. Note, that this might introduce breaking changes due to SystemJS upgrade above `0.20.0`. For instance, named imports from non-ES modules no longer supported. See [SystemJS 0.20.0 release notes](https://github.com/systemjs/systemjs/releases/tag/0.20.0) for details.
 - [package] Updated dependencies.
 - [package] Moved `grunt-browser-sync`, `grunt-contrib-watch` and `grunt-newer` to development dependencies, since they are needed only during development.

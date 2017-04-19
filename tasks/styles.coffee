@@ -66,10 +66,10 @@ module.exports = () ->
         cwd: '<%= path.build.styles %>'
         src: '{,**/}*.compiled.css'
         dest: '<%= path.build.styles %>'
-        # In production we have to name this file as final stylesheet would be named,
-        # because due to production mode this is what will be stated in HTML pages
+        # In build we have to name this file as final stylesheet would be named,
+        # because due to build mode this is what will be stated in HTML pages
         # and for what will look `uncss` task
-        ext: if @config('env.production') then '.min.css' else '.prefixed.css'
+        ext: if @config('env.build') then '.min.css' else '.prefixed.css'
       ]
 
   ###
