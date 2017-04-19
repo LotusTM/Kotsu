@@ -16,8 +16,8 @@ module.exports = (grunt) ->
     # Specify environment variables
     env:
       sitename: process.env.SITENAME
-      production: process.env.PRODUCTION or grunt.option('production')
-      staging: process.env.STAGING or grunt.option('staging')
+      production: process.env.PRODUCTION == 'true' or grunt.option('production')
+      staging: process.env.STAGING == 'true' or grunt.option('staging')
       build: grunt.cli.tasks.includes('build')
       tinypng:
         api:
