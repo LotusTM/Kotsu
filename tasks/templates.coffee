@@ -83,7 +83,7 @@ module.exports = ({ config, file: { readJSON } }) ->
   @config.merge
     watch:
       templates:
-        files: ['<%= path.source.templates %>/{,**/}*.nj', '!<%= path.source.templates %>{,**/}_*.nj']
+        files: ['<%= path.source.templates %>/{,**/}*.nj', '!<%= path.source.templates %>/{,**/}_*.nj']
         tasks: ['grayMatter', 'newer:nunjucks']
       templatesPartials:
         files: ['<%= path.source.templates %>/{,**/}_*.nj']
