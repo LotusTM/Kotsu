@@ -118,6 +118,7 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
 
     if result
       result = if forceRender then render(env, renderContext, result, false, log.error, logUndefined,  @ctx.page.url) else result
+      result = Object.assign({}, result)
       Object.defineProperty result, 'props', enumerable: false
       return result
     else

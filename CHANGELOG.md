@@ -50,6 +50,7 @@
 - [grunt] Fixed not working `process.env.PRODUCTION` and `process.env.STAGING` checks.
 - [grunt] Fixed not working exclusion for watch of `_*.nj` files. Now in case of `_*.nj` change watch won't trigger both `templates` and `templatesPartials` tasks, but only `templatesPartials`.
 - [modules][nj] Optimized Nunjucks `config()` function. Now it will exit early if nothing can be merged.
+- [modules][nj] Fixed occasional leaks in Nunjucks `getPage()` function.
 - [modules][nj] Fixed occasional leaks in Nunjucks `config()` function. In some cases merging of external object properties into `page` variable with `config(page, extObject)` caused other properties, like `breadcrumb`, to leak from one template to another.
 - [modules] Fixed terrible typo in `urlify` Nunjucks function.
 
