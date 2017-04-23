@@ -2,6 +2,9 @@
 
 ## HEAD
 
+### Removed
+- [modules][nj] Removed `data` parameter from `getPage()` Nunjucks function, so it is no longer possible to specify custom data. Instead, `getPage()` now tightly coupled to site Matter data.
+
 ### Added
 - [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
 - [misc] Added logo in readme.
@@ -14,6 +17,7 @@
 - [grunt] Added new variable `env.build`, which set to true if has been run `grunt build` command. Checking against this variable inside templates or tasks allows to change output depending on whether it is regular `grunt` build, or optimized `grunt build` [#218](https://github.com/LotusTM/Kotsu/issues/218).
 - [grunt] Added support of `--production` flag, which sets `env.production` to true [#218](https://github.com/LotusTM/Kotsu/issues/218).
 - [grunt][sass][data] Added support of any valid CSS color (colorname, hex, rgb, rgba or hsl) for `data.site.themeColor` (which will be used for `theme-color` meta and `kotsu-theme-color()` Sass function) thanks to [one-color](https://github.com/One-com/one-color).
+- [modules][nj] Added new parameter `cached` for Nunjucks `getPage()` function, which by default set to `true`. It controls whether function should use already cached rendered data, or make new render pass.
 - [modules][nj] Added support of url paths to Nunjucks `getPage()` function. Now you can do `getPage('blog/post`) [[#211](https://github.com/LotusTM/Kotsu/issues/211)].
 - [tests] Added `grunt.js` testing util, which allows to get current Grunt config with `grunt` method and force run Grunt specific tasks with `runGrunt` method.
 - [tests] Added tests for Nunjucks `getPage()` global function.
@@ -25,6 +29,7 @@
 - [ci] Split monolithic npm `test` script into `test` and `build` steps for more flexibility and separation of concerns.
 - [ci] Switch to `lotustm/nginx` docker image since it's based on `alpine` by default now
 - [ci] Move `gm` install directory to root on `appveyor`
+- [modules][nj] By default `getPage()` Nunjucks function now will cache rendered data and skip any further renders by using cached data, unless `cached` set to `false`. This will drastically improve performance on sites with large amount of pages.
 - [modules][nj] Renamed `|template()` Nunjucks filter to `|format`. This will unify naming with identical filter in Jinja2.
 - [sass] Updated Ekzo to 2.4.2.
 - [grunt] `env.production` is no longer set to `true` when has been run `grunt build` command. Now it should be triggered explicitly with `--production` flag or `process.env.PRODUCTION` set to `true` [#218](https://github.com/LotusTM/Kotsu/issues/218).
