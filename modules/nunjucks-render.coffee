@@ -1,30 +1,37 @@
 ###*
- * Force rendering of input via Nunjucks
- * @param  {object}              env                  Configurated Nunjucks environment
- * @param  {object}              context              Context in which should be rendered input
- * @param  {string|object|array} input                Input to be forcefully rendered via Nunjucks
- * @param  {bool}                isCaller     = false Is input result of Nunjucks macro's `caller()` or no.
- *                                                    In callers values stored in specific property
- * @param  {func}                logger = console.log Type of logger for errors to use. For example, `grunt.log.error`
- * @param  {bool}                logUndefined = false Log or no if input is undefined, otherwise they are silently skipped
- * @param  {string}              logSrc               Path or filepath to instance, which triggered error
+ * Render input with Nunjucks
+ * @param  {object}              env                    Nunjucks environment to render with
+ * @param  {object}              context                Nunjucks context
+ * @param  {string|object|array} input                  Input to be rendered with Nunjucks
+ * @param  {boolean}             [isCaller = false]     Is input result of Nunjucks macro's `caller()` or no.
+ * @param  {func}                [logger = console.log] Logger for errors
+ * @param  {boolean}             [logUndefined = false] Should log if input is undefined
+ * @param  {string}              [logSrc]               Path to instance, which triggered error
  * @return {string|object|array} Rendered input
- * @example render(env, { testVar: 'var value' }, '{{ testVar }}') -> 'var value'
- * @example render(env, { testVar: 'var value' }, { ojb: { inner: '{{ testVar }}' } }) -> { ojb: { inner: 'var value' } }
+ * @example
+ *   render(env, { testVar: 'var value' }, '{{ testVar }}') -> 'var value'
+ *   render(env, { testVar: 'var value' }, { ojb: { inner: '{{ testVar }}' } }) -> { ojb: { inner: 'var value' } }
 ###
 module.exports = (env, context, input, isCaller = false, logger = console.log, logUndefined = false, logSrc) ->
   input = if isCaller then input.val else input
+  isObject = typeof input == 'object'
+  hasTemplates = (target, second) => target.includes('{{') or target.includes('{%')
+  render = (tmpl) => env.renderString(tmpl, context)
 
-  if input == undefined
+  if typeof input == 'undefined'
     if logUndefined then logger('[render] input value is undefined ', '[' + logSrc + ']')
     return
 
-  isObject = typeof input == 'object'
-  input = if isObject then JSON.stringify(input) else input
+  if not isObject
+    return if not hasTemplates(input) then input else render(input)
+
+  stringifiedInput = JSON.stringify(input)
+
+  if not hasTemplates(stringifiedInput)
+    return input
+
   # Remove escaping of wrapping string litrals quotes inside Nunjucks templates, otherwise they won't be recognized by Nunjucks
   # @example ={{ fn("Text \" quote\") }} -> {{ fn(\"Text \\\" quote\") }} -> {{ fn("Text \\\" quote") }} -> "Text \" quote"
-  input = input.replace(/(?={{)*([^\\])(\\")(?=.*}})/g, '$1"').replace(/(^|["])\={{/g, '$1{{')
+  stringifiedInput = stringifiedInput.replace(/(?={{)*([^\\])(\\")(?=.*}})/g, '$1"').replace(/(^|["])\={{/g, '$1{{')
 
-  result = env.renderString(input, context)
-
-  return if isObject then JSON.parse(result) else result
+  return JSON.parse(render(stringifiedInput))
