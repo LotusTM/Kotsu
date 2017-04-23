@@ -7,6 +7,8 @@
 
 ### Added
 - [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
+- [modules][nj] Added new parameter `cached` for Nunjucks `getPage()` function, which by default set to `true`. It controls whether function should use already cached rendered data, or make new render pass.
+- [modules][nj] Added support of url paths to Nunjucks `getPage()` function. Now you can do `getPage('blog/post`) [[#211](https://github.com/LotusTM/Kotsu/issues/211)].
 - [misc] Added logo in readme.
 - [tests][package] Added ability to test JSPM scripts with Jest thanks to [jest-jspm](https://github.com/yoavniran/jest-jspm). Just import scripts from `source/scripts` in your tests as usual and Jest will properly resolve all JSPM-related imports.
 - [package] Added `snazzy` for prettier `standard` output.
@@ -17,13 +19,11 @@
 - [grunt] Added new variable `env.build`, which set to true if has been run `grunt build` command. Checking against this variable inside templates or tasks allows to change output depending on whether it is regular `grunt` build, or optimized `grunt build` [#218](https://github.com/LotusTM/Kotsu/issues/218).
 - [grunt] Added support of `--production` flag, which sets `env.production` to true [#218](https://github.com/LotusTM/Kotsu/issues/218).
 - [grunt][sass][data] Added support of any valid CSS color (colorname, hex, rgb, rgba or hsl) for `data.site.themeColor` (which will be used for `theme-color` meta and `kotsu-theme-color()` Sass function) thanks to [one-color](https://github.com/One-com/one-color).
-- [modules][nj] Added new parameter `cached` for Nunjucks `getPage()` function, which by default set to `true`. It controls whether function should use already cached rendered data, or make new render pass.
-- [modules][nj] Added support of url paths to Nunjucks `getPage()` function. Now you can do `getPage('blog/post`) [[#211](https://github.com/LotusTM/Kotsu/issues/211)].
 - [tests] Added `grunt.js` testing util, which allows to get current Grunt config with `grunt` method and force run Grunt specific tasks with `runGrunt` method.
 - [tests] Added tests for Nunjucks `getPage()` global function.
 - [tests] Added tests for Nunjucks `config()` global function.
-- [nj] Added `Host` directive to `robots.txt`
-- [nj] Added `Clean-Param` directive to `robots.txt` (Yandex specific)
+- [conf][nj] Added `Host` directive to `robots.txt`
+- [conf][nj] Added `Clean-Param` directive to `robots.txt` (Yandex specific)
 
 ### Changed
 - [ci] Split monolithic npm `test` script into `test` and `build` steps for more flexibility and separation of concerns.
