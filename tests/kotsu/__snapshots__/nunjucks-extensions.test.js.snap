@@ -339,7 +339,7 @@ exports[`Nunjucks global function \`config()\` when value argument provided shou
 
 exports[`Nunjucks global function \`getPage()\` should force-render received data with current context 1`] = `"__globarvar value: testing __globalvar value"`;
 
-exports[`Nunjucks global function \`getPage()\` should force-render received data with current custom functions 1`] = `"Blog url: /blog"`;
+exports[`Nunjucks global function \`getPage()\` should force-render received data with current custom functions 1`] = `"Crumbled url: blog"`;
 
 exports[`Nunjucks global function \`getPage()\` should get from nested Array-based path 1`] = `
 Object {

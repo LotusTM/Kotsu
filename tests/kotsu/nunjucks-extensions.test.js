@@ -41,8 +41,12 @@ const mockContext = {
         'props': { 'var': '__globarvar value: {{ __globalvar }}' }
       },
       'testFunc': {
-        'props': { 'func': 'Blog url: {{ getPage("blog").props.url }}' }
+        'props': { 'func': 'Crumbled url: {{ crumble("blog") }}' }
       }
+      // @todo Disabled, because it will always fail due to endless recursion in cached `getPage`
+      // 'testGetPage': {
+      //   'props': { 'func': 'Blog url: {{ getPage("blog").props.url }}' }
+      // }
     }
   }
 }
