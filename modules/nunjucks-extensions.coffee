@@ -106,19 +106,18 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @param {boolean}          [forceRender = true]    Render output with Nunjucks
    * @param {boolean}          [cached = true]         Use cached rendered version if available
    * @param {object}           [ctx = @getVariables()] Nunjucks context for forced rendering
-   * @param {boolean}          [logUndefined = false]  Log or no undefined values
    * @return {object} Properties of the page, including its sub pages
    * @example
    *   getPage('blog.post')
    *   getPage('blog/post')
    *   getPage(['blog', 'post'])
   ###
-  env.addGlobal 'getPage', (path, forceRender = true, cached = true, ctx = @getVariables(), logUndefined = false) ->
+  env.addGlobal 'getPage', (path, forceRender = true, cached = true, ctx = @getVariables()) ->
     path = path.includes('/') and crumble(path) or path
     data = @ctx.site.__matter__
     cachedData = () => @ctx.site.__matterCache__
     setDataCache = (value) => @ctx.site.__matterCache__ = value
-    renderData = (tmpl) => render(env, ctx, tmpl, false, log.error, logUndefined, @ctx.page.url)
+    renderData = (tmpl) => render(env, ctx, tmpl)
 
     # Render whole Matter data and store it as cache after first `forceRender` request
     if not cachedData() and forceRender
@@ -217,8 +216,8 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * Force rendering of input via Nunjucks. Refer to `nunjucks-render` module for docs
    * @todo Related issue https://github.com/mozilla/nunjucks/issues/783
   ###
-  env.addFilter 'render', (input, isCaller = false, logUndefined = false) ->
-    render(env, @getVariables(), input, isCaller, log.error, logUndefined, @ctx.page.url)
+  env.addFilter 'render', (input, isCaller = false) ->
+    render(env, @getVariables(), input, isCaller)
 
   ###*
    * Replace placeholders with provided values. Refer to `sprintf` module for docs

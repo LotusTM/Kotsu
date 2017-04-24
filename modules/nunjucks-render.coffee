@@ -4,22 +4,18 @@
  * @param  {object}              context                Nunjucks context
  * @param  {string|object|array} input                  Input to be rendered with Nunjucks
  * @param  {boolean}             [isCaller = false]     Is input result of Nunjucks macro's `caller()` or no.
- * @param  {func}                [logger = console.log] Logger for errors
- * @param  {boolean}             [logUndefined = false] Should log if input is undefined
- * @param  {string}              [logSrc]               Path to instance, which triggered error
  * @return {string|object|array} Rendered input
  * @example
  *   render(env, { testVar: 'var value' }, '{{ testVar }}') -> 'var value'
  *   render(env, { testVar: 'var value' }, { ojb: { inner: '{{ testVar }}' } }) -> { ojb: { inner: 'var value' } }
 ###
-module.exports = (env, context, input, isCaller = false, logger = console.log, logUndefined = false, logSrc) ->
+module.exports = (env, context, input, isCaller = false) ->
   input = if isCaller then input.val else input
   isObject = typeof input == 'object'
   hasTemplates = (target, second) => target.includes('{{') or target.includes('{%')
   render = (tmpl) => env.renderString(tmpl, context)
 
   if typeof input == 'undefined'
-    if logUndefined then logger('[render] input value is undefined ', '[' + logSrc + ']')
     return
 
   if not isObject

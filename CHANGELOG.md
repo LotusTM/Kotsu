@@ -4,6 +4,8 @@
 
 ### Removed
 - [modules][nj] Removed `data` parameter from `getPage()` Nunjucks function, so it is no longer possible to specify custom data. Instead, `getPage()` now tightly coupled to site Matter data.
+- [modules][nj] Removed `logUndefined`, `logger` and `logSrc` parameters from `nunjucks-render`. It wasn't very useful. If someone needs to log passed into `nunjucks-render` `undefined`, it's easier to write temporary check inside template.
+- [modules][nj] Removed `logUndefined` parameter from `getPage()` Nunjucks function. It was used to log `undefined` in case something `undefined` goes into `nunjucks-render` function.
 
 ### Added
 - [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
