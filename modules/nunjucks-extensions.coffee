@@ -101,14 +101,20 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
 
   ###*
    * Get properties of page and its childs from site Matter data
-   * @param {string|array}  path                    Path to page inside site Matter data
-   * @param {bool}          [forceRender = true]    Force rendering of output via Nunjucks
-   * @param {bool}          [cached = true]         Use cached rendered version if available
-   * @param {object}        [ctx = @getVariables()] Nunjucks context for forced rendering
-   * @param {bool}          [logUndefined = false]  Log or no undefined values
+   * @param {string|string[]}  path                    Path to page inside site Matter data.
+   *                                                   Array of crumbs, dot-notation string or url.
+   * @param {boolean}          [forceRender = true]    Render output with Nunjucks
+   * @param {boolean}          [cached = true]         Use cached rendered version if available
+   * @param {object}           [ctx = @getVariables()] Nunjucks context for forced rendering
+   * @param {boolean}          [logUndefined = false]  Log or no undefined values
    * @return {object} Properties of the page, including its sub pages
+   * @example
+   *   getPage('blog.post')
+   *   getPage('blog/post')
+   *   getPage(['blog', 'post'])
   ###
   env.addGlobal 'getPage', (path, forceRender = true, cached = true, ctx = @getVariables(), logUndefined = false) ->
+    path = path.includes('/') and crumble(path) or path
     data = @ctx.site.__matter__
     cachedData = () => @ctx.site.__matterCache__
     setDataCache = (value) => @ctx.site.__matterCache__ = value
