@@ -93,7 +93,19 @@
   <!-- Scripts -->
   <!-- ======= -->
 
-  <script src='/{{ path.scripts }}/{{ 'main.min.js' if env.build else 'main.js' }}'></script>
+  {% if env.build %}
+  <script src='/{{ path.scripts }}/main.min.js'></script>
+  {% else %}
+  <script src="/jspm_packages/system.js"></script>
+  <script src="/jspm.config.js"></script>
+
+  <script>
+    SystemJS.import('systemjs-hot-reloader').then((connect) => {
+      connect()
+      SystemJS.import('main.js')
+    })
+  </script>
+  {% endif %}
 
   {{ GoogleAnalytics(siteId = site.googleAnalyticsId) if site.googleAnalyticsId }}
   {{ YandexMetrika(counterId = site.yandexMetrikaId) if site.yandexMetrikaId }}

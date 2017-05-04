@@ -17,6 +17,7 @@
 - [package] Added `jspm_packages` to ignored by `standard` paths.
 - [package] Added `jspm_packages` to ignored by `Jest` paths.
 - [package] Added JSON loader for JSPM. Now you can use `import data from './yourdata.json'` to import any JSON-file.
+- [package][grunt] Added [hot reloading](https://github.com/alexisvincent/systemjs-hot-reloader/) for frontend JavaScript.
 - [grunt] Added `watchEvents` for Browser Sync to watch not only for changes, but also for addition of files, see [2.18.8](https://github.com/BrowserSync/browser-sync/releases/tag/v2.18.8).
 - [grunt] Added new variable `env.build`, which set to true if has been run `grunt build` command. Checking against this variable inside templates or tasks allows to change output depending on whether it is regular `grunt` build, or optimized `grunt build` [#218](https://github.com/LotusTM/Kotsu/issues/218).
 - [grunt] Added support of `--production` flag, which sets `env.production` to true [#218](https://github.com/LotusTM/Kotsu/issues/218).
@@ -52,6 +53,8 @@
 
 ### Fixed
 - [package] Fixed Stylelint not ignoring some default paths (like `node_modules`).
+- [package] Fixed missing `babel-polyfill` JSPM dependency.
+- [package] Fixed missing wrong meta for `systemjs-plugin-json` which resulted in endless load in some rare cases.
 - [grunt] Fixed Browser Sync not discovering new files without reload. See related [issue](https://github.com/BrowserSync/grunt-browser-sync/issues/106#issuecomment-286878540) for details.
 - [grunt][sass] Optimized Sass custom functions.
 - [grunt] Fixed not working `process.env.PRODUCTION` and `process.env.STAGING` checks.

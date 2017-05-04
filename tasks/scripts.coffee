@@ -43,15 +43,3 @@ module.exports = () ->
             '!{,**/}*.min.js'
           ]
         ]
-
-  ###
-  Watch
-  https://github.com/gruntjs/grunt-contrib-watch
-  Watches scss, js etc for changes and compiles them
-  ###
-
-  @config.merge
-    watch:
-      scripts:
-        files: ['<%= path.source.scripts %>/{,**/}*.js']
-        tasks: ['shell:jspm_build']

@@ -74,9 +74,16 @@ module.exports = () ->
         watchEvents: ['add', 'change']
         server:
           baseDir: '<%= path.build.root %>'
+          routes:
+            '/jspm_packages': 'jspm_packages'
+            '/jspm.config.js': 'jspm.config.js'
+            # @note this route should match JSPM `baseURL`
+            #       see https://github.com/LotusTM/Kotsu/issues/230
+            #           https://github.com/alexisvincent/systemjs-hot-reloader/issues/141
+            '/source/scripts': 'source/scripts'
       bsFiles:
         src: [
-          '<%= path.build.root %>/**/*.js'
+          # @note For JS files changes watches `chockidar-socket-emitter` and emits directly to `systemjs-hot-reloader`
           '<%= path.build.root %>/**/*.css'
           '<%= path.build.root %>/**/*.html'
           '<%= path.build.root %>/**/*.{png,jpg,jpeg,gif,svg,ico}'
