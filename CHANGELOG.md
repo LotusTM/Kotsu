@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.6.0
 
 ### Removed
 - [modules][nj] Removed `data` parameter from `getPage()` Nunjucks function, so it is no longer possible to specify custom data. Instead, `getPage()` now tightly coupled to site Matter data.
