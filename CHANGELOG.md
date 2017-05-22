@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Fixed
+- [nj] Fixed occasional double quotes.
+
 ## 1.6.0
 
 ### Removed
