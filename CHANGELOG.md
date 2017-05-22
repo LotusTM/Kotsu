@@ -2,6 +2,9 @@
 
 ## HEAD
 
+### Changed
+- [package] Updated dependencies
+
 ### Fixed
 - [nj] Fixed occasional double quotes.
 
