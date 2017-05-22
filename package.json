@@ -51,7 +51,7 @@
     "grunt-cache-bust": "1.5.1",
     "grunt-contrib-clean": "1.1.0",
     "grunt-contrib-copy": "1.0.0",
-    "grunt-contrib-htmlmin": "2.3.0",
+    "grunt-contrib-htmlmin": "2.4.0",
     "grunt-contrib-uglify": "2.3.0",
     "grunt-csso": "2.2.0",
     "grunt-gray-matter": "1.2.0",
