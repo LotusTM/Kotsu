@@ -2,8 +2,14 @@
 
 ## HEAD
 
+### Added
+- [package] Added `browserslist` to `package.json` with preset browsers. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
+
 ### Changed
 - [package] Updated dependencies
+
+### Removed
+- [grunt] PostCSS Autoprefixer's browser query removed in favor of new `browserslist` property in `package.json.`. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 
 ### Fixed
 - [nj] Fixed occasional double quotes.

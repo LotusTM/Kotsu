@@ -58,7 +58,7 @@ module.exports = () ->
     autoprefix:
       options:
         processors: [
-          require('autoprefixer') browsers: [ '> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1' ]
+          require('autoprefixer')
         ]
         map: true
       files: [
