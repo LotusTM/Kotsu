@@ -1,10 +1,9 @@
 # www.robotstxt.org/
-Host: {{ site.homepage }}
-Sitemap: {{ site.homepage }}/sitemap.xml
 
-# Allow crawling of all content
 User-agent: *
 Disallow: {{ '/' if env.staging }}
+Host: {{ site.homepage }}
+Sitemap: {{ site.homepage }}/sitemap.xml
 # Yandex specific directives
 Clean-param: yclid
 Clean-param: frommarket

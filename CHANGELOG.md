@@ -7,6 +7,7 @@
 
 ### Changed
 - [package] Updated dependencies
+- [nj] Moved `Host` and `Sitemap` directives in `robots.txt` under the `User-agent` directive, in accordance with [guidelines](https://yandex.com/support/webmaster/controlling-robot/robots-txt.xml).
 
 ### Removed
 - [grunt] PostCSS Autoprefixer's browser queries removed in favor of new `browserslist` property in `package.json.`, so that queries could be used by other related tools. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
