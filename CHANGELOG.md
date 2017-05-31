@@ -6,7 +6,8 @@
 - [package] Added `browserslist` to `package.json` with preseted browsers queries. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 
 ### Changed
-- [package] Updated dependencies
+- [package] Updated dependencies.
+- [ci] switched CI to latest node LTS release (v8.0.0).
 - [nj] Moved `Host` and `Sitemap` directives in `robots.txt` under the `User-agent` directive, in accordance with [guidelines](https://yandex.com/support/webmaster/controlling-robot/robots-txt.xml).
 
 ### Removed

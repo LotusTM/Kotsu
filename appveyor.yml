@@ -2,8 +2,8 @@ version: "{build}"
 
 environment:
   matrix:
+    - NODE_VERSION: 8
     - NODE_VERSION: 7
-    - NODE_VERSION: 6
 
 cache:
   - node_modules -> package.json
