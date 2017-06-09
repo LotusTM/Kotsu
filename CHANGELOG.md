@@ -3,6 +3,7 @@
 ## HEAD
 
 ### Added
+- [package] Added `package-lock.json` for Node 8+.
 - [package] Added `browserslist` to `package.json` with preseted browsers queries. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 
 ### Changed
