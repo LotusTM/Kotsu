@@ -13,6 +13,7 @@
 
 ### Removed
 - [grunt] PostCSS Autoprefixer's browser queries removed in favor of new `browserslist` property in `package.json.`, so that queries could be used by other related tools. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
+- [grunt] Removed `grunt-cache-bust` option `algorithm: md5`, since it's default value anyway.
 
 ### Fixed
 - [nj] Fixed occasional double quotes.
