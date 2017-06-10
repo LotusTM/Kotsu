@@ -5,6 +5,7 @@
 ### Added
 - [package] Added `package-lock.json` for Node 8+.
 - [package] Added `browserslist` to `package.json` with preseted browsers queries. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
+- [grunt] Added cache busting for images (`jpg`, `jpeg`, `gif`, `png`, `svg`) with query string. This won't affect final name of image, but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
 
 ### Changed
 - [package] Updated dependencies.

@@ -28,9 +28,15 @@ module.exports = () ->
           baseDir: '<%= path.build.root %>'
           assets: ['{,**/}*.{css,js}']
         files: [
-          src: [
-            '<%= path.build.root %>/{,**/}*.{html,css,js}'
-          ]
+          src: ['<%= path.build.root %>/{,**/}*.{html,css,js}']
+        ]
+      images:
+        options:
+          queryString: true
+          baseDir: '<%= path.build.root %>'
+          assets: ['{,**/}*.{jpg,jpeg,gif,png,svg}']
+        files: [
+          src: ['<%= path.build.root %>/{,**/}*.{html,css,js}']
         ]
 
   ###
