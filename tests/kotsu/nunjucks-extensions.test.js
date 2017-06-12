@@ -209,3 +209,49 @@ describe('Nunjucks global function `config()`', () => {
     })
   })
 })
+
+describe('Nunjucks filter `render()`', () => {
+  it('should render template', () => {
+    expect(renderString(`{{ '{{ 1 + 3 + 5 }} with content'|render() }} and outer content`, false)).toMatchSnapshot()
+  })
+
+  it('should render current context variable', () => {
+    expect(renderString(`
+      {% set __globalVar = 'testing __globalVar value' %}
+
+      {{ '{{ __globalVar }} with content'|render() }} and outer content
+    `, false)).toMatchSnapshot()
+  })
+
+  it('should render current context macro', () => {
+    expect(renderString(`
+      {% macro __MacroTest(value) %}
+      <article>Value: {{ value }}</article>
+      {% endmacro %}
+
+      {{ "{{ __MacroTest('This is macro value') }} with content"|render()|safe }} and outer content
+    `, false)).toMatchSnapshot()
+  })
+
+  it('should render current context macro\'s inner', () => {
+    expect(renderString(`
+      {% macro __MacroInnerTest(value) %}
+      <article>{{ 1 + 2 + 5 }} and value: {{ value }}</article>
+      {% endmacro %}
+
+      {{ __MacroInnerTest('This is macro value')|render() }} and outer content
+    `, false)).toMatchSnapshot()
+  })
+
+  it('should render current context macro\'s caller', () => {
+    expect(renderString(`
+      {% macro __MacroCallerTest() %}
+      <article>Caller value: {{ caller()|render(true)|safe }}</article>
+      {% endmacro %}
+
+      {% call __MacroCallerTest() -%}
+      {% raw %}<p>{{ 1 + 2 + 3 }} {{ 'This is caller value' }}</p>{% endraw %}
+      {% endcall %}
+    `, false)).toMatchSnapshot()
+  })
+})
