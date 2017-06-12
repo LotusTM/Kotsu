@@ -6,6 +6,7 @@
 - [package] Added `package-lock.json` for Node 8+.
 - [package] Added `browserslist` to `package.json` with preseted browsers queries. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 - [grunt] Added cache busting for images (`jpg`, `jpeg`, `gif`, `png`, `svg`) with query string. This won't affect final name of image, but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
+- [grunt] Added tiny debouncing delay for Browser Sync. It will prevent huge amount of reloads when a lot of files changing in a row (for instance, after all Nunjucks templates recompilation).
 
 ### Changed
 - [package] Updated dependencies.

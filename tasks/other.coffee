@@ -77,6 +77,7 @@ module.exports = () ->
           forms: true
           scroll: true
         watchEvents: ['add', 'change']
+        reloadDebounce: 100
         server:
           baseDir: '<%= path.build.root %>'
           routes:
