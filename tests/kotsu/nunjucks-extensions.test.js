@@ -239,14 +239,14 @@ describe('Nunjucks filter `render()`', () => {
       <article>{{ 1 + 2 + 5 }} and value: {{ value }}</article>
       {% endmacro %}
 
-      {{ __MacroInnerTest('This is macro value')|render() }} and outer content
+      {{ __MacroInnerTest('This is macro value')|render()|safe }} and outer content
     `, false)).toMatchSnapshot()
   })
 
   it('should render current context macro\'s caller', () => {
     expect(renderString(`
       {% macro __MacroCallerTest() %}
-      <article>Caller value: {{ caller()|render(true)|safe }}</article>
+      <article>Caller value: {{ caller()|render()|safe }}</article>
       {% endmacro %}
 
       {% call __MacroCallerTest() -%}

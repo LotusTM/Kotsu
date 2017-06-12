@@ -3,14 +3,14 @@
  * @param  {object}              env                    Nunjucks environment to render with
  * @param  {object}              context                Nunjucks context
  * @param  {string|object|array} input                  Input to be rendered with Nunjucks
- * @param  {boolean}             [isCaller = false]     Is input result of Nunjucks macro's `caller()` or no.
  * @return {string|object|array} Rendered input
  * @example
  *   render(env, { testVar: 'var value' }, '{{ testVar }}') -> 'var value'
  *   render(env, { testVar: 'var value' }, { ojb: { inner: '{{ testVar }}' } }) -> { ojb: { inner: 'var value' } }
 ###
-module.exports = (env, context, input, isCaller = false) ->
-  input = if isCaller then input.val else input
+module.exports = (env, context, input) ->
+  # For cases when recevied String Object instead of primitive from Nunjucks macro
+  input = input.valueOf()
   isObject = typeof input == 'object'
   hasTemplates = (target, second) => target.includes('{{') or target.includes('{%')
   render = (tmpl) => env.renderString(tmpl, context)

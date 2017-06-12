@@ -216,8 +216,8 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * Force rendering of input via Nunjucks. Refer to `nunjucks-render` module for docs
    * @todo Related issue https://github.com/mozilla/nunjucks/issues/783
   ###
-  env.addFilter 'render', (input, isCaller = false) ->
-    render(env, @getVariables(), input, isCaller)
+  env.addFilter 'render', (input) ->
+    render(env, @getVariables(), input)
 
   ###*
    * Replace placeholders with provided values. Refer to `sprintf` module for docs
