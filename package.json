@@ -67,7 +67,7 @@
     "grunt-uncss": "0.6.1",
     "grunt-webfont": "1.6.0",
     "jit-grunt": "0.10.0",
-    "jspm": "0.17.0-beta.41",
+    "jspm": "0.17.0-beta.42",
     "lodash": "4.17.4",
     "markdown-it": "8.3.1",
     "moment": "2.18.1",
