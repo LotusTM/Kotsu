@@ -13,6 +13,7 @@ module.exports = ({ config, file: { readJSON } }) ->
   # common options
   options =
     autoescape: false
+    noCache: false
     paths: config('path.source.templates')
     data: config('data')
     matter: () => readJSON(config('file.temp.data.matter'))
