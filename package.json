@@ -136,7 +136,8 @@
     "lint": "standard | snazzy && stylelint \"**/*.{css,scss,sass}\" \"!{jspm_packages,build,temp}/**\"",
     "test": "npm run lint && node tests/utils/jest.js",
     "test:watch": "node tests/utils/jest.js --watch",
-    "build": "grunt build && git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
+    "build": "grunt build",
+    "postbuild": "git status | grep -E 'working (tree|directory) clean' >/dev/null || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
   },
   "browserslist": [
     "> 1%",
