@@ -128,7 +128,7 @@
   },
   "scripts": {
     "postinstall": "jspm config registries.github.auth $GITHUB_API_KEY && jspm install",
-    "start": "run-p grunt js:chokidar",
+    "start": "run-p \"grunt -- {@}\" js:chokidar --",
     "serve": "run-p grunt:serve js:chokidar",
     "grunt": "grunt",
     "grunt:serve": "grunt serve",
