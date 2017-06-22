@@ -72,5 +72,9 @@ module.exports = () ->
         files: ['<%= path.source.images %>/{,**/}*']
         tasks: [
           'newer:copy:images'
-          'newer:responsive_images:thumbnails'
+          # @todo It would be preferable to use `newer:` here, but it wont work.
+          #       See https://github.com/andismith/grunt-responsive-images/issues/57
+          #       See https://github.com/LotusTM/Kotsu/issues/251
+          #       Disabled, since without newer it would be painful to resize all images on each change
+          # 'newer:responsive_images:thumbnails'
         ]
