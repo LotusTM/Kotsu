@@ -6,6 +6,7 @@
 - [package] Added `package-lock.json` for Node 8+.
 - [package] Added `browserslist` to `package.json` with preseted browsers queries. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 - [package][grunt] Added ability to pass command line argument from `npm start` and `npm run build` to `grunt`. For instance, this can be useful to build website in production mode with `npm start -- --production`
+- [grunt] Added [`grunt-responsive-images-extender`](https://github.com/stephanmax/grunt-responsive-images-extender) task which automatically expands images `src` with `srcset` when there are same images available with different images sizes and prefixed with `@`. This will significantly reduces images-related payload on small devices. Note, that task doesn't watch for images changes. It will run only once during `npm start` and as part of `npm run build`, since it's more production-related optimization.
 - [grunt] Added cache busting for images (`jpg`, `jpeg`, `gif`, `png`, `svg`) with query string. This won't affect final name of image, but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
 - [grunt] Added tiny debouncing delay for Browser Sync. It will prevent huge amount of reloads when a lot of files changing in a row (for instance, after all Nunjucks templates recompilation).
 - [test] Added tests for Nunjucks `render()` filter.

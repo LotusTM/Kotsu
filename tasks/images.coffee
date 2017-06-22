@@ -40,6 +40,28 @@ module.exports = () ->
       ]
 
   ###
+  grunt-responsive-images-extender
+  https://github.com/stephanmax/grunt-responsive-images-extender
+  Extend HTML image tags with srcset and sizes attributes to leverage native responsive images.
+  ###
+
+  @config 'responsive_images_extender',
+    build:
+      options:
+        separator: '@'
+        baseDir: '<%= path.build.root %>'
+        ignore: [
+          'img[src*="http"]'
+          'img[src*="ftp"]'
+        ]
+      files: [
+        expand: true
+        cwd: '<%= path.build.root %>'
+        src: '{,**/}*.html'
+        dest: '<%= path.build.root %>'
+      ]
+
+  ###
   Tiny PNG
   https://github.com/marrone/grunt-tinypng
   Image optimization via tinypng service

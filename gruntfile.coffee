@@ -114,6 +114,7 @@ module.exports = (grunt) ->
     'sass'
     'postcss:autoprefix'
     'responsive_images:thumbnails'
+    'responsive_images_extender'
     'browserSync'
     'watch'
   ]
@@ -134,8 +135,9 @@ module.exports = (grunt) ->
     'csso'
     'shell:jspm_build'
     'uglify'
-    'htmlmin'
     'responsive_images:thumbnails'
+    'responsive_images_extender'
+    'htmlmin'
     'tinypng'
     'clean:styles'
     'clean:scripts'
