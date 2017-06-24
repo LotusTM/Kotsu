@@ -51,23 +51,23 @@
   <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml'> #}
 
   <!-- Facebook Open Graph -->
-  <meta property='og:type'        content='website'>
-  <meta property='og:site_name'   content='{{ site.name }}'>
-  <meta property='og:locale'      content='{{ page.isoLocale }}'>
-  <meta property='og:url'         content='{{ site.homepage }}{{ localeDir() }}{{ page.url }}'>
-  <meta property='og:title'       content='{{ page.title if page.title else site.name }}'>
-  <meta property='og:description' content='{{ page.metaDesc if page.metaDesc else site.desc }}'>
-  <meta property='og:image'       content='{{ site.homepage }}/{{ path.images }}/facebook.png'>
+  <meta property='og:type'        content='{{ page.og.type or 'website' }}'>
+  <meta property='og:site_name'   content='{{ page.og.site_name or site.name }}'>
+  <meta property='og:locale'      content='{{ page.og.locale or page.isoLocale }}'>
+  <meta property='og:url'         content='{{ page.og.url or site.homepage + localeDir() + page.url }}'>
+  <meta property='og:title'       content='{{ page.og.title or page.title or site.name }}'>
+  <meta property='og:description' content='{{ page.og.description or page.metaDesc or site.desc }}'>
+  <meta property='og:image'       content='{{ page.og.image or site.homepage + '/' + path.images + '/facebook.png' }}'>
 
   <!-- Twitter Card -->
-  <meta name='twitter:card'        content='summary'>
-  <meta name='twitter:site'        content='{{ site.twitter }}'>
-  <meta name='twitter:creator'     content='{{ site.twitter }}'>
-  <meta name='twitter:url'         content='{{ site.homepage }}{{ localeDir() }}{{ page.url }}'>
-  <meta name='twitter:title'       content='{{ page.title if page.title else site.name }}'>
-  <meta name='twitter:description' content='{{ page.metaDesc if page.metaDesc else site.desc }}'>
-  <meta name='twitter:image'       content='{{ site.homepage }}/{{ path.images }}/twitter.png'>
-  <meta name='twitter:image:alt'   content='{{ page.title if page.title else site.name }}'>
+  <meta name='twitter:card'        content='{{ page.twitter.card or 'summary' }}'>
+  <meta name='twitter:site'        content='{{ page.twitter.site or site.twitter }}'>
+  <meta name='twitter:creator'     content='{{ page.twitter.creator or site.twitter }}'>
+  <meta name='twitter:url'         content='{{ page.twitter.url or site.homepage + localeDir() + page.url }}'>
+  <meta name='twitter:title'       content='{{ page.twitter.title or page.title or site.name }}'>
+  <meta name='twitter:description' content='{{ page.twitter.description or page.metaDesc or site.desc }}'>
+  <meta name='twitter:image'       content='{{ page.twitter.image or site.homepage + '/' + path.images + '/twitter.png' }}'>
+  <meta name='twitter:image:alt'   content='{{ page.twitter['image:alt'] or page.title or site.name }}'>
 
   <!-- Alternate urls -->
   {% for locale, props in site.locales %}
