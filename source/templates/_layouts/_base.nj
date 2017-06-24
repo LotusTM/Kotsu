@@ -57,7 +57,7 @@
   <meta property='og:url'         content='{{ page.og.url or site.homepage + localeDir() + page.url }}'>
   <meta property='og:title'       content='{{ page.og.title or page.title or site.name }}'>
   <meta property='og:description' content='{{ page.og.description or page.description or site.desc }}'>
-  <meta property='og:image'       content='{{ fullurl(page.og.image or path.images + '/facebook.png') }}'>
+  <meta property='og:image'       content='{{ fullurl(page.og.image or page.image or path.images + '/facebook.png') }}'>
 
   <!-- Twitter Card -->
   <meta name='twitter:card'        content='{{ page.twitter.card or 'summary' }}'>
@@ -66,7 +66,7 @@
   <meta name='twitter:url'         content='{{ page.twitter.url or site.homepage + localeDir() + page.url }}'>
   <meta name='twitter:title'       content='{{ page.twitter.title or page.title or site.name }}'>
   <meta name='twitter:description' content='{{ page.twitter.description or page.description or site.desc }}'>
-  <meta name='twitter:image'       content='{{ fullurl(page.twitter.image or path.images + '/twitter.png') }}'>
+  <meta name='twitter:image'       content='{{ fullurl(page.twitter.image or page.image or path.images + '/twitter.png') }}'>
   <meta name='twitter:image:alt'   content='{{ page.twitter['image:alt'] or page.title or site.name }}'>
 
   <!-- Alternate urls -->

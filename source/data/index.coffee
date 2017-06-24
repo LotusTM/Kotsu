@@ -26,6 +26,7 @@ module.exports = ({ config }) ->
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
     pageDefaults:
+      image: ''
       class: ''
       bodyClass: ''
       applyWrapper: true
