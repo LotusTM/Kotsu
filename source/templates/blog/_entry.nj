@@ -1,7 +1,10 @@
 {% extends '_layouts/_main.nj' %}
 
 {{ config('page', {
-  class : 'p-blog-post'
+  class : 'p-blog-post',
+  og: {
+    type: 'article'
+  }
 }) }}
 
 {% block main %}

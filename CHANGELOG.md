@@ -64,6 +64,7 @@
 
 ### Fixed
 - [nj] Fixed occasional double quotes.
+- [nj] Thanks to related to [#219](https://github.com/LotusTM/Kotsu/issues/219) changes, blog posts finally using proper Open Graph type of `article`. Solves [#59](https://github.com/LotusTM/Kotsu/issues/59).
 
 ## 1.6.0
 
