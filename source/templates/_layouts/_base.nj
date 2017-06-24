@@ -33,7 +33,7 @@
   <title>{{ page.title if page.title else site.name }}</title>
 
   <!-- Description -->
-  <meta name='description' content='{{ page.metaDesc }}'>
+  <meta name='description' content='{{ page.description }}'>
 
   <!-- Mobile devices -->
   <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -56,7 +56,7 @@
   <meta property='og:locale'      content='{{ page.og.locale or page.isoLocale }}'>
   <meta property='og:url'         content='{{ page.og.url or site.homepage + localeDir() + page.url }}'>
   <meta property='og:title'       content='{{ page.og.title or page.title or site.name }}'>
-  <meta property='og:description' content='{{ page.og.description or page.metaDesc or site.desc }}'>
+  <meta property='og:description' content='{{ page.og.description or page.description or site.desc }}'>
   <meta property='og:image'       content='{{ page.og.image or site.homepage + '/' + path.images + '/facebook.png' }}'>
 
   <!-- Twitter Card -->
@@ -65,7 +65,7 @@
   <meta name='twitter:creator'     content='{{ page.twitter.creator or site.twitter }}'>
   <meta name='twitter:url'         content='{{ page.twitter.url or site.homepage + localeDir() + page.url }}'>
   <meta name='twitter:title'       content='{{ page.twitter.title or page.title or site.name }}'>
-  <meta name='twitter:description' content='{{ page.twitter.description or page.metaDesc or site.desc }}'>
+  <meta name='twitter:description' content='{{ page.twitter.description or page.description or site.desc }}'>
   <meta name='twitter:image'       content='{{ page.twitter.image or site.homepage + '/' + path.images + '/twitter.png' }}'>
   <meta name='twitter:image:alt'   content='{{ page.twitter['image:alt'] or page.title or site.name }}'>
 
