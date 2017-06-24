@@ -27,6 +27,7 @@ module.exports = ({ config }) ->
       yandexMetrikaId: false # 'XXXXXX'
     pageDefaults:
       class: ''
+      bodyClass: ''
       applyWrapper: true
       showContentTitle: true
       showBreadcrumb: true
