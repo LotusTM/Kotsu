@@ -27,7 +27,7 @@ class:           p-blog
       {{ post.props.author }}
     </p>
 
-    <p>{{ post.props.shortDesc }}</p>
+    <p>{{ post.props.excerpt }}</p>
 
     <p>
       <a class='Btn h-text- g-link--go' href='{{ localeDir() }}{{ post.props.url }}'>Read more</a>
