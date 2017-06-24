@@ -71,9 +71,9 @@
 
   <!-- Alternate urls -->
   {% for locale, props in site.locales %}
-  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ site.homepage }}{{ localeDir(props.locale) }}{{ page.url }}'>
+  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ site.homepage + localeDir(props.locale) + page.url }}'>
   {% if props.defaultForLanguage %}
-  <link rel='alternate' hreflang='{{ props.locale|langcode }}' href='{{ site.homepage }}{{ localeDir(props.locale) }}{{ page.url }}'>
+  <link rel='alternate' hreflang='{{ props.locale|langcode }}' href='{{ site.homepage + localeDir(props.locale) + page.url }}'>
   {% endif %}
   {% endfor %}
 
