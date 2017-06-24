@@ -96,15 +96,18 @@
   {% if env.build %}
   <script src='/{{ path.scripts }}/main.min.js'></script>
   {% else %}
+  {% if env.hotModuleRloading %}
   <script src='/jspm_packages/system.js'></script>
   <script src='/jspm.config.js'></script>
-
   <script>
     SystemJS.import('systemjs-hot-reloader').then((connect) => {
       connect()
       SystemJS.import('main.js')
     })
   </script>
+  {% else %}
+  <script src='/{{ path.scripts }}/main.js'></script>
+  {% endif %}
   {% endif %}
 
   {{ GoogleAnalytics(siteId = site.googleAnalyticsId) if site.googleAnalyticsId }}

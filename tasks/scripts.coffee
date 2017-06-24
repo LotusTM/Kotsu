@@ -9,6 +9,8 @@ module.exports = () ->
   @config 'shell',
     jspm_build:
       command: 'jspm build <%= file.source.script %> <%= file.build.script.compiled %> --minify'
+    jspm_watch:
+      command: 'jspm build <%= file.source.script %> <%= file.build.script.compiled %> -wid'
 
   ###
   Uglify

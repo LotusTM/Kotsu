@@ -19,6 +19,7 @@ module.exports = (grunt) ->
       production: process.env.PRODUCTION == 'true' or grunt.option('production')
       staging: process.env.STAGING == 'true' or grunt.option('staging')
       build: grunt.cli.tasks.includes('build')
+      hotModuleRloading: grunt.option('hmr')
       tinypng:
         api:
           key: process.env.TINYPNG_API_KEY

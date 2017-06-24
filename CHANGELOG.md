@@ -6,6 +6,14 @@
 - [package] Added `package-lock.json` for Node 8+.
 - [package] Added `browserslist` to `package.json` with preseted browsers queries. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 - [package][grunt] Added ability to pass command line argument from `npm start` and `npm run build` to `grunt`. For instance, this can be useful to build website in production mode with `npm start -- --production`
+- [package][grunt][nj][data] Added ability to run Kotsu optionally with regular watch or hot reloading, on demand.
+
+   As turned out, hot reloading doesn't work that well for non-SPA applications. But we thought, why would we force devs to chooses only certain approach?
+
+   So, now devs can choose between launching fast JSPM [watch](http://jspm.io/0.17-beta-guide/development-bundling.html) with `npm start`, or use [hot module reloading](https://github.com/alexisvincent/systemjs-hot-reloader/) with `npm run start-hmr`.
+
+   That easy!
+
 - [grunt] Added [`grunt-responsive-images-extender`](https://github.com/stephanmax/grunt-responsive-images-extender) task which automatically expands images `src` with `srcset` when there are same images available with different images sizes and prefixed with `@`. This will significantly reduces images-related payload on small devices. Note, that task doesn't watch for images changes. It will run only once during `npm start` and as part of `npm run build`, since it's more production-related optimization.
 - [grunt] Added cache busting for images (`jpg`, `jpeg`, `gif`, `png`, `svg`) with query string. This won't affect final name of image, but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
 - [grunt] Added tiny debouncing delay for Browser Sync. It will prevent huge amount of reloads when a lot of files changing in a row (for instance, after all Nunjucks templates recompilation).
@@ -13,6 +21,7 @@
 
 ### Changed
 - [package] Updated dependencies.
+- [package] `npm start` will now run regular JSPM watch instead of hot reloading. For hot reloading use `npm run start-hmr` command.
 - [package] Changed `npm-run-all --parallel` to shortcut `run-p`.
 - [package] Moved check of clean workint tree with Git after `grunt build` into standalone `postbuild` script, which will automatically execute after `npm run build`. This will also allow to pass any options to grunt with `npm run build -- --myOption`.
 - [ci] switched CI to latest node LTS release (v8.0.0).

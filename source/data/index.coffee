@@ -35,6 +35,7 @@ module.exports = ({ config }) ->
       production: '<%= env.production %>'
       staging: '<%= env.staging %>'
       build: '<%= env.build %>'
+      hotModuleRloading: '<%= env.hotModuleRloading %>'
     data:
       currentYear: new Date().getFullYear()
 

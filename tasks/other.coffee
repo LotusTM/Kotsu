@@ -89,7 +89,8 @@ module.exports = () ->
             '/source/scripts': 'source/scripts'
       bsFiles:
         src: [
-          # @note For JS files changes watches `chockidar-socket-emitter` and emits directly to `systemjs-hot-reloader`
+          # @note In hot reloading mode for JS files changes watches `chockidar-socket-emitter` and emits directly to `systemjs-hot-reloader`
+          do () => if not @config('env.hotModuleRloading') then '<%= path.build.root %>/**/*.js'
           '<%= path.build.root %>/**/*.css'
           '<%= path.build.root %>/**/*.html'
           '<%= path.build.root %>/**/*.{png,jpg,jpeg,gif,svg,ico}'
