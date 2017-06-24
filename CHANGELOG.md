@@ -44,6 +44,8 @@
 
    If not provided, meta properties will fallback to page or site generic values, as before.
 
+   Related to [#219](https://github.com/LotusTM/Kotsu/issues/219). Solves [#175](https://github.com/LotusTM/Kotsu/issues/175).
+
 - [test] Added tests for Nunjucks `render()` filter.
 
 ### Changed
