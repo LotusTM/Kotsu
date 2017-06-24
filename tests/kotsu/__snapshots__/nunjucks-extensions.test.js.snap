@@ -378,6 +378,32 @@ exports[`Nunjucks global function \`config()\` when value argument provided shou
 
 exports[`Nunjucks global function \`config()\` when value argument provided should set in context specified value with deep path 1`] = `"test some path value"`;
 
+exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with ftp protocol 1`] = `"ftp://ftp.dev"`;
+
+exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with http protocol 1`] = `"http://http.dev"`;
+
+exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with https protocol 1`] = `"https://https.dev"`;
+
+exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with relative protocol 1`] = `"//relative.dev"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute url 1`] = `"https://kotsu.2bad.me/abs/absinner"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute url and \`page.url\` starting with \`/\` 1`] = `"https://kotsu.2bad.me/abs"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute url and \`page.url\` starting with \`/\` 2`] = `"https://kotsu.2bad.me/abs"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url 1`] = `"https://kotsu.2bad.me/mockContext/rel"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url 2`] = `"https://kotsu.2bad.me/mockContext/rel/relinner"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url 3`] = `"https://kotsu.2bad.me/dotsrel/relinner"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url 4`] = `"https://kotsu.2bad.me/relinner"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url and \`page.url\` starting with \`/\` 1`] = `"https://kotsu.2bad.me/rel"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url and \`page.url\` starting with \`/\` 2`] = `"https://kotsu.2bad.me/rootPage/rel"`;
+
 exports[`Nunjucks global function \`getPage()\` should force-render received data with current context 1`] = `"__globarvar value: testing __globalvar value"`;
 
 exports[`Nunjucks global function \`getPage()\` should force-render received data with current custom functions 1`] = `"Crumbled url: blog"`;

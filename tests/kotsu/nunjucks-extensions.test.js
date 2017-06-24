@@ -47,7 +47,9 @@ const mockContext = {
       // 'testGetPage': {
       //   'props': { 'func': 'Blog url: {{ getPage("blog").props.url }}' }
       // }
-    }
+    },
+    // Used for `fullurl()` tests
+    homepage: 'https://kotsu.2bad.me'
   }
 }
 
@@ -253,5 +255,41 @@ describe('Nunjucks filter `render()`', () => {
       {% raw %}<p>{{ 1 + 2 + 3 }} {{ 'This is caller value' }}</p>{% endraw %}
       {% endcall %}
     `, false)).toMatchSnapshot()
+  })
+})
+
+describe('Nunjucks global function `fullurl()`', () => {
+  describe('should prepend site homepage to`', () => {
+    it('absolute url', () => {
+      expect(renderString(`{{ fullurl('/abs/absinner') }}`, false)).toMatchSnapshot()
+    })
+    it('absolute url and `page.url` starting with `/`', () => {
+      expect(renderString(`{{ config('page.url', '/', false) }}{{ fullurl('/abs') }}`, false)).toMatchSnapshot()
+      expect(renderString(`{{ config('page.url', '/rootPage', false) }}{{ fullurl('/abs') }}`, false)).toMatchSnapshot()
+    })
+    it('relative url', () => {
+      expect(renderString(`{{ fullurl('rel') }}`, false)).toMatchSnapshot()
+      expect(renderString(`{{ fullurl('rel/relinner') }}`, false)).toMatchSnapshot()
+      expect(renderString(`{{ fullurl('../dotsrel/relinner') }}`, false)).toMatchSnapshot()
+      expect(renderString(`{{ fullurl('../doubledotsrel/../relinner') }}`, false)).toMatchSnapshot()
+    })
+    it('relative url and `page.url` starting with `/`', () => {
+      expect(renderString(`{{ config('page.url', '/', false) }}{{ fullurl('rel') }}`, false)).toMatchSnapshot()
+      expect(renderString(`{{ config('page.url', '/rootPage', false) }}{{ fullurl('rel') }}`, false)).toMatchSnapshot()
+    })
+  })
+  describe('should not mutate`', () => {
+    it('url with http protocol', () => {
+      expect(renderString(`{{ fullurl('http://http.dev') }}`, false)).toMatchSnapshot()
+    })
+    it('url with https protocol', () => {
+      expect(renderString(`{{ fullurl('https://https.dev') }}`, false)).toMatchSnapshot()
+    })
+    it('url with ftp protocol', () => {
+      expect(renderString(`{{ fullurl('ftp://ftp.dev') }}`, false)).toMatchSnapshot()
+    })
+    it('url with relative protocol', () => {
+      expect(renderString(`{{ fullurl('//relative.dev') }}`, false)).toMatchSnapshot()
+    })
   })
 })

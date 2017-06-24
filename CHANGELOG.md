@@ -46,6 +46,7 @@
 
    Related to [#219](https://github.com/LotusTM/Kotsu/issues/219). Solves [#175](https://github.com/LotusTM/Kotsu/issues/175).
 
+- [modules][nj] Added `fullurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
 - [test] Added tests for Nunjucks `render()` filter.
 
 ### Changed
@@ -57,6 +58,7 @@
 - [nj] Moved `Host` and `Sitemap` directives in `robots.txt` under the `User-agent` directive, in accordance with [guidelines](https://yandex.com/support/webmaster/controlling-robot/robots-txt.xml).
 - [nj] Replaced all occurances of `metaDesc` Matter Data property with `description`. This will make it more unified with `package.json`, Open Graph and Twitter naming.
 - [nj] Replaced all occurances of `excerpt` Matter Data property with more common `excerpt`.
+- [nj] Open Graph and Twitter images properties now uses new `fullurl()` Nunjucks function to resolve path to images. This means, that you can freely enter as path to image remote url, or local absolute, or local relative url, and it will be properly resolved.
 - [modules][nj] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
 - [grunt] Enabled Nunjucks cache. This will significantly reduce re-rendering time for large projects.
 - [grunt] Temporarily disabled watch for images with `responsive_images` task, since it doesn't work with `grunt-newer`. Resizing all images on each change will be too painful in large repositories. See [#251](https://github.com/LotusTM/Kotsu/issues/251).

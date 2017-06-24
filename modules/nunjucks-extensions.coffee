@@ -9,6 +9,7 @@ numbro                    = require('numbro')
 moment                    = require('moment')
 smartPlurals              = require('smart-plurals')
 { join }                  = require('path')
+{ URL }                   = require('url')
 urljoin                   = require('url-join')
 { escape }                = require('nunjucks/src/lib')
 { file: { expand }, log } = require('grunt')
@@ -184,6 +185,29 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @return {string} Joined url
   ###
   env.addGlobal 'urljoin', urljoin
+
+  ###*
+   * Resolves absolute or relative urls to full url, with site homepage prepended,
+   * otherwise if url already full (remote), returns as it is
+   * @param {string} url Url to operate upone
+   * @return {string} Full url
+   * @example
+   *  fullurl('test') -> https://kotsu.2bad.me/test
+   *  fullurl('http://test.dev') -> http://test.dev
+  ###
+  env.addGlobal 'fullurl', (url) ->
+    homepage = @ctx.site.homepage
+    pageurl = @ctx.page.url
+    # Prevent situation when we have relative url and current page starts with `/`
+    # Concatenation will result in `//` which will breaks url
+    pageurl = if pageurl == '/' then '' else pageurl
+    hasProtocol = /^\/\/|:\/\//.test(url)
+    isRelative = /^[^\/]/.test(url)
+
+    if hasProtocol then return url
+    if isRelative then return new URL(pageurl + '/' + url, homepage).href
+
+    return new URL(url, homepage).href
 
   # =======
   # Filters
