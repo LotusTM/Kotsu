@@ -77,6 +77,11 @@
   {% endif %}
   {% endfor %}
 
+  <!-- Canonical urls -->
+  {% for url in page.canonical %}
+  <link rel='canonical' href='{{ fullurl(url) }}'>
+  {% endfor %}
+
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
 
