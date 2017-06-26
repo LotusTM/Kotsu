@@ -386,11 +386,15 @@ exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with htt
 
 exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with relative protocol 1`] = `"//relative.dev"`;
 
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute index url 1`] = `"https://kotsu.2bad.me/"`;
+
 exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute url 1`] = `"https://kotsu.2bad.me/abs/absinner"`;
 
 exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute url and \`page.url\` starting with \`/\` 1`] = `"https://kotsu.2bad.me/abs"`;
 
 exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute url and \`page.url\` starting with \`/\` 2`] = `"https://kotsu.2bad.me/abs"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` empty url 1`] = `"https://kotsu.2bad.me/"`;
 
 exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url 1`] = `"https://kotsu.2bad.me/mockContext/rel"`;
 

@@ -260,8 +260,14 @@ describe('Nunjucks filter `render()`', () => {
 
 describe('Nunjucks global function `fullurl()`', () => {
   describe('should prepend site homepage to`', () => {
+    it('empty url', () => {
+      expect(renderString(`{{ fullurl('') }}`, false)).toMatchSnapshot()
+    })
     it('absolute url', () => {
       expect(renderString(`{{ fullurl('/abs/absinner') }}`, false)).toMatchSnapshot()
+    })
+    it('absolute index url', () => {
+      expect(renderString(`{{ fullurl('/') }}`, false)).toMatchSnapshot()
     })
     it('absolute url and `page.url` starting with `/`', () => {
       expect(renderString(`{{ config('page.url', '/', false) }}{{ fullurl('/abs') }}`, false)).toMatchSnapshot()
