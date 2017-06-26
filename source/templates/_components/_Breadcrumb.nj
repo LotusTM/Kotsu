@@ -29,7 +29,7 @@
   rootAnchorClass = '',
   displayLast     = true,
   breadcrumb      = page.breadcrumb,
-  rootTitle       = getPage(['index']).props.breadcrumbTitle|format(site.placeholders),
+  rootTitle       = getPage(['index']).props.breadcrumbTitle,
   placeholders    = site.placeholders
 ) %}
   <ul class='{{ class }}'>
