@@ -78,6 +78,7 @@
 - [nj] Replaced all occurances of `metaDesc` Matter Data property with `description`. This will make it more unified with `package.json`, Open Graph and Twitter naming.
 - [nj] Replaced all occurances of `shortDesc` Matter Data property with more common `excerpt`.
 - [date][nj] Replaced `site.desc` with more common `description` to be more consistent with `package.json`.
+- [data][nj] Default value for Open Graph and Twitter image meta data no longer hardcoded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `site.faceebookImage` and `site.twitterImage` properties.
 - [nj] Open Graph and Twitter images properties now uses new `fullurl()` Nunjucks function to resolve path to images. This means, that you can freely enter as path to image remote url, or local absolute, or local relative url, and it will be properly resolved.
 - [nj] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ page.title if page.title else site.name }}` -> `{{ page.title or site.name }}`.
 - [modules][nj] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.

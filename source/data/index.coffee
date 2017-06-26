@@ -4,11 +4,12 @@ pkg = require('../../package.json')
 module.exports = ({ config }) ->
   sitename = config('env.sitename')
   buildRoot = config('path.build.root') + '/'
+  imagesPath = config('path.build.images').replace(buildRoot, '')
 
   data =
     path:
       fonts: config('path.build.fonts').replace(buildRoot, '')
-      images: config('path.build.images').replace(buildRoot, '')
+      images: imagesPath
       scripts: config('path.build.scripts').replace(buildRoot, '')
       styles: config('path.build.styles').replace(buildRoot, '')
       sprites: config('path.build.sprites').replace(buildRoot, '')
@@ -20,6 +21,8 @@ module.exports = ({ config }) ->
       themeColor: '#a593e0'
       homepage: if sitename then "https://#{sitename}" else pkg.homepage
       twitter: pkg.twitter
+      twitterImage: imagesPath + '/twitter.png'
+      facebookImage: imagesPath + '/facebook.png'
       version: pkg.version
       locales: config('locales')
       baseLocale: config('baseLocale')
