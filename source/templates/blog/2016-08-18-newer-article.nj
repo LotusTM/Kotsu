@@ -1,8 +1,8 @@
 ---
 title:           ={{ gettext('Newer article') }}
-breadcrumbTitle: ={{ gettext('Newer article') }}
 contentTitle:    ={{ gettext('Newer article') }}
 navTitle:        ={{ gettext('Newer article') }}
+breadcrumbTitle: ={{ gettext('Newer article') }}
 
 description:     ={{ gettext('Newer example article generated with %(company)s') }}
 

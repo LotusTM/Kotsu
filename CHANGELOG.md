@@ -143,6 +143,10 @@
 - [sass] Improved main file comment headers.
 - [nj][data] Move all page defaults from `_base.nj` layout `config()` declaration into data index under `pageDefaults` property. Finally Nunjucks base layout does not declare any additional data.
 - [nj] Added newlines after `url` and before `description` properties within pages Matter headers to make it more readable.
+- [nj] Repositioned some pages Matter data properties:
+   * `contentTitle` now follows `title`. It was always so confusing when `contentTitle` appeared after `navTitle`.
+   * `navTitle` follows `contentTitle`, which makes `breadcrumbTitle` last. Because of reasons.
+
 - [nj][modules] Renamed all occurrences of `onlyActiveOnIndex` argument to `exact`.
 - [nj] Replaced sligtly enigmatic automatic importing of `_components` in `_base.nj` layout with explicit `from ... import ...` declarations. Due to this, there is no longer need to use `components` global variable to store all components, they are imported in root instead. Besides, it gives better control of what should be imported and how should it be named.
 - [data] Replaced tricky template string within `data.path` with plain `grunt.config` and `replace`. It's now much easier to understand, that it actually just strips build root from path.

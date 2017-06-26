@@ -1,8 +1,8 @@
 ---
 title:           ={{ gettext('Blog') }}
-breadcrumbTitle: ={{ gettext('Blog') }}
 contentTitle:    ={{ gettext('%(company)s blog') }}
 navTitle:        ={{ gettext('Blog') }}
+breadcrumbTitle: ={{ gettext('Blog') }}
 
 description:     ={{ gettext('%(company)s blog') }}
 
