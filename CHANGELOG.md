@@ -83,6 +83,9 @@
 - [modules][nj] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
 - [grunt] Enabled Nunjucks cache. This will significantly reduce re-rendering time for large projects.
 - [grunt] Temporarily disabled watch for images with `responsive_images` task, since it doesn't work with `grunt-newer`. Resizing all images on each change will be too painful in large repositories. See [#251](https://github.com/LotusTM/Kotsu/issues/251).
+- [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with it's own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved.
+- [tests] Nunjucks-related testing utility functions has been moved into standalone file `/tests/utils/nunjucks.js` which exports `renderString` method. It also now accepts context as second argument.
+- [tests] Nunjucks testing utility function `renderString` no longer tries to parse rendered content with `JSON.parse`, unless third argument `parse` has been set to true.
 
 ### Removed
 - [grunt] PostCSS Autoprefixer's browser queries removed in favor of new `browserslist` property in `package.json.`, so that queries could be used by other related tools. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with ftp protocol 1`] = `"ftp://ftp.dev"`;
+
+exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with http protocol 1`] = `"http://http.dev"`;
+
+exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with https protocol 1`] = `"https://https.dev"`;
+
+exports[`Nunjucks global function \`fullurl()\` should not mutate\` url with relative protocol 1`] = `"//relative.dev"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute index url 1`] = `"https://kotsu.2bad.me/"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute url 1`] = `"https://kotsu.2bad.me/abs/absinner"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute url and \`page.url\` starting with \`/\` 1`] = `"https://kotsu.2bad.me/abs"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` absolute url and \`page.url\` starting with \`/\` 2`] = `"https://kotsu.2bad.me/abs"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` empty url 1`] = `"https://kotsu.2bad.me/"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url 1`] = `"https://kotsu.2bad.me/mockContext/rel"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url 2`] = `"https://kotsu.2bad.me/mockContext/rel/relinner"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url 3`] = `"https://kotsu.2bad.me/dotsrel/relinner"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url 4`] = `"https://kotsu.2bad.me/relinner"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url and \`page.url\` starting with \`/\` 1`] = `"https://kotsu.2bad.me/rel"`;
+
+exports[`Nunjucks global function \`fullurl()\` should prepend site homepage to\` relative url and \`page.url\` starting with \`/\` 2`] = `"https://kotsu.2bad.me/rootPage/rel"`;
+
+exports[`Nunjucks global function \`fullurl()\` should throw error with\` falsy url 1`] = `
+"(unknown path)
+  Error: [fullurl] url should be \`string\`, but \`undefined\` or undefined provided"
+`;
+
+exports[`Nunjucks global function \`fullurl()\` should throw error with\` falsy url 2`] = `
+"(unknown path)
+  Error: [fullurl] url should be \`string\`, but \`undefined\` or undefined provided"
+`;
+
+exports[`Nunjucks global function \`fullurl()\` should throw error with\` falsy url 3`] = `
+"(unknown path)
+  Error: [fullurl] url should be \`string\`, but \`boolean\` or undefined provided"
+`;
+
+exports[`Nunjucks global function \`fullurl()\` should throw error with\` falsy url 4`] = `
+"(unknown path)
+  Error: [fullurl] url should be \`string\`, but \`undefined\` or undefined provided"
+`;
+
+exports[`Nunjucks global function \`fullurl()\` should throw error with\` falsy url 5`] = `
+"(unknown path)
+  Error: [fullurl] url should be \`string\`, but \`number\` or undefined provided"
+`;
+
+exports[`Nunjucks global function \`fullurl()\` should throw error with\` number url 1`] = `
+"(unknown path)
+  Error: [fullurl] url should be \`string\`, but \`number\` or undefined provided"
+`;

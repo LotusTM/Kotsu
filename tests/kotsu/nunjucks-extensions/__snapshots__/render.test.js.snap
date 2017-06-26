@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nunjucks filter \`render()\` should render current context macro 1`] = `
+"
+      
+
+      
+      <article>Value: This is macro value</article>
+       with content and outer content
+    "
+`;
+
+exports[`Nunjucks filter \`render()\` should render current context macro's caller 1`] = `
+"
+      
+
+      
+      <article>Caller value: <p>6 This is caller value</p>
+      </article>
+      
+    "
+`;
+
+exports[`Nunjucks filter \`render()\` should render current context macro's inner 1`] = `
+"
+      
+
+      
+      <article>8 and value: This is macro value</article>
+       and outer content
+    "
+`;
+
+exports[`Nunjucks filter \`render()\` should render current context variable 1`] = `
+"
+      
+
+      testing __globalVar value with content and outer content
+    "
+`;
+
+exports[`Nunjucks filter \`render()\` should render template 1`] = `"9 with content and outer content"`;
