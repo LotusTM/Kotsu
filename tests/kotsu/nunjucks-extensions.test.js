@@ -292,4 +292,16 @@ describe('Nunjucks global function `fullurl()`', () => {
       expect(renderString(`{{ fullurl('//relative.dev') }}`, false)).toMatchSnapshot()
     })
   })
+  describe('should throw error with`', () => {
+    it('falsy url', () => {
+      expect(() => renderString(`{{ fullurl() }}`, false)).toThrowErrorMatchingSnapshot()
+      expect(() => renderString(`{{ fullurl(undefined) }}`, false)).toThrowErrorMatchingSnapshot()
+      expect(() => renderString(`{{ fullurl(false) }}`, false)).toThrowErrorMatchingSnapshot()
+      expect(() => renderString(`{{ fullurl(null) }}`, false)).toThrowErrorMatchingSnapshot()
+      expect(() => renderString(`{{ fullurl(0) }}`, false)).toThrowErrorMatchingSnapshot()
+    })
+    it('number url', () => {
+      expect(() => renderString(`{{ fullurl(123) }}`, false)).toThrowErrorMatchingSnapshot()
+    })
+  })
 })

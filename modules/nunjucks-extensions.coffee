@@ -189,13 +189,17 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
   ###*
    * Resolves absolute or relative urls to full url, with site homepage prepended,
    * otherwise if url already full (remote), returns as it is
-   * @param {string} url Url to operate upone
+   * @param {string} url Url to operate upon
    * @return {string} Full url
+   * @throws {Error} If `url` is not string
    * @example
    *  fullurl('test') -> https://kotsu.2bad.me/test
    *  fullurl('http://test.dev') -> http://test.dev
   ###
   env.addGlobal 'fullurl', (url) ->
+    if typeof url != 'string'
+      throw new Error("[fullurl] url should be `string`, but `#{typeof url}` or undefined provided")
+
     homepage = @ctx.site.homepage
     pageurl = @ctx.page.url
     # Prevent situation when we have relative url and current page starts with `/`
