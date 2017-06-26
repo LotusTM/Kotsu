@@ -17,13 +17,13 @@ module.exports = ({ config }) ->
       build: '<%= path.build %>'
     site:
       name: pkg.name
+      version: pkg.version
       description: pkg.description
-      themeColor: '#a593e0'
       homepage: if sitename then "https://#{sitename}" else pkg.homepage
+      themeColor: '#a593e0'
       twitter: pkg.twitter
       twitterImage: imagesPath + '/twitter.png'
       facebookImage: imagesPath + '/facebook.png'
-      version: pkg.version
       locales: config('locales')
       baseLocale: config('baseLocale')
       googleAnalyticsId: false # 'UA-XXXXX-X'
