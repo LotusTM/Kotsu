@@ -45,7 +45,7 @@
 
       {{ Link(
         to = to,
-        label = label if label else itemProps.navTitle,
+        label = label or itemProps.navTitle,
         class = anchorClass,
         exact = exact,
         activeClass = activeClass

@@ -30,7 +30,7 @@
   <!-- IE compatibility -->
   <meta http-equiv='x-ua-compatible' content='ie=edge'>
 
-  <title>{{ page.title if page.title else site.name }}</title>
+  <title>{{ page.title or site.name }}</title>
 
   <!-- Description -->
   <meta name='description' content='{{ page.description }}'>
@@ -45,7 +45,7 @@
   <link rel='stylesheet' href='/{{ path.styles }}/{{ 'style.min.css' if env.build else 'style.prefixed.css' }}'>
 
   <!-- Theme -->
-  <meta name='theme-color' content='{{ page.themeColor if page.themeColor else site.themeColor }}'>
+  <meta name='theme-color' content='{{ page.themeColor or site.themeColor }}'>
 
   {# <!-- RSS -->
   <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml'> #}
