@@ -53,7 +53,17 @@
      - test/page
      - https://othersite.com
    ```
-   
+
+- [nj][data] Added ability to specify alternate urls for specific pages with Matter Data, using following structure:
+
+   ```yaml
+   alternate:
+     - locale: mylocale
+       url: test/page
+     - locale: extlocale
+       url: https://othersite.com
+   ```
+
 - [nj][data] Added `page.image` Matter Data property, which allows to specify generic meta image for page. It can be used by other pages (for instance, to generate table of content with previews or for structured data markup) and also will specify image for Open Graph and Twitter meta data, unless they have already specified images. Related to [#219](https://github.com/LotusTM/Kotsu/issues/219).
 - [modules][nj] Added `fullurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
 - [test] Added tests for Nunjucks `render()` filter.

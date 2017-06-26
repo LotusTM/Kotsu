@@ -76,6 +76,9 @@
   <link rel='alternate' hreflang='{{ props.locale|langcode }}' href='{{ site.homepage + localeDir(props.locale) + page.url }}'>
   {% endif %}
   {% endfor %}
+  {% for props in page.alternate %}
+  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ fullurl(props.url) }}'>
+  {% endfor %}
 
   <!-- Canonical urls -->
   {% for url in page.canonical %}
