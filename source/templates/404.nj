@@ -1,9 +1,11 @@
 ---
 url:              /404.html
+
 title:            ={{ gettext('404 &mdash; page not found') }}
 breadcrumbTitle:  '404'
 contentTitle:     ={{ gettext('404 &mdash; page not found') }}
 navTitle:         '404'
+
 description:      ={{ gettext('404 &mdash; page not found') }}
 
 class:            p-404

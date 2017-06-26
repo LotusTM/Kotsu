@@ -3,6 +3,7 @@ title:           ={{ gettext('Examples') }}
 breadcrumbTitle: ={{ gettext('Examples') }}
 contentTitle:    ={{ gettext('Examples') }}
 navTitle:        ={{ gettext('Examples') }}
+
 description:     ={{ gettext('%(company)s examples') }}
 
 class:           p-examples

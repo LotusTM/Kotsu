@@ -3,7 +3,9 @@ title:           ={{ gettext('Newer article') }}
 breadcrumbTitle: ={{ gettext('Newer article') }}
 contentTitle:    ={{ gettext('Newer article') }}
 navTitle:        ={{ gettext('Newer article') }}
+
 description:     ={{ gettext('Newer example article generated with %(company)s') }}
+
 excerpt:         ={{ gettext('Newer example article generated with %(company)s. Wanna more?') }}
 author:          LotusTM
 date:            2016-08-18T01:54:00

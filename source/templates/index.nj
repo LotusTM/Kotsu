@@ -1,9 +1,11 @@
 ---
 url:              /
+
 title:            ={{ gettext('Kotsu Web Starter Kit') }}
 breadcrumbTitle:  ={{ gettext('Home') }}
 contentTitle:     ={{ gettext('Home') }}
 navTitle:         ={{ gettext('Home') }}
+
 description:      ={{ gettext('Generated with %(company)s demo homepage') }}
 
 class:            p-index

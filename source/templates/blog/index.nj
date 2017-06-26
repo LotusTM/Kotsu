@@ -3,6 +3,7 @@ title:           ={{ gettext('Blog') }}
 breadcrumbTitle: ={{ gettext('Blog') }}
 contentTitle:    ={{ gettext('%(company)s blog') }}
 navTitle:        ={{ gettext('Blog') }}
+
 description:     ={{ gettext('%(company)s blog') }}
 
 class:           p-blog
