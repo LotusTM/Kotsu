@@ -21,9 +21,9 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
 
   moment.locale(currentLocale)
 
-  # ==========
+  # ==============================================================================
   # Extensions
-  # ==========
+  # ==============================================================================
 
   ###*
    * Nunjucks extension for Markdown support
@@ -31,9 +31,9 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
   ###
   markdown.register(env, md.render.bind(md))
 
-  # =======
+  # ==============================================================================
   # Globals
-  # =======
+  # ==============================================================================
 
   ###*
    * Pass lodash inside Nunjucks
@@ -213,9 +213,9 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
 
     return new URL(url, homepage).href
 
-  # =======
+  # ==============================================================================
   # Filters
-  # =======
+  # ==============================================================================
 
   ###*
    * Replaces last array element with new value
