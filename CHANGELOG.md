@@ -19,6 +19,27 @@
 - [grunt] Added tiny debouncing delay for Browser Sync. It will prevent huge amount of reloads when a lot of files changing in a row (for instance, after all Nunjucks templates recompilation).
 - [nj] Added ability to specify body class for specific pages with `bodyClass` Matter data, `pageDefault.bodyClass` in default data or `{{ config('page.bodyClass', ...) }}` within Nunjucks template.
 - [nj] Added ability to specify page-specific viewport with `viewport` Matter data.
+- [nj] Added to `_base.nj` layout blocks `{% block imports %}`, `{% block fonts %}`, `{% block css %}` and `{% block js %}` which encapsulates macros imports, fonts-related stylesheets, site stylesheets and `<script>` tags respectively.
+
+   It allows to extend base layout and whenever needed to override font, CSS or JavaScript content on demand by calling block with desired content:
+
+   ```jinja
+   {% block css %}
+   <link rel='stylesheet' href='/myStyles.css'>
+   {% endblock %}
+   ```
+
+   Or use `{{ super() }}` inside any block to invoke original `_base.nj` blocks content whenever page should use same stylesheets or scripts, but you need to add few additional files:
+    
+   ```jinja
+   {% block css %}
+   {{ super() }}
+   <link rel='stylesheet' href='/myOtherStyles.css'>
+   {% endblock %}
+   ```
+
+   Since `_base.nj` contains only basic html wrapper and encapsulates mostly meta data-related features, those changes makes it a good basement for all website pages, even unique ones, thus eliminating need to replicate `_base.nj` functionality for those pages.
+
 - [nj][data] Added ability to specify Open Graph and Twitter meta data for specific pages by porviding one of the following properties as Matter Data or `pageDefaults` in general data:
 
    ```yaml

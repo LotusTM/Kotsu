@@ -10,6 +10,7 @@
 {{ config('page', page.props) }}
 
 {# Global macros #}
+{% block imports %}
 {% from '_components/analytics/_GoogleAnalytics.nj' import GoogleAnalytics with context %}
 {% from '_components/analytics/_YandexMetrika.nj' import YandexMetrika with context %}
 {% from '_components/_Breadcrumb.nj' import Breadcrumb with context %}
@@ -19,6 +20,7 @@
 {% from '_components/_NavItem.nj' import NavItem with context %}
 {% from '_components/_Nav.nj' import Nav with context %}
 {% from '_components/_OutdatedBrowser.nj' import OutdatedBrowser with context %}
+{% endblock %}
 
 <!doctype html>
 <html class='{{ page.class }} t-base no-js' lang='{{ page.locale }}' {{ 'dir=\'rtl\'' if page.rtl }}>
@@ -39,10 +41,14 @@
   <meta name='viewport' content='{{ page.viewport or site.viewport }}'>
 
   <!-- Fonts -->
+  {% block fonts %}
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin,cyrillic'>
+  {% endblock %}
 
   <!-- CSS -->
+  {% block css %}
   <link rel='stylesheet' href='/{{ path.styles }}/{{ 'style.min.css' if env.build else 'style.prefixed.css' }}'>
+  {% endblock %}
 
   <!-- Theme -->
   <meta name='theme-color' content='{{ page.themeColor or site.themeColor }}'>
@@ -101,6 +107,7 @@
   <!-- Scripts -->
   <!-- ======= -->
 
+  {% block js %}
   {% if env.build %}
   <script src='/{{ path.scripts }}/main.min.js'></script>
   {% else %}
@@ -117,6 +124,7 @@
   <script src='/{{ path.scripts }}/main.js'></script>
   {% endif %}
   {% endif %}
+  {% endblock %}
 
   {{ GoogleAnalytics(siteId = site.googleAnalyticsId) if site.googleAnalyticsId }}
   {{ YandexMetrika(counterId = site.yandexMetrikaId) if site.yandexMetrikaId }}
