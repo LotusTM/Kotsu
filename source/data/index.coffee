@@ -20,6 +20,7 @@ module.exports = ({ config }) ->
       version: pkg.version
       description: pkg.description
       homepage: if sitename then "https://#{sitename}" else pkg.homepage
+      viewport: 'width=device-width, initial-scale=1'
       themeColor: '#a593e0'
       twitter: pkg.twitter
       twitterImage: imagesPath + '/twitter.png'

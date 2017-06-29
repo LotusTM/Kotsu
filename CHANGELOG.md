@@ -18,6 +18,7 @@
 - [grunt] Added cache busting for images (`jpg`, `jpeg`, `gif`, `png`, `svg`) with query string. This won't affect final name of image, but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
 - [grunt] Added tiny debouncing delay for Browser Sync. It will prevent huge amount of reloads when a lot of files changing in a row (for instance, after all Nunjucks templates recompilation).
 - [nj] Added ability to specify body class for specific pages with `bodyClass` Matter data, `pageDefault.bodyClass` in default data or `{{ config('page.bodyClass', ...) }}` within Nunjucks template.
+- [nj] Added ability to specify page-specific viewport with `viewport` Matter data.
 - [nj][data] Added ability to specify Open Graph and Twitter meta data for specific pages by porviding one of the following properties as Matter Data or `pageDefaults` in general data:
 
    ```yaml
