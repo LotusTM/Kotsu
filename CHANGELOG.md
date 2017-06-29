@@ -73,6 +73,8 @@
 - [package] `npm start` will now run regular JSPM watch instead of hot reloading. For hot reloading use `npm run start-hmr` command.
 - [package] Changed `npm-run-all --parallel` to shortcut `run-p`.
 - [package] Moved check of clean workint tree with Git after `grunt build` into standalone `postbuild` script, which will automatically execute after `npm run build`. This will also allow to pass any options to grunt with `npm run build -- --myOption`.
+- [misc] With update of Stylelint to 7.12.0 updated `.stylelintrc.yml` config accordingly. Note, that you might need to change `selector-no-id`, `selector-no-universal` and `selector-no-type` to `selector-max-id`, `selector-max-universal` and `selector-max-type` respectively, and don't forget about `stylelint-disable` directives.
+- [misc] Enabled `selector-max-attribute` Stylelint rule and set to `0`, so you might need to check your selectors.
 - [ci] switched CI to latest node LTS release (v8.0.0).
 - [nj] Moved `Host` and `Sitemap` directives in `robots.txt` under the `User-agent` directive, in accordance with [guidelines](https://yandex.com/support/webmaster/controlling-robot/robots-txt.xml).
 - [nj] Replaced all occurances of `metaDesc` Matter Data property with `description`. This will make it more unified with `package.json`, Open Graph and Twitter naming.

@@ -132,10 +132,10 @@ rules:
   selector-max-specificity: 0,3,0
   declaration-no-important: true
   value-list-max-empty-lines: 1
-  selector-no-id: true
+  selector-max-id: 0
   # @todo No way to qualifying by speicifc classes or attributes
   selector-no-qualifying-type: true
-  selector-no-universal: true
+  selector-max-universal: 0
   declaration-block-no-redundant-longhand-properties: null # harmful rule
   font-weight-notation: named-where-possible
   function-url-no-scheme-relative: true
@@ -154,8 +154,9 @@ rules:
       - error
       - return
       - warn
-  selector-no-type:
-    - true
+  # @todo Doesn't allow to specify only non-chained ignoreTypes
+  selector-max-type:
+    - 0
     - ignoreTypes:
       - a
       - li
@@ -224,11 +225,7 @@ rules:
   # @todo Have some issues with Sass placeholders:
   #       `Expected selector "%#{$ekzo-objects-ns}nav > li > a" to come before selector ".#{$ekzo-objects-ns}nav > a"`
   no-descending-specificity: true
-
-  # Optionals
-  # ---------
-
-  # selector-no-attribute: true
+  selector-max-attribute: 1
 
   # Scss
   # ---------
