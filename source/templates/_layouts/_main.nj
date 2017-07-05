@@ -11,7 +11,9 @@
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
         <div class='o-grid__item'>
-          <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/'>{{ site.name }}</a>
+          <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/'>
+            <img src='/{{ path.images }}/logo.svg' height='48' alt='{{ site.name }}'>
+          </a>
         </div>
 
         <div class='o-grid__item h-flex+'>
@@ -47,8 +49,7 @@
           itemsClass      = 'o-breadcrumb__item',
           anchorsClass    = 'h-text--underline0',
           rootItemClass   = 'h-font-weight--bolder',
-          rootAnchorClass = '',
-          displayLast     = false
+          rootAnchorClass = ''
         ) }}
         {% endif %}
 

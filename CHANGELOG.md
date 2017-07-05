@@ -90,6 +90,7 @@
 - [templates] Added structured data for `Breadcrumb` component according to [Google guidlines](https://developers.google.com/search/docs/data-types/breadcrumbs).
 - [modules][templates] Added `fullurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
 - [test] Added tests for Nunjucks `render()` filter.
+- [images][templates] Hardly belivable, but we have finally added Kotsu logo as `logo.svg` file and placed it in `_main.nj` layout. Now it serves as placeholder for your beloved logo file.
 
 ### Changed
 - [package] Updated dependencies.
