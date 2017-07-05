@@ -32,23 +32,29 @@
   rootTitle       = getPage(['index']).props.breadcrumbTitle,
   placeholders    = site.placeholders
 ) %}
-  <ul class='{{ class }}'>
+  <ul class='{{ class }}' vocab='http://schema.org/' typeof='BreadcrumbList'>
 
-    <li class='{{ itemsClass }} {{ rootItemClass }}'>
-      <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}/'>{{ rootTitle|format(placeholders) }}</a>
+    <li class='{{ itemsClass }} {{ rootItemClass }}' property='itemListElement' typeof='ListItem'>
+      <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}/' property='item' typeof='WebPage'>
+        <span property='name'>{{ rootTitle|format(placeholders) }}</span>
+      </a>
+      <meta property='position' content='1'>
     </li>
 
     {% for crumb in breadcrumb %}
-
       {% set currentCrumb = [crumb] if loop.index0 == 0 else currentCrumb|pushIn(crumb)  %}
+      {% set depth        = currentCrumb.length + 1 %}
       {% set crumbProps   = getPage(currentCrumb).props|format(placeholders) %}
       {% set title        = crumbProps.breadcrumbTitle %}
       {% set url          = crumbProps.url %}
 
       {% if not loop.last %}
 
-        <li class='{{ itemsClass }}'>
-          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ url }}'>{{ title }}</a>
+        <li class='{{ itemsClass }}' property='itemListElement' typeof='ListItem'>
+          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ url }}' property='item' typeof='WebPage'>
+            <span property='name'>{{ title }}</span>
+          </a>
+          <meta property='position' content='{{ depth }}'>
         </li>
 
       {% elif displayLast %}
