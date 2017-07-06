@@ -8,13 +8,27 @@
 }) }}
 
 {% block main %}
+<div typeof='NewsArticle' resource='#article'>
+
+  <meta property='headline' content='{{ page.contentTitle }}'>
+  <meta property='description' content='{{ page.excerpt }}'>
+  {# @Todo this has to be improved, since Google asks for width and height properties #}
+  <meta property='image' content='{{ page.image }}'>
+  <meta property='publisher' resource='#this'>
+  <meta property='mainEntityOfPage' typeof='WebPage' content='{{ fullurl(localeDir() + page.url) }}'/>
+  <meta property='dateModified' content='{{ page.date }}'>
 
   <footer class='h-opacity--30 h-bleed-top h-margin-bottom+ h-align--center'>
-    {{ moment(page.date).format('lll') }} — {{ page.author }}
+    <time datetime='{{ page.date }}' property='datePublished' content='{{ page.date }}'>{{ moment(page.date).format('lll') }}</time>
+    —
+    <span property='author' typeof='Person'>
+      <span property='name'>{{ page.author }}</span>
+    </span>
   </footer>
 
   <div class='s-blog-post Wrapper--readable'>
     {% block post %}{% endblock %}
   </div>
 
+</div>
 {% endblock %}
