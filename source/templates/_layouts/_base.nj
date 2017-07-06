@@ -23,7 +23,7 @@
 {% endblock %}
 
 <!doctype html>
-<html class='{{ page.class }} t-base no-js' lang='{{ page.locale }}' {{ 'dir=\'rtl\'' if page.rtl }}>
+<html class='{{ page.class }} t-base no-js' lang='{{ page.locale }}' {{ 'dir=\'rtl\'' if page.rtl }} vocab='https://schema.org/'>
 
 <head>
 

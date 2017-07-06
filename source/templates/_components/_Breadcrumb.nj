@@ -32,7 +32,7 @@
   rootTitle       = getPage(['index']).props.breadcrumbTitle,
   placeholders    = site.placeholders
 ) %}
-  <ul class='{{ class }}' vocab='http://schema.org/' typeof='BreadcrumbList'>
+  <ul class='{{ class }}' typeof='BreadcrumbList'>
 
     <li class='{{ itemsClass }} {{ rootItemClass }}' property='itemListElement' typeof='ListItem'>
       <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}/' property='item' typeof='WebPage'>

@@ -11,7 +11,7 @@
       <div class='o-grid h-flex-y--center h-childs-displace'>
 
         <div class='o-grid__item'>
-          <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/' vocab='http://schema.org/' typeof='Organization'>
+          <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/' typeof='Organization'>
             <meta property='url' content='{{ site.homepage }}'>
             <img src='/{{ path.images }}/logo.svg' height='48' alt='{{ site.name }}' property='logo'>
           </a>
