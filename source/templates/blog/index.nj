@@ -16,7 +16,7 @@ class:           p-blog
   {% set posts = _.orderBy(getPage(page.breadcrumb)|format(site.placeholders), 'props.date', 'desc') %}
 
   {% for post in posts %}
-  <article class='h-margin-top+' resource='{{ localeDir() + post.props.url }}#article'>
+  <article class='h-margin-top+' typeof='NewsArticle' resource='{{ localeDir() + post.props.url }}#article'>
 
     <h2 class='h-h3 h-margin-bottom0'>
       <a href='{{ localeDir() + post.props.url }}'>{{ post.props.contentTitle }}</a>
