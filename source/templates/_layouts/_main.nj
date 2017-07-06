@@ -53,7 +53,8 @@
           itemsClass      = 'o-breadcrumb__item',
           anchorsClass    = 'h-text--underline0',
           rootItemClass   = 'h-font-weight--bolder',
-          rootAnchorClass = ''
+          rootAnchorClass = '',
+          displayLast     = false
         ) }}
         {% endif %}
 
