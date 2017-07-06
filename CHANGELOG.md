@@ -106,7 +106,23 @@
 - [templates] Replaced all occurances of `metaDesc` Matter Data property with `description`. This will make it more unified with `package.json`, Open Graph and Twitter naming.
 - [templates] Replaced all occurances of `shortDesc` Matter Data property with more common `excerpt`.
 - [date][templates] Replaced `site.desc` with more common `description` to be more consistent with `package.json`.
-- [data][templates] Default value for Open Graph and Twitter image meta data no longer hardcoded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `site.faceebookImage` and `site.twitterImage` properties.
+- [data][templates] Old social-related properties in `site` replaced with more verbose `social` property, which encapsulates data about site's social presence following this scheme:
+
+   ```coffee
+   social:
+     # Add any other social services following same pattern
+     twitter:
+       handle: pkg.twitter
+       image: imagesPath + '/twitter.png'
+       url: "https://twitter.com/#{pkg.twitter}"
+     facebook:
+       image: imagesPath + '/facebook.png'
+       url: 'https://www.facebook.com/Lotus-TM-647393298791066/'
+   ```
+
+   This data can be later used to generate site social icons or for structured data.
+
+- [data][templates] Default value for Open Graph and Twitter image meta data no longer hardcoded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `social.faceebook.image` and `social.twitter.image` properties.
 - [templates] Open Graph and Twitter images properties now uses new `fullurl()` Nunjucks function to resolve path to images. This means, that you can freely enter as path to image remote url, or local absolute, or local relative url, and it will be properly resolved.
 - [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ page.title if page.title else site.name }}` -> `{{ page.title or site.name }}`.
 - [modules][templates] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.

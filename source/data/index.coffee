@@ -22,9 +22,6 @@ module.exports = ({ config }) ->
       homepage: if sitename then "https://#{sitename}" else pkg.homepage
       viewport: 'width=device-width, initial-scale=1'
       themeColor: '#a593e0'
-      twitter: pkg.twitter
-      twitterImage: imagesPath + '/twitter.png'
-      facebookImage: imagesPath + '/facebook.png'
       locales: config('locales')
       baseLocale: config('baseLocale')
       googleAnalyticsId: false # 'UA-XXXXX-X'
@@ -37,6 +34,15 @@ module.exports = ({ config }) ->
       showContentTitle: true
       showBreadcrumb: true
       showSidebar: false
+    social:
+      # Add any other social services following same pattern
+      twitter:
+        handle: pkg.twitter
+        image: imagesPath + '/twitter.png'
+        url: "https://twitter.com/#{pkg.twitter}"
+      facebook:
+        image: imagesPath + '/facebook.png'
+        url: 'https://www.facebook.com/Lotus-TM-647393298791066/'
     env:
       production: '<%= env.production %>'
       staging: '<%= env.staging %>'
