@@ -13,6 +13,9 @@
         <div class='o-grid__item'>
           <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/' typeof='Organization'>
             <meta property='url' content='{{ site.homepage }}'>
+            {% for service, props in social %}
+            <meta property='sameAs' content='{{ props.url }}'>
+            {% endfor %}
             <img src='/{{ path.images }}/logo.svg' height='48' alt='{{ site.name }}' property='logo'>
           </a>
         </div>

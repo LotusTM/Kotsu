@@ -90,6 +90,7 @@
 - [templates] Added `vocab='https://schema.org/'` to top-level `<html>` of `_base.nj`. This means that you can use freely Schema vocabulary without specifying or prefixing it as `typeof='ListItem'` instead of `vocab='https://schema.org/' typeof='ListItem'` or `typeof='schema:ListItem'` whenever you extend base layout.
 - [templates] Added structured data for `Breadcrumb` component according to [Google guidlines](https://developers.google.com/search/docs/data-types/breadcrumbs).
 - [templates] Added structured data for logo according to [Google guidlines](https://developers.google.com/search/docs/data-types/logo).
+- [templates] Added structured data for social profiles according to [Google guidlines](https://developers.google.com/search/docs/data-types/social-profile-links).
 - [modules][templates] Added `fullurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
 - [test] Added tests for Nunjucks `render()` filter.
 - [images][templates] Hardly belivable, but we have finally added Kotsu logo as `logo.svg` file and placed it in `_main.nj` layout. Now it serves as placeholder for your beloved logo file.
