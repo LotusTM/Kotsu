@@ -103,6 +103,7 @@
 - [package] Changed `npm-run-all --parallel` to shortcut `run-p`.
 - [package] Moved check of clean workint tree with Git after `grunt build` into standalone `postbuild` script, which will automatically execute after `npm run build`. This will also allow to pass any options to grunt with `npm run build -- --myOption`.
 - [misc] With update of Stylelint to 7.12.0 updated `.stylelintrc.yml` config accordingly. Note, that you might need to change `selector-no-id`, `selector-no-universal` and `selector-no-type` to `selector-max-id`, `selector-max-universal` and `selector-max-type` respectively, and don't forget about `stylelint-disable` directives.
+- [misc] Replaced Stylelint rule `at-rule-no-unknown` with newly added `stylelint-scss` rule `scss/at-rule-no-unknown`.
 - [misc] Enabled `selector-max-attribute` Stylelint rule and set to `0`, so you might need to check your selectors.
 - [ci] switched CI to latest node LTS release (v8.0.0).
 - [templates] Moved `Host` and `Sitemap` directives in `robots.txt` under the `User-agent` directive, in accordance with [guidelines](https://yandex.com/support/webmaster/controlling-robot/robots-txt.xml).
@@ -144,6 +145,7 @@
 - [grunt] PostCSS Autoprefixer's browser queries removed in favor of new `browserslist` property in `package.json.`, so that queries could be used by other related tools. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 - [grunt] Removed `grunt-cache-bust` option `algorithm: md5`, since it's default value anyway.
 - [modules][templates] Removed `isCaller` from `nunjuck-render` method, since is is no longer needed to make adjustments to input based on whether it is macro's caller or no. This also means that Nunjucks `render()` filter no longer accepts this parameter too.
+- [misc] Removed Stylelint rule `at-rule-no-unknown` in favor of `scss/at-rule-no-unknown`.
 
 ### Fixed
 - [templates] Fixed occasional double quotes.
