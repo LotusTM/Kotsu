@@ -50,4 +50,4 @@ module.exports = () ->
     watch:
       data:
         files: ['<%= path.source.data %>/{,**/}*.{json,yml,js,coffee}']
-        tasks: ['nunjucks']
+        tasks: ['grayMatter', 'nunjucks']

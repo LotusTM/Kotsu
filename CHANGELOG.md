@@ -139,6 +139,7 @@
 - [grunt] Enabled Nunjucks cache. This will significantly reduce re-rendering time for large projects.
 - [grunt] Temporarily disabled watch for images with `responsive_images` task, since it doesn't work with `grunt-newer`. Resizing all images on each change will be too painful in large repositories. See [#251](https://github.com/LotusTM/Kotsu/issues/251).
 - [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with it's own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved.
+- [grunt] Data changes will now trigger `grayMatter` task, since now it relies on part of data (`pageDefaults`).
 - [tests] Nunjucks-related testing utility functions has been moved into standalone file `/tests/utils/nunjucks.js` which exports `renderString` method. It also now accepts context as second argument.
 - [tests] Nunjucks testing utility function `renderString` no longer tries to parse rendered content with `JSON.parse`, unless third argument `parse` has been set to true.
 
