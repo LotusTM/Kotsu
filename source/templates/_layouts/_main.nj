@@ -2,8 +2,8 @@
 
 {% block body %}
 
-<!-- Site's header -->
-<!-- ============= -->
+<!-- Header -->
+<!-- ====== -->
 
 <header class='Header h-margin-ends'>
   <div class='Wrapper Wrapper--content'>
@@ -37,8 +37,8 @@
   </div>
 </header>
 
-<!-- Site's content -->
-<!-- ============== -->
+<!-- Main -->
+<!-- ==== -->
 
 <main class='Main o-panel__body o-panel' role='main'>
   <article class='o-panel o-panel__body h-1/1 {{ 'Wrapper Wrapper--content' if page.applyWrapper }}'>
@@ -81,8 +81,8 @@
   </article>
 </main>
 
-<!-- Site's footer -->
-<!-- ============= -->
+<!-- Footer -->
+<!-- ====== -->
 
 <!--/noindex-->
 <footer class='Footer o-panel__footer h-padding-ends'>
