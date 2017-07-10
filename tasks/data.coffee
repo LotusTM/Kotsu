@@ -11,6 +11,8 @@ module.exports = () ->
   Extract data from specified files with Gray Matter
   ###
 
+  pageDefaults = @config.process @config('data')(@config('baseLocale')).pageDefaults
+
   @config 'grayMatter',
     build:
       options:
@@ -29,7 +31,7 @@ module.exports = () ->
             depth:      breadcrumb.length
             dirname:    basename(dirname(src))
             basename:   basename(src, extname(src))
-          }, data
+          }, pageDefaults, data
 
           return composedData
 

@@ -109,6 +109,7 @@
 - [templates] Moved `Host` and `Sitemap` directives in `robots.txt` under the `User-agent` directive, in accordance with [guidelines](https://yandex.com/support/webmaster/controlling-robot/robots-txt.xml).
 - [templates] Replaced all occurances of `metaDesc` Matter Data property with `description`. This will make it more unified with `package.json`, Open Graph and Twitter naming.
 - [templates] Replaced all occurances of `shortDesc` Matter Data property with more common `excerpt`.
+- [data][grunt] `data.pageDefault` previously didn't became part of Matter Data and was injected only on `_base.nj` invocation. That made accessing this data in other instances problematic. Now, `data.pageDefault` will be injected during `grayMatter` task instead.
 - [date][templates] Replaced `site.desc` with more common `description` to be more consistent with `package.json`.
 - [data][templates] Old social-related properties in `site` replaced with more verbose `social` property, which encapsulates data about site's social presence following this scheme:
 

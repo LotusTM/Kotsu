@@ -6,7 +6,6 @@
 {# Load page props #}
 {{ config('page', { breadcrumb : page.props.breadcrumb }) }}
 {{ config('page', getPage(page.breadcrumb).props|format(site.placeholders)) }}
-{{ config('page', pageDefaults) }}
 {{ config('page', page.props) }}
 
 {# Global macros #}
