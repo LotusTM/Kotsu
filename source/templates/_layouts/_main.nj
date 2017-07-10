@@ -2,98 +2,94 @@
 
 {% block body %}
 
+<!-- Site's header -->
+<!-- ============= -->
 
-  <!-- Site's header -->
-  <!-- ============= -->
+<header class='Header h-margin-ends'>
+  <div class='Wrapper Wrapper--content'>
+    <div class='o-grid h-flex-y--center h-childs-displace'>
 
-  <header class='Header h-margin-ends'>
-    <div class='Wrapper Wrapper--content'>
-      <div class='o-grid h-flex-y--center h-childs-displace'>
-
-        <div class='o-grid__item'>
-          <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/' typeof='Organization' resource='#this'>
-            <meta property='name' content='{{ site.name }}'>
-            <meta property='url' content='{{ site.homepage }}'>
-            {% for service, props in social %}
-            <meta property='sameAs' content='{{ props.url }}'>
-            {% endfor %}
-            <img src='/{{ path.images }}/logo.svg' height='48' alt='{{ site.name }}' property='logo'>
-          </a>
-        </div>
-
-        <div class='o-grid__item h-flex+'>
-          <!--noindex-->
-          <nav class='Nav h-float--right'>
-            {{ Nav(
-              class        = 'o-nav h-childs-space-left',
-              itemsClass   = 'Nav__item',
-              anchorsClass = 'Nav__link h-text--underline0',
-              activeClass  = 'is-active'
-            ) }}
-          </nav>
-          <!--/noindex-->
-        </div>
-
+      <div class='o-grid__item'>
+        <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/' typeof='Organization' resource='#this'>
+          <meta property='name' content='{{ site.name }}'>
+          <meta property='url' content='{{ site.homepage }}'>
+          {% for service, props in social %}
+          <meta property='sameAs' content='{{ props.url }}'>
+          {% endfor %}
+          <img src='/{{ path.images }}/logo.svg' height='48' alt='{{ site.name }}' property='logo'>
+        </a>
       </div>
+
+      <div class='o-grid__item h-flex+'>
+        <!--noindex-->
+        <nav class='Nav h-float--right'>
+          {{ Nav(
+            class        = 'o-nav h-childs-space-left',
+            itemsClass   = 'Nav__item',
+            anchorsClass = 'Nav__link h-text--underline0',
+            activeClass  = 'is-active'
+          ) }}
+        </nav>
+        <!--/noindex-->
+      </div>
+
     </div>
-  </header>
+  </div>
+</header>
 
+<!-- Site's content -->
+<!-- ============== -->
 
-  <!-- Site's content -->
-  <!-- ============== -->
+<main class='Main o-panel__body o-panel' role='main'>
+  <article class='o-panel o-panel__body h-1/1 {{ 'Wrapper Wrapper--content' if page.applyWrapper }}'>
 
-  <main class='Main o-panel__body o-panel' role='main'>
-    <article class='o-panel o-panel__body h-1/1 {{ 'Wrapper Wrapper--content' if page.applyWrapper }}'>
+    {% if page.showBreadcrumb or page.showContentTitle %}
+    <header class='Content-header'>
 
-      {% if page.showBreadcrumb or page.showContentTitle %}
-      <header class='Content-header'>
-
-        {% if page.showBreadcrumb %}
-        {{ Breadcrumb(
-          class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
-          itemsClass      = 'o-breadcrumb__item',
-          anchorsClass    = 'h-text--underline0',
-          rootItemClass   = 'h-font-weight--bolder',
-          rootAnchorClass = '',
-          displayLast     = false
-        ) }}
-        {% endif %}
-
-        {% if page.showContentTitle %}
-        <h1 class='Content-title h-align--center h-margin-bottom0'>{{ page.contentTitle }}</h1>
-        {% endif %}
-
-      </header>
+      {% if page.showBreadcrumb %}
+      {{ Breadcrumb(
+        class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
+        itemsClass      = 'o-breadcrumb__item',
+        anchorsClass    = 'h-text--underline0',
+        rootItemClass   = 'h-font-weight--bolder',
+        rootAnchorClass = '',
+        displayLast     = false
+      ) }}
       {% endif %}
 
-      <div class='o-grid o-panel__body {{ 'h-childs-displace+' if page.showSidebar}}'>
+      {% if page.showContentTitle %}
+      <h1 class='Content-title h-align--center h-margin-bottom0'>{{ page.contentTitle }}</h1>
+      {% endif %}
 
-        <div class='Content o-grid__item {{ 'h-1/1' if not page.showSidebar else 'h-9/12' }} h-margin-top'>
-          {% block main %}{% endblock %}
-        </div>
+    </header>
+    {% endif %}
 
-        {% if page.showSidebar %}
-        <aside class='Sidebar o-grid__item h-3/12 h-margin-top'>
-          {% block sidebar %}{% endblock %}
-        </aside>
-        {% endif %}
+    <div class='o-grid o-panel__body {{ 'h-childs-displace+' if page.showSidebar}}'>
 
+      <div class='Content o-grid__item {{ 'h-1/1' if not page.showSidebar else 'h-9/12' }} h-margin-top'>
+        {% block main %}{% endblock %}
       </div>
 
-    </article>
-  </main>
+      {% if page.showSidebar %}
+      <aside class='Sidebar o-grid__item h-3/12 h-margin-top'>
+        {% block sidebar %}{% endblock %}
+      </aside>
+      {% endif %}
 
-
-  <!-- Site's footer -->
-  <!-- ============= -->
-
-  <!--/noindex-->
-  <footer class='Footer o-panel__footer h-padding-ends'>
-    <div class='Wrapper Wrapper--content'>
-      © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
     </div>
-  </footer>
-  <!--/noindex-->
 
+  </article>
+</main>
+
+<!-- Site's footer -->
+<!-- ============= -->
+
+<!--/noindex-->
+<footer class='Footer o-panel__footer h-padding-ends'>
+  <div class='Wrapper Wrapper--content'>
+    © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
+  </div>
+</footer>
+<!--/noindex-->
 
 {% endblock %}
