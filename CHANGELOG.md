@@ -93,7 +93,7 @@
 - [templates] Added structured data for `Breadcrumb` component according to [Google guidlines](https://developers.google.com/search/docs/data-types/breadcrumbs).
 - [templates] Added structured data for logo according to [Google guidlines](https://developers.google.com/search/docs/data-types/logo).
 - [templates] Added structured data for social profiles according to [Google guidlines](https://developers.google.com/search/docs/data-types/social-profile-links).
-- [modules][templates] Added `fullurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
+- [modules][templates] Added `absoluteurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
 - [test] Added tests for Nunjucks `render()` filter.
 - [images][templates] Hardly belivable, but we have finally added Kotsu logo as `logo.svg` file and placed it in `_main.nj` layout. Now it serves as placeholder for your beloved logo file.
 
@@ -128,7 +128,7 @@
    This data can be later used to generate site social icons or for structured data.
 
 - [data][templates] Default value for Open Graph and Twitter image meta data no longer hardcoded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `social.faceebook.image` and `social.twitter.image` properties.
-- [templates] Open Graph and Twitter images properties now uses new `fullurl()` Nunjucks function to resolve path to images. This means, that you can freely enter as path to image remote url, or local absolute, or local relative url, and it will be properly resolved.
+- [templates] Open Graph and Twitter images properties now uses new `absoluteurl()` Nunjucks function to resolve path to images. This means, that you can freely enter as path to image remote url, or local absolute, or local relative url, and it will be properly resolved.
 - [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ page.title if page.title else site.name }}` -> `{{ page.title or site.name }}`.
 - [modules][templates] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
 - [modules] Changed sections comment-headers always be 80 chars long.

@@ -187,31 +187,31 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
   env.addGlobal 'urljoin', urljoin
 
   ###*
-   * Resolves absolute or relative urls to full url, with site homepage prepended,
-   * otherwise if url already full (remote), returns as it is
-   * @param {string} url Url to operate upon
+   * Resolves relative urls to absolute url, with site homepage prepended,
+   * otherwise if url already absolute, returns as it is
+   * @param {string} url        Url to operate upon
+   * @param {string} [homepage] Homepage of website, like `https://test.com`
    * @return {string} Full url
    * @throws {Error} If `url` is not string
    * @example
-   *  fullurl('test') -> https://kotsu.2bad.me/test
-   *  fullurl('http://test.dev') -> http://test.dev
+   *  absoluteurl('test') -> https://kotsu.2bad.me/test
+   *  absoluteurl('http://test.dev') -> http://test.dev
   ###
-  env.addGlobal 'fullurl', (url) ->
+  env.addGlobal 'absoluteurl', (url, homepage = @ctx.site.homepage) ->
     if typeof url != 'string'
-      throw new Error("[fullurl] url should be `string`, but `#{typeof url}` or undefined provided")
+      throw new Error("[absoluteurl] url should be `string`, but `#{typeof url}` or undefined provided")
 
-    homepage = @ctx.site.homepage
     pageurl = @ctx.page.url
     # Prevent situation when we have relative url and current page starts with `/`
     # Concatenation will result in `//` which will breaks url
     pageurl = if pageurl == '/' then '' else pageurl
     hasProtocol = /^\/\/|:\/\//.test(url)
-    isRelative = /^[^\/]/.test(url)
+    isDocumentRelative = /^[^\/]/.test(url)
 
-    if hasProtocol then return url
-    if isRelative then return new URL(pageurl + '/' + url, homepage).href
+    if hasProtocol
+      return url
 
-    return new URL(url, homepage).href
+    return new URL(isDocumentRelative and pageurl + '/' + url or url, homepage).href
 
   # ==============================================================================
   # Filters

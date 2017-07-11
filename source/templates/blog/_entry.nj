@@ -15,7 +15,7 @@
   {# @Todo this has to be improved, since Google asks for width and height properties #}
   <meta property='image' content='{{ page.image }}'>
   <meta property='publisher' resource='#this'>
-  <meta property='mainEntityOfPage' typeof='WebPage' content='{{ fullurl(localeDir() + page.url) }}'/>
+  <meta property='mainEntityOfPage' typeof='WebPage' content='{{ absoluteurl(localeDir() + page.url) }}'/>
   <meta property='dateModified' content='{{ page.date }}'>
 
   <footer class='h-opacity--30 h-bleed-top h-margin-bottom+ h-align--center'>
