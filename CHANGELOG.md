@@ -133,7 +133,7 @@
 - [modules][templates] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
 - [modules] Changed sections comment-headers always be 80 chars long.
 - [data] Reordered `site` properties to make it more consistent with order of `package.json`.
-- [styles] Updated Ekzo to version 2.4.3.
+- [styles] Updated Ekzo to version 2.5.0.
 - [styles][grunt] Updated Sass files to use same comments headers as Ekzo 2.4.3 — 80 chars long.
 - [styles] Update `stylelint-disable` to use changed Stylelint 7.12.0 rules.
 - [grunt] Enabled Nunjucks cache. This will significantly reduce re-rendering time for large projects.
