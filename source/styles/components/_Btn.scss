@@ -62,15 +62,9 @@
 }
 
 // -----------------------------------------------------------------------------
-// Call all buttons modifiers
+// Call modifiers
 // -----------------------------------------------------------------------------
 
-@include ekzo-buttons-sizes();
-
-// -----------------------------------------------------------------------------
-// Responsive buttons modifiers
-// -----------------------------------------------------------------------------
-
-@include ekzo-for-each-breakpoint($matches: $ekzo-responsive-buttons-breakpoints) {
+@include ekzo-for-each-breakpoint($matches: $ekzo-responsive-buttons-breakpoints, $include-self: true) {
   @include ekzo-buttons-sizes($postfix: ekzo-temp());
 }

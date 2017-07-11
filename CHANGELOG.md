@@ -148,6 +148,8 @@
 - [grunt] Removed `grunt-cache-bust` option `algorithm: md5`, since it's default value anyway.
 - [modules][templates] Removed `isCaller` from `nunjuck-render` method, since is is no longer needed to make adjustments to input based on whether it is macro's caller or no. This also means that Nunjucks `render()` filter no longer accepts this parameter too.
 - [misc] Removed Stylelint rule `at-rule-no-unknown` in favor of `scss/at-rule-no-unknown`.
+- [styles] Removed not needed `$prefix: $ekzo-sprites-prefix` from `ekzo-sprites()` include.
+- [styles] Removed no longer needed `ekzo-buttons-sizes()` include inside `Btn` component, since from Ekzo 2.5.0 it is included by `ekzo-for-each-breakpoint` with `$include-self` option set to `true`.
 
 ### Fixed
 - [templates] Fixed occasional double quotes.
