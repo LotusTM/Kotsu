@@ -72,6 +72,15 @@
 
 And a lot more under the hood. We just didn't have time to document all features. Yet.
 
+## Documentation
+
+_Work in progress_
+
+* [Structure](https://github.com/LotusTM/Kotsu/wiki/Structure)
+* [Set up environment variables](https://github.com/LotusTM/Kotsu/wiki/Set-up-environment-variables)
+* [Data](https://github.com/LotusTM/Kotsu/wiki/Data)
+* [Continuous Delivery with Wercker Docker and CoreOS](https://github.com/LotusTM/Kotsu/wiki/Continuous-Delivery-with-Wercker-Docker-and-CoreOS)
+
 ## Examples
 
 Deployed version of Kotsu from master branch can be found [here](https://kotsu.2bad.me).
@@ -82,27 +91,29 @@ Note that Examples section so far features only least part of predefined element
 
 ### JavaScript
 
-Works in:
+| IE | Edge | Chrome | Firefox | Safari | Opera | Opera Mobile | iOS Safari | Android |
+|----|------|--------|---------|--------|-------|--------------|------------|---------|
+| 9+ | 12+  | 21+    | 28+     | 6.1+   | 12.1+ | 12.1+        | 7+         | 4+      |
 
-IE9+, Edge 12+, Chrome 21+, Firefox 28+, Safari 6.1+, Opera 12.1+, Opera Mobile 12.1+, iOS Safari 7+, Android 4+.
-
-If you need to support advanced ES6 features in IE11 and below like `Promise` or `Objest.assign`, uncomment `import 'babel-polyfill'` in `main.js`. See details [here](https://babeljs.io/docs/usage/polyfill/).
+To enable ES6 features in IE11 and below, uncomment `import 'babel-polyfill'` in [`main.js`](https://github.com/LotusTM/Kotsu/blob/master/source/scripts/main.js). See details [here](https://babeljs.io/docs/usage/polyfill/).
 
 Default build shipped with jQuery 3.1.0+ which doesn't support IE8. Replace it with pre 3.0.0 version if you need support of IE8.
 
 ### CSS
 
-Default layouts powered by [Ekzo](https://github.com/ArmorDarks/ekzo), which implies following requirements to fully work:
+|  IE | Edge | Chrome | Firefox | Safari | Opera | Opera Mobile | iOS Safari | Android |
+|-----|------|--------|---------|--------|-------|--------------|------------|---------|
+| 10+ | 12+  | 21+    | 28+     | 6.1+   | 12.1+ | 12.1+        | 7.1+       | 4.4+    |
 
-IE10+, Edge 12+, Chrome 21+, Firefox 28+, Safari 6.1+, Opera 12.1+, Opera Mobile 12.1+, iOS Safari 7.1+, Android 4.4+.
+Refer to [Ekzo Browsers Support](https://github.com/ArmorDarks/ekzo#browsers-support) section for details about graceful regression for IE9 and below, which included in Kotsu by default.
 
-Provides graceful degradation for IE9 and IE8. Details can be found [here](https://github.com/ArmorDarks/ekzo#browsers-support).
-
-If you don't want support of IE9 and below, remove `IE()` macro call from base layout.
+To disable graceful regressions for older IE, remove `IE()` macro call from base layout.
 
 ### Outdated Browser message
 
-In IE9 and below will be displayed banner before page content with message that user's browser is outdated and link to [Outdated Browser](http://outdatedbrowser.com). If you don't want that message to be displayed, remove `OutdatedBrowser()` macro call.
+In IE9 and below users will see banner before page content with message about outdated browser and link to [Outdated Browser](http://outdatedbrowser.com).
+
+To disable Outdated Browser message, remove `OutdatedBrowser()` macro call from base layout.
 
 ## License
 
