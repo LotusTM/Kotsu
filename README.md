@@ -56,13 +56,15 @@
 * [Nunjucks](http://mozilla.github.io/nunjucks/), a full featured templating engine
 * In-built Nunjucks globals and filters for formatting numbers, dates, getting current page url, locale, breadcrumb, etc.
 * Human readable urls
-* HTML5 boilerplate files based on best practices
-* i18n with [node-gettext](https://github.com/andris9/node-gettext)
+* Boilerplate files based on best practices
+* i18n with [node-gettext](https://github.com/andris9/node-gettext) and configured layouts to properly declare current locale and alternate urls
 * [Sass](http://sass-lang.com/) compiler with source maps generation, [autoprefixing](https://github.com/postcss/autoprefixer), [optimization](https://github.com/giakki/uncss), [minification](https://github.com/css/csso) and [linting](https://github.com/stylelint/stylelint)
 * [Ekzo](https://github.com/ArmorDarks/ekzo) Sass framework
-* [JSPM](http://jspm.io) with ES6 support, managing and bundling JavaScript dependencies and configurated optional [hot module reloading](https://github.com/alexisvincent/systemjs-hot-reloader/) or blazing fast watch
+* [JSPM](http://jspm.io) with ES6 support, managing and bundling JavaScript dependencies and optional [hot module reloading](https://github.com/alexisvincent/systemjs-hot-reloader/) or blazing fast watch
 * [standard](https://github.com/feross/standard) for linting and automatic formatting JavaScript
 * Live reload powered by [Browser Sync](https://github.com/shakyshane/grunt-browser-sync)
+* Preconfigured meta tags for [Open Graph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/cards/overview)
+* Commonly used by search providers structured data based on [RDFa](https://rdfa.info/)
 * Automatic `sitemap.xml` generation with [grunt-sitemap-xml](https://github.com/lotustm/grunt-sitemap-xml)
 * Automatic sprites generation with [Spritesmith](https://github.com/Ensighten/grunt-spritesmith)
 * Automatic images compression via [TinyPNG](https://tinypng.com/)
