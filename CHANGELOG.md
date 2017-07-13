@@ -87,6 +87,7 @@
    ```
 
 - [templates][data] Added `page.image` Matter Data property, which allows to specify generic meta image for page. It can be used by other pages (for instance, to generate table of content with previews or for structured data markup) and also will specify image for Open Graph and Twitter meta data, unless they have already specified images. Related to [#219](https://github.com/LotusTM/Kotsu/issues/219).
+- [data][templates] Added `site.logo` data property for main site logo, which defaults to `logo.svg` and used in `_main.nj` layout.
 - [templates] Added `vocab='https://schema.org/'` to top-level `<html>` of `_base.nj`. This means that you can use freely Schema vocabulary without specifying or prefixing it as `typeof='ListItem'` instead of `vocab='https://schema.org/' typeof='ListItem'` or `typeof='schema:ListItem'` whenever you extend base layout.
 - [templates] Added ability to reference website's Organization structured data by stating `resource='#this'`.
 - [templates] Added structured data for blog posts according to [Google guidlines](https://developers.google.com/search/docs/data-types/articles).

@@ -16,7 +16,7 @@
           {% for service, props in social %}
           <meta property='sameAs' content='{{ props.url }}'>
           {% endfor %}
-          <img src='/{{ path.images }}/logo.svg' height='48' alt='{{ site.name }}' property='logo'>
+          <img src='{{ site.logo }}' height='48' alt='{{ site.name }}' property='logo'>
         </a>
       </div>
 
