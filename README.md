@@ -63,6 +63,7 @@
 * [JSPM](http://jspm.io) with ES6 support, managing and bundling JavaScript dependencies and optional [hot module reloading](https://github.com/alexisvincent/systemjs-hot-reloader/) or blazing fast watch
 * [standard](https://github.com/feross/standard) for linting and automatic formatting JavaScript
 * Live reload powered by [Browser Sync](https://github.com/shakyshane/grunt-browser-sync)
+* Runtime type annotation and data validation with [`tcomb`](https://github.com/gcanti/tcomb) and [`tcomb-validation`](https://github.com/gcanti/tcomb-validation), built-in handy refinements.
 * Preconfigured meta tags for [Open Graph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/cards/overview)
 * Commonly used by search providers structured data based on [RDFa](https://rdfa.info/)
 * Automatic `sitemap.xml` generation with [grunt-sitemap-xml](https://github.com/lotustm/grunt-sitemap-xml)
