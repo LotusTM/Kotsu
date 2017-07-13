@@ -11,7 +11,7 @@ module.exports = () ->
   Compiles Sass with node-sass
   ###
 
-  data = @config.process @config('data')(@config('baseLocale'))
+  data = @config.process @config('data')()
 
   @config 'sass',
     build:

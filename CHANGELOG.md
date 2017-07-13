@@ -147,6 +147,7 @@
 ### Removed
 - [grunt] PostCSS Autoprefixer's browser queries removed in favor of new `browserslist` property in `package.json.`, so that queries could be used by other related tools. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 - [grunt] Removed `grunt-cache-bust` option `algorithm: md5`, since it's default value anyway.
+- [grunt] Removed `@config('baseLocale')` calls from data-retriving functions in `styles` and `data` tasks, since `@config('data')()` with no argument will return base locale values anyway.
 - [modules][templates] Removed `isCaller` from `nunjuck-render` method, since is is no longer needed to make adjustments to input based on whether it is macro's caller or no. This also means that Nunjucks `render()` filter no longer accepts this parameter too.
 - [misc] Removed Stylelint rule `at-rule-no-unknown` in favor of `scss/at-rule-no-unknown`.
 - [styles] Removed not needed `$prefix: $ekzo-sprites-prefix` from `ekzo-sprites()` include.
