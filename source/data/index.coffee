@@ -51,10 +51,6 @@ module.exports = ({ config }) ->
     data:
       currentYear: new Date().getFullYear()
 
-  return (locale) ->
-
-    switch locale
-
-      when 'ru-RU' then merge {}, data,
-
-      else data
+  return (locale) -> switch locale
+    when 'ru-RU' then merge {}, data
+    else data
