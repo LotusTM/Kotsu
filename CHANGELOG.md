@@ -105,6 +105,10 @@
    * `Handle` — to accept only handle, like `@lotustm`. Useful for Twitter-related data, you know.
    * `EqualKeysAndProperty` — to accept only objects, in which some properties are equal to key value. For instance, when you need to ensure that object key and `id` property are always equal.
 
+- [tests][data] Added `index.test.coffee` file which tests data index file with `tcomb` to ensure that Kotsu receives all required data with valid values. Wrong data, you shall not pass!
+   
+   Also, it serves as an example for writing project-specific data validation files.
+
 - [images][templates] Hardly belivable, but we have finally added Kotsu logo as `logo.svg` file and placed it in `_main.nj` layout. Now it serves as placeholder for your beloved logo file.
 
 ### Changed
