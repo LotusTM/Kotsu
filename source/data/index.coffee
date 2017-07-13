@@ -13,8 +13,8 @@ module.exports = ({ config }) ->
       scripts: config('path.build.scripts').replace(buildRoot, '')
       styles: config('path.build.styles').replace(buildRoot, '')
       sprites: config('path.build.sprites').replace(buildRoot, '')
-      source: '<%= path.source %>'
-      build: '<%= path.build %>'
+      source: config('path.source')
+      build: config('path.build')
     site:
       name: pkg.name
       version: pkg.version
@@ -45,10 +45,10 @@ module.exports = ({ config }) ->
         image: imagesPath + '/facebook.png'
         url: 'https://www.facebook.com/Lotus-TM-647393298791066/'
     env:
-      production: '<%= env.production %>'
-      staging: '<%= env.staging %>'
-      build: '<%= env.build %>'
-      hotModuleRloading: '<%= env.hotModuleRloading %>'
+      production: config('env.production')
+      staging: config('env.staging')
+      build: config('env.build')
+      hotModuleRloading: config('env.hotModuleRloading')
     data:
       currentYear: new Date().getFullYear()
 
