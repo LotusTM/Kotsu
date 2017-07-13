@@ -39,10 +39,10 @@ module.exports = ({ config }) ->
       # Add any other social services following same pattern
       twitter:
         handle: pkg.twitter
-        image: imagesPath + '/twitter.png'
+        image: "/#{imagesPath}/twitter.png"
         url: "https://twitter.com/#{pkg.twitter}"
       facebook:
-        image: imagesPath + '/facebook.png'
+        image: "/#{imagesPath}/facebook.png"
         url: 'https://www.facebook.com/Lotus-TM-647393298791066/'
     env:
       production: config('env.production')
