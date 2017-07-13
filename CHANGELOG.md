@@ -5,6 +5,7 @@
 ### Added
 - [package] Added `package-lock.json` for Node 8+.
 - [package] Added `browserslist` to `package.json` with preseted browsers queries. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
+- [package] Added [`tcomb`](https://github.com/gcanti/tcomb) and [`tcomb-validation`](https://github.com/gcanti/tcomb-validation) for runtime type annotation and data validation. See [#165](https://github.com/LotusTM/Kotsu/issues/165) for details.
 - [package][grunt] Added ability to pass command line argument from `npm start` and `npm run build` to `grunt`. For instance, this can be useful to build website in production mode with `npm start -- --production`
 - [package][grunt][templates][data] Added ability to run Kotsu optionally with regular watch or hot reloading, on demand.
 
@@ -95,7 +96,8 @@
 - [templates] Added structured data for logo according to [Google guidlines](https://developers.google.com/search/docs/data-types/logo).
 - [templates] Added structured data for social profiles according to [Google guidlines](https://developers.google.com/search/docs/data-types/social-profile-links).
 - [modules][templates] Added `absoluteurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
-- [test] Added tests for Nunjucks `render()` filter.
+- [tests] Added tests for Nunjucks `render()` filter.
+- [tests] Added `validate()` test utility which wraps `tcomb-validate` and print nice errors on fail.
 - [images][templates] Hardly belivable, but we have finally added Kotsu logo as `logo.svg` file and placed it in `_main.nj` layout. Now it serves as placeholder for your beloved logo file.
 
 ### Changed
