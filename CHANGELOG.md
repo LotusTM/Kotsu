@@ -98,6 +98,13 @@
 - [modules][templates] Added `absoluteurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
 - [tests] Added tests for Nunjucks `render()` filter.
 - [tests] Added `validate()` test utility which wraps `tcomb-validate` and print nice errors on fail.
+- [tests] Added some handy `tcomb` refinements to make life easier and your data truthy:
+   * `False` — to accept only `false`
+   * `Absoluteurl` — to accept only absolute urls, like `https://wowsomuch.test`
+   * `Imagefile` — to accept only paths with images, like `testme.png`
+   * `Handle` — to accept only handle, like `@lotustm`. Useful for Twitter-related data, you know.
+   * `EqualKeysAndProperty` — to accept only objects, in which some properties are equal to key value. For instance, when you need to ensure that object key and `id` property are always equal.
+
 - [images][templates] Hardly belivable, but we have finally added Kotsu logo as `logo.svg` file and placed it in `_main.nj` layout. Now it serves as placeholder for your beloved logo file.
 
 ### Changed

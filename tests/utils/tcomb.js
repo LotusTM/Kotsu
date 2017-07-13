@@ -22,4 +22,31 @@ const validate = (value, type) => {
   return validated
 }
 
-export { validate }
+const refinements = {
+  False: t.refinement(t.Boolean, (b) => b === false, 'False'),
+  Absoluteurl: t.refinement(t.String, (u) => /^\/\/|:\/\//.test(u), 'Absolute url'),
+  Imagefile: t.refinement(t.String, (i) => /.(jpg|jpeg|gif|png|svg)$/.test(i), 'Image file'),
+  Handle: t.refinement(t.String, (i) => /^@((?!(:|\\|\/)).)*$/.test(i), 'Handle'),
+
+  /**
+   * Check does target's keys are same as its specified property value
+   * @param  {string}   property Property which should be checked
+   * @param  {function} type     tcomb Type to be refined (dict or struct)
+   * @return {bool}
+   * @example
+   *  EqualKeysAndProperty('id')(t.dict(t.String, t.Any, 'Testdata'))({ 235: { id: '235' } })
+   */
+  EqualKeysAndProperty: (property) => (type) => t.refinement(t.Type(type), (t) => {
+    for (let key in t) {
+      const prop = t[key][property]
+
+      if (key !== prop) {
+        throw new TypeError(`[tcomb] ivalid value \`${prop}\`<${typeof prop}> supplied to \`${type.displayName}/${key}/${property}\` property: expected equal to key value \`${key}\`<${typeof key}>`)
+      }
+    }
+
+    return true
+  }, type.displayName)
+}
+
+export { validate, refinements }

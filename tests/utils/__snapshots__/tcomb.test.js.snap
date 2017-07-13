@@ -1,5 +1,163 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 1`] = `"[tcomb] Invalid value true supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 2`] = `"[tcomb] Invalid value \\"/url\\" supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 3`] = `"[tcomb] Invalid value \\"url/\\" supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 4`] = `"[tcomb] Invalid value \\"url\\" supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 5`] = `"[tcomb] Invalid value -1 supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 6`] = `"[tcomb] Invalid value 1 supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 7`] = `"[tcomb] Invalid value -1.555 supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 8`] = `"[tcomb] Invalid value 1.555 supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 9`] = `"[tcomb] Invalid value 0 supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 10`] = `"[tcomb] Invalid value null supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should error on everything except absolute url 11`] = `"[tcomb] Invalid value undefined supplied to Absolute url"`;
+
+exports[`Tcomb refinement Absoluteurl should pass absolute url 1`] = `"http://test.com"`;
+
+exports[`Tcomb refinement Absoluteurl should pass absolute url 2`] = `"https://test.com"`;
+
+exports[`Tcomb refinement Absoluteurl should pass absolute url 3`] = `"//test.com"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 1`] = `"[tcomb] ivalid value \`235\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 2`] = `"[tcomb] ivalid value \`111\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 3`] = `"[tcomb] ivalid value \`nope\`<string> supplied to \`Testdata/test/id\` property: expected equal to key value \`test\`<string>"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 4`] = `"[tcomb] ivalid value \`undefined\`<undefined> supplied to \`Testdata/test/id\` property: expected equal to key value \`test\`<string>"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 5`] = `"[tcomb] Invalid value true supplied to Testdata"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 6`] = `"[tcomb] Invalid value \\"string\\" supplied to Testdata"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 7`] = `"[tcomb] Invalid value 111 supplied to Testdata"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 8`] = `"[tcomb] Invalid value 0 supplied to Testdata"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 9`] = `"[tcomb] Invalid value null supplied to Testdata"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 10`] = `"[tcomb] Invalid value undefined supplied to Testdata"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 11`] = `"[tcomb] Invalid value \\"string\\" supplied to Type"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 12`] = `"[tcomb] Invalid value 111 supplied to Type"`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should pass object with equal keys and property value 1`] = `
+Object {
+  "235": Object {
+    "id": "235",
+  },
+}
+`;
+
+exports[`Tcomb refinement EqualKeysAndProperty should pass object with equal keys and property value 2`] = `
+Object {
+  "test": Object {
+    "id": "test",
+  },
+}
+`;
+
+exports[`Tcomb refinement False should error on everything except \`false\` 1`] = `"[tcomb] Invalid value true supplied to False"`;
+
+exports[`Tcomb refinement False should error on everything except \`false\` 2`] = `"[tcomb] Invalid value \\"string\\" supplied to False"`;
+
+exports[`Tcomb refinement False should error on everything except \`false\` 3`] = `"[tcomb] Invalid value -1 supplied to False"`;
+
+exports[`Tcomb refinement False should error on everything except \`false\` 4`] = `"[tcomb] Invalid value 1 supplied to False"`;
+
+exports[`Tcomb refinement False should error on everything except \`false\` 5`] = `"[tcomb] Invalid value -1.555 supplied to False"`;
+
+exports[`Tcomb refinement False should error on everything except \`false\` 6`] = `"[tcomb] Invalid value 1.555 supplied to False"`;
+
+exports[`Tcomb refinement False should error on everything except \`false\` 7`] = `"[tcomb] Invalid value 0 supplied to False"`;
+
+exports[`Tcomb refinement False should error on everything except \`false\` 8`] = `"[tcomb] Invalid value null supplied to False"`;
+
+exports[`Tcomb refinement False should error on everything except \`false\` 9`] = `"[tcomb] Invalid value undefined supplied to False"`;
+
+exports[`Tcomb refinement False should pass \`false\` 1`] = `false`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 1`] = `"[tcomb] Invalid value true supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 2`] = `"[tcomb] Invalid value \\"http://@test/\\" supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 3`] = `"[tcomb] Invalid value \\"http://test.com\\" supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 4`] = `"[tcomb] Invalid value \\"@url/test\\" supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 5`] = `"[tcomb] Invalid value \\"@url:test\\" supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 6`] = `"[tcomb] Invalid value \\"@url\\\\\\\\test\\" supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 7`] = `"[tcomb] Invalid value \\"/url\\" supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 8`] = `"[tcomb] Invalid value \\"url/\\" supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 9`] = `"[tcomb] Invalid value \\"url\\" supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 10`] = `"[tcomb] Invalid value -1 supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 11`] = `"[tcomb] Invalid value 1 supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 12`] = `"[tcomb] Invalid value -1.555 supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 13`] = `"[tcomb] Invalid value 1.555 supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 14`] = `"[tcomb] Invalid value 0 supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 15`] = `"[tcomb] Invalid value null supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should error on everything except handle 16`] = `"[tcomb] Invalid value undefined supplied to Handle"`;
+
+exports[`Tcomb refinement Handle should pass handle 1`] = `"@test"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 1`] = `"[tcomb] Invalid value true supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 2`] = `"[tcomb] Invalid value \\"http://test.com/imagelikepath.svg/\\" supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 3`] = `"[tcomb] Invalid value \\"http://test.com\\" supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 4`] = `"[tcomb] Invalid value \\"/url\\" supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 5`] = `"[tcomb] Invalid value \\"url/\\" supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 6`] = `"[tcomb] Invalid value \\"url\\" supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 7`] = `"[tcomb] Invalid value -1 supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 8`] = `"[tcomb] Invalid value 1 supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 9`] = `"[tcomb] Invalid value -1.555 supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 10`] = `"[tcomb] Invalid value 1.555 supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 11`] = `"[tcomb] Invalid value 0 supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 12`] = `"[tcomb] Invalid value null supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should error on everything except path with image file 13`] = `"[tcomb] Invalid value undefined supplied to Image file"`;
+
+exports[`Tcomb refinement Imagefile should pass path with image file 1`] = `"file.jpg"`;
+
+exports[`Tcomb refinement Imagefile should pass path with image file 2`] = `"file.jpeg"`;
+
+exports[`Tcomb refinement Imagefile should pass path with image file 3`] = `"file.png"`;
+
+exports[`Tcomb refinement Imagefile should pass path with image file 4`] = `"file.gif"`;
+
+exports[`Tcomb refinement Imagefile should pass path with image file 5`] = `"file.svg"`;
+
 exports[`Tcomb validate should error on ivalid data 1`] = `
 "[tcomb]
 Invalid value undefined supplied to /Struct{id: String, number: Number}/id: String
