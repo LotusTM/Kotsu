@@ -142,7 +142,7 @@
     "test": "npm run lint && node tests/utils/jest.js",
     "test:watch": "node tests/utils/jest.js --watch",
     "build": "grunt build",
-    "postbuild": "git status | grep -qse 'working (tree|directory) clean' || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
+    "postbuild": "git status | grep -qsE 'working (tree|directory) clean' || (echo 'Build task should not generate or change files outside build folder'; exit 1)"
   },
   "browserslist": [
     "> 1%",
