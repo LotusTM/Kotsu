@@ -10,7 +10,7 @@ data = require('./index')
 data = grunt.config.process(data(grunt)())
 r = refinements
 
-Data = t.struct({
+Data = module.exports = t.struct({
   path: t.struct
     fonts: t.String
     images: t.String
@@ -79,8 +79,6 @@ Data = t.struct({
   data: t.struct
     currentYear: t.Number
 }, { name: 'Data' })
-
-module.exports = Data
 
 if typeof describe == 'function'
   describe 'Data', () =>
