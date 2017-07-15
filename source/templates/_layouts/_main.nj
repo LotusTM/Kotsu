@@ -10,13 +10,8 @@
     <div class='o-grid h-flex-y--center h-childs-displace'>
 
       <div class='o-grid__item'>
-        <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/' typeof='Organization' resource='#this'>
-          <meta property='name' content='{{ site.name }}'>
-          <meta property='url' content='{{ site.homepage }}'>
-          {% for service, props in social %}
-          <meta property='sameAs' content='{{ props.url }}'>
-          {% endfor %}
-          <img src='{{ site.logo }}' height='48' alt='{{ site.name }}' property='logo'>
+        <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}/'>
+          <img src='{{ site.logo }}' height='48' alt='{{ site.name }}'>
         </a>
       </div>
 
