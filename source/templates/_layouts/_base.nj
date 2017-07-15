@@ -110,7 +110,7 @@
 
     <article typeof='Organization' resource='#this'>
       <meta property='name' content='{{ site.name }}'>
-      <meta property='url' content='{{ site.homepage }}'>
+      <meta property='url' content='{{ site.homepage }}{{ localeDir() }}'>
       <meta property='logo' content='{{ site.logo }}'>
       {% for service, props in social %}
       <meta property='sameAs' content='{{ props.url }}'>
