@@ -54,7 +54,7 @@
   {# <!-- RSS -->
   <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml'> #}
 
-  <!-- Facebook Open Graph -->
+  <!-- Open Graph -->
   <meta property='og:type'        content='{{ page.og.type or 'website' }}'>
   <meta property='og:site_name'   content='{{ page.og.site_name or site.name }}'>
   <meta property='og:locale'      content='{{ page.og.locale or page.isoLocale }}'>
