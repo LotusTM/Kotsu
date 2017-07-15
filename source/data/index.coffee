@@ -35,8 +35,7 @@ module.exports = ({ config }) ->
       showContentTitle: true
       showBreadcrumb: true
       showSidebar: false
-    social:
-      # Add any other social services following same pattern
+    social: # Add any other social services following same pattern
       twitter:
         handle: pkg.twitter
         image: "/#{imagesPath}/twitter.png"
