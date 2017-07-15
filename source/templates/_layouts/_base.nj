@@ -31,9 +31,8 @@
   <!-- IE compatibility -->
   <meta http-equiv='x-ua-compatible' content='ie=edge'>
 
+  <!-- Meta -->
   <title>{{ page.title or site.name }}</title>
-
-  <!-- Description -->
   <meta name='description' content='{{ page.description }}'>
 
   <!-- Viewport -->
