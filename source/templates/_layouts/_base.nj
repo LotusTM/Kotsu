@@ -48,13 +48,13 @@
   <link rel='stylesheet' href='/{{ path.styles }}/{{ 'style.min.css' if env.build else 'style.prefixed.css' }}'>
   {% endblock %}
 
-  <!-- Theme -->
-  <meta name='theme-color' content='{{ page.themeColor or site.themeColor }}'>
-
   {# <!-- RSS -->
   <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml'> #}
 
-  <!-- Meta -->
+  <!-- Theme -->
+  <meta name='theme-color' content='{{ page.themeColor or site.themeColor }}'>
+
+  <!-- RDFa -->
   <meta typeof='WebSite' resource='#this-website'>
   <meta about='#this-website' property='name' content='{{ site.name }}'>
   <meta about='#this-website' property='url' content='{{ site.homepage }}'>
