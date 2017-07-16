@@ -54,6 +54,19 @@
   {# <!-- RSS -->
   <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml'> #}
 
+  <!-- Meta -->
+  <meta typeof='WebSite' resource='#this-website'>
+  <meta about='#this-website' property='name' content='{{ site.name }}'>
+  <meta about='#this-website' property='url' content='{{ site.homepage }}'>
+
+  <meta typeof='Organization' resource='#this'>
+  <meta about='#this' property='name' content='{{ site.name }}'>
+  <meta about='#this' property='url' content='{{ site.homepage }}{{ localeDir() }}'>
+  <meta about='#this' property='logo' content='{{ absoluteurl(site.logo) }}'>
+  {% for service, props in social %}
+  <meta about='#this' property='sameAs' content='{{ props.url }}'>
+  {% endfor %}
+
   <!-- Open Graph -->
   <meta property='og:type'        content='{{ page.og.type or 'website' }}'>
   <meta property='og:site_name'   content='{{ page.og.site_name or site.name }}'>
@@ -99,25 +112,6 @@
 <body class='{{ page.bodyClass }} o-panel o-panel--max'>
 
   {{ OutdatedBrowser(version = 'lte IE 9') }}
-
-  <!-- Meta -->
-  <article class='h-none'>
-
-    <article typeof='WebSite'>
-      <meta property='name' content='{{ site.name }}'>
-      <meta property='url' content='{{ site.homepage }}'>
-    </article>
-
-    <article typeof='Organization' resource='#this'>
-      <meta property='name' content='{{ site.name }}'>
-      <meta property='url' content='{{ site.homepage }}{{ localeDir() }}'>
-      <meta property='logo' content='{{ absoluteurl(site.logo) }}'>
-      {% for service, props in social %}
-      <meta property='sameAs' content='{{ props.url }}'>
-      {% endfor %}
-    </article>
-
-  </article>
 
   {% block body %}{% endblock %}
 

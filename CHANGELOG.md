@@ -91,6 +91,7 @@
 - [data][templates] Added `site.logo` data property for main site logo, which defaults to `logo.svg` and used in `_main.nj` layout.
 - [templates] Added `vocab='https://schema.org/'` to top-level `<html>` of `_base.nj`. This means that you can use freely Schema vocabulary without specifying or prefixing it as `typeof='ListItem'` instead of `vocab='https://schema.org/' typeof='ListItem'` or `typeof='schema:ListItem'` whenever you extend base layout.
 - [templates] Added ability to reference website's Organization structured data by stating `resource='#this'`.
+- [templates] Added ability to reference website structured data by stating `resource='#this-website'`.
 - [templates] Added structured data for blog posts according to [Google guidlines](https://developers.google.com/search/docs/data-types/articles).
 - [templates] Added structured data for website and preferred site name according to [Google guidlines](https://developers.google.com/search/docs/data-types/sitename).
 - [templates] Added structured data for `Breadcrumb` component according to [Google guidlines](https://developers.google.com/search/docs/data-types/breadcrumbs).
