@@ -82,6 +82,7 @@ _Work in progress_
 * [Structure](https://github.com/LotusTM/Kotsu/wiki/Structure)
 * [Set up environment variables](https://github.com/LotusTM/Kotsu/wiki/Set-up-environment-variables)
 * [Data](https://github.com/LotusTM/Kotsu/wiki/Data)
+* [Structured data](https://github.com/LotusTM/Kotsu/wiki/Structured-data)
 * [Continuous Delivery with Wercker Docker and CoreOS](https://github.com/LotusTM/Kotsu/wiki/Continuous-Delivery-with-Wercker-Docker-and-CoreOS)
 
 ## Examples
