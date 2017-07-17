@@ -14,16 +14,7 @@ rules:
   # ------
   # Disabled rules due to various issues
 
-  # @todo No way to allow newline after ruleset
-  #       .test {
-  #         border: 1px;
-  #
-  #         > .child {
-  #           margin-top: 21px;
-  #           margin-bottom: 21px;
-  #         }
-  #       // <- no way to force this newline only after ruleset, but not property
-  #       }
+  # @todo https://github.com/stylelint/stylelint/issues/2759
   block-closing-brace-empty-line-before: null
 
   # @todo No way to provide `at least single space` for aligned groups
