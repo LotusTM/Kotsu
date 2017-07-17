@@ -57,14 +57,14 @@
   <!-- RDFa -->
   <meta typeof='WebSite' resource='#this-website'>
   <meta about='#this-website' property='name' content='{{ site.name }}'>
-  <meta about='#this-website' property='url' content='{{ site.homepage }}'>
+  <link about='#this-website' property='url' content='{{ site.homepage }}'>
 
   <meta typeof='Organization' resource='#this'>
   <meta about='#this' property='name' content='{{ site.name }}'>
   <meta about='#this' property='url' content='{{ site.homepage }}{{ localeDir() }}'>
   <meta about='#this' property='logo' content='{{ absoluteurl(site.logo) }}'>
   {% for service, props in social %}
-  <meta about='#this' property='sameAs' content='{{ props.url }}'>
+  <link about='#this' property='sameAs' content='{{ props.url }}'>
   {% endfor %}
 
   <!-- Open Graph -->
