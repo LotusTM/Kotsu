@@ -71,14 +71,12 @@ rules:
   # Disableed, since it is checked by `scss/at-rule-no-unknown` rule
   at-rule-no-unknown: null
 
-  # @todo Has issues with grouped includes
-  #       code {
-  #         @include ekzo-theme() { color: ekzo-theme(code); }
-  #         @include ekzo-theme() { background-color: ekzo-theme(code-bg); } <- will raise `Expected empty line before at-rule at-rule-empty-line-before`
-  #
-  #         border-radius: 2px;
-  #       }
-  at-rule-empty-line-before: null
+  at-rule-empty-line-before:
+    - always
+    - ignore:
+      - blockless-after-same-name-blockless
+      - after-comment
+      - inside-block
 
   at-rule-semicolon-space-before: 'never'
 
