@@ -84,8 +84,8 @@ rules:
   unit-case: null
   unit-no-unknown: null
 
-  # @todo No way to dissalow newlines after colon
-  declaration-colon-newline-after: null
+  # @todo https://github.com/stylelint/stylelint/issues/2760
+  # declaration-colon-newline-after: 'always-multi-line'
 
   # Standard overrides
   # ------------------
