@@ -84,6 +84,9 @@ rules:
   block-closing-brace-newline-before: null
   block-opening-brace-space-after: null
 
+  # Disableed, since it is checked by `scss/at-rule-no-unknown` rule
+  at-rule-no-unknown: null
+
   # @todo Has issues with grouped includes
   #       code {
   #         @include ekzo-theme() { color: ekzo-theme(code); }
