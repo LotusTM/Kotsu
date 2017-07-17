@@ -48,14 +48,7 @@ rules:
   #       padding-left:   10px;
   declaration-colon-space-after: null
 
-  # @todo No way to allow empty lines between property groups
-  #       .blog-post {
-  #         font-size: $s-blog-post-font-size;
-  #         // <- empty line here will be an error
-  #         line-height: $s-blog-post-line-height;
-  #         // <- empty line here will be an error
-  #         font-weight: 300;
-  #       }
+  # @todo https://github.com/stylelint/stylelint/issues/2758
   declaration-empty-line-before: null
 
   # @todo Doesn't support BEM-like indentation
