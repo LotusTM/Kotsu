@@ -245,10 +245,7 @@ rules:
   # scss/at-if-closing-brace-space-after: never-intermediate
   # scss/at-else-closing-brace-space-after: never-intermediate
 
-  # @todo Wrongly reports:
-  #  .#{$ekzo-o-ns}aspect-ratio4\:3  { @include ekzo-aspect-ratio(4, 3); }
-  #  .#{$ekzo-o-ns}aspect-ratio16\:9 { @include ekzo-aspect-ratio(16, 9); }
-  #  .#{$ekzo-o-ns}aspect-ratio21\:9 { @include ekzo-aspect-ratio(21, 9); }
+  # @todo https://github.com/kristerkari/stylelint-scss/issues/143
   scss/declaration-nested-properties: never
 
   scss/declaration-nested-properties-no-divided-groups: true
