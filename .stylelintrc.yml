@@ -253,12 +253,7 @@ rules:
 
   scss/declaration-nested-properties-no-divided-groups: true
 
-  # @todo There is no way to allow dividing of variables groups by newline:
-  #   $var1: 1;
-  #   $var2: 2;
-  #
-  #   $other1: 11;
-  #   $other2: 22;
+  # @todo https://github.com/kristerkari/stylelint-scss/issues/105#issuecomment-316117192
   # scss/dollar-variable-empty-line-before:
   #   - always
   #   - except:
