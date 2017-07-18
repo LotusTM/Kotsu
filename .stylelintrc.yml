@@ -225,12 +225,7 @@ rules:
   scss/operator-no-newline-after: true
   scss/operator-no-newline-before: true
 
-  # @todo Wrongly reports Sass maps keys
-  #       $test: (
-  #         \+:   10px,
-  #         \+\+: 20px,
-  #       );
-  # @todo Wrongly reports `@extend .h-trans--all\+;`
+  # @todo https://github.com/kristerkari/stylelint-scss/issues/144
   scss/operator-no-unspaced: true
 
   scss/selector-no-redundant-nesting-selector: true
