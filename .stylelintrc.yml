@@ -253,9 +253,6 @@ rules:
 
   scss/declaration-nested-properties-no-divided-groups: true
 
-  # @todo `ignore after-comment` seems to no work:
-  #   // comment
-  #   $ekzo-tooltip-height: 1px;
   # @todo There is no way to allow dividing of variables groups by newline:
   #   $var1: 1;
   #   $var2: 2;
@@ -267,6 +264,6 @@ rules:
   #   - except:
   #     - first-nested
   #     - after-dollar-variable
-  #   - ignore:
-  #     - after-comment
-  #     - inside-single-line-block
+  #     ignore:
+  #       - after-comment
+  #       - inside-single-line-block
