@@ -59,11 +59,7 @@ rules:
   #       );
   indentation: null
 
-  # @todo Raises errors with Sass comment right after selector
-  #       menu, // 1
-  #       nav, // 2
-  #       summary, // 1 <- will raise `Expected single space after "{" of a single-line block block-opening-brace-space-after` and `Expected newline after "{" of a multi-line block block-opening-brace-newline-after`
-  #       section { display: block; } <- will raise `Expected newline before "}" of a multi-line block block-closing-brace-newline-before`
+  # @todo https://github.com/stylelint/stylelint/issues/2761
   block-opening-brace-newline-after: null
   block-closing-brace-newline-before: null
   block-opening-brace-space-after: null
