@@ -39,8 +39,16 @@ rules:
   #       padding-left:   10px;
   declaration-colon-space-after: null
 
-  # @todo https://github.com/stylelint/stylelint/issues/2758
-  declaration-empty-line-before: null
+  # @todo Overrides standard rule only because it doesn't allow to group properties
+  #       (does not specifies `ignore: after-declaration`)
+  declaration-empty-line-before:
+    - always
+    - except:
+      - first-nested
+      ignore:
+        - after-comment
+        - after-declaration
+        - inside-single-line-block
 
   # @todo Doesn't support BEM-like indentation
   #      .test { display: flex; }

@@ -122,6 +122,7 @@
 - [conf] Replaced Stylelint rule `at-rule-no-unknown` with newly added `stylelint-scss` rule `scss/at-rule-no-unknown`.
 - [conf] Enabled `selector-max-attribute` Stylelint rule and set to `0`, so you might need to check your selectors.
 - [conf] Enabled Stylelint `at-rule-empty-line-before` rule.
+- [conf] Enabled Stylelint `declaration-empty-line-before` rule.
 - [conf] `declaration-colon-newline-after` Stylelint rule set to `always-multi-line`, which forces to write list values on multiple lines for better readability.
 - [ci] switched CI to latest node LTS release (v8.0.0).
 - [templates] Moved `Host` and `Sitemap` directives in `robots.txt` under the `User-agent` directive, in accordance with [guidelines](https://yandex.com/support/webmaster/controlling-robot/robots-txt.xml).
