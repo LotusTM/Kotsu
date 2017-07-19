@@ -6,6 +6,7 @@
 input,
 #{$ekzo-g-ns}input {
   @include ekzo-theme() { border-color: ekzo-theme(forms-border); }
+
   border-width: 1px;
 
   padding: ekzo-space(.5);
