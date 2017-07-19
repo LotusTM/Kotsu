@@ -176,6 +176,7 @@
 - [templates] Fixed `Breadcrumb()` being unordered list instead of ordered one `<ol>`. It's better suits its semantics, since it represents strickly ordered structure.
 - [templates] Thanks to related to [#219](https://github.com/LotusTM/Kotsu/issues/219) changes, blog posts finally using proper Open Graph type of `article`. Solves [#59](https://github.com/LotusTM/Kotsu/issues/59).
 - [templates] Fixed `rootTitle` in `Breadcrumb` component formatted with `sprintf` twice.
+- [styles] Merged separate `ekzo-theme()` mixin call in `generic/code` file.
 
 ## 1.6.0
 
