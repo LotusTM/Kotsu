@@ -67,12 +67,15 @@ rules:
   # Disableed, since it is checked by `scss/at-rule-no-unknown` rule
   at-rule-no-unknown: null
 
+  # Overrides standard rule to enable gouping of at-rules, when in standard rules
+  # at-rules always should follow each other
   at-rule-empty-line-before:
     - always
-    - ignore:
-      - blockless-after-same-name-blockless
-      - after-comment
-      - inside-block
+    - except:
+      - first-nested
+      ignore:
+        - blockless-after-same-name-blockless
+        - after-comment
 
   at-rule-semicolon-space-before: 'never'
 
