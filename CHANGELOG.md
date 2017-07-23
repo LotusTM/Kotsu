@@ -150,6 +150,13 @@
 - [templates] Open Graph and Twitter images properties now uses new `absoluteurl()` Nunjucks function to resolve path to images. This means, that you can freely enter as path to image remote url, or local absolute, or local relative url, and it will be properly resolved.
 - [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ page.title if page.title else site.name }}` -> `{{ page.title or site.name }}`.
 - [modules][templates] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
+- [modules][templates] Nunjucks `urljoin` filter now uses instead of [`url-join`](https://github.com/jfromaniello/url-join) more reliable [`URI.js`](https://medialize.github.io/URI.js/).
+
+   Note, that it is slightly modified:
+
+   * When first argument is absolute url, all other segments will resolve against that absolute url, instead of taking only its path.
+   * If all `urljoin` argument are slashes or empty strings, it will resolve to `/` if _first_ argument is `/`. See related issue [medialize/URI.js/#341](https://github.com/medialize/URI.js/issues/341) and [related tests](https://github.com/LotusTM/Kotsu/blob/master/tests/kotsu/urljoin.test.js).
+
 - [modules] Changed sections comment-headers always be 80 chars long.
 - [data] Reordered `site` properties to make it more consistent with order of `package.json`.
 - [styles] Updated Ekzo to version 2.5.2.
@@ -164,6 +171,7 @@
 - [tests] `build` and `temp` directories are now excluded from tests to make launching of tests watch faster in large projects.
 
 ### Removed
+- [packages] Removed [`url-join`](https://github.com/jfromaniello/url-join) in favor of [`URI.js`](https://medialize.github.io/URI.js/).
 - [grunt] PostCSS Autoprefixer's browser queries removed in favor of new `browserslist` property in `package.json.`, so that queries could be used by other related tools. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 - [grunt] Removed `grunt-cache-bust` option `algorithm: md5`, since it's default value anyway.
 - [grunt] Removed `@config('baseLocale')` calls from data-retriving functions in `styles` and `data` tasks, since `@config('data')()` with no argument will return base locale values anyway.

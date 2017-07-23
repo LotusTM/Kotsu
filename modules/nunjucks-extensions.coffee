@@ -10,7 +10,7 @@ moment                    = require('moment')
 smartPlurals              = require('smart-plurals')
 { join }                  = require('path')
 { URL }                   = require('url')
-urljoin                   = require('url-join')
+urljoin                   = require('./urljoin')
 { escape }                = require('nunjucks/src/lib')
 { file: { expand }, log } = require('grunt')
 
