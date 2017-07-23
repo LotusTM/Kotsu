@@ -179,6 +179,8 @@
       "^.+\\.coffee$": "<rootDir>/tests/utils/jest-preprocessor.js"
     },
     "testPathIgnorePatterns": [
+      "/build/",
+      "/temp/",
       "/node_modules/",
       "/jspm_packages/"
     ],
