@@ -39,7 +39,7 @@ showBreadcrumb:   false
     </div>
 
     <p>
-      <a class='Btn Btn+ h-h4' href='https://github.com/LotusTM/Kotsu' target='blank'>Kotsu at Github</a>
+      <a class='Btn Btn+ h-h4' href='https://github.com/LotusTM/Kotsu' target='_blank'>Kotsu at Github</a>
     </p>
 
 </div>
