@@ -119,6 +119,7 @@
    
    Also, it serves as an example for writing project-specific data validation files.
 
+- [tests] Added `isActive()` Nunjucks function tests.
 - [images][templates] Hardly belivable, but we have finally added Kotsu logo as `logo.svg` file and placed it in `_main.nj` layout. Now it serves as placeholder for your beloved logo file.
 
 ### Changed
