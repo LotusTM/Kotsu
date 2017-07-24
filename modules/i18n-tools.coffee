@@ -1,4 +1,5 @@
 urlify = require('./urlify')
+urljoin = require('./urljoin')
 
 ###*
  * Return list of locales names
@@ -26,7 +27,7 @@ getLocaleProps = (locales, locale) => locales[locale]
 ###
 getLocaleDir = (localeProps, baseLocale, baseLocaleAsRoot) =>
   locale = localeProps.locale
-  return if baseLocaleAsRoot and locale == baseLocale then '/' else "/#{urlify(localeProps.url or locale)}"
+  return if baseLocaleAsRoot and locale == baseLocale then '/' else urljoin('/', localeProps.url or urlify(locale))
 
 ###*
  * Get language code from locale, without country
