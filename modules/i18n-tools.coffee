@@ -26,7 +26,7 @@ getLocaleProps = (locales, locale) => locales[locale]
 ###
 getLocaleDir = (localeProps, baseLocale, baseLocaleAsRoot) =>
   locale = localeProps.locale
-  return if baseLocaleAsRoot and locale == baseLocale then '' else "/#{urlify(localeProps.url or locale)}"
+  return if baseLocaleAsRoot and locale == baseLocale then '/' else "/#{urlify(localeProps.url or locale)}"
 
 ###*
  * Get language code from locale, without country

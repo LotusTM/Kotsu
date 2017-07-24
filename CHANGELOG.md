@@ -101,6 +101,10 @@
 - [templates] Whenever url concatenation involved now used `urljoin()` instead of plain concatenation.
 - [modules][templates] Added [`URI.js`](https://medialize.github.io/URI.js/) as `URI()` Nunjucks function.
 - [modules][templates] Added `absoluteurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
+- [modules][templates] `getLocaleDir()` and related Nunjucks counterpart `localeDir()` now returns `/` for base locale instead of hacky empty string.
+
+   Old behaviour was needed to ease concatenation with urls, but since all that logic now handled by `urljoin()`, we can safely return `/` for base locale to properly denote that it lives at root.
+
 - [tests] Added tests for Nunjucks `render()` filter.
 - [tests] Added `validate()` test utility which wraps `tcomb-validate` and print nice errors on fail.
 - [tests] Added some handy `tcomb` refinements to make life easier and your data truthy:
