@@ -52,7 +52,7 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @param {*} input Anything we want to log to console
    * @return {string} Logs to Grunt console
   ###
-  env.addGlobal 'warn', (input...) -> log.error(input..., '[' + @ctx.page.url + ']')
+  env.addGlobal 'warn', (input...) -> log.error(input..., "[#{@ctx.page.props.url}]")
 
   ###*
    * Get list of files or directories inside specified directory
