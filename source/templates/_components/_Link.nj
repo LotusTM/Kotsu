@@ -44,7 +44,7 @@
   {% set linkBreadcrumb = crumble(to) %}
 
   {# Check whether specified path has defined overriding `url` property in Gray Matter #}
-  {% set url = getPage(linkBreadcrumb).props.url %}
+  {% set url = getPage(linkBreadcrumb).props.url or to %}
   {% set isAbsoluteUrl = _.startsWith(url, '/') %}
 
   {# @todo Add support of relative paths #}
@@ -55,5 +55,5 @@
     {{ warn('[Link] non absolute urls not supported yet, but you\'ve used `' + url + '` in `pages.yml` on `' + linkBreadcrumb + '`') }}
   {% endif %}
 
-  <a href='{{ localeDir if localeDir }}{{ url or to }}' class='{{ class }} {{ activeClass if isActive }}' {{ attrs|spread }}>{{ caller() if caller else label }}</a>
+  <a href='{{ urljoin(localeDir, url) }}' class='{{ class }} {{ activeClass if isActive }}' {{ attrs|spread }}>{{ caller() if caller else label }}</a>
 {% endmacro %}

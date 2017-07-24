@@ -35,7 +35,7 @@
   <ol class='{{ class }}' typeof='BreadcrumbList'>
 
     <li class='{{ itemsClass }} {{ rootItemClass }}' property='itemListElement' typeof='ListItem'>
-      <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}/' property='item' typeof='WebPage'>
+      <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ urljoin(localeDir(), '/') }}' property='item' typeof='WebPage'>
         <span property='name'>{{ rootTitle|format(placeholders) }}</span>
       </a>
       <meta property='position' content='1'>
@@ -51,7 +51,7 @@
       {% if not loop.last %}
 
         <li class='{{ itemsClass }}' property='itemListElement' typeof='ListItem'>
-          <a class='{{ anchorsClass }}' href='{{ localeDir() }}{{ url }}' property='item' typeof='WebPage'>
+          <a class='{{ anchorsClass }}' href='{{ urljoin(localeDir(), url) }}' property='item' typeof='WebPage'>
             <span property='name'>{{ title }}</span>
           </a>
           <meta property='position' content='{{ depth }}'>

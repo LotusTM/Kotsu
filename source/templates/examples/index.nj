@@ -35,7 +35,7 @@ class:           p-examples
       {% if locale == page.locale %}
         {{ locale }} (current)
       {% else %}
-        <a href='{{ localeDir(locale) }}{{ page.url }}'>{{ locale }}</a>
+        <a href='{{ urljoin(localeDir(locale), page.url) }}'>{{ locale }}</a>
       {% endif %}
     </li>
   {% endfor %}

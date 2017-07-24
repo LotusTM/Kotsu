@@ -62,7 +62,7 @@
   <meta typeof='Organization' resource='#this'>
   <meta about='#this' property='name' content='{{ site.name }}'>
   <meta about='#this' property='logo' content='{{ absoluteurl(site.logo) }}'>
-  <link about='#this' property='url' href='{{ site.homepage }}{{ localeDir() }}'>
+  <link about='#this' property='url' href='{{ urljoin(site.homepage, localeDir(), '/') }}'>
   {% for service, props in social %}
   <link about='#this' property='sameAs' href='{{ props.url }}'>
   {% endfor %}
@@ -71,7 +71,7 @@
   <meta property='og:type'        content='{{ page.og.type or 'website' }}'>
   <meta property='og:site_name'   content='{{ page.og.site_name or site.name }}'>
   <meta property='og:locale'      content='{{ page.og.locale or page.isoLocale }}'>
-  <meta property='og:url'         content='{{ absoluteurl(page.og.url or localeDir() + page.url) }}'>
+  <meta property='og:url'         content='{{ absoluteurl(page.og.url or urljoin(localeDir(), page.url)) }}'>
   <meta property='og:title'       content='{{ page.og.title or page.title or site.name }}'>
   <meta property='og:description' content='{{ page.og.description or page.description or site.description }}'>
   <meta property='og:image'       content='{{ absoluteurl(page.og.image or page.image or social.facebook.image) }}'>
@@ -80,7 +80,7 @@
   <meta name='twitter:card'        content='{{ page.twitter.card or 'summary' }}'>
   <meta name='twitter:site'        content='{{ page.twitter.site or social.twitter.handle }}'>
   <meta name='twitter:creator'     content='{{ page.twitter.creator or social.twitter.handle }}'>
-  <meta name='twitter:url'         content='{{ absoluteurl(page.twitter.url or localeDir() + page.url) }}'>
+  <meta name='twitter:url'         content='{{ absoluteurl(page.twitter.url or urljoin(localeDir(), page.url)) }}'>
   <meta name='twitter:title'       content='{{ page.twitter.title or page.title or site.name }}'>
   <meta name='twitter:description' content='{{ page.twitter.description or page.description or site.description }}'>
   <meta name='twitter:image'       content='{{ absoluteurl(page.twitter.image or page.image or social.twitter.image) }}'>
@@ -88,9 +88,9 @@
 
   <!-- Alternate urls -->
   {% for locale, props in site.locales %}
-  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ site.homepage + localeDir(props.locale) + page.url }}'>
+  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ urljoin(site.homepage, localeDir(props.locale), page.url) }}'>
   {% if props.defaultForLanguage %}
-  <link rel='alternate' hreflang='{{ props.locale|langcode }}' href='{{ site.homepage + localeDir(props.locale) + page.url }}'>
+  <link rel='alternate' hreflang='{{ props.locale|langcode }}' href='{{ urljoin(site.homepage, localeDir(props.locale), page.url) }}'>
   {% endif %}
   {% endfor %}
   {% for props in page.alternate %}
@@ -120,7 +120,7 @@
 
   {% block js %}
   {% if env.build %}
-  <script src='/{{ path.scripts }}/main.min.js'></script>
+  <script src='{{ urljoin('/', path.scripts, 'main.min.js') }}'></script>
   {% else %}
   {% if env.hotModuleRloading %}
   <script src='/jspm_packages/system.js'></script>
@@ -132,7 +132,7 @@
     })
   </script>
   {% else %}
-  <script src='/{{ path.scripts }}/main.js'></script>
+  <script src='{{ urljoin('/', path.scripts, 'main.js') }}'></script>
   {% endif %}
   {% endif %}
   {% endblock %}

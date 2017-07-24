@@ -19,7 +19,7 @@ class:           p-blog
   <article class='h-margin-top+'>
 
     <h2 class='h-h3 h-margin-bottom0'>
-      <a href='{{ localeDir() + post.props.url }}'>{{ post.props.contentTitle }}</a>
+      <a href='{{ urljoin(localeDir(), post.props.url) }}'>{{ post.props.contentTitle }}</a>
     </h2>
 
     <p class='h-text- h-margin-bottom-'>
@@ -31,7 +31,7 @@ class:           p-blog
     <p>{{ post.props.excerpt }}</p>
 
     <p>
-      <a class='Btn h-text- g-link--go' href='{{ localeDir() + post.props.url }}'>Read more</a>
+      <a class='Btn h-text- g-link--go' href='{{ urljoin(localeDir(), post.props.url) }}'>Read more</a>
     </p>
 
   </article>
