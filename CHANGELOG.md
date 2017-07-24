@@ -98,6 +98,7 @@
 - [templates] Added structured data for `Breadcrumb` component according to [Google guidlines](https://developers.google.com/search/docs/data-types/breadcrumbs).
 - [templates] Added structured data for logo according to [Google guidlines](https://developers.google.com/search/docs/data-types/logo).
 - [templates] Added structured data for social profiles according to [Google guidlines](https://developers.google.com/search/docs/data-types/social-profile-links).
+- [modules][templates] Added [`URI.js`](https://medialize.github.io/URI.js/) as `URI()` Nunjucks function.
 - [modules][templates] Added `absoluteurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
 - [tests] Added tests for Nunjucks `render()` filter.
 - [tests] Added `validate()` test utility which wraps `tcomb-validate` and print nice errors on fail.

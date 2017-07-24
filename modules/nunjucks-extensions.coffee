@@ -10,6 +10,7 @@ moment                    = require('moment')
 smartPlurals              = require('smart-plurals')
 { join }                  = require('path')
 { URL }                   = require('url')
+URI                       = require('urijs')
 urljoin                   = require('./urljoin')
 { escape }                = require('nunjucks/src/lib')
 { file: { expand }, log } = require('grunt')
@@ -183,6 +184,12 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @see /modules/urljoin.js
   ###
   env.addGlobal 'urljoin', urljoin
+
+  ###*
+   * Manipulate with urls with URI.js
+   * @see https://medialize.github.io/URI.js/
+  ###
+  env.addGlobal 'URI', URI
 
   ###*
    * Resolves relative urls to absolute url, with site homepage prepended,
