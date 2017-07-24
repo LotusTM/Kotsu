@@ -1,7 +1,7 @@
 crumble = require('../modules/crumble')
 { merge } = require('lodash')
 { dirname, basename, extname } = require('path')
-{ resolve } = require('url')
+urljoin = require('../modules/urljoin')
 
 module.exports = () ->
 
@@ -23,17 +23,16 @@ module.exports = () ->
 
         preprocessMatterData: (data, path, src) ->
           [breadcrumb..., prop] = path
+          url = urljoin('/', breadcrumb...)
 
-          composedData = merge {
+          return merge {
             slug:       path.slice(-2)[0]
-            url:        if breadcrumb.length == 1 and  breadcrumb[0] == 'index' then '/' else resolve('/', breadcrumb.join('/'))
+            url:        if url == '/index' then '/' else url
             breadcrumb: breadcrumb
             depth:      breadcrumb.length
             dirname:    basename(dirname(src))
             basename:   basename(src, extname(src))
           }, pageDefaults, data
-
-          return composedData
 
       files: [
         src: ['<%= path.source.templates %>/{,**/}*.{nj,html}', '!<%= path.source.templates %>/{,**/}_*.{nj,html}']
