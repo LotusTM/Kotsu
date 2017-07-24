@@ -9,7 +9,7 @@ describe('Nunjucks global function `isActive()`', () => {
   describe('with root-relative urls', () => {
     it('should correctly process non-exact urls', () => {
       expect(render(`{{ config('page.breadcrumb', [ 'index' ]) }}{{ isActive('/') }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/') }}`)).toBe('false')
+      expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/') }}`)).toBe('true')
       expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog') }}`)).toBe('true')
       expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog/') }}`)).toBe('true')
       expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog/test') }}`)).toBe('false')
