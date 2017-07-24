@@ -6,6 +6,7 @@
 - [package] Added `package-lock.json` for Node 8+.
 - [package] Added `browserslist` to `package.json` with preseted browsers queries. See [article](https://evilmartians.com/chronicles/autoprefixer-7-browserslist-2-released) for details.
 - [package] Added [`tcomb`](https://github.com/gcanti/tcomb) and [`tcomb-validation`](https://github.com/gcanti/tcomb-validation) for runtime type annotation and data validation. See [#165](https://github.com/LotusTM/Kotsu/issues/165) for details.
+- [package] Added [`URI.js`](https://medialize.github.io/URI.js/).
 - [package][grunt] Added ability to pass command line argument from `npm start` and `npm run build` to `grunt`. For instance, this can be useful to build website in production mode with `npm start -- --production`
 - [package][grunt][templates][data] Added ability to run Kotsu optionally with regular watch or hot reloading, on demand.
 
