@@ -32,30 +32,30 @@ exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage
 
 exports[`Nunjucks global function \`absoluteurl()\` should throw error with\` falsy url 1`] = `
 "(unknown path)
-  Error: [absoluteurl] url should be \`string\`, but \`undefined\` or undefined provided"
+  TypeError: [absoluteurl] url should be \`string\`, but \`undefined\` or undefined provided"
 `;
 
 exports[`Nunjucks global function \`absoluteurl()\` should throw error with\` falsy url 2`] = `
 "(unknown path)
-  Error: [absoluteurl] url should be \`string\`, but \`undefined\` or undefined provided"
+  TypeError: [absoluteurl] url should be \`string\`, but \`undefined\` or undefined provided"
 `;
 
 exports[`Nunjucks global function \`absoluteurl()\` should throw error with\` falsy url 3`] = `
 "(unknown path)
-  Error: [absoluteurl] url should be \`string\`, but \`boolean\` or undefined provided"
+  TypeError: [absoluteurl] url should be \`string\`, but \`boolean\` or undefined provided"
 `;
 
 exports[`Nunjucks global function \`absoluteurl()\` should throw error with\` falsy url 4`] = `
 "(unknown path)
-  Error: [absoluteurl] url should be \`string\`, but \`undefined\` or undefined provided"
+  TypeError: [absoluteurl] url should be \`string\`, but \`undefined\` or undefined provided"
 `;
 
 exports[`Nunjucks global function \`absoluteurl()\` should throw error with\` falsy url 5`] = `
 "(unknown path)
-  Error: [absoluteurl] url should be \`string\`, but \`number\` or undefined provided"
+  TypeError: [absoluteurl] url should be \`string\`, but \`number\` or undefined provided"
 `;
 
 exports[`Nunjucks global function \`absoluteurl()\` should throw error with\` number url 1`] = `
 "(unknown path)
-  Error: [absoluteurl] url should be \`string\`, but \`number\` or undefined provided"
+  TypeError: [absoluteurl] url should be \`string\`, but \`number\` or undefined provided"
 `;

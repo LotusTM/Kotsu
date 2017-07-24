@@ -9,7 +9,6 @@ numbro                    = require('numbro')
 moment                    = require('moment')
 smartPlurals              = require('smart-plurals')
 { join }                  = require('path')
-{ URL }                   = require('url')
 URI                       = require('urijs')
 urljoin                   = require('./urljoin')
 { escape }                = require('nunjucks/src/lib')
@@ -196,27 +195,25 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * otherwise if url already absolute, returns as it is
    * @param {string} url        Url to operate upon
    * @param {string} [homepage] Homepage of website, like `https://test.com`
-   * @return {string} Full url
-   * @throws {Error} If `url` is not string
+   * @return {string} Absolute url
+   * @throws {TypeError} If `url` is not a string
    * @example
    *  absoluteurl('test') -> https://kotsu.2bad.me/test
    *  absoluteurl('http://test.dev') -> http://test.dev
   ###
   env.addGlobal 'absoluteurl', (url, homepage = @ctx.site.homepage) ->
     if typeof url != 'string'
-      throw new Error("[absoluteurl] url should be `string`, but `#{typeof url}` or undefined provided")
+      throw new TypeError("[absoluteurl] url should be `string`, but `#{typeof url}` or undefined provided")
 
-    pageurl = @ctx.page.url
-    # Prevent situation when we have relative url and current page starts with `/`
-    # Concatenation will result in `//` which will breaks url
-    pageurl = if pageurl == '/' then '' else pageurl
     hasProtocol = /^\/\/|:\/\//.test(url)
-    isDocumentRelative = /^[^\/]/.test(url)
 
     if hasProtocol
       return url
 
-    return new URL(isDocumentRelative and pageurl + '/' + url or url, homepage).href
+    isDocumentRelative = /^[^\/]/.test(url)
+    rootRelativeUrl = if isDocumentRelative then urljoin(@ctx.page.url, url) else url
+
+    return URI(rootRelativeUrl, homepage).valueOf()
 
   # ==============================================================================
   # Filters
