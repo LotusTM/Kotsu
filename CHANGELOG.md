@@ -158,6 +158,7 @@
 - [data][templates] Default value for Open Graph and Twitter image meta data no longer hardcoded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `social.faceebook.image` and `social.twitter.image` properties.
 - [templates] Open Graph and Twitter images properties now uses new `absoluteurl()` Nunjucks function to resolve path to images. This means, that you can freely enter as path to image remote url, or local absolute, or local relative url, and it will be properly resolved.
 - [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ page.title if page.title else site.name }}` -> `{{ page.title or site.name }}`.
+- [templates] In `Nav()` component `{% call(depth) Item('/') %}{% endcall %}` changed to exact mode to _not_ match inner routes due to introduced in `isActive()` fix.
 - [modules][templates] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
 - [modules][templates] Refactored `isActive()` Nunjucks function to be slightly faster and less obscure.
 - [modules][templates] `isActive()` Nunjucks function now will throw `TypeError` in case of relative url.
