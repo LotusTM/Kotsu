@@ -177,7 +177,7 @@
 - [grunt] Data changes will now trigger `grayMatter` task, since now it relies on part of data (`pageDefaults`).
 - [tests] Nunjucks-related testing utility functions has been moved into standalone file `/tests/utils/nunjucks.js` which exports `renderString` method. It also now accepts context as second argument.
 - [tests] Nunjucks testing utility function `renderString` no longer tries to parse rendered content with `JSON.parse`, unless third argument `parse` has been set to true.\
-- [tests] `build` and `temp` directories are now excluded from tests to make launching of tests watch faster in large projects.
+- [tests] `.git`, `build` and `temp` directories are now excluded from tests to make launching of tests watch faster in large projects.
 
 ### Removed
 - [packages] Removed [`url-join`](https://github.com/jfromaniello/url-join) in favor of [`URI.js`](https://medialize.github.io/URI.js/).
