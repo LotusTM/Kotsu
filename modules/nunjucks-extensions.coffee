@@ -150,16 +150,18 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @return {bool} Is current path active or no
   ###
   env.addGlobal 'isActive', (to, exact = false, pageBreadcrumb = @ctx.page.breadcrumb) ->
-    isAbsolute = if _.startsWith(to, '/') then true else false
+    isAbsolute = _.startsWith(to, '/')
+
+    # @note Relative urls will be always considered as non-active
+    if not isAbsolute
+      return false
 
     linkBreadcrumb = crumble(to)
 
     # Unless `exact` set to `true`, slice only needed for comparison portion of page breadcrumb,
     correspondingPageBreadcrumb = if exact then pageBreadcrumb else _.take(pageBreadcrumb, linkBreadcrumb.length)
 
-    # @note Relative urls will be always considered as non-active
-    isActive = if _.isEqual(correspondingPageBreadcrumb, linkBreadcrumb) and isAbsolute then true else false
-    return isActive
+    return _.isEqual(correspondingPageBreadcrumb, linkBreadcrumb)
 
   ###*
    * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation and displaying dates
