@@ -28,4 +28,23 @@ describe('Nunjucks global function `isActive()`', () => {
       expect(render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/test/', true) }}`)).toBe('true')
     })
   })
+
+  // @todo Document-relative urls should be implemented one day, but it isn't that easy
+  //       because when resolving url we can't now is last portion of breadcrumb file, or directory
+  //       and resolving of `../` against file and directory is different
+  describe('with document-relative urls', () => {
+    it('should process non-exact urls', () => {
+      expect(() => render(`{{ config('page.breadcrumb', [ 'index' ]) }}{{ isActive('../') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('../blog') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test', 'HEY' ]) }}{{ isActive('../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../../blog') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../blog/test') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../blog/test/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../test') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../test/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+    })
+  })
 })

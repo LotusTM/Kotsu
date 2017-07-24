@@ -150,6 +150,9 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @return {boolean} Is current path active or no
   ###
   env.addGlobal 'isActive', (to, exact = false, pageBreadcrumb = @ctx.page.breadcrumb) ->
+    if !to.startsWith('/')
+      throw new TypeError("[isActive] document-relative urls not supported yet, `#{to}` provided")
+
     pageUrl = urljoin('/', pageBreadcrumb...)
     pageUrl = pageUrl == '/index' and '/' or pageUrl
     # Make trailing slash optional

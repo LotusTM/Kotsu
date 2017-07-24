@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 1`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 2`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../blog\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 3`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../blog/\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 4`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../blog/\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 5`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../blog/\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 6`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../../blog\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 7`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../../blog/\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 8`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../blog/test\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 9`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../blog/test/\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 10`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../test\` provided"
+`;
+
+exports[`Nunjucks global function \`isActive()\` with document-relative urls should process non-exact urls 11`] = `
+"(unknown path)
+  TypeError: [isActive] document-relative urls not supported yet, \`../test/\` provided"
+`;

@@ -160,6 +160,7 @@
 - [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ page.title if page.title else site.name }}` -> `{{ page.title or site.name }}`.
 - [modules][templates] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
 - [modules][templates] Refactored `isActive()` Nunjucks function to be slightly faster and less obscure.
+- [modules][templates] `isActive()` Nunjucks function now will throw `TypeError` in case of relative url.
 - [modules][templates] Nunjucks `urljoin` function now uses instead of [`url-join`](https://github.com/jfromaniello/url-join) more reliable [`URI.js`](https://medialize.github.io/URI.js/).
 
    Note, that it is slightly modified:
