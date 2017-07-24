@@ -119,9 +119,6 @@
   <!-- ======= -->
 
   {% block js %}
-  {% if env.build %}
-  <script src='{{ urljoin('/', path.scripts, 'main.min.js') }}'></script>
-  {% else %}
   {% if env.hotModuleRloading %}
   <script src='/jspm_packages/system.js'></script>
   <script src='/jspm.config.js'></script>
@@ -132,8 +129,7 @@
     })
   </script>
   {% else %}
-  <script src='{{ urljoin('/', path.scripts, 'main.js') }}'></script>
-  {% endif %}
+  <script src='{{ urljoin('/', path.scripts, 'main.min.js' if env.build else 'main.js') }}'></script>
   {% endif %}
   {% endblock %}
 
