@@ -179,10 +179,8 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
   env.addGlobal 'numbro', numbro
 
   ###*
-   * Expose `url-join` to Nunjucks' for joining urls
-   * @docs https://github.com/jfromaniello/url-join
-   * @param {*} param... Url fragments, which should be joined
-   * @return {string} Joined url
+   * Join urls with `URI.joinPaths`
+   * @see /modules/urljoin.js
   ###
   env.addGlobal 'urljoin', urljoin
 
