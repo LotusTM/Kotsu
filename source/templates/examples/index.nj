@@ -926,7 +926,7 @@ class:           p-examples
 {% endcall %}
 
 {% call Example(title = '', classes = ['.g-link--inherit']) -%}
-<p class='h-bg-color--primary'><a class="g-link--inherit" href='g-link--inherit' >Flushed link on background</a></p>
+<p class='h-bg-color--primary'><a class="g-link--inherit" href='#' >Flushed link on background</a></p>
 {% endcall %}
 
 {% call Example(title = '', classes = ['.h-text--underline']) -%}
