@@ -1,5 +1,5 @@
 {
-  "short_name": "Kotsu",
+  "short_name": "{{ site.shortName }}",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -11,6 +11,6 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#313840",
-  "background_color": "#313840"
+  "theme_color": "{{ site.themeColor }}",
+  "background_color": "{{ site.themeColor }}"
 }
