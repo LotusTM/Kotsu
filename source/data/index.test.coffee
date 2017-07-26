@@ -44,7 +44,7 @@ Data = module.exports = t.struct({
     version: t.String
     description: t.String
     homepage: r.Absoluteurl
-    logo: t.maybe r.Imagefile
+    logo: t.maybe r.Imagepath
     viewport: t.String
     themeColor: t.String
     locales: r.EqualKeysAndProperty('locale') t.dict t.String, t.struct({
@@ -68,7 +68,7 @@ Data = module.exports = t.struct({
     showSidebar: t.maybe t.Boolean
   social: t.dict t.String, t.struct({
       handle: t.maybe r.Handle
-      image: t.maybe r.Imagefile
+      image: t.maybe r.Imagepath
       url: r.Absoluteurl
     }, { name: 'Social' })
   env: t.struct

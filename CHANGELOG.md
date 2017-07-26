@@ -113,7 +113,7 @@
 - [tests] Added some handy `tcomb` refinements to make life easier and your data truthy:
    * `False` — to accept only `false`
    * `Absoluteurl` — to accept only absolute urls, like `https://wowsomuch.test`
-   * `Imagefile` — to accept only paths with images, like `testme.png`
+   * `Imagepath` — to accept only paths with images, like `testme.png`
    * `Handle` — to accept only handle, like `@lotustm`. Useful for Twitter-related data, you know.
    * `EqualKeysAndProperty` — to accept only objects, in which some properties are equal to key value. For instance, when you need to ensure that object key and `id` property are always equal.
 
