@@ -48,6 +48,10 @@
   <link rel='stylesheet' href='/{{ path.styles }}/{{ 'style.min.css' if env.build else 'style.prefixed.css' }}'>
   {% endblock %}
 
+  <!-- Icons -->
+  <link rel='apple-touch-icon' href='/apple-touch-icon.png'>
+  <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#a593e0'>
+
   {# <!-- RSS -->
   <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml'> #}
 

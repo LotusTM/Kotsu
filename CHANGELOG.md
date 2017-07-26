@@ -106,6 +106,7 @@
 
    Old behaviour was needed to ease concatenation with urls, but since all that logic now handled by `urljoin()`, we can safely return `/` for base locale to properly denote that it lives at root.
 
+- [static][templates] Added more favicons variations to work better with modern browsers.
 - [tests] Added tests for Nunjucks `render()` filter.
 - [tests] Added `validate()` test utility which wraps `tcomb-validate` and print nice errors on fail.
 - [tests] Added some handy `tcomb` refinements to make life easier and your data truthy:
@@ -177,6 +178,7 @@
 - [styles] Update `stylelint-disable` to use changed Stylelint 7.12.0 rules.
 - [grunt] Enabled Nunjucks cache. This will significantly reduce re-rendering time for large projects.
 - [grunt] Temporarily disabled watch for images with `responsive_images` task, since it doesn't work with `grunt-newer`. Resizing all images on each change will be too painful in large repositories. See [#251](https://github.com/LotusTM/Kotsu/issues/251).
+- [static][templates] Replaced old boilerplate favicons with new Kotsu ones.
 - [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with it's own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved.
 - [grunt] Data changes will now trigger `grayMatter` task, since now it relies on part of data (`pageDefaults`).
 - [tests] Nunjucks-related testing utility functions has been moved into standalone file `/tests/utils/nunjucks.js` which exports `renderString` method. It also now accepts context as second argument.
