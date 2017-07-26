@@ -17,6 +17,7 @@ module.exports = ({ config }) ->
       build: config('path.build')
     site:
       name: pkg.name
+      shortName: pkg.name
       version: pkg.version
       description: pkg.description
       homepage: if sitename then "https://#{sitename}" else pkg.homepage
