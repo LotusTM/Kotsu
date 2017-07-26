@@ -1,0 +1,8 @@
+{
+  "short_name": "Kotsu",
+  "name": "Kotsu - Advanced Web Starter Kit",
+  "display": "standalone",
+  "theme_color": "#a593e0",
+  "background_color": "#313840",
+  "start_url": "/?utm_source=homescreen"
+}

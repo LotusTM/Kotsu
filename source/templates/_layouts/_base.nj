@@ -105,6 +105,9 @@
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
 
+  <!-- Manifest -->
+  <link rel='manifest' href='/manifest.json'>
+
   {{ IE(version = 'lte IE 9') }}
 
 </head>
