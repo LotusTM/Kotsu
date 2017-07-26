@@ -22,7 +22,7 @@ module.exports = ({ config }) ->
       homepage: if sitename then "https://#{sitename}" else pkg.homepage
       logo: "/#{imagesPath}/logo.svg"
       viewport: 'width=device-width, initial-scale=1'
-      themeColor: '#a593e0'
+      themeColor: '#313840'
       locales: config('locales')
       baseLocale: config('baseLocale')
       googleAnalyticsId: false # 'UA-XXXXX-X'

@@ -177,6 +177,8 @@
 - [styles] Updated Ekzo to version 2.5.2.
 - [styles][grunt] Updated Sass files to use same comments headers as Ekzo 2.4.3 — 80 chars long.
 - [styles] Update `stylelint-disable` to use changed Stylelint 7.12.0 rules.
+- [styles][data] Changed `data.themeColor` to be background of website, and `kotsu-theme-color()` now uses that value. This will fit better for most websites.
+- [styles] Due to changes in `data.themeColor`, it used now for  `$ekzo-colors.outer-space` color instead of `$ekzo-colors.primary`, which no longer uses that value and should be declared manually. This is something site-specific and should be adjusted on demand.
 - [grunt] Enabled Nunjucks cache. This will significantly reduce re-rendering time for large projects.
 - [grunt] Temporarily disabled watch for images with `responsive_images` task, since it doesn't work with `grunt-newer`. Resizing all images on each change will be too painful in large repositories. See [#251](https://github.com/LotusTM/Kotsu/issues/251).
 - [static][templates] Replaced old boilerplate favicons with new Kotsu ones.
