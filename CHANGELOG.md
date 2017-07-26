@@ -107,6 +107,7 @@
    Old behaviour was needed to ease concatenation with urls, but since all that logic now handled by `urljoin()`, we can safely return `/` for base locale to properly denote that it lives at root.
 
 - [static][templates] Added more favicons variations to work better with modern browsers.
+- [static][templates] Added `manifest.json`.
 - [tests] Added tests for Nunjucks `render()` filter.
 - [tests] Added `validate()` test utility which wraps `tcomb-validate` and print nice errors on fail.
 - [tests] Added some handy `tcomb` refinements to make life easier and your data truthy:
