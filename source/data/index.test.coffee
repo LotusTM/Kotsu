@@ -41,7 +41,7 @@ Data = module.exports = t.struct({
       templates: t.String
   site: t.struct
     name: t.String
-    shortName: t.String
+    shortName: r.Maxlength(12)(t.String)
     version: t.String
     description: t.String
     homepage: r.Absoluteurl
