@@ -1,8 +1,5 @@
 {
   "short_name": "Kotsu",
-  "name": "Kotsu - Advanced Web Starter Kit",
-  "display": "standalone",
-  "start_url": "/?utm_source=homescreen",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
