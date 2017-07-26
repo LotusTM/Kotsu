@@ -247,6 +247,10 @@
 - [styles] Updated Ekzo to 2.4.2.
 - [grunt] `env.production` is no longer set to `true` when has been run `grunt build` command. Now it should be triggered explicitly with `--production` flag or `process.env.PRODUCTION` set to `true` [#218](https://github.com/LotusTM/Kotsu/issues/218).
 - [grunt][templates] All uses of `env.production` to differ output for `grunt` and `grunt build` have been replaced with more relevant `env.build` [#218](https://github.com/LotusTM/Kotsu/issues/218).
+- [grunt][modules] Nunjucks Grunt tasks now can properly work with files `rename` method.
+
+   Note, that it will receive as `dest` concatenated with locale path, and `src` will be path transformed by `humanReadableUrl()` function if task `humanReadableUrls` set to `true`.
+
 - [package] Updated JSPM to `0.17.0-beta.41`. Note, that this might introduce breaking changes due to SystemJS upgrade above `0.20.0`. For instance, named imports from non-ES modules no longer supported. See [SystemJS 0.20.0 release notes](https://github.com/systemjs/systemjs/releases/tag/0.20.0) for details.
 - [package] Updated dependencies.
 - [package] Moved `grunt-browser-sync`, `grunt-contrib-watch` and `grunt-newer` to development dependencies, since they are needed only during development.

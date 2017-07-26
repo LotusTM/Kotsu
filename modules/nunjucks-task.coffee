@@ -77,11 +77,15 @@ module.exports = (config) =>
       if not file.expand
         throw new Error('[nunjucks-task] files mapping should use `expand: true`')
 
-      if file.rename
-        throw new Error('[nunjucks-task] it seems you are trying to use `rename` option for your files. `nunjucks-task` will override it to set properly localized `dest`.')
+      { rename } = file
 
       file.rename = (dest, src) =>
-        src = if humanReadableUrls then humanReadableUrl(src, humanReadableUrlsExclude) else src
-        join(dest, localeDir, src)
+        newSrc = if humanReadableUrls then humanReadableUrl(src, humanReadableUrlsExclude) else src
+        newDest = join(dest, localeDir)
+
+        if typeof rename == 'function'
+          return rename.call(@, newDest, newSrc)
+
+        return join(newDest, newSrc)
 
     return config
