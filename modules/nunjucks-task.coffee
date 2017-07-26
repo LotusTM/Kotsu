@@ -19,11 +19,10 @@ module.exports = (config) =>
     { configureEnvironment, preprocessData, matter, humanReadableUrls, humanReadableUrlsExclude, currentLocale, locales, baseLocale, baseLocaleAsRoot, gettext } = config.options
     { getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = i18nTools
 
+    currentLocale = currentLocale or baseLocale
+
     if typeof matter != 'function' and typeof matter != 'object'
       throw new Error('[nunjucks-task] matter should be a function, which returns matter object, or a plain matter object')
-
-    if not currentLocale and typeof currentLocale != 'string'
-      throw new Error('[nunjucks-task] current locale should be specified as `options.currentLocale` string')
 
     if not baseLocale and typeof baseLocale != 'string'
       throw new Error('[nunjucks-task] base locale should be specified as `options.baseLocale` string')

@@ -42,8 +42,7 @@ module.exports = ({ config, file: { readJSON } }) ->
 
   @config 'nunjucks.misc', nunjucksTask
     options: merge {}, options,
-      currentLocale: options.baseLocale
-      data: options.data(options.baseLocale)
+      data: options.data()
     files: [
       expand: true
       cwd: config('path.source.templates')
