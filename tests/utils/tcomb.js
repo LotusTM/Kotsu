@@ -29,10 +29,21 @@ const refinements = {
   Handle: t.refinement(t.String, (i) => /^@((?!(:|\\|\/)).)*$/.test(i), 'Handle'),
 
   /**
+   * Ensures that value does not exceed specified length
+   * @param  {number}     max  Max or equal length of value
+   * @param  {function}   type tcomb Type to be refined. Works with
+   *                      anything that have `length` property
+   * @return {*} Passed in value
+   * @example
+   *  Maxlength(12)(t.String)('Hey, this is a long string!')
+   */
+  Maxlength: (max) => (type) => t.refinement(t.Number(max) && t.Type(type), (t) => t.length <= max, `Maxlength ${max}`),
+
+  /**
    * Check does target's keys are same as its specified property value
    * @param  {string}   property Property which should be checked
    * @param  {function} type     tcomb Type to be refined (dict or struct)
-   * @return {bool}
+   * @return {*} Passed in value
    * @example
    *  EqualKeysAndProperty('id')(t.dict(t.String, t.Any, 'Testdata'))({ 235: { id: '235' } })
    */

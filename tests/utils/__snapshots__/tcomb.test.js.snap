@@ -158,6 +158,40 @@ exports[`Tcomb refinement Imagepath should pass path with image file 4`] = `"fil
 
 exports[`Tcomb refinement Imagepath should pass path with image file 5`] = `"file.svg"`;
 
+exports[`Tcomb refinement Maxlength should error on long arrays 1`] = `
+"[tcomb] Invalid value [
+  1,
+  2,
+  3,
+  4
+] supplied to Maxlength 3"
+`;
+
+exports[`Tcomb refinement Maxlength should error on long strings 1`] = `"[tcomb] Invalid value \\"1234\\" supplied to Maxlength 3"`;
+
+exports[`Tcomb refinement Maxlength should error on not \`number\` max 1`] = `"[tcomb] Invalid value \\"nope\\" supplied to Number"`;
+
+exports[`Tcomb refinement Maxlength should error on not tcomb type 1`] = `"[tcomb] Invalid value \\"nope\\" supplied to Type"`;
+
+exports[`Tcomb refinement Maxlength should pass array with less or equal length 1`] = `
+Array [
+  1,
+  2,
+]
+`;
+
+exports[`Tcomb refinement Maxlength should pass array with less or equal length 2`] = `
+Array [
+  1,
+  2,
+  3,
+]
+`;
+
+exports[`Tcomb refinement Maxlength should pass string with less or equal length 1`] = `"12"`;
+
+exports[`Tcomb refinement Maxlength should pass string with less or equal length 2`] = `"123"`;
+
 exports[`Tcomb validate should error on ivalid data 1`] = `
 "[tcomb]
 Invalid value undefined supplied to /Struct{id: String, number: Number}/id: String

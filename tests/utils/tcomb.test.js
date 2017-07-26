@@ -106,6 +106,29 @@ describe('Tcomb refinement', () => {
     })
   })
 
+  describe('Maxlength', () => {
+    it('should pass string with less or equal length', () => {
+      expect(r.Maxlength(3)(t.String)('12')).toMatchSnapshot()
+      expect(r.Maxlength(3)(t.String)('123')).toMatchSnapshot()
+    })
+    it('should pass array with less or equal length', () => {
+      expect(r.Maxlength(3)(t.list(t.Any))([1, 2])).toMatchSnapshot()
+      expect(r.Maxlength(3)(t.list(t.Any))([1, 2, 3])).toMatchSnapshot()
+    })
+    it('should error on not tcomb type', () => {
+      expect(() => r.Maxlength(3)('nope')('12345678')).toThrowErrorMatchingSnapshot()
+    })
+    it('should error on not `number` max', () => {
+      expect(() => r.Maxlength('nope')(t.String)('12345678')).toThrowErrorMatchingSnapshot()
+    })
+    it('should error on long strings', () => {
+      expect(() => r.Maxlength(3)(t.String)('1234')).toThrowErrorMatchingSnapshot()
+    })
+    it('should error on long arrays', () => {
+      expect(() => r.Maxlength(3)(t.list(t.Any))([1, 2, 3, 4])).toThrowErrorMatchingSnapshot()
+    })
+  })
+
   describe('EqualKeysAndProperty', () => {
     const EqualKeysAndId = r.EqualKeysAndProperty('id')(t.dict(t.String, t.Any, 'Testdata'))
 
