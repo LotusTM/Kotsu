@@ -251,6 +251,7 @@
 
    Note, that it will receive as `dest` concatenated with locale path, and `src` will be path transformed by `humanReadableUrl()` function if task `humanReadableUrls` set to `true`.
 
+- [grunt] Nunjucks `misc` task will no convert files with `.txt.nj`, `.xml.nj` and `.json.nj` to respective files with extensions specified before `.nj`.
 - [package] Updated JSPM to `0.17.0-beta.41`. Note, that this might introduce breaking changes due to SystemJS upgrade above `0.20.0`. For instance, named imports from non-ES modules no longer supported. See [SystemJS 0.20.0 release notes](https://github.com/systemjs/systemjs/releases/tag/0.20.0) for details.
 - [package] Updated dependencies.
 - [package] Moved `grunt-browser-sync`, `grunt-contrib-watch` and `grunt-newer` to development dependencies, since they are needed only during development.

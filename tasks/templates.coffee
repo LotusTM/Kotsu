@@ -1,6 +1,7 @@
 { getLocalesNames } = require('../modules/i18n-tools')
 nunjucksTask = require('../modules/nunjucks-task')
 { merge } = require('lodash')
+{ join } = require('path')
 
 module.exports = ({ config, file: { readJSON } }) ->
 
@@ -34,21 +35,22 @@ module.exports = ({ config, file: { readJSON } }) ->
       files: [
         expand: true
         cwd: config('path.source.templates')
-        src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}', '!{,**/}*.txt.nj']
+        src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}', '!{,**/}*.{txt,json,xml}.nj']
         dest: config('path.build.templates')
         ext: '.html'
       ]
 
-  @config 'nunjucks.txt', nunjucksTask
+  @config 'nunjucks.misc', nunjucksTask
     options: merge {}, options,
       currentLocale: options.baseLocale
       data: options.data(options.baseLocale)
     files: [
       expand: true
       cwd: config('path.source.templates')
-      src: ['{,**/}*.txt.nj']
+      src: ['{,**/}*.{txt,json,xml}.nj']
       dest: config('path.build.templates')
-      ext: '.txt'
+      rename: (dest, src) ->
+        return join(dest, src.replace(/.nj$/, ''))
     ]
 
   ###
