@@ -1,9 +1,9 @@
 {
-  "name:": "{{ site.name }}",
+  "name": "{{ site.name }}",
   "short_name": "{{ site.shortName }}",
   "description": "{{ site.description }}",
   "start_url": "./?utm_source=homescreen",
-  "display:": "standalone",
+  "display": "standalone",
   "theme_color": "{{ site.themeColor }}",
   "background_color": "{{ site.themeColor }}",
   "icons": [
