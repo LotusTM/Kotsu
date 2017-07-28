@@ -82,7 +82,8 @@ msgstr "This string will be displayd in selected language"
 #: source/templates/examples/index.nj:81
 msgid "%s apple"
 msgid_plural "%s apples"
-msgstr[0] "%s apples"
+msgstr[0] "%s apple"
+msgstr[1] "%s apples"
 
 #: source/templates/index.nj:3
 msgid "Kotsu Web Starter Kit"
