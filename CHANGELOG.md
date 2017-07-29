@@ -20,6 +20,10 @@
 - [grunt] Added cache busting for images (`jpg`, `jpeg`, `gif`, `png`, `svg`) with query string. This won't affect final name of image, but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
 - [grunt] Added tiny debouncing delay for Browser Sync. It will prevent huge amount of reloads when a lot of files changing in a row (for instance, after all Nunjucks templates recompilation).
 - [grunt] `grayMatter` task now uses `urljoin()` for urls resolution to make path concatenation more reliable and no longer relies on Node url resolver.
+- [templates] Added `AlternateUrls()` Nunjucks component which encapsulates logic around generating alternate urls meta tags in `_base.nj`.
+
+   Well, not like you'd need to use that component anywhere on your own, but had to put a note about it somewhere... you know...
+
 - [templates] Added ability to specify body class for specific pages with `bodyClass` Matter data, `pageDefault.bodyClass` in default data or `{{ config('page.bodyClass', ...) }}` within Nunjucks template.
 - [templates] Added ability to specify page-specific viewport with `viewport` Matter data.
 - [templates] Added to `_base.nj` layout blocks `{% block imports %}`, `{% block fonts %}`, `{% block css %}` and `{% block js %}` which encapsulates macros imports, fonts-related stylesheets, site stylesheets and `<script>` tags respectively.
