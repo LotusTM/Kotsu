@@ -235,10 +235,7 @@ rules:
   scss/double-slash-comment-whitespace-inside: always
   scss/operator-no-newline-after: true
   scss/operator-no-newline-before: true
-
-  # @todo https://github.com/kristerkari/stylelint-scss/issues/144
   scss/operator-no-unspaced: true
-
   scss/selector-no-redundant-nesting-selector: true
 
   # Those are unused due to codestyle and setted by `block-closing-brace-newline-after` value
@@ -251,9 +248,7 @@ rules:
   # scss/at-if-closing-brace-space-after: never-intermediate
   # scss/at-else-closing-brace-space-after: never-intermediate
 
-  # @todo https://github.com/kristerkari/stylelint-scss/issues/143
   scss/declaration-nested-properties: never
-
   scss/declaration-nested-properties-no-divided-groups: true
 
   # @todo https://github.com/kristerkari/stylelint-scss/issues/105#issuecomment-316117192
