@@ -77,8 +77,6 @@ Data = module.exports = t.struct({
     staging: t.maybe t.Boolean
     build: t.maybe t.Boolean
     hotModuleRloading: t.maybe t.Boolean
-  DATA: t.struct
-    currentYear: t.Number
 }, { name: 'Data' })
 
 if typeof describe == 'function'
