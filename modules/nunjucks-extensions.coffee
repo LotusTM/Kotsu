@@ -52,17 +52,17 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @param {*} input Anything we want to log to console
    * @return {string} Logs to Grunt console
   ###
-  env.addGlobal 'warn', (input...) -> log.error(input..., "[#{@ctx.page.props.url}]")
+  env.addGlobal 'warn', (input...) -> log.error(input..., "[#{@ctx.PAGE.props.url}]")
 
   ###*
    * Get list of files or directories inside specified directory
    * @param {string}               path    = ''                        Path where to look
    * @param {string|array[string]} pattern = '** /*'                   What should be matched
    * @param {string}               filter  = 'isFile'                  Type of entity which should be matched
-   * @param {string}               cwd     = @ctx.path.build.templates Root for lookup
+   * @param {string}               cwd     = @ctx.PATH.build.templates Root for lookup
    * @return {array} Array of found files or directories
   ###
-  env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = @ctx.path.build.templates) ->
+  env.addGlobal 'expand', (path = '', pattern = '**/*', filter = 'isFile', cwd = @ctx.PATH.build.templates) ->
     files = []
 
     expand({ cwd: join(cwd, path), filter: filter }, pattern).forEach (file) -> files.push(file)
@@ -115,9 +115,9 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
   ###
   env.addGlobal 'getPage', (path, forceRender = true, cached = true, ctx = @getVariables()) ->
     path = path.includes('/') and crumble(path) or path
-    data = @ctx.site.__matter__
-    cachedData = () => @ctx.site.__matterCache__
-    setDataCache = (value) => @ctx.site.__matterCache__ = value
+    data = @ctx.SITE.__matter
+    cachedData = () => @ctx.SITE.__matterCache
+    setDataCache = (value) => @ctx.SITE.__matterCache = value
     renderData = (tmpl) => render(env, ctx, tmpl)
 
     # Render whole Matter data and store it as cache after first `forceRender` request
@@ -127,7 +127,7 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
     page = _.get(forceRender and cached and cachedData() or data, path)
 
     if not page
-      log.error("[getPage] can not find `#{path}` inside site Matter data [#{@ctx.page.props.url}]")
+      log.error("[getPage] can not find `#{path}` inside site Matter data [#{@ctx.PAGE.props.url}]")
       return
 
     page = Object.assign({}, forceRender and (cached and page or renderData(page)) or page)
@@ -145,11 +145,11 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * @param  {string} to                      Absolute or relative path to page
    * @param  {bool}  [exact]          = false Return `true` only if path completely matches
    *                                          current breadcrumb
-   * @param  {array} [pageBreadcrumb] = @ctx.page.breadcrumb
+   * @param  {array} [pageBreadcrumb] = @ctx.PAGE.breadcrumb
    *                                          Breadcrumb of current page for comparison
    * @return {boolean} Is current path active or no
   ###
-  env.addGlobal 'isActive', (to, exact = false, pageBreadcrumb = @ctx.page.breadcrumb) ->
+  env.addGlobal 'isActive', (to, exact = false, pageBreadcrumb = @ctx.PAGE.breadcrumb) ->
     if !to.startsWith('/')
       throw new TypeError("[isActive] document-relative urls not supported yet, `#{to}` provided")
 
@@ -200,7 +200,7 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    *  absoluteurl('test') -> https://kotsu.2bad.me/test
    *  absoluteurl('http://test.dev') -> http://test.dev
   ###
-  env.addGlobal 'absoluteurl', (url, homepage = @ctx.site.homepage) ->
+  env.addGlobal 'absoluteurl', (url, homepage = @ctx.SITE.homepage) ->
     if typeof url != 'string'
       throw new TypeError("[absoluteurl] url should be `string`, but `#{typeof url}` or undefined provided")
 
@@ -210,7 +210,7 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
       return url
 
     isDocumentRelative = /^[^\/]/.test(url)
-    rootRelativeUrl = if isDocumentRelative then urljoin(@ctx.page.url, url) else url
+    rootRelativeUrl = if isDocumentRelative then urljoin(@ctx.PAGE.url, url) else url
 
     return URI(rootRelativeUrl, homepage).valueOf()
 
@@ -280,7 +280,7 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
   ###
   env.addFilter 'spread', (input, delimiter = ' ') ->
     if typeof input != 'object'
-      log.error('[spread] input should be object, but `' + typeof input + '` has been specified', '[' + @ctx.page.url + ']')
+      log.error('[spread] input should be object, but `' + typeof input + '` has been specified', '[' + @ctx.PAGE.url + ']')
       return
 
     spreaded = ' '

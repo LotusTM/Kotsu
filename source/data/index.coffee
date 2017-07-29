@@ -7,7 +7,7 @@ module.exports = ({ config }) ->
   imagesPath = config('path.build.images').replace(buildRoot, '')
 
   data =
-    path:
+    PATH:
       fonts: config('path.build.fonts').replace(buildRoot, '')
       images: imagesPath
       scripts: config('path.build.scripts').replace(buildRoot, '')
@@ -15,7 +15,7 @@ module.exports = ({ config }) ->
       sprites: config('path.build.sprites').replace(buildRoot, '')
       source: config('path.source')
       build: config('path.build')
-    site:
+    SITE:
       name: pkg.name
       shortName: pkg.name
       version: pkg.version
@@ -28,7 +28,7 @@ module.exports = ({ config }) ->
       baseLocale: config('baseLocale')
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
-    pageDefaults:
+    PAGE_DEFAULTS:
       image: ''
       class: ''
       bodyClass: ''
@@ -36,7 +36,7 @@ module.exports = ({ config }) ->
       showContentTitle: true
       showBreadcrumb: true
       showSidebar: false
-    social: # Add any other social services following same pattern
+    SOCIAL: # Add any other social services following same pattern
       twitter:
         handle: pkg.twitter
         image: "/#{imagesPath}/twitter.png"
@@ -44,12 +44,12 @@ module.exports = ({ config }) ->
       facebook:
         image: "/#{imagesPath}/facebook.png"
         url: 'https://www.facebook.com/Lotus-TM-647393298791066/'
-    env:
+    ENV:
       production: config('env.production')
       staging: config('env.staging')
       build: config('env.build')
       hotModuleRloading: config('env.hotModuleRloading')
-    data:
+    DATA:
       currentYear: new Date().getFullYear()
 
   return (locale) -> switch locale

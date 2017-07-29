@@ -1,12 +1,12 @@
 {# Global placeholders values #}
-{{ config('site.placeholders', {
-  company: site.name
+{{ config('SITE.placeholders', {
+  company: SITE.name
 }) }}
 
 {# Load page props #}
-{{ config('page', { breadcrumb : page.props.breadcrumb }) }}
-{{ config('page', getPage(page.breadcrumb).props|format(site.placeholders)) }}
-{{ config('page', page.props) }}
+{{ config('PAGE', { breadcrumb : PAGE.props.breadcrumb }) }}
+{{ config('PAGE', getPage(PAGE.breadcrumb).props|format(SITE.placeholders)) }}
+{{ config('PAGE', PAGE.props) }}
 
 {# Global macros #}
 {% block imports %}
@@ -22,7 +22,7 @@
 {% endblock %}
 
 <!doctype html>
-<html class='{{ page.class }} t-base no-js' lang='{{ page.locale }}' {{ 'dir=\'rtl\'' if page.rtl }} vocab='https://schema.org/'>
+<html class='{{ PAGE.class }} t-base no-js' lang='{{ PAGE.locale }}' {{ 'dir=\'rtl\'' if PAGE.rtl }} vocab='https://schema.org/'>
 
 <head>
 
@@ -32,11 +32,11 @@
   <meta http-equiv='x-ua-compatible' content='ie=edge'>
 
   <!-- Meta -->
-  <title>{{ page.title or site.name }}</title>
-  <meta name='description' content='{{ page.description }}'>
+  <title>{{ PAGE.title or SITE.name }}</title>
+  <meta name='description' content='{{ PAGE.description }}'>
 
   <!-- Viewport -->
-  <meta name='viewport' content='{{ page.viewport or site.viewport }}'>
+  <meta name='viewport' content='{{ PAGE.viewport or SITE.viewport }}'>
 
   <!-- Fonts -->
   {% block fonts %}
@@ -45,7 +45,7 @@
 
   <!-- CSS -->
   {% block css %}
-  <link rel='stylesheet' href='/{{ path.styles }}/{{ 'style.min.css' if env.build else 'style.prefixed.css' }}'>
+  <link rel='stylesheet' href='/{{ PATH.styles }}/{{ 'style.min.css' if ENV.build else 'style.prefixed.css' }}'>
   {% endblock %}
 
   <!-- Manifest -->
@@ -59,53 +59,53 @@
   <link rel='alternate' type='application/rss+xml' title='RSS' href='/rss.xml'> #}
 
   <!-- Theme -->
-  <meta name='theme-color' content='{{ page.themeColor or site.themeColor }}'>
+  <meta name='theme-color' content='{{ PAGE.themeColor or SITE.themeColor }}'>
 
   <!-- RDFa -->
   <meta typeof='WebSite' resource='#this-website'>
-  <meta about='#this-website' property='name' content='{{ site.name }}'>
-  <link about='#this-website' property='url' href='{{ site.homepage }}'>
+  <meta about='#this-website' property='name' content='{{ SITE.name }}'>
+  <link about='#this-website' property='url' href='{{ SITE.homepage }}'>
 
   <meta typeof='Organization' resource='#this'>
-  <meta about='#this' property='name' content='{{ site.name }}'>
-  <meta about='#this' property='logo' content='{{ absoluteurl(site.logo) }}'>
-  <link about='#this' property='url' href='{{ urljoin(site.homepage, localeDir(), '/') }}'>
-  {% for service, props in social %}
+  <meta about='#this' property='name' content='{{ SITE.name }}'>
+  <meta about='#this' property='logo' content='{{ absoluteurl(SITE.logo) }}'>
+  <link about='#this' property='url' href='{{ urljoin(SITE.homepage, localeDir(), '/') }}'>
+  {% for service, props in SOCIAL %}
   <link about='#this' property='sameAs' href='{{ props.url }}'>
   {% endfor %}
 
   <!-- Open Graph -->
-  <meta property='og:type'        content='{{ page.og.type or 'website' }}'>
-  <meta property='og:site_name'   content='{{ page.og.site_name or site.name }}'>
-  <meta property='og:locale'      content='{{ page.og.locale or page.isoLocale }}'>
-  <meta property='og:url'         content='{{ absoluteurl(page.og.url or urljoin(localeDir(), page.url)) }}'>
-  <meta property='og:title'       content='{{ page.og.title or page.title or site.name }}'>
-  <meta property='og:description' content='{{ page.og.description or page.description or site.description }}'>
-  <meta property='og:image'       content='{{ absoluteurl(page.og.image or page.image or social.facebook.image) }}'>
+  <meta property='og:type'        content='{{ PAGE.og.type or 'website' }}'>
+  <meta property='og:site_name'   content='{{ PAGE.og.site_name or SITE.name }}'>
+  <meta property='og:locale'      content='{{ PAGE.og.locale or PAGE.isoLocale }}'>
+  <meta property='og:url'         content='{{ absoluteurl(PAGE.og.url or urljoin(localeDir(), PAGE.url)) }}'>
+  <meta property='og:title'       content='{{ PAGE.og.title or PAGE.title or SITE.name }}'>
+  <meta property='og:description' content='{{ PAGE.og.description or PAGE.description or SITE.description }}'>
+  <meta property='og:image'       content='{{ absoluteurl(PAGE.og.image or PAGE.image or SOCIAL.facebook.image) }}'>
 
   <!-- Twitter Card -->
-  <meta name='twitter:card'        content='{{ page.twitter.card or 'summary' }}'>
-  <meta name='twitter:site'        content='{{ page.twitter.site or social.twitter.handle }}'>
-  <meta name='twitter:creator'     content='{{ page.twitter.creator or social.twitter.handle }}'>
-  <meta name='twitter:url'         content='{{ absoluteurl(page.twitter.url or urljoin(localeDir(), page.url)) }}'>
-  <meta name='twitter:title'       content='{{ page.twitter.title or page.title or site.name }}'>
-  <meta name='twitter:description' content='{{ page.twitter.description or page.description or site.description }}'>
-  <meta name='twitter:image'       content='{{ absoluteurl(page.twitter.image or page.image or social.twitter.image) }}'>
-  <meta name='twitter:image:alt'   content='{{ page.twitter['image:alt'] or page.title or site.name }}'>
+  <meta name='twitter:card'        content='{{ PAGE.twitter.card or 'summary' }}'>
+  <meta name='twitter:site'        content='{{ PAGE.twitter.site or SOCIAL.twitter.handle }}'>
+  <meta name='twitter:creator'     content='{{ PAGE.twitter.creator or SOCIAL.twitter.handle }}'>
+  <meta name='twitter:url'         content='{{ absoluteurl(PAGE.twitter.url or urljoin(localeDir(), PAGE.url)) }}'>
+  <meta name='twitter:title'       content='{{ PAGE.twitter.title or PAGE.title or SITE.name }}'>
+  <meta name='twitter:description' content='{{ PAGE.twitter.description or PAGE.description or SITE.description }}'>
+  <meta name='twitter:image'       content='{{ absoluteurl(PAGE.twitter.image or PAGE.image or SOCIAL.twitter.image) }}'>
+  <meta name='twitter:image:alt'   content='{{ PAGE.twitter['image:alt'] or PAGE.title or SITE.name }}'>
 
   <!-- Alternate urls -->
-  {% for locale, props in site.locales %}
-  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ urljoin(site.homepage, localeDir(props.locale), page.url) }}'>
+  {% for locale, props in SITE.locales %}
+  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ urljoin(SITE.homepage, localeDir(props.locale), PAGE.url) }}'>
   {% if props.defaultForLanguage %}
-  <link rel='alternate' hreflang='{{ props.locale|langcode }}' href='{{ urljoin(site.homepage, localeDir(props.locale), page.url) }}'>
+  <link rel='alternate' hreflang='{{ props.locale|langcode }}' href='{{ urljoin(SITE.homepage, localeDir(props.locale), PAGE.url) }}'>
   {% endif %}
   {% endfor %}
-  {% for props in page.alternate %}
+  {% for props in PAGE.alternate %}
   <link rel='alternate' hreflang='{{ props.locale }}' href='{{ absoluteurl(props.url) }}'>
   {% endfor %}
 
   <!-- Canonical urls -->
-  {% for url in page.canonical %}
+  {% for url in PAGE.canonical %}
   <link rel='canonical' href='{{ absoluteurl(url) }}'>
   {% endfor %}
 
@@ -116,7 +116,7 @@
 
 </head>
 
-<body class='{{ page.bodyClass }} o-panel o-panel--max'>
+<body class='{{ PAGE.bodyClass }} o-panel o-panel--max'>
 
   {{ OutdatedBrowser(version = 'lte IE 9') }}
 
@@ -126,7 +126,7 @@
   <!-- ======= -->
 
   {% block js %}
-  {% if env.hotModuleRloading %}
+  {% if ENV.hotModuleRloading %}
   <script src='/jspm_packages/system.js'></script>
   <script src='/jspm.config.js'></script>
   <script>
@@ -136,12 +136,12 @@
     })
   </script>
   {% else %}
-  <script src='{{ urljoin('/', path.scripts, 'main.min.js' if env.build else 'main.js') }}'></script>
+  <script src='{{ urljoin('/', PATH.scripts, 'main.min.js' if ENV.build else 'main.js') }}'></script>
   {% endif %}
   {% endblock %}
 
-  {{ GoogleAnalytics(siteId = site.googleAnalyticsId) if site.googleAnalyticsId }}
-  {{ YandexMetrika(counterId = site.yandexMetrikaId) if site.yandexMetrikaId }}
+  {{ GoogleAnalytics(siteId = SITE.googleAnalyticsId) if SITE.googleAnalyticsId }}
+  {{ YandexMetrika(counterId = SITE.yandexMetrikaId) if SITE.yandexMetrikaId }}
 
 </body>
 

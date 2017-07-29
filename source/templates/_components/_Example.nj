@@ -8,8 +8,8 @@
  # @return {string} Complex html with example
  #
  # @example
- #   {% call Example(title = 'External data') -%}
- #   {% raw %}<h4 class='h-h5'>{{ data.example.title }}</h4>{% endraw %}
+ #   {% call Example(title = 'Page title') -%}
+ #   {% raw %}<h4 class='h-h5'>{{ PAGE.title }}</h4>{% endraw %}
  #   {% endcall %}
  #}
 {% macro Example(title, classes, comment = false) %}

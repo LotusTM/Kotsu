@@ -4,10 +4,10 @@ import { renderString } from '../../utils/nunjucks'
 
 const render = (template, context = mockContext, parse) => renderString(template, context, parse)
 const mockContext = {
-  page: {
+  PAGE: {
     url: '/mockContext'
   },
-  site: {
+  SITE: {
     homepage: 'https://kotsu.2bad.me'
   }
 }
@@ -23,9 +23,9 @@ describe('Nunjucks global function `absoluteurl()`', () => {
     it('absolute index url', () => {
       expect(render(`{{ absoluteurl('/') }}`)).toMatchSnapshot()
     })
-    it('absolute url and `page.url` starting with `/`', () => {
-      expect(render(`{{ config('page.url', '/', false) }}{{ absoluteurl('/abs') }}`)).toMatchSnapshot()
-      expect(render(`{{ config('page.url', '/rootPage', false) }}{{ absoluteurl('/abs') }}`)).toMatchSnapshot()
+    it('absolute url and `PAGE.url` starting with `/`', () => {
+      expect(render(`{{ config('PAGE.url', '/', false) }}{{ absoluteurl('/abs') }}`)).toMatchSnapshot()
+      expect(render(`{{ config('PAGE.url', '/rootPage', false) }}{{ absoluteurl('/abs') }}`)).toMatchSnapshot()
     })
     it('relative url', () => {
       expect(render(`{{ absoluteurl('rel') }}`)).toMatchSnapshot()
@@ -33,9 +33,9 @@ describe('Nunjucks global function `absoluteurl()`', () => {
       expect(render(`{{ absoluteurl('../dotsrel/relinner') }}`)).toMatchSnapshot()
       expect(render(`{{ absoluteurl('../doubledotsrel/../relinner') }}`)).toMatchSnapshot()
     })
-    it('relative url and `page.url` starting with `/`', () => {
-      expect(render(`{{ config('page.url', '/', false) }}{{ absoluteurl('rel') }}`)).toMatchSnapshot()
-      expect(render(`{{ config('page.url', '/rootPage', false) }}{{ absoluteurl('rel') }}`)).toMatchSnapshot()
+    it('relative url and `PAGE.url` starting with `/`', () => {
+      expect(render(`{{ config('PAGE.url', '/', false) }}{{ absoluteurl('rel') }}`)).toMatchSnapshot()
+      expect(render(`{{ config('PAGE.url', '/rootPage', false) }}{{ absoluteurl('rel') }}`)).toMatchSnapshot()
     })
   })
   describe('should not mutate`', () => {

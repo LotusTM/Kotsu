@@ -13,7 +13,7 @@ class:           p-examples
 
 {% block main %}
 
-{# @todo This is WIP page. Don't be too hard with it yet. #}
+{# @todo This is WIP PAGE. Don't be too hard with it yet. #}
 
 <h2 class='h-margin-bottom+'>Icons and sprites</h2>
 
@@ -30,12 +30,12 @@ class:           p-examples
 {% raw %}<p>This site available in following languages:</p>
 
 <ul>
-  {% for locale, props in site.locales %}
+  {% for locale, props in SITE.locales %}
     <li>
-      {% if locale == page.locale %}
+      {% if locale == PAGE.locale %}
         {{ locale }} (current)
       {% else %}
-        <a href='{{ urljoin(localeDir(locale), page.url) }}'>{{ locale }}</a>
+        <a href='{{ urljoin(localeDir(locale), PAGE.url) }}'>{{ locale }}</a>
       {% endif %}
     </li>
   {% endfor %}
@@ -81,9 +81,9 @@ class:           p-examples
 <h2 class='h-margin-top++ h-margin-bottom+'>Data examples</h2>
 
 {% call Example(title = 'Inline data') -%}
-{% raw %}<p>Current year is {{ data.currentYear }}</p>
+{% raw %}<p>Current year is {{ DATA.currentYear }}</p>
 
-<p>Images path is <code>{{ path.images }}</code></p>{% endraw %}
+<p>Images path is <code>{{ PATH.images }}</code></p>{% endraw %}
 {% endcall %}
 
 

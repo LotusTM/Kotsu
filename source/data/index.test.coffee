@@ -11,7 +11,7 @@ data = grunt.config.process(data(grunt)())
 r = refinements
 
 Data = module.exports = t.struct({
-  path: t.struct
+  PATH: t.struct
     fonts: t.String
     images: t.String
     scripts: t.String
@@ -39,7 +39,7 @@ Data = module.exports = t.struct({
       static: t.String
       styles: t.String
       templates: t.String
-  site: t.struct
+  SITE: t.struct
     name: t.String
     shortName: r.Maxlength(12)(t.String)
     version: t.String
@@ -59,7 +59,7 @@ Data = module.exports = t.struct({
     baseLocale: t.String
     googleAnalyticsId: t.union [t.String, r.False]
     yandexMetrikaId: t.union [t.String, r.False]
-  pageDefaults: t.struct
+  PAGE_DEFAULTS: t.struct
     image: t.maybe t.String
     class: t.maybe t.String
     bodyClass: t.maybe t.String
@@ -67,17 +67,17 @@ Data = module.exports = t.struct({
     showContentTitle: t.maybe t.Boolean
     showBreadcrumb: t.maybe t.Boolean
     showSidebar: t.maybe t.Boolean
-  social: t.dict t.String, t.struct({
+  SOCIAL: t.dict t.String, t.struct({
       handle: t.maybe r.Handle
       image: t.maybe r.Imagepath
       url: r.Absoluteurl
     }, { name: 'Social' })
-  env: t.struct
+  ENV: t.struct
     production: t.maybe t.Boolean
     staging: t.maybe t.Boolean
     build: t.maybe t.Boolean
     hotModuleRloading: t.maybe t.Boolean
-  data: t.struct
+  DATA: t.struct
     currentYear: t.Number
 }, { name: 'Data' })
 

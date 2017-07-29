@@ -30,7 +30,7 @@
   showInnerOnlyOnActive = false
 ) %}
   {% set itemIsActive = isActive(to, exact) %}
-  {% set itemProps    = getPage(to).props|format(site.placeholders) %}
+  {% set itemProps    = getPage(to).props|format(SITE.placeholders) %}
 
   {# For cases when you need to have sub navs #}
   {% set callerDepth = depth + 1 %}

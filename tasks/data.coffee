@@ -11,7 +11,7 @@ module.exports = () ->
   Extract data from specified files with Gray Matter
   ###
 
-  pageDefaults = @config.process @config('data')().pageDefaults
+  pageDefaults = @config.process @config('data')().PAGE_DEFAULTS
 
   @config 'grayMatter',
     build:

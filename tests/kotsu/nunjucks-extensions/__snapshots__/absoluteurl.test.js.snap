@@ -12,9 +12,9 @@ exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage
 
 exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` absolute url 1`] = `"https://kotsu.2bad.me/abs/absinner"`;
 
-exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` absolute url and \`page.url\` starting with \`/\` 1`] = `"https://kotsu.2bad.me/abs"`;
+exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` absolute url and \`PAGE.url\` starting with \`/\` 1`] = `"https://kotsu.2bad.me/abs"`;
 
-exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` absolute url and \`page.url\` starting with \`/\` 2`] = `"https://kotsu.2bad.me/abs"`;
+exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` absolute url and \`PAGE.url\` starting with \`/\` 2`] = `"https://kotsu.2bad.me/abs"`;
 
 exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` empty url 1`] = `"https://kotsu.2bad.me/"`;
 
@@ -26,9 +26,9 @@ exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage
 
 exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` relative url 4`] = `"https://kotsu.2bad.me/relinner"`;
 
-exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` relative url and \`page.url\` starting with \`/\` 1`] = `"https://kotsu.2bad.me/rel"`;
+exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` relative url and \`PAGE.url\` starting with \`/\` 1`] = `"https://kotsu.2bad.me/rel"`;
 
-exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` relative url and \`page.url\` starting with \`/\` 2`] = `"https://kotsu.2bad.me/rootPage/rel"`;
+exports[`Nunjucks global function \`absoluteurl()\` should prepend site homepage to\` relative url and \`PAGE.url\` starting with \`/\` 2`] = `"https://kotsu.2bad.me/rootPage/rel"`;
 
 exports[`Nunjucks global function \`absoluteurl()\` should throw error with\` falsy url 1`] = `
 "(unknown path)

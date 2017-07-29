@@ -1,11 +1,11 @@
 {
-  "name": "{{ site.name }}",
-  "short_name": "{{ site.shortName }}",
-  "description": "{{ site.description }}",
+  "name": "{{ SITE.name }}",
+  "short_name": "{{ SITE.shortName }}",
+  "description": "{{ SITE.description }}",
   "start_url": "./?utm_source=homescreen",
   "display": "standalone",
-  "theme_color": "{{ site.themeColor }}",
-  "background_color": "{{ site.themeColor }}",
+  "theme_color": "{{ SITE.themeColor }}",
+  "background_color": "{{ SITE.themeColor }}",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

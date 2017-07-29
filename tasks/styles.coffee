@@ -21,23 +21,23 @@ module.exports = () ->
         functions:
 
           ###*
-           * Get specified path from shared Grunt `data.path`
+           * Get path from shared data
            * @todo Add proper handling of localized data
-           * @param  {array|string} query Query to property in `data.path`, which contains
+           * @param  {array|string} query Query to property in `data.PATH`, which contains
            *                              needed path, according to https://lodash.com/docs#get
            * @return {string}             Requested path
            * @example $images-path: '/' + kotsu-path(images);
           ###
-          'kotsu-path($query)': (query) => castToSass(get(data.path, query.getValue()))
+          'kotsu-path($query)': (query) => castToSass(get(data.PATH, query.getValue()))
 
           ###*
-           * Get current theme color from `data.site.themeColor`, which used for `theme-color` meta
+           * Get current theme color from `data.SITE.themeColor`, which used for `theme-color` meta
            * @todo Add proper handling of localized data
            * @return {string} Requested color as Sass rgba value
            * @example $primary-color: kotsu-theme-color();
           ###
           'kotsu-theme-color()': () =>
-            c = onecolor(data.site.themeColor)
+            c = onecolor(data.SITE.themeColor)
             return sass.types.Color(c.red() * 255, c.green() * 255, c.blue() * 255, c.alpha())
 
       files: [

@@ -8,24 +8,24 @@ const mockContext = {}
 describe('Nunjucks global function `isActive()`', () => {
   describe('with root-relative urls', () => {
     it('should correctly process non-exact urls', () => {
-      expect(render(`{{ config('page.breadcrumb', [ 'index' ]) }}{{ isActive('/') }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/') }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog') }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog/') }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog/test') }}`)).toBe('false')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog') }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/') }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/test') }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/test/') }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'index' ]) }}{{ isActive('/') }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog' ]) }}{{ isActive('/') }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog') }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog/') }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog/test') }}`)).toBe('false')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog') }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/') }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/test') }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/test/') }}`)).toBe('true')
     })
     it('should correctly process exact urls', () => {
-      expect(render(`{{ config('page.breadcrumb', [ 'index' ]) }}{{ isActive('/', true) }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog', true) }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog/', true) }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog', true) }}`)).toBe('false')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/', true) }}`)).toBe('false')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/test', true) }}`)).toBe('true')
-      expect(render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/test/', true) }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'index' ]) }}{{ isActive('/', true) }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog', true) }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog' ]) }}{{ isActive('/blog/', true) }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog', true) }}`)).toBe('false')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/', true) }}`)).toBe('false')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/test', true) }}`)).toBe('true')
+      expect(render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('/blog/test/', true) }}`)).toBe('true')
     })
   })
 
@@ -34,17 +34,17 @@ describe('Nunjucks global function `isActive()`', () => {
   //       and resolving of `../` against file and directory is different
   describe('with document-relative urls', () => {
     it('should process non-exact urls', () => {
-      expect(() => render(`{{ config('page.breadcrumb', [ 'index' ]) }}{{ isActive('../') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('../blog') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog' ]) }}{{ isActive('../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test', 'HEY' ]) }}{{ isActive('../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../../blog') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../blog/test') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../blog/test/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../test') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
-      expect(() => render(`{{ config('page.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../test/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'index' ]) }}{{ isActive('../') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog' ]) }}{{ isActive('../blog') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog' ]) }}{{ isActive('../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test', 'HEY' ]) }}{{ isActive('../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../../blog') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../../blog/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../blog/test') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../blog/test/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')e` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../test') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
+      expect(() => render(`{{ config('PAGE.breadcrumb', [ 'blog', 'test' ]) }}{{ isActive('../test/') }}`)).toThrowErrorMatchingSnapshot() // should be `toBe('false')` when implemented
     })
   })
 })

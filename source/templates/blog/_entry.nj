@@ -1,6 +1,6 @@
 {% extends '_layouts/_main.nj' %}
 
-{{ config('page', {
+{{ config('PAGE', {
   class : 'p-blog-post',
   og: {
     type: 'article'
@@ -10,19 +10,19 @@
 {% block main %}
 <div typeof='NewsArticle'>
 
-  <meta property='headline' content='{{ page.contentTitle }}'>
-  <meta property='description' content='{{ page.excerpt }}'>
+  <meta property='headline' content='{{ PAGE.contentTitle }}'>
+  <meta property='description' content='{{ PAGE.excerpt }}'>
   {# @Todo this has to be improved, since Google asks for width and height properties #}
-  <meta property='image' content='{{ page.image }}'>
+  <meta property='image' content='{{ PAGE.image }}'>
   <meta property='publisher' resource='#this'>
-  <meta property='mainEntityOfPage' typeof='WebPage' content='{{ urljoin(site.homepage, localeDir(), page.url) }}'/>
-  <meta property='dateModified' content='{{ page.date }}'>
+  <meta property='mainEntityOfPage' typeof='WebPage' content='{{ urljoin(SITE.homepage, localeDir(), PAGE.url) }}'/>
+  <meta property='dateModified' content='{{ PAGE.date }}'>
 
   <footer class='h-opacity--30 h-bleed-top h-margin-bottom+ h-align--center'>
-    <time datetime='{{ page.date }}' property='datePublished' content='{{ page.date }}'>{{ moment(page.date).format('lll') }}</time>
+    <time datetime='{{ PAGE.date }}' property='datePublished' content='{{ PAGE.date }}'>{{ moment(PAGE.date).format('lll') }}</time>
     —
     <span property='author' typeof='Person'>
-      <span property='name'>{{ page.author }}</span>
+      <span property='name'>{{ PAGE.author }}</span>
     </span>
   </footer>
 

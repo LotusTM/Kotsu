@@ -1,9 +1,9 @@
 # www.robotstxt.org/
 
 User-agent: *
-Disallow: {{ '/' if env.staging }}
-Host: {{ site.homepage }}
-Sitemap: {{ site.homepage }}/sitemap.xml
+Disallow: {{ '/' if ENV.staging }}
+Host: {{ SITE.homepage }}
+Sitemap: {{ SITE.homepage }}/sitemap.xml
 # Yandex specific directives
 Clean-param: yclid
 Clean-param: frommarket

@@ -43,7 +43,7 @@
 
    Since `_base.nj` contains only basic html wrapper and encapsulates mostly meta data-related features, those changes makes it a good basement for all website pages, even unique ones, thus eliminating need to replicate `_base.nj` functionality for those pages.
 
-- [templates][data] Added ability to specify Open Graph and Twitter meta data for specific pages by porviding one of the following properties as Matter Data or `pageDefaults` in general data:
+- [templates][data] Added ability to specify Open Graph and Twitter meta data for specific pages by porviding one of the following properties as Matter Data or `PAGE_DEFAULTS` in general data:
 
    ```yaml
    ---
@@ -89,8 +89,8 @@
        url: https://othersite.com
    ```
 
-- [templates][data] Added `page.image` Matter Data property, which allows to specify generic meta image for page. It can be used by other pages (for instance, to generate table of content with previews or for structured data markup) and also will specify image for Open Graph and Twitter meta data, unless they have already specified images. Related to [#219](https://github.com/LotusTM/Kotsu/issues/219).
-- [data][templates] Added `site.logo` data property for main site logo, which defaults to `logo.svg` and used in `_main.nj` layout.
+- [templates][data] Added `PAGE.image` Matter Data property, which allows to specify generic meta image for page. It can be used by other pages (for instance, to generate table of content with previews or for structured data markup) and also will specify image for Open Graph and Twitter meta data, unless they have already specified images. Related to [#219](https://github.com/LotusTM/Kotsu/issues/219).
+- [data][templates] Added `SITE.logo` data property for main site logo, which defaults to `logo.svg` and used in `_main.nj` layout.
 - [templates] Added `vocab='https://schema.org/'` to top-level `<html>` of `_base.nj`. This means that you can use freely Schema vocabulary without specifying or prefixing it as `typeof='ListItem'` instead of `vocab='https://schema.org/' typeof='ListItem'` or `typeof='schema:ListItem'` whenever you extend base layout.
 - [templates] Added ability to reference website's Organization structured data by stating `resource='#this'`.
 - [templates] Added ability to reference website structured data by stating `resource='#this-website'`.
@@ -138,14 +138,27 @@
 - [conf] `declaration-colon-newline-after` Stylelint rule set to `always-multi-line`, which forces to write list values on multiple lines for better readability.
 - [ci] switched CI to latest node LTS release (v8.0.0).
 - [templates] Moved `Host` and `Sitemap` directives in `robots.txt` under the `User-agent` directive, in accordance with [guidelines](https://yandex.com/support/webmaster/controlling-robot/robots-txt.xml).
-- [templates] Replaced all occurances of `metaDesc` Matter Data property with `description`. This will make it more unified with `package.json`, Open Graph and Twitter naming.
-- [templates] Replaced all occurances of `shortDesc` Matter Data property with more common `excerpt`.
-- [data][grunt] `data.pageDefault` previously didn't became part of Matter Data and was injected only on `_base.nj` invocation. That made accessing this data in other instances problematic. Now, `data.pageDefault` will be injected during `grayMatter` task instead.
-- [date][templates] Replaced `site.desc` with more common `description` to be more consistent with `package.json`.
-- [data][templates] Old social-related properties in `site` replaced with more verbose `social` property, which encapsulates data about site's social presence following this scheme:
+- [templates] Replaced all occurrences of `metaDesc` Matter Data property with `description`. This will make it more unified with `package.json`, Open Graph and Twitter naming.
+- [templates] Replaced all occurrences of `shortDesc` Matter Data property with more common `excerpt`.
+- [data] All data properties are in upper case now. It effectively denotes global data from local, defined within specific template, and with their new constants-like appearance showing that it is better to be accurate when reconfiguring those properties internals or better not to touch them at all.
+
+   As result of that change, all templates and other parts of Kotsu should now access following global properties:
+
+   * `PAGE` instead of `page`
+   * `PATH` instead of `path`
+   * `SITE` instead of `site`
+   * `PAGE_DEFAULTS` instead of `pageDefaults`
+   * `ENV` instead of `env`
+   * `DATA` instead of `data`
+   
+   See [#258](https://github.com/LotusTM/Kotsu/issues/258) for details.
+
+- [data][grunt] `data.PAGE_DEFAULTS` previously didn't became part of Matter Data and was injected only on `_base.nj` invocation. That made accessing this data in other instances problematic. Now, `data.PAGE_DEFAULTS` will be injected during `grayMatter` task instead.
+- [date][templates] Replaced `SITE.desc` with more common `description` to be more consistent with `package.json`.
+- [data][templates] Old social-related properties in `SITE` replaced with more verbose `SOCIAL` property, which encapsulates data about site's social presence following this scheme:
 
    ```coffee
-   social:
+   SOCIAL:
      # Add any other social services following same pattern
      twitter:
        handle: pkg.twitter
@@ -158,9 +171,9 @@
 
    This data can be later used to generate site social icons or for structured data.
 
-- [data][templates] Default value for Open Graph and Twitter image meta data no longer hardcoded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `social.faceebook.image` and `social.twitter.image` properties.
+- [data][templates] Default value for Open Graph and Twitter image meta data no longer hardcoded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `SOCIAL.faceebook.image` and `SOCIAL.twitter.image` properties.
 - [templates] Open Graph and Twitter images properties now uses new `absoluteurl()` Nunjucks function to resolve path to images. This means, that you can freely enter as path to image remote url, or local absolute, or local relative url, and it will be properly resolved.
-- [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ page.title if page.title else site.name }}` -> `{{ page.title or site.name }}`.
+- [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ PAGE.title if PAGE.title else SITE.name }}` -> `{{ PAGE.title or SITE.name }}`.
 - [templates] In `Nav()` component `{% call(depth) Item('/') %}{% endcall %}` changed to exact mode to _not_ match inner routes due to introduced in `isActive()` fix.
 - [templates] `Link()` component refactored and will no longer throw any warnings itself in case of document-relative urls, since it is handled by relied upon `isActive()`. It also will trim whitespace to reduce issues with inlined links.
 - [modules][templates] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
@@ -175,7 +188,7 @@
    * If all `urljoin` argument are slashes or empty strings, it will resolve to `/` if _first_ argument is `/`. See related issue [medialize/URI.js/#341](https://github.com/medialize/URI.js/issues/341) and [related tests](https://github.com/LotusTM/Kotsu/blob/master/tests/kotsu/urljoin.test.js).
 
 - [modules] Changed sections comment-headers always be 80 chars long.
-- [data] Reordered `site` properties to make it more consistent with order of `package.json`.
+- [data] Reordered `SITE` properties to make it more consistent with order of `package.json`.
 - [styles] Updated Ekzo to version 2.5.2.
 - [styles][grunt] Updated Sass files to use same comments headers as Ekzo 2.4.3 — 80 chars long.
 - [styles] Update `stylelint-disable` to use changed Stylelint 7.12.0 rules.
@@ -186,7 +199,7 @@
 - [static][templates] Replaced old boilerplate favicons with new Kotsu ones.
 - [static][templates] Converted `browserconfig.xml` to be Nunjucks template `browserconfig.xml.nj`, to allow it use Kotsu data.
 - [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with it's own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved.
-- [grunt] Data changes will now trigger `grayMatter` task, since now it relies on part of data (`pageDefaults`).
+- [grunt] Data changes will now trigger `grayMatter` task, since now it relies on part of data (`PAGE_DEFAULTS`).
 - [tests] Nunjucks-related testing utility functions has been moved into standalone file `/tests/utils/nunjucks.js` which exports `renderString` method. It also now accepts context as second argument.
 - [tests] Nunjucks testing utility function `renderString` no longer tries to parse rendered content with `JSON.parse`, unless third argument `parse` has been set to true.\
 - [tests] `.git`, `build` and `temp` directories are now excluded from tests to make launching of tests watch faster in large projects.

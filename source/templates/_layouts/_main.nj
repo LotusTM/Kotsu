@@ -11,7 +11,7 @@
 
       <div class='o-grid__item'>
         <a class='Logo h-h1 h-text--underline0' href='{{ urljoin(localeDir(), '/') }}'>
-          <img src='{{ site.logo }}' height='48' alt='{{ site.name }}'>
+          <img src='{{ SITE.logo }}' height='48' alt='{{ SITE.name }}'>
         </a>
       </div>
 
@@ -36,12 +36,12 @@
 <!-- ==== -->
 
 <main class='Main o-panel__body o-panel' role='main'>
-  <article class='o-panel o-panel__body h-1/1 {{ 'Wrapper Wrapper--content' if page.applyWrapper }}'>
+  <article class='o-panel o-panel__body h-1/1 {{ 'Wrapper Wrapper--content' if PAGE.applyWrapper }}'>
 
-    {% if page.showBreadcrumb or page.showContentTitle %}
+    {% if PAGE.showBreadcrumb or PAGE.showContentTitle %}
     <header class='Content-header'>
 
-      {% if page.showBreadcrumb %}
+      {% if PAGE.showBreadcrumb %}
       {{ Breadcrumb(
         class           = 'o-breadcrumb o-breadcrumb--rev h-text- h-flex-x--center',
         itemsClass      = 'o-breadcrumb__item',
@@ -52,20 +52,20 @@
       ) }}
       {% endif %}
 
-      {% if page.showContentTitle %}
-      <h1 class='Content-title h-align--center h-margin-bottom0'>{{ page.contentTitle }}</h1>
+      {% if PAGE.showContentTitle %}
+      <h1 class='Content-title h-align--center h-margin-bottom0'>{{ PAGE.contentTitle }}</h1>
       {% endif %}
 
     </header>
     {% endif %}
 
-    <div class='o-grid o-panel__body {{ 'h-childs-displace+' if page.showSidebar}}'>
+    <div class='o-grid o-panel__body {{ 'h-childs-displace+' if PAGE.showSidebar}}'>
 
-      <div class='Content o-grid__item {{ 'h-1/1' if not page.showSidebar else 'h-9/12' }} h-margin-top'>
+      <div class='Content o-grid__item {{ 'h-1/1' if not PAGE.showSidebar else 'h-9/12' }} h-margin-top'>
         {% block main %}{% endblock %}
       </div>
 
-      {% if page.showSidebar %}
+      {% if PAGE.showSidebar %}
       <aside class='Sidebar o-grid__item h-3/12 h-margin-top'>
         {% block sidebar %}{% endblock %}
       </aside>
@@ -82,7 +82,7 @@
 <!--/noindex-->
 <footer class='Footer o-panel__footer h-padding-ends'>
   <div class='Wrapper Wrapper--content'>
-    © 2014–{{ data.currentYear }} {{ site.name }}  {{ site.version }}
+    © 2014–{{ DATA.currentYear }} {{ SITE.name }}  {{ SITE.version }}
   </div>
 </footer>
 <!--/noindex-->

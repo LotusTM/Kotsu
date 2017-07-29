@@ -11,7 +11,7 @@
  #                                                       path completely matches current breadcrumb
  # @param {string} [activeClass]       = 'is-active'     Class for active anchor
  # @param {string} [localeDir]         = localeDir()     L10n leading part of path, like `/de/`
- # @param {array}  [pageBreadcrumb]    = page.breadcrumb Breadcrumb of current page for comparison
+ # @param {array}  [pageBreadcrumb]    = PAGE.breadcrumb Breadcrumb of current page for comparison
  #
  # @return {string} Generated `<a>` with properly set active state
  #
@@ -34,7 +34,7 @@
   exact = false,
   activeClass = 'is-active',
   localeDir = localeDir(),
-  pageBreadcrumb = page.breadcrumb
+  pageBreadcrumb = PAGE.breadcrumb
 ) -%}
   {% set isActive = isActive(to, exact, pageBreadcrumb) %}
   {% set url = getPage(to).props.url %}

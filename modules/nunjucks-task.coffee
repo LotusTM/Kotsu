@@ -55,9 +55,9 @@ module.exports = (config) =>
           matter     = if typeof matter == 'function' then matter() else matter
           pageProps  = (get(matter, breadcrumb) or {}).props
 
-          set data, 'site.__matter__', matter
+          set data, 'SITE.__matter', matter
 
-          data.page = merge data.page,
+          data.PAGE = merge data.PAGE,
             props:
               locale    : currentLocale
               isoLocale : isoLocale(currentLocale)
