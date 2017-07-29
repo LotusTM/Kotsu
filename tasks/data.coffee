@@ -11,7 +11,7 @@ module.exports = () ->
   Extract data from specified files with Gray Matter
   ###
 
-  pageDefaults = @config.process @config('data')().PAGE_DEFAULTS
+  { PAGE_DEFAULTS } = @config.process @config('data')()
 
   @config 'grayMatter',
     build:
@@ -25,14 +25,14 @@ module.exports = () ->
           [breadcrumb..., prop] = path
           url = urljoin('/', breadcrumb...)
 
-          return merge {
+          return merge {}, PAGE_DEFAULTS, {
             slug:       path.slice(-2)[0]
             url:        if url == '/index' then '/' else url
             breadcrumb: breadcrumb
             depth:      breadcrumb.length
             dirname:    basename(dirname(src))
             basename:   basename(src, extname(src))
-          }, pageDefaults, data
+          }, data
 
       files: [
         src: ['<%= path.source.templates %>/{,**/}*.{nj,html}', '!<%= path.source.templates %>/{,**/}_*.{nj,html}']
