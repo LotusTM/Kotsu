@@ -153,6 +153,10 @@
    
    See [#258](https://github.com/LotusTM/Kotsu/issues/258) for details.
 
+- [data][templates] Declared in Nunjucks `_base.nj` layout `SITE.placeholders` are now part of `source/data/index` and declared within new global property `PLACEHOLDERS`, which contains all global placeholders for `format()` Nunjucks function.
+
+   This means, that all `format(SITE.placeholders)` instanced should be changed to `format(PLACEHOLDERS)`.
+
 - [data][grunt] `data.PAGE_DEFAULTS` previously didn't became part of Matter Data and was injected only on `_base.nj` invocation. That made accessing this data in other instances problematic. Now, `data.PAGE_DEFAULTS` will be injected during `grayMatter` task instead.
 - [date][templates] Replaced `SITE.desc` with more common `description` to be more consistent with `package.json`.
 - [data][templates] Old social-related properties in `SITE` replaced with more verbose `SOCIAL` property, which encapsulates data about site's social presence following this scheme:

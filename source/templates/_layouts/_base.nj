@@ -1,11 +1,6 @@
-{# Global placeholders values #}
-{{ config('SITE.placeholders', {
-  company: SITE.name
-}) }}
-
 {# Load page props #}
 {{ config('PAGE', { breadcrumb : PAGE.props.breadcrumb }) }}
-{{ config('PAGE', getPage(PAGE.breadcrumb).props|format(SITE.placeholders)) }}
+{{ config('PAGE', getPage(PAGE.breadcrumb).props|format(PLACEHOLDERS)) }}
 {{ config('PAGE', PAGE.props) }}
 
 {# Global macros #}

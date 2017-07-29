@@ -28,6 +28,8 @@ module.exports = ({ config }) ->
       baseLocale: config('baseLocale')
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
+    PLACEHOLDERS:
+      company: pkg.name
     PAGE_DEFAULTS:
       image: ''
       class: ''

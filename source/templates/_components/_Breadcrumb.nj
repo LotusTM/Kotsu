@@ -14,7 +14,7 @@
  #                                          Breadcrumb in form of array to iterate upon
  # @param {string} [rootTitle]       = getPage(['index']).props.breadcrumbTitle
  #                                          Title for root element
- # @param {object} [placeholders]    = SITE.placeholders
+ # @param {object} [placeholders]    = PLACEHOLDERS
  #                                          Object with values for occuring in titles sprintf placeholders
  #
  # @return {string} Generated `ul` with breadcrumb
@@ -30,7 +30,7 @@
   displayLast     = true,
   breadcrumb      = PAGE.breadcrumb,
   rootTitle       = getPage(['index']).props.breadcrumbTitle,
-  placeholders    = SITE.placeholders
+  placeholders    = PLACEHOLDERS
 ) %}
   <ol class='{{ class }}' typeof='BreadcrumbList'>
 
