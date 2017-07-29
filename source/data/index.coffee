@@ -51,8 +51,6 @@ module.exports = ({ config }) ->
       staging: config('env.staging')
       build: config('env.build')
       hotModuleRloading: config('env.hotModuleRloading')
-    DATA:
-      currentYear: new Date().getFullYear()
 
   return (locale) -> switch locale
     when 'ru-RU' then merge {}, data

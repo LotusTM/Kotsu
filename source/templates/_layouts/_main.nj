@@ -82,7 +82,7 @@
 <!--/noindex-->
 <footer class='Footer o-panel__footer h-padding-ends'>
   <div class='Wrapper Wrapper--content'>
-    © 2014–{{ DATA.currentYear }} {{ SITE.name }}  {{ SITE.version }}
+    © 2014–{{ moment().year() }} {{ SITE.name }}  {{ SITE.version }}
   </div>
 </footer>
 <!--/noindex-->

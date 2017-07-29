@@ -149,7 +149,6 @@
    * `SITE` instead of `site`
    * `PAGE_DEFAULTS` instead of `pageDefaults`
    * `ENV` instead of `env`
-   * `DATA` instead of `data`
    
    See [#258](https://github.com/LotusTM/Kotsu/issues/258) for details.
 
@@ -214,6 +213,7 @@
 - [grunt] Removed `grunt-cache-bust` option `algorithm: md5`, since it's default value anyway.
 - [grunt] Removed `@config('baseLocale')` calls from data-retriving functions in `styles` and `data` tasks, since `@config('data')()` with no argument will return base locale values anyway.
 - [data] Removed not needed Grunt templating from index data file for paths and env variables.
+- [data][templates] removed `DATA.currentYear`. As a computed value, it does not belong to data well and it is better to use `moment().year()` instead.
 - [modules][templates] Removed `isCaller` from `nunjuck-render` method, since is is no longer needed to make adjustments to input based on whether it is macro's caller or no. This also means that Nunjucks `render()` filter no longer accepts this parameter too.
 - [misc] Removed Stylelint rule `at-rule-no-unknown` in favor of `scss/at-rule-no-unknown`.
 - [styles] Removed not needed `$prefix: $ekzo-sprites-prefix` from `ekzo-sprites()` include.

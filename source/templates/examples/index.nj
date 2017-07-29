@@ -81,7 +81,7 @@ class:           p-examples
 <h2 class='h-margin-top++ h-margin-bottom+'>Data examples</h2>
 
 {% call Example(title = 'Inline data') -%}
-{% raw %}<p>Current year is {{ DATA.currentYear }}</p>
+{% raw %}<p>Current year is {{ moment().year() }}</p>
 
 <p>Images path is <code>{{ PATH.images }}</code></p>{% endraw %}
 {% endcall %}
