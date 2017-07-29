@@ -73,11 +73,14 @@
   <!-- Open Graph -->
   <meta property='og:type'        content='{{ PAGE.og.type or 'website' }}'>
   <meta property='og:site_name'   content='{{ PAGE.og.site_name or SITE.name }}'>
-  <meta property='og:locale'      content='{{ PAGE.og.locale or PAGE.isoLocale }}'>
   <meta property='og:url'         content='{{ absoluteurl(PAGE.og.url or urljoin(localeDir(), PAGE.url)) }}'>
   <meta property='og:title'       content='{{ PAGE.og.title or PAGE.title or SITE.name }}'>
   <meta property='og:description' content='{{ PAGE.og.description or PAGE.description or SITE.description }}'>
   <meta property='og:image'       content='{{ absoluteurl(PAGE.og.image or PAGE.image or SOCIAL.facebook.image) }}'>
+  <meta property='og:locale'      content='{{ PAGE.og.locale or PAGE.isoLocale }}'>
+  {% for locale in _.union(_.keys(SITE.locales), PAGE.og['locale:alternate']) %}
+  <meta property='og:locale:alternate' content='{{ locale|isoLocale }}'>
+  {% endfor %}
 
   <!-- Twitter Card -->
   <meta name='twitter:card'        content='{{ PAGE.twitter.card or 'summary' }}'>
