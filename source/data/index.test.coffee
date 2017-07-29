@@ -48,7 +48,7 @@ Data = module.exports = t.struct({
     logo: t.maybe r.Imagepath
     viewport: t.String
     themeColor: t.String
-    locales: r.EqualKeysAndProperty('locale') t.dict t.String, t.struct({
+    locales: r.EqualKeyAndProp('locale') t.dict t.String, t.struct({
       locale: t.String
       url: t.String
       rtl: t.Boolean

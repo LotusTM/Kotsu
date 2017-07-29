@@ -45,9 +45,9 @@ const refinements = {
    * @param  {function} type     tcomb Type to be refined (dict or struct)
    * @return {*} Passed in value
    * @example
-   *  EqualKeysAndProperty('id')(t.dict(t.String, t.Any, 'Testdata'))({ 235: { id: '235' } })
+   *  EqualKeyAndProp('id')(t.dict(t.String, t.Any, 'Testdata'))({ 235: { id: '235' } })
    */
-  EqualKeysAndProperty: (property) => (type) => t.refinement(t.Type(type), (t) => {
+  EqualKeyAndProp: (property) => (type) => t.refinement(t.Type(type), (t) => {
     for (let key in t) {
       const prop = t[key][property]
 

@@ -129,8 +129,8 @@ describe('Tcomb refinement', () => {
     })
   })
 
-  describe('EqualKeysAndProperty', () => {
-    const EqualKeysAndId = r.EqualKeysAndProperty('id')(t.dict(t.String, t.Any, 'Testdata'))
+  describe('EqualKeyAndProp', () => {
+    const EqualKeysAndId = r.EqualKeyAndProp('id')(t.dict(t.String, t.Any, 'Testdata'))
 
     it('should pass object with equal keys and property value', () => {
       expect(EqualKeysAndId({ 235: { id: '235' } })).toMatchSnapshot()
@@ -149,8 +149,8 @@ describe('Tcomb refinement', () => {
       expect(() => EqualKeysAndId(0)).toThrowErrorMatchingSnapshot()
       expect(() => EqualKeysAndId(null)).toThrowErrorMatchingSnapshot()
       expect(() => EqualKeysAndId(undefined)).toThrowErrorMatchingSnapshot()
-      expect(() => r.EqualKeysAndProperty('id')('string')).toThrowErrorMatchingSnapshot()
-      expect(() => r.EqualKeysAndProperty('id')(111)).toThrowErrorMatchingSnapshot()
+      expect(() => r.EqualKeyAndProp('id')('string')).toThrowErrorMatchingSnapshot()
+      expect(() => r.EqualKeyAndProp('id')(111)).toThrowErrorMatchingSnapshot()
     })
   })
 })

@@ -28,31 +28,31 @@ exports[`Tcomb refinement Absoluteurl should pass absolute url 2`] = `"https://t
 
 exports[`Tcomb refinement Absoluteurl should pass absolute url 3`] = `"//test.com"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 1`] = `"[tcomb] ivalid value \`235\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 1`] = `"[tcomb] ivalid value \`235\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 2`] = `"[tcomb] ivalid value \`111\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 2`] = `"[tcomb] ivalid value \`111\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 3`] = `"[tcomb] ivalid value \`nope\`<string> supplied to \`Testdata/test/id\` property: expected equal to key value \`test\`<string>"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 3`] = `"[tcomb] ivalid value \`nope\`<string> supplied to \`Testdata/test/id\` property: expected equal to key value \`test\`<string>"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 4`] = `"[tcomb] ivalid value \`undefined\`<undefined> supplied to \`Testdata/test/id\` property: expected equal to key value \`test\`<string>"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 4`] = `"[tcomb] ivalid value \`undefined\`<undefined> supplied to \`Testdata/test/id\` property: expected equal to key value \`test\`<string>"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 5`] = `"[tcomb] Invalid value true supplied to Testdata"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 5`] = `"[tcomb] Invalid value true supplied to Testdata"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 6`] = `"[tcomb] Invalid value \\"string\\" supplied to Testdata"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 6`] = `"[tcomb] Invalid value \\"string\\" supplied to Testdata"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 7`] = `"[tcomb] Invalid value 111 supplied to Testdata"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 7`] = `"[tcomb] Invalid value 111 supplied to Testdata"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 8`] = `"[tcomb] Invalid value 0 supplied to Testdata"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 8`] = `"[tcomb] Invalid value 0 supplied to Testdata"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 9`] = `"[tcomb] Invalid value null supplied to Testdata"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 9`] = `"[tcomb] Invalid value null supplied to Testdata"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 10`] = `"[tcomb] Invalid value undefined supplied to Testdata"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 10`] = `"[tcomb] Invalid value undefined supplied to Testdata"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 11`] = `"[tcomb] Invalid value \\"string\\" supplied to Type"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 11`] = `"[tcomb] Invalid value \\"string\\" supplied to Type"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should error on everything except object with equal keys and property value 12`] = `"[tcomb] Invalid value 111 supplied to Type"`;
+exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 12`] = `"[tcomb] Invalid value 111 supplied to Type"`;
 
-exports[`Tcomb refinement EqualKeysAndProperty should pass object with equal keys and property value 1`] = `
+exports[`Tcomb refinement EqualKeyAndProp should pass object with equal keys and property value 1`] = `
 Object {
   "235": Object {
     "id": "235",
@@ -60,7 +60,7 @@ Object {
 }
 `;
 
-exports[`Tcomb refinement EqualKeysAndProperty should pass object with equal keys and property value 2`] = `
+exports[`Tcomb refinement EqualKeyAndProp should pass object with equal keys and property value 2`] = `
 Object {
   "test": Object {
     "id": "test",

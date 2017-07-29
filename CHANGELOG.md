@@ -116,7 +116,7 @@
    * `Imagepath` — to accept only paths with images, like `testme.png`
    * `Handle` — to accept only handle, like `@lotustm`. Useful for Twitter-related data, you know.
    * `Maxlength` — to accept only strings, numbers or array (or anything with `.length` property) which doesn't exceed specified length.
-   * `EqualKeysAndProperty` — to accept only objects, in which some properties are equal to key value. For instance, when you need to ensure that object key and `id` property are always equal.
+   * `EqualKeyAndProp` — to accept only objects, in which some properties are equal to key value. For instance, when you need to ensure that object key and `id` property are always equal.
 
 - [tests][data] Added `index.test.coffee` file which tests data index file with `tcomb` to ensure that Kotsu receives all required data with valid values. Wrong data, you shall not pass!
    
