@@ -40,7 +40,7 @@
 
   <!-- CSS -->
   {% block css %}
-  <link rel='stylesheet' href='/{{ PATH.styles }}/{{ 'style.min.css' if ENV.build else 'style.prefixed.css' }}'>
+  <link rel='stylesheet' href='{{ urljoin('/', PATH.styles, 'style.min.css' if ENV.build else 'style.prefixed.css') }}'>
   {% endblock %}
 
   <!-- Manifest -->
