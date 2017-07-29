@@ -59,6 +59,7 @@ Data = module.exports = t.struct({
     baseLocale: t.String
     googleAnalyticsId: t.union [t.String, r.False]
     yandexMetrikaId: t.union [t.String, r.False]
+  PLACEHOLDERS: t.dict(t.String, t.Any)
   PAGE_DEFAULTS: t.struct
     image: t.maybe t.String
     class: t.maybe t.String
