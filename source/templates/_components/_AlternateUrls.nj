@@ -1,0 +1,24 @@
+{##
+ # Generate alternate urls meta tag for locale based on provided properties.
+ # It will also print additional alternate meta tags if locale is default for its language.
+ #
+ # @param {object}  locale               Locale name
+ # @param {object}  [url]                Locale url, otherwise locale name will be used
+ # @param {boolean} [defaultForLanguage] Is locale default for its language
+ # @param {boolean} [onlyLanguage]       Print only as language
+ #
+ # @return {string} Alternate urls metas
+ #
+ # @example
+ #   {{ AlternateUrls({ locale: 'en-US', url: 'test' }) }}
+ #}
+{% macro AlternateUrls(locale, url, defaultForLanguage, onlyLanguage) %}
+  {% set locale = locale|langcode if onlyLanguage else locale %}
+  {% set url = absoluteurl(url or urljoin(localeDir(locale), PAGE.url)) %}
+
+  <link rel='alternate' hreflang='{{ locale }}' href='{{ url }}' >
+
+  {% if defaultForLanguage and not onlyLanguage %}
+  {{ AlternateUrls(locale, url, defaultForLanguage, true) }}
+  {% endif %}
+{% endmacro %}

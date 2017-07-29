@@ -7,6 +7,7 @@
 {% block imports %}
 {% from '_components/analytics/_GoogleAnalytics.nj' import GoogleAnalytics with context %}
 {% from '_components/analytics/_YandexMetrika.nj' import YandexMetrika with context %}
+{% from '_components/_AlternateUrls.nj' import AlternateUrls with context %}
 {% from '_components/_Breadcrumb.nj' import Breadcrumb with context %}
 {% from '_components/_Example.nj' import Example with context %}
 {% from '_components/_IE.nj' import IE with context %}
@@ -89,14 +90,8 @@
   <meta name='twitter:image:alt'   content='{{ PAGE.twitter['image:alt'] or PAGE.title or SITE.name }}'>
 
   <!-- Alternate urls -->
-  {% for locale, props in SITE.locales %}
-  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ urljoin(SITE.homepage, localeDir(props.locale), PAGE.url) }}'>
-  {% if props.defaultForLanguage %}
-  <link rel='alternate' hreflang='{{ props.locale|langcode }}' href='{{ urljoin(SITE.homepage, localeDir(props.locale), PAGE.url) }}'>
-  {% endif %}
-  {% endfor %}
-  {% for props in PAGE.alternate %}
-  <link rel='alternate' hreflang='{{ props.locale }}' href='{{ absoluteurl(props.url) }}'>
+  {% for locale, props in _.merge({}, SITE.locales, PAGE.alternate) %}
+  {{ AlternateUrls(props.locale, props.url, props.defaultForLanguage) }}
   {% endfor %}
 
   <!-- Canonical urls -->

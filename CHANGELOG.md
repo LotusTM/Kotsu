@@ -224,6 +224,7 @@
 - [templates] Fixed `Breadcrumb()` being unordered list instead of ordered one `<ol>`. It's better suits its semantics, since it represents strickly ordered structure.
 - [templates] Thanks to related to [#219](https://github.com/LotusTM/Kotsu/issues/219) changes, blog posts finally using proper Open Graph type of `article`. Solves [#59](https://github.com/LotusTM/Kotsu/issues/59).
 - [templates] Fixed `rootTitle` in `Breadcrumb` component formatted with `sprintf` twice.
+- [templates] Fixed alternate urls meta tags generation code not taking into account locale `url` property.
 - [modules][templates] Fixed `isActive()` Nunjucks function and related `Link()` component wrongly returning `false` for `isActive('/')`, while it always should be `true`, unless set to `exact` mode.
 - [modules][templates] Fixed `warn()` Nunjucks function taking url from wrong property.
 - [modules][templates] Fixed `getLocaleDir()` and its Nunjucks countrepart `localeDir()` urlifying for no reason locale url. It should be urlified only if no url specified and locale used instead.
