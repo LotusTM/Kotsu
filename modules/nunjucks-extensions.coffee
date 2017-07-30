@@ -135,6 +135,48 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
     return page
 
   ###*
+   * This slightly mysterious function loads current page data (Front Matter) into `PAGE` global variable,
+   * fully renders and format it and populates undefined with default values.
+   * It leverages `config` Nunjucks function to ensure, that loaded data never overrides specified
+   * within page or layout data when you use Front Matter or `config` on any specific page,
+   * If page have specified `PAGE.breadcrumb`, data will be retrieved from page, which is available
+   * following that breadcrumb. It is a way to force one page at specific path to think and behave like
+   * it is another page. In past, it was useful to workaround tricky structures, but for now it
+   * exists mostly as extravagant scientific proof of some strange techniques.
+   * @todo Consider removing of breadcrumb overriding, think out of scenarios — is it useful or no
+   * @todo Do not invoke `getPage` if there is no `@ctx.PAGE.breadcrumb`, since then all properties
+   *       already available under built `@ctx.PAGE.props`. For now we can't do this, since
+   *       it needs to be rendered, and rendering cache currently hardcoded into `getPage`
+   *       This will also allow to avoid merging of `@ctx.PAGE.props` into `PAGE`
+   * @todo There is some obscurity regarding `PAGE` and `PAGE.props`, sometimes it is unclear which to use.
+   *       `PAGE.props` contains unrendered, assembled during Nunjucks task data, with Front Matter,
+   *        while `PAGE` will contain prepared, merged and rendered by this function same data.
+   *        Note, that as of now we can not use for final data `PAGE.props` or for Nunjucks built data `PAGE`,
+   *        since that way `config` will broke — it will see, that `PAGE.props` or `PAGE` already defined,
+   *        and assume that there is no need to merge anything. Just to remind, this is caused by
+   *        how Nunjucks renders extends layouts and applies values (it happens in reverse order).
+   * @return {void}
+  ###
+  env.addGlobal 'initPageData', () ->
+    { config, getPage } = @.env.globals
+    { format } = @.env.filters
+
+    # Use specified on page breadcrumb if there is one.
+    # For now it can be done with `{{ config('PAGE', { breadcrumb: ['myPage'] }) }}`
+    # inside page or layout that page extends.
+    breadcrumb = @ctx.PAGE.breadcrumb or @ctx.PAGE.props.breadcrumb
+
+    # Retrieve page props following breadcrumb, render (as part of `getPage`) and format it
+    config.call(@, 'PAGE', format.call(@, getPage.call(@, breadcrumb).props, @ctx.PLACEHOLDERS))
+
+    # Fill page data with rest of only available through Nunjucks injection props
+    # It needed only when we used `getPage`, since retrieved props won't have injected by Nunjucks values,
+    # because they can be computed only during Nunjucks task runtime
+    config.call(@, 'PAGE', @ctx.PAGE.props)
+
+    return
+
+  ###*
    * Explodes string into array breadcrumb. See `crumble` helper for details
   ###
   env.addGlobal 'crumble', (path) ->

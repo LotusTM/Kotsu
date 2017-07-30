@@ -1,9 +1,5 @@
-{# Load page props #}
-{{ config('PAGE', { breadcrumb : PAGE.props.breadcrumb }) }}
-{{ config('PAGE', getPage(PAGE.breadcrumb).props|format(PLACEHOLDERS)) }}
-{{ config('PAGE', PAGE.props) }}
+{{ initPageData() }}
 
-{# Global macros #}
 {% block imports %}
 {% from '_components/analytics/_GoogleAnalytics.nj' import GoogleAnalytics with context %}
 {% from '_components/analytics/_YandexMetrika.nj' import YandexMetrika with context %}
