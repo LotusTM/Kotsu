@@ -143,6 +143,7 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * following that breadcrumb. It is a way to force one page at specific path to think and behave like
    * it is another page. In past, it was useful to workaround tricky structures, but for now it
    * exists mostly as extravagant scientific proof of some strange techniques.
+   * @todo Add tests, ya know
    * @todo Consider removing of breadcrumb overriding, think out of scenarios — is it useful or no
    * @todo Do not invoke `getPage` if there is no `@ctx.PAGE.breadcrumb`, since then all properties
    *       already available under built `@ctx.PAGE.props`. For now we can't do this, since
