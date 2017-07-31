@@ -14,13 +14,7 @@ urljoin                   = require('./urljoin')
 { escape }                = require('nunjucks/src/lib')
 { file: { expand }, log } = require('grunt')
 
-module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
-  numbro.setCulture(currentLocale)
-  numbro.defaultFormat(numberFormat)
-  numbro.defaultCurrencyFormat(currencyFormat)
-
-  moment.locale(currentLocale)
-
+module.exports = (env) ->
   # ==============================================================================
   # Extensions
   # ==============================================================================
@@ -140,11 +134,11 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    * It leverages `config` Nunjucks function to ensure, that loaded data never overrides specified
    * within page or layout data when you use Front Matter or `config` on any specific page,
    * If page have specified `PAGE.breadcrumb`, data will be retrieved from page, which is available
-   * following that breadcrumb. It is a way to force one page at specific path to think and behave like
-   * it is another page. In past, it was useful to workaround tricky structures, but for now it
-   * exists mostly as extravagant scientific proof of some strange techniques.
+   * following that breadcrumb, making one page at specific path to think and behave like it is another page.
+   * It also will set some l10n defaults
    * @todo Add tests, ya know
    * @todo Consider removing of breadcrumb overriding, think out of scenarios — is it useful or no
+   *       Seems to be useful for tests
    * @todo Do not invoke `getPage` if there is no `@ctx.PAGE.breadcrumb`, since then all properties
    *       already available under built `@ctx.PAGE.props`. For now we can't do this, since
    *       it needs to be rendered, and rendering cache currently hardcoded into `getPage`
@@ -158,8 +152,8 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
    *        how Nunjucks renders extends layouts and applies values (it happens in reverse order).
    * @return {void}
   ###
-  env.addGlobal 'initPageData', () ->
-    { config, getPage } = @.env.globals
+  env.addGlobal 'initPage', () ->
+    { config, getPage, numbro, moment } = @.env.globals
     { format } = @.env.filters
 
     # Use specified on page breadcrumb if there is one.
@@ -174,6 +168,15 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
     # It needed only when we used `getPage`, since retrieved props won't have injected by Nunjucks values,
     # because they can be computed only during Nunjucks task runtime
     config.call(@, 'PAGE', @ctx.PAGE.props)
+
+    # Set l10n defaults
+    locale = @ctx.PAGE.locale
+
+    numbro.setCulture(locale)
+    numbro.defaultFormat(@ctx.SITE.locales[locale].numberFormat)
+    numbro.defaultCurrencyFormat(@ctx.SITE.locales[locale].currencyFormat)
+
+    moment.locale(locale)
 
     return
 
@@ -298,12 +301,12 @@ module.exports = (env, currentLocale, numberFormat, currencyFormat) ->
 
   ###*
    * Pluralize string based on count. For situations, where full i18n is too much
-   * @param {number} count                  Current count
-   * @param {array}  forms                  List of possible plural forms
-   * @param {string} locale = currentLocale Locale name
+   * @param {number} count                     Current count
+   * @param {array}  forms                     List of possible plural forms
+   * @param {string} locale = @ctx.PAGE.locale Locale name
    * @return {string} Correct plural form
   ###
-  env.addFilter 'plural', (count, forms, locale = currentLocale) ->
+  env.addFilter 'plural', (count, forms, locale = @ctx.PAGE.locale) ->
     smartPlurals.Plurals.getRule(locale)(count, forms)
 
   ###*

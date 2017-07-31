@@ -41,7 +41,7 @@ module.exports = (config) =>
     config = merge config,
       options:
         configureEnvironment : (env, nunjucks) ->
-          nunjucksExtensions(env, currentLocale, localeProps.numberFormat, localeProps.currencyFormat)
+          nunjucksExtensions(env)
           gettext.nunjucksExtensions(env, currentLocale)
           i18nTools.nunjucksExtensions(env)
 

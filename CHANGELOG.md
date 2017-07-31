@@ -181,10 +181,11 @@
 - [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ PAGE.title if PAGE.title else SITE.name }}` -> `{{ PAGE.title or SITE.name }}`.
 - [templates] In `Nav()` component `{% call(depth) Item('/') %}{% endcall %}` changed to exact mode to _not_ match inner routes due to introduced in `isActive()` fix.
 - [templates] `Link()` component refactored and will no longer throw any warnings itself in case of document-relative urls, since it is handled by relied upon `isActive()`. It also will trim whitespace to reduce issues with inlined links.
-- [modules] `i18n-tools` `nunjucksExtensions` method now pulls locales information from context and no longer requires `locales`, `baseLocale` and `currentLocale` parameters to be invoked.
+- [modules] `i18n-tools` `nunjucksExtensions` method now pulls locales information from context `SITE.locales` and no longer requires `locales`, `baseLocale` and `currentLocale` parameters to be invoked.
 
    Yeap, it makes a bit obscure what exactly `i18n-tools` data require to work, but on other side provides much better flexibility, since now it will respond to context locales values changes.
 
+- [modules] `nunjucks-extensions` module now too pulls locales information from context `SITE.locales` and no longer requires `currentLocale`, `numberFormat`, `currencyFormat` parameters to be invoked.
 - [modules][templates] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
 - [modules][templates] Refactored `isActive()` Nunjucks function to be slightly faster and less obscure.
 - [modules][templates] `getLocaleDir()` and related Nunjucks counterpart `localeDir()` now returns `/` for base locale instead of hacky empty string.
@@ -197,7 +198,7 @@
 
    It will now try to find url of locale, otherwise will return locale name as path.
 
-- [modules][templates] Certainly obscure header of `_base.nj` layout related to `PAGE` data retrieving has been encapsulated into `initPageData()` Nunjucks function, which makes relatively same thing, but now have documentation, which sheds some light on how things works.
+- [modules][templates] Certainly obscure header of `_base.nj` layout related to `PAGE` data retrieving has been encapsulated into `initPage()` Nunjucks function, which makes relatively same thing, but now have documentation, which sheds some light on how things works.
 
    As of this change, following `_base.nj` header:
 
@@ -210,7 +211,7 @@
    has to be changed to
 
    ```jinja
-   {{ initPageData() }}
+   {{ initPage() }}
    ```
 
    It will also make much easier loading of Matter data in your own custom layouts by invoking that function in the beginning of the layout and then observing how happiness and joy fills your life.

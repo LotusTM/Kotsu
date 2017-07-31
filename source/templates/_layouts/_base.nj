@@ -1,4 +1,4 @@
-{{ initPageData() }}
+{{ initPage() }}
 
 {% block imports %}
 {% from '_components/analytics/_GoogleAnalytics.nj' import GoogleAnalytics with context %}
