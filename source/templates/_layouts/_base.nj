@@ -89,7 +89,10 @@
   <meta name='twitter:image:alt'   content='{{ PAGE.twitter['image:alt'] or PAGE.title or SITE.name }}'>
 
   <!-- Alternate urls -->
-  {% for locale, props in _.merge({}, SITE.locales, PAGE.alternate) %}
+  {% for locale, props in SITE.locales %}
+  {{ AlternateUrls(props.locale, defaultForLanguage = props.defaultForLanguage) }}
+  {% endfor %}
+  {% for props in PAGE.alternate %}
   {{ AlternateUrls(props.locale, props.url, props.defaultForLanguage) }}
   {% endfor %}
 
