@@ -109,10 +109,6 @@
 - [templates] Added `manifest.json` as Nunjucks template `manifest.json.nj`, which uses Kotsu data.
 - [modules][templates] Added [`URI.js`](https://medialize.github.io/URI.js/) as `URI()` Nunjucks function.
 - [modules][templates] Added `absoluteurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
-- [modules][templates] `getLocaleDir()` and related Nunjucks counterpart `localeDir()` now returns `/` for base locale instead of hacky empty string.
-
-   Old behaviour was needed to ease concatenation with urls, but since all that logic now handled by `urljoin()`, we can safely return `/` for base locale to properly denote that it lives at root.
-
 - [static][templates] Added more favicons variations to work better with modern browsers.
 - [tests] Added tests for Nunjucks `render()` filter.
 - [tests] Added `validate()` test utility which wraps `tcomb-validate` and print nice errors on fail.
@@ -187,6 +183,16 @@
 - [templates] `Link()` component refactored and will no longer throw any warnings itself in case of document-relative urls, since it is handled by relied upon `isActive()`. It also will trim whitespace to reduce issues with inlined links.
 - [modules][templates] `nunjucks-render` and related Nunjucks `render()` filter now will correctly process input in form of String or Number Objects, which aren't primitives, including Nunjucks SafeString, without need to set `isCaller` parameter to `true`. Such situations could occur if `render()` filter was used directly on Nunjucks macro or its `caller()`.
 - [modules][templates] Refactored `isActive()` Nunjucks function to be slightly faster and less obscure.
+- [modules][templates] `getLocaleDir()` and related Nunjucks counterpart `localeDir()` now returns `/` for base locale instead of hacky empty string.
+
+   Old behaviour was needed to ease concatenation with urls, but since all that logic now handled by `urljoin()`, we can safely return `/` for base locale to properly denote that it lives at root.
+
+- [modules][templates] `getLocaleDir()` and related Nunjucks counterpart `localeDir()` now returns locale path with always trailing `/`, unless url specified.
+- [modules] `getLocaleDir()` no longer requires whole locale properties as input and instead has `locales` as first argument, which should be proper Kotsu locales object.
+- [modules][templates] `getLocaleDir()` and related Nunjucks counterpart `localeDir()` now more tolerable to locales, which do not exist in `locales` object.
+
+   It will now try to find url of locale, otherwise will return locale name as path.
+
 - [modules][templates] Certainly obscure header of `_base.nj` layout related to `PAGE` data retrieving has been encapsulated into `initPageData()` Nunjucks function, which makes relatively same thing, but now have documentation, which sheds some light on how things works.
 
    As of this change, following `_base.nj` header:

@@ -37,7 +37,7 @@ module.exports = (config) =>
       throw new Error('[nunjucks-task] `src` and `dest` should be provided as array of objects with `expand: true`')
 
     localeProps = getLocaleProps(locales, currentLocale)
-    localeDir = getLocaleDir(localeProps, baseLocale, baseLocaleAsRoot)
+    localeDir = getLocaleDir(locales, currentLocale, baseLocale, baseLocaleAsRoot)
 
     config = merge config,
       options:
