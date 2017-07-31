@@ -4,11 +4,10 @@ import { grunt } from './grunt'
 import nunjucksExtensions from '../../modules/nunjucks-extensions'
 import i18nTools from '../../modules/i18n-tools'
 
-const env = nunjucks.configure(grunt.config('path.source.templates'))
-const baseLocale = grunt.config('baseLocale')
+export const env = nunjucks.configure(grunt.config('path.source.templates'))
 
-nunjucksExtensions(env, baseLocale)
-i18nTools.nunjucksExtensions(env, grunt.config('locales'), baseLocale, baseLocale, true)
+nunjucksExtensions(env)
+i18nTools.nunjucksExtensions(env)
 
 export const renderString = (template, context, parse) => {
   const rendered = env.renderString(template, cloneDeep(context))
