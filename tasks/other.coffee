@@ -87,6 +87,7 @@ module.exports = () ->
             #       see https://github.com/LotusTM/Kotsu/issues/230
             #           https://github.com/alexisvincent/systemjs-hot-reloader/issues/141
             '/source/scripts': 'source/scripts'
+            '/source/components': 'source/components'
       bsFiles:
         src: [
           # @note In hot reloading mode for JS files changes watches `chockidar-socket-emitter` and emits directly to `systemjs-hot-reloader`

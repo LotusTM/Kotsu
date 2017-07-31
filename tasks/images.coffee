@@ -15,6 +15,13 @@ module.exports = () ->
           src: ['**']
           dest: '<%= path.build.images %>/'
         ]
+      componentsImages:
+        files: [
+          expand: true
+          cwd: 'source/components/'
+          src: ['**/*.{jpg,jpeg,png,gif,svg}']
+          dest: '<%= path.build.images %>/components/'
+        ]
 
   ###
   Responsive Images
@@ -99,4 +106,9 @@ module.exports = () ->
           #       See https://github.com/LotusTM/Kotsu/issues/251
           #       Disabled, since without newer it would be painful to resize all images on each change
           # 'newer:responsive_images:thumbnails'
+        ]
+      componentsImages:
+        files: ['source/components/{,**/}*.{jpg,jpeg,png,gif,svg}']
+        tasks: [
+          'newer:copy:componentsImages'
         ]

@@ -1,0 +1,8 @@
+{##
+ # Display Test block
+ #}
+{% macro Test(
+  class                 = 'Test'
+) %}
+<div class='{{ class }}'>test!</div>
+{% endmacro %}

@@ -2,6 +2,7 @@
 // import 'babel-polyfill'
 
 import $ from 'jquery'
+import '../components/Test/index.js'
 
 $(() => {
   console.log('jQuery version is: ' + $().jquery)
