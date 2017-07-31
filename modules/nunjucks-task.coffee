@@ -43,7 +43,7 @@ module.exports = (config) =>
         configureEnvironment : (env, nunjucks) ->
           nunjucksExtensions(env, currentLocale, localeProps.numberFormat, localeProps.currencyFormat)
           gettext.nunjucksExtensions(env, currentLocale)
-          i18nTools.nunjucksExtensions(env, locales, currentLocale, baseLocale)
+          i18nTools.nunjucksExtensions(env)
 
           if typeof configureEnvironment == 'function'
             configureEnvironment.call(@, env, nunjucks)

@@ -58,17 +58,17 @@ getRegioncode = (locale) =>
 ###
 isoLocale = (locale) => getLangcode(locale) + '_' + getRegioncode(locale).toUpperCase()
 
-nunjucksExtensions = (env, locales, currentLocale, currentBaseLocale) ->
+nunjucksExtensions = (env) ->
   ###*
    * Resolve locale path. Most useful for urls
    * @return {string} Resolved dir name
    * @example <a href="{{ localeDir() }}/blog/">blog link</a>
   ###
-  env.addGlobal 'localeDir', (locale = currentLocale) => getLocaleDir(locales, locale)
+  env.addGlobal 'localeDir', (locale = @ctx.PAGE.locale) -> getLocaleDir(@ctx.SITE.locales, locale)
 
-  env.addFilter 'langcode', (locale = currentLocale) => getLangcode(locale)
-  env.addFilter 'regioncode', (locale = currentLocale) => getRegioncode(locale)
-  env.addFilter 'isoLocale', (locale = currentLocale) => isoLocale(locale)
+  env.addFilter 'langcode', (locale = @ctx.PAGE.locale) => getLangcode(locale)
+  env.addFilter 'regioncode', (locale = @ctx.PAGE.locale) => getRegioncode(locale)
+  env.addFilter 'isoLocale', (locale = @ctx.PAGE.locale) => isoLocale(locale)
 
   return
 
