@@ -18,17 +18,15 @@ getLocaleProps = (locales, locale) => locales[locale]
 
 ###*
  * Resolve locale path
- * @param  {object} locales            Object with locales props
- * @param  {string} locale             Locale name
- * @param  {string} baseLocale         Name of base locale
- * @param  {bool}   [baseLocaleAsRoot] Should base locale be served as root
- * @return {string} Directory name, in which resides build for specified locale
+ * @param  {object} locales Object with locales props
+ * @param  {string} locale  Locale name
+ * @return {string} Directory path, in which resides build for specified locale
 ###
-getLocaleDir = (locales, locale, baseLocale, baseLocaleAsRoot) =>
+getLocaleDir = (locales, locale) =>
   # Try to get url of locale, if it is known locale and if it has one
   { url } = getLocaleProps(locales, locale) or {}
 
-  return if baseLocaleAsRoot and locale == baseLocale then '/' else urljoin('/', url or urlify(locale), '/')
+  return url or urljoin('/', urlify(locale), '/')
 
 ###*
  * Get language code from locale, without country
@@ -60,14 +58,13 @@ getRegioncode = (locale) =>
 ###
 isoLocale = (locale) => getLangcode(locale) + '_' + getRegioncode(locale).toUpperCase()
 
-nunjucksExtensions = (env, locales, currentLocale, currentBaseLocale, currentBaseLocaleAsRoot) ->
+nunjucksExtensions = (env, locales, currentLocale, currentBaseLocale) ->
   ###*
    * Resolve locale path. Most useful for urls
    * @return {string} Resolved dir name
    * @example <a href="{{ localeDir() }}/blog/">blog link</a>
   ###
-  env.addGlobal 'localeDir', (locale = currentLocale, baseLocale = currentBaseLocale, baseLocaleAsRoot = currentBaseLocaleAsRoot) =>
-    getLocaleDir(locales, locale, baseLocale, baseLocaleAsRoot)
+  env.addGlobal 'localeDir', (locale = currentLocale) => getLocaleDir(locales, locale)
 
   env.addFilter 'langcode', (locale = currentLocale) => getLangcode(locale)
   env.addFilter 'regioncode', (locale = currentLocale) => getRegioncode(locale)

@@ -20,7 +20,6 @@ module.exports = ({ config, file: { readJSON } }) ->
     matter: () => readJSON(config('file.temp.data.matter'))
     locales: config('locales')
     baseLocale: config('baseLocale')
-    baseLocaleAsRoot: true
     gettext: config('gettext')
 
     configureEnvironment : (env) ->

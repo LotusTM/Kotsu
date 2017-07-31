@@ -229,6 +229,34 @@
 - [styles] Due to changes in `data.themeColor`, it used now for  `$ekzo-colors.outer-space` color instead of `$ekzo-colors.primary`, which no longer uses that value and should be declared manually. This is something site-specific and should be adjusted on demand.
 - [grunt] Enabled Nunjucks cache. This will significantly reduce re-rendering time for large projects.
 - [grunt] Temporarily disabled watch for images with `responsive_images` task, since it doesn't work with `grunt-newer`. Resizing all images on each change will be too painful in large repositories. See [#251](https://github.com/LotusTM/Kotsu/issues/251).
+- [grunt] Due to removal of `baseLocaleAsRoot` setting from Nunjucks task, to achieve same functionality `url: '/'` should be used for locale, which will be served at root:
+
+   ```diff
+   'en-US':
+     locale: 'en-US'
+  -  url: 'en'
+  +  url: '/'
+     rtl: false
+     defaultForLanguage: true
+     numberFormat: '0,0.[00]'
+     currencyFormat: '$0,0.00'
+   ```
+
+- [grunt] Due to changes in locale path resolving method, it is recommended to use root-relative urls in `url` property of locale:
+
+   ```diff
+   'en-US':
+     locale: 'uk-UA'
+  -  url: 'uk'
+  +  url: '/uk/'
+     rtl: false
+     defaultForLanguage: true
+     numberFormat: '0,0.[00]'
+     currencyFormat: '$0,0.00'
+   ```
+
+   Otherwise locale will resolve relatively to current page url.
+
 - [static][templates] Replaced old boilerplate favicons with new Kotsu ones.
 - [static][templates] Converted `browserconfig.xml` to be Nunjucks template `browserconfig.xml.nj`, to allow it use Kotsu data.
 - [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with it's own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved.
@@ -244,6 +272,11 @@
 - [grunt] Removed `@config('baseLocale')` calls from data-retriving functions in `styles` and `data` tasks, since `@config('data')()` with no argument will return base locale values anyway.
 - [data] Removed not needed Grunt templating from index data file for paths and env variables.
 - [data][templates] removed `DATA.currentYear`. As a computed value, it does not belong to data well and it is better to use `moment().year()` instead.
+- [modules][grunt] Removed `baseLocaleAsRoot` argument from all i18n-related modules and its related settings in Nunjucks Grunt task.
+
+   Use `url: '/'` in locale prop to achieve same functionality.
+
+- [modules] Nunjucks 1i8n-related extensions no longer require deprecated `baseLocaleAsRoot` value to invoke.
 - [modules][templates] Removed `isCaller` from `nunjuck-render` method, since is is no longer needed to make adjustments to input based on whether it is macro's caller or no. This also means that Nunjucks `render()` filter no longer accepts this parameter too.
 - [misc] Removed Stylelint rule `at-rule-no-unknown` in favor of `scss/at-rule-no-unknown`.
 - [styles] Removed not needed `$prefix: $ekzo-sprites-prefix` from `ekzo-sprites()` include.

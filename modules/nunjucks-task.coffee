@@ -12,11 +12,10 @@ module.exports = (config) =>
         matter: {}
         humanReadableUrls: false
         humanReadableUrlsExclude: /^(index|\d{3})$/
-        baseLocaleAsRoot: true
     }, config
 
     files = config.files
-    { configureEnvironment, preprocessData, matter, humanReadableUrls, humanReadableUrlsExclude, currentLocale, locales, baseLocale, baseLocaleAsRoot, gettext } = config.options
+    { configureEnvironment, preprocessData, matter, humanReadableUrls, humanReadableUrlsExclude, currentLocale, locales, baseLocale, gettext } = config.options
     { getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = i18nTools
 
     currentLocale = currentLocale or baseLocale
@@ -37,14 +36,14 @@ module.exports = (config) =>
       throw new Error('[nunjucks-task] `src` and `dest` should be provided as array of objects with `expand: true`')
 
     localeProps = getLocaleProps(locales, currentLocale)
-    localeDir = getLocaleDir(locales, currentLocale, baseLocale, baseLocaleAsRoot)
+    localeDir = getLocaleDir(locales, currentLocale)
 
     config = merge config,
       options:
         configureEnvironment : (env, nunjucks) ->
           nunjucksExtensions(env, currentLocale, localeProps.numberFormat, localeProps.currencyFormat)
           gettext.nunjucksExtensions(env, currentLocale)
-          i18nTools.nunjucksExtensions(env, locales, currentLocale, baseLocale, baseLocaleAsRoot)
+          i18nTools.nunjucksExtensions(env, locales, currentLocale, baseLocale)
 
           if typeof configureEnvironment == 'function'
             configureEnvironment.call(@, env, nunjucks)

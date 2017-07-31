@@ -82,14 +82,14 @@ module.exports = (grunt) ->
     locales:
       'en-US':
         locale: 'en-US'
-        url: 'en'
+        url: '/'
         rtl: false
         defaultForLanguage: true
         numberFormat: '0,0.[00]'
         currencyFormat: '$0,0.00'
       'ru-RU':
         locale: 'ru-RU'
-        url: 'ru'
+        url: '/ru/'
         rtl: false
         defaultForLanguage: true
         numberFormat: '0,0.[00]'
