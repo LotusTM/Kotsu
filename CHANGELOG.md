@@ -288,6 +288,7 @@
 - [styles] Removed no longer needed `ekzo-buttons-sizes()` include inside `Btn` component, since from Ekzo 2.5.0 it is included by `ekzo-for-each-breakpoint` with `$include-self` option set to `true`.
 
 ### Fixed
+- [grunt] Fixed `uncss` not finding scripts because of running after scripts-related tasks.
 - [data] Now `env` properties will not ocassionaly return empty string instead of boolean or `undefined`.
 - [templates] Fixed `Breadcrumb()` being unordered list instead of ordered one `<ol>`. It's better suits its semantics, since it represents strickly ordered structure.
 - [templates] Thanks to related to [#219](https://github.com/LotusTM/Kotsu/issues/219) changes, blog posts finally using proper Open Graph type of `article`. Solves [#59](https://github.com/LotusTM/Kotsu/issues/59).
