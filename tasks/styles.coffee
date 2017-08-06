@@ -88,6 +88,12 @@ module.exports = () ->
           '.Outdated-browser'
           '.Outdated-browser__link'
 
+          # @todo https://github.com/tmpvar/jsdom/issues/1750
+          'svg:not(:root)'
+
+          # @todo https://github.com/giakki/uncss/pull/280#issuecomment-320507763
+          '::placeholder'
+
           # This class usually not occurs in original templates, but you might want
           # to use it occasionally on production
           '.o-show-grid'
