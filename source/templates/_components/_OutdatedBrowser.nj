@@ -13,7 +13,7 @@
   <!--[if {{ version }}]>
     <p class='Outdated-browser'>
       {{ gettext('Your browser is <strong>out of date</strong>! Please, %(linkStart)supdate your browser%(linkEnd)s to view this website correctly.')|format({
-        linkStart: '<a class=\'Outdated-browser__link\' href=\'' + urljoin('http://outdatedbrowser.com', langcode, '/') + '\' target=\'_blank\'>',
+        linkStart: '<a class=\'Outdated-browser__link\' href=\'' + urljoin('http://outdatedbrowser.com', langcode) + '\' target=\'_blank\'>',
         linkEnd: '</a>'
       }) }}
     </p>

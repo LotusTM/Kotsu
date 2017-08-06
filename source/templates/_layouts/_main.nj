@@ -10,7 +10,7 @@
     <div class='o-grid h-flex-y--center h-childs-displace'>
 
       <div class='o-grid__item'>
-        <a class='Logo h-h1 h-text--underline0' href='{{ urljoin(localeDir(), '/') }}'>
+        <a class='Logo h-h1 h-text--underline0' href='{{ localeDir() }}'>
           <img src='{{ SITE.logo }}' height='48' alt='{{ SITE.name }}'>
         </a>
       </div>

@@ -61,7 +61,7 @@
   <meta typeof='Organization' resource='#this'>
   <meta about='#this' property='name' content='{{ SITE.name }}'>
   <meta about='#this' property='logo' content='{{ absoluteurl(SITE.logo) }}'>
-  <link about='#this' property='url' href='{{ urljoin(SITE.homepage, localeDir(), '/') }}'>
+  <link about='#this' property='url' href='{{ urljoin(SITE.homepage, localeDir()) }}'>
   {% for service, props in SOCIAL %}
   <link about='#this' property='sameAs' href='{{ props.url }}'>
   {% endfor %}

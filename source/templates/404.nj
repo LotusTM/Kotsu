@@ -21,6 +21,6 @@ showBreadcrumb:   false
 
   <p>Lost? Just use magic button below:</p>
 
-  <p class='h-margin-top+'><a class='Btn g-link--back' href='{{ urljoin(localeDir(), '/') }}'>Home</a></p>
+  <p class='h-margin-top+'><a class='Btn g-link--back' href='{{ localeDir() }}'>Home</a></p>
 
 {% endblock %}

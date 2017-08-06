@@ -26,7 +26,7 @@ getLocaleDir = (locales, locale) =>
   # Try to get url of locale, if it is known locale and if it has one
   { url } = getLocaleProps(locales, locale) or {}
 
-  return url or urljoin('/', urlify(locale), '/')
+  return url or urljoin('/', urlify(locale))
 
 ###*
  * Get language code from locale, without country
