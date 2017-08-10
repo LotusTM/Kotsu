@@ -13,7 +13,7 @@ class:           p-examples
 
 {% block main %}
 
-{# @todo This is WIP PAGE. Don't be too hard with it yet. #}
+<p><em>Work in progress. Those are just some crude examples.</em></p>
 
 <h2 class='h-margin-bottom+'>Icons and sprites</h2>
 

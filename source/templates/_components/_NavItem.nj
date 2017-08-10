@@ -29,35 +29,35 @@
   maxDepth              = 999999,
   showInnerOnlyOnActive = false
 ) %}
-  {% set itemIsActive = isActive(to, exact) %}
-  {% set itemProps    = getPage(to).props|format(PLACEHOLDERS) %}
+{% set itemIsActive = isActive(to, exact) %}
+{% set itemProps    = getPage(to).props|format(PLACEHOLDERS) %}
 
-  {# For cases when you need to have sub navs #}
-  {% set callerDepth = depth + 1 %}
-  {% if (callerDepth <= maxDepth) and (itemIsActive if showInnerOnlyOnActive else true) %}
-    {% set subnav = caller(callerDepth) if caller %}
-  {% endif %}
+{# For cases when you need to have sub navs #}
+{% set callerDepth = depth + 1 %}
+{% if (callerDepth <= maxDepth) and (itemIsActive if showInnerOnlyOnActive else true) %}
+  {% set subnav = caller(callerDepth) if caller %}
+{% endif %}
 
-  {% if depth >= startDepth and itemProps.display != false %}
+{% if depth >= startDepth and itemProps.display != false %}
 
-    <li class='{{ class }} {{ activeClass if itemIsActive }}'>
+  <li class='{{ class }} {{ activeClass if itemIsActive }}'>
 
-      {{ Link(
-        to = to,
-        label = label or itemProps.navTitle,
-        class = anchorClass,
-        exact = exact,
-        activeClass = activeClass
-      )}}
-
-      {{ subnav }}
-
-    </li>
-
-  {# Go on to loop over subnavs, untill we reach needed depth #}
-  {% else %}
+    {{ Link(
+      to = to,
+      label = label or itemProps.navTitle,
+      class = anchorClass,
+      exact = exact,
+      activeClass = activeClass
+    )}}
 
     {{ subnav }}
 
-  {% endif %}
+  </li>
+
+{# Go on to loop over subnavs, untill we reach needed depth #}
+{% else %}
+
+  {{ subnav }}
+
+{% endif %}
 {% endmacro %}

@@ -15,7 +15,6 @@ date:            2015-10-12T14:48:00
 
 {% block post %}
 {% markdown %}
-
 Some _surprisingly_ interesting demonstrative text goes here. It supports `markdown`, btw!
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -48,6 +47,5 @@ tempor incididunt ut labore et dolore magna aliqua.
 proident.
 * Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur.
-
 {% endmarkdown %}
 {% endblock %}

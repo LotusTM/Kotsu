@@ -32,38 +32,38 @@
   rootTitle       = getPage(['index']).props.breadcrumbTitle,
   placeholders    = PLACEHOLDERS
 ) %}
-  <ol class='{{ class }}' typeof='BreadcrumbList'>
+<ol class='{{ class }}' typeof='BreadcrumbList'>
 
-    <li class='{{ itemsClass }} {{ rootItemClass }}' property='itemListElement' typeof='ListItem'>
-      <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}' property='item' typeof='WebPage'>
-        <span property='name'>{{ rootTitle|format(placeholders) }}</span>
-      </a>
-      <meta property='position' content='1'>
-    </li>
+  <li class='{{ itemsClass }} {{ rootItemClass }}' property='itemListElement' typeof='ListItem'>
+    <a class='{{ anchorsClass }} {{ rootAnchorClass }}' href='{{ localeDir() }}' property='item' typeof='WebPage'>
+      <span property='name'>{{ rootTitle|format(placeholders) }}</span>
+    </a>
+    <meta property='position' content='1'>
+  </li>
 
-    {% for crumb in breadcrumb %}
-      {% set currentCrumb = [crumb] if loop.index0 == 0 else currentCrumb|pushIn(crumb)  %}
-      {% set depth        = currentCrumb.length + 1 %}
-      {% set crumbProps   = getPage(currentCrumb).props|format(placeholders) %}
-      {% set title        = crumbProps.breadcrumbTitle %}
-      {% set url          = crumbProps.url %}
+  {% for crumb in breadcrumb %}
+    {% set currentCrumb = [crumb] if loop.index0 == 0 else currentCrumb|pushIn(crumb)  %}
+    {% set depth        = currentCrumb.length + 1 %}
+    {% set crumbProps   = getPage(currentCrumb).props|format(placeholders) %}
+    {% set title        = crumbProps.breadcrumbTitle %}
+    {% set url          = crumbProps.url %}
 
-      {% if not loop.last %}
+    {% if not loop.last %}
 
-        <li class='{{ itemsClass }}' property='itemListElement' typeof='ListItem'>
-          <a class='{{ anchorsClass }}' href='{{ urljoin(localeDir(), url) }}' property='item' typeof='WebPage'>
-            <span property='name'>{{ title }}</span>
-          </a>
-          <meta property='position' content='{{ depth }}'>
-        </li>
+      <li class='{{ itemsClass }}' property='itemListElement' typeof='ListItem'>
+        <a class='{{ anchorsClass }}' href='{{ urljoin(localeDir(), url) }}' property='item' typeof='WebPage'>
+          <span property='name'>{{ title }}</span>
+        </a>
+        <meta property='position' content='{{ depth }}'>
+      </li>
 
-      {% elif displayLast %}
+    {% elif displayLast %}
 
-        <li class='{{ itemsClass }}'>{{ title }}</li>
+      <li class='{{ itemsClass }}'>{{ title }}</li>
 
-      {% endif %}
+    {% endif %}
 
-    {% endfor %}
+  {% endfor %}
 
-  </ol>
+</ol>
 {% endmacro %}

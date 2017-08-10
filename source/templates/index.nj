@@ -16,7 +16,6 @@ showBreadcrumb:   false
 {% extends '_layouts/_main.nj' %}
 
 {% block main %}
-
 <div class='h-flex h-flex--column h-flex-x--center h-flex-y--center h-padding-bottom+ h-height-1/1'>
 
     <div class='h-margin-bottom+ h-font-weight--semilight'>
@@ -43,5 +42,4 @@ showBreadcrumb:   false
     </p>
 
 </div>
-
 {% endblock %}

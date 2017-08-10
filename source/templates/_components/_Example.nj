@@ -13,27 +13,27 @@
  #   {% endcall %}
  #}
 {% macro Example(title, classes, comment = false) %}
-  <article class='h-margin-bottom+'>
+<article class='h-margin-bottom+'>
 
-    <header>
+  <header>
 
-      <h3>{{ title }}</h3>
+    <h3>{{ title }}</h3>
 
-      {% for class in classes %}
-      <code class='h-text--nowrap'>{{ class }}</code>{{ ', '  if not loop.last }}
-      {% endfor %}
+    {% for class in classes %}
+    <code class='h-text--nowrap'>{{ class }}</code>{{ ', '  if not loop.last }}
+    {% endfor %}
 
-      {% if comment %}
-      <div class='h-margin-top h-opacity--50'>{{ comment }}</div>
-      {% endif %}
+    {% if comment %}
+    <div class='h-margin-top h-opacity--50'>{{ comment }}</div>
+    {% endif %}
 
-    </header>
+  </header>
 
-    <div class='h-border h-border-bottom0 h-border-r h-border-r-bottom-left0 h-border-r-bottom-right0 h-padding+ h-margin-top o-clearfix' style='border-color: rgba(34, 39, 45, .6)'>
-      {{ caller()|render() }}
-    </div>
+  <div class='h-border h-border-bottom0 h-border-r h-border-r-bottom-left0 h-border-r-bottom-right0 h-padding+ h-margin-top o-clearfix' style='border-color: rgba(34, 39, 45, .6)'>
+    {{ caller()|render() }}
+  </div>
 
-    <pre class='h-border-r-top-left0 h-border-r-top-right0 h-padding-ends+ h-padding+ h-margin-bottom0'><code>{{ caller()|forceescape }}</code></pre>
+  <pre class='h-border-r-top-left0 h-border-r-top-right0 h-padding-ends+ h-padding+ h-margin-bottom0'><code>{{ caller()|forceescape }}</code></pre>
 
-  </article>
+</article>
 {% endmacro %}

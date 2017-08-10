@@ -4,11 +4,11 @@ exports[`Nunjucks component \`AlternateUrls()\` should print proper meta tag 1`]
 "
       
       
-  
 
-  <link rel='alternate' hreflang='en-US' href='https://kotsu.2bad.me/en/mockContext' >
 
-  
+<link rel='alternate' hreflang='en-US' href='https://kotsu.2bad.me/en/mockContext' >
+
+
 
     "
 `;
@@ -17,11 +17,11 @@ exports[`Nunjucks component \`AlternateUrls()\` should print proper meta tag for
 "
       
       
-  
 
-  <link rel='alternate' hreflang='en' href='https://kotsu.2bad.me/en/mockContext' >
 
-  
+<link rel='alternate' hreflang='en' href='https://kotsu.2bad.me/en/mockContext' >
+
+
 
     "
 `;
@@ -30,11 +30,11 @@ exports[`Nunjucks component \`AlternateUrls()\` should print proper meta tag for
 "
       
       
-  
 
-  <link rel='alternate' hreflang='en' href='https://kotsu.2bad.me/en/mockContext' >
 
-  
+<link rel='alternate' hreflang='en' href='https://kotsu.2bad.me/en/mockContext' >
+
+
 
     "
 `;
@@ -43,11 +43,11 @@ exports[`Nunjucks component \`AlternateUrls()\` should print proper meta tag wit
 "
       
       
-  
 
-  <link rel='alternate' hreflang='en-US' href='https://test.dev' >
 
-  
+<link rel='alternate' hreflang='en-US' href='https://test.dev' >
+
+
 
     "
 `;
@@ -56,11 +56,11 @@ exports[`Nunjucks component \`AlternateUrls()\` should print proper meta tag wit
 "
       
       
-  
 
-  <link rel='alternate' hreflang='en-US' href='https://kotsu.2bad.me/some/specific/url' >
 
-  
+<link rel='alternate' hreflang='en-US' href='https://kotsu.2bad.me/some/specific/url' >
+
+
 
     "
 `;
@@ -69,19 +69,19 @@ exports[`Nunjucks component \`AlternateUrls()\` should print proper meta tags wh
 "
       
       
-  
 
-  <link rel='alternate' hreflang='en-US' href='https://kotsu.2bad.me/en/mockContext' >
 
-  
-  
-  
+<link rel='alternate' hreflang='en-US' href='https://kotsu.2bad.me/en/mockContext' >
 
-  <link rel='alternate' hreflang='en' href='https://kotsu.2bad.me/en/mockContext' >
 
-  
 
-  
+
+
+<link rel='alternate' hreflang='en' href='https://kotsu.2bad.me/en/mockContext' >
+
+
+
+
 
     "
 `;

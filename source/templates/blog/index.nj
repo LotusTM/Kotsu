@@ -12,29 +12,27 @@ class:           p-blog
 {% extends '_layouts/_main.nj' %}
 
 {% block main %}
+{% set posts = _.orderBy(getPage(PAGE.breadcrumb)|format(PLACEHOLDERS), 'props.date', 'desc') %}
 
-  {% set posts = _.orderBy(getPage(PAGE.breadcrumb)|format(PLACEHOLDERS), 'props.date', 'desc') %}
+{% for post in posts %}
+<article class='h-margin-top+'>
 
-  {% for post in posts %}
-  <article class='h-margin-top+'>
+  <h2 class='h-h3 h-margin-bottom0'>
+    <a href='{{ urljoin(localeDir(), post.props.url) }}'>{{ post.props.contentTitle }}</a>
+  </h2>
 
-    <h2 class='h-h3 h-margin-bottom0'>
-      <a href='{{ urljoin(localeDir(), post.props.url) }}'>{{ post.props.contentTitle }}</a>
-    </h2>
+  <p class='h-text- h-margin-bottom-'>
+    <time datetime='{{ post.props.date }}'>{{ moment(post.props.date).format('lll') }}</time>
+    -
+    {{ post.props.author }}
+  </p>
 
-    <p class='h-text- h-margin-bottom-'>
-      <time datetime='{{ post.props.date }}'>{{ moment(post.props.date).format('lll') }}</time>
-      -
-      {{ post.props.author }}
-    </p>
+  <p>{{ post.props.excerpt }}</p>
 
-    <p>{{ post.props.excerpt }}</p>
+  <p>
+    <a class='Btn h-text- g-link--go' href='{{ urljoin(localeDir(), post.props.url) }}'>Read more</a>
+  </p>
 
-    <p>
-      <a class='Btn h-text- g-link--go' href='{{ urljoin(localeDir(), post.props.url) }}'>Read more</a>
-    </p>
-
-  </article>
-  {% endfor %}
-
+</article>
+{% endfor %}
 {% endblock %}

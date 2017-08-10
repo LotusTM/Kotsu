@@ -8,18 +8,18 @@
  # @example {{ IE() }}
  #}
 {% macro IE(version = 'lte IE 9') %}
-  <!--[if {{ version }}]>
+<!--[if {{ version }}]>
 
-    <link rel='stylesheet' href='{{ urljoin('/', PATH.styles, 'ie.min.css' if ENV.build else 'ie.prefixed.css') }}'>
+  <link rel='stylesheet' href='{{ urljoin('/', PATH.styles, 'ie.min.css' if ENV.build else 'ie.prefixed.css') }}'>
 
-    <script>
-      var e = ('abbr,article,aside,audio,canvas,datalist,details,' +
-        'figure,footer,header,hgroup,main,mark,menu,meter,nav,output,' +
-        'progress,section,time,video').split(',');
-      for (var i = 0; i < e.length; i++) {
-        document.createElement(e[i]);
-      }
-    </script>
+  <script>
+    var e = ('abbr,article,aside,audio,canvas,datalist,details,' +
+      'figure,footer,header,hgroup,main,mark,menu,meter,nav,output,' +
+      'progress,section,time,video').split(',');
+    for (var i = 0; i < e.length; i++) {
+      document.createElement(e[i]);
+    }
+  </script>
 
-  <![endif]-->
+<![endif]-->
 {% endmacro %}
