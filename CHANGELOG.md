@@ -253,7 +253,7 @@
    'en-US':
      locale: 'uk-UA'
   -  url: 'uk'
-  +  url: '/uk/'
+  +  url: '/uk'
      rtl: false
      defaultForLanguage: true
      numberFormat: '0,0.[00]'
