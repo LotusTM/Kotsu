@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.7.0
 
 ### Added
 - [package] Added `package-lock.json` for Node 8+.
