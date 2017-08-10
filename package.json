@@ -97,7 +97,7 @@
     "jest-jspm": "0.1.2",
     "npm-run-all": "4.0.2",
     "snazzy": "6.0.0",
-    "standard": "10.0.2",
+    "standard": "10.0.3",
     "stylelint": "8.0.0",
     "stylelint-config-standard": "17.0.0",
     "stylelint-scss": "2.0.1"
