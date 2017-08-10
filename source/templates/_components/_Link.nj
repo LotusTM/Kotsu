@@ -39,5 +39,5 @@
   {% set isActive = isActive(to, exact, pageBreadcrumb) %}
   {% set url = getPage(to).props.url %}
 
-  <a href='{{ urljoin(localeDir, url) }}' class='{{ class }} {{ activeClass if isActive }}' {{ attrs|spread }}>{{ caller() if caller else label }}</a>
+  <a href='{{ localeDir if url == '/' else urljoin(localeDir, url) }}' class='{{ class }} {{ activeClass if isActive }}' {{ attrs|spread }}>{{ caller() if caller else label }}</a>
 {%- endmacro -%}
