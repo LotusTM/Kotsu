@@ -13,7 +13,7 @@
  #   {{ AlternateUrls('en-US', 'test') }}
  #}
 {% macro AlternateUrls(locale, url, defaultForLanguage, onlyLanguage) %}
-  {% set url = absoluteurl(url or localeDir(locale) if PAGE.url == '/' else urljoin(localeDir(locale), PAGE.url)) %}
+  {% set url = absoluteurl(url or (localeDir(locale) if PAGE.url == '/' else urljoin(localeDir(locale), PAGE.url))) %}
 
   <link rel='alternate' hreflang='{{ locale|langcode if onlyLanguage else locale }}' href='{{ url }}' >
 

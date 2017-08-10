@@ -69,7 +69,7 @@
   <!-- Open Graph -->
   <meta property='og:type'        content='{{ PAGE.og.type or 'website' }}'>
   <meta property='og:site_name'   content='{{ PAGE.og.site_name or SITE.name }}'>
-  <meta property='og:url'         content='{{ absoluteurl(PAGE.og.url or localeDir() if PAGE.url == '/' else urljoin(localeDir(), PAGE.url)) }}'>
+  <meta property='og:url'         content='{{ absoluteurl(PAGE.og.url or (localeDir() if PAGE.url == '/' else urljoin(localeDir(), PAGE.url))) }}'>
   <meta property='og:title'       content='{{ PAGE.og.title or PAGE.title or SITE.name }}'>
   <meta property='og:description' content='{{ PAGE.og.description or PAGE.description or SITE.description }}'>
   <meta property='og:image'       content='{{ absoluteurl(PAGE.og.image or PAGE.image or SOCIAL.facebook.image) }}'>
@@ -82,7 +82,7 @@
   <meta name='twitter:card'        content='{{ PAGE.twitter.card or 'summary' }}'>
   <meta name='twitter:site'        content='{{ PAGE.twitter.site or SOCIAL.twitter.handle }}'>
   <meta name='twitter:creator'     content='{{ PAGE.twitter.creator or SOCIAL.twitter.handle }}'>
-  <meta name='twitter:url'         content='{{ absoluteurl(PAGE.twitter.url or localeDir() if PAGE.url == '/' else urljoin(localeDir(), PAGE.url)) }}'>
+  <meta name='twitter:url'         content='{{ absoluteurl(PAGE.twitter.url or (localeDir() if PAGE.url == '/' else urljoin(localeDir(), PAGE.url))) }}'>
   <meta name='twitter:title'       content='{{ PAGE.twitter.title or PAGE.title or SITE.name }}'>
   <meta name='twitter:description' content='{{ PAGE.twitter.description or PAGE.description or SITE.description }}'>
   <meta name='twitter:image'       content='{{ absoluteurl(PAGE.twitter.image or PAGE.image or SOCIAL.twitter.image) }}'>
