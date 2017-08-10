@@ -81,7 +81,7 @@
     "sprintf-js": "1.1.1",
     "tcomb-validation": "^3.3.0",
     "time-grunt": "1.4.0",
-    "urijs": "1.18.11",
+    "urijs": "1.18.12",
     "urlify": "0.3.6"
   },
   "devDependencies": {
