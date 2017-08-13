@@ -25,4 +25,5 @@ test_script:
   - npm test
   - npm run build
 
-build: off # Don't actually build using MSBuild
+# We don't actually build using MSBuild
+build: off
