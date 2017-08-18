@@ -13,6 +13,9 @@
 
 - [styles] In supplied theme-file `outer-space` color renamed to more generic `secondary` color.
 
+### Removed
+- [static] Removed accidentally left and unused `mstile-70x70.png` icon.
+
 ### Fixed
 - [package] Fixed postbuild test for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
 - [package] Fixed `tcomb-validation` version being not locked.
