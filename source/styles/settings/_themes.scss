@@ -3,11 +3,11 @@
 // =============================================================================
 
 $ekzo-colors: (
-  primary:       #a593e0,
-  green-white:   #e0e3da,
-  ivory:         #fffff3,
-  outer-space:   kotsu-theme-color(),
-  black-30:      rgba(#000, .3)
+  primary: #a593e0,
+  secondary: kotsu-theme-color(),
+  green-white: #e0e3da,
+  ivory: #fffff3,
+  black-30: rgba(#000, .3)
 );
 
 @include ekzo-extend-themes(base, (
@@ -16,7 +16,7 @@ $ekzo-colors: (
   // Background
   // -----------------------------------------------------------------------------
 
-  bg:                    ekzo-color(outer-space),
+  bg:                    ekzo-color(secondary),
 
   // -----------------------------------------------------------------------------
   // Text
@@ -57,15 +57,15 @@ $ekzo-colors: (
   // -----------------------------------------------------------------------------
 
   forms:                  ekzo-color(green-white),
-  forms-placeholder:      ekzo-tint(ekzo-color(outer-space), 20),
+  forms-placeholder:      ekzo-tint(ekzo-color(secondary), 20),
   forms-border:           rgba(ekzo-color(green-white), .3),
-  forms-bg:               ekzo-color(outer-space),
+  forms-bg:               ekzo-color(secondary),
 
   // -----------------------------------------------------------------------------
   // Horizontal line
   // -----------------------------------------------------------------------------
 
-  hr:                     ekzo-tint(ekzo-color(outer-space), 10),
+  hr:                     ekzo-tint(ekzo-color(secondary), 10),
 
   // -----------------------------------------------------------------------------
   // Buttons
