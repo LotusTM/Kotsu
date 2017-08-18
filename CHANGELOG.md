@@ -12,6 +12,7 @@
    Instead, it is recommended to whitelist needed remote files explicitly, to be sure about what gets into main stylesheets and to avoid unexpected duplication.
 
 - [styles] In supplied theme-file `outer-space` color renamed to more generic `secondary` color.
+- [styles] Given better comments headers for Btn component file.
 - [static][templates] Renamed `mstile.png` and `mstile-wide.png` icons to `mstile-310x310.png` and `mstile-310x150.png` to be more specific sizes and usage.
 
 ### Removed
