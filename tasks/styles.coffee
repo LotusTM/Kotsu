@@ -101,7 +101,11 @@ module.exports = () ->
           # Ignore state-related classes, like `is-active` and `menu-entry--is-active`
           /[-\.#](is|has|not)-/
         ]
-        ignoreSheets : [/fonts.googleapis/]
+        ignoreSheets : [
+          # Ignoring all remote CSS to avoid pulling into main styles unexpected CSS.
+          # It is recommended to whitelist needed external CSS explicitly instead.
+          /^(http(s)?|\/\/).*/
+        ]
       files: [
         src: '<%= path.build.root %>/{,**/}*.html'
         dest: '<%= file.build.style.tidy %>'

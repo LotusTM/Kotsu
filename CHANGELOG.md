@@ -5,6 +5,11 @@
 ### Added
 - [templates] Outdated Browser component now has `rel='nofollow'` specified in link.
 
+### Changed
+- [grunt] `uncss` task will now ignore any remote CSS by default (strting with `https`, `http` or `//`) to avoid pulling into main stylesheets file unexpected external CSS, which can be downloaded by 3rd-party scripts.
+
+   Instead, it is recommended to whitelist needed remote files explicitly, to be sure about what gets into main stylesheets and to avoid unexpected duplication.
+
 ### Fixed
 - [package] Fixed postbuild test for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
 - [package] Fixed `tcomb-validation` version being not locked.
