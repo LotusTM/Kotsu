@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Fixed
+- [package] Fixed postbuild test for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
+
 ## 1.7.0
 
 ### Added
