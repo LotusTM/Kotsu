@@ -5,6 +5,7 @@
 ### Fixed
 - [package] Fixed postbuild test for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
 - [styles] Fixed headers of settings files having `.DEFAULTS` in the end. That was a shadow of far past...
+- [templates] Fixed Google Analytics snippet using relative `//` protocol instead of `https`. You're still using `http`? Don't be afraid. That won't hurt you. But I *burp*'n wlll.
 
 ## 1.7.0
 
