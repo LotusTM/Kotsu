@@ -4,6 +4,7 @@
 
 ### Added
 - [templates] Outdated Browser component now has `rel='nofollow'` specified in link.
+- [templates] Example component now will generate id and anchor for each heading, so it is possible to reference specific section whenever needed.
 
 ### Changed
 - [grunt] `uncss` task will now ignore any remote CSS by default (strting with `https`, `http` or `//`) to avoid pulling into main stylesheets file unexpected external CSS, which can be downloaded by 3rd-party scripts.
