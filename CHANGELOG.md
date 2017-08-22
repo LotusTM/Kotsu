@@ -3,11 +3,11 @@
 ## HEAD
 
 ### Added
-- [templates] Outdated Browser component now has `rel='nofollow'` specified in link.
+- [templates] Outdated Browser component now has `rel='nofollow'` specified in the link.
 - [templates] Example component now will generate id and anchor for each heading, so it is possible to reference specific section whenever needed.
 
 ### Changed
-- [grunt] `uncss` task will now ignore any remote CSS by default (strting with `https`, `http` or `//`) to avoid pulling into main stylesheets file unexpected external CSS, which can be downloaded by 3rd-party scripts.
+- [grunt] `uncss` task will now ignore any remote CSS by default (starting with `https`, `http` or `//`) to avoid pulling into main stylesheets file unexpected external CSS, which can be downloaded by 3rd-party scripts.
 
    Instead, it is recommended to whitelist needed remote files explicitly, to be sure about what gets into main stylesheets and to avoid unexpected duplication.
 
@@ -22,7 +22,7 @@
 - [package] Fixed postbuild test for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
 - [package] Fixed `tcomb-validation` version being not locked.
 - [styles] Fixed headers of settings files having `.DEFAULTS` in the end. That was a shadow of far past...
-- [templates] Fixed Google Analytics snippet using relative `//` protocol instead of `https`. You're still using `http`? Don't be afraid. That won't hurt you. But I *burp*'n wlll.
+- [templates] Fixed Google Analytics snippet using relative `//` protocol instead of `https`. Are you still using `HTTP`? Don't be afraid. That won't hurt you. But I *burp*'n will.
 
 ## 1.7.0
 
@@ -40,11 +40,11 @@
 
    That easy!
 
-- [grunt] Added [`grunt-responsive-images-extender`](https://github.com/stephanmax/grunt-responsive-images-extender) task which automatically expands images `src` with `srcset` when there are same images available with different images sizes and prefixed with `@`. This will significantly reduces images-related payload on small devices. Note, that task doesn't watch for images changes. It will run only once during `npm start` and as part of `npm run build`, since it's more production-related optimization.
-- [grunt] Added cache busting for images (`jpg`, `jpeg`, `gif`, `png`, `svg`) with query string. This won't affect final name of image, but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
-- [grunt] Added tiny debouncing delay for Browser Sync. It will prevent huge amount of reloads when a lot of files changing in a row (for instance, after all Nunjucks templates recompilation).
-- [grunt] `grayMatter` task now uses `urljoin()` for urls resolution to make path concatenation more reliable and no longer relies on Node url resolver.
-- [templates] Added `AlternateUrls()` Nunjucks component which encapsulates logic around generating alternate urls meta tags in `_base.nj`.
+- [grunt] Added [`grunt-responsive-images-extender`](https://github.com/stephanmax/grunt-responsive-images-extender) task which automatically expands images `src` with `srcset` when there are same images available with different images sizes and prefixed with `@`. This will significantly reduce images-related payload on small devices. Note, that task doesn't watch for images changes. It will run only once during `npm start` and as part of `npm run build`, since it's more production-related optimization.
+- [grunt] Added cache busting for images (`jpg`, `jpeg`, `gif`, `png`, `SVG`) with query string. This won't affect the final name of an image but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
+- [grunt] Added tiny debouncing delay for Browser Sync. It will prevent a huge amount of reloads when a lot of files changing in a row (for instance, after all, Nunjucks templates recompilation).
+- [grunt] `grayMatter` task now uses `urljoin()` for URLs resolution to make path concatenation more reliable and no longer relies on Node URL resolver.
+- [templates] Added `AlternateUrls()` Nunjucks component which encapsulates logic around generating alternate URLs meta tags in `_base.nj`.
 
    Well, not like you'd need to use that component anywhere on your own, but had to put a note about it somewhere... you know...
 
@@ -69,7 +69,7 @@
    {% endblock %}
    ```
 
-   Since `_base.nj` contains only basic html wrapper and encapsulates mostly meta data-related features, those changes makes it a good basement for all website pages, even unique ones, thus eliminating need to replicate `_base.nj` functionality for those pages.
+   Since `_base.nj` contains only basic HTML wrapper and encapsulates mostly meta data-related features, those changes make a good basement for all website pages, even unique ones, thus eliminating need to replicate `_base.nj` functionality for those pages.
 
 - [templates] Added Open Graph `locale:alternate` meta tags based on `SITE.locales` data.
 - [templates][data] Added ability to specify Open Graph and Twitter meta data for specific pages by porviding one of the following properties as Matter Data or `PAGE_DEFAULTS` in general data:
@@ -119,37 +119,37 @@
        url: https://othersite.com
    ```
 
-- [templates][data] Added `PAGE.image` Matter Data property, which allows to specify generic meta image for page. It can be used by other pages (for instance, to generate table of content with previews or for structured data markup) and also will specify image for Open Graph and Twitter meta data, unless they have already specified images. Related to [#219](https://github.com/LotusTM/Kotsu/issues/219).
+- [templates][data] Added `PAGE.image` Matter Data property, which allows specifying generic meta image for the page. It can be used by other pages (for instance, to generate a table of content with previews or for structured data markup) and also will specify an image for Open Graph and Twitter meta data, unless they have already specified images. Related to [#219](https://github.com/LotusTM/Kotsu/issues/219).
 - [data][templates] Added `SITE.logo` data property for main site logo, which defaults to `logo.svg` and used in `_main.nj` layout.
 - [templates] Added `vocab='https://schema.org/'` to top-level `<html>` of `_base.nj`. This means that you can use freely Schema vocabulary without specifying or prefixing it as `typeof='ListItem'` instead of `vocab='https://schema.org/' typeof='ListItem'` or `typeof='schema:ListItem'` whenever you extend base layout.
 - [templates] Added ability to reference website's Organization structured data by stating `resource='#this'`.
 - [templates] Added ability to reference website structured data by stating `resource='#this-website'`.
 - [templates] Added structured data for blog posts according to [Google guidlines](https://developers.google.com/search/docs/data-types/articles).
-- [templates] Added structured data for website and preferred site name according to [Google guidlines](https://developers.google.com/search/docs/data-types/sitename).
+- [templates] Added structured data for the website and preferred site name according to [Google guidlines](https://developers.google.com/search/docs/data-types/sitename).
 - [templates] Added structured data for `Breadcrumb` component according to [Google guidlines](https://developers.google.com/search/docs/data-types/breadcrumbs).
 - [templates] Added structured data for logo according to [Google guidlines](https://developers.google.com/search/docs/data-types/logo).
 - [templates] Added structured data for social profiles according to [Google guidlines](https://developers.google.com/search/docs/data-types/social-profile-links).
-- [templates] Whenever url concatenation involved now used `urljoin()` instead of plain concatenation.
+- [templates] Whenever URL concatenation involved now used `urljoin()` instead of plain concatenation.
 - [templates] Added `manifest.json` as Nunjucks template `manifest.json.nj`, which uses Kotsu data.
 - [modules][templates] Added [`URI.js`](https://medialize.github.io/URI.js/) as `URI()` Nunjucks function.
-- [modules][templates] Added `absoluteurl()` Nunjucks function, which will resolve relative or absolute urls to full url, with site homepage, based on current page url, while already full urls, with protocols, will remain unaffected.
+- [modules][templates] Added `absolute URL()` Nunjucks function, which will resolve relative or absolute URLs to full URL, with site homepage, based on current page URL, while already full URLs, with protocols, will remain unaffected.
 - [static][templates] Added more favicons variations to work better with modern browsers.
 - [tests] Added tests for Nunjucks `render()` filter.
 - [tests] Added `validate()` test utility which wraps `tcomb-validate` and print nice errors on fail.
 - [tests] Added some handy `tcomb` refinements to make life easier and your data truthy:
    * `False` — to accept only `false`
-   * `Absoluteurl` — to accept only absolute urls, like `https://wowsomuch.test`
+   * `Absoluteurl` — to accept only absolute URLs, like `https://wowsomuch.test`
    * `Imagepath` — to accept only paths with images, like `testme.png`
    * `Handle` — to accept only handle, like `@lotustm`. Useful for Twitter-related data, you know.
-   * `Maxlength` — to accept only strings, numbers or array (or anything with `.length` property) which doesn't exceed specified length.
+   * `Maxlength` — to accept only strings, numbers or array (or anything with `.length` property) which doesn't exceed a specified length.
    * `EqualKeyAndProp` — to accept only objects, in which some properties are equal to key value. For instance, when you need to ensure that object key and `id` property are always equal.
 
-- [tests][data] Added `index.test.coffee` file which tests data index file with `tcomb` to ensure that Kotsu receives all required data with valid values. Wrong data, you shall not pass!
+- [tests][data] Added `index.test.coffee` the file which tests data index file with `tcomb` to ensure that Kotsu receives all required data with valid values. Wrong data, you shall not pass!
    
    Also, it serves as an example for writing project-specific data validation files.
 
 - [tests] Added `isActive()` Nunjucks function tests.
-- [images][templates] Hardly belivable, but we have finally added Kotsu logo as `logo.svg` file and placed it in `_main.nj` layout. Now it serves as placeholder for your beloved logo file.
+- [images][templates] Hardly believable, but we have finally added Kotsu logo as `logo.svg` file and placed it in `_main.nj` layout. Now it serves as a placeholder for your beloved logo file.
 
 ### Changed
 - [package] Updated dependencies.
@@ -200,11 +200,11 @@
 
    This data can be later used to generate site social icons or for structured data.
 
-- [data][templates] Default value for Open Graph and Twitter image meta data no longer hardcoded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `SOCIAL.faceebook.image` and `SOCIAL.twitter.image` properties.
-- [templates] Open Graph and Twitter images properties now uses new `absoluteurl()` Nunjucks function to resolve path to images. This means, that you can freely enter as path to image remote url, or local absolute, or local relative url, and it will be properly resolved.
+- [data][templates] Default value for Open Graph and Twitter image meta data no longer hard coded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `SOCIAL.faceebook.image` and `SOCIAL.twitter.image` properties.
+- [templates] Open Graph and Twitter images properties now use new `absoluteUrl()` Nunjucks function to resolve the path to images. This means, that you can freely enter as a path to image remote URL, or local absolute, or local relative URL, and it will be properly resolved.
 - [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ PAGE.title if PAGE.title else SITE.name }}` -> `{{ PAGE.title or SITE.name }}`.
 - [templates] In `Nav()` component `{% call(depth) Item('/') %}{% endcall %}` changed to exact mode to _not_ match inner routes due to introduced in `isActive()` fix.
-- [templates] `Link()` component refactored and will no longer throw any warnings itself in case of document-relative urls, since it is handled by relied upon `isActive()`. It also will trim whitespace to reduce issues with inlined links.
+- [templates] `Link()` component refactored and will no longer throw any warnings itself in case of document-relative URLs since it is handled by relied upon `isActive()`. It also will trim whitespace to reduce issues with inlined links.
 - [modules] `i18n-tools` `nunjucksExtensions` method now pulls locales information from context `SITE.locales` and no longer requires `locales`, `baseLocale` and `currentLocale` parameters to be invoked.
 
    Yeap, it makes a bit obscure what exactly `i18n-tools` data require to work, but on other side provides much better flexibility, since now it will respond to context locales values changes.
@@ -214,15 +214,15 @@
 - [modules][templates] Refactored `isActive()` Nunjucks function to be slightly faster and less obscure.
 - [modules][templates] `getLocaleDir()` and related Nunjucks counterpart `localeDir()` now returns `/` for base locale instead of hacky empty string.
 
-   Old behaviour was needed to ease concatenation with urls, but since all that logic now handled by `urljoin()`, we can safely return `/` for base locale to properly denote that it lives at root.
+   The old behavior was needed to ease concatenation with URLs, but since all that logic now handled by `urljoin()`, we can safely return `/` for a base locale to properly denote that it lives at the root.
 
 - [modules][templates] `getLocaleDir()` and related Nunjucks counterpart `localeDir()` now returns locale path with always trailing `/`, unless url specified.
 - [modules] `getLocaleDir()` no longer requires whole locale properties as input and instead has `locales` as first argument, which should be proper Kotsu locales object.
 - [modules][templates] `getLocaleDir()` and related Nunjucks counterpart `localeDir()` now more tolerable to locales, which do not exist in `locales` object.
 
-   It will now try to find url of locale, otherwise will return locale name as path.
+   It will now try to find URL of locale, otherwise, will return locale name as a path.
 
-- [modules][templates] Certainly obscure header of `_base.nj` layout related to `PAGE` data retrieving has been encapsulated into `initPage()` Nunjucks function, which makes relatively same thing, but now have documentation, which sheds some light on how things works.
+- [modules][templates] Certainly obscure header of `_base.nj` layout related to `PAGE` data retrieving has been encapsulated into `initPage()` Nunjucks function, which makes relatively the same thing, but now have documentation, which sheds some light on how things works.
 
    As of this change, following `_base.nj` header:
 
@@ -238,7 +238,7 @@
    {{ initPage() }}
    ```
 
-   It will also make much easier loading of Matter data in your own custom layouts by invoking that function in the beginning of the layout and then observing how happiness and joy fills your life.
+   It will also make much easier loading of Matter data in your own custom layouts by invoking that function in the beginning of the layout and then observing how happiness and joy fill your life.
 
 - [modules][templates] `isActive()` Nunjucks function now will throw `TypeError` in case of relative url.
 - [modules][templates] `currentLocale` is no longer mandatory property for Nunjucks task, it will fallback to `baseLocale` if no locale specified.
@@ -246,19 +246,19 @@
 
    Note, that it is slightly modified:
 
-   * When first argument is absolute url, all other segments will resolve against that absolute url, instead of taking only its path.
-   * If all `urljoin` argument are slashes or empty strings, it will resolve to `/` if _first_ argument is `/`. See related issue [medialize/URI.js/#341](https://github.com/medialize/URI.js/issues/341) and [related tests](https://github.com/LotusTM/Kotsu/blob/master/tests/kotsu/urljoin.test.js).
+   * When the first argument is absolute URL, all other segments will resolve against that absolute URL, instead of taking only its path.
+   * If all `urljoin` argument is slashes or empty strings, it will resolve to `/` if the _first_ argument is `/`. See related issue [medialize/URI.js/#341](https://github.com/medialize/URI.js/issues/341) and [related tests](https://github.com/LotusTM/Kotsu/blob/master/tests/kotsu/urljoin.test.js).
 
 - [modules] Changed sections comment-headers always be 80 chars long.
-- [data] Reordered `SITE` properties to make it more consistent with order of `package.json`.
+- [data] Reordered `SITE` properties to make it more consistent with the order of `package.json`.
 - [styles] Updated Ekzo to version 2.5.2.
 - [styles][grunt] Updated Sass files to use same comments headers as Ekzo 2.4.3 — 80 chars long.
 - [styles] Update `stylelint-disable` to use changed Stylelint 7.12.0 rules.
 - [styles][data] Changed `data.themeColor` to be background of website, and `kotsu-theme-color()` now uses that value. This will fit better for most websites.
 - [styles] Due to changes in `data.themeColor`, it used now for  `$ekzo-colors.outer-space` color instead of `$ekzo-colors.primary`, which no longer uses that value and should be declared manually. This is something site-specific and should be adjusted on demand.
-- [grunt] Enabled Nunjucks cache. This will significantly reduce re-rendering time for large projects.
+- [grunt] Enabled Nunjucks cache. This will significantly reduce the re-rendering time for large projects.
 - [grunt] Temporarily disabled watch for images with `responsive_images` task, since it doesn't work with `grunt-newer`. Resizing all images on each change will be too painful in large repositories. See [#251](https://github.com/LotusTM/Kotsu/issues/251).
-- [grunt] Due to removal of `baseLocaleAsRoot` setting from Nunjucks task, to achieve same functionality `url: '/'` should be used for locale, which will be served at root:
+- [grunt] Due to the removal of `baseLocaleAsRoot` setting from Nunjucks task, to achieve same functionality `URL: '/'` should be used for the locale, which will be served at root:
 
    ```diff
    'en-US':
@@ -284,15 +284,15 @@
      currencyFormat: '$0,0.00'
    ```
 
-   Otherwise locale will resolve relatively to current page url.
+   Otherwise, the locale will resolve relatively to current page URL.
 
 - [static][templates] Replaced old boilerplate favicons with new Kotsu ones.
 - [static][templates] Converted `browserconfig.xml` to be Nunjucks template `browserconfig.xml.nj`, to allow it use Kotsu data.
-- [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with it's own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved.
-- [grunt] Data changes will now trigger `grayMatter` task, since now it relies on part of data (`PAGE_DEFAULTS`).
-- [tests] Nunjucks-related testing utility functions has been moved into standalone file `/tests/utils/nunjucks.js` which exports `renderString` method. It also now accepts context as second argument.
+- [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with its own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved.
+- [grunt] Data changes will now trigger `grayMatter` task since now it relies on part of data (`PAGE_DEFAULTS`).
+- [tests] Nunjucks-related testing utility functions has been moved into standalone file `/tests/utils/nunjucks.js` which exports `renderString` method. It also now accepts a context as the second argument.
 - [tests] Nunjucks testing utility function `renderString` no longer tries to parse rendered content with `JSON.parse`, unless third argument `parse` has been set to true.\
-- [tests] `.git`, `build` and `temp` directories are now excluded from tests to make launching of tests watch faster in large projects.
+- [tests] `.git`, `build` and `temp` directories are now excluded from tests to make the launching of tests watch faster in large projects.
 
 ### Removed
 - [packages] Removed [`url-join`](https://github.com/jfromaniello/url-join) in favor of [`URI.js`](https://medialize.github.io/URI.js/).
@@ -303,7 +303,7 @@
 - [data][templates] removed `DATA.currentYear`. As a computed value, it does not belong to data well and it is better to use `moment().year()` instead.
 - [modules][grunt] Removed `baseLocaleAsRoot` argument from all i18n-related modules and its related settings in Nunjucks Grunt task.
 
-   Use `url: '/'` in locale prop to achieve same functionality.
+   Use `URL: '/'` in locale prop to achieve the same functionality.
 
 - [modules] Nunjucks 1i8n-related extensions no longer require deprecated `baseLocaleAsRoot` value to invoke.
 - [modules][templates] Removed `isCaller` from `nunjuck-render` method, since is is no longer needed to make adjustments to input based on whether it is macro's caller or no. This also means that Nunjucks `render()` filter no longer accepts this parameter too.
