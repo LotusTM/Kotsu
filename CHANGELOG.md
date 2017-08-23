@@ -69,7 +69,7 @@
    {% endblock %}
    ```
 
-   Since `_base.nj` contains only basic HTML wrapper and encapsulates mostly meta data-related features, those changes make a good basement for all website pages, even unique ones, thus eliminating need to replicate `_base.nj` functionality for those pages.
+   Since `_base.nj` contains only basic HTML wrapper and encapsulates mostly meta data-related features, those changes make it a good basement for all website pages, even unique ones, thus eliminating need to replicate `_base.nj` functionality for those pages.
 
 - [templates] Added Open Graph `locale:alternate` meta tags based on `SITE.locales` data.
 - [templates][data] Added ability to specify Open Graph and Twitter meta data for specific pages by porviding one of the following properties as Matter Data or `PAGE_DEFAULTS` in general data:
