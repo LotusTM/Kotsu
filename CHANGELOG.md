@@ -41,7 +41,7 @@
    That easy!
 
 - [grunt] Added [`grunt-responsive-images-extender`](https://github.com/stephanmax/grunt-responsive-images-extender) task which automatically expands images `src` with `srcset` when there are same images available with different images sizes and prefixed with `@`. This will significantly reduce images-related payload on small devices. Note, that task doesn't watch for images changes. It will run only once during `npm start` and as part of `npm run build`, since it's more production-related optimization.
-- [grunt] Added cache busting for images (`jpg`, `jpeg`, `gif`, `png`, `SVG`) with query string. This won't affect the final name of an image but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
+- [grunt] Added cache busting for images (`.jpg`, `.jpeg`, `.gif`, `.png`, `.svg`) with query string. This won't affect the final name of an image but will prevent that awkward situation, when your boss asks you why he still sees old image on production...
 - [grunt] Added tiny debouncing delay for Browser Sync. It will prevent a huge amount of reloads when a lot of files changing in a row (for instance, after all, Nunjucks templates recompilation).
 - [grunt] `grayMatter` task now uses `urljoin()` for URLs resolution to make path concatenation more reliable and no longer relies on Node URL resolver.
 - [templates] Added `AlternateUrls()` Nunjucks component which encapsulates logic around generating alternate URLs meta tags in `_base.nj`.
@@ -132,7 +132,7 @@
 - [templates] Whenever URL concatenation involved now used `urljoin()` instead of plain concatenation.
 - [templates] Added `manifest.json` as Nunjucks template `manifest.json.nj`, which uses Kotsu data.
 - [modules][templates] Added [`URI.js`](https://medialize.github.io/URI.js/) as `URI()` Nunjucks function.
-- [modules][templates] Added `absolute URL()` Nunjucks function, which will resolve relative or absolute URLs to full URL, with site homepage, based on current page URL, while already full URLs, with protocols, will remain unaffected.
+- [modules][templates] Added `absoluteurl()` Nunjucks function, which will resolve relative or absolute URLs to full URL, with site homepage, based on current page URL, while already full URLs, with protocols, will remain unaffected.
 - [static][templates] Added more favicons variations to work better with modern browsers.
 - [tests] Added tests for Nunjucks `render()` filter.
 - [tests] Added `validate()` test utility which wraps `tcomb-validate` and print nice errors on fail.
@@ -201,7 +201,7 @@
    This data can be later used to generate site social icons or for structured data.
 
 - [data][templates] Default value for Open Graph and Twitter image meta data no longer hard coded to `facebook.png` and `twitter.png`, but instead part of data and exposed as `SOCIAL.faceebook.image` and `SOCIAL.twitter.image` properties.
-- [templates] Open Graph and Twitter images properties now use new `absoluteUrl()` Nunjucks function to resolve the path to images. This means, that you can freely enter as a path to image remote URL, or local absolute, or local relative URL, and it will be properly resolved.
+- [templates] Open Graph and Twitter images properties now uses new `absoluteurl()` Nunjucks function to resolve the path to images. This means, that you can freely enter as a path to image remote URL, or local absolute, or local relative URL, and it will be properly resolved.
 - [templates] Replaced redundant ternary operators in base layout and some components with simple `or` operator. Example: `{{ PAGE.title if PAGE.title else SITE.name }}` -> `{{ PAGE.title or SITE.name }}`.
 - [templates] In `Nav()` component `{% call(depth) Item('/') %}{% endcall %}` changed to exact mode to _not_ match inner routes due to introduced in `isActive()` fix.
 - [templates] `Link()` component refactored and will no longer throw any warnings itself in case of document-relative URLs since it is handled by relied upon `isActive()`. It also will trim whitespace to reduce issues with inlined links.
@@ -247,7 +247,7 @@
    Note, that it is slightly modified:
 
    * When the first argument is absolute URL, all other segments will resolve against that absolute URL, instead of taking only its path.
-   * If all `urljoin` argument is slashes or empty strings, it will resolve to `/` if the _first_ argument is `/`. See related issue [medialize/URI.js/#341](https://github.com/medialize/URI.js/issues/341) and [related tests](https://github.com/LotusTM/Kotsu/blob/master/tests/kotsu/urljoin.test.js).
+   * If all `urljoin` arguments are slashes or empty strings, it will resolve to `/` if the _first_ argument is `/`. See related issue [medialize/URI.js/#341](https://github.com/medialize/URI.js/issues/341) and [related tests](https://github.com/LotusTM/Kotsu/blob/master/tests/kotsu/urljoin.test.js).
 
 - [modules] Changed sections comment-headers always be 80 chars long.
 - [data] Reordered `SITE` properties to make it more consistent with the order of `package.json`.
@@ -258,7 +258,7 @@
 - [styles] Due to changes in `data.themeColor`, it used now for  `$ekzo-colors.outer-space` color instead of `$ekzo-colors.primary`, which no longer uses that value and should be declared manually. This is something site-specific and should be adjusted on demand.
 - [grunt] Enabled Nunjucks cache. This will significantly reduce the re-rendering time for large projects.
 - [grunt] Temporarily disabled watch for images with `responsive_images` task, since it doesn't work with `grunt-newer`. Resizing all images on each change will be too painful in large repositories. See [#251](https://github.com/LotusTM/Kotsu/issues/251).
-- [grunt] Due to the removal of `baseLocaleAsRoot` setting from Nunjucks task, to achieve same functionality `URL: '/'` should be used for the locale, which will be served at root:
+- [grunt] Due to the removal of `baseLocaleAsRoot` setting from Nunjucks task, to achieve same functionality `url: '/'` should be used for the locale, which will be served at root:
 
    ```diff
    'en-US':
@@ -289,7 +289,7 @@
 - [static][templates] Replaced old boilerplate favicons with new Kotsu ones.
 - [static][templates] Converted `browserconfig.xml` to be Nunjucks template `browserconfig.xml.nj`, to allow it use Kotsu data.
 - [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with its own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved.
-- [grunt] Data changes will now trigger `grayMatter` task since now it relies on part of data (`PAGE_DEFAULTS`).
+- [grunt] Data changes will now trigger `grayMatter` task, since now it relies on part of data (`PAGE_DEFAULTS`).
 - [tests] Nunjucks-related testing utility functions has been moved into standalone file `/tests/utils/nunjucks.js` which exports `renderString` method. It also now accepts a context as the second argument.
 - [tests] Nunjucks testing utility function `renderString` no longer tries to parse rendered content with `JSON.parse`, unless third argument `parse` has been set to true.\
 - [tests] `.git`, `build` and `temp` directories are now excluded from tests to make the launching of tests watch faster in large projects.
@@ -303,7 +303,7 @@
 - [data][templates] removed `DATA.currentYear`. As a computed value, it does not belong to data well and it is better to use `moment().year()` instead.
 - [modules][grunt] Removed `baseLocaleAsRoot` argument from all i18n-related modules and its related settings in Nunjucks Grunt task.
 
-   Use `URL: '/'` in locale prop to achieve the same functionality.
+   Use `url: '/'` in locale prop to achieve the same functionality.
 
 - [modules] Nunjucks 1i8n-related extensions no longer require deprecated `baseLocaleAsRoot` value to invoke.
 - [modules][templates] Removed `isCaller` from `nunjuck-render` method, since is is no longer needed to make adjustments to input based on whether it is macro's caller or no. This also means that Nunjucks `render()` filter no longer accepts this parameter too.
