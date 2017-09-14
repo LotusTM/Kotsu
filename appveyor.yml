@@ -30,6 +30,7 @@ install:
   - node --version
   - npm --version
 
+  - npm config set package-lock false
   - npm install
 
 test_script:

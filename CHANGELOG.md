@@ -14,6 +14,7 @@
 - [styles] In supplied theme-file `outer-space` color renamed to more generic `secondary` color.
 - [styles] Given better comments headers for Btn component file.
 - [static][templates] Renamed `mstile.png` and `mstile-wide.png` icons to `mstile-310x310.png` and `mstile-310x150.png` to be more specific sizes and usage.
+- [ci] Disabled package-lock.json updates on npm install for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
 
 ### Removed
 - [static] Removed accidentally left and unused `mstile-70x70.png` icon.
@@ -61,7 +62,7 @@
    ```
 
    Or use `{{ super() }}` inside any block to invoke original `_base.nj` blocks content whenever page should use same stylesheets or scripts, but you need to add few additional files:
-    
+
    ```jinja
    {% block css %}
    {{ super() }}
@@ -145,7 +146,7 @@
    * `EqualKeyAndProp` — to accept only objects, in which some properties are equal to key value. For instance, when you need to ensure that object key and `id` property are always equal.
 
 - [tests][data] Added `index.test.coffee` the file which tests data index file with `tcomb` to ensure that Kotsu receives all required data with valid values. Wrong data, you shall not pass!
-   
+
    Also, it serves as an example for writing project-specific data validation files.
 
 - [tests] Added `isActive()` Nunjucks function tests.
@@ -175,7 +176,7 @@
    * `SITE` instead of `site`
    * `PAGE_DEFAULTS` instead of `pageDefaults`
    * `ENV` instead of `env`
-   
+
    See [#258](https://github.com/LotusTM/Kotsu/issues/258) for details.
 
 - [data][templates] Declared in Nunjucks `_base.nj` layout `SITE.placeholders` are now part of `source/data/index` and declared within new global property `PLACEHOLDERS`, which contains all global placeholders for `format()` Nunjucks function.
