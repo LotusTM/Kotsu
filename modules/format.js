@@ -1,4 +1,4 @@
-const { sprintf }  = require('sprintf-js')
+const { sprintf } = require('sprintf-js')
 const { vsprintf } = require('sprintf-js')
 const traverse = require('./traverse')
 
