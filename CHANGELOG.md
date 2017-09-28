@@ -21,6 +21,14 @@
 
    See [#173](https://github.com/LotusTM/Kotsu/issues/173).
 
+- [modules] Improved `sprintf`, which used as `format()` filter in Nunjucks.
+
+   Now it applies `sprintf` recursively to input and no longer relies on `JSON.stringify()` with all its limitations.
+
+   As a side effect, it gains minor performance boost and will no longer trigger stupid errors with any string containing normal percentages, like `23%`.
+
+   See [#173](https://github.com/LotusTM/Kotsu/issues/173).
+
 - [styles] In supplied theme-file `outer-space` color renamed to more generic `secondary` color.
 - [styles] Given better comments headers for Btn component file.
 - [static][templates] Renamed `mstile.png` and `mstile-wide.png` icons to `mstile-310x310.png` and `mstile-310x150.png` to be more specific sizes and usage.
