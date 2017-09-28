@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Traverse function should traverse array 1`] = `
+Array [
+  "APPLY apply fn APPLIED",
+  "nope",
+  undefined,
+  null,
+  false,
+  true,
+  123,
+  Array [
+    "APPLY apply fn APPLIED",
+    "nope",
+    undefined,
+    null,
+    false,
+    true,
+    123,
+  ],
+]
+`;
+
+exports[`Traverse function should traverse object 1`] = `
+Object {
+  "apply": "APPLY apply fn APPLIED",
+  "false": false,
+  "inner": Object {
+    "apply": "APPLY apply fn APPLIED",
+    "false": false,
+    "nll": null,
+    "notApply": "nope",
+    "num": 123,
+    "true": true,
+    "und": undefined,
+  },
+  "nll": null,
+  "notApply": "nope",
+  "num": 123,
+  "true": true,
+  "und": undefined,
+}
+`;
+
+exports[`Traverse function should traverse string 1`] = `"APPLY fn APPLIED"`;

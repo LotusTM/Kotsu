@@ -4,7 +4,8 @@
 
 ### Added
 - [templates] Outdated Browser component now has `rel='nofollow'` specified in the link.
-- [templates] Example component now will generate id and anchor for each heading, so it is possible to reference specific section whenever needed.
+- [templates] Example component now will generate id and anchor for each heading, so it is possible to reference specific section whenever needed
+- [modules] Added `traverse` function to walk Objects and Arrays and recursively apply specified function with a predicate. Mostly useful for Kotsu internal dark deeds — rendering Objects and Arrays :sparkles:
 
 ### Changed
 - [grunt] `uncss` task will now ignore any remote CSS by default (starting with `https`, `http` or `//`) to avoid pulling into main stylesheets file unexpected external CSS, which can be downloaded by 3rd-party scripts.
