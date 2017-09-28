@@ -30,7 +30,8 @@
    See [#173](https://github.com/LotusTM/Kotsu/issues/173).
 
 
-- [modules] Converted `sprintf` to pure JavaScript [#287](https://github.com/LotusTM/Kotsu/issues/287)
+- [modules] Converted `sprintf` to pure JavaScript [#287](https://github.com/LotusTM/Kotsu/issues/287).
+- [modules] Converted `nunjucks-render` to pure JavaScript [#287](https://github.com/LotusTM/Kotsu/issues/287).
 - [modules] Renamed `sprintf` to `format`, just for consistency with filter used in Nunjucks.
 - [styles] In supplied theme-file `outer-space` color renamed to more generic `secondary` color.
 - [styles] Given better comments headers for Btn component file.
