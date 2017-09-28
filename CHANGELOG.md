@@ -29,6 +29,8 @@
 
    See [#173](https://github.com/LotusTM/Kotsu/issues/173).
 
+
+- [modules] Converted `sprintf` to pure JavaScript [#287](https://github.com/LotusTM/Kotsu/issues/287)
 - [styles] In supplied theme-file `outer-space` color renamed to more generic `secondary` color.
 - [styles] Given better comments headers for Btn component file.
 - [static][templates] Renamed `mstile.png` and `mstile-wide.png` icons to `mstile-310x310.png` and `mstile-310x150.png` to be more specific sizes and usage.
