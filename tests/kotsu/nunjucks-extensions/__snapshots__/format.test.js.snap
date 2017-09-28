@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nunjucks filter \`format()\` should not affect context 1`] = `
+"
+      [object Object]
+      original p_one,inner original p_one,2
+      {\\"value\\":\\"original %1s\\",\\"inner\\":{\\"value\\":\\"original inner %2s\\"}}
+      [\\"original %1s\\",[\\"inner original %2s\\",2]]
+    "
+`;
+
+exports[`Nunjucks filter \`format()\` should render array 1`] = `
+Array [
+  "p_one str",
+  Array [
+    "inner p_one",
+    2,
+  ],
+]
+`;
+
+exports[`Nunjucks filter \`format()\` should render current context macro's caller 1`] = `
+"
+      
+
+      
+      <article>Caller value: <p>p_one p_two</p>
+      </article>
+      
+    "
+`;
+
+exports[`Nunjucks filter \`format()\` should render current context macro's inner 1`] = `
+"
+      
+
+      
+      <article>p_one and value: p_two</article>
+       and outer content
+    "
+`;
+
+exports[`Nunjucks filter \`format()\` should render object 1`] = `
+Object {
+  "inner": Object {
+    "value": "inner p_one ",
+  },
+  "value": "p_one ",
+}
+`;
+
+exports[`Nunjucks filter \`format()\` should render string with sprintf 1`] = `
+"
+      p_one p_two with content and outer content
+    "
+`;
+
+exports[`Nunjucks filter \`format()\` should render string with vsprintf 1`] = `
+"
+      p_one p_two with content and outer content
+    "
+`;
