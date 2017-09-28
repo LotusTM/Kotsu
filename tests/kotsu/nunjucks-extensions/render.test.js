@@ -6,16 +6,32 @@ const render = (template, context = mockContext, parse) => renderString(template
 const mockContext = {}
 
 describe('Nunjucks filter `render()`', () => {
-  it('should render template', () => {
-    expect(render(`{{ '{{ 1 + 3 + 5 }} with content'|render() }} and outer content`)).toMatchSnapshot()
-  })
-
-  it('should render current context variable', () => {
+  it('should render string', () => {
     expect(render(`
       {% set __globalVar = 'testing __globalVar value' %}
-
       {{ '{{ __globalVar }} with content'|render() }} and outer content
     `)).toMatchSnapshot()
+  })
+
+  it('should render object', () => {
+    expect(render(`
+      {% set __globalVar = 'testing __globalVar value' %}
+      {{ object|render()|dump|safe }}
+    `, {
+      object: {
+        value: '{{ __globalVar }}',
+        inner: { value: 'inner {{ __globalVar }}' }
+      }
+    }, true)).toMatchSnapshot()
+  })
+
+  it('should render array', () => {
+    expect(render(`
+      {% set __globalVar = 'testing __globalVar value' %}
+      {{ array|render()|dump|safe }}
+    `, {
+      array: ['{{ __globalVar }} 2', ['inner {{ __globalVar }} 2', 2]]
+    }, true)).toMatchSnapshot()
   })
 
   it('should render current context macro', () => {
@@ -48,5 +64,22 @@ describe('Nunjucks filter `render()`', () => {
       {% raw %}<p>{{ 1 + 2 + 3 }} {{ 'This is caller value' }}</p>{% endraw %}
       {% endcall %}
     `)).toMatchSnapshot()
+  })
+
+  it('should not affect context', () => {
+    const testContext = {
+      object: {
+        value: 'original {{ 123 }}',
+        inner: { value: 'original inner {{ 123 }}' }
+      },
+      array: ['original {{ 123 }} 2', ['inner original {{ 123 }} 2', 2]]
+    }
+
+    expect(render(`
+      {{ object|render() }}
+      {{ array|render() }}
+      {{ object|dump|safe }}
+      {{ array|dump|safe }}
+    `, testContext)).toMatchSnapshot()
   })
 })

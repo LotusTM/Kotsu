@@ -1,10 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Nunjucks filter \`render()\` should not affect \`this\` of global context 1`] = `
+"
+
+      123 with content
+
+    "
+`;
+
+exports[`Nunjucks filter \`render()\` should not affect context 1`] = `
+"
+      [object Object]
+      original 123 2,inner original 123 2,2
+      {\\"value\\":\\"original {{ 123 }}\\",\\"inner\\":{\\"value\\":\\"original inner {{ 123 }}\\"}}
+      [\\"original {{ 123 }} 2\\",[\\"inner original {{ 123 }} 2\\",2]]
+    "
+`;
+
+exports[`Nunjucks filter \`render()\` should render array 1`] = `
+Array [
+  "testing __globalVar value 2",
+  Array [
+    "inner testing __globalVar value 2",
+    2,
+  ],
+]
+`;
+
 exports[`Nunjucks filter \`render()\` should render current context macro 1`] = `
 "
-      
 
-      
+
+
       <article>Value: This is macro value</article>
        with content and outer content
     "
@@ -12,31 +39,30 @@ exports[`Nunjucks filter \`render()\` should render current context macro 1`] = 
 
 exports[`Nunjucks filter \`render()\` should render current context macro's caller 1`] = `
 "
-      
 
-      
+
+
       <article>Caller value: <p>6 This is caller value</p>
       </article>
-      
+
     "
 `;
 
 exports[`Nunjucks filter \`render()\` should render current context macro's inner 1`] = `
 "
-      
 
-      
+
+
       <article>8 and value: This is macro value</article>
        and outer content
     "
 `;
 
-exports[`Nunjucks filter \`render()\` should render current context variable 1`] = `
-"
-      
-
-      testing __globalVar value with content and outer content
-    "
+exports[`Nunjucks filter \`render()\` should render object 1`] = `
+Object {
+  "inner": Object {
+    "value": "inner testing __globalVar value",
+  },
+  "value": "testing __globalVar value",
+}
 `;
-
-exports[`Nunjucks filter \`render()\` should render template 1`] = `"9 with content and outer content"`;
