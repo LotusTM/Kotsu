@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Nunjucks filter \`render()\` should not affect \`this\` of global context 1`] = `
-"
-
-      123 with content
-
-    "
-`;
-
 exports[`Nunjucks filter \`render()\` should not affect context 1`] = `
 "
       [object Object]
@@ -65,4 +57,11 @@ Object {
   },
   "value": "testing __globalVar value",
 }
+`;
+
+exports[`Nunjucks filter \`render()\` should render string 1`] = `
+"
+
+      testing __globalVar value with content and outer content
+    "
 `;
