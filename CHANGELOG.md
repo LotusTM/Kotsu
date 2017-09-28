@@ -11,6 +11,14 @@
 
    Instead, it is recommended to whitelist needed remote files explicitly, to be sure about what gets into main stylesheets and to avoid unexpected duplication.
 
+- [modules] Improved `nunjucks-render`.
+
+   Now it renders objects and arrays recursively and no longer relies on `JSON.stringify()`.
+
+   As a result, slightly improved performance, less limitations, implied by JSON stringification, and no more tricky code to properly remove escaping of Nunjucks templates.
+
+   See [#173](https://github.com/LotusTM/Kotsu/issues/173).
+
 - [styles] In supplied theme-file `outer-space` color renamed to more generic `secondary` color.
 - [styles] Given better comments headers for Btn component file.
 - [static][templates] Renamed `mstile.png` and `mstile-wide.png` icons to `mstile-310x310.png` and `mstile-310x150.png` to be more specific sizes and usage.
