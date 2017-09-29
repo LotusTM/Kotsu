@@ -66,6 +66,13 @@ describe('Nunjucks filter `render()`', () => {
     `)).toMatchSnapshot()
   })
 
+  it('should strip leading `=`', () => {
+    expect(render(`{{ '={{ 123 }} with content'|render() }}`)).toMatchSnapshot()
+    expect(render(`{{ '={% set test = 123 %} with content'|render() }}`)).toMatchSnapshot()
+    expect(render(`{{ 'content with ={{ 123 }}'|render() }}`)).toMatchSnapshot()
+    expect(render(`{{ 'content with ={% set test = 123 %}'|render() }}`)).toMatchSnapshot()
+  })
+
   it('should not affect context', () => {
     const testContext = {
       object: {
