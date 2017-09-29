@@ -295,7 +295,7 @@ module.exports = (env) ->
     render(env, @getVariables(), input)
 
   ###*
-   * Replace placeholders with provided values. Refer to `sprintf` module for docs
+   * Replace placeholders with provided values.
    * @link modules/format
   ###
   env.addFilter 'format', format
