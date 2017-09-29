@@ -87,7 +87,7 @@
   "devDependencies": {
     "babel-eslint": "8.0.1",
     "babel-jest": "20.0.3",
-    "babel-polyfill": "6.23.0",
+    "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.6.0",
     "chokidar-socket-emitter": "0.6.0",
     "grunt-browser-sync": "2.2.0",
