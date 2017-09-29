@@ -35,6 +35,7 @@
 - [modules] Converted `sprintf` to pure JavaScript [#287](https://github.com/LotusTM/Kotsu/issues/287).
 - [modules] Converted `nunjucks-render` to pure JavaScript [#287](https://github.com/LotusTM/Kotsu/issues/287).
 - [modules] Renamed `sprintf` to `format`, just for consistency with filter used in Nunjucks.
+- [modules][utils] Move `tcomb` `refinements` and `validate` from test utils to modules, since they can be used not only for testing.
 - [package] Renamed main JSPM package from `kotsu` to more generic `main`. which better reflects main file name.
 - [grunt][templates] During JSPM build and `SystemJS.import()` now used main package name (`main`).
 

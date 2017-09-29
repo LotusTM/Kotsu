@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import t from 'tcomb'
-import r from './refinements'
+import r from '../../modules/refinements'
 
 describe('Tcomb refinement', () => {
   describe('False', () => {
