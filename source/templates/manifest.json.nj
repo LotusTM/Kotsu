@@ -5,7 +5,7 @@
   "start_url": "./?utm_source=homescreen",
   "display": "standalone",
   "theme_color": "{{ SITE.themeColor }}",
-  "background_color": "{{ SITE.themeColor }}",
+  "background_color": "{{ SITE.bgColor }}",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

@@ -24,6 +24,9 @@ module.exports = ({ config }) ->
       logo: "/#{imagesPath}/logo.svg"
       viewport: 'width=device-width, initial-scale=1'
       themeColor: '#313840'
+      bgColor: '#313840'
+      tileColor: '#313840'
+      iconColor: '#a593e0'
       locales: config('locales')
       baseLocale: config('baseLocale')
       googleAnalyticsId: false # 'UA-XXXXX-X'
