@@ -74,19 +74,53 @@ describe('Nunjucks filter `render()`', () => {
   })
 
   it('should not affect context', () => {
-    const testContext = {
-      object: {
-        value: 'original {{ 123 }}',
-        inner: { value: 'original inner {{ 123 }}' }
-      },
-      array: ['original {{ 123 }} 2', ['inner original {{ 123 }} 2', 2]]
-    }
-
     expect(render(`
       {{ object|render() }}
       {{ array|render() }}
       {{ object|dump|safe }}
       {{ array|dump|safe }}
-    `, testContext)).toMatchSnapshot()
+    `, {
+      object: {
+        value: 'original {{ 123 }}',
+        inner: { value: 'original inner {{ 123 }}' }
+      },
+      array: ['original {{ 123 }} 2', ['inner original {{ 123 }} 2', 2]]
+    })).toMatchSnapshot()
+  })
+
+  // @todo Actually this `{{ config("inner.var", 345, false) }}`` will affect global context
+  //       but not sure that it shouldn't...
+  it('should not affect context with inner sets and `this`', () => {
+    expect(render(`
+      {{ '
+        {% set globalVar = 123 %}
+        {% set inner = { var: 345 } %}
+        hey {{ this.name }}
+        {{ globalVar }}
+        {{ inner.var }}
+      '|render({ name: 'Mike' }) }}
+
+      {{ globalVar }}
+      {{ inner.var }}
+    `, {
+      globalVar: 'globalVar',
+      inner: { var: 'innerVar' }
+    })).toMatchSnapshot()
+  })
+
+  it('should pass input as `this`', () => {
+    expect(render(`{{ { name: 'Mike', hello: 'hey {{ this.name }}' }|render()|dump|safe }}`)).toMatchSnapshot()
+  })
+
+  it('should pass `that` argument as `this`', () => {
+    expect(render(`{{ 'hey {{ this.name }}'|render({ name: 'Mike' }) }}`)).toMatchSnapshot()
+  })
+
+  it('should not affect `this` of global context', () => {
+    expect(render(`
+      {{ this }}
+      {{ '{{ 123 }} with content'|render() }}
+      {{ this }}
+    `)).toMatchSnapshot()
   })
 })

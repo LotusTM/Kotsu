@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Nunjucks filter \`render()\` should not affect \`this\` of global context 1`] = `
+"
+      
+      123 with content
+      
+    "
+`;
+
 exports[`Nunjucks filter \`render()\` should not affect context 1`] = `
 "
       [object Object]
@@ -8,6 +16,25 @@ exports[`Nunjucks filter \`render()\` should not affect context 1`] = `
       [\\"original {{ 123 }} 2\\",[\\"inner original {{ 123 }} 2\\",2]]
     "
 `;
+
+exports[`Nunjucks filter \`render()\` should not affect context with inner sets and \`this\` 1`] = `
+"
+      
+        
+        
+        hey Mike
+        123
+        345
+      
+
+      globalVar
+      innerVar
+    "
+`;
+
+exports[`Nunjucks filter \`render()\` should pass \`that\` argument as \`this\` 1`] = `"hey Mike"`;
+
+exports[`Nunjucks filter \`render()\` should pass input as \`this\` 1`] = `"{\\"name\\":\\"Mike\\",\\"hello\\":\\"hey Mike\\"}"`;
 
 exports[`Nunjucks filter \`render()\` should render array 1`] = `
 Array [
