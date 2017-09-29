@@ -8,6 +8,7 @@
 - [modules] Added `traverse` function to walk Objects and Arrays and recursively apply specified function with a predicate. Mostly useful for Kotsu internal dark deeds — rendering Objects and Arrays :sparkles:
 - [modules] Added `format()` (`sprintf()`) tests.
 - [conf] Added whitespace trimming disallow to `.editorconfig` for Jest snapshot files. To avoid very stupid situations with broken snapshots...
+- [utils] Added information about type for `tcomb` `Maxlength` refinement.
 
 ### Changed
 - [grunt] `uncss` task will now ignore any remote CSS by default (starting with `https`, `http` or `//`) to avoid pulling into main stylesheets file unexpected external CSS, which can be downloaded by 3rd-party scripts.
