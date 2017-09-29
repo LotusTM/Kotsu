@@ -1,7 +1,7 @@
 { grunt } = require('../../tests/utils/grunt')
 t = require('tcomb')
-r = require('../../tests/utils/refinements')
-validate = require('../../tests/utils/validate')
+r = require('../../modules/refinements')
+validate = require('../../modules/validate')
 data = require('./index')
 
 # Tests data index file against this schema to ensure that Kotsu receives all required data with valid values.

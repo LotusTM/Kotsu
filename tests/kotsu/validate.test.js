@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import t from 'tcomb'
-import validate from './validate'
+import validate from '../../modules/validate'
 
 describe('Tcomb validate', () => {
   const ValidateTestSchema = t.struct({
