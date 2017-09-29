@@ -49,12 +49,12 @@ const refinements = {
    * @example
    *  EqualKeyAndProp('id')(t.dict(t.String, t.Any, 'Testdata'))({ 235: { id: '235' } })
    */
-  EqualKeyAndProp: (property) => (type) => t.refinement(t.Type(type), (t) => {
-    for (let key in t) {
-      const prop = t[key][property]
+  EqualKeyAndProp: (property) => (type) => t.refinement(t.Type(type), (o) => {
+    for (let key in o) {
+      const prop = o[key][property]
 
       if (key !== prop) {
-        throw new TypeError(`[tcomb] ivalid value \`${prop}\`<${typeof prop}> supplied to \`${type.displayName}/${key}/${property}\` property: expected equal to key value \`${key}\`<${typeof key}>`)
+        throw new TypeError(`[tcomb] ivalid value \`${prop}\`<${typeof prop}> supplied to \`${t.getTypeName(type)}/${key}/${property}\` property: expected equal to key value \`${key}\`<${typeof key}>`)
       }
     }
 
