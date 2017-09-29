@@ -44,6 +44,7 @@
 - [styles] Given better comments headers for Btn component file.
 - [static][templates] Renamed `mstile.png` and `mstile-wide.png` icons to `mstile-310x310.png` and `mstile-310x150.png` to be more specific sizes and usage.
 - [ci] Disabled package-lock.json updates on npm install for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
+- [utils] More robust way to get type name for `tcomb` `EqualKeyAndProp` refinement.
 - [tests] Improved Nunjucks `render()` filter tests.
 
 ### Removed
