@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tcomb validate should error on ivalid data 1`] = `
+"[tcomb]
+Invalid value undefined supplied to /Struct{id: String, number: Number}/id: String
+Invalid value undefined supplied to /Struct{id: String, number: Number}/number: Number"
+`;
+
+exports[`Tcomb validate should error on ivalid data 2`] = `"[tcomb] Invalid value \\"Not a tcomb type\\" supplied to Type"`;
+
+exports[`Tcomb validate should pass valid data 1`] = `
+Struct {
+  "errors": Array [],
+  "value": Struct {
+    "id": "testid",
+    "number": 123,
+  },
+}
+`;
