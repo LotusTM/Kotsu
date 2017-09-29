@@ -66,6 +66,8 @@
    Finally full filepath no longer required during JSPM build invocation :guitar:
 
 - [styles] In supplied theme-file `outer-space` color renamed to more generic `secondary` color.
+- [styles] Update codestyle — functions and mixins declarations now require space before `(arguments)`.
+- [styles] Update Ekzo to version 2.5.3.
 - [styles] Given better comments headers for Btn component file.
 - [static][templates] Renamed `mstile.png` and `mstile-wide.png` icons to `mstile-310x310.png` and `mstile-310x150.png` to be more specific sizes and usage.
 - [ci] Disabled package-lock.json updates on npm install for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
