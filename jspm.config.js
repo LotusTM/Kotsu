@@ -9,8 +9,8 @@ SystemJS.config({
   },
   nodeConfig: {
     "paths": {
-      "npm:": "jspm_packages/npm",
-      "github:": "jspm_packages/github",
+      "npm:": "jspm_packages/npm/",
+      "github:": "jspm_packages/github/",
       "main/": "source/scripts/"
     }
   },
