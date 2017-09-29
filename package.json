@@ -100,7 +100,7 @@
     "standard": "10.0.3",
     "stylelint": "8.1.1",
     "stylelint-config-standard": "17.0.0",
-    "stylelint-scss": "2.0.1"
+    "stylelint-scss": "2.1.0"
   },
   "engines": {
     "node": ">=6.0.0"
