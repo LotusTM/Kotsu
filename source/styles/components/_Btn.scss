@@ -15,7 +15,7 @@
 // Sizes
 // -----------------------------------------------------------------------------
 
-@mixin ekzo-buttons-sizes($postfix: '') {
+@mixin ekzo-buttons-sizes ($postfix: '') {
 
   .Btn--#{$postfix} {
     padding-top:     0;

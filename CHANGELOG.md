@@ -21,6 +21,16 @@
    ```
 
 - [conf] Added whitespace trimming disallow to `.editorconfig` for Jest snapshot files. To avoid very stupid situations with broken snapshots...
+- [conf] Added new SCSS Stylelint rules:
+
+   ```yml
+   scss/at-else-if-parentheses-space-before: always
+   scss/at-function-parentheses-space-before: never
+   scss/at-mixin-parentheses-space-before: never
+   ```
+
+   Functions and mixins declarations now require space before `(arguments)`, to follow codestyle enforced by `standard` in JavaScript.
+
 - [utils] Added information about type for `tcomb` `Maxlength` refinement.
 
 ### Changed

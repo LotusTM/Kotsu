@@ -220,6 +220,9 @@ rules:
     - scss
   scss/at-rule-no-unknown: true
   scss/at-mixin-argumentless-call-parentheses: always
+  scss/at-else-if-parentheses-space-before: always
+  scss/at-function-parentheses-space-before: always
+  scss/at-mixin-parentheses-space-before: always
 
   # @todo No way to disallow newlines after colon
   # scss/dollar-variable-colon-newline-after: never
