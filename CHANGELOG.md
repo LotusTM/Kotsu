@@ -24,6 +24,7 @@
 - [utils] Added information about type for `tcomb` `Maxlength` refinement.
 
 ### Changed
+- [package] Updated dependencies.
 - [grunt] `uncss` task will now ignore any remote CSS by default (starting with `https`, `http` or `//`) to avoid pulling into main stylesheets file unexpected external CSS, which can be downloaded by 3rd-party scripts.
 
    Instead, it is recommended to whitelist needed remote files explicitly, to be sure about what gets into main stylesheets and to avoid unexpected duplication.
