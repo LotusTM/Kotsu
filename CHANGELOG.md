@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.8.0
 
 ### Added
 - [templates] Outdated Browser component now has `rel='nofollow'` specified in the link.
