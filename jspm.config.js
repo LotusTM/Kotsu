@@ -4,14 +4,14 @@ SystemJS.config({
     "paths": {
       "npm:": "/jspm_packages/npm/",
       "github:": "/jspm_packages/github/",
-      "kotsu/": ""
+      "main/": ""
     }
   },
   nodeConfig: {
     "paths": {
       "npm:": "jspm_packages/npm",
       "github:": "jspm_packages/github",
-      "kotsu/": "source/scripts/"
+      "main/": "source/scripts/"
     }
   },
   devConfig: {
@@ -30,7 +30,7 @@ SystemJS.config({
   },
   transpiler: "plugin-babel",
   packages: {
-    "kotsu": {
+    "main": {
       "main": "main.js",
       "format": "esm",
       "meta": {

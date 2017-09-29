@@ -124,7 +124,7 @@
   <script>
     SystemJS.import('systemjs-hot-reloader').then((connect) => {
       connect()
-      SystemJS.import('main.js')
+      SystemJS.import('main')
     })
   </script>
   {% else %}
