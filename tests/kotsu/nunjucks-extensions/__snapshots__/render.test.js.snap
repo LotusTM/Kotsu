@@ -65,3 +65,11 @@ exports[`Nunjucks filter \`render()\` should render string 1`] = `
       testing __globalVar value with content and outer content
     "
 `;
+
+exports[`Nunjucks filter \`render()\` should strip leading \`=\` 1`] = `"123 with content"`;
+
+exports[`Nunjucks filter \`render()\` should strip leading \`=\` 2`] = `" with content"`;
+
+exports[`Nunjucks filter \`render()\` should strip leading \`=\` 3`] = `"content with =123"`;
+
+exports[`Nunjucks filter \`render()\` should strip leading \`=\` 4`] = `"content with ="`;

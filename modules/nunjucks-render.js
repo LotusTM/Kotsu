@@ -12,6 +12,6 @@ const traverse = require('./traverse')
 */
 module.exports = (env, context, input) => traverse(
   input,
-  (tmpl) => env.renderString(tmpl, context),
+  (tmpl) => env.renderString(tmpl.replace(/^=({({|%))/, '$1'), context),
   (string) => string.includes('{{') || string.includes('{%')
 )
