@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Traverse function should print \`input\` in error message 1`] = `
+"
+
+\`\`\`
+triggers error
+
+\`\`\`
+
+String should not contain \`error\`"
+`;
+
 exports[`Traverse function should traverse array 1`] = `
 Array [
   "APPLY apply fn APPLIED",

@@ -37,4 +37,13 @@ describe('Traverse function', () => {
       ['APPLY apply', 'nope', undefined, null, false, true, 123]
     ], fn, predicate)).toMatchSnapshot()
   })
+
+  it('should print `input` in error message', () => {
+    expect(() => traverse(
+      ['not triggers', 'triggers error'],
+      (input) => {
+        if (input.includes('error')) throw new SyntaxError('String should not contain `error`')
+      }
+    )).toThrowErrorMatchingSnapshot()
+  })
 })

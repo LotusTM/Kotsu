@@ -16,12 +16,21 @@
  *  // -> { apply: 'APPLY fn APPLIED', inner: { apply: 'APPLY fn APPLIED' } }
 */
 const traverse = (input, fn, predicate = () => true) => {
+  const tryFn = (input) => {
+    try {
+      return fn(input)
+    } catch (e) {
+      e.message = `\n\n\`\`\`\n${input}\n\n\`\`\`\n\n${e.message}`
+      throw e
+    }
+  }
+
   if (input === undefined || input === null) return input
 
   // For cases when recevied String Object instead of primitive from Nunjucks macro
   input = input.valueOf()
 
-  if (typeof input === 'string') return predicate(input) ? fn(input) : input
+  if (typeof input === 'string') return predicate(input) ? tryFn(input) : input
 
   if (typeof input === 'object') {
     const clone = Array.isArray(input) ? input.slice(0) : Object.assign({}, input)

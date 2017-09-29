@@ -1,5 +1,12 @@
 # Changelog
 
+## HEAD
+
+### Added
+- [modules] Added better error output for `traverse` and relied on it `nunjucks-render` and `format`.
+
+   New error includes input, which failed rendering. For objects it will include currently rendered string of the leaf.
+
 ## 1.8.0
 
 ### Added
