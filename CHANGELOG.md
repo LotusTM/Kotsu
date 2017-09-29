@@ -34,6 +34,11 @@
 - [modules] Converted `sprintf` to pure JavaScript [#287](https://github.com/LotusTM/Kotsu/issues/287).
 - [modules] Converted `nunjucks-render` to pure JavaScript [#287](https://github.com/LotusTM/Kotsu/issues/287).
 - [modules] Renamed `sprintf` to `format`, just for consistency with filter used in Nunjucks.
+- [package] Renamed main JSPM package from `kotsu` to more generic `main`. which better reflects main file name.
+- [grunt][templates] During JSPM build and `SystemJS.import()` now used main package name (`main`).
+
+   Finally full filepath no longer required during JSPM build invocation :guitar:
+
 - [styles] In supplied theme-file `outer-space` color renamed to more generic `secondary` color.
 - [styles] Given better comments headers for Btn component file.
 - [static][templates] Renamed `mstile.png` and `mstile-wide.png` icons to `mstile-310x310.png` and `mstile-310x150.png` to be more specific sizes and usage.
