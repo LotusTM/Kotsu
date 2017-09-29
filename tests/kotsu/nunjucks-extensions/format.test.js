@@ -71,4 +71,16 @@ describe('Nunjucks filter `format()`', () => {
       {{ array|dump|safe }}
     `, testContext)).toMatchSnapshot()
   })
+
+  it('should ignore regular percentages', () => {
+    expect(render(`{{ '23%'|format('p_one')|safe }}`)).toMatchSnapshot()
+    expect(render(`{{ '23% '|format('p_one')|safe }}`)).toMatchSnapshot()
+    expect(render(`{{ '23%.'|format('p_one')|safe }}`)).toMatchSnapshot()
+    expect(render(`{{ '23%\\\\'|format('p_one')|safe }}`)).toMatchSnapshot()
+    expect(render(`{{ '23%/'|format('p_one')|safe }}`)).toMatchSnapshot()
+    expect(render(`{{ '\\'23%\\''|format('p_one')|safe }}`)).toMatchSnapshot()
+    expect(render(`{{ '"23%"'|format('p_one')|safe }}`)).toMatchSnapshot()
+    expect(render(`{{ '(23%)'|format('p_one')|safe }}`)).toMatchSnapshot()
+    expect(render(`{{ '[23%]'|format('p_one')|safe }}`)).toMatchSnapshot()
+  })
 })

@@ -17,6 +17,6 @@ module.exports = (input, ...placeholders) => {
   return traverse(
     input,
     (tmpl) => useVsprintf ? vsprintf(tmpl, placeholder) : sprintf(tmpl, ...placeholders),
-    (string) => /%[^\s]/.test(string)
+    (string) => /%([\w\n+-]|\.\n|[\w\n_]')/.test(string)
   )
 }

@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Nunjucks filter \`format()\` should ignore regular percentages 1`] = `"23%"`;
+
+exports[`Nunjucks filter \`format()\` should ignore regular percentages 2`] = `"23% "`;
+
+exports[`Nunjucks filter \`format()\` should ignore regular percentages 3`] = `"23%."`;
+
+exports[`Nunjucks filter \`format()\` should ignore regular percentages 4`] = `"23%\\\\"`;
+
+exports[`Nunjucks filter \`format()\` should ignore regular percentages 5`] = `"23%/"`;
+
+exports[`Nunjucks filter \`format()\` should ignore regular percentages 6`] = `"'23%'"`;
+
+exports[`Nunjucks filter \`format()\` should ignore regular percentages 7`] = `"\\"23%\\""`;
+
+exports[`Nunjucks filter \`format()\` should ignore regular percentages 8`] = `"(23%)"`;
+
+exports[`Nunjucks filter \`format()\` should ignore regular percentages 9`] = `"[23%]"`;
+
 exports[`Nunjucks filter \`format()\` should not affect context 1`] = `
 "
       [object Object]
