@@ -7,6 +7,19 @@
 - [templates] Example component now will generate id and anchor for each heading, so it is possible to reference specific section whenever needed
 - [modules] Added `traverse` function to walk Objects and Arrays and recursively apply specified function with a predicate. Mostly useful for Kotsu internal dark deeds — rendering Objects and Arrays :sparkles:
 - [modules] Added `format()` (`sprintf()`) tests.
+- [modules] Added experimental ability for `nunjucks-render` to specify `this` of context, which by default points to input itself.
+
+   This is useful feature to use in data structures for self-referencing:
+
+   ```jinja
+   {% set data = {
+     name: 'Mike',
+     hello: 'hey {{ this.name }}'
+   }|render() %}
+
+   {{ data.hello }} === hey Mike
+   ```
+
 - [conf] Added whitespace trimming disallow to `.editorconfig` for Jest snapshot files. To avoid very stupid situations with broken snapshots...
 - [utils] Added information about type for `tcomb` `Maxlength` refinement.
 

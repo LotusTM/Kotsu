@@ -288,11 +288,14 @@ module.exports = (env) ->
     array
 
   ###*
-   * Force rendering of input via Nunjucks. Refer to `nunjucks-render` module for docs
+   * Force rendering of input via Nunjucks
+   * @link modules/nunjucks-render
+   * @param {*}      input        Input to be rendered
+   * @param {object} [that=input] Value for `this`. Useful for self-referencing in data
    * @todo Related issue https://github.com/mozilla/nunjucks/issues/783
   ###
-  env.addFilter 'render', (input) ->
-    render(env, @getVariables(), input)
+  env.addFilter 'render', (input, that) ->
+    render(env, Object.assign({}, @getVariables(), { this: that or input }), input)
 
   ###*
    * Replace placeholders with provided values.
