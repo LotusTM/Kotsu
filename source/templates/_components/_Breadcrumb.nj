@@ -1,21 +1,21 @@
 {##
  # Display breadcrumb block based on provided data
  #
- # @param {string} [class]           = 'o-breadcrumb o-breadcrumb--rev'
- #                                          Class of list
- # @param {string} [itemsClass]      = 'o-breadcrumb__item'
- #                                          Class of list items
- # @param {string} [anchorsClass]    = ''   Class of anchors inside list itmes
- # @param {string} [rootItemClass]   = 'o-breadcrumb__item--root'
- #                                          Class of root (first) list item
- # @param {string} [rootAnchorClass] = ''   Class of anchor inside of root list item
- # @param {bool}   [displayLast]     = true Display last crumb or not
- # @param {array}  [breadcrumb]      = PAGE.breadcrumb
- #                                          Breadcrumb in form of array to iterate upon
- # @param {string} [rootTitle]       = getPage(['index']).props.breadcrumbTitle
- #                                          Title for root element
- # @param {object} [placeholders]    = PLACEHOLDERS
- #                                          Object with values for occuring in titles sprintf placeholders
+ # @param {string} [class='o-breadcrumb o-breadcrumb--rev']
+ #                                      Class of list
+ # @param {string} [itemsClass='o-breadcrumb__item']
+ #                                      Class of list items
+ # @param {string} [anchorsClass='']    Class of anchors inside list itmes
+ # @param {string} [rootItemClass='o-breadcrumb__item--root']
+ #                                      Class of root (first) list item
+ # @param {string} [rootAnchorClass=''] Class of anchor inside of root list item
+ # @param {bool}   [displayLast=true]   Display last crumb or not
+ # @param {array}  [breadcrumb=PAGE.breadcrumb]
+ #                                      Breadcrumb in form of array to iterate upon
+ # @param {string} [rootTitle=getPage(['index']).props.breadcrumbTitle]
+ #                                      Title for root element
+ # @param {object} [placeholders=PLACEHOLDERS]
+ #                                      Object with values for occuring in titles sprintf placeholders
  #
  # @return {string} Generated `ul` with breadcrumb
  #
