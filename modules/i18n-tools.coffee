@@ -14,7 +14,13 @@ getLocalesNames = (locales) => Object.keys(locales)
  * @param  {object} locales Special Kotsu object with info about locales
  * @return {object} Props of locale
 ###
-getLocaleProps = (locales, locale) => locales[locale]
+getLocaleProps = (locales, locale) =>
+  if typeof locales != 'object'
+    throw new TypeError(
+      "[getLocaleProps] expected locales object, but `#{typeof locales}` has been received\n\nMost likely `grunt.locales` or `SITE.locales` Matter properties are missing"
+    )
+
+  return locales[locale]
 
 ###*
  * Resolve locale path
@@ -25,6 +31,11 @@ getLocaleProps = (locales, locale) => locales[locale]
 getLocaleDir = (locales, locale) =>
   # Try to get url of locale, if it is known locale and if it has one
   { url } = getLocaleProps(locales, locale) or {}
+
+  if (url == undefined or url == null) and (locale == undefined or locale == null)
+    throw new TypeError(
+      "[getLocaleDir] expected url or locale, but `undefined` or `null` has been received\n\nMost likely `PAGE.locale` matter property is missing"
+    )
 
   return url or urljoin('/', urlify(locale))
 
