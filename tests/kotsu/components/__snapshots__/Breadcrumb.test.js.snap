@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb 1`] = `
+"
+      
+      
+<ol class='o-breadcrumb' typeof='BreadcrumbList'>
+
+  <li class='o-breadcrumb__item o-breadcrumb__item--root' property='itemListElement' typeof='ListItem'>
+    <a class=' ' href='/' property='item' typeof='WebPage'>
+      <span property='name'>Home</span>
+    </a>
+    <meta property='position' content='1'>
+  </li>
+
+  
+    
+    
+    
+    
+    
+
+    
+
+      <li class='o-breadcrumb__item' property='itemListElement' typeof='ListItem'>
+        <a class='' href='/section-url' property='item' typeof='WebPage'>
+          <span property='name'>Section title</span>
+        </a>
+        <meta property='position' content='2'>
+      </li>
+
+    
+
+  
+    
+    
+    
+    
+    
+
+    
+
+      <li class='o-breadcrumb__item'>Inner 2 title</li>
+
+    
+
+  
+
+</ol>
+
+    "
+`;
