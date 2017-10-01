@@ -41,13 +41,17 @@
     <meta property='position' content='1'>
   </li>
 
+  {% set depth = 1 %}
+  {% set currentCrumb = []  %}
+
   {% for crumb in breadcrumb %}
-    {% set currentCrumb = [crumb] if loop.index0 == 0 else currentCrumb|pushIn(crumb)  %}
-    {% set depth        = currentCrumb.length + 1 %}
+    {% set currentCrumb = currentCrumb|pushIn(crumb)  %}
     {% set crumbProps   = getPage(currentCrumb).props|format(placeholders) %}
     {% set title        = crumbProps.breadcrumbTitle %}
     {% set url          = crumbProps.url %}
 
+    {% if not crumbProps.excludeFromBreadcrumb %}
+    {% set depth = depth + 1 %}
     {% if not loop.last %}
 
       <li class='{{ itemsClass }}' property='itemListElement' typeof='ListItem'>
@@ -62,7 +66,7 @@
       <li class='{{ itemsClass }}'>{{ title }}</li>
 
     {% endif %}
-
+    {% endif %}
   {% endfor %}
 
 </ol>

@@ -3,6 +3,12 @@
 ## HEAD
 
 ### Added
+- [templates] Added ability to exclude certain pages from `Breadcrumb()` component with new Front Matter `excludeFromBreadcrumb` property set to `true`.
+
+   It is useful for for landing or tag parent index-pages, which should never be listed in breadcrumb.
+
+   Note, that it will also hide page from breadcrumb in search snippets.
+
 - [modules] Added better error output for `traverse` and relied on it `nunjucks-render` and `format`.
 
    New error includes input, which failed rendering. For objects it will include currently rendered string of the leaf.
