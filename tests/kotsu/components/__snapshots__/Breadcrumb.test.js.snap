@@ -45,7 +45,26 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb 1`] 
     
     
 
-      <li class='o-breadcrumb__item'>Inner 2 title</li>
+      <li class='o-breadcrumb__item' property='itemListElement' typeof='ListItem'>
+        <a class='' href='/section/inner-2-url' property='item' typeof='WebPage'>
+          <span property='name'>Inner 2 title</span>
+        </a>
+        <meta property='position' content='3'>
+      </li>
+
+    
+    
+  
+    
+    
+    
+    
+
+    
+    
+    
+
+      <li class='o-breadcrumb__item'>Deep inner title</li>
 
     
     

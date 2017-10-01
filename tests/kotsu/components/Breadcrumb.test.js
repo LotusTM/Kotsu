@@ -21,7 +21,8 @@ describe('Nunjucks component `Breadcrumb()`', () => {
     const testContext = cloneDeep(mockContext)
     testContext.PAGE.breadcrumb = [
       'section',
-      'inner-2'
+      'inner-2',
+      'deep-inner'
     ]
     testContext.SITE.__matter.section = {
       props: { url: '/section-url', breadcrumbTitle: 'Section title' },
@@ -29,7 +30,10 @@ describe('Nunjucks component `Breadcrumb()`', () => {
         props: { url: '/section/inner-1-url', breadcrumbTitle: 'Inner 1 title' }
       },
       'inner-2': {
-        props: { url: '/section/inner-2-url', breadcrumbTitle: 'Inner 2 title' }
+        props: { url: '/section/inner-2-url', breadcrumbTitle: 'Inner 2 title' },
+        'deep-inner': {
+          props: { url: '/section/deep-inner-url', breadcrumbTitle: 'Deep inner title' }
+        }
       }
     }
 
