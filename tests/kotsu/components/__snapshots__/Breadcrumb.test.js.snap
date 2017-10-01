@@ -23,8 +23,9 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb 1`] 
     
 
     
-    
-    
+      
+
+      
 
       <li class='o-breadcrumb__item' property='itemListElement' typeof='ListItem'>
         <a class='' href='/section-url' property='item' typeof='WebPage'>
@@ -33,7 +34,7 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb 1`] 
         <meta property='position' content='2'>
       </li>
 
-    
+      
     
   
     
@@ -42,8 +43,9 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb 1`] 
     
 
     
-    
-    
+      
+
+      
 
       <li class='o-breadcrumb__item' property='itemListElement' typeof='ListItem'>
         <a class='' href='/section/inner-2-url' property='item' typeof='WebPage'>
@@ -52,7 +54,7 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb 1`] 
         <meta property='position' content='3'>
       </li>
 
-    
+      
     
   
     
@@ -61,12 +63,13 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb 1`] 
     
 
     
-    
-    
+      
+
+      
 
       <li class='o-breadcrumb__item'>Deep inner title</li>
 
-    
+      
     
   
 
@@ -105,8 +108,9 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb with
     
 
     
-    
-    
+      
+
+      
 
       <li class='o-breadcrumb__item' property='itemListElement' typeof='ListItem'>
         <a class='' href='/section/inner-2-url' property='item' typeof='WebPage'>
@@ -115,7 +119,7 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb with
         <meta property='position' content='2'>
       </li>
 
-    
+      
     
   
     
@@ -124,12 +128,13 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb with
     
 
     
-    
-    
+      
+
+      
 
       <li class='o-breadcrumb__item'>Deep inner title</li>
 
-    
+      
     
   
 

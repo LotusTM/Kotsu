@@ -51,8 +51,9 @@
     {% set url          = crumbProps.url %}
 
     {% if not crumbProps.excludeFromBreadcrumb %}
-    {% set depth = depth + 1 %}
-    {% if not loop.last %}
+      {% set depth = depth + 1 %}
+
+      {% if not loop.last %}
 
       <li class='{{ itemsClass }}' property='itemListElement' typeof='ListItem'>
         <a class='{{ anchorsClass }}' href='{{ urljoin(localeDir(), url) }}' property='item' typeof='WebPage'>
@@ -61,11 +62,11 @@
         <meta property='position' content='{{ depth }}'>
       </li>
 
-    {% elif displayLast %}
+      {% elif displayLast %}
 
       <li class='{{ itemsClass }}'>{{ title }}</li>
 
-    {% endif %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 
