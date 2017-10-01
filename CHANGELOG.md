@@ -28,6 +28,10 @@
    It's done to confront `BreadcrumbList` structured data requirements.
 
    If you still wish to keep last item inactive, use newly added `lastItemClass` option to set a specific class, like `g-link--inherit`, which will make anchor appear like a regular text, making it inactive for users, while still accessible for bots.
+   
+- [package][tests] Replaced NPM `postbuild` script, which checks clean working dir, with more reliable `clean-workdir.js` test.
+
+   It will no longer occasionally pass wrongly test when `grep` is unavailable (like in Windows environment out of box).
 
 ## 1.8.0
 
