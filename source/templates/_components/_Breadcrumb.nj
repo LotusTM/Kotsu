@@ -5,10 +5,11 @@
  #                                      Class of list
  # @param {string} [itemsClass='o-breadcrumb__item']
  #                                      Class of list items
- # @param {string} [anchorsClass='']    Class of anchors inside list itmes
+ # @param {string} [anchorsClass]       Class of anchors inside list itmes
  # @param {string} [rootItemClass='o-breadcrumb__item--root']
  #                                      Class of root (first) list item
- # @param {string} [rootAnchorClass=''] Class of anchor inside of root list item
+ # @param {string} [rootAnchorClass]    Class of anchor inside of root list item
+ # @param {string} [lastItemClass]      Class of last item
  # @param {bool}   [displayLast=true]   Display last crumb or not
  # @param {array}  [breadcrumb=PAGE.breadcrumb]
  #                                      Breadcrumb in form of array to iterate upon
@@ -24,9 +25,10 @@
 {% macro Breadcrumb(
   class           = 'o-breadcrumb',
   itemsClass      = 'o-breadcrumb__item',
-  anchorsClass    = '',
+  anchorsClass,
   rootItemClass   = 'o-breadcrumb__item--root',
-  rootAnchorClass = '',
+  rootAnchorClass,
+  lastItemClass,
   displayLast     = true,
   breadcrumb      = PAGE.breadcrumb,
   rootTitle       = getPage(['index']).props.breadcrumbTitle,
@@ -42,32 +44,29 @@
   </li>
 
   {% set depth = 1 %}
-  {% set currentCrumb = []  %}
+  {% set currentCrumb = [] %}
 
   {% for crumb in breadcrumb %}
-    {% set currentCrumb = currentCrumb|pushIn(crumb)  %}
-    {% set crumbProps   = getPage(currentCrumb).props|format(placeholders) %}
-    {% set title        = crumbProps.breadcrumbTitle %}
-    {% set url          = crumbProps.url %}
+  {% set currentCrumb = currentCrumb|pushIn(crumb)  %}
+  {% set crumbProps   = getPage(currentCrumb).props|format(placeholders) %}
+  {% set title        = crumbProps.breadcrumbTitle %}
+  {% set url          = crumbProps.url %}
 
-    {% if not crumbProps.excludeFromBreadcrumb %}
-      {% set depth = depth + 1 %}
+  {% if not crumbProps.excludeFromBreadcrumb %}
+  {% set depth = depth + 1 %}
 
-      {% if not loop.last %}
+  <li
+    class='{{ itemsClass }} {{ lastItemClass if loop.last }}'
+    {{ "style='display: none'" if loop.last and not displayLast }}
+    property='itemListElement' typeof='ListItem'
+  >
+    <meta property='position' content='{{ depth }}'>
+    <a class='{{ anchorsClass }}' href='{{ urljoin(localeDir(), url) }}' property='item' typeof='WebPage'>
+      <span property='name'>{{ title }}</span>
+    </a>
+  </li>
 
-      <li class='{{ itemsClass }}' property='itemListElement' typeof='ListItem'>
-        <a class='{{ anchorsClass }}' href='{{ urljoin(localeDir(), url) }}' property='item' typeof='WebPage'>
-          <span property='name'>{{ title }}</span>
-        </a>
-        <meta property='position' content='{{ depth }}'>
-      </li>
-
-      {% elif displayLast %}
-
-      <li class='{{ itemsClass }}'>{{ title }}</li>
-
-      {% endif %}
-    {% endif %}
+  {% endif %}
   {% endfor %}
 
 </ol>

@@ -9,6 +9,7 @@
 
    Note, that it will also hide page from breadcrumb in search snippets.
 
+- [templates] Added `lastItemClass` parameter for `Breadcrumb()` component, which allows to set specific class on last item of the breadcrumb.
 - [modules] Added better error output for `traverse` and relied on it `nunjucks-render` and `format`.
 
    New error includes input, which failed rendering. For objects it will include currently rendered string of the leaf.
@@ -16,6 +17,17 @@
 
    This should clarify obscurity of vague and hard to debug internal errors when `grunt.locales`, Matter's `SITE.locales` or `PAGE.locale` are undefined or wrong.
 - [tests] Added `Breadcrumb()` Nunjucks component tests.
+
+### Changed
+- [templates] `Breadcrumb()` component now will always print last item, regardless of `displayLast` option. However, when `displayLast` enabled, last item will be hidden visually and for screen readers with `display: none`.
+
+   It required to confront requirements for `BreadcrumbList` structured data, dictated by Google. Breadcrumb should be full and include all tail.
+
+- [templates] `Breadcrumb()` last item changed from `<span>`, which previously indicated inactive element, to fully working `<a>`.
+
+   It's done to confront `BreadcrumbList` structured data requirements.
+
+   If you still wish to keep last item inactive, use newly added `lastItemClass` option to set a specific class, like `g-link--inherit`, which will make anchor appear like a regular text, making it inactive for users, while still accessible for bots.
 
 ## 1.8.0
 

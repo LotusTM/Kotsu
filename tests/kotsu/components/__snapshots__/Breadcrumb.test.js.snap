@@ -17,60 +17,68 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb 1`] 
   
 
   
-    
-    
-    
-    
-
-    
-      
-
-      
-
-      <li class='o-breadcrumb__item' property='itemListElement' typeof='ListItem'>
-        <a class='' href='/section-url' property='item' typeof='WebPage'>
-          <span property='name'>Section title</span>
-        </a>
-        <meta property='position' content='2'>
-      </li>
-
-      
-    
   
-    
-    
-    
-    
-
-    
-      
-
-      
-
-      <li class='o-breadcrumb__item' property='itemListElement' typeof='ListItem'>
-        <a class='' href='/section/inner-2-url' property='item' typeof='WebPage'>
-          <span property='name'>Inner 2 title</span>
-        </a>
-        <meta property='position' content='3'>
-      </li>
-
-      
-    
   
-    
-    
-    
-    
+  
+  
 
+  
+  
+
+  <li
+    class='o-breadcrumb__item '
     
-      
+    property='itemListElement' typeof='ListItem'
+  >
+    <meta property='position' content='2'>
+    <a class='' href='/section-url' property='item' typeof='WebPage'>
+      <span property='name'>Section title</span>
+    </a>
+  </li>
 
-      
+  
+  
+  
+  
+  
+  
 
-      <li class='o-breadcrumb__item'>Deep inner title</li>
+  
+  
 
-      
+  <li
+    class='o-breadcrumb__item '
     
+    property='itemListElement' typeof='ListItem'
+  >
+    <meta property='position' content='3'>
+    <a class='' href='/section/inner-2-url' property='item' typeof='WebPage'>
+      <span property='name'>Inner 2 title</span>
+    </a>
+  </li>
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+  <li
+    class='o-breadcrumb__item '
+    
+    property='itemListElement' typeof='ListItem'
+  >
+    <meta property='position' content='4'>
+    <a class='' href='/section/deep-inner-url' property='item' typeof='WebPage'>
+      <span property='name'>Deep inner title</span>
+    </a>
+  </li>
+
+  
   
 
 </ol>
@@ -95,47 +103,54 @@ exports[`Nunjucks component \`Breadcrumb()\` should print proper breadcrumb with
   
 
   
-    
-    
-    
-    
-
-    
   
-    
-    
-    
-    
-
-    
-      
-
-      
-
-      <li class='o-breadcrumb__item' property='itemListElement' typeof='ListItem'>
-        <a class='' href='/section/inner-2-url' property='item' typeof='WebPage'>
-          <span property='name'>Inner 2 title</span>
-        </a>
-        <meta property='position' content='2'>
-      </li>
-
-      
-    
   
-    
-    
-    
-    
+  
+  
 
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+  <li
+    class='o-breadcrumb__item '
     
-      
+    property='itemListElement' typeof='ListItem'
+  >
+    <meta property='position' content='2'>
+    <a class='' href='/section/inner-2-url' property='item' typeof='WebPage'>
+      <span property='name'>Inner 2 title</span>
+    </a>
+  </li>
 
-      
+  
+  
+  
+  
+  
+  
 
-      <li class='o-breadcrumb__item'>Deep inner title</li>
+  
+  
 
-      
+  <li
+    class='o-breadcrumb__item '
     
+    property='itemListElement' typeof='ListItem'
+  >
+    <meta property='position' content='3'>
+    <a class='' href='/section/deep-inner-url' property='item' typeof='WebPage'>
+      <span property='name'>Deep inner title</span>
+    </a>
+  </li>
+
+  
   
 
 </ol>
