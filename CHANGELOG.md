@@ -16,6 +16,7 @@
 - [modules] Added error messages in case wrong values passed to `getLocaleProps()`, `getLocaleDir()` and related Nunjucks `localeDir()`.
 
    This should clarify obscurity of vague and hard to debug internal errors when `grunt.locales`, Matter's `SITE.locales` or `PAGE.locale` are undefined or wrong.
+- [conf] Added caching of `node_modules` for Travis.
 - [tests] Added `Breadcrumb()` Nunjucks component tests.
 
 ### Changed
