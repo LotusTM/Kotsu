@@ -180,8 +180,8 @@
     },
     "testPathIgnorePatterns": [
       "/.git/",
-      "/build/",
-      "/temp/",
+      "<rootDir>/build/",
+      "<rootDir>/temp/",
       "/node_modules/",
       "/jspm_packages/"
     ],

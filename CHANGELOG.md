@@ -37,6 +37,13 @@
 
    It will no longer occasionally pass wrongly test when `grep` is unavailable (like in Windows environment out of box).
 
+### Fixed
+- [tests][package] Fixed Jest `testPathIgnorePatterns` which resulted in ignoring tests on some CI (like Travis).
+
+   For instance, Travis builds into `/home/travis/build/LotusTM/Kotsu`, and specified `/build/` in ignore patterns of Jest effectively ignored _any path_, which contained `build`. See [jest#1057](https://github.com/facebook/jest/issues/1057).
+
+   `<rootDir>` has been added to ignore only contained in root `build` and `temp` directories.
+
 ## 1.8.0
 
 ### Added
