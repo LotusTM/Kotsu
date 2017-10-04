@@ -19,6 +19,10 @@
 - [tests] Added `Breadcrumb()` Nunjucks component tests.
 
 ### Changed
+- [grunt] Generated `sitemap.xml` will no longer have trailing slashes in URLs, which makes it uniform with trailing slash-less URLs in site navigation.
+
+   To revert this change, remove from Grunt config `sitemap_xml.options.trailingSlash: false` option.
+
 - [templates] `Breadcrumb()` component now will always print last item, regardless of `displayLast` option. However, when `displayLast` enabled, last item will be hidden visually and for screen readers with `display: none`.
 
    It required to confront requirements for `BreadcrumbList` structured data, dictated by Google. Breadcrumb should be full and include all tail.

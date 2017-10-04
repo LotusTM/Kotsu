@@ -7,6 +7,8 @@ module.exports = () ->
   ###
 
   @config 'sitemap_xml',
+    options:
+      trailingSlash: false
     build:
       files: [
         cwd: '<%= path.build.root %>/'
