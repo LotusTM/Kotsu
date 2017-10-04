@@ -15,7 +15,7 @@ addons:
 before_install:
   - npm install -g npm@latest
 
-after_success:
+script:
   - npm run build
 
 notifications:

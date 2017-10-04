@@ -38,6 +38,12 @@
    It will no longer occasionally pass wrongly test when `grep` is unavailable (like in Windows environment out of box).
 
 ### Fixed
+- [conf] Fixed Travis ignoring failed tests and exit code 1 in postbuild phase.
+ 
+   It is happened because when script runs in `after_success` phase exit codes 1 are ignored. See [Travis docs](https://docs.travis-ci.com/user/customizing-the-build#Breaking-the-Build).
+
+   Thus, `.travis.yml` `after_success` changed to `script` which will properly react to exit code 1.
+
 - [tests][package] Fixed Jest `testPathIgnorePatterns` which resulted in ignoring tests on some CI (like Travis).
 
    For instance, Travis builds into `/home/travis/build/LotusTM/Kotsu`, and specified `/build/` in ignore patterns of Jest effectively ignored _any path_, which contained `build`. See [jest#1057](https://github.com/facebook/jest/issues/1057).
