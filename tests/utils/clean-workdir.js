@@ -1,4 +1,4 @@
-const { exec } = require('child_process')
+const { exec, execSync } = require('child_process')
 
 exec('git --version', (error) => {
   if (error) {
@@ -18,6 +18,7 @@ exec('git --version', (error) => {
       console.error('[clean-workdir] Modified files have been detected.\n')
       console.error('Build task should not generate or change files outside build folder:\n')
       console.error(stdout)
+      console.error(execSync('git diff --color').toString())
       return process.exit(1)
     }
 
