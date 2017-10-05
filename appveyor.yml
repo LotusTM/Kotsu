@@ -8,9 +8,6 @@ environment:
 cache:
   - node_modules -> package.json
 
-init:
-  - git config --global core.autocrlf false
-
 install:
   # Install GraphicsMagick
   - appveyor-retry appveyor DownloadFile http://downloads.sourceforge.net/graphicsmagick/GraphicsMagick-1.3.26-Q16-win64-dll.exe
@@ -30,7 +27,6 @@ install:
   - node --version
   - npm --version
 
-  - npm config set package-lock false
   - npm install
 
 test_script:

@@ -45,6 +45,7 @@
    ```shell
    npm install -g npm@latest
    ```
+- [conf] Enabled again `package-lock.json` updates on `npm install` for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
 
 ### Fixed
 - [conf] Fixed Travis ignoring failed tests and exit code 1 in postbuild phase.
