@@ -6,6 +6,10 @@ checkout:
   post:
     - git submodule update --init --recursive
 
+dependencies:
+  pre:
+    - npm install -g npm@latest
+
 test:
   post:
     - npm run build

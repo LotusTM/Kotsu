@@ -38,6 +38,14 @@
 
    It will no longer occasionally pass wrongly test when `grep` is unavailable (like in Windows environment out of box).
 
+- [conf] Both Travis and Circle CI will no use latest version of NPM to avoid issues with discrepancies regarding `package-lock.json` format.
+
+   It is recommended to use for development latest NPM too:
+
+   ```shell
+   npm install -g npm@latest
+   ```
+
 ### Fixed
 - [conf] Fixed Travis ignoring failed tests and exit code 1 in postbuild phase.
  
