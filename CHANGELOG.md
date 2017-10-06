@@ -48,6 +48,12 @@
 - [conf] Enabled again `package-lock.json` updates on `npm install` for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
 
 ### Fixed
+- [grunt] Thanks to update of [`grunt-gray-matter`](https://github.com/ArmorDarks/grunt-gray-matter) to version 1.3.0 pages with Front Matter having syntax errors will no longer be silently ignored.
+
+   Instead, detailed error message will be thrown.
+
+   See [#320](https://github.com/LotusTM/Kotsu/issues/320).
+
 - [conf] Fixed Travis ignoring failed tests and exit code 1 in postbuild phase.
  
    It is happened because when script runs in `after_success` phase exit codes 1 are ignored. See [Travis docs](https://docs.travis-ci.com/user/customizing-the-build#Breaking-the-Build).
