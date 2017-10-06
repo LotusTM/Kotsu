@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.9.0
 
 ### Added
 - [templates] Added ability to exclude certain pages from `Breadcrumb()` component with new Front Matter `excludeFromBreadcrumb` property set to `true`.
@@ -13,9 +13,11 @@
 - [modules] Added better error output for `traverse` and relied on it `nunjucks-render` and `format`.
 
    New error includes input, which failed rendering. For objects it will include currently rendered string of the leaf.
+
 - [modules] Added error messages in case wrong values passed to `getLocaleProps()`, `getLocaleDir()` and related Nunjucks `localeDir()`.
 
    This should clarify obscurity of vague and hard to debug internal errors when `grunt.locales`, Matter's `SITE.locales` or `PAGE.locale` are undefined or wrong.
+
 - [conf] Added caching of `node_modules` for Travis.
 - [tests] Added `Breadcrumb()` Nunjucks component tests.
 
@@ -45,6 +47,7 @@
    ```shell
    npm install -g npm@latest
    ```
+
 - [conf] Enabled again `package-lock.json` updates on `npm install` for AppVeyor [#289](https://github.com/LotusTM/Kotsu/issues/289).
 
 ### Fixed
