@@ -68,6 +68,12 @@ module.exports = ({ config, file: { readJSON } }) ->
         removeEmptyAttributes: true
         removeScriptTypeAttributes: true
         removeStyleLinkTypeAttributes: true
+        minifyJS: true
+        minifyCSS: true
+        processConditionalComments: true
+        quoteCharacter: "'"
+        sortAttributes: true
+        sortClassName: true
       files: [
         expand: true
         cwd: '<%= path.build.root %>'

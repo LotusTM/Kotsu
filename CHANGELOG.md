@@ -40,6 +40,23 @@
 
 ### Changed
 - [package] Updated dependencies.
+- [grunt] Enabled additional compression options in [grunt-contrib-htmlmin](https://github.com/gruntjs/grunt-contrib-htmlmin) task.
+
+   Here is full list of added options:
+
+   ```coffee
+   minifyJS: true
+   minifyCSS: true
+   processConditionalComments: true
+   quoteCharacter: "'"
+   sortAttributes: true
+   sortClassName: true
+   ```
+
+   As a result, inlined JS CSS and IE conditional comments will be minified.
+
+   Sorting of attributes and class names will allow to gzip pages even better.
+
 - [templates] `PAGE.canonical` no longer accepts array of URLs. Instead only one URL can be provided.
 
    This should prevent stupid situations, when people specifing multiple canonical URLs without understanding how Google and Yandex will treat it.
