@@ -7,6 +7,6 @@ _Work in progress_
 * [Environment variables](https://github.com/LotusTM/Kotsu/blob/master/docs/Environment-variables.md)
 * [Data](https://github.com/LotusTM/Kotsu/blob/master/docs/Data.md)
 * [Structured data](https://github.com/LotusTM/Kotsu/blob/master/docs/Structured-data.md)
-* [Urls](https://github.com/LotusTM/Kotsu/blob/master/docs/Urls.md)
+* [URLs](https://github.com/LotusTM/Kotsu/blob/master/docs/URLs.md)
 * [Continuous Delivery](https://github.com/LotusTM/Kotsu/blob/master/docs/Continuous-Delivery.md)
 * [Recipes](https://github.com/LotusTM/Kotsu/blob/master/docs/Recipes.md)

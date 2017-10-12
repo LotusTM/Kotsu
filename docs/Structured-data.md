@@ -30,7 +30,7 @@ Also, see issue [#89](https://github.com/LotusTM/Kotsu/issues/89).
 
 Kotsu will try to fill structured data as much as possible based on provided in [`source/data`](https://github.com/LotusTM/Kotsu/tree/master/source/data) data, and when no specific data available, it will try to fill it with more generic values.
 
-Thus, it is crucial to change all default Kotsu values. More on Kotsu data [here](https://github.com/LotusTM/Kotsu/wiki/Data).
+Thus, it is crucial to change all default Kotsu values. More on Kotsu data [here](https://github.com/LotusTM/Kotsu/blob/master/docs/Data.md).
 
 In some cases you might need to adjust already existing structured data to fit your needs or add custom data. Head to [Customizing structured data](#customizing-structured-data) section for more information.
 
@@ -132,8 +132,8 @@ Keep in mind, that Google and other popular services supports limited amount of 
 
 ### Open Graph or Twitter Cards structured data doesn't fit well
 
-As all other built-in structured data, Kotsu builds those based on provided to Kotsu [data](https://github.com/LotusTM/Kotsu/wiki/Data). Results usually should fit most cases. In very rare ones, you might need to adjust Open Graph or Twitter Cards structured data directly to add some not-so-often occurring information, like app id for Facebook.
+As all other built-in structured data, Kotsu builds those based on provided to Kotsu [data](https://github.com/LotusTM/Kotsu/blob/master/docs/Data.md). Results usually should fit most cases. In very rare ones, you might need to adjust Open Graph or Twitter Cards structured data directly to add some not-so-often occurring information, like app id for Facebook.
 
 If you need to add completely new property or radically change values, you don't have any other options except go and edit in [`_base.nj`](https://github.com/LotusTM/Kotsu/blob/master/source/templates/_layouts/_base.nj) layout sections related to Open Graph and Twitter Cards.
 
-If you need to change values only on specific pages (for instance, when in Blog scope, you'd want to change Open Graph `type` to `article`), you might use Front Matter or other [ways to configure Kotsu data](https://github.com/LotusTM/Kotsu/wiki/Data#defining-custom-data). They will effectively override values only for those specific pages.
+If you need to change values only on specific pages (for instance, when in Blog scope, you'd want to change Open Graph `type` to `article`), you might use Front Matter or other [ways to configure Kotsu data](https://github.com/LotusTM/Kotsu/blob/master/docs/Data.md#defining-custom-data). They will effectively override values only for those specific pages.
