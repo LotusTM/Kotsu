@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Changed
+- [templates] Removed not needed indentation from Front Matter sections.
+
 ## 1.9.0
 
 ### Added

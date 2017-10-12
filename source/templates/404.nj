@@ -1,12 +1,12 @@
 ---
-url:              /404.html
+url: /404.html
 
-title:            ={{ gettext('404 &mdash; page not found') }}
-contentTitle:     ={{ gettext('404 &mdash; page not found') }}
-navTitle:         '404'
-breadcrumbTitle:  '404'
+title:           ={{ gettext('404 &mdash; page not found') }}
+contentTitle:    ={{ gettext('404 &mdash; page not found') }}
+navTitle:        '404'
+breadcrumbTitle: '404'
 
-description:      ={{ gettext('404 &mdash; page not found') }}
+description: ={{ gettext('404 &mdash; page not found') }}
 
 class:            p-404
 showContentTitle: false

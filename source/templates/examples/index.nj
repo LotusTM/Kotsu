@@ -4,9 +4,9 @@ contentTitle:    ={{ gettext('Examples') }}
 navTitle:        ={{ gettext('Examples') }}
 breadcrumbTitle: ={{ gettext('Examples') }}
 
-description:     ={{ gettext('%(company)s examples') }}
+description: ={{ gettext('%(company)s examples') }}
 
-class:           p-examples
+class: p-examples
 ---
 
 {% extends '_layouts/_main.nj' %}
