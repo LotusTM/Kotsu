@@ -36,6 +36,8 @@
 
    Behold, :blue_book: [The Documentation](https://github.com/LotusTM/Kotsu/tree/master/docs)! Well, not much. But some day a miracle will happen...
 
+   [#317](https://github.com/LotusTM/Kotsu/issues/317)
+
 ### Changed
 - [templates] `PAGE.canonical` no longer accepts array of URLs. Instead only one URL can be provided.
 
