@@ -79,12 +79,12 @@ And a lot more under the hood. We just didn't have time to document all features
 
 _Work in progress_
 
-* [Structure](https://github.com/LotusTM/Kotsu/wiki/Structure)
-* [Set up environment variables](https://github.com/LotusTM/Kotsu/wiki/Set-up-environment-variables)
-* [Data](https://github.com/LotusTM/Kotsu/wiki/Data)
-* [Structured data](https://github.com/LotusTM/Kotsu/wiki/Structured-data)
-* [Urls](https://github.com/LotusTM/Kotsu/wiki/Urls)
-* [Continuous Delivery with Wercker Docker and CoreOS](https://github.com/LotusTM/Kotsu/wiki/Continuous-Delivery-with-Wercker-Docker-and-CoreOS)
+* [Structure](https://github.com/LotusTM/Kotsu/blob/master/docs/Structure.md)
+* [Environment variables](https://github.com/LotusTM/Kotsu/blob/master/docs/Environment-variables.md)
+* [Data](https://github.com/LotusTM/Kotsu/blob/master/docs/Data.md)
+* [Structured data](https://github.com/LotusTM/Kotsu/blob/master/docs/Structured-data.md)
+* [Urls](https://github.com/LotusTM/Kotsu/blob/master/docs/Urls.md)
+* [Continuous Delivery](https://github.com/LotusTM/Kotsu/blob/master/docs/Continuous-Delivery.md)
 
 ## Examples
 
