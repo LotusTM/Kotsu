@@ -5,6 +5,9 @@
 ### Changed
 - [templates] Removed not needed indentation from Front Matter sections.
 
+### Fixed
+- [templates] Removed accidentally left `type="text/javascript"` attribute in `<script>` tag of Yandex component.
+
 ## 1.9.0
 
 ### Added

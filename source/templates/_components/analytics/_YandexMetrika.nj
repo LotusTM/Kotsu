@@ -8,7 +8,7 @@
  # @example {{ YandexMetrika(counterId = 'XXXXXX') }}
  #}
 {% macro YandexMetrika(counterId) %}
-<script type="text/javascript">
+<script>
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
