@@ -3,6 +3,12 @@
 ## HEAD
 
 ### Changed
+- [templates] `PAGE.canonical` no longer accepts array of URLs. Instead only one URL can be provided.
+
+   This should prevent stupid situations, when people specifing multiple canonical URLs without understanding how Google and Yandex will treat it.
+
+   See [#326](https://github.com/LotusTM/Kotsu/issues/326).
+
 - [templates] Removed not needed indentation from Front Matter sections.
 - [templates] Prettified Google Analytics and Yandex Metric snippets. They will be uglified anyway.
 

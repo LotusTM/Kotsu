@@ -96,10 +96,10 @@
   {{ AlternateUrls(props.locale, props.url, props.defaultForLanguage) }}
   {% endfor %}
 
-  <!-- Canonical urls -->
-  {% for url in PAGE.canonical %}
-  <link rel='canonical' href='{{ absoluteurl(url) }}'>
-  {% endfor %}
+  <!-- Canonical url -->
+  {% if PAGE.canonical %}
+  <link rel='canonical' href='{{ absoluteurl(PAGE.canonical) }}'>
+  {% endif %}
 
   <!-- Authors -->
   <link rel='author' href='/humans.txt'>
