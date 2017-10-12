@@ -32,7 +32,9 @@
 
    See [#326](https://github.com/LotusTM/Kotsu/issues/326) for details.
 
-- [docs] Added documentation from Wiki into `docs` directory. Not much. But some day a miracle will happen...
+- [docs] Added documentation from Wiki into `docs` directory.
+
+   Behold, :blue_book: [The Documentation](https://github.com/LotusTM/Kotsu/tree/master/docs)! Well, not much. But some day a miracle will happen...
 
 ### Changed
 - [templates] `PAGE.canonical` no longer accepts array of URLs. Instead only one URL can be provided.
