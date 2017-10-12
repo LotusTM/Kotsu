@@ -85,6 +85,7 @@ _Work in progress_
 * [Structured data](https://github.com/LotusTM/Kotsu/blob/master/docs/Structured-data.md)
 * [Urls](https://github.com/LotusTM/Kotsu/blob/master/docs/Urls.md)
 * [Continuous Delivery](https://github.com/LotusTM/Kotsu/blob/master/docs/Continuous-Delivery.md)
+* [Recipes](https://github.com/LotusTM/Kotsu/blob/master/docs/Recipes.md)
 
 ## Examples
 
