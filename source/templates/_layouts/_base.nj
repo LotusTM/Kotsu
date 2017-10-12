@@ -97,8 +97,8 @@
   {% endfor %}
 
   <!-- Canonical url -->
-  {% if PAGE.canonical %}
-  <link rel='canonical' href='{{ absoluteurl(PAGE.canonical) }}'>
+  {% if PAGE.canonical != false %}
+  <link rel='canonical' href='{{ absoluteurl(PAGE.canonical or (localeDir() if PAGE.url == '/' else urljoin(localeDir(), PAGE.url))) }}'>
   {% endif %}
 
   <!-- Authors -->

@@ -2,6 +2,36 @@
 
 ## HEAD
 
+### Added
+- [templates] Added default canonical URL to each page, which references page itself.
+
+   Predefined canonical URL will avoid search providers being confused in case of [duplicate content](https://support.google.com/webmasters/answer/66359) caused by dynamic parameters in URL like those:
+
+   ```
+   https://example.com
+   https://example.com?search=test
+   ```
+
+   Canonical URL will tell search providers to always treat original page without parameters as canonical and the one, which should be displayed in search results.
+
+   To disable default canonical URL, specify in Front Matter:
+
+   ```yaml
+   ---
+   canonical: false
+   ---
+   ```
+
+   Or set your own canonical:
+
+   ```yaml
+   ---
+   canonical: /this-is-real-page
+   ---
+   ```
+
+   See [#326](https://github.com/LotusTM/Kotsu/issues/326) for details.
+
 ### Changed
 - [templates] `PAGE.canonical` no longer accepts array of URLs. Instead only one URL can be provided.
 
