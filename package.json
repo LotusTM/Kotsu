@@ -45,7 +45,7 @@
     "website"
   ],
   "dependencies": {
-    "autoprefixer": "7.1.4",
+    "autoprefixer": "7.1.5",
     "gmsmith": "1.1.2",
     "grunt": "1.0.1",
     "grunt-cache-bust": "1.6.0",
@@ -71,7 +71,7 @@
     "jspm": "0.17.0-beta.45",
     "lodash": "4.17.4",
     "markdown-it": "8.4.0",
-    "moment": "2.18.1",
+    "moment": "2.19.1",
     "node-gettext": "1.1.0",
     "node-sass-utils": "1.1.2",
     "numbro": "1.11.0",

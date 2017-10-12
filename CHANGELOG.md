@@ -39,6 +39,7 @@
    [#317](https://github.com/LotusTM/Kotsu/issues/317)
 
 ### Changed
+- [package] Updated dependencies.
 - [templates] `PAGE.canonical` no longer accepts array of URLs. Instead only one URL can be provided.
 
    This should prevent stupid situations, when people specifing multiple canonical URLs without understanding how Google and Yandex will treat it.
