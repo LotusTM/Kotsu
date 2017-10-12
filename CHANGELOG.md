@@ -41,6 +41,7 @@
 
 - [templates] Removed not needed indentation from Front Matter sections.
 - [templates] Prettified Google Analytics and Yandex Metric snippets. They will be uglified anyway.
+- [templates] Prettified `Nav` components `Item`. Yeap, now it takes more space, but at least now it is readable.
 
 ### Fixed
 - [package] Fixed not locked JSPM version.
