@@ -7,6 +7,7 @@
 - [templates] Prettified Google Analytics and Yandex Metric snippets. They will be uglified anyway.
 
 ### Fixed
+- [package] Fixed not locked JSPM version.
 - [templates] Removed accidentally left `type="text/javascript"` attribute in `<script>` tag of Yandex component.
 
 ## 1.9.0
