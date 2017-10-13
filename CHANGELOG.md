@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.10.0
 
 ### Added
 - [templates] Added default canonical URL to each page, which references page itself.
