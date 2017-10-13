@@ -1,7 +1,7 @@
 {##
  # Invoke Google Analytics script
  #
- # @param {string} siteId Your site ID
+ # @param {string} siteId Google Analytics counter ID
  #
  # @return {string} `<script>` tag with Google Analytics code
  #

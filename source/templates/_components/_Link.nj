@@ -2,16 +2,16 @@
  # Display anchor based on provided data. Based on React-router `Link` component idea
  # Use `call` if you need label to be something more complex, than just a string
  #
- # @param {string} to                                    Root-relative path to page.
- #                                                       Document-relative paths not supported
- # @param {string} [label]                               Anchor label
- # @param {string} [class]             = ''              Anchor class
- # @param {object} [attrs]             = {}              Any HTML5 attributes, except `class`
- # @param {bool}   [exact]             = false           Set item to be active only if item
- #                                                       path completely matches current breadcrumb
- # @param {string} [activeClass]       = 'is-active'     Class for active anchor
- # @param {string} [localeDir]         = localeDir()     L10n leading part of path, like `/de/`
- # @param {array}  [pageBreadcrumb]    = PAGE.breadcrumb Breadcrumb of current page for comparison
+ # @param {string} to                                Root-relative path to page.
+ #                                                   Document-relative paths not supported
+ # @param {string}  [label]                          Anchor label
+ # @param {string}  [class='']                       Anchor class
+ # @param {object}  [attrs={}]                       Any HTML5 attributes, except `class`
+ # @param {boolean} [exact=false]                    Set item to be active only if item
+ #                                                   path completely matches current breadcrumb
+ # @param {string}  [activeClass='is-active']        Class for active anchor
+ # @param {string}  [localeDir=localeDir()]          L10n leading part of path, like `/de/`
+ # @param {array}   [pageBreadcrumb=PAGE.breadcrumb] Breadcrumb of current page for comparison
  #
  # @return {string} Generated `<a>` with properly set active state
  #

@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Changed
+- [templates] Improved components doc blocks. Now they should confront JSDoc standards.
+
 ## 1.10.0
 
 ### Added

@@ -1,9 +1,9 @@
 {##
  # Display message about too old browser in IE9 and below
  #
- # @param {string} [version]   = 'lte IE 9'    Targeted versions of IE
- # @param {string} [langcode]  = PAGE.language Language code which will be used in url
- #                                             All incorrect language codes will fallback to `en`
+ # @param {string} [version='lte IE 9']     Targeted versions of IE
+ # @param {string} [langcode=PAGE.language] Language code which will be used in url
+ #                                          All incorrect language codes will fallback to `en`
  #
  # @return {string} IE-specific comment with proposal to update browser
  #

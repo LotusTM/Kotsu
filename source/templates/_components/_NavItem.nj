@@ -1,17 +1,17 @@
 {##
  # Display Nav item. Should be used in context of Nav component
  #
- # @param {string} to                                    Absolute path to page
- # @param {string} [label]                               Label of the anchor
- # @param {number} [depth]                 = 1           Depth of current nav item
- # @param {string} [itemsClass]            = ''          Class of list item
- # @param {string} [anchorsClass]          = ''          Class of anchor inside list itme
- # @param {bool}   [exact]                 = false       Set item to be active only if item
- #                                                       path completely matches current breadcrumb
- # @param {string} [activeClass]           = 'is-active' Class of active list item
- # @param {number} [startDepth]            = 1           From which depth nav should start to print
- # @param {number} [maxDepth]              = 999999      Max amount of subnavs to print
- # @param {bool}   [showInnerOnlyOnActive] = false       Print subnavs only when parent is active
+ # @param {string}  to                            Absolute path to page
+ # @param {string}  [label]                       Label of the anchor
+ # @param {number}  [depth=1]                     Depth of current nav item
+ # @param {string}  [itemsClass='']               Class of list item
+ # @param {string}  [anchorsClass='']             Class of anchor inside list itme
+ # @param {boolean} [exact=false]                 Set item to be active only if item
+ #                                                path completely matches current breadcrumb
+ # @param {string}  [activeClass='is-active']     Class of active list item
+ # @param {number}  [startDepth=1]                From which depth nav should start to print
+ # @param {number}  [maxDepth=999999]             Max amount of subnavs to print
+ # @param {boolean} [showInnerOnlyOnActive=false] Print subnavs only when parent is active
  #
  # @return {string} Generated nav
  #
