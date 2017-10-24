@@ -4,6 +4,38 @@
 
 ### Changed
 - [templates] Improved components doc blocks. Now they should confront JSDoc standards.
+- [modules] Improved `isActive()` function performance by exiting early during checks and not using RegExp in exact mode.
+- [modules] Nunjucks `isActive()` function is now stricter in non-exact mode. It will match only full segments and not literal parts of URLs.
+
+   For example, from now for `isActive('/test')` those are different URLs even in non-exact mode:
+
+   ```
+   /test/page
+   /test234/page
+   ```
+
+   While those are not:
+
+   ```
+   /test/page
+   /test/234/page
+   ```
+
+### Fixed
+- [modules] Fixed `isActive()` Nunjucks function returning wrong results for URLs with partial match.
+
+   Few examples for page with URL `/test/page`:
+
+   ```jinja
+   {{ isActive('/tes') }} {# has been wrong `true` #}
+   {{ isActive('/tes/') }} {# has been wrong `true` #}
+   {{ isActive('/test') }}
+   {{ isActive('/test/') }}
+   {{ isActive('/test/pag') }} {# has been wrong `true` #}
+   {{ isActive('/test/pag/') }} {# has been wrong `true` #}
+   {{ isActive('/test/page') }}
+   {{ isActive('/test/page/') }}
+   ```
 
 ## 1.10.0
 

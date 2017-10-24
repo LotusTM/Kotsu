@@ -54,3 +54,17 @@ exports[`Nunjucks global function \`isActive()\` with document-relative urls sho
 "(unknown path)
   TypeError: [isActive] document-relative urls not supported yet, \`../test/\` provided"
 `;
+
+exports[`Nunjucks global function \`isActive()\` with root-relative urls should correctly process partial match 1`] = `
+"
+        
+        false
+        false
+        true
+        true
+        false
+        false
+        true
+        true
+      "
+`;

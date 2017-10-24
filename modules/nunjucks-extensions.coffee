@@ -199,12 +199,19 @@ module.exports = (env) ->
     if !to.startsWith('/')
       throw new TypeError("[isActive] document-relative urls not supported yet, `#{to}` provided")
 
+    # Make trailing slash optional
+    to = to.length > 1 and to.replace(/\/+$/, '') or to
+
     pageUrl = urljoin('/', pageBreadcrumb...)
     pageUrl = pageUrl == '/index' and '/' or pageUrl
-    # Make trailing slash optional
-    toRegex = to.replace(/(.)\/$/, '$1(\/)?')
 
-    return new RegExp("^#{toRegex}#{exact and '$' or ''}").test(pageUrl)
+    if exact
+      return to == pageUrl
+
+    if to == '/'
+      return true
+
+    return new RegExp("^#{to}(/|$)").test(pageUrl)
 
   ###*
    * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation and displaying dates
