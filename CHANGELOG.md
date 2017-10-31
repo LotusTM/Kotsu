@@ -32,6 +32,7 @@
    {% endblock %}
    ```
 
+- [templates] Moved `id` of the `Example()` component, which is generated based on title, from heading to `<article>`. This will ensure that example's generated link will properly scroll to element itself in cases when heading is changed in some specific ways...
 - [templates] Improved components doc blocks. Now they should confront JSDoc standards.
 - [modules] Improved `isActive()` function performance by exiting early during checks and not using RegExp in exact mode.
 - [modules] Nunjucks `isActive()` function is now stricter in non-exact mode. It will match only full segments and not literal parts of URLs.

@@ -15,11 +15,11 @@
 {% macro Example(title, classes, comment = false) %}
 {% set titleId = title|urlify() if title %}
 
-<article class='h-margin-bottom+'>
+<article id='{{ titleId }}' class='h-margin-bottom+'>
 
   <header>
 
-    <h3 id='{{ titleId }}'><a href='#{{ titleId }}' class='g-link--inherit'>{{ title }}</a></h3>
+    <h3><a href='#{{ titleId }}' class='g-link--inherit'>{{ title }}</a></h3>
 
     {% for class in classes %}
     <code class='h-text--nowrap'>{{ class }}</code>{{ ', '  if not loop.last }}
