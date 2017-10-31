@@ -1,3 +1,5 @@
+{% from '_components/_Link.nj' import Link with context %}
+
 {##
  # Display Nav item. Should be used in context of Nav component
  #

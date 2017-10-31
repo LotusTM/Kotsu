@@ -12,6 +12,7 @@ class: p-examples
 {% extends '_layouts/_main.nj' %}
 
 {% block main %}
+{% from '_components/_Example.nj' import Example with context %}
 
 <p><em>Work in progress. Those are just some crude examples.</em></p>
 

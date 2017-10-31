@@ -1,3 +1,5 @@
+{% from '_components/_NavItem.nj' import NavItem with context %}
+
 {##
  # Display nav block
  #

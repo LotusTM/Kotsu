@@ -3,6 +3,35 @@
 ## HEAD
 
 ### Changed
+- [templates] Moved global components imports from `_base.nj` layout into components and layouts where they are actually used. Global imports no longer encouraged.
+
+   In such way components will declaratively show their dependencies on each other. It will solve two issues:
+
+   1. Eliminate need to maintain specific order of imports to ensure that used by other components macros are imported before them.
+   2. Will make testing easier, since for complex components it won't be needed any more to import manually all needed pieces in tests files too.
+
+   Importing many times same components even in 300-pages projects does not have any performance-wise implications. So, why not?
+
+   Note, that for components you need to place imports in the beginning of the file, outside of `{% macro %}`:
+
+   ```jinja
+   {% from '_components/_NavItem.nj' import NavItem with context %}
+
+   {% macro Nav() %}
+   <p>Macro content...</p>
+   {% endmacro %}
+   ```
+
+   However, in case of layouts _which extends_ to import components with context, import should be placed _inside_ `{% block %}`, otherwise context will end up undefined:
+
+   ```jinja
+   {% block main %}
+   {% from '_components/_Example.nj' import Example with context %}
+
+   <p>Content...</p>
+   {% endblock %}
+   ```
+
 - [templates] Improved components doc blocks. Now they should confront JSDoc standards.
 - [modules] Improved `isActive()` function performance by exiting early during checks and not using RegExp in exact mode.
 - [modules] Nunjucks `isActive()` function is now stricter in non-exact mode. It will match only full segments and not literal parts of URLs.

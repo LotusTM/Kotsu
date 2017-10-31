@@ -4,12 +4,7 @@
 {% from '_components/analytics/_GoogleAnalytics.nj' import GoogleAnalytics with context %}
 {% from '_components/analytics/_YandexMetrika.nj' import YandexMetrika with context %}
 {% from '_components/_AlternateUrls.nj' import AlternateUrls with context %}
-{% from '_components/_Breadcrumb.nj' import Breadcrumb with context %}
-{% from '_components/_Example.nj' import Example with context %}
 {% from '_components/_IE.nj' import IE with context %}
-{% from '_components/_Link.nj' import Link with context %}
-{% from '_components/_NavItem.nj' import NavItem with context %}
-{% from '_components/_Nav.nj' import Nav with context %}
 {% from '_components/_OutdatedBrowser.nj' import OutdatedBrowser with context %}
 {% endblock %}
 
