@@ -101,6 +101,8 @@
 
   {{ IE(version = 'lte IE 9') }}
 
+  <script src='{{ urljoin('/', PATH.styles, 'css-var-shim.js' if ENV.build else 'css-var-shim.js') }}'></script>
+
 </head>
 
 <body class='{{ PAGE.bodyClass }} o-panel o-panel--max'>

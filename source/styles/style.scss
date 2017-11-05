@@ -141,3 +141,23 @@
 @import 'ekzo/helpers/widths';
 
 @import 'helpers/animations';
+
+:root {
+  --test-color: red;
+  --test-bg: blue;
+}
+
+.Test {
+  color: var(--test-color);
+  background-color: var(--test-bg);
+}
+
+.Test.is-other {
+  --test-color: yellow;
+  --test-bg: white;
+}
+
+.is-scoped {
+  --test-color: green;
+  --test-bg: yellow;
+}

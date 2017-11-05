@@ -2,6 +2,7 @@ sass = require('node-sass')
 { castToSass } = require('node-sass-utils')(sass)
 { get } = require('lodash')
 onecolor = require('onecolor')
+{ join } = require('path')
 
 module.exports = () ->
 
@@ -58,6 +59,10 @@ module.exports = () ->
     autoprefix:
       options:
         processors: [
+          require('postcss-var-shim')({
+            # mapFile: join(@config('path.build.scripts'), 'css-var-map.js')
+            shimFile: join(@config('path.build.styles'), 'css-var-shim.js')
+          })
           require('autoprefixer')
         ]
         map: true
