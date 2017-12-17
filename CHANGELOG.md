@@ -8,6 +8,7 @@
 
 ### Changed
 - [package] Updated dependencies.
+- [package] Updated Ekzo to version 2.6.0.
 - [grunt] SEO-related comments `<!--noindex-->` and `<!--/noindex-->` will no longer be stripped during HTML minification.
 - [grunt] Comments starting with `!` like `<!--! do not ignore-->` will no longer be stripped during HTML minification.
 - [templates] Moved global components imports from `_base.nj` layout into components and layouts where they are actually used. Global imports no longer encouraged.
