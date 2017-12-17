@@ -4,6 +4,8 @@
 
 ### Changed
 - [package] Updated dependencies.
+- [grunt] SEO-related comments `<!--noindex-->` and `<!--/noindex-->` will no longer be stripped during HTML minification.
+- [grunt] Comments starting with `!` like `<!--! do not ignore-->` will no longer be stripped during HTML minification.
 - [templates] Moved global components imports from `_base.nj` layout into components and layouts where they are actually used. Global imports no longer encouraged.
 
    In such way components will declaratively show their dependencies on each other. It will solve two issues:
