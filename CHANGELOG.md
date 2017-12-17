@@ -3,6 +3,7 @@
 ## HEAD
 
 ### Changed
+- [package] Updated dependencies.
 - [templates] Moved global components imports from `_base.nj` layout into components and layouts where they are actually used. Global imports no longer encouraged.
 
    In such way components will declaratively show their dependencies on each other. It will solve two issues:
