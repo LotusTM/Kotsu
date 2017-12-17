@@ -5,6 +5,7 @@
 ### Added
 
 - [styles] Added `text-decoration-skip: ink;` to default links style.
+- [modules] Added `Date` refinament which expects ISO 8601 date.
 
 ### Changed
 - [package] Updated dependencies.

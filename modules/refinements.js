@@ -1,10 +1,12 @@
 const t = require('tcomb')
+const moment = require('moment')
 
 module.exports = {
   False: t.refinement(t.Boolean, (b) => b === false, 'False'),
   Absoluteurl: t.refinement(t.String, (u) => /^\/\/|:\/\//.test(u), 'Absolute url'),
   Imagepath: t.refinement(t.String, (i) => /.(jpg|jpeg|gif|png|svg)$/.test(i), 'Image file'),
   Handle: t.refinement(t.String, (i) => /^@((?!(:|\\|\/)).)*$/.test(i), 'Handle'),
+  Date: t.refinement(t.String, (d) => moment(d, moment.ISO_8601, true).isValid(), 'ISO 8601 Date'),
 
   /**
    * Ensures that value does not exceed specified length

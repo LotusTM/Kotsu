@@ -114,6 +114,19 @@ describe('Tcomb refinement', () => {
     })
   })
 
+  describe('Date', () => {
+    it('should pass ISO 8601 date', () => {
+      expect(r.Date('2010-01-01T05:06:07')).toMatchSnapshot()
+    })
+    it('should error on non-ISO 8601 date', () => {
+      expect(() => r.Date(1)).toThrowErrorMatchingSnapshot()
+      expect(() => r.Date('test')).toThrowErrorMatchingSnapshot()
+      expect(() => r.Date('2012')).toThrowErrorMatchingSnapshot()
+      expect(() => r.Date('2012-30-30')).toThrowErrorMatchingSnapshot()
+      expect(() => r.Date('2010-01-01T05:')).toThrowErrorMatchingSnapshot()
+    })
+  })
+
   describe('EqualKeyAndProp', () => {
     const EqualKeysAndId = r.EqualKeyAndProp('id')(t.dict(t.String, t.Any, 'Testdata'))
 

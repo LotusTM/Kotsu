@@ -28,6 +28,18 @@ exports[`Tcomb refinement Absoluteurl should pass absolute url 2`] = `"https://t
 
 exports[`Tcomb refinement Absoluteurl should pass absolute url 3`] = `"//test.com"`;
 
+exports[`Tcomb refinement Date should error on non-ISO 8601 date 1`] = `"[tcomb] Invalid value 1 supplied to ISO 8601 Date"`;
+
+exports[`Tcomb refinement Date should error on non-ISO 8601 date 2`] = `"[tcomb] Invalid value \\"test\\" supplied to ISO 8601 Date"`;
+
+exports[`Tcomb refinement Date should error on non-ISO 8601 date 3`] = `"[tcomb] Invalid value \\"2012\\" supplied to ISO 8601 Date"`;
+
+exports[`Tcomb refinement Date should error on non-ISO 8601 date 4`] = `"[tcomb] Invalid value \\"2012-30-30\\" supplied to ISO 8601 Date"`;
+
+exports[`Tcomb refinement Date should error on non-ISO 8601 date 5`] = `"[tcomb] Invalid value \\"2010-01-01T05:\\" supplied to ISO 8601 Date"`;
+
+exports[`Tcomb refinement Date should pass ISO 8601 date 1`] = `"2010-01-01T05:06:07"`;
+
 exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 1`] = `"[tcomb] ivalid value \`235\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
 
 exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 2`] = `"[tcomb] ivalid value \`111\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
