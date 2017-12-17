@@ -98,7 +98,7 @@
     "npm-run-all": "4.1.2",
     "snazzy": "6.0.0",
     "standard": "10.0.3",
-    "stylelint": "8.2.0",
+    "stylelint": "8.4.0",
     "stylelint-config-standard": "17.0.0",
     "stylelint-scss": "2.1.0"
   },
