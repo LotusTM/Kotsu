@@ -2,6 +2,10 @@
 
 ## HEAD
 
+### Added
+
+- [styles] Added `text-decoration-skip: ink;` to default links style.
+
 ### Changed
 - [package] Updated dependencies.
 - [grunt] SEO-related comments `<!--noindex-->` and `<!--/noindex-->` will no longer be stripped during HTML minification.
