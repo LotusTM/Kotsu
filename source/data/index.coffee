@@ -1,7 +1,9 @@
 { merge } = require('lodash')
+{ join } = require('path')
 pkg = require('../../package.json')
 
 module.exports = ({ config }) ->
+  cwd = process.cwd()
   sitename = config('env.sitename')
   buildRoot = config('path.build.root') + '/'
   imagesPath = config('path.build.images').replace(buildRoot, '')
@@ -26,6 +28,7 @@ module.exports = ({ config }) ->
       themeColor: '#313840'
       locales: config('locales')
       baseLocale: config('baseLocale')
+      matter: () => require(join(cwd, config('file.temp.data.matter')))
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
     PLACEHOLDERS:

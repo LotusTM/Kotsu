@@ -8,7 +8,7 @@ const mockContext = {
   PAGE: { locale: 'en-US' },
   SITE: {
     locales: { 'en-US': { url: '/' } },
-    __matter: {
+    matter: {
       index: {
         props: { url: '/', breadcrumbTitle: 'Home' }
       }
@@ -24,7 +24,7 @@ describe('Nunjucks component `Breadcrumb()`', () => {
       'inner-2',
       'deep-inner'
     ]
-    testContext.SITE.__matter.section = {
+    testContext.SITE.matter.section = {
       props: { url: '/section-url', breadcrumbTitle: 'Section title' },
       'inner-1': {
         props: { url: '/section/inner-1-url', breadcrumbTitle: 'Inner 1 title' }
@@ -50,7 +50,7 @@ describe('Nunjucks component `Breadcrumb()`', () => {
       'inner-2',
       'deep-inner'
     ]
-    testContext.SITE.__matter.ignored = {
+    testContext.SITE.matter.ignored = {
       props: { excludeFromBreadcrumb: true, url: '/ignored-url', breadcrumbTitle: 'Ignored title' },
       'inner-1': {
         props: { url: '/section/inner-1-url', breadcrumbTitle: 'Inner 1 title' }

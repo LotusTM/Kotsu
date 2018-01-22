@@ -5,7 +5,7 @@ import { renderString } from '../../utils/nunjucks'
 const render = (template, context = mockContext, parse) => renderString(template, context, parse)
 const mockContext = {
   SITE: {
-    __matter: {
+    matter: {
       'index': {
         'props': { 'url': '/' }
       },

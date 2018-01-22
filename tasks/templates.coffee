@@ -17,7 +17,6 @@ module.exports = ({ config, file: { readJSON } }) ->
     noCache: false
     paths: config('path.source.templates')
     data: config('data')
-    matter: () => readJSON(config('file.temp.data.matter'))
     locales: config('locales')
     baseLocale: config('baseLocale')
     gettext: config('gettext')

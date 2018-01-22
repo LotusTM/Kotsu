@@ -5,23 +5,21 @@ humanReadableUrl = require('../modules/humanReadableUrl')
 i18nTools = require('../modules/i18n-tools')
 nunjucksExtensions = require('../modules/nunjucks-extensions')
 
+matterCache = null
+
 module.exports = (config) =>
     config = merge {
       options:
         data: {}
-        matter: {}
         humanReadableUrls: false
         humanReadableUrlsExclude: /^(index|\d{3})$/
     }, config
 
     files = config.files
-    { configureEnvironment, preprocessData, matter, humanReadableUrls, humanReadableUrlsExclude, currentLocale, locales, baseLocale, gettext } = config.options
+    { configureEnvironment, preprocessData, humanReadableUrls, humanReadableUrlsExclude, currentLocale, locales, baseLocale, gettext } = config.options
     { getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = i18nTools
 
     currentLocale = currentLocale or baseLocale
-
-    if typeof matter != 'function' and typeof matter != 'object'
-      throw new Error('[nunjucks-task] matter should be a function, which returns matter object, or a plain matter object')
 
     if not baseLocale and typeof baseLocale != 'string'
       throw new Error('[nunjucks-task] base locale should be specified as `options.baseLocale` string')
@@ -51,10 +49,17 @@ module.exports = (config) =>
         preprocessData: (data) ->
           pagepath   = humanReadableUrl(@src[0].replace((@orig.cwd or @orig.orig.cwd), ''), humanReadableUrlsExclude)
           breadcrumb = crumble(pagepath)
-          matter     = if typeof matter == 'function' then matter() else matter
-          pageProps  = (get(matter, breadcrumb) or {}).props
+          { matter } = data.SITE
 
-          set data, 'SITE.__matter', matter
+          if typeof matter != 'function' and typeof matter != 'object'
+            throw new Error("[nunjucks-task] `options.data.SITE.matter` should be a function, which returns matter object, or a plain matter object, #{typeof matter} provided")
+
+          if not matterCache
+            matterCache = if typeof matter == 'function' then matter() else matter
+
+          data.SITE.matter = Object.assign({}, matterCache)
+
+          { props } = get(matterCache, breadcrumb)
 
           data.PAGE = merge data.PAGE,
             props:
@@ -64,7 +69,7 @@ module.exports = (config) =>
               region    : getRegioncode(currentLocale)
               rtl       : localeProps.rtl
             ,
-              props: pageProps
+              props: props
 
           if typeof preprocessData == 'function'
             data = preprocessData.call(@, data)

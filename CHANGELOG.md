@@ -5,9 +5,12 @@
 ### Added
 - [styles] Added inputs default styling to `textarea` and `select`.
 - [misc] Added more cleaning directives in `robots.txt`.
+- [modules] Added more aggressive caching for `SITE.matter`, which makes single require of matter files instead of require per each rendered file.
 
 ### Changed
 - [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasanoble marings.
+- [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.
+- [data] Matter data property renamed from `SITE._matter` to `SITE.matter`.
 - [tests] `runGrunt` test utility now returns console output in case of resolve.
 
 ### Removed

@@ -109,22 +109,28 @@ module.exports = (env) ->
   ###
   env.addGlobal 'getPage', (path, forceRender = true, cached = true, ctx = @getVariables()) ->
     path = path.includes('/') and crumble(path) or path
-    data = @ctx.SITE.__matter
-    cachedData = () => @ctx.SITE.__matterCache
-    setDataCache = (value) => @ctx.SITE.__matterCache = value
+    { matter } = @ctx.SITE
+
     renderData = (tmpl) => render(env, ctx, tmpl)
 
-    # Render whole Matter data and store it as cache after first `forceRender` request
-    if not cachedData() and forceRender
-      setDataCache(renderData(data))
+    getRenderedData = () =>
+      if not @ctx.SITE.matterRendered
+        @ctx.SITE.matterRendered = renderData(matter)
 
-    page = _.get(forceRender and cached and cachedData() or data, path)
+      return @ctx.SITE.matterRendered
+
+    data = (forceRender and cached and getRenderedData()) or matter
+
+    page = _.get(data, path)
 
     if not page
       log.error("[getPage] can not find `#{path}` inside site Matter data [#{@ctx.PAGE.props.url}]")
       return
 
-    page = Object.assign({}, forceRender and (cached and page or renderData(page)) or page)
+    if forceRender
+      page = if cached then page else renderData(page)
+
+    page = Object.assign({}, page)
     Object.defineProperty page, 'props', enumerable: false
     return page
 
