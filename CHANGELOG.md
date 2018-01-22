@@ -4,6 +4,7 @@
 
 ### Added
 - [styles] Added inputs default styling to `textarea` and `select`.
+- [scripts] Added built-in crucial polyfills for DOM `matches`, `closest` and `classList` methods.
 - [misc] Added more cleaning directives in `robots.txt`.
 - [modules] Added more aggressive caching for `SITE.matter`, which makes single require of matter files instead of require per each rendered file.
 - [templates][modules] Added Nunjucks `imageSize()` function which takes in image paths and returns image-related data:
