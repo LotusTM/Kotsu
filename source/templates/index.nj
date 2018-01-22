@@ -8,7 +8,6 @@ breadcrumbTitle: ={{ gettext('Home') }}
 
 description: ={{ gettext('Generated with %(company)s demo homepage') }}
 
-class:            p-index
 showContentTitle: false
 showBreadcrumb:   false
 ---

@@ -5,8 +5,6 @@ navTitle:        ={{ gettext('Blog') }}
 breadcrumbTitle: ={{ gettext('Blog') }}
 
 description: ={{ gettext('%(company)s blog') }}
-
-class: p-blog
 ---
 
 {% extends '_layouts/_main.nj' %}

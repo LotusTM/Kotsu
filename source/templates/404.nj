@@ -8,7 +8,6 @@ breadcrumbTitle: '404'
 
 description: ={{ gettext('404 &mdash; page not found') }}
 
-class:            p-404
 showContentTitle: false
 showBreadcrumb:   false
 ---
