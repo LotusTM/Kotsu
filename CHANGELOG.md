@@ -21,7 +21,11 @@
    See additional cases in [test file](https://github.com/LotusTM/Kotsu/tree/master/tests/kotsu/nunjucks-extensions/imageSize.test.js).
 
 ### Changed
-- [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasanoble marings.
+- [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasonable margins.
+- [scripts] `main.js` content no longer wrapped into jQuery function.
+
+   Since the script is placed in the end of the HTML, when the DOM is loaded, and JSPM anyway wraps content of each module into a function and leaking into a global scope variables no longer possessing any threat, there is simply no sense to continue doing this in 2018.
+
 - [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.
 - [data] Matter data property renamed from `SITE._matter` to `SITE.matter`.
 - [tests] `runGrunt` test utility now returns console output in case of resolve.

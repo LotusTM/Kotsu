@@ -3,8 +3,4 @@
 
 import $ from 'jquery'
 
-$(() => {
-  console.log('jQuery version is: ' + $().jquery)
-
-  $('html').removeClass('no-js')
-})
+$('html').removeClass('no-js')
