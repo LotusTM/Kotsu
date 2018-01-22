@@ -5,7 +5,17 @@ Disallow: {{ '/' if ENV.staging }}
 Host: {{ SITE.homepage }}
 Sitemap: {{ SITE.homepage }}/sitemap.xml
 # Yandex specific directives
+Clean-param: clid
 Clean-param: yclid
 Clean-param: frommarket
 Clean-param: _openstat
 Clean-param: utm_source&utm_medium&utm_campaign
+# Trash and spammy query parameters from hell
+Clean-param: from
+Clean-param: block
+Clean-param: fesh
+Clean-param: text
+Clean-param: grhow
+Clean-param: search
+Clean-param: page_id
+Clean-param: stat-id

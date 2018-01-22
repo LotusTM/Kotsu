@@ -4,6 +4,7 @@
 
 ### Added
 - [styles] Added inputs default styling to `textarea` and `select`.
+- [misc] Added more cleaning directives in `robots.txt`.
 
 ### Changed
 - [tests] `runGrunt` test utility now returns console output in case of resolve.
