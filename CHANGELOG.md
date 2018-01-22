@@ -7,6 +7,9 @@
 
    Such usage is deprecated. Pages are complex components and should be threaded just like any other component. Thus, components classes like `Index` for the index page or `Blog` for the blog encouraged instead.
 
+### Changed
+- [tests] `runGrunt` test utility now returns console output in case of resolve.
+
 ## 1.11.0
 
 ### Added

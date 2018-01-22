@@ -10,7 +10,10 @@ const grunt = gruntfile.call(gt, gt)
  * @return {promise} With resolved status on succesful pass, or reject with `new Error()` on failure
  */
 const runGrunt = (args) => new Promise((resolve, reject) =>
-  grunt.util.spawn({ cmd: 'grunt', args }, (error) => error ? reject(new Error(error)) : resolve('Done!'))
+  grunt.util.spawn(
+    { cmd: 'grunt', args },
+    (error, result) => error ? reject(new Error(error)) : resolve(result)
+  )
 )
 
 export { grunt, runGrunt }
