@@ -15,6 +15,9 @@
 
    Such usage is deprecated. Pages are complex components and should be threaded just like any other component. Thus, components classes like `Index` for the index page or `Blog` for the blog encouraged instead.
 
+### Fixed
+[modules] Fixed encoded Cyrillic URLs after going through `urljoin()`.
+
 ## 1.11.0
 
 ### Added
