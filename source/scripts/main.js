@@ -2,6 +2,5 @@
 // import 'babel-polyfill'
 
 import './utils/dom-polyfills'
-import $ from 'jquery'
 
-$('html').removeClass('no-js')
+document.querySelector('html').classList.remove('no-js')
