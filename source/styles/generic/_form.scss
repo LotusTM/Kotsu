@@ -4,6 +4,8 @@
 // =============================================================================
 
 input,
+textarea,
+select,
 #{$ekzo-g-ns}input {
   @include ekzo-theme() { border-color: ekzo-theme(forms-border); }
 
