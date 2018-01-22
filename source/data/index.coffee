@@ -29,6 +29,7 @@ module.exports = ({ config }) ->
       locales: config('locales')
       baseLocale: config('baseLocale')
       matter: () => require(join(cwd, config('file.temp.data.matter')))
+      images: () => require(join(cwd, config('file.temp.data.images')))
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
     PLACEHOLDERS:

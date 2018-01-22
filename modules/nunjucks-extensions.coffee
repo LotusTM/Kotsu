@@ -5,6 +5,7 @@ crumble                   = require('./crumble')
 render                    = require('./nunjucks-render')
 format                    = require('./format')
 urlify                    = require('./urlify')
+imageSize                 = require('./image-size')
 numbro                    = require('numbro')
 moment                    = require('moment')
 smartPlurals              = require('smart-plurals')
@@ -218,6 +219,9 @@ module.exports = (env) ->
       return true
 
     return new RegExp("^#{to}(/|$)").test(pageUrl)
+
+
+  env.addGlobal 'imageSize', (src) -> imageSize(src, @ctx.SITE.images)
 
   ###*
    * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation and displaying dates

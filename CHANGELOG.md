@@ -6,6 +6,19 @@
 - [styles] Added inputs default styling to `textarea` and `select`.
 - [misc] Added more cleaning directives in `robots.txt`.
 - [modules] Added more aggressive caching for `SITE.matter`, which makes single require of matter files instead of require per each rendered file.
+- [templates][modules] Added Nunjucks `imageSize()` function which takes in image paths and returns image-related data:
+
+   ```jinja
+   {% set image = imageSize('path/image.jpg') %}
+
+   {{ image.src }} returns 'path/image.jpg'
+   {{ image.width }} returns 100
+   {{ image.height }} returns 200
+   {{ image.set() }} returns all images in set
+   {{ image.srcset() }} returns `srcset`
+   ```
+
+   See additional cases in [test file](https://github.com/LotusTM/Kotsu/tree/master/tests/kotsu/nunjucks-extensions/imageSize.test.js).
 
 ### Changed
 - [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasanoble marings.
@@ -14,6 +27,7 @@
 - [tests] `runGrunt` test utility now returns console output in case of resolve.
 
 ### Removed
+[grunt] Removed `grunt-responsive-images-extender` in favor of newly added `imageSize()` Nunjucks function.
 [temlates] Removed `imports` block from `_base.nj` layout. They weren't useful since you wouldn't be able to extend base layout without them anyway.
 [styles][templates] Removed pages-related classes like `p-index` and `p-blog`.
 

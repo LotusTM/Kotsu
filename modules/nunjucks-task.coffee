@@ -6,6 +6,7 @@ i18nTools = require('../modules/i18n-tools')
 nunjucksExtensions = require('../modules/nunjucks-extensions')
 
 matterCache = null
+imagesCache = null
 
 module.exports = (config) =>
     config = merge {
@@ -49,15 +50,22 @@ module.exports = (config) =>
         preprocessData: (data) ->
           pagepath   = humanReadableUrl(@src[0].replace((@orig.cwd or @orig.orig.cwd), ''), humanReadableUrlsExclude)
           breadcrumb = crumble(pagepath)
-          { matter } = data.SITE
+          { matter, images } = data.SITE
 
           if typeof matter != 'function' and typeof matter != 'object'
             throw new Error("[nunjucks-task] `options.data.SITE.matter` should be a function, which returns matter object, or a plain matter object, #{typeof matter} provided")
 
+          if typeof images != 'function' and typeof images != 'object'
+            throw new Error("[nunjucks-task] `options.data.SITE.images` should be a function, which returns matter object, or a plain matter object, #{typeof images} provided")
+
           if not matterCache
             matterCache = if typeof matter == 'function' then matter() else matter
 
+          if not imagesCache
+            imagesCache = if typeof images == 'function' then images() else images
+
           data.SITE.matter = Object.assign({}, matterCache)
+          data.SITE.images = imagesCache
 
           { props } = get(matterCache, breadcrumb)
 

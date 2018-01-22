@@ -40,25 +40,20 @@ module.exports = () ->
       ]
 
   ###
-  grunt-responsive-images-extender
-  https://github.com/stephanmax/grunt-responsive-images-extender
-  Extend HTML image tags with srcset and sizes attributes to leverage native responsive images.
+  grunt-image-size
+  https://github.com/saperio/grunt-image-size
+  Retrieve image size information
   ###
 
-  @config 'responsive_images_extender',
+  buildPath = new RegExp("^#{@config('path.build.root')}")
+
+  @config 'image_size',
     build:
       options:
-        separator: '@'
-        baseDir: '<%= path.build.root %>'
-        ignore: [
-          'img[src*="http"]'
-          'img[src*="ftp"]'
-        ]
+        processName: (name) => name.replace(buildPath, '')
       files: [
-        expand: true
-        cwd: '<%= path.build.root %>'
-        src: '{,**/}*.html'
-        dest: '<%= path.build.root %>'
+        src: '<%= path.build.images %>/{,**/}*.{jpg,jpeg,gif,png,svg}'
+        dest: '<%= file.temp.data.images %>'
       ]
 
   ###
@@ -94,6 +89,8 @@ module.exports = () ->
         files: ['<%= path.source.images %>/{,**/}*']
         tasks: [
           'newer:copy:images'
+          'image_size'
+          'nunjucks'
           # @todo It would be preferable to use `newer:` here, but it wont work.
           #       See https://github.com/andismith/grunt-responsive-images/issues/57
           #       See https://github.com/LotusTM/Kotsu/issues/251
