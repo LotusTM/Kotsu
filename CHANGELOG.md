@@ -11,6 +11,7 @@
 - [tests] `runGrunt` test utility now returns console output in case of resolve.
 
 ### Removed
+[temlates] Removed `imports` block from `_base.nj` layout. They weren't useful since you wouldn't be able to extend base layout without them anyway.
 [styles][templates] Removed pages-related classes like `p-index` and `p-blog`.
 
    Such usage is deprecated. Pages are complex components and should be threaded just like any other component. Thus, components classes like `Index` for the index page or `Blog` for the blog encouraged instead.
