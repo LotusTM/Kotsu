@@ -10,5 +10,5 @@
 // Spacing
 // -----------------------------------------------------------------------------
 
-.Icon--left  { margin-right: .36em; }
-.Icon--right { margin-left:  .36em; }
+.Icon--left  { margin-right: ekzo-em(ekzo-space(.5)); }
+.Icon--right { margin-left:  ekzo-em(ekzo-space(.5)); }

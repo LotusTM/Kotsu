@@ -7,6 +7,7 @@
 - [misc] Added more cleaning directives in `robots.txt`.
 
 ### Changed
+- [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasanoble marings.
 - [tests] `runGrunt` test utility now returns console output in case of resolve.
 
 ### Removed
