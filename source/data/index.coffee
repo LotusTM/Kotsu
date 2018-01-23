@@ -3,33 +3,35 @@
 pkg = require('../../package.json')
 
 module.exports = ({ config }) ->
+  { env, path, file, locales, baseLocale } = config()
+
   cwd = process.cwd()
-  sitename = config('env.sitename')
-  buildRoot = config('path.build.root') + '/'
-  imagesPath = config('path.build.images').replace(buildRoot, '')
+  sitename = env.sitename
+  buildRoot = path.build.root + '/'
+  imagesPath = path.build.images.replace(buildRoot, '')
 
   data =
     PATH:
-      fonts: config('path.build.fonts').replace(buildRoot, '')
+      fonts: path.build.fonts.replace(buildRoot, '')
       images: imagesPath
-      scripts: config('path.build.scripts').replace(buildRoot, '')
-      styles: config('path.build.styles').replace(buildRoot, '')
-      sprites: config('path.build.sprites').replace(buildRoot, '')
-      source: config('path.source')
-      build: config('path.build')
+      scripts: path.build.scripts.replace(buildRoot, '')
+      styles: path.build.styles.replace(buildRoot, '')
+      sprites: path.build.sprites.replace(buildRoot, '')
+      source: path.source
+      build: path.build
     SITE:
       name: pkg.name
       shortName: pkg.name
       version: pkg.version
       description: pkg.description
       homepage: if sitename then "https://#{sitename}" else pkg.homepage
-      logo: "/#{imagesPath}/logo.svg"
+      logo: join(imagesPath, '/logo.svg')
       viewport: 'width=device-width, initial-scale=1'
       themeColor: '#313840'
-      locales: config('locales')
-      baseLocale: config('baseLocale')
-      matter: () => require(join(cwd, config('file.temp.data.matter')))
-      images: () => require(join(cwd, config('file.temp.data.images')))
+      locales: locales
+      baseLocale: baseLocale
+      matter: () => require(join(cwd, file.temp.data.matter))
+      images: () => require(join(cwd, file.temp.data.images))
       googleAnalyticsId: false # 'UA-XXXXX-X'
       yandexMetrikaId: false # 'XXXXXX'
     PLACEHOLDERS:
@@ -45,16 +47,16 @@ module.exports = ({ config }) ->
     SOCIAL: # Add any other social services following same pattern
       twitter:
         handle: pkg.twitter
-        image: "/#{imagesPath}/twitter.png"
+        image: join(imagesPath, '/twitter.png')
         url: "https://twitter.com/#{pkg.twitter}"
       facebook:
-        image: "/#{imagesPath}/facebook.png"
+        image: join(imagesPath, '/facebook.png')
         url: 'https://www.facebook.com/Lotus-TM-647393298791066/'
     ENV:
-      production: config('env.production')
-      staging: config('env.staging')
-      build: config('env.build')
-      hotModuleRloading: config('env.hotModuleRloading')
+      production: env.production
+      staging: env.staging
+      build: env.build
+      hotModuleRloading: env.hotModuleRloading
 
   return (locale) -> switch locale
     when 'ru-RU' then merge {}, data

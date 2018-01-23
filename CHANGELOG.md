@@ -29,6 +29,8 @@
 
 - [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.
 - [data] Matter data property renamed from `SITE._matter` to `SITE.matter`.
+- [data] Data file now destructuring `config()` values once to avoid numerous `config()` calls. This should improve performance in large data files.
+- [data] Data file now using `path.join()` method to properly concatenate various paths.
 - [tests] `runGrunt` test utility now returns console output in case of resolve.
 
 ### Removed
