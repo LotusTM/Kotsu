@@ -1,4 +1,4 @@
-const Gettext = require('./modules/gettext')
+const gettext = require('./modules/gettext')
 
 module.exports = function (grunt) {
   'use strict'
@@ -117,7 +117,7 @@ module.exports = function (grunt) {
   })
 
   grunt.config.merge({
-    gettext: new Gettext({ cwd: grunt.config('path.source.locales') }),
+    gettext: gettext(grunt.config('path.source.locales')),
     data: require(`./${grunt.config('path.source.data')}`)(grunt)
   })
 
