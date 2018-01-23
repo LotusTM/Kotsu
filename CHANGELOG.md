@@ -23,6 +23,12 @@
 
 ### Changed
 - [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasonable margins.
+- [scripts] ES6 in, CoffeeScript out.
+
+   CoffeeScript is no longer a part of the Kotsu. All code rewritten in pure ES6, all `.coffee` files renamed to `.js`, all imports no longer referring to `.coffee` extension, CoffeeScript no longer supported by Jest testing environment out of the box.
+
+   Process of transition has been accompanied by [VHS Glitch - Blood In Blood Out](https://vhsglitch.bandcamp.com/track/blood-in-blood-out).
+
 - [scripts] `main.js` content no longer wrapped into jQuery function.
 
    Since the script is placed in the end of the HTML, when the DOM is loaded, and JSPM anyway wraps content of each module into a function and leaking into a global scope variables no longer possessing any threat, there is simply no sense to continue doing this in 2018.
