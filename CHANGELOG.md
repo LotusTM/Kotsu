@@ -37,6 +37,10 @@
 
    Closes [#156](https://github.com/LotusTM/Kotsu/pull/156), fixes [#272](https://github.com/LotusTM/Kotsu/issues/272), related to [#45](https://github.com/LotusTM/Kotsu/issues/45).
 
+- [modules] `gettext` will now log to the console errors in case any translation is missing.
+
+   Closes [#46](https://github.com/LotusTM/Kotsu/issues/46).
+
 - [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.
 - [data] Matter data property renamed from `SITE._matter` to `SITE.matter`.
 - [data] Data file now destructuring `config()` values once to avoid numerous `config()` calls. This should improve performance in large data files.

@@ -37,6 +37,10 @@ module.exports = (cwd) => {
     autobindTextdomains(gt, cwd, localeDir)
   })
 
+  gt.on('error', (error) => console.error(
+    `[gettext] ${error}`
+  ))
+
   return {
     setLocale: gt.setLocale,
     setTextdomain: gt.setTextDomain,
