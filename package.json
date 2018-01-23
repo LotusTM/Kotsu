@@ -164,21 +164,12 @@
     ]
   },
   "jest": {
-    "moduleFileExtensions": [
-      "coffee",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.js?$": "babel-jest",
-      "^.+\\.coffee$": "<rootDir>/tests/utils/jest-preprocessor.js"
-    },
     "testPathIgnorePatterns": [
       "/.git/",
       "<rootDir>/build/",
       "<rootDir>/temp/",
       "/node_modules/",
       "/jspm_packages/"
-    ],
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(coffee|js)?$"
+    ]
   }
 }

@@ -139,13 +139,13 @@ Takes in URL. In a case of absolute URLs, returns it as it is, otherwise resolve
 
 Though, might be slightly obscure, this function is useful when you not sure will be input absolute URL or no, but needs to always return absolute URL, no matter what.
 
-[Documentation](https://github.com/LotusTM/Kotsu/blob/master/modules/nunjucks-extensions.coffee)
+[Documentation](https://github.com/LotusTM/Kotsu/blob/master/modules/nunjucks-extensions.js)
 
 #### `isActive`
 
 If compared URL is part of current page URL, will return true.
 
-[Documentation](https://github.com/LotusTM/Kotsu/blob/master/modules/nunjucks-extensions.coffee)
+[Documentation](https://github.com/LotusTM/Kotsu/blob/master/modules/nunjucks-extensions.js)
 
 ### Nunjucks components
 

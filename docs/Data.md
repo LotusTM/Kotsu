@@ -39,7 +39,7 @@ When predefined data simply doesn't cut, Kotsu provides handy ways to configurat
 
    `{{ config() }}` function is a convenient way to provide defaults for base or product layouts, which will be used in place of any unspecified with Front Matter or `{{ config() }}` data on final page.
 
-3. By specifing page default in `source/data/index.coffee`, `PAGE_DEFAULTS` property.
+3. By specifing page default in `source/data/index.js`, `PAGE_DEFAULTS` property.
 
     Any specified in `PAGE_DEFAULTS` properties will end up as defaults for all pages, which extending `_base.nj` layout, unless pages has assigned specific values to those properties.
 
@@ -66,7 +66,7 @@ Those variables available on all pages
 
 ### `SITE` properties
 
-Those predefined properties can be changed by either editing `source/data/index.coffee` file, or by redefining them with `{{ config('SITE.myVar', 'value') }}` function.
+Those predefined properties can be changed by either editing `source/data/index.js` file, or by redefining them with `{{ config('SITE.myVar', 'value') }}` function.
 
 Note, that most of predefined properties taken from `package.json`, or `gruntfile`.
 

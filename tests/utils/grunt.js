@@ -1,5 +1,5 @@
 import gt from 'grunt'
-import gruntfile from '../../gruntfile.coffee'
+import gruntfile from '../../gruntfile'
 
 const grunt = gruntfile.call(gt, gt)
 
