@@ -1,29 +1,30 @@
-module.exports = () ->
+module.exports = function () {
+  // Copy
+  // https://github.com/gruntjs/grunt-contrib-copy
+  // Copy files and folders
 
-  ###
-  Copy
-  https://github.com/gruntjs/grunt-contrib-copy
-  Copy files and folders
-  ###
-
-  @config.merge
-    copy:
-      static:
-        files: [
-          expand: true
-          cwd: '<%= path.source.static %>/'
-          src: ['**']
+  this.config.merge({
+    copy: {
+      static: {
+        files: [{
+          expand: true,
+          cwd: '<%= path.source.static %>/',
+          src: ['**'],
           dest: '<%= path.build.static %>/'
-        ]
+        }]
+      }
+    }})
 
-  ###
-  Watch
-  https://github.com/gruntjs/grunt-contrib-watch
-  Watches scss, js etc for changes and compiles them
-  ###
+  // Watch
+  // https://github.com/gruntjs/grunt-contrib-watch
+  // Watches scss, js etc for changes and compiles them
 
-  @config.merge
-    watch:
-      static:
-        files: ['<%= path.source.static %>/{,**/}*']
+  this.config.merge({
+    watch: {
+      static: {
+        files: ['<%= path.source.static %>/{,**/}*'],
         tasks: ['newer:copy:static']
+      }
+    }
+  })
+}

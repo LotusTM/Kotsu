@@ -1,87 +1,100 @@
-{ join, extname }          = require('path')
-NodeGettext                = require('node-gettext')
-{ file: { expand, read } } = require('grunt')
+const { join, extname } = require('path')
+const NodeGettext = require('node-gettext')
+const { file: { expand, read } } = require('grunt')
 
-module.exports = class Gettext
-  constructor: ({ @cwd, @defaultDomain = 'messages' }) ->
-    @localesDirs = expand({ cwd: @cwd, filter: 'isDirectory' }, '*', '!*templates')
+module.exports = class Gettext {
+  constructor (opts) {
+    if (!opts.cwd) {
+      throw new Error('[gettext] argument `options.cwd` should be privided')
+    }
 
-    ###*
+    const options = Object.assign({
+      defaultDomain: 'messages'
+    }, opts)
+
+    this.cwd = options.cwd
+    this.defaultDomain = options.defaultDomain
+    this.localesDirs = expand({ cwd: this.cwd, filter: 'isDirectory' }, '*', '!*templates')
+
+    /**
      * Selects corresponding to specified locale Gettext instance, otherwise creates new.
      * @param {string} locale Name of locale which should be invoked or created
-    ###
-    @setLocale = (locale) ->
-      if not @[locale]
-        @[locale] = new NodeGettext()
-        @[locale].locale = locale
+    */
+    this.setLocale = function (locale) {
+      if (!this[locale]) {
+        this[locale] = new NodeGettext()
+        this[locale].locale = locale
+      }
 
-      @gt = @[locale]
-      return
+      this.gt = this[locale]
+    }
 
-    ###*
+    /**
      * Binds new domain to current active locale.
      * Expects your l10n files to be under `{localeName}/LC_MESSAGES/..` or `{localeName}/..` paths.
      * @param  {string} domain       Package name for new domain
      * @param  {string} [cwd] = @cwd Full path to locales dir
-    ###
-    @bindTextdomain = (domain, cwd = @cwd) ->
-      cwd = join(cwd, @gt.locale)
-      # Discover possible file names and select first matching
-      domainFile = expand({ cwd, filter: 'isFile' }, "{,LC_MESSAGES/}#{domain}.{mo,po}")[0]
-      domainPath = join(cwd, domainFile)
-      messages = read(domainPath, encoding: null)
+    */
+    this.bindTextdomain = function (domain, cwd = this.cwd) {
+      cwd = join(cwd, this.gt.locale)
+      // Discover possible file names and select first matching
+      const domainFile = expand({ cwd, filter: 'isFile' }, `{,LC_MESSAGES/}${domain}.{mo,po}`)[0]
+      const domainPath = join(cwd, domainFile)
+      const messages = read(domainPath, {encoding: null})
 
-      @gt.addTextdomain(domain, messages)
-      return
+      this.gt.addTextdomain(domain, messages)
+    }
 
-    ###*
+    /**
      * Load l10n files and bind them to domains based on filepaths for current locale.
      * @param  {string} [cwd] = @cwd Full path to locales dir
      * @example `/locales/en/foo/bar.po` will result in `foo/bar` domain.
-    ###
-    @autobindTextdomains = (cwd = @cwd) ->
-      cwd = join(cwd, @gt.locale)
+    */
+    this.autobindTextdomains = function (cwd = this.cwd) {
+      cwd = join(cwd, this.gt.locale)
 
-      expand({ cwd, filter: 'isFile' }, '{,**/}*.{mo,po}').forEach (domainpath) =>
-        domain = domainpath.replace(extname(domainpath), '')
-        @bindTextdomain(domain)
+      expand({ cwd, filter: 'isFile' }, '{,**/}*.{mo,po}').forEach(domainpath => {
+        const domain = domainpath.replace(extname(domainpath), '')
+        return this.bindTextdomain(domain)
+      })
+    }
 
-      return
+    // Load existing l10n files as locales
+    this.localesDirs.forEach((locale) => {
+      this.setLocale(locale)
+      this.autobindTextdomains()
+    })
 
-    # Load existing l10n files as locales
-    @localesDirs.forEach (locale) =>
-      @setLocale(locale)
-      @autobindTextdomains()
+    // Ensure that no locale set as active during init
+    this.gt = null
+  }
 
-    # Ensure that no locale set as active during init
-    @gt = null
+  setTextdomain (domain = this.defaultDomain) { return this.gt.textdomain(domain) }
 
-  setTextdomain: (domain = @defaultDomain) -> @gt.textdomain(domain)
+  // See https://github.com/alexanderwallin/node-gettext/tree/master#translation-methods
+  gettext (message) { return this.gt.gettext(...arguments) }
+  dgettext (domain, message) { return this.gt.dgettext(...arguments) }
+  ngettext (message, pluralMessage, count) { return this.gt.ngettext(...arguments) }
+  dngettext (domain, message, pluralMessage, count) { return this.gt.dngettext(...arguments) }
+  pgettext (context, message) { return this.gt.pgettext(...arguments) }
+  dpgettext (domain, context, message) { return this.gt.dpgettext(...arguments) }
+  npgettext (context, message, pluralMessage, count) { return this.gt.npgettext(...arguments) }
+  dnpgettext (domain, context, message, pluralMessage, count) { return this.gt.dnpgettext(...arguments) }
 
-  # See https://github.com/alexanderwallin/node-gettext/tree/master#translation-methods
-  gettext: (message) -> @gt.gettext(arguments...)
-  dgettext: (domain, message) -> @gt.dgettext(arguments...)
-  ngettext: (message, pluralMessage, count) -> @gt.ngettext(arguments...)
-  dngettext: (domain, message, pluralMessage, count) -> @gt.dngettext(arguments...)
-  pgettext: (context, message) -> @gt.pgettext(arguments...)
-  dpgettext: (domain, context, message) -> @gt.dpgettext(arguments...)
-  npgettext: (context, message, pluralMessage, count) -> @gt.npgettext(arguments...)
-  dnpgettext: (domain, context, message, pluralMessage, count) -> @gt.dnpgettext(arguments...)
+  nunjucksExtensions (env, currentLocale) {
+    this.setLocale(currentLocale)
+    this.setTextdomain(this.defaultDomain)
 
-  nunjucksExtensions: (env, currentLocale) ->
-    @setLocale(currentLocale)
-    @setTextdomain(@defaultDomain)
+    env.addGlobal('setLocale', (locale = currentLocale) => this.setLocale(locale))
+    env.addGlobal('setTextdomain', (domain = this.defaultDomain) => this.textdomain(...arguments))
 
-    env.addGlobal 'setLocale', (locale = currentLocale) => @setLocale(locale)
-    env.addGlobal 'setTextdomain', (domain = @defaultDomain) => @textdomain(arguments...)
-
-    env.addGlobal 'gettext', (message) => @gettext(arguments...)
-    env.addGlobal 'dgettext', (domain, message) => @dgettext(arguments...)
-    env.addGlobal 'ngettext', (message, pluralMessage, count) => @ngettext(arguments...)
-    env.addGlobal 'dngettext', (domain, message, pluralMessage, count) => @dngettext(arguments...)
-    env.addGlobal 'pgettext', (context, message) => @pgettext(arguments...)
-    env.addGlobal 'dpgettext', (domain, context, message) => @dpgettext(arguments...)
-    env.addGlobal 'npgettext', (context, message, pluralMessage, count) => @npgettext(arguments...)
-    env.addGlobal 'dnpgettext', (domain, context, message, pluralString, count) => @dnpgettext(arguments...)
-
-    return
+    env.addGlobal('gettext', (message) => this.gettext(...arguments))
+    env.addGlobal('dgettext', (domain, message) => this.dgettext(...arguments))
+    env.addGlobal('ngettext', (message, pluralMessage, count) => this.ngettext(...arguments))
+    env.addGlobal('dngettext', (domain, message, pluralMessage, count) => this.dngettext(...arguments))
+    env.addGlobal('pgettext', (context, message) => this.pgettext(...arguments))
+    env.addGlobal('dpgettext', (domain, context, message) => this.dpgettext(...arguments))
+    env.addGlobal('npgettext', (context, message, pluralMessage, count) => this.npgettext(...arguments))
+    env.addGlobal('dnpgettext', (domain, context, message, pluralString, count) => this.dnpgettext(...arguments))
+  }
+}

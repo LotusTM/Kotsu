@@ -1,102 +1,120 @@
-{ set, get, merge } = require('lodash')
-{ join } = require('path')
-crumble = require('../modules/crumble')
-humanReadableUrl = require('../modules/humanReadableUrl')
-i18nTools = require('../modules/i18n-tools')
-nunjucksExtensions = require('../modules/nunjucks-extensions')
+const { get, merge } = require('lodash')
+const { join } = require('path')
+const crumble = require('../modules/crumble')
+const humanReadableUrl = require('../modules/humanReadableUrl')
+const i18nTools = require('../modules/i18n-tools')
+const nunjucksExtensions = require('../modules/nunjucks-extensions')
 
-matterCache = null
-imagesCache = null
+let matterCache
+let imagesCache
 
-module.exports = (config) =>
-    config = merge {
-      options:
-        data: {}
-        humanReadableUrls: false
-        humanReadableUrlsExclude: /^(index|\d{3})$/
-    }, config
+module.exports = function (config) {
+  config = merge({
+    options: {
+      data: {},
+      humanReadableUrls: false,
+      humanReadableUrlsExclude: /^(index|\d{3})$/
+    }
+  }, config)
 
-    files = config.files
-    { configureEnvironment, preprocessData, humanReadableUrls, humanReadableUrlsExclude, currentLocale, locales, baseLocale, gettext } = config.options
-    { getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = i18nTools
+  const { files } = config
+  let { configureEnvironment, preprocessData, humanReadableUrls, humanReadableUrlsExclude, currentLocale, locales, baseLocale, gettext } = config.options
+  const { getLocaleProps, getLocaleDir, getLangcode, getRegioncode, isoLocale } = i18nTools
 
-    currentLocale = currentLocale or baseLocale
+  currentLocale = currentLocale || baseLocale
 
-    if not baseLocale and typeof baseLocale != 'string'
-      throw new Error('[nunjucks-task] base locale should be specified as `options.baseLocale` string')
+  if (!baseLocale && (typeof baseLocale !== 'string')) {
+    throw new Error('[nunjucks-task] base locale should be specified as `options.baseLocale` string')
+  }
 
-    if not locales and typeof locales != 'object'
-      throw new Error('[nunjucks-task] locales properties should be specified as `options.locales` object')
+  if (!locales && (typeof locales !== 'object')) {
+    throw new Error('[nunjucks-task] locales properties should be specified as `options.locales` object')
+  }
 
-    if not gettext and typeof gettext != 'object'
-      throw new Error('[nunjucks-task] gettext instance should be provided as `options.gettext` object')
+  if (!gettext && (typeof gettext !== 'object')) {
+    throw new Error('[nunjucks-task] gettext instance should be provided as `options.gettext` object')
+  }
 
-    if not files
-      throw new Error('[nunjucks-task] `src` and `dest` should be provided as array of objects with `expand: true`')
+  if (!files) {
+    throw new Error('[nunjucks-task] `src` and `dest` should be provided as array of objects with `expand: true`')
+  }
 
-    localeProps = getLocaleProps(locales, currentLocale)
-    localeDir = getLocaleDir(locales, currentLocale)
+  const localeProps = getLocaleProps(locales, currentLocale)
+  const localeDir = getLocaleDir(locales, currentLocale)
 
-    config = merge config,
-      options:
-        configureEnvironment : (env, nunjucks) ->
-          nunjucksExtensions(env)
-          gettext.nunjucksExtensions(env, currentLocale)
-          i18nTools.nunjucksExtensions(env)
+  config = merge(config, {
+    options: {
+      configureEnvironment (env, nunjucks) {
+        nunjucksExtensions(env)
+        gettext.nunjucksExtensions(env, currentLocale)
+        i18nTools.nunjucksExtensions(env)
 
-          if typeof configureEnvironment == 'function'
-            configureEnvironment.call(@, env, nunjucks)
+        if (typeof configureEnvironment === 'function') {
+          configureEnvironment.call(this, env, nunjucks)
+        }
+      },
 
-        preprocessData: (data) ->
-          pagepath   = humanReadableUrl(@src[0].replace((@orig.cwd or @orig.orig.cwd), ''), humanReadableUrlsExclude)
-          breadcrumb = crumble(pagepath)
-          { matter, images } = data.SITE
+      preprocessData (data) {
+        const pagepath = humanReadableUrl(this.src[0].replace((this.orig.cwd || this.orig.orig.cwd), ''), humanReadableUrlsExclude)
+        const breadcrumb = crumble(pagepath)
+        const { matter, images } = data.SITE
 
-          if typeof matter != 'function' and typeof matter != 'object'
-            throw new Error("[nunjucks-task] `options.data.SITE.matter` should be a function, which returns matter object, or a plain matter object, #{typeof matter} provided")
+        if ((typeof matter !== 'function') && (typeof matter !== 'object')) {
+          throw new Error(`[nunjucks-task] \`options.data.SITE.matter\` should be a function, which returns matter object, or a plain matter object, ${typeof matter} provided`)
+        }
 
-          if typeof images != 'function' and typeof images != 'object'
-            throw new Error("[nunjucks-task] `options.data.SITE.images` should be a function, which returns matter object, or a plain matter object, #{typeof images} provided")
+        if ((typeof images !== 'function') && (typeof images !== 'object')) {
+          throw new Error(`[nunjucks-task] \`options.data.SITE.images\` should be a function, which returns matter object, or a plain matter object, ${typeof images} provided`)
+        }
 
-          if not matterCache
-            matterCache = if typeof matter == 'function' then matter() else matter
+        if (!matterCache) {
+          matterCache = typeof matter === 'function' ? matter() : matter
+        }
 
-          if not imagesCache
-            imagesCache = if typeof images == 'function' then images() else images
+        if (!imagesCache) {
+          imagesCache = typeof images === 'function' ? images() : images
+        }
 
-          data.SITE.matter = Object.assign({}, matterCache)
-          data.SITE.images = imagesCache
+        data.SITE.matter = Object.assign({}, matterCache)
+        data.SITE.images = imagesCache
 
-          { props } = get(matterCache, breadcrumb)
+        const { props } = get(matterCache, breadcrumb)
 
-          data.PAGE = merge data.PAGE,
-            props:
-              locale    : currentLocale
-              isoLocale : isoLocale(currentLocale)
-              language  : getLangcode(currentLocale)
-              region    : getRegioncode(currentLocale)
-              rtl       : localeProps.rtl
-            ,
-              props: props
+        data.PAGE = merge(data.PAGE, {
+          props: {
+            locale: currentLocale,
+            isoLocale: isoLocale(currentLocale),
+            language: getLangcode(currentLocale),
+            region: getRegioncode(currentLocale),
+            rtl: localeProps.rtl
+          }
+        }, { props })
 
-          if typeof preprocessData == 'function'
-            data = preprocessData.call(@, data)
+        if (typeof preprocessData === 'function') {
+          data = preprocessData.call(this, data)
+        }
 
-          return data
+        return data
+      }
+    }
+  })
 
-    files.map (file) =>
-      if not file.expand
-        throw new Error('[nunjucks-task] files mapping should use `expand: true`')
+  files.map((file) => {
+    if (!file.expand) {
+      throw new Error('[nunjucks-task] files mapping should use `expand: true`')
+    }
 
-      { rename } = file
+    file.rename = (dest, src) => {
+      const newSrc = humanReadableUrls ? humanReadableUrl(src, humanReadableUrlsExclude) : src
+      const newDest = join(dest, localeDir)
 
-      file.rename = (dest, src) =>
-        newSrc = if humanReadableUrls then humanReadableUrl(src, humanReadableUrlsExclude) else src
-        newDest = join(dest, localeDir)
+      if (typeof file.rename === 'function') {
+        return file.rename.call(this, newDest, newSrc)
+      }
 
-        if typeof rename == 'function'
-          return rename.call(@, newDest, newSrc)
+      return join(newDest, newSrc)
+    }
+  })
 
-        return join(newDest, newSrc)
-
-    return config
+  return config
+}
