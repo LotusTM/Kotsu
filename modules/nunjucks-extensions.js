@@ -182,7 +182,7 @@ module.exports = function (env) {
     // Set l10n defaults
     const { locale } = this.ctx.PAGE
 
-    numbro.setCulture(locale)
+    numbro.setLanguage(locale)
     numbro.defaultFormat(this.ctx.SITE.locales[locale].numberFormat)
     numbro.defaultCurrencyFormat(this.ctx.SITE.locales[locale].currencyFormat)
 
@@ -235,7 +235,7 @@ module.exports = function (env) {
   /**
    * Expose `numbro.js` to Nunjucks' for formatting numbers and currencies
    * @docs http://numbrojs.com/format.html
-   * @note Change locale on the go with `numbro(...).setCulture('de-DE')`
+   * @note Change locale on the go with `numbro(...).culture('de-DE')`
    * @param {*} param... Any parameters, which should be passed to `numbro.js`
    * @return {numbro} `numbro.js` expression for further use
   */

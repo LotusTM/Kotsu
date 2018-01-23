@@ -22,6 +22,7 @@
    See additional cases in [test file](https://github.com/LotusTM/Kotsu/tree/master/tests/kotsu/nunjucks-extensions/imageSize.test.js).
 
 ### Changed
+- [package] Updated dependencies.
 - [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasonable margins.
 - [scripts] ES6 in, CoffeeScript out.
 
@@ -42,6 +43,7 @@
    Closes [#46](https://github.com/LotusTM/Kotsu/issues/46).
 
 - [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.
+- [templates] Due to update of `numbro` to version `2.0.0` `numbro.setCulture()` method has been changed to `numbro.setLanguage()`.
 - [data] Matter data property renamed from `SITE._matter` to `SITE.matter`.
 - [data] Data file now destructuring `config()` values once to avoid numerous `config()` calls. This should improve performance in large data files.
 - [data] Data file now using `path.join()` method to properly concatenate various paths.
