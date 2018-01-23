@@ -40,14 +40,16 @@ module.exports = function (env) {
    * @param {*} input Anything we want to log to console
    * @return {string} Logs to Grunt console
   */
-  env.addGlobal('log', (...input) => console.log(...input)
+  env.addGlobal('log', (...input) => console.log(...input))
 
   /**
    * Log specified to Grunt's console as warning message
    * @param {*} input Anything we want to log to console
    * @return {string} Logs to Grunt console
   */
-  env.addGlobal('warn', (...input) => log.error(...input, `[${this.ctx.PAGE.props.url}]`))
+  env.addGlobal('warn', function (...input) {
+    return log.error(...input, `[${this.ctx.PAGE.props.url}]`)
+  })
 
   /**
    * Get list of files or directories inside specified directory
@@ -218,7 +220,6 @@ module.exports = function (env) {
     return new RegExp(`^${to}(/|$)`).test(pageUrl)
   })
 
-
   env.addGlobal('imageSize', function (src) {
     return imageSize(src, this.ctx.SITE.images)
   })
@@ -272,7 +273,7 @@ module.exports = function (env) {
 
     if (hasProtocol) return url
 
-    const isDocumentRelative = /^[^\/]/.test(url)
+    const isDocumentRelative = /^[^/]/.test(url)
     const rootRelativeUrl = isDocumentRelative
       ? urljoin(this.ctx.PAGE.url, url)
       : url
@@ -333,7 +334,7 @@ module.exports = function (env) {
    * @param {string} locale = @ctx.PAGE.locale Locale name
    * @return {string} Correct plural form
   */
-  env.addFilter('plural', function (count, forms, locale =  this.ctx.PAGE.locale) {
+  env.addFilter('plural', function (count, forms, locale = this.ctx.PAGE.locale) {
     return smartPlurals.Plurals.getRule(locale)(count, forms)
   })
 
@@ -343,7 +344,7 @@ module.exports = function (env) {
    * @param {object} options = {} Options overrides as per https://github.com/Gottox/node-urlify
    * @return {string} Urlified string
   */
-  env.addFilter('urlify', (string, options = {}) => urlify(string, options)
+  env.addFilter('urlify', (string, options = {}) => urlify(string, options))
 
   /**
    * Spread object in form of string with formed attributes pairs. Think of React's `<div {...props}></div>` for Nunjucks
@@ -357,7 +358,7 @@ module.exports = function (env) {
       return
     }
 
-    return input.reduce(
+    return Object.keys(input).reduce(
       (spreaded, property) => `${spreaded}${property}='${input[property]}' `,
       ''
     )

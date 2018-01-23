@@ -67,34 +67,34 @@ module.exports = class Gettext {
 
     // Ensure that no locale set as active during init
     this.gt = null
-  }
 
-  setTextdomain (domain = this.defaultDomain) { return this.gt.textdomain(domain) }
+    this.setTextdomain = (domain = this.defaultDomain) => this.gt.textdomain(domain)
 
-  // See https://github.com/alexanderwallin/node-gettext/tree/master#translation-methods
-  gettext (message) { return this.gt.gettext(...arguments) }
-  dgettext (domain, message) { return this.gt.dgettext(...arguments) }
-  ngettext (message, pluralMessage, count) { return this.gt.ngettext(...arguments) }
-  dngettext (domain, message, pluralMessage, count) { return this.gt.dngettext(...arguments) }
-  pgettext (context, message) { return this.gt.pgettext(...arguments) }
-  dpgettext (domain, context, message) { return this.gt.dpgettext(...arguments) }
-  npgettext (context, message, pluralMessage, count) { return this.gt.npgettext(...arguments) }
-  dnpgettext (domain, context, message, pluralMessage, count) { return this.gt.dnpgettext(...arguments) }
+    // See https://github.com/alexanderwallin/node-gettext/tree/master#translation-methods
+    this.gettext = (message) => this.gt.gettext(...arguments)
+    this.dgettext = (domain, message) => this.gt.dgettext(...arguments)
+    this.ngettext = (message, pluralMessage, count) => this.gt.ngettext(...arguments)
+    this.dngettext = (domain, message, pluralMessage, count) => this.gt.dngettext(...arguments)
+    this.pgettext = (context, message) => this.gt.pgettext(...arguments)
+    this.dpgettext = (domain, context, message) => this.gt.dpgettext(...arguments)
+    this.npgettext = (context, message, pluralMessage, count) => this.gt.npgettext(...arguments)
+    this.dnpgettext = (domain, context, message, pluralMessage, count) => this.gt.dnpgettext(...arguments)
 
-  nunjucksExtensions (env, currentLocale) {
-    this.setLocale(currentLocale)
-    this.setTextdomain(this.defaultDomain)
+    this.nunjucksExtensions = (env, currentLocale) => {
+      this.setLocale(currentLocale)
+      this.setTextdomain(this.defaultDomain)
 
-    env.addGlobal('setLocale', (locale = currentLocale) => this.setLocale(locale))
-    env.addGlobal('setTextdomain', (domain = this.defaultDomain) => this.textdomain(...arguments))
+      env.addGlobal('setLocale', (locale = currentLocale) => this.setLocale(locale))
+      env.addGlobal('setTextdomain', (domain = this.defaultDomain) => this.textdomain(...arguments))
 
-    env.addGlobal('gettext', (message) => this.gettext(...arguments))
-    env.addGlobal('dgettext', (domain, message) => this.dgettext(...arguments))
-    env.addGlobal('ngettext', (message, pluralMessage, count) => this.ngettext(...arguments))
-    env.addGlobal('dngettext', (domain, message, pluralMessage, count) => this.dngettext(...arguments))
-    env.addGlobal('pgettext', (context, message) => this.pgettext(...arguments))
-    env.addGlobal('dpgettext', (domain, context, message) => this.dpgettext(...arguments))
-    env.addGlobal('npgettext', (context, message, pluralMessage, count) => this.npgettext(...arguments))
-    env.addGlobal('dnpgettext', (domain, context, message, pluralString, count) => this.dnpgettext(...arguments))
+      env.addGlobal('gettext', (message) => this.gettext(...arguments))
+      env.addGlobal('dgettext', (domain, message) => this.dgettext(...arguments))
+      env.addGlobal('ngettext', (message, pluralMessage, count) => this.ngettext(...arguments))
+      env.addGlobal('dngettext', (domain, message, pluralMessage, count) => this.dngettext(...arguments))
+      env.addGlobal('pgettext', (context, message) => this.pgettext(...arguments))
+      env.addGlobal('dpgettext', (domain, context, message) => this.dpgettext(...arguments))
+      env.addGlobal('npgettext', (context, message, pluralMessage, count) => this.npgettext(...arguments))
+      env.addGlobal('dnpgettext', (domain, context, message, pluralString, count) => this.dnpgettext(...arguments))
+    }
   }
 }

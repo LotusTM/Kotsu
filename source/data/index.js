@@ -3,7 +3,7 @@ const { join } = require('path')
 const pkg = require('../../package.json')
 
 module.exports = ({ config }) => {
-  const { env: { sitename }, path, file, locales, baseLocale } = config()
+  const { env, path, file, locales, baseLocale } = config()
   const cwd = process.cwd()
   const buildRoot = path.build.root + '/'
   const imagesPath = path.build.images.replace(buildRoot, '')
@@ -23,8 +23,8 @@ module.exports = ({ config }) => {
       shortName: pkg.name,
       version: pkg.version,
       description: pkg.description,
-      homepage: sitename ? `https://${sitename}` : pkg.homepage,
-      logo: join(imagesPath, '/logo.svg'),
+      homepage: env.sitename ? `https://${env.sitename}` : pkg.homepage,
+      logo: join('/', imagesPath, '/logo.svg'),
       viewport: 'width=device-width, initial-scale=1',
       themeColor: '#313840',
       locales,
@@ -49,11 +49,11 @@ module.exports = ({ config }) => {
     SOCIAL: { // Add any other social services following same pattern
       twitter: {
         handle: pkg.twitter,
-        image: join(imagesPath, '/twitter.png'),
+        image: join('/', imagesPath, '/twitter.png'),
         url: `https://twitter.com/${pkg.twitter}`
       },
       facebook: {
-        image: join(imagesPath, '/facebook.png'),
+        image: join('/', imagesPath, '/facebook.png'),
         url: 'https://www.facebook.com/Lotus-TM-647393298791066/'
       }
     },

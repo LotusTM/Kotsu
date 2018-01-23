@@ -89,10 +89,10 @@ function nunjucksExtensions (env) {
    * @return {string} Resolved dir name
    * @example <a href="{{ localeDir() }}/blog/">blog link</a>
   */
-  env.addGlobal('localeDir', (locale = this.ctx.PAGE.locale) => getLocaleDir(this.ctx.SITE.locales, locale))
-  env.addFilter('langcode', (locale = this.ctx.PAGE.locale) => getLangcode(locale))
-  env.addFilter('regioncode', (locale = this.ctx.PAGE.locale) => getRegioncode(locale))
-  env.addFilter('isoLocale', (locale = this.ctx.PAGE.locale) => isoLocale(locale))
+  env.addGlobal('localeDir', function (locale = this.ctx.PAGE.locale) { return getLocaleDir(this.ctx.SITE.locales, locale) })
+  env.addFilter('langcode', function (locale = this.ctx.PAGE.locale) { return getLangcode(locale) })
+  env.addFilter('regioncode', function (locale = this.ctx.PAGE.locale) { return getRegioncode(locale) })
+  env.addFilter('isoLocale', function (locale = this.ctx.PAGE.locale) { return isoLocale(locale) })
 }
 
 module.exports = {

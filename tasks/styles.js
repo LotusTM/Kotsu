@@ -4,7 +4,6 @@ const { get } = require('lodash')
 const onecolor = require('onecolor')
 
 module.exports = function () {
-
   // Sass
   // https://github.com/sindresorhus/grunt-sass
   // Compiles Sass with node-sass
@@ -101,9 +100,9 @@ module.exports = function () {
           '.o-show-grid',
 
           // Ignore state-related classes, like `is-active` and `menu-entry--is-active`
-          /[-\.#](is|has|not)-/
+          /[-.#](is|has|not)-/
         ],
-        ignoreSheets : [
+        ignoreSheets: [
           // Ignoring all remote CSS to avoid pulling into main styles unexpected CSS.
           // It is recommended to whitelist needed external CSS explicitly instead.
           /^(http(s)?|\/\/).*/

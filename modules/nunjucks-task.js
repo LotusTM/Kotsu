@@ -104,12 +104,14 @@ module.exports = function (config) {
       throw new Error('[nunjucks-task] files mapping should use `expand: true`')
     }
 
+    const { rename } = file
+
     file.rename = (dest, src) => {
       const newSrc = humanReadableUrls ? humanReadableUrl(src, humanReadableUrlsExclude) : src
       const newDest = join(dest, localeDir)
 
-      if (typeof file.rename === 'function') {
-        return file.rename.call(this, newDest, newSrc)
+      if (typeof rename === 'function') {
+        return rename.call(this, newDest, newSrc)
       }
 
       return join(newDest, newSrc)
