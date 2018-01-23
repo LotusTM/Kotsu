@@ -45,7 +45,7 @@ module.exports = function () {
   this.config.merge({
     watch: {
       data: {
-        files: ['<%= path.source.data %>/{,**/}*.{json,yml,js,coffee}'],
+        files: ['<%= path.source.data %>/{,**/}*.{json,yml,js}'],
         tasks: ['grayMatter', 'nunjucks']
       }
     }

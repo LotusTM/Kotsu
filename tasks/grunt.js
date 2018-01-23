@@ -18,7 +18,7 @@ module.exports = function () {
   this.config.merge({
     watch: {
       configs: {
-        files: ['gruntfile.coffee', '<%= path.tasks.root %>/{,**/}*'],
+        files: ['gruntfile.js', '<%= path.tasks.root %>/{,**/}*'],
         options: {
           reload: true
         }
