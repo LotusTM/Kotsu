@@ -23,6 +23,7 @@
 
 ### Changed
 - [package] Updated dependencies.
+- [package][data] `twitter` proprty is no longer a part of the `package.json`. It's moved into data `SOCIAL.twitter.handle` instead.
 - [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasonable margins.
 - [scripts] ES6 in, CoffeeScript out.
 

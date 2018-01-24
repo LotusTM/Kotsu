@@ -48,9 +48,9 @@ module.exports = ({ config }) => {
     },
     SOCIAL: { // Add any other social services following same pattern
       twitter: {
-        handle: pkg.twitter,
+        handle: '@LotusTM',
         image: join('/', imagesPath, '/twitter.png'),
-        url: `https://twitter.com/${pkg.twitter}`
+        url: 'https://twitter.com/@LotusTM'
       },
       facebook: {
         image: join('/', imagesPath, '/facebook.png'),
