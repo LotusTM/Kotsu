@@ -38,25 +38,25 @@ module.exports = function (env) {
   /**
    * Log specified to Grunt's console for debug purposes
    * @param {*} input Anything we want to log to console
-   * @return {string} Logs to Grunt console
+   * @return {void} Logs to Grunt console
   */
   env.addGlobal('log', (...input) => console.log(...input))
 
   /**
    * Log specified to Grunt's console as warning message
    * @param {*} input Anything we want to log to console
-   * @return {string} Logs to Grunt console
+   * @return {void} Logs to Grunt console
   */
   env.addGlobal('warn', function (...input) {
-    return log.error(...input, `[${this.ctx.PAGE.props.url}]`)
+    log.error(...input, `[${this.ctx.PAGE.props.url}]`)
   })
 
   /**
    * Get list of files or directories inside specified directory
-   * @param {string}               path    = ''                        Path where to look
-   * @param {string|array[string]} pattern = '** /*'                   What should be matched
-   * @param {string}               filter  = 'isFile'                  Type of entity which should be matched
-   * @param {string}               cwd     = @ctx.PATH.build.templates Root for lookup
+   * @param {string}          [path = '']                           Path where to look
+   * @param {string|string[]} [pattern = '** /*']                   What should be matched
+   * @param {string}          [filter = 'isFile']                   Type of entity which should be matched
+   * @param {string}          [cwd = this.ctx.PATH.build.templates] Root for lookup
    * @return {array} Array of found files or directories
   */
   env.addGlobal('expand', function (path = '', pattern = '**/*', filter = 'isFile', cwd = this.ctx.PATH.build.templates) {
@@ -68,10 +68,10 @@ module.exports = function (env) {
    * defined on parent, it will extend it, unless `merge` set to false.
    * If no `value` will be provided, it will return value of specified property.
    * Works similar to `grunt.config()`
-   * @param  {string|array} prop           Prop name or path on which should be set `value`
-   * @param  {*}            [value]        Value to be set on specified `prop`
-   * @param  {bool}         [merge] = true Should config extend already existing same prop or no
-   * @return {*}                           Value of `prop` if no `value` specified
+   * @param  {string|string[]} prop           Prop name or path on which should be set `value`
+   * @param  {*}               [value]        Value to be set on specified `prop`
+   * @param  {bool}            [merge = true] Should config extend already existing same prop or no
+   * @return {*} Value of `prop` if no `value` specified
   */
   env.addGlobal('config', function (prop, value, merge = true) {
     const ctxValue = _.get(this.ctx, prop)
@@ -95,11 +95,11 @@ module.exports = function (env) {
 
   /**
    * Get properties of page and its childs from site Matter data
-   * @param {string|string[]}  path                    Path to page inside site Matter data.
-   *                                                   Array of crumbs, dot-notation string or url.
-   * @param {boolean}          [forceRender = true]    Render output with Nunjucks
-   * @param {boolean}          [cached = true]         Use cached rendered version if available
-   * @param {object}           [ctx = @getVariables()] Nunjucks context for forced rendering
+   * @param {string|string[]} path                        Path to page inside site Matter data.
+   *                                                      Array of crumbs, dot-notation string or url.
+   * @param {boolean}         [forceRender = true]        Render output with Nunjucks
+   * @param {boolean}         [cached = true]             Use cached rendered version if available
+   * @param {object}          [ctx = this.getVariables()] Nunjucks context for forced rendering
    * @return {object} Properties of the page, including its sub pages
    * @example
    *   getPage('blog.post')
@@ -149,10 +149,10 @@ module.exports = function (env) {
    * @todo Add tests, ya know
    * @todo Consider removing of breadcrumb overriding, think out of scenarios — is it useful or no
    *       Seems to be useful for tests
-   * @todo Do not invoke `getPage` if there is no `@ctx.PAGE.breadcrumb`, since then all properties
-   *       already available under built `@ctx.PAGE.props`. For now we can't do this, since
+   * @todo Do not invoke `getPage` if there is no `this.ctx.PAGE.breadcrumb`, since then all properties
+   *       already available under built `this.ctx.PAGE.props`. For now we can't do this, since
    *       it needs to be rendered, and rendering cache currently hardcoded into `getPage`
-   *       This will also allow to avoid merging of `@ctx.PAGE.props` into `PAGE`
+   *       This will also allow to avoid merging of `this.ctx.PAGE.props` into `PAGE`
    * @todo There is some obscurity regarding `PAGE` and `PAGE.props`, sometimes it is unclear which to use.
    *       `PAGE.props` contains unrendered, assembled during Nunjucks task data, with Front Matter,
    *        while `PAGE` will contain prepared, merged and rendered by this function same data.
@@ -190,17 +190,18 @@ module.exports = function (env) {
   })
 
   /**
-   * Explodes string into array breadcrumb. See `crumble` helper for details
+   * Explodes string into array breadcrumb.
+   * @see modules/crumble
   */
   env.addGlobal('crumble', (path) => crumble(path))
 
   /**
    * Determinate is current path active relatively to current page breadcrumb or no
-   * @param  {string} to                      Absolute or relative path to page
-   * @param  {bool}  [exact]          = false Return `true` only if path completely matches
-   *                                          current breadcrumb
-   * @param  {array} [pageBreadcrumb] = @ctx.PAGE.breadcrumb
-   *                                          Breadcrumb of current page for comparison
+   * @param  {string}  to              Absolute or relative path to page
+   * @param  {boolean} [exact = false] Return `true` only if path completely matches
+   *                                   current breadcrumb
+   * @param  {array}   [pageBreadcrumb = this.ctx.PAGE.breadcrumb]
+   *                                   Breadcrumb of current page for comparison
    * @return {boolean} Is current path active or no
   */
   env.addGlobal('isActive', function (to, exact = false, pageBreadcrumb = this.ctx.PAGE.breadcrumb) {
@@ -226,18 +227,14 @@ module.exports = function (env) {
 
   /**
    * Expose `moment.js` to Nunjucks' for parsing, validation, manipulation and displaying dates
-   * @docs http://momentjs.com/docs/
-   * @param {*} param... Any parameters, which should be passed to `moment.js`
-   * @return {moment} `moment.js` expression for further use
+   * @see http://momentjs.com/docs/
   */
   env.addGlobal('moment', moment)
 
   /**
    * Expose `numbro.js` to Nunjucks' for formatting numbers and currencies
-   * @docs http://numbrojs.com/format.html
-   * @note Change locale on the go with `numbro(...).culture('de-DE')`
-   * @param {*} param... Any parameters, which should be passed to `numbro.js`
-   * @return {numbro} `numbro.js` expression for further use
+   * @see http://numbrojs.com/format.html
+   * @note Change locale on the go with `numbro(...).setLanguage('de-DE')`
   */
   env.addGlobal('numbro', numbro)
 
@@ -312,10 +309,11 @@ module.exports = function (env) {
 
   /**
    * Force rendering of input via Nunjucks
-   * @link modules/nunjucks-render
-   * @param {*}      input        Input to be rendered
-   * @param {object} [that=input] Value for `this`. Useful for self-referencing in data
+   * @see modules/nunjucks-render
    * @todo Related issue https://github.com/mozilla/nunjucks/issues/783
+   * @param {*}      input          Input to be rendered
+   * @param {object} [that = input] Value for `this`. Useful for self-referencing in data
+   * @return {string} Rendered input
   */
   env.addFilter('render', function (input, that) {
     return render(env, Object.assign({}, this.getVariables(), { this: that || input }), input)
@@ -323,15 +321,15 @@ module.exports = function (env) {
 
   /**
    * Replace placeholders with provided values.
-   * @link modules/format
+   * @see modules/format
   */
   env.addFilter('format', format)
 
   /**
    * Pluralize string based on count. For situations, where full i18n is too much
-   * @param {number} count                     Current count
-   * @param {array}  forms                     List of possible plural forms
-   * @param {string} locale = @ctx.PAGE.locale Locale name
+   * @param {number} count                           Current count
+   * @param {array}  forms                           List of possible plural forms
+   * @param {string} [locale = this.ctx.PAGE.locale] Locale name
    * @return {string} Correct plural form
   */
   env.addFilter('plural', function (count, forms, locale = this.ctx.PAGE.locale) {
@@ -340,8 +338,8 @@ module.exports = function (env) {
 
   /**
    * Transform string into usable in urls form
-   * @param {string} string       String to transform
-   * @param {object} options = {} Options overrides as per https://github.com/Gottox/node-urlify
+   * @param {string} string         String to transform
+   * @param {object} [options = {}] Options overrides as per https://github.com/Gottox/node-urlify
    * @return {string} Urlified string
   */
   env.addFilter('urlify', (string, options = {}) => urlify(string, options))
