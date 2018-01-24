@@ -21,6 +21,9 @@
 
    See additional cases in [test file](https://github.com/LotusTM/Kotsu/tree/master/tests/kotsu/nunjucks-extensions/imageSize.test.js).
 
+- [grunt] Added `grunt-image-size` task, which collects data about each image.
+- [data] Added new data property `SITE.images`, which holds images information collected by `grunt-image-size`.
+
 ### Changed
 - [package] Updated dependencies.
 - [package][data] `twitter` proprty is no longer a part of the `package.json`. It's moved into data `SOCIAL.twitter.handle` instead.
@@ -59,7 +62,7 @@
    Such usage is deprecated. Pages are complex components and should be threaded just like any other component. Thus, components classes like `Index` for the index page or `Blog` for the blog encouraged instead.
 
 ### Fixed
-[modules] Fixed encoded Cyrillic URLs after going through `urljoin()`.
+- [modules] Fixed encoded Cyrillic URLs after going through `urljoin()`.
 
 ## 1.11.0
 
