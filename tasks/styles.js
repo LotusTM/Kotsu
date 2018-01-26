@@ -27,7 +27,7 @@ module.exports = function () {
             }
 
             const imports = files.reduce(
-              (imports, file) => `${imports}@import '${file}'\n`, ''
+              (imports, file) => `${imports}@import '${file}';\n`, ''
             )
 
             return done({ file: cwd + '/', contents: imports })
