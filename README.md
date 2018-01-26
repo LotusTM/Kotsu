@@ -12,13 +12,13 @@
     <img src='https://img.shields.io/npm/v/kotsu.svg' alt='NPM version' />
   </a>
   <a href='https://travis-ci.org/LotusTM/Kotsu'>
-    <img src='https://img.shields.io/travis/LotusTM/Kotsu.svg?label=travis' alt='Travis Build Status' />
+    <img src='https://img.shields.io/travis/LotusTM/Kotsu/master.svg?label=travis' alt='Travis Build Status' />
   </a>
   <a href='https://circleci.com/gh/LotusTM/Kotsu'>
-    <img src='https://img.shields.io/circleci/project/LotusTM/Kotsu.svg?label=circle' alt='CircleCI Build Status' />
+    <img src='https://img.shields.io/circleci/project/LotusTM/Kotsu/master.svg?label=circle' alt='CircleCI Build Status' />
   </a>
   <a href='https://ci.appveyor.com/project/LotusTM/Kotsu'>
-    <img src='https://img.shields.io/appveyor/ci/LotusTM/Kotsu.svg?label=appveyor' alt='AppVeyor Build Status' />
+    <img src='https://img.shields.io/appveyor/ci/LotusTM/Kotsu/master.svg?label=appveyor' alt='AppVeyor Build Status' />
   </a>
   <a href='https://greenkeeper.io'>
     <img src='https://badges.greenkeeper.io/LotusTM/Kotsu.svg' alt='Greenkeeper Status' />
