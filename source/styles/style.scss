@@ -92,20 +92,8 @@
 // Components
 // -----------------------------------------------------------------------------
 
-@import 'components/Btn';
-@import 'components/Content';
-@import 'components/Content-header';
-@import 'components/Content-title';
-@import 'components/Footer';
-@import 'components/Header';
-@import 'components/Icon';
-@import 'components/Logo';
-@import 'components/Main';
-@import 'components/Nav';
-@import 'components/Outdated-browser';
-@import 'components/Sidebar';
-@import 'components/Sprites';
-@import 'components/Wrapper';
+@import 'components/*';
+@import '../templates/*';
 
 // -----------------------------------------------------------------------------
 // Scopes

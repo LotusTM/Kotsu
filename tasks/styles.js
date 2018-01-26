@@ -2,6 +2,8 @@ const sass = require('node-sass')
 const { castToSass } = require('node-sass-utils')(sass)
 const { get } = require('lodash')
 const onecolor = require('onecolor')
+const { join, parse, dirname } = require('path')
+const { readFileSync, readFile } = require('fs')
 
 module.exports = function () {
   // Sass
@@ -15,6 +17,57 @@ module.exports = function () {
       options: {
         outputStyle: 'nested',
         sourceMap: true,
+        importer: (url, prev, done) => {
+          if (url.includes('/*')) {
+            const cwd = dirname(prev)
+            const files = this.file.expand({ cwd, filter: src => /(css|scss|sass)$/.test(src) }, url)
+
+            if (!files.length) {
+              throw new Error(`no files provided for ${cwd}`)
+            }
+
+            const imports = files.reduce(
+              (imports, file) => `${imports}@import '${file}'\n`, ''
+            )
+
+            return done({ file: cwd + '/', contents: imports })
+          }
+
+            // Sync ver. For some reason faster than just including imports
+
+            // prevData = parse(prev)
+            // prevDir = if prevData.base.includes('.s') then prevData.dir else prev
+            // cwd = join(prevDir, url.replace('/*', '/'))
+            // files = @file.expand({ cwd }, '**/*.scss')
+
+            // if not files.length
+            //   throw new Error('no files provided for ' + cwd)
+
+            // styles = files.reduce((styles, file) =>
+            //   content = readFileSync(join(cwd, file))
+            //   return "#{styles}#{content}"
+            // , '')
+
+            // return done({ file: cwd, contents: styles })
+
+            // Async ver
+
+            // readStyle = (file) => new Promise((resolve, reject) =>
+            //   readFile(join(cwd, file), encoding: 'utf-8' , (error, content) =>
+            //     return resolve(content)
+            //   )
+            // )
+
+            // readStyles = () => Promise.all(files.map((file) => readStyle(file)))
+
+            // return readStyles().then((styles) =>
+            //   styles = styles.join('\n')
+            //   return done({ file: cwd, contents: styles })
+            // )
+
+          return done({ file: url })
+        },
+
         functions: {
 
           /**
