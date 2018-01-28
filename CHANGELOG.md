@@ -48,6 +48,7 @@
 
 - [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.
 - [templates] Due to update of `numbro` to version `2.0.0` `numbro.setCulture()` method has been changed to `numbro.setLanguage()`.
+- [styles] Loading order of settings files within settings layer no longer matters.
 - [data] Matter data property renamed from `SITE._matter` to `SITE.matter`.
 - [data] Data file now destructuring `config()` values once to avoid numerous `config()` calls. This should improve performance in large data files.
 - [data] Data file now using `path.join()` method to properly concatenate various paths.
