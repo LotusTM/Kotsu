@@ -54,6 +54,7 @@
 - [data] Data file now destructuring `config()` values once to avoid numerous `config()` calls. This should improve performance in large data files.
 - [data] Data file now using `path.join()` method to properly concatenate various paths.
 - [tests] `runGrunt` test utility now returns console output in case of resolve.
+- [ci] Update Travis and CircleCI configuration files to use nove v9 for tests and builds.
 
 ### Removed
 - [grunt] Removed `grunt-responsive-images-extender` in favor of newly added `imageSize()` Nunjucks function.
