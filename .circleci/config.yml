@@ -1,21 +1,28 @@
 version: 2
 jobs:
-  setup:
-    docker:
-      - image: circleci/node:9
-    working_directory: ~/kotsu
+  checkout:
+    machine: true
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/kotsu
       - run:
           name: Checkout submodules
           command: git submodule update --init --recursive
+      - save_cache:
+          key: repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/project
+
+  setup:
+    docker:
+      - image: circleci/node:9
+    steps:
       - run:
           name: Install latest version of npm
           command: sudo npm install -g npm@latest
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          keys:
+            - repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+            - dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Install project dependencies
           command: npm install
@@ -23,18 +30,15 @@ jobs:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-      - persist_to_workspace:
-          root: .
-          paths: node_modules
 
   test:
     docker:
       - image: circleci/node:9
-    working_directory: ~/kotsu
     steps:
-      - checkout
-      - attach_workspace:
-          at: ~/kotsu
+      - restore_cache:
+          keys:
+            - repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+            - dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: test
           command: npm run test
@@ -42,25 +46,27 @@ jobs:
   build:
     docker:
       - image: circleci/node:9
-    working_directory: ~/kotsu
     steps:
-      - checkout
-      - attach_workspace:
-          at: ~/kotsu
+      - restore_cache:
+          keys:
+            - repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+            - dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: build
           command: npm run build
-      - persist_to_workspace:
-          root: .
-          paths: build
+      - save_cache:
+          key: build-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./build
 
   deploy:
     machine: true
-    working_directory: ~/kotsu
     steps:
-      - checkout
-      - attach_workspace:
-          at: ~/kotsu
+      - restore_cache:
+          keys:
+            - repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+            - dependency-cache-{{ checksum "package-lock.json" }}
+            - build-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Deploy if tests pass and branch is master
           command: |
@@ -76,7 +82,10 @@ workflows:
   version: 2
   test-build-deploy:
     jobs:
-      - setup
+      - checkout
+      - setup:
+          requires:
+            - checkout
       - test:
           requires:
             - setup
