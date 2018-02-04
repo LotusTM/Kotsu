@@ -20,9 +20,9 @@ jobs:
           name: Install latest version of npm
           command: sudo npm install -g npm@latest
       - restore_cache:
-          keys:
-            - repo-cache-{{ .Environment.CIRCLE_SHA1 }}
-            - dependency-cache-{{ checksum "package-lock.json" }}
+          key: repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Install project dependencies
           command: npm install
@@ -36,9 +36,9 @@ jobs:
       - image: circleci/node:9
     steps:
       - restore_cache:
-          keys:
-            - repo-cache-{{ .Environment.CIRCLE_SHA1 }}
-            - dependency-cache-{{ checksum "package-lock.json" }}
+          key: repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: test
           command: npm run test
@@ -48,9 +48,9 @@ jobs:
       - image: circleci/node:9
     steps:
       - restore_cache:
-          keys:
-            - repo-cache-{{ .Environment.CIRCLE_SHA1 }}
-            - dependency-cache-{{ checksum "package-lock.json" }}
+          key: repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: build
           command: npm run build
@@ -63,10 +63,11 @@ jobs:
     machine: true
     steps:
       - restore_cache:
-          keys:
-            - repo-cache-{{ .Environment.CIRCLE_SHA1 }}
-            - dependency-cache-{{ checksum "package-lock.json" }}
-            - build-cache-{{ checksum "package-lock.json" }}
+          key: repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: build-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Deploy if tests pass and branch is master
           command: |
