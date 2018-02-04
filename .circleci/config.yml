@@ -27,6 +27,7 @@ jobs:
           name: build
           command: npm run build
   deploy:
+    machine: true
     steps:
       - run:
         name: Deploy if tests pass and branch is Master
