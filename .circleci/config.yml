@@ -59,10 +59,10 @@ workflows:
   build-and-deploy:
     jobs:
       - setup
-      - test
+      - test:
           requires:
             - setup
-      - build
+      - build:
           requires:
             - setup
       - deploy:
