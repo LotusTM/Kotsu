@@ -78,7 +78,7 @@ jobs:
             scp app.tgz core@$SERVER_IP:~/kotsutgz
             scp deploy.sh core@$SERVER_IP:~/deploy.sh
             ssh core@$SERVER_IP chmod +x deploy.sh
-            ssh core@$SERVER_IP ./deploy.sh kotsuCIRCLE_SHA1
+            ssh core@$SERVER_IP ./deploy.sh $CIRCLE_PROJECT_REPONAME $CIRCLE_SHA1
 
 workflows:
   version: 2
