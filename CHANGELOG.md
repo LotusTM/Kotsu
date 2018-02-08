@@ -23,6 +23,7 @@
 
 - [grunt] Added `grunt-image-size` task, which collects data about each image.
 - [data] Added new data property `SITE.images`, which holds images information collected by `grunt-image-size`.
+- [package] Update `package-lock.json` for greenkeeper builds and upload it to github using `greenkeeper-lockfile` package, closes [#350](https://github.com/LotusTM/Kotsu/issues/350)
 
 ### Changed
 - [package] Updated dependencies.
