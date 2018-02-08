@@ -1,5 +1,5 @@
 aliases:
-  - &checkout-submodules:
+  - &checkout-submodules
       name: Checkout submodules
       command: git submodule update --init --recursive
 
@@ -8,7 +8,7 @@ aliases:
       paths:
         - ~/project
 
-  - &restore-repo-cache:
+  - &restore-repo-cache
       key: repo-cache-{{ .Environment.CIRCLE_SHA1 }}
 
   - &save-dependencies-cache
@@ -17,7 +17,7 @@ aliases:
         - ./node_modules
         - ./jspm_packages
 
-  - &restore-dependencies-cache:
+  - &restore-dependencies-cache
       keys:
         - dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}
         # fallback in case checksum fails
@@ -28,7 +28,7 @@ aliases:
           paths:
             - ./build
 
-  - &restore-build-cache:
+  - &restore-build-cache
       key: build-cache-{{ .Environment.CIRCLE_SHA1 }}
 
   - &install-npm
