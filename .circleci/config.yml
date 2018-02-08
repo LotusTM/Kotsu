@@ -33,7 +33,7 @@ aliases:
 
   - &install-npm
       name: Install latest version of npm
-      run: sudo npm install -g npm@latest
+      command: sudo npm install -g npm@latest
 
   - &deploy
       name: Deploy if tests pass and branch is master
