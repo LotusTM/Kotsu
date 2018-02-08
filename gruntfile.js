@@ -83,7 +83,7 @@ module.exports = function (grunt) {
 
       build: {
         script: {
-          compiled: '<%= path.build.scripts %>/main.js'
+          minified: '<%= path.build.scripts %>/main.min.js'
         },
         style: {
           tidy: '<%= path.build.styles %>/style.tidy.css'
@@ -152,7 +152,6 @@ module.exports = function (grunt) {
     'sass',
     'postcss:autoprefix',
     'shell:jspm_build',
-    'uglify',
     'uncss',
     'csso',
     'htmlmin',

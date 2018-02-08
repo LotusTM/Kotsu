@@ -5,26 +5,10 @@ module.exports = function () {
 
   this.config('shell', {
     jspm_build: {
-      command: 'jspm build main <%= file.build.script.compiled %> --minify'
+      command: 'jspm build main <%= file.build.script.minified %> --minify'
     },
     jspm_watch: {
       command: 'jspm build main <%= file.build.script.compiled %> -wid'
-    }
-  })
-
-  // Uglify
-  // https://github.com/gruntjs/grunt-contrib-uglify
-  // Minify files with UglifyJS
-
-  this.config('uglify', {
-    build: {
-      files: [{
-        expand: true,
-        cwd: '<%= path.build.scripts %>',
-        src: '{,**/}*.js',
-        dest: '<%= path.build.scripts %>',
-        ext: '.min.js'
-      }]
     }
   })
 
