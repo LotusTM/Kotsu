@@ -1,4 +1,7 @@
 aliases:
+  - &node
+    - image: circleci/node:9
+
   - &checkout-submodules
       name: Checkout submodules
       command: git submodule update --init --recursive
@@ -56,8 +59,7 @@ jobs:
       - save_cache: *save-repo-cache
 
   setup:
-    docker:
-      - image: circleci/node:9
+    docker: *node
     steps:
       - run: *install-npm
       - restore_cache: *restore-repo-cache
@@ -66,16 +68,14 @@ jobs:
       - save_cache: *save-dependencies-cache
 
   test:
-    docker:
-      - image: circleci/node:9
+    docker: *node
     steps:
       - restore_cache: *restore-repo-cache
       - restore_cache: *restore-dependencies-cache
       - run: npm run test
 
   build:
-    docker:
-      - image: circleci/node:9
+    docker: *node
     steps:
       - restore_cache: *restore-repo-cache
       - restore_cache: *restore-dependencies-cache
@@ -83,8 +83,7 @@ jobs:
       - save_cache: *save-build-cache
 
   greenkeeper:
-    docker:
-      - image: circleci/node:9
+    docker: *node
     steps:
       - restore_cache: *restore-repo-cache
       - run: sudo npm install -g greenkeeper-lockfile@latest
