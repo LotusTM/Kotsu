@@ -56,7 +56,7 @@ jobs:
           name: build
           command: npm run build
       - save_cache:
-          key: build-cache-{{ checksum "package-lock.json" }}
+          key: build-cache-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ./build
 
