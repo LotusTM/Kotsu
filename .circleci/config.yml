@@ -41,7 +41,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: test
+          name: Test
           command: npm run test
 
   build:
@@ -53,12 +53,27 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: build
+          name: Build
           command: npm run build
       - save_cache:
           key: build-cache-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ./build
+
+  greenkeeper:
+    docker:
+      - image: circleci/node:9
+    steps:
+      - restore_cache:
+          key: repo-cache-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: Install greenkeeper
+          command: sudo npm install -g greenkeeper-lockfile@latest
+      - run:
+          name: Update lockfile and commit it to github
+          command: |
+            greenkeeper-lockfile-update
+            greenkeeper-lockfile-upload
 
   deploy:
     machine: true
@@ -92,6 +107,13 @@ workflows:
       - build:
           requires:
             - setup
+      - greenkeeper:
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: /^greenkeeper.*/
       - deploy:
           requires:
             - test
