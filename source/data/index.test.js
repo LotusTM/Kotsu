@@ -55,13 +55,13 @@ const Data = t.struct({
       templates: t.String
     }),
     file: t.struct({
-      script: {
+      script: t.struct({
         compiled: t.String,
         minified: t.String
-      },
-      sprite: {
+      }),
+      sprite: t.struct({
         compiled: t.String
-      }
+      })
     })
   }),
   SITE: t.struct({
