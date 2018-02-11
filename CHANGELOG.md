@@ -53,7 +53,12 @@
 
    Closes [#46](https://github.com/LotusTM/Kotsu/issues/46).
 
-- [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.
+- [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.\
+- [templates] Changed paths in `_base.nj` script block:
+
+   * `PATH.scripts` `main.js` replaced with `PATH.file.script.compiled`
+   * `PATH.scripts` `main.min.js` replaced with `PATH.file.script.minified`
+
 - [templates] Due to update of `numbro` to version `2.0.0` `numbro.setCulture()` method has been changed to `numbro.setLanguage()`.
 - [styles] Updated Ekzo to HEAD version past 2.6.0.
 - [styles] Loading order of settings files within settings layer no longer matters.

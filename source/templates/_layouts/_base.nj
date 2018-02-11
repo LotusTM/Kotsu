@@ -121,7 +121,7 @@
     })
   </script>
   {% else %}
-  <script src='{{ urljoin('/', PATH.scripts, 'main.min.js' if ENV.build else 'main.js') }}'></script>
+  <script src='{{ urljoin('/', PATH.file.script.minified if ENV.build else PATH.file.script.compiled) }}'></script>
   {% endif %}
   {% endblock %}
 
