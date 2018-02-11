@@ -67,7 +67,7 @@ module.exports = function () {
       options: {
         apiKey: '<%= env.tinypng.api.key %>',
         checkSigs: true,
-        sigFile: '<%= file.build.sprite.hash %>',
+        sigFile: '<%= path.build.sprites %>/hash.json',
         summarize: true,
         stopOnImageError: true
       },

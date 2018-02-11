@@ -87,8 +87,7 @@ module.exports = function (grunt) {
           minified: '<%= path.build.scripts %>/main.min.js'
         },
         sprite: {
-          compiled: '<%= path.build.sprites %>/sprite.png',
-          hash: '<%= path.build.sprites %>/hash.json'
+          compiled: '<%= path.build.sprites %>/sprite.png'
         }
       }
     },

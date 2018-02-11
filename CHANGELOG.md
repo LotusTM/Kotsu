@@ -63,6 +63,7 @@
 
    Since this paths shouldn't be used anywhere else, keeping it in main Gruntfile didn't make much sense.
 
+- [grunt] Removed `file.build.sprite.hash` setting. Now it's embedded into `tinypng` task directly.
 - [grunt] Removed `grunt-responsive-images-extender` in favor of newly added `imageSize()` Nunjucks function.
 - [package][scripts] `jQuery` no longer shipped with Kotsu by default. The time has passed. Use native DOM API.
 - [temlates] Removed `imports` block from `_base.nj` layout. They weren't useful since you wouldn't be able to extend base layout without them anyway.
