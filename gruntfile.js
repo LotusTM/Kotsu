@@ -83,6 +83,7 @@ module.exports = function (grunt) {
 
       build: {
         script: {
+          compiled: '<%= path.build.scripts %>/main.js',
           minified: '<%= path.build.scripts %>/main.min.js'
         },
         style: {
