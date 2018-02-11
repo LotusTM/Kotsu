@@ -10,7 +10,7 @@ module.exports = function () {
       destCss: '<%= path.temp.styles %>/_sprites.map.scss',
       padding: 2,
       engine: 'gmsmith',
-      cssTemplate: (data) => `
+      cssTemplate: ({ sprites }) => `
         // =============================================================================
         // ^SPRITES.MAP
         // =============================================================================
@@ -35,8 +35,10 @@ module.exports = function () {
         //  @include sprite(arrow); // will output to CSS \`.sprite--arrow { ... }\`
 
         $grunt-sprites: (
-          ${data.sprites.map(sprite => `'${sprite.name}': ( width: ${sprite.px.width}, height: ${sprite.px.height}, offset-x: ${sprite.px.offset_x}, offset-y: ${sprite.px.offset_y} )`).join(',\n  ')}
-        );\
+          ${sprites.map(({ name, px }) =>
+            `'${name}': ( width: ${px.width}, height: ${px.height}, offset-x: ${px.offset_x}, offset-y: ${px.offset_y} )`
+          ).join(',\n  ')}
+        );
       `
     }
   })
