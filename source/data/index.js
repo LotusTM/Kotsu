@@ -1,30 +1,26 @@
 const { merge } = require('lodash')
 const { join } = require('path')
+const traverse = require('../../modules/traverse')
 const pkg = require('../../package.json')
 
 module.exports = ({ config }) => {
   const { env, path, file, locales, baseLocale } = config()
   const cwd = process.cwd()
-  const buildRoot = path.build.root + '/'
-  const imagesPath = path.build.images.replace(buildRoot, '')
+  const stripBuildpath = (data) => traverse(data, (p) => p.replace(path.build.root + '/', ''))
+
+  const PATH = Object.assign(path, stripBuildpath(path.build), {
+    file: stripBuildpath(file.build)
+  })
 
   const data = {
-    PATH: {
-      fonts: path.build.fonts.replace(buildRoot, ''),
-      images: imagesPath,
-      scripts: path.build.scripts.replace(buildRoot, ''),
-      styles: path.build.styles.replace(buildRoot, ''),
-      sprites: path.build.sprites.replace(buildRoot, ''),
-      source: path.source,
-      build: path.build
-    },
+    PATH,
     SITE: {
       name: pkg.name,
       shortName: pkg.name,
       version: pkg.version,
       description: pkg.description,
       homepage: env.sitename ? `https://${env.sitename}` : pkg.homepage,
-      logo: join('/', imagesPath, '/logo.svg'),
+      logo: join('/', PATH.images, '/logo.svg'),
       viewport: 'width=device-width, initial-scale=1',
       themeColor: '#313840',
       locales,
@@ -49,11 +45,11 @@ module.exports = ({ config }) => {
     SOCIAL: { // Add any other social services following same pattern
       twitter: {
         handle: '@LotusTM',
-        image: join('/', imagesPath, '/twitter.png'),
+        image: join('/', PATH.images, '/twitter.png'),
         url: 'https://twitter.com/@LotusTM'
       },
       facebook: {
-        image: join('/', imagesPath, '/facebook.png'),
+        image: join('/', PATH.images, '/facebook.png'),
         url: 'https://www.facebook.com/Lotus-TM-647393298791066/'
       }
     },

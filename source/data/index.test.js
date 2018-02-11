@@ -13,11 +13,23 @@ data = grunt.config.process(data(grunt)())
 
 const Data = t.struct({
   PATH: t.struct({
+    root: t.String,
+    assets: t.String,
     fonts: t.String,
     images: t.String,
     scripts: t.String,
-    styles: t.String,
     sprites: t.String,
+    static: t.String,
+    styles: t.String,
+    templates: t.String,
+    tasks: t.struct({
+      root: t.String
+    }),
+    temp: t.struct({
+      root: t.String,
+      data: t.String,
+      styles: t.String
+    }),
     source: t.struct({
       root: t.String,
       data: t.String,
@@ -41,6 +53,15 @@ const Data = t.struct({
       static: t.String,
       styles: t.String,
       templates: t.String
+    }),
+    file: t.struct({
+      script: {
+        compiled: t.String,
+        minified: t.String
+      },
+      sprite: {
+        compiled: t.String
+      }
     })
   }),
   SITE: t.struct({

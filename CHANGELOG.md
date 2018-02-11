@@ -23,6 +23,7 @@
 
 - [grunt] Added `grunt-image-size` task, which collects data about each image.
 - [data] Added new data property `SITE.images`, which holds images information collected by `grunt-image-size`.
+- [data] Added new data property `PATH.file` which points to Gruntfile `file.build` values.
 - [package] Update `package-lock.json` for greenkeeper builds and upload it to github using `greenkeeper-lockfile` package, closes [#350](https://github.com/LotusTM/Kotsu/issues/350)
 
 ### Changed
@@ -56,6 +57,16 @@
 - [templates] Due to update of `numbro` to version `2.0.0` `numbro.setCulture()` method has been changed to `numbro.setLanguage()`.
 - [styles] Updated Ekzo to HEAD version past 2.6.0.
 - [styles] Loading order of settings files within settings layer no longer matters.
+- [data] Reworked the way paths supplied to index data file `PATH` from Gruntfile.
+
+   Now, out of the box, index file will automatically pickup following settings from Gruntfile:
+
+   * All `path.build` will be stripped of the build root and placed in the root of `PATH`
+   * `file.build` will be stripped of the build root and placed in `PATH.file`
+   * All `path` will be placed as it is in the root of `PATH`, which makes all `path` values accessible in data consumers by following `PATH.source`, `PATH.build`, etc.
+   
+   No changes to structure was made except newly added `PATH.file` property. However, with this change it is no longer required to manually map Gruntfile `path` and `file` values to data file `PATH`. Instead, Kotsu will pick up all of them them for you.
+
 - [data] Matter data property renamed from `SITE._matter` to `SITE.matter`.
 - [data] Data file now destructuring `config()` values once to avoid numerous `config()` calls. This should improve performance in large data files.
 - [data] Data file now using `path.join()` method to properly concatenate various paths.
