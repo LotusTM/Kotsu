@@ -39,8 +39,31 @@ module.exports = function () {
         );\
       `
     }
-  }
-  )
+  })
+
+  // Tiny PNG
+  // https://github.com/marrone/grunt-tinypng
+  // Image optimization via tinypng service
+
+  this.config.merge({
+    tinypng: {
+      sprites: {
+        options: {
+          apiKey: '<%= env.tinypng.api.key %>',
+          checkSigs: true,
+          sigFile: '<%= path.temp.data %>/sprites-hash.json',
+          summarize: true,
+          stopOnImageError: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= path.build.sprites %>',
+          src: '{,**/}*.{jpg,jpeg,png}',
+          dest: '<%= path.build.sprites %>'
+        }]
+      }
+    }
+  })
 
   // Watch
   // https://github.com/gruntjs/grunt-contrib-watch

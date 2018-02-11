@@ -62,21 +62,24 @@ module.exports = function () {
   // https://github.com/marrone/grunt-tinypng
   // Image optimization via tinypng service
 
-  this.config('tinypng', {
-    build: {
-      options: {
-        apiKey: '<%= env.tinypng.api.key %>',
-        checkSigs: true,
-        sigFile: '<%= path.build.sprites %>/hash.json',
-        summarize: true,
-        stopOnImageError: true
-      },
-      files: [{
-        expand: true,
-        cwd: '<%= path.build.sprites %>',
-        src: '{,**/}*.{jpg,jpeg,png}',
-        dest: '<%= path.build.sprites %>'
-      }]
+  this.config.merge({
+    tinypng: {
+      images: {
+        options: {
+          apiKey: '<%= env.tinypng.api.key %>',
+          checkSigs: true,
+          sigFile: '<%= path.temp.data %>/images-hash.json',
+          summarize: true,
+          stopOnImageError: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= path.build.images %>',
+          // @note Remove `!` character to enable optimization
+          src: '!{,**/}*.{jpg,jpeg,png}',
+          dest: '<%= path.build.images %>'
+        }]
+      }
     }
   })
 

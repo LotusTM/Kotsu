@@ -28,7 +28,11 @@
 ### Changed
 - [package] Updated dependencies.
 - [package][data] `twitter` proprty is no longer a part of the `package.json`. It's moved into data `SOCIAL.twitter.handle` instead.
-- [package] Remove `grunt-contrib-uglify` in favor of `uglify-js` bundled with `jspm`, rel [#294](https://github.com/LotusTM/Kotsu/issues/294)
+- [package] Remove `grunt-contrib-uglify` in favor of `uglify-js` bundled with `jspm` [#294](https://github.com/LotusTM/Kotsu/issues/294)
+- [grunt] Split `tinypng:build` task into `tinypng:sprites` and `tinypng:images` tasks, which are stored now in `sprites` and `images` tasks files.
+
+   `tinypng:images` is disabled by default to avoid awkward situations...
+
 - [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasonable margins.
 - [scripts] ES6 in, CoffeeScript out.
 
