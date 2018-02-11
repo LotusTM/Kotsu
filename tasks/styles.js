@@ -43,7 +43,7 @@ module.exports = function () {
       files: [{
         expand: true,
         cwd: '<%= path.source.styles %>',
-        src: '{,**/}*.scss',
+        src: ['*.scss'],
         dest: '<%= path.build.styles %>',
         ext: '.compiled.css'
       }]
@@ -110,7 +110,7 @@ module.exports = function () {
       },
       files: [{
         src: '<%= path.build.root %>/{,**/}*.html',
-        dest: '<%= file.build.style.tidy %>'
+        dest: '<%= path.build.styles %>/style.tidy.css'
       }]
     }
   })

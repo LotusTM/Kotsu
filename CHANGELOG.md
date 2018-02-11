@@ -59,6 +59,10 @@
 - [ci] Update Travis and CircleCI configuration files to use nove v9 for tests and builds.
 
 ### Removed
+- [grunt] Removed `file.build.style.tidy` setting. Now it's embedded into `uncss` task directly.
+
+   Since this paths shouldn't be used anywhere else, keeping it in main Gruntfile didn't make much sense.
+
 - [grunt] Removed `grunt-responsive-images-extender` in favor of newly added `imageSize()` Nunjucks function.
 - [package][scripts] `jQuery` no longer shipped with Kotsu by default. The time has passed. Use native DOM API.
 - [temlates] Removed `imports` block from `_base.nj` layout. They weren't useful since you wouldn't be able to extend base layout without them anyway.
