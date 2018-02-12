@@ -64,7 +64,7 @@ jobs:
       - run: *install-npm
       - restore_cache: *restore-repo-cache
       - restore_cache: *restore-dependencies-cache
-      - run:  npm install
+      - run: npm install
       - save_cache: *save-dependencies-cache
 
   test:
