@@ -22,6 +22,23 @@
    See additional cases in [test file](https://github.com/LotusTM/Kotsu/tree/master/tests/kotsu/nunjucks-extensions/imageSize.test.js).
 
 - [grunt] Added `grunt-image-size` task, which collects data about each image.
+- [grunt] Added `grunt-write-json` task, which compiles JS to JSON-file. Used as to prepare data for frontend scripts.
+- [data] Added ability to pass data from Grunt and `source/data` to frontend scripts, which are handled by JSPM.
+
+   This is done by editing `source/data/scripts.js` file, which later will be compiled into JSON file with `grunt-write-json` Grunt task.
+
+   Data available to scripts from `@data` module:
+
+   ```js
+   import data from '@data'
+
+   console.log(data)
+   ```
+
+   Yeap, less than ideal, but hopefuly it will be improved in future.
+
+   [#265](https://github.com/LotusTM/Kotsu/issues/265)
+
 - [data] Added new data property `SITE.images`, which holds images information collected by `grunt-image-size`.
 - [data] Added new data property `PATH.file` which points to Gruntfile `file.build` values.
 - [package] Update `package-lock.json` for greenkeeper builds and upload it to github using `greenkeeper-lockfile` package, closes [#350](https://github.com/LotusTM/Kotsu/issues/350)

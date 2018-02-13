@@ -1,12 +1,18 @@
+const timeGrunt = require('time-grunt')
+const gruntWriteJson = require('./modules/grunt-write-json')
+const jitGrunt = require('jit-grunt')
 const gettext = require('./modules/gettext')
 
 module.exports = function (grunt) {
   'use strict'
 
   // Track execution time
-  require('time-grunt')(grunt)
+  timeGrunt(grunt)
+
+  gruntWriteJson(grunt)
+
   // Load grunt tasks automatically
-  require('jit-grunt')(grunt, {
+  jitGrunt(grunt, {
     nunjucks: 'grunt-nunjucks-2-html',
     sprite: 'grunt-spritesmith'
   })
@@ -74,6 +80,12 @@ module.exports = function (grunt) {
 
     // Specify files
     file: {
+      source: {
+        data: {
+          scripts: '<%= path.source.data %>/scripts.js'
+        }
+      },
+
       temp: {
         data: {
           matter: '<%= path.temp.data %>/matter.json',
@@ -123,6 +135,7 @@ module.exports = function (grunt) {
   // Build for development and serve
   grunt.registerTask('default', [
     'clean:build',
+    'writeJSON',
     'copy',
     'responsive_images:thumbnails',
     'image_size',
@@ -139,6 +152,7 @@ module.exports = function (grunt) {
   // Build for production
   grunt.registerTask('build', [
     'clean',
+    'writeJSON',
     'copy',
     'responsive_images:thumbnails',
     'image_size',

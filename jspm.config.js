@@ -4,21 +4,23 @@ SystemJS.config({
     "paths": {
       "npm:": "/jspm_packages/npm/",
       "github:": "/jspm_packages/github/",
-      "main/": ""
+      "main/": "",
+      "@data": "/temp/data/scripts.json"
     }
   },
   nodeConfig: {
     "paths": {
       "npm:": "jspm_packages/npm/",
       "github:": "jspm_packages/github/",
-      "main/": "source/scripts/"
+      "main/": "source/scripts/",
+      "@data": "temp/data/scripts.json"
     }
   },
   devConfig: {
     "map": {
       "plugin-babel": "npm:systemjs-plugin-babel@0.0.21",
       "systemjs-hot-reloader": "npm:systemjs-hot-reloader@1.1.0",
-      "systemjs-plugin-json": "npm:systemjs-plugin-json@0.3.0"
+      "json": "npm:systemjs-plugin-json@0.3.0"
     },
     "packages": {
       "npm:systemjs-hot-reloader@1.1.0": {
@@ -26,6 +28,11 @@ SystemJS.config({
           "systemjs-hmr": "npm:systemjs-hmr@2.0.9"
         }
       }
+    }
+  },
+  meta: {
+    "@data": {
+      "loader": "json"
     }
   },
   transpiler: "plugin-babel",
@@ -38,7 +45,7 @@ SystemJS.config({
           "loader": "plugin-babel"
         },
         "*.json": {
-          "loader": "systemjs-plugin-json"
+          "loader": "json"
         }
       }
     }

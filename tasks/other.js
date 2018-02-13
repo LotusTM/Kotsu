@@ -93,7 +93,8 @@ module.exports = function () {
             // @note this route should match JSPM `baseURL`
             //       see https://github.com/LotusTM/Kotsu/issues/230
             //           https://github.com/alexisvincent/systemjs-hot-reloader/issues/141
-            '/source/scripts': 'source/scripts'
+            '/source/scripts': 'source/scripts',
+            '/temp/data': 'temp/data'
           }
         }
       },

@@ -1,9 +1,9 @@
 const crumble = require('../modules/crumble')
 const { merge } = require('lodash')
-const { dirname, basename, extname } = require('path')
+const { join, dirname, basename, extname } = require('path')
 const urljoin = require('../modules/urljoin')
 
-module.exports = function () {
+module.exports = function (grunt) {
   // Gray Matter
   // https://www.npmjs.com/package/grunt-gray-matter
   // Extract data from specified files with Gray Matter
@@ -38,6 +38,21 @@ module.exports = function () {
     }
   })
 
+  // Write data to JSON
+  // @link modules/grunt-write-json
+
+  this.config('writeJSON', {
+    scripts: {
+      options: {
+        dataFn: () =>
+          require(join(process.cwd(), this.config('file.source.data.scripts')))(grunt)
+      },
+      files: [{
+        dest: '<%= path.temp.data %>/scripts.json'
+      }]
+    }
+  })
+
   // Watch
   // https://github.com/gruntjs/grunt-contrib-watch
   // Watches scss, js etc for changes and compiles them
@@ -47,6 +62,10 @@ module.exports = function () {
       data: {
         files: ['<%= path.source.data %>/{,**/}*.{json,yml,js}'],
         tasks: ['grayMatter', 'nunjucks']
+      },
+      scriptsData: {
+        files: ['<%= file.source.data.scripts %>'],
+        tasks: ['writeJSON']
       }
     }
   })
