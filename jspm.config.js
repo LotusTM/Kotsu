@@ -20,7 +20,7 @@ SystemJS.config({
     "map": {
       "plugin-babel": "npm:systemjs-plugin-babel@0.0.21",
       "systemjs-hot-reloader": "npm:systemjs-hot-reloader@1.1.0",
-      "json": "npm:systemjs-plugin-json@0.3.0"
+      "systemjs-plugin-json": "npm:systemjs-plugin-json@0.3.0"
     },
     "packages": {
       "npm:systemjs-hot-reloader@1.1.0": {
@@ -51,7 +51,8 @@ SystemJS.config({
     }
   },
   map: {
-    "@hot": "@empty"
+    "@hot": "@empty",
+    "json": "npm:systemjs-plugin-json@0.3.0"
   }
 });
 
