@@ -1,7 +1,4 @@
-const sass = require('node-sass')
-const { castToSass } = require('node-sass-utils')(sass)
-const { get } = require('lodash')
-const onecolor = require('onecolor')
+const { functions } = require('../modules/sass-extensions')
 
 module.exports = function () {
   // Sass
@@ -15,31 +12,8 @@ module.exports = function () {
       options: {
         outputStyle: 'nested',
         sourceMap: true,
-        functions: {
-
-          /**
-           * Get path from shared data
-           * @todo Add proper handling of localized data
-           * @param  {array|string} query Query to property in `data.PATH`, which contains
-           *                              needed path, according to https://lodash.com/docs#get
-           * @return {string}             Requested path
-           * @example $images-path: '/' + kotsu-path(images)
-          */
-          'kotsu-path($query)': query => castToSass(get(data.PATH, query.getValue())),
-
-          /**
-           * Get current theme color from `data.SITE.themeColor`, which used for `theme-color` meta
-           * @todo Add proper handling of localized data
-           * @return {string} Requested color as Sass rgba value
-           * @example $primary-color: kotsu-theme-color()
-          */
-          'kotsu-theme-color()': () => {
-            const c = onecolor(data.SITE.themeColor)
-            return sass.types.Color(c.red() * 255, c.green() * 255, c.blue() * 255, c.alpha())
-          }
-        }
+        functions: functions(data)
       },
-
       files: [{
         expand: true,
         cwd: '<%= path.source.styles %>',

@@ -4,7 +4,7 @@
 
 $ekzo-colors: (
   primary: #a593e0,
-  secondary: kotsu-theme-color(),
+  secondary: kotsu-data('SITE.themeColor'),
   green-white: #e0e3da,
   ivory: #fffff3,
   black-30: rgba(#000, .3)

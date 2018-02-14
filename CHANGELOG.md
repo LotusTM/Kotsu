@@ -7,6 +7,8 @@
 - [scripts] Added built-in crucial polyfills for DOM `matches`, `closest` and `classList` methods.
 - [misc] Added more cleaning directives in `robots.txt`.
 - [modules] Added more aggressive caching for `SITE.matter`, which makes single require of matter files instead of require per each rendered file.
+- [modules] Added module `sass-extensions` which now is a home for all Sass functions and other extensions.
+- [modules][styles] Added Sass function `kotsu-data` with access to all Kotsu data. It is a replacement for `kotsu-path` and `kotsu-theme-colors` functions [#35](https://github.com/LotusTM/Kotsu/issues/35)
 - [templates][modules] Added Nunjucks `imageSize()` function which takes in image paths and returns image-related data:
 
    ```jinja
@@ -52,6 +54,22 @@
    `tinypng:images` is disabled by default to avoid awkward situations...
 
 - [styles] Default `.Icon--left` and `.Icon--right` classes now have more reasonable margins.
+- [styles] Replaced all `kotsu-path` and `kotsu-theme-colors` functions instances with `kotsu-data` function. Queries inside functions have been changed too, to access needed properties:
+
+   ```diff
+   - $ekzo-images-path:       '/' + kotsu-path(images);
+   + $ekzo-images-path:       '/' + kotsu-data('PATH.images');
+   - $ekzo-ui-path:           '/' + kotsu-path(images) + '/ui';
+   + $ekzo-ui-path:           '/' + kotsu-data('PATH.images') + '/ui';
+   - $ekzo-sprites-path:      '/' + kotsu-data('PATH.sprites');
+   + $ekzo-sprites-path:      '/' + kotsu-path(sprites);
+   - $ekzo-fonts-path:        '/' + kotsu-data('PATH.fonts');
+   + $ekzo-fonts-path:        '/' + kotsu-path(fonts);
+
+   - secondary: kotsu-theme-color(),
+   + secondary: kotsu-data('SITE.themeColor'),
+   ```
+
 - [scripts] ES6 in, CoffeeScript out.
 
    CoffeeScript is no longer a part of the Kotsu. All code rewritten in pure ES6, all `.coffee` files renamed to `.js`, all imports no longer referring to `.coffee` extension, CoffeeScript no longer supported by Jest testing environment out of the box.
@@ -70,7 +88,8 @@
 
    Closes [#46](https://github.com/LotusTM/Kotsu/issues/46).
 
-- [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.\
+- [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.
+- [modules][grunt] `styles` task file has been cleened up by moving Sass functions into standalone module `modules/sass-extensions`.
 - [templates] Changed paths in `_base.nj` script block:
 
    * `PATH.scripts` `main.js` replaced with `PATH.file.script.compiled`
@@ -104,6 +123,7 @@
 - [grunt] Removed `grunt-responsive-images-extender` in favor of newly added `imageSize()` Nunjucks function.
 - [package][scripts] `jQuery` no longer shipped with Kotsu by default. The time has passed. Use native DOM API.
 - [temlates] Removed `imports` block from `_base.nj` layout. They weren't useful since you wouldn't be able to extend base layout without them anyway.
+- [modules][styles] Removed `kotsu-path` and `kotsu-theme-colors` functions in favor of more generic function `kotsu-data` which has access to all Kotsu data [#35](https://github.com/LotusTM/Kotsu/issues/35)
 - [styles][templates] Removed pages-related classes like `p-index` and `p-blog`.
 
    Such usage is deprecated. Pages are complex components and should be threaded just like any other component. Thus, components classes like `Index` for the index page or `Blog` for the blog encouraged instead.

@@ -6,10 +6,10 @@
 // Paths
 // -----------------------------------------------------------------------------
 
-$ekzo-images-path:       '/' + kotsu-path(images);
-$ekzo-ui-path:           '/' + kotsu-path(images) + '/ui';
-$ekzo-sprites-path:      '/' + kotsu-path(sprites);
-$ekzo-fonts-path:        '/' + kotsu-path(fonts);
+$ekzo-images-path:       '/' + kotsu-data('PATH.images');
+$ekzo-ui-path:           '/' + kotsu-data('PATH.images') + '/ui';
+$ekzo-sprites-path:      '/' + kotsu-data('PATH.sprites');
+$ekzo-fonts-path:        '/' + kotsu-data('PATH.fonts');
 
 // -----------------------------------------------------------------------------
 // Background

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sass extension kotsuData (kotsu-data) should cast colors to Sass color 1`] = `
+Array [
+  255,
+  255,
+  255,
+  1,
+]
+`;
+
+exports[`Sass extension kotsuData (kotsu-data) should get from data 1`] = `"level2 value"`;
