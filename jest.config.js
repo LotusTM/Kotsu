@@ -1,10 +1,8 @@
-const { run } = require('jest')
-const pkg = require('../../package.json')
-// const jestJSPM = require('jest-jspm')
-
-const argv = process.argv.slice(2)
-
 // @todo disabked due to https://github.com/LotusTM/Kotsu/issues/199
+//
+// const pkg = require('./package.json')
+// const jestJSPM = require('jest-jspm')
+//
 // const jestConfig = jestJSPM(process.cwd(), {
 //   jestConfig: pkg.jest,
 //   sjsConfigFile: 'jspm.config.js',
@@ -12,6 +10,13 @@ const argv = process.argv.slice(2)
 // })
 
 // argv.push('--config', JSON.stringify(jestConfig))
-argv.push('--config', JSON.stringify(pkg.jest))
 
-run(argv)
+module.exports = {
+  testPathIgnorePatterns: [
+    '/.git/',
+    '<rootDir>/build/',
+    '<rootDir>/temp/',
+    '/node_modules/',
+    '/jspm_packages/'
+  ]
+}

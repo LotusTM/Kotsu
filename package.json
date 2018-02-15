@@ -132,8 +132,8 @@
     "js:chokidar": "cd ./source/scripts && chokidar-socket-emitter",
     "js:watch": "grunt shell:jspm_watch",
     "lint": "standard | snazzy && stylelint \"**/*.{css,scss,sass}\" \"!{jspm_packages,build,temp}/**\"",
-    "test": "npm run lint && node tests/utils/jest.js",
-    "test:watch": "node tests/utils/jest.js --watch",
+    "test": "npm run lint && jest",
+    "test:watch": "jest --watch",
     "build": "grunt build",
     "postbuild": "node tests/utils/clean-workdir.js"
   },
@@ -160,15 +160,6 @@
     "ignore": [
       "jspm.config.js",
       "jspm_packages/**"
-    ]
-  },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "/.git/",
-      "<rootDir>/build/",
-      "<rootDir>/temp/",
-      "/node_modules/",
-      "/jspm_packages/"
     ]
   }
 }

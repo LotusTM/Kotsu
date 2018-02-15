@@ -44,11 +44,13 @@
 - [data] Added new data property `SITE.images`, which holds images information collected by `grunt-image-size`.
 - [data] Added new data property `PATH.file` which points to Gruntfile `file.build` values.
 - [package] Update `package-lock.json` for greenkeeper builds and upload it to github using `greenkeeper-lockfile` package, closes [#350](https://github.com/LotusTM/Kotsu/issues/350)
+- [package] Added `jest.config.js` where now stored Jest config from `package.json`.
 
 ### Changed
 - [package] Updated dependencies.
 - [package][data] `twitter` proprty is no longer a part of the `package.json`. It's moved into data `SOCIAL.twitter.handle` instead.
-- [package] Remove `grunt-contrib-uglify` in favor of `uglify-js` bundled with `jspm` [#294](https://github.com/LotusTM/Kotsu/issues/294)
+- [package] Removed `grunt-contrib-uglify` in favor of `uglify-js` bundled with `jspm` [#294](https://github.com/LotusTM/Kotsu/issues/294)
+- [package] Moved Jest config from `package.json` to `jest.config.js`.
 - [grunt] Split `tinypng:build` task into `tinypng:sprites` and `tinypng:images` tasks, which are stored now in `sprites` and `images` tasks files.
 
    `tinypng:images` is disabled by default to avoid awkward situations...
@@ -122,6 +124,8 @@
 - [grunt] Removed `file.build.sprite.hash` setting. Now it's embedded into `tinypng` task directly.
 - [grunt] Removed `grunt-responsive-images-extender` in favor of newly added `imageSize()` Nunjucks function.
 - [package][scripts] `jQuery` no longer shipped with Kotsu by default. The time has passed. Use native DOM API.
+- [package] Removed Jest config property from `package.json` in favor of `jest.config.js`.
+- [package] Removed `tests/utils/jest.js` in favor of `jest.config.js`.
 - [temlates] Removed `imports` block from `_base.nj` layout. They weren't useful since you wouldn't be able to extend base layout without them anyway.
 - [modules][styles] Removed `kotsu-path` and `kotsu-theme-colors` functions in favor of more generic function `kotsu-data` which has access to all Kotsu data [#35](https://github.com/LotusTM/Kotsu/issues/35)
 - [styles][templates] Removed pages-related classes like `p-index` and `p-blog`.
