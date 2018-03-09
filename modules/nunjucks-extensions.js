@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const md = require('markdown-it')()
 const markdown = require('nunjucks-markdown')
+const createImage = require('./createImage')
 const crumble = require('./crumble')
 const render = require('./nunjucks-render')
 const format = require('./format')
@@ -9,7 +10,7 @@ const imageSize = require('./image-size')
 const numbro = require('numbro')
 const moment = require('moment')
 const smartPlurals = require('smart-plurals')
-const { join } = require('path')
+const { resolve, join } = require('path')
 const URI = require('urijs')
 const urljoin = require('./urljoin')
 const { escape } = require('nunjucks/src/lib')
@@ -351,6 +352,46 @@ module.exports = function (env) {
       ''
     )
   })
+
+  /**
+   * Create images dynamically
+   * @param {object}   options Filter options
+   *                           @see modules/createImage
+   * @param {string}   [options.transform]
+   *                           Sharp transforms to be applied to the created image.
+   *                           `this` will correspond to current image. All
+   *                           Sharp methods will be available on it.
+   *                           It is a string, which will be later evaluated
+   *                           due to Nunjucks async filters handling limitations
+   * @param {function} [done]  Nunjucks callback for async filters. Don't touch this
+   * @return {object} Created image metadata
+   * @example
+   *   {% set image = {
+   *     src: 'logo.png',
+   *     postfix: '@500',
+   *     transform: 'this.rotate().resize(500)'
+   *   }|createImage() %}
+   */
+  env.addFilter('createImage', function (options, done) {
+    const { transform, cwd, outputDir } = options
+
+    if (!cwd) options.cwd = this.ctx.PATH.source.images
+    if (!outputDir) options.outputDir = resolve(this.ctx.PATH.temp.images)
+
+    options.build = true
+
+    const image = createImage(options.src, options)
+
+    if (transform) Function(options.transform).bind(image)() // eslint-disable-line no-new-func
+
+    image.done()
+      .then((metadata) => {
+        done(null, metadata)
+      })
+      .catch((error) => {
+        done(error)
+      })
+  }, true)
 
   /**
    * Same as Nunjucks `|escape` filter, but enforces escaping in any case, even if input previously has been

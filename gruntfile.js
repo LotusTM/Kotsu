@@ -68,6 +68,7 @@ module.exports = function (grunt) {
       temp: {
         root: 'temp',
         data: '<%= path.temp.root %>/data',
+        images: '<%= path.temp.root %>/images',
         styles: '<%= path.temp.root %>/styles'
       },
 
