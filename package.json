@@ -77,6 +77,7 @@
     "numbro": "2.0.6",
     "nunjucks-markdown": "2.0.1",
     "onecolor": "3.0.5",
+    "sharp": "0.20.0",
     "smart-plurals": "1.1.0",
     "sprintf-js": "1.1.1",
     "tcomb-validation": "3.4.0",
