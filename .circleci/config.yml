@@ -23,8 +23,6 @@ aliases:
   - &restore-dependencies-cache
       keys:
         - dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}
-        # fallback in case checksum fails
-        - dependencies-{{ .Branch }}
 
   - &save-build-cache
           key: build-cache-{{ .Environment.CIRCLE_SHA1 }}
