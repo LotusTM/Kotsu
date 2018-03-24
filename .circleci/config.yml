@@ -15,14 +15,14 @@ aliases:
       key: repo-cache-{{ .Environment.CIRCLE_SHA1 }}
 
   - &save-dependencies-cache
-      key: dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      key: dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum "jspm.config.js" }}
       paths:
         - ./node_modules
         - ./jspm_packages
 
   - &restore-dependencies-cache
       keys:
-        - dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}
+        - dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum "jspm.config.js" }}
 
   - &save-build-cache
           key: build-cache-{{ .Environment.CIRCLE_SHA1 }}
