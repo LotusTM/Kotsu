@@ -45,6 +45,12 @@
 - [data] Added `ENV.buildNumber` build number and `ENV.buildSHA1` with commit SHA1 which caused build.
 - [data] Added new data property `SITE.images`, which holds images information collected by `grunt-image-size`.
 - [data] Added new data property `PATH.file` which points to Gruntfile `file.build` values.
+- [conf] Enabled new SCSS Stylelint rule:
+
+   ```yml
+   scss/dollar-variable-colon-space-after: at-least-one-space
+   ```
+
 - [package] Update `package-lock.json` for greenkeeper builds and upload it to github using `greenkeeper-lockfile` package, closes [#350](https://github.com/LotusTM/Kotsu/issues/350)
 - [package] Added `jest.config.js` where now stored Jest config from `package.json`.
 - [package] Added `preversion` script, which will run tests and build before `npm version` command.

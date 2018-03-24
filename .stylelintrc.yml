@@ -227,11 +227,8 @@ rules:
   # @todo No way to disallow newlines after colon
   # scss/dollar-variable-colon-newline-after: never
 
-  # @todo No way to require at least single space
-  #               \/ - here
-  #       $test:     20px;
-  #       $test-val: 25px;
-  # scss/dollar-variable-colon-space-after: always-single-line
+  # @todo Should be replaced with `always-single-line` when Ekzo v3 will be released
+  scss/dollar-variable-colon-space-after: at-least-one-space
 
   scss/dollar-variable-colon-space-before: never
   scss/dollar-variable-no-missing-interpolation: true
