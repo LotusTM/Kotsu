@@ -18,5 +18,8 @@ module.exports = {
     '<rootDir>/temp/',
     '/node_modules/',
     '/jspm_packages/'
-  ]
+  ],
+  moduleNameMapper: {
+    '^@data$': '<rootDir>/tests/utils/scriptsData.js'
+  }
 }
