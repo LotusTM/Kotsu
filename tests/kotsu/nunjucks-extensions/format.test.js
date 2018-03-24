@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import { renderString } from '../../utils/nunjucks'
+import { renderString } from '../../../modules/nunjucks-test-utils'
 
 const render = (template, context = mockContext, parse) => renderString(template, context, parse)
 const mockContext = {}

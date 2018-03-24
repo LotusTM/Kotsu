@@ -20,6 +20,6 @@ module.exports = {
     '/jspm_packages/'
   ],
   moduleNameMapper: {
-    '^@data$': '<rootDir>/tests/utils/scriptsData.js'
+    '^@data$': '<rootDir>/modules/scripts-data.js'
   }
 }

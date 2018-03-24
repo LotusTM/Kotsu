@@ -95,6 +95,8 @@
 
 - [modules][grunt][data] Matter data is no longer defined in Nunjucks task and instead passed explicitly as a part of `SITE.matter` data within data `index` file.
 - [modules][grunt] `styles` task file has been cleened up by moving Sass functions into standalone module `modules/sass-extensions`.
+- [modules][tests] All testing utilities moved directly into `modules`.
+- [modules] `modules/nunjucks.js` renamed to `modules/nunjucks-test-utils.js`.
 - [templates] Changed paths in `_base.nj` script block:
 
    * `PATH.scripts` `main.js` replaced with `PATH.file.script.compiled`

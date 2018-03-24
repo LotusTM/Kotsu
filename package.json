@@ -136,7 +136,7 @@
     "test:watch": "jest --watch",
     "build": "grunt build",
     "preversion": "npm test && npm run build",
-    "postbuild": "node tests/utils/clean-workdir.js"
+    "postbuild": "node modules/clean-workdir.js"
   },
   "browserslist": [
     "> 1%",

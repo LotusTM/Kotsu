@@ -1,4 +1,4 @@
-const { grunt } = require('../../tests/utils/grunt')
+const { grunt } = require('../../modules/grunt')
 const t = require('tcomb')
 const r = require('../../modules/refinements')
 const validate = require('../../modules/validate')
