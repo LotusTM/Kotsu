@@ -135,6 +135,7 @@
     "test": "npm run lint && jest",
     "test:watch": "jest --watch",
     "build": "grunt build",
+    "preversion": "npm test && npm run build",
     "postbuild": "node tests/utils/clean-workdir.js"
   },
   "browserslist": [

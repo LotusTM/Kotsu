@@ -47,6 +47,7 @@
 - [data] Added new data property `PATH.file` which points to Gruntfile `file.build` values.
 - [package] Update `package-lock.json` for greenkeeper builds and upload it to github using `greenkeeper-lockfile` package, closes [#350](https://github.com/LotusTM/Kotsu/issues/350)
 - [package] Added `jest.config.js` where now stored Jest config from `package.json`.
+- [package] Added `preversion` script, which will run tests and build before `npm version` command.
 
 ### Changed
 - [package] Updated dependencies.
