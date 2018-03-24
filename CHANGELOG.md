@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 1.12.0
 
 ### Added
 - [styles] Added inputs default styling to `textarea` and `select`.
