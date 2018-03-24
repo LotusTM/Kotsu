@@ -14,7 +14,7 @@ i18nTools.nunjucksExtensions(env)
  * Renders template with specific context and usual
  * for Kotsu environment
  * @param  {string}  template  Template to render
- * @param  {object   [context] Template context
+ * @param  {object}  [context] Template context
  * @param  {boolean} [parse]   Parse output with `JSON.parse`.
  *                             Useful for object or array dumps
  * @return {string} Rendered template
