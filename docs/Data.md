@@ -161,3 +161,16 @@ This data can be used in projects to output information about projects' social n
 | `[SOCIAL.{service_name}.handle]` | `String` | `none`        | Handle with leading `@`. Most often used for Twitter meta data.                                  |
 | `[SOCIAL.{service_name}.image]`  | `String` | `none`        | Image to associated with social service image. By default used for Open Graph and Twitter Cards. |
 | `[SOCIAL.{service_name}.url]`    | `String` | `none`        | Url, leading to service. By default used for `Organization` `sameAs` property.                   |
+
+### `ENV` properties
+
+Some useful for project environment variables.
+
+|          property         |    type   |      default value      |                           description                            |
+|---------------------------|-----------|-------------------------|------------------------------------------------------------------|
+| `[ENV.production]`        | `Boolean` | `env.production`        | Denotes production build.                                        |
+| `[ENV.staging]`           | `Boolean` | `env.staging`           | Denotes staging build.                                           |
+| `[ENV.build]`             | `Boolean` | `env.build`             | Denotes fully optimized build. Usually same as production build. |
+| `[ENV.buildSHA1]`         | `String`  | `env.buildSHA1`         | Commit SHA1, which caused Circle CI build.                       |
+| `[ENV.buildNumber]`       | `String`  | `env.buildNumber`       | Current Circle CI build.                                         |
+| `[ENV.hotModuleRloading]` | `Boolean` | `env.hotModuleRloading` | Is Hot Module Reloading used right now.                          |
