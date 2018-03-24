@@ -10,12 +10,29 @@ const data = require('./index')
  * @return {object} Data for frontend scripts
  */
 module.exports = (grunt) => {
-  const { SITE: { name, version } } = data(grunt)()
+  const {
+    SITE: {
+      name,
+      version,
+      locales,
+      baseLocale
+    },
+    ENV: {
+      buildSHA1,
+      buildNumber
+    }
+  } = data(grunt)()
 
   return {
     SITE: {
       name,
-      version
+      version,
+      locales,
+      baseLocale
+    },
+    ENV: {
+      buildSHA1,
+      buildNumber
     }
   }
 }

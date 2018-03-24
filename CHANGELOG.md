@@ -5,6 +5,7 @@
 ### Added
 - [styles] Added inputs default styling to `textarea` and `select`.
 - [scripts] Added built-in crucial polyfills for DOM `matches`, `closest` and `classList` methods.
+- [scripts] Initial `console.log` will now display current Circle CI build number and commit SHA1, which caused it.
 - [misc] Added more cleaning directives in `robots.txt`.
 - [modules] Added more aggressive caching for `SITE.matter`, which makes single require of matter files instead of require per each rendered file.
 - [modules] Added module `sass-extensions` which now is a home for all Sass functions and other extensions.
@@ -41,6 +42,7 @@
 
    [#265](https://github.com/LotusTM/Kotsu/issues/265)
 
+- [data] Added `ENV.buildNumber` build number and `ENV.buildSHA1` with commit SHA1 which caused build.
 - [data] Added new data property `SITE.images`, which holds images information collected by `grunt-image-size`.
 - [data] Added new data property `PATH.file` which points to Gruntfile `file.build` values.
 - [package] Update `package-lock.json` for greenkeeper builds and upload it to github using `greenkeeper-lockfile` package, closes [#350](https://github.com/LotusTM/Kotsu/issues/350)

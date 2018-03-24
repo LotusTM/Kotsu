@@ -57,6 +57,8 @@ module.exports = ({ config }) => {
       production: env.production,
       staging: env.staging,
       build: env.build,
+      buildSHA1: env.buildSHA1,
+      buildNumber: env.buildNumber,
       hotModuleRloading: env.hotModuleRloading
     }
   }

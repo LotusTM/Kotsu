@@ -26,6 +26,8 @@ module.exports = function (grunt) {
       production: (process.env.PRODUCTION === 'true') || grunt.option('production'),
       staging: (process.env.STAGING === 'true') || grunt.option('staging'),
       build: grunt.cli.tasks.includes('build'),
+      buildSHA1: process.env.CIRCLE_SHA1,
+      buildNumber: process.env.CIRCLE_BUILD_NUM,
       hotModuleRloading: grunt.option('hmr'),
       tinypng: {
         api: {
