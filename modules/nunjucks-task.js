@@ -5,9 +5,6 @@ const humanReadableUrl = require('./humanReadableUrl')
 const i18nTools = require('./i18n-tools')
 const nunjucksExtensions = require('./nunjucks-extensions')
 
-let matterCache
-let imagesCache
-
 module.exports = function (config) {
   config = merge({
     options: {
@@ -67,18 +64,13 @@ module.exports = function (config) {
           throw new Error(`[nunjucks-task] \`options.data.SITE.images\` should be a function, which returns matter object, or a plain matter object, ${typeof images} provided`)
         }
 
-        if (!matterCache) {
-          matterCache = typeof matter === 'function' ? matter() : matter
-        }
+        const matterData = typeof matter === 'function' ? matter() : matter
 
-        if (!imagesCache) {
-          imagesCache = typeof images === 'function' ? images() : images
-        }
+        // Note that it will cache function results for further calls
+        data.SITE.matter = Object.assign({}, matterData)
+        data.SITE.images = typeof images === 'function' ? images() : images
 
-        data.SITE.matter = Object.assign({}, matterCache)
-        data.SITE.images = imagesCache
-
-        const { props } = get(matterCache, breadcrumb)
+        const { props } = get(matterData, breadcrumb)
 
         data.PAGE = merge(data.PAGE, {
           props: {
