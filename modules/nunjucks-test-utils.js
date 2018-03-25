@@ -1,10 +1,10 @@
-import nunjucks from 'nunjucks'
-import cloneDeep from 'lodash/cloneDeep'
-import { grunt } from './grunt'
-import nunjucksExtensions from './nunjucks-extensions'
-import i18nTools from './i18n-tools'
+const nunjucks = require('nunjucks')
+const cloneDeep = require('lodash/cloneDeep')
+const { grunt } = require('./grunt')
+const nunjucksExtensions = require('./nunjucks-extensions')
+const i18nTools = require('./i18n-tools')
 
-export const env = nunjucks.configure(grunt.config('path.source.templates'))
+const env = nunjucks.configure(grunt.config('path.source.templates'))
 
 nunjucksExtensions(env)
 i18nTools.nunjucksExtensions(env)
@@ -19,7 +19,7 @@ i18nTools.nunjucksExtensions(env)
  *                             Useful for object or array dumps
  * @return {string} Rendered template
  */
-export const renderString = (template, context, parse) => {
+const renderString = (template, context, parse) => {
   const rendered = env.renderString(template, cloneDeep(context))
 
   if (parse) {
@@ -28,3 +28,5 @@ export const renderString = (template, context, parse) => {
 
   return rendered
 }
+
+module.exports = { env, renderString }

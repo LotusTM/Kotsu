@@ -1,5 +1,5 @@
-import gt from 'grunt'
-import gruntfile from '../gruntfile'
+const gt = require('grunt')
+const gruntfile = require('../gruntfile')
 
 const grunt = gruntfile.call(gt, gt)
 
@@ -16,4 +16,4 @@ const runGrunt = (args) => new Promise((resolve, reject) =>
   )
 )
 
-export { grunt, runGrunt }
+module.exports = { grunt, runGrunt }

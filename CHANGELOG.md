@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+### Fixed
+- [modules] Replaced ES6 imports and exports in some module files with Node `require` and `module.exports`.
+
 ## 1.12.0
 
 ### Added
