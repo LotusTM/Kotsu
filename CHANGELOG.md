@@ -25,6 +25,7 @@
 
 ### Changed
 - [modules] Simplified code related to caching of `data.SITE.matter` and `data.SITE.images`.
+- [modules] Simplified code related to caching of rendered `data.SITE.matter` in Nunjucks `getPage()` function.
 
 ### Fixed
 - [modules] Replaced ES6 imports and exports in some module files with Node `require` and `module.exports`.

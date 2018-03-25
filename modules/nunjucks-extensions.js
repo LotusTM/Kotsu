@@ -12,6 +12,7 @@ const smartPlurals = require('smart-plurals')
 const { join } = require('path')
 const URI = require('urijs')
 const urljoin = require('./urljoin')
+const { cacheFunc } = require('./cache')
 const { escape } = require('nunjucks/src/lib')
 const { file: { expand }, log } = require('grunt')
 
@@ -111,17 +112,7 @@ module.exports = function (env) {
     const { matter } = this.ctx.SITE
 
     const renderData = (tmpl) => render(env, ctx, tmpl)
-
-    const getRenderedData = () => {
-      if (!this.ctx.SITE.matterRendered) {
-        this.ctx.SITE.matterRendered = renderData(matter)
-      }
-
-      return this.ctx.SITE.matterRendered
-    }
-
-    const data = (forceRender && cached && getRenderedData()) || matter
-
+    const data = (forceRender && cached && cacheFunc(renderData, 'renderedMatter')(matter)) || matter
     let page = _.get(data, path)
 
     if (!page) {
@@ -134,7 +125,9 @@ module.exports = function (env) {
     }
 
     page = Object.assign({}, page)
+
     Object.defineProperty(page, 'props', { enumerable: false })
+
     return page
   })
 
