@@ -1,9 +1,9 @@
 const { get, merge } = require('lodash')
 const { join } = require('path')
-const crumble = require('../modules/crumble')
-const humanReadableUrl = require('../modules/humanReadableUrl')
-const i18nTools = require('../modules/i18n-tools')
-const nunjucksExtensions = require('../modules/nunjucks-extensions')
+const crumble = require('./crumble')
+const humanReadableUrl = require('./humanReadableUrl')
+const i18nTools = require('./i18n-tools')
+const nunjucksExtensions = require('./nunjucks-extensions')
 
 let matterCache
 let imagesCache
