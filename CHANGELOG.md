@@ -2,6 +2,27 @@
 
 ## HEAD
 
+### Added
+- [modules] Added `cache` module which provides a central cache storage and additional method for memoizing function results based on it's arguments or specified cache store key.
+
+   Cache itself based on [lru-cache](https://github.com/isaacs/node-lru-cache).
+
+   Examples:
+
+   ```js
+   const { cache, cacheFunc } = require('./modules/cache')
+   
+   cacheFunc(renderFunc)('{{ value }}', { value: 'test' })
+   // -> 'test'
+   cacheFunc(renderFunc, 'matter')('{{ value }}', { value: 'test2' })
+   // -> 'test2'
+
+   cache.get('123er23')
+   // -> 'test'
+   cache.get('matter')
+   // -> 'test2'
+   ```
+
 ### Changed
 - [modules] Simplified code related to caching of `data.SITE.matter` and `data.SITE.images`.
 
