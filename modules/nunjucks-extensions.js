@@ -109,9 +109,11 @@ module.exports = function (env) {
   */
   env.addGlobal('getPage', function (path, forceRender = true, cached = true, ctx = this.getVariables()) {
     path = (path.includes('/') && crumble(path)) || path
-    const { SITE: { matter }, PAGE: { props: { locale } } } = this.ctx
 
     const renderData = (tmpl) => render(env, ctx, tmpl)
+
+    const { SITE: { matter }, PAGE } = this.ctx
+    const locale = PAGE.locale || PAGE.props.locale
     const data = (forceRender && cached && cacheFunc(renderData, `renderedMatter_${locale}`)(matter)) || matter
     let page = _.get(data, path)
 
