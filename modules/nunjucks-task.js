@@ -49,12 +49,9 @@ module.exports = function (config) {
         if (typeof configureEnvironment === 'function') {
           configureEnvironment.call(this, env, nunjucks)
         }
-      },
 
-      preprocessData (data) {
-        const pagepath = humanReadableUrl(this.src[0].replace((this.orig.cwd || this.orig.orig.cwd), ''), humanReadableUrlsExclude)
-        const breadcrumb = crumble(pagepath)
-        const { matter, images } = data.SITE
+        const { SITE } = env.opts.data
+        const { matter, images } = SITE
 
         if ((typeof matter !== 'function') && (typeof matter !== 'object')) {
           throw new Error(`[nunjucks-task] \`options.data.SITE.matter\` should be a function, which returns matter object, or a plain matter object, ${typeof matter} provided`)
@@ -64,13 +61,16 @@ module.exports = function (config) {
           throw new Error(`[nunjucks-task] \`options.data.SITE.images\` should be a function, which returns matter object, or a plain matter object, ${typeof images} provided`)
         }
 
-        const matterData = typeof matter === 'function' ? matter() : matter
+        // Execute data function only once, during first configuration
+        SITE.matter = typeof matter === 'function' ? matter() : matter
+        SITE.images = typeof images === 'function' ? images() : images
+      },
 
-        // Note that it will cache function results for further calls
-        data.SITE.matter = Object.assign({}, matterData)
-        data.SITE.images = typeof images === 'function' ? images() : images
-
-        const { props } = get(matterData, breadcrumb)
+      preprocessData (data) {
+        const pagepath = humanReadableUrl(this.src[0].replace((this.orig.cwd || this.orig.orig.cwd), ''), humanReadableUrlsExclude)
+        const breadcrumb = crumble(pagepath)
+        const { matter } = data.SITE
+        const { props } = get(matter, breadcrumb)
 
         data.PAGE = merge(data.PAGE, {
           props: {
