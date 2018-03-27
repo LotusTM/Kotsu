@@ -113,7 +113,7 @@ module.exports = function (env) {
     const renderData = (tmpl) => render(env, ctx, tmpl)
 
     const { SITE: { matter }, PAGE } = this.ctx
-    const locale = PAGE.locale || PAGE.props.locale
+    const locale = PAGE && (PAGE.locale || PAGE.props.locale)
     const data = (forceRender && cached && cacheFunc(renderData, `renderedMatter_${locale}`)(matter)) || matter
     let page = _.get(data, path)
 
