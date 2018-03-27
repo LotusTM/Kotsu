@@ -12,7 +12,6 @@ const smartPlurals = require('smart-plurals')
 const { join } = require('path')
 const URI = require('urijs')
 const urljoin = require('./urljoin')
-const { cacheFunc } = require('./cache')
 const { escape } = require('nunjucks/src/lib')
 const { file: { expand }, log } = require('grunt')
 
@@ -112,18 +111,15 @@ module.exports = function (env) {
 
     const renderData = (tmpl) => render(env, ctx, tmpl)
 
-    const { SITE: { matter }, PAGE } = this.ctx
-    const locale = PAGE && (PAGE.locale || PAGE.props.locale)
-    const data = (forceRender && cached && cacheFunc(renderData, `renderedMatter_${locale}`)(matter)) || matter
+    const { SITE: { matter, renderedMatter } } = this.ctx
+    const data = (forceRender && cached && renderedMatter) || matter
+
     let page = _.get(data, path)
 
-    if (!page) {
-      log.error(`[getPage] can not find \`${path}\` inside site Matter data [${this.ctx.PAGE.props.url}]`)
-      return
-    }
+    if (!page) return log.error(`[getPage] can not find \`${path}\` inside site Matter data [${this.ctx.PAGE.props.url}]`)
 
     if (forceRender) {
-      page = cached ? page : renderData(page)
+      page = cached && renderedMatter ? page : renderData(page)
     }
 
     page = Object.assign({}, page)

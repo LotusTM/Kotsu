@@ -4,6 +4,7 @@ const crumble = require('./crumble')
 const humanReadableUrl = require('./humanReadableUrl')
 const i18nTools = require('./i18n-tools')
 const nunjucksExtensions = require('./nunjucks-extensions')
+const render = require('./nunjucks-render')
 
 module.exports = function (config) {
   config = merge({
@@ -63,6 +64,7 @@ module.exports = function (config) {
 
         // Execute data function only once, during first configuration
         SITE.matter = typeof matter === 'function' ? matter() : matter
+        SITE.renderedMatter = render(env, {}, SITE.matter)
         SITE.images = typeof images === 'function' ? images() : images
       },
 
