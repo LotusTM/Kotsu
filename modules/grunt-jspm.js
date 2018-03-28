@@ -55,13 +55,13 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
       })
 
       jspm.stderr.on('data', (error) => {
+        console.log(red(error.toString()))
+
         const isWatchman = error.includes('Watchman:  Watchman was not found in PATH')
 
         if (!isWatchman && firstLaunch) done(new Error('JSPM failed.'))
 
         firstLaunch = false
-
-        console.log(red(error.toString()))
 
         done()
       })
