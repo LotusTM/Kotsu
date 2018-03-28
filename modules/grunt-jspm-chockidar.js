@@ -1,6 +1,6 @@
 const spawn = require('cross-spawn')
 const { resolve } = require('path')
-const { red, cyan } = require('chalk')
+const { red } = require('chalk')
 
 let firstLaunch = true
 

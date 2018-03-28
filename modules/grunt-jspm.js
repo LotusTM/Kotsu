@@ -13,7 +13,7 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
       done()
     }
 
-    const { packageName, args } = this.options({
+    const { args } = this.options({
       args: []
     })
 
@@ -21,12 +21,12 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
 
     log.ok(`Building ${cyan(this.files.length)} ${pluralize(this.files.length, 'file/files')}...`)
 
-    this.files.forEach(({ src, dest, package }) => {
+    this.files.forEach(({ src, dest, packageName }) => {
       if (!dest) return end('No dest file specified')
 
-      const source = package || src[0]
+      const source = packageName || src[0]
 
-      if ((src && !src.length) && !package) return end('No src file or package name specified')
+      if ((src && !src.length) && !packageName) return end('No src file or `packageName` specified')
       if (src && src.length > 1) return end('Only 1 src supported')
 
 

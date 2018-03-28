@@ -8,7 +8,7 @@ module.exports = function () {
         args: ['-wid']
       },
       files: [{
-        package: 'main',
+        packageName: 'main',
         dest: '<%= file.build.script.compiled %>'
       }]
     },
@@ -17,7 +17,7 @@ module.exports = function () {
         args: ['--minify']
       },
       files: [{
-        package: 'main',
+        packageName: 'main',
         dest: '<%= file.build.script.minified %>'
       }]
     }
