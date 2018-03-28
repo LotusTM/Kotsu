@@ -49,6 +49,7 @@
 - [templates] Removed Nunjucks `getPage()` function `forceRender` and `cached` options, because `getPage()` now always returns rendered and cached pages data, while raw version available with `$raw` property.
 
 ### Fixed
+- [grunt] Fixed async Nunjucks templates not working by updating `grunt-nunjucks-2-html` to version 2.2.0 [vitkarpov/grunt-nunjucks-2-html#56](https://github.com/vitkarpov/grunt-nunjucks-2-html/pull/56)
 - [modules] Replaced ES6 imports and exports in some module files with Node `require` and `module.exports`.
 
 ## 1.12.0
