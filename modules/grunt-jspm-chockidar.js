@@ -1,4 +1,4 @@
-const { spawn } = require('child_process')
+const spawn = require('cross-spawn')
 const { resolve } = require('path')
 const { red, cyan } = require('chalk')
 
@@ -14,7 +14,7 @@ module.exports = ({ registerMultiTask, log }) =>
     log.ok('Launching chockidar-socket-emitter...')
 
     const chockidar = spawn(
-      resolve('node_modules/.bin/chokidar-socket-emitter.cmd'),
+      resolve('node_modules/.bin/chokidar-socket-emitter'),
       {
         cwd,
         env: { FORCE_COLOR: true }

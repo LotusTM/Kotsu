@@ -1,4 +1,4 @@
-const { spawn } = require('child_process')
+const spawn = require('cross-spawn')
 const { resolve } = require('path')
 const { red, cyan } = require('chalk')
 
@@ -41,7 +41,7 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
       }
 
       const jspm = spawn(
-        resolve('node_modules/.bin/jspm.cmd'),
+        resolve('node_modules/.bin/jspm'),
         buildArgs,
         {
           env: { FORCE_COLOR: true }
