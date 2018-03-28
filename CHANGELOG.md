@@ -11,6 +11,7 @@
 
    Note, that task uses `child_process.spawn` under the hood, which might seem to be excessive. Because JSPM does not expose its watch API, for now it is possible to be launched only with CLI. Exactly what's doing `grunt-jspm`.
 
+- [grunt] Added `grunt-jspm-chockidar` which is responsible for launching `chockidar-socket-emitter`, which is watching scripts changes and emits them to SystemJS when Kotsu started in Hot Reloading Module mode, with `--hmr` flag.
 - [modules] Added `SITE.matter.$raw` internal property, which holds not rendered Front Matter.
 - [modules] Added `cache` module which provides a central cache storage and additional method for memoizing function results based on it's arguments or specified cache store key.
 
@@ -60,6 +61,11 @@
 ### Removed
 - [grunt] Removed `grunt-shell` which was used to launch JSPM watch and build. It has been replaced by `grunt-jspm` which spawns JSPM process.
 - [package] Removed `js:watch` script, since it is handled by `grunt-jspm` by now.
+- [package] Removed `npm run start-hmr`, `npm run serve-hmr` and related subtasks.
+
+   Just use `npm start -- --hmr` or `npm run serve -- --hmr` to launch Hot Module Reloading.
+
+- [package] Removed `npm-run-all` package, since due to newly added `grunt-jspm` and `grunt-jspm-chockidar` it no longer used.
 - [templates] Removed Nunjucks `getPage()` function `forceRender` and `cached` options, because `getPage()` now always returns rendered and cached pages data, while raw version available with `$raw` property.
 
 ### Fixed

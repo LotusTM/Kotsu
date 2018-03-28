@@ -23,6 +23,19 @@ module.exports = function () {
     }
   })
 
+  // Launch JSPM (SystemJS) chockidar-socket-emitter,
+  // which is needed to triger updated when Hot Module Reloading
+  // is enabled with `--hmr` flag
+  // @link modules/grunt-jspm-chockidar
+
+  this.config('jspmChockidar', {
+    listen: {
+      options: {
+        cwd: '<%= path.source.scripts %>'
+      }
+    }
+  })
+
   // Clean
   // https://github.com/gruntjs/grunt-contrib-clean
   // Clean folders to start fresh
