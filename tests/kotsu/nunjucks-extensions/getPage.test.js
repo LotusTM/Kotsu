@@ -1,10 +1,12 @@
 /* eslint-env jest */
 
-import { renderString } from '../../../modules/nunjucks-test-utils'
+import { env, renderString } from '../../../modules/nunjucks-test-utils'
+import { prepareMatter } from '../../../modules/nunjucks-task'
 
 const render = (template, context = mockContext, parse) => renderString(template, context, parse)
 const mockContext = {
   SITE: {
+    name: 'Test name',
     matter: {
       'index': {
         'props': { 'url': '/' }
@@ -15,10 +17,13 @@ const mockContext = {
           'props': { 'url': '/blog/2015-10-12-example-article' }
         }
       },
-      'testVar': {
-        'props': { 'var': '__globarvar value: {{ __globalvar }}' }
+      'contexVar': {
+        'props': { 'var': '__contextvar value: {{ __contextvar }}' }
       },
-      'testFunc': {
+      'globalVar': {
+        'props': { 'var': 'SITE.name value: {{ SITE.name }}' }
+      },
+      'globalFunc': {
         'props': { 'func': 'Crumbled url: {{ crumble("blog") }}' }
       }
       // @todo Disabled, because it will always fail due to endless recursion in cached `getPage`
@@ -30,6 +35,8 @@ const mockContext = {
 }
 
 describe('Nunjucks global function `getPage()`', () => {
+  beforeAll(() => prepareMatter(env, mockContext))
+
   describe('should get from', () => {
     it('root string-based path', () => {
       expect(render(`{{ getPage('blog')|dump|safe }}`, undefined, true)).toMatchSnapshot()
@@ -80,13 +87,31 @@ describe('Nunjucks global function `getPage()`', () => {
     })
   })
 
-  describe('should force-render received data', () => {
-    it('with current context', () => {
-      expect(render(`{% set __globalvar = 'testing __globalvar value' %}{{ getPage('testVar').props.var }}`)).toMatchSnapshot()
+  it('should get $raw data', () => {
+    expect(render(`{{ getPage('contexVar').$raw|dump|safe }}`, undefined, true)).toMatchSnapshot()
+  })
+
+  it('should allow to render $raw data', () => {
+    expect(render(`
+      {% set __contextvar = 'testing __contextvar value' %}
+      {{ getPage('contexVar').$raw.props.var|render() }}
+    `)).toMatchSnapshot()
+  })
+
+  describe('should get rendered data', () => {
+    it('with global context', () => {
+      expect(render(`{{ getPage('globalVar').props.var }}`)).toMatchSnapshot()
     })
 
-    it('with current custom functions', () => {
-      expect(render(`{{ getPage('testFunc').props.func }}`)).toMatchSnapshot()
+    it('with global custom functions', () => {
+      expect(render(`{{ getPage('globalFunc').props.func }}`)).toMatchSnapshot()
+    })
+
+    it('and ignore current context', () => {
+      expect(render(`
+        {% set __contextvar = 'testing __contextvar value' %}
+        {{ getPage('contexVar').props.var }}
+      `)).toMatchSnapshot()
     })
   })
 })

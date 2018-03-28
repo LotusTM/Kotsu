@@ -1,8 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Nunjucks global function \`getPage()\` should force-render received data with current context 1`] = `"__globarvar value: testing __globalvar value"`;
+exports[`Nunjucks global function \`getPage()\` should allow to render $raw data 1`] = `
+"
+      
+      __contextvar value: testing __contextvar value
+    "
+`;
 
-exports[`Nunjucks global function \`getPage()\` should force-render received data with current custom functions 1`] = `"Crumbled url: blog"`;
+exports[`Nunjucks global function \`getPage()\` should get $raw data 1`] = `
+Object {
+  "props": Object {
+    "var": "__contextvar value: {{ __contextvar }}",
+  },
+}
+`;
 
 exports[`Nunjucks global function \`getPage()\` should get from nested Array-based path 1`] = `
 Object {
@@ -95,3 +106,14 @@ Object {
   },
 }
 `;
+
+exports[`Nunjucks global function \`getPage()\` should get rendered data and ignore current context 1`] = `
+"
+        
+        __contextvar value: 
+      "
+`;
+
+exports[`Nunjucks global function \`getPage()\` should get rendered data with global context 1`] = `"SITE.name value: Test name"`;
+
+exports[`Nunjucks global function \`getPage()\` should get rendered data with global custom functions 1`] = `"Crumbled url: blog"`;

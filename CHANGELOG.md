@@ -3,6 +3,7 @@
 ## HEAD
 
 ### Added
+- [modules] Added `SITE.matter.$raw` internal property, which holds not rendered Front Matter.
 - [modules] Added `cache` module which provides a central cache storage and additional method for memoizing function results based on it's arguments or specified cache store key.
 
    Cache itself based on [lru-cache](https://github.com/isaacs/node-lru-cache).
@@ -24,8 +25,28 @@
    ```
 
 ### Changed
+- [modules] Matter data is no longer rendered ad hoc (by calling `getPage()`, etc), and instead rendered only once during environment configuration.
+
+   Raw version of same matter is always available under `SITE.matter.$raw`.
+
+   Beware that due to those changes, in default rendered and cached version page-specific context variables, like `PAGE.locale` won't be available. Pieces with such variables should be rendered explicitly with `render()` filter applied to `$raw` version of data.
+
+- [modules][nunjucks] Nunjucks `getPage()` no longer renders Matter data and instead returns rendered and cached data.
+
+   For rare cases, when some additional rendering with specific context required, raw pages data available under `$raw` property.
+
+   ```jinja
+   {% set item = getPage('/item').props.title %}
+   {# -> 'Якась сторінка' #}
+   {% set item = getPage('/item').$raw.props.tile %}
+   {# -> '={{ gettext("Some page") }}' #}
+   ```
+
+
 - [modules] Simplified code related to caching of `data.SITE.matter` and `data.SITE.images`.
-- [modules] Simplified code related to caching of rendered `data.SITE.matter` in Nunjucks `getPage()` function.
+
+### Removed
+- [templates] Removed Nunjucks `getPage()` function `forceRender` and `cached` options, because `getPage()` now always returns rendered and cached pages data, while raw version available with `$raw` property.
 
 ### Fixed
 - [modules] Replaced ES6 imports and exports in some module files with Node `require` and `module.exports`.

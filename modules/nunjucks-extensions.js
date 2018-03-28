@@ -97,34 +97,28 @@ module.exports = function (env) {
    * Get properties of page and its childs from site Matter data
    * @param {string|string[]} path                        Path to page inside site Matter data.
    *                                                      Array of crumbs, dot-notation string or url.
-   * @param {boolean}         [forceRender = true]        Render output with Nunjucks
-   * @param {boolean}         [cached = true]             Use cached rendered version if available
-   * @param {object}          [ctx = this.getVariables()] Nunjucks context for forced rendering
-   * @return {object} Properties of the page, including its sub pages
+   * @param {object}          [ctx = this.getVariables()] Nunjucks context
+   * @return {object} Rendered properties of the page, including its sub pages
+   *                  To get not rendered properties, access `$raw` property
    * @example
    *   getPage('blog.post')
    *   getPage('blog/post')
    *   getPage(['blog', 'post'])
+   *   getPage(['blog', 'post']).$raw
   */
-  env.addGlobal('getPage', function (path, forceRender = true, cached = true, ctx = this.getVariables()) {
+  env.addGlobal('getPage', function (path, ctx = this.getVariables()) {
     path = (path.includes('/') && crumble(path)) || path
 
-    const renderData = (tmpl) => render(env, ctx, tmpl)
+    const { SITE: { matter } } = this.ctx
+    let page = _.get(matter, path)
+    let $raw = _.get(matter.$raw, path)
 
-    const { SITE: { matter, renderedMatter } } = this.ctx
-    const data = (forceRender && cached && renderedMatter) || matter
+    if (!page || (matter.$raw && !$raw)) return log.error(`[getPage] can not find \`${path}\` inside site Matter data [${this.ctx.PAGE.props.url}]`)
 
-    let page = _.get(data, path)
-
-    if (!page) return log.error(`[getPage] can not find \`${path}\` inside site Matter data [${this.ctx.PAGE.props.url}]`)
-
-    if (forceRender) {
-      page = cached && renderedMatter ? page : renderData(page)
-    }
-
-    page = Object.assign({}, page)
+    page = Object.assign({}, { $raw }, page)
 
     Object.defineProperty(page, 'props', { enumerable: false })
+    Object.defineProperty(page, '$raw', { enumerable: false })
 
     return page
   })

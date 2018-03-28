@@ -6,6 +6,15 @@ const i18nTools = require('./i18n-tools')
 const nunjucksExtensions = require('./nunjucks-extensions')
 const render = require('./nunjucks-render')
 
+const prepareMatter = (env, data) => {
+  const { matter } = data.SITE
+  const theMatter = typeof matter === 'function' ? matter() : matter
+  const rendered = render(env, data, theMatter)
+
+  data.SITE.matter = rendered
+  data.SITE.matter.$raw = theMatter
+}
+
 module.exports = function (config) {
   config = merge({
     options: {
@@ -51,7 +60,8 @@ module.exports = function (config) {
           configureEnvironment.call(this, env, nunjucks)
         }
 
-        const { SITE } = env.opts.data
+        const { data } = env.opts
+        const { SITE } = data
         const { matter, images } = SITE
 
         if ((typeof matter !== 'function') && (typeof matter !== 'object')) {
@@ -62,9 +72,7 @@ module.exports = function (config) {
           throw new Error(`[nunjucks-task] \`options.data.SITE.images\` should be a function, which returns matter object, or a plain matter object, ${typeof images} provided`)
         }
 
-        // Execute data function only once, during first configuration
-        SITE.matter = typeof matter === 'function' ? matter() : matter
-        SITE.renderedMatter = render(env, {}, SITE.matter)
+        prepareMatter(env, data)
         SITE.images = typeof images === 'function' ? images() : images
       },
 
@@ -114,3 +122,5 @@ module.exports = function (config) {
 
   return config
 }
+
+module.exports.prepareMatter = prepareMatter
