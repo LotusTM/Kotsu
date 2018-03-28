@@ -29,7 +29,6 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
       if ((src && !src.length) && !packageName) return end('No src file or `packageName` specified')
       if (src && src.length > 1) return end('Only 1 src supported')
 
-
       let buildArgs = [
         'build',
         source,
