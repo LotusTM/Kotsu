@@ -148,28 +148,33 @@ module.exports = function (env) {
    * @return {void}
   */
   env.addGlobal('initPage', function () {
-    const { config, getPage, numbro, moment } = this.env.globals
-    const { format } = this.env.filters
+    const { env: { globals, filters }, ctx } = this
+    const { numbro, moment } = globals
+    const config = globals.config.bind(this)
+    const getPage = globals.getPage.bind(this)
+    const format = filters.format.bind(this)
 
     // Use specified on page breadcrumb if there is one.
     // For now it can be done with `{{ config('PAGE', { breadcrumb: ['myPage'] }) }}`
     // inside page or layout that page extends.
-    const breadcrumb = this.ctx.PAGE.breadcrumb || this.ctx.PAGE.props.breadcrumb
+    const breadcrumb = ctx.PAGE.breadcrumb || ctx.PAGE.props.breadcrumb
 
     // Retrieve page props following breadcrumb, render (as part of `getPage`) and format it
-    config.call(this, 'PAGE', format.call(this, getPage.call(this, breadcrumb).props, this.ctx.PLACEHOLDERS))
+    const pageProps = getPage(breadcrumb).props
+    const formattedPageProps = format(pageProps, ctx.PLACEHOLDERS)
+    config('PAGE', formattedPageProps)
 
     // Fill page data with rest of only available through Nunjucks injection props
     // It needed only when we used `getPage`, since retrieved props won't have injected by Nunjucks values,
     // because they can be computed only during Nunjucks task runtime
-    config.call(this, 'PAGE', this.ctx.PAGE.props)
+    config('PAGE', ctx.PAGE.props)
 
     // Set l10n defaults
-    const { locale } = this.ctx.PAGE
+    const { locale } = ctx.PAGE
 
     numbro.setLanguage(locale)
-    numbro.defaultFormat(this.ctx.SITE.locales[locale].numberFormat)
-    numbro.defaultCurrencyFormat(this.ctx.SITE.locales[locale].currencyFormat)
+    numbro.defaultFormat(ctx.SITE.locales[locale].numberFormat)
+    numbro.defaultCurrencyFormat(ctx.SITE.locales[locale].currencyFormat)
 
     moment.locale(locale)
   })
