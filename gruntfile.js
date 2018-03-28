@@ -136,6 +136,8 @@ module.exports = function (grunt) {
 
   grunt.loadTasks(grunt.config('path.tasks.root'))
 
+  grunt.registerTask('jspmWatch', grunt.option('hmr') ? [] : 'jspm:watch')
+
   // Build for development and serve
   grunt.registerTask('default', [
     'clean:build',
@@ -145,7 +147,7 @@ module.exports = function (grunt) {
     'image_size',
     'grayMatter',
     'nunjucks',
-    'jspm:watch',
+    'jspmWatch',
     'sprite',
     'webfont',
     'sass',
@@ -181,7 +183,7 @@ module.exports = function (grunt) {
 
   // Serve built version
   grunt.registerTask('serve', [
-    'jspm:watch',
+    'jspmWatch',
     'browserSync',
     'watch'
   ])
