@@ -1,14 +1,25 @@
 module.exports = function () {
-  // Shell
-  // https://github.com/sindresorhus/grunt-shell
-  // Run shell commands
+  // Launch JSPM build
+  // @link modules/grunt-jspm
 
-  this.config('shell', {
-    jspm_build: {
-      command: 'jspm build main <%= file.build.script.minified %> --minify'
+  this.config('jspm', {
+    watch: {
+      options: {
+        args: ['-wid']
+      },
+      files: [{
+        package: 'main',
+        dest: '<%= file.build.script.compiled %>'
+      }]
     },
-    jspm_watch: {
-      command: 'jspm build main <%= file.build.script.compiled %> -wid'
+    build: {
+      options: {
+        args: ['--minify']
+      },
+      files: [{
+        package: 'main',
+        dest: '<%= file.build.script.minified %>'
+      }]
     }
   })
 

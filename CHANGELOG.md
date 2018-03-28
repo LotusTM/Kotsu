@@ -3,6 +3,14 @@
 ## HEAD
 
 ### Added
+- [grunt] Added `grunt-jspm` task which allows launch JSPM watch and build within Grunt.
+
+   While doesn't seem to be much, it greatly simplifies configuration. JSPM no longer needs to be launched with `npm-run-parallel` and JSPM running process is now synchronous and predictable.
+
+   Besides, new JSPM task able to handle simultaneous watch of multiple packages.
+
+   Note, that task uses `child_process.spawn` under the hood, which might seem to be excessive. Because JSPM does not expose its watch API, for now it is possible to be launched only with CLI. Exactly what's doing `grunt-jspm`.
+
 - [modules] Added `SITE.matter.$raw` internal property, which holds not rendered Front Matter.
 - [modules] Added `cache` module which provides a central cache storage and additional method for memoizing function results based on it's arguments or specified cache store key.
 
@@ -25,6 +33,10 @@
    ```
 
 ### Changed
+- [grunt] Replaced `shell:jspm_watch` and `shell:jspm_build` tasks with `jspm:watch` and `jspm:build`.
+
+   Besides, `jspm:watch` is now also part of the `serve` task.
+
 - [modules] Matter data is no longer rendered ad hoc (by calling `getPage()`, etc), and instead rendered only once during environment configuration.
 
    Raw version of same matter is always available under `SITE.matter.$raw`.
@@ -46,6 +58,8 @@
 - [modules] Simplified code related to caching of `data.SITE.matter` and `data.SITE.images`.
 
 ### Removed
+- [grunt] Removed `grunt-shell` which was used to launch JSPM watch and build. It has been replaced by `grunt-jspm` which spawns JSPM process.
+- [package] Removed `js:watch` script, since it is handled by `grunt-jspm` by now.
 - [templates] Removed Nunjucks `getPage()` function `forceRender` and `cached` options, because `getPage()` now always returns rendered and cached pages data, while raw version available with `$raw` property.
 
 ### Fixed

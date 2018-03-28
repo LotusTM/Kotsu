@@ -1,5 +1,6 @@
 const timeGrunt = require('time-grunt')
 const gruntWriteJson = require('./modules/grunt-write-json')
+const gruntJSPM = require('./modules/grunt-jspm')
 const jitGrunt = require('jit-grunt')
 const gettext = require('./modules/gettext')
 
@@ -9,6 +10,7 @@ module.exports = function (grunt) {
   // Track execution time
   timeGrunt(grunt)
 
+  gruntJSPM(grunt)
   gruntWriteJson(grunt)
 
   // Load grunt tasks automatically
@@ -143,6 +145,7 @@ module.exports = function (grunt) {
     'image_size',
     'grayMatter',
     'nunjucks',
+    'jspm:watch',
     'sprite',
     'webfont',
     'sass',
@@ -164,7 +167,7 @@ module.exports = function (grunt) {
     'webfont',
     'sass',
     'postcss:autoprefix',
-    'shell:jspm_build',
+    'jspm:build',
     'uncss',
     'csso',
     'htmlmin',
@@ -178,6 +181,7 @@ module.exports = function (grunt) {
 
   // Serve built version
   grunt.registerTask('serve', [
+    'jspm:watch',
     'browserSync',
     'watch'
   ])
