@@ -1,6 +1,27 @@
 const { spawn } = require('child_process')
 const { red, cyan } = require('chalk')
 
+/**
+ * This task exists only because as of now JSPM does not expose its watch API
+ * In other words, watch mode (`-wid`) flag can be launched only through CLI
+ * This task workarounds this issue and allows to run JSPM watch in parallel
+ * with other Grunt tasks.
+ *
+ * Besides, it allows to watch any amount of builds in parallel.
+ *
+ * Task target parameters:
+ *
+ * @param {object[]} files                 List of files to build or watch
+ * @param {string}   files[].dest          Build file destination
+ * @param {string}   [files[].packageName] SystemJS package name to build. Should
+ *                                         be specified unless `files.src` used
+ * @param {string}   [files[].src]         JS file to build. Should be specified
+ *                                         unless `files.packageName` used
+ * @param {object)   [options]             Task options
+ * @param {string[]) [options.args]        List of args to call.
+ *                                         For instance, `-wid` or `--minify`
+ */
+
 let firstLaunch = true
 
 module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
