@@ -43,7 +43,7 @@
 7. Install project dependencies: `npm install`
 8. *(optional)* Add your repository to [Travis](https://travis-ci.org/) for automatic tests
 9. *(optional)* Set up Continuous Deployment with [CircleCI](https://circleci.com/) or [Werker](http://wercker.com/) Docker following our [guide](https://github.com/LotusTM/Kotsu/wiki/Continuous-Delivery-with-Wercker-Docker-and-CoreOS)
-10. Code live with: `npm start` or `npm run start-hmr` if you need [hot module reloading](https://github.com/alexisvincent/systemjs-hot-reloader/)
+10. Code live with: `npm start` or `npm start -- --hmr` if you need [Hot Module Reloading](https://github.com/alexisvincent/systemjs-hot-reloader/)
 11. Build with: `npm run build`
 12. Deploy and enjoy your life
 
