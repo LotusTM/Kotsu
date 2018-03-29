@@ -1,7 +1,7 @@
 const timeGrunt = require('time-grunt')
 const gruntWriteJson = require('./modules/grunt-write-json')
 const gruntJSPM = require('./modules/grunt-jspm')
-const gruntJSPMChockidar = require('./modules/grunt-jspm-chockidar')
+const gruntJSPMEmitter = require('./modules/grunt-jspm-emitter')
 const jitGrunt = require('jit-grunt')
 const gettext = require('./modules/gettext')
 
@@ -12,7 +12,7 @@ module.exports = function (grunt) {
   timeGrunt(grunt)
 
   gruntJSPM(grunt)
-  gruntJSPMChockidar(grunt)
+  gruntJSPMEmitter(grunt)
   gruntWriteJson(grunt)
 
   // Load grunt tasks automatically
@@ -138,7 +138,7 @@ module.exports = function (grunt) {
 
   grunt.loadTasks(grunt.config('path.tasks.root'))
 
-  grunt.registerTask('jspmWatch', grunt.option('hmr') ? 'jspmChockidar' : 'jspm:watch')
+  grunt.registerTask('jspmWatch', grunt.option('hmr') ? 'jspmEmitter' : 'jspm:watch')
 
   // Build for development and serve
   grunt.registerTask('default', [

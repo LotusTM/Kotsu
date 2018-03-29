@@ -1,7 +1,7 @@
 const chokidarEventEmitter = require('chokidar-socket-emitter')
 
 module.exports = ({ registerMultiTask, log }) =>
-  registerMultiTask('jspmChockidar', 'Launch chockidar-socket-emitter for JSPM (SystemJS)', function () {
+  registerMultiTask('jspmEmitter', 'Launch chockidar-socket-emitter for JSPM (SystemJS)', function () {
     const done = this.async()
     const { cwd, watchTask } = this.options({
       cwd: '.'

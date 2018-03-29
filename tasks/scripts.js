@@ -23,12 +23,12 @@ module.exports = function () {
     }
   })
 
-  // Launch JSPM (SystemJS) chockidar-socket-emitter,
+  // Launch chockidar-socket-emitter for JSPM (SystemJS),
   // which is needed to triger updated when Hot Module Reloading
   // is enabled with `--hmr` flag
-  // @link modules/grunt-jspm-chockidar
+  // @link modules/grunt-jspm-emitter
 
-  this.config('jspmChockidar', {
+  this.config('jspmEmitter', {
     listen: {
       options: {
         watchTask: true,
