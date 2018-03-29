@@ -31,6 +31,7 @@ module.exports = function () {
   this.config('jspmChockidar', {
     listen: {
       options: {
+        watchTask: true,
         cwd: '<%= path.source.scripts %>'
       }
     }
