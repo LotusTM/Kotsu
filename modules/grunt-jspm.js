@@ -17,8 +17,8 @@ const { red, cyan } = require('chalk')
  *                                         be specified unless `files.src` used
  * @param {string}   [files[].src]         JS file to build. Should be specified
  *                                         unless `files.packageName` used
- * @param {object)   [options]             Task options
- * @param {string[]) [options.args]        List of args to call.
+ * @param {object}   [options]             Task options
+ * @param {string[]} [options.args]        List of args to call.
  *                                         For instance, `-wid` or `--minify`
  */
 
