@@ -45,7 +45,6 @@
   ],
   "dependencies": {
     "autoprefixer": "8.2.0",
-    "cross-spawn": "6.0.5",
     "gettext-parser": "1.4.0",
     "gmsmith": "1.2.0",
     "grunt": "1.0.2",
@@ -130,6 +129,7 @@
     "test": "npm run lint && jest",
     "test:watch": "jest --watch",
     "build": "grunt build",
+    "jspm": "jspm",
     "preversion": "npm test && npm run build",
     "postbuild": "node modules/clean-workdir.js"
   },

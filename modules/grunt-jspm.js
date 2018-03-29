@@ -1,5 +1,4 @@
-const spawn = require('cross-spawn')
-const { resolve } = require('path')
+const { spawn } = require('child_process')
 const { red, cyan } = require('chalk')
 
 let firstLaunch = true
@@ -29,7 +28,12 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
       if ((src && !src.length) && !packageName) return end('No src file or `packageName` specified')
       if (src && src.length > 1) return end('Only 1 src supported')
 
+      process.env['FORCE_COLOR'] = true
+
       let buildArgs = [
+        'run',
+        'jspm',
+        '--',
         'build',
         source,
         dest
@@ -40,11 +44,9 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
       }
 
       const jspm = spawn(
-        resolve('node_modules/.bin/jspm'),
+        'npm',
         buildArgs,
-        {
-          env: { FORCE_COLOR: true }
-        }
+        { shell: true }
       )
 
       jspm.stdout.pipe(process.stdout)
