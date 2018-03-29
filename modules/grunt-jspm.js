@@ -80,7 +80,7 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
         const errorString = error.toString()
         console.log(red(errorString))
 
-        const isWarning = /^(\s+)?(warn|npm$|watchman)/i.test(errorString)
+        const isWarning = /^(\s+)?(warn|npm warn|npm$|watchman)/i.test(errorString)
 
         if (isWarning) return
         if (firstLaunch) done(new Error('JSPM failed.'))
