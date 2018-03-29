@@ -74,6 +74,7 @@
 
 ### Fixed
 - [grunt] Fixed async Nunjucks templates not working by updating `grunt-nunjucks-2-html` to version 2.2.0 [vitkarpov/grunt-nunjucks-2-html#56](https://github.com/vitkarpov/grunt-nunjucks-2-html/pull/56)
+- [modules] Fixed lack of colors in JSPM output [#90](https://github.com/LotusTM/Kotsu/issues/90)
 - [modules] Replaced ES6 imports and exports in some module files with Node `require` and `module.exports`.
 
 ## 1.12.0
@@ -627,7 +628,7 @@
 - [templates] Added structured data for logo according to [Google guidlines](https://developers.google.com/search/docs/data-types/logo).
 - [templates] Added structured data for social profiles according to [Google guidlines](https://developers.google.com/search/docs/data-types/social-profile-links).
 - [templates] Whenever URL concatenation involved now used `urljoin()` instead of plain concatenation.
-- [templates] Added `manifest.json` as Nunjucks template `manifest.json.nj`, which uses Kotsu data.
+- [templates] Added `manifest.json` as Nunjucks template `manifest.json.nj`, which uses Kotsu data [#270](https://github.com/LotusTM/Kotsu/issues/270)
 - [modules][templates] Added [`URI.js`](https://medialize.github.io/URI.js/) as `URI()` Nunjucks function.
 - [modules][templates] Added `absoluteurl()` Nunjucks function, which will resolve relative or absolute URLs to full URL, with site homepage, based on current page URL, while already full URLs, with protocols, will remain unaffected.
 - [static][templates] Added more favicons variations to work better with modern browsers.
@@ -652,7 +653,12 @@
 - [package] Updated dependencies.
 - [package] `npm start` will now run regular JSPM watch instead of hot reloading. For hot reloading use `npm run start-hmr` command.
 - [package] Changed `npm-run-all --parallel` to shortcut `run-p`.
-- [package] Moved check of clean workint tree with Git after `grunt build` into standalone `postbuild` script, which will automatically execute after `npm run build`. This will also allow to pass any options to grunt with `npm run build -- --myOption`.
+- [package] Moved check of clean workint tree with Git after `grunt build` into standalone `postbuild` script, which will automatically execute after `npm run build`.
+
+   This will also allow to pass any options to grunt with `npm run build -- --myOption`.
+
+   [#193](https://github.com/LotusTM/Kotsu/issues/193)
+
 - [misc] With update of Stylelint to 7.12.0 updated `.stylelintrc.yml` config accordingly. Note, that you might need to change `selector-no-id`, `selector-no-universal` and `selector-no-type` to `selector-max-id`, `selector-max-universal` and `selector-max-type` respectively, and don't forget about `stylelint-disable` directives.
 - [conf] Replaced Stylelint rule `at-rule-no-unknown` with newly added `stylelint-scss` rule `scss/at-rule-no-unknown`.
 - [conf] Enabled `selector-max-attribute` Stylelint rule and set to `0`, so you might need to check your selectors.
@@ -746,6 +752,8 @@
    * When the first argument is absolute URL, all other segments will resolve against that absolute URL, instead of taking only its path.
    * If all `urljoin` arguments are slashes or empty strings, it will resolve to `/` if the _first_ argument is `/`. See related issue [medialize/URI.js/#341](https://github.com/medialize/URI.js/issues/341) and [related tests](https://github.com/LotusTM/Kotsu/blob/master/tests/kotsu/urljoin.test.js).
 
+   [#176](https://github.com/LotusTM/Kotsu/issues/176)
+
 - [modules] Changed sections comment-headers always be 80 chars long.
 - [data] Reordered `SITE` properties to make it more consistent with the order of `package.json`.
 - [styles] Updated Ekzo to version 2.5.2.
@@ -785,7 +793,7 @@
 
 - [static][templates] Replaced old boilerplate favicons with new Kotsu ones.
 - [static][templates] Converted `browserconfig.xml` to be Nunjucks template `browserconfig.xml.nj`, to allow it use Kotsu data.
-- [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with its own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved.
+- [tests] Overgrown `nunjucks-extensions.test.js` testing file for Nunjucks extensions finally has been split into smaller files, each with its own mock context. Generic wrapping canvas around tests in those files has been refactored. Hundreds of kittens saved [#252](https://github.com/LotusTM/Kotsu/issues/252)
 - [grunt] Data changes will now trigger `grayMatter` task, since now it relies on part of data (`PAGE_DEFAULTS`).
 - [tests] Nunjucks-related testing utility functions has been moved into standalone file `/tests/utils/nunjucks.js` which exports `renderString` method. It also now accepts a context as the second argument.
 - [tests] Nunjucks testing utility function `renderString` no longer tries to parse rendered content with `JSON.parse`, unless third argument `parse` has been set to true.\
@@ -801,6 +809,8 @@
 - [modules][grunt] Removed `baseLocaleAsRoot` argument from all i18n-related modules and its related settings in Nunjucks Grunt task.
 
    Use `url: '/'` in locale prop to achieve the same functionality.
+
+   [#276](https://github.com/LotusTM/Kotsu/issues/276)
 
 - [modules] Nunjucks 1i8n-related extensions no longer require deprecated `baseLocaleAsRoot` value to invoke.
 - [modules][templates] Removed `isCaller` from `nunjuck-render` method, since is is no longer needed to make adjustments to input based on whether it is macro's caller or no. This also means that Nunjucks `render()` filter no longer accepts this parameter too.
@@ -830,7 +840,7 @@
 - [modules] Added [ulr-join](https://github.com/jfromaniello/url-join) as Nunjucks global function `urljoin()`. Join urls like a pro.
 - [modules][templates] Added new parameter `cached` for Nunjucks `getPage()` function, which by default set to `true`. It controls whether function should use already cached rendered data, or make new render pass.
 - [modules][templates] Added support of url paths to Nunjucks `getPage()` function. Now you can do `getPage('blog/post`) [[#211](https://github.com/LotusTM/Kotsu/issues/211)].
-- [misc] Added logo in readme.
+- [misc] Added logo in readme [#192](https://github.com/LotusTM/Kotsu/issues/192)
 - [tests][package] Added ability to test JSPM scripts with Jest thanks to [jest-jspm](https://github.com/yoavniran/jest-jspm). Just import scripts from `source/scripts` in your tests as usual and Jest will properly resolve all JSPM-related imports.
 - [package] Added `snazzy` for prettier `standard` output.
 - [package] Added `jspm_packages` to ignored by `standard` paths.
