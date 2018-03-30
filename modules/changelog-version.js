@@ -33,7 +33,7 @@ const updateChangelogVersion = ({
   changelogFilename = 'CHANGELOG.md',
   repositoryURL = pkg.repository.url,
   date = moment().format('YYYY-MM-DD'),
-  headPattern = /^## \[?(HEAD|Unreleased)\]?$/m,
+  headPattern = /^## \[?(HEAD|Unreleased)\]?.+$/m,
   versionPattern = /^## \[?(\d+\.\d+\.\d+)/m
 } = {}) => {
   if (!version) {
@@ -41,9 +41,13 @@ const updateChangelogVersion = ({
     process.exit(1)
   }
 
-  if (!repositoryURL || !repositoryURL.includes('github.com') || !repositoryURL.endsWith('.git')) {
+  if (!repositoryURL || !repositoryURL.includes('github.com')) {
     logError('[changelog-version] please, specify `package.json` `repository.url` property with a valid Github URL')
     process.exit(1)
+  }
+
+  if (repositoryURL.endsWith('.git')) {
+    repositoryURL = repositoryURL.slice(0, -4)
   }
 
   readFile(changelogFilename, { encoding: 'utf-8' }, (error, changelog) => {
@@ -60,8 +64,8 @@ const updateChangelogVersion = ({
     const releaseHeader = `## [${version}](${repositoryURL}/compare/v${previousVersion}...v${version}) - ${date}`
     const newHEADHeader = `## [HEAD](${repositoryURL}/compare/v${version}...HEAD)`
     const updatedChangelog = changelog
-      .replace(headPattern, `${newHEADHeader}\n\n## HEAD`)
-      .replace(headPattern, releaseHeader)
+      .replace(headPattern, `${newHEADHeader}\n\n## __RELEASE_HEADER__`)
+      .replace(/^## __RELEASE_HEADER__$/m, releaseHeader)
 
     writeFileSync(changelogFilename, updatedChangelog)
 
