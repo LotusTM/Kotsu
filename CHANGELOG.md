@@ -14,6 +14,12 @@
    [#230](https://github.com/LotusTM/Kotsu/issues/230)
 
 - [grunt] Added `grunt-jspm-emitter` which is responsible for launching `chockidar-socket-emitter`, which is watching scripts changes and emits them to SystemJS when Kotsu started in Hot Reloading Module mode, with `--hmr` flag [#230](https://github.com/LotusTM/Kotsu/issues/230)
+- [package][modules] Added `version` NPM script and called by it `modules/changlog-version`.
+
+   This is a small experimental unility, which will run everytime version will be bumped with `npm version` command, so that you'll never forget to update CHANGELOG version before release. Of course, if CHANGELOG exists at all.
+
+   Note, that to work CHANGELOG should follow [keepchangelog.com specs](https://keepachangelog.com).
+
 - [modules] Added `SITE.matter.$raw` internal property, which holds not rendered Front Matter.
 - [modules] Added `cache` module which provides a central cache storage and additional method for memoizing function results based on it's arguments or specified cache store key.
 

@@ -131,7 +131,8 @@
     "build": "grunt build",
     "jspm": "jspm",
     "preversion": "npm test && npm run build",
-    "postbuild": "node modules/clean-workdir.js"
+    "version": "node modules/changelog-version",
+    "postbuild": "node modules/clean-workdir"
   },
   "browserslist": [
     "> 1%",
