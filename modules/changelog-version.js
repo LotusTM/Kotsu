@@ -76,7 +76,7 @@ const updateChangelogVersion = ({
         process.exit(1)
       }
 
-      console.log(green(`\n[changelog-version] succesfully updated changelog the the v${version}`))
+      console.log(green(`\n[changelog-version] succesfully updated changelog to the v${version}`))
     })
   })
 }
