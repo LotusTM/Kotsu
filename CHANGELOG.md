@@ -67,6 +67,7 @@
 
 
 - [modules] Simplified code related to caching of `data.SITE.matter` and `data.SITE.images`.
+- [modules] Improved `clear-workid` output visuals.
 
 ### Removed
 - [grunt] Removed `grunt-shell` which was used to launch JSPM watch and build. It has been replaced by `grunt-jspm` which spawns JSPM process [#230](https://github.com/LotusTM/Kotsu/issues/230)
