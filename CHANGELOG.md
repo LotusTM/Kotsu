@@ -1,8 +1,8 @@
 # Changelog
 
-## [HEAD](https://github.com/LotusTM/Kotsu.git/compare/v1.13.0...HEAD)
+## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.13.0...HEAD)
 
-## [1.13.0](https://github.com/LotusTM/Kotsu.git/compare/v1.12.0...v1.13.0) - 2018-03-30
+## [1.13.0](https://github.com/LotusTM/Kotsu/compare/v1.12.0...v1.13.0) - 2018-03-30
 
 ### Added
 - [grunt] Added `grunt-jspm` task which allows launch JSPM watch and build within Grunt.
