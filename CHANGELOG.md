@@ -67,6 +67,10 @@
 
 
 - [modules] Simplified code related to caching of `data.SITE.matter` and `data.SITE.images`.
+- [modules] It is now possible to import `clear-workid` module without causing side effects and run it later. Just in case someone want to, let's say, test it... Like we shouldn't test it too...
+
+   Running them with `node` will work the same way as before.
+
 - [modules] Improved `clear-workid` output visuals.
 
 ### Removed
