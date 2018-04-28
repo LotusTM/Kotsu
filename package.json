@@ -44,7 +44,7 @@
     "website"
   ],
   "dependencies": {
-    "autoprefixer": "8.2.0",
+    "autoprefixer": "8.4.1",
     "gettext-parser": "1.4.0",
     "gmsmith": "1.2.0",
     "grunt": "1.0.2",
