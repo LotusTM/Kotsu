@@ -56,7 +56,9 @@
   <meta about='#this' property='logo' content='{{ absoluteurl(SITE.logo) }}'>
   <link about='#this' property='url' href='{{ urljoin(SITE.homepage, localeDir()) }}'>
   {% for service, props in SOCIAL %}
+  {% if props.url %}
   <link about='#this' property='sameAs' href='{{ props.url }}'>
+  {% endif %}
   {% endfor %}
 
   <!-- Open Graph -->

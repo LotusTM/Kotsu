@@ -2,6 +2,11 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.13.0...HEAD)
 
+### Changed
+- [templates] Structured data for social links in `<head>` will no longer be outputted if services actually doesn't have `url` property.
+
+   This can happen, when site using only image for this service, but doesn't have account in social network.
+
 ### Fixed
 - [data] Fixed URLs paths joined by `path.join` instead of more appropriate `urljoin`.
 
