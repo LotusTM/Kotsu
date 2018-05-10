@@ -2,6 +2,9 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.13.0...HEAD)
 
+### Fixed
+- [data] Fixed URLs paths joined by `path.join` instead of more appropriate `urljoin`.
+
 ## [1.13.0](https://github.com/LotusTM/Kotsu/compare/v1.12.0...v1.13.0) - 2018-03-30
 
 ### Added

@@ -1,5 +1,6 @@
 const { merge } = require('lodash')
 const { join } = require('path')
+const urljoin = require('../../modules/urljoin')
 const traverse = require('../../modules/traverse')
 const pkg = require('../../package.json')
 
@@ -20,7 +21,7 @@ module.exports = ({ config }) => {
       version: pkg.version,
       description: pkg.description,
       homepage: env.sitename ? `https://${env.sitename}` : pkg.homepage,
-      logo: join('/', PATH.images, '/logo.svg'),
+      logo: urljoin('/', PATH.images, '/logo.svg'),
       viewport: 'width=device-width, initial-scale=1',
       themeColor: '#313840',
       locales,
@@ -45,11 +46,11 @@ module.exports = ({ config }) => {
     SOCIAL: { // Add any other social services following same pattern
       twitter: {
         handle: '@LotusTM',
-        image: join('/', PATH.images, '/twitter.png'),
+        image: urljoin('/', PATH.images, '/twitter.png'),
         url: 'https://twitter.com/@LotusTM'
       },
       facebook: {
-        image: join('/', PATH.images, '/facebook.png'),
+        image: urljoin('/', PATH.images, '/facebook.png'),
         url: 'https://www.facebook.com/Lotus-TM-647393298791066/'
       }
     },
