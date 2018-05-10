@@ -3,6 +3,7 @@
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.13.0...HEAD)
 
 ### Changed
+- [package] Updated JSPM to v0.17.0-beta.48.
 - [templates] Structured data for social links in `<head>` will no longer be outputted if services actually doesn't have `url` property.
 
    This can happen, when site using only image for this service, but doesn't have account in social network.

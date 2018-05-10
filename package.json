@@ -67,7 +67,7 @@
     "grunt-webfont": "1.6.0",
     "hash-sum": "1.0.2",
     "jit-grunt": "0.10.0",
-    "jspm": "0.17.0-beta.47",
+    "jspm": "0.17.0-beta.48",
     "lodash": "4.17.5",
     "lru-cache": "4.1.2",
     "markdown-it": "8.4.1",
