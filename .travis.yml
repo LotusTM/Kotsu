@@ -1,14 +1,8 @@
-sudo: false
-
 language: node_js
 
 node_js:
+  - '10'
   - '9'
-  - '8'
-
-cache:
-  directories:
-    - node_modules
 
 addons:
   apt:
@@ -18,6 +12,9 @@ addons:
 
 before_install:
   - npm install -g npm@latest
+
+install:
+  - npm ci
 
 script:
   - npm run build
