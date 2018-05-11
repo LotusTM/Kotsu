@@ -1,6 +1,6 @@
 aliases:
   - &node
-    - image: circleci/node:9
+    - image: circleci/node:10
 
   - &checkout-submodules
       name: Checkout submodules
@@ -14,20 +14,28 @@ aliases:
   - &restore-repo-cache
       key: repo-cache-{{ .Environment.CIRCLE_SHA1 }}
 
-  - &save-dependencies-cache
-      key: dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum "jspm.config.js" }}
+  - &save-npm-cache
+      key: npm-cache-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       paths:
         - ./node_modules
+
+  - &save-jspm-cache
+      key: jspm-cache-{{ checksum "package.json" }}-{{ checksum "jspm.config.js" }}
+      paths:
         - ./jspm_packages
 
-  - &restore-dependencies-cache
+  - &restore-npm-cache
       keys:
-        - dependencies-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum "jspm.config.js" }}
+        - npm-cache-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+
+  - &restore-jspm-cache
+      keys:
+        - jspm-cache-{{ checksum "package.json" }}-{{ checksum "jspm.config.js" }}
 
   - &save-build-cache
-          key: build-cache-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - ./build
+      key: build-cache-{{ .Environment.CIRCLE_SHA1 }}
+      paths:
+        - ./build
 
   - &restore-build-cache
       key: build-cache-{{ .Environment.CIRCLE_SHA1 }}
@@ -42,7 +50,7 @@ aliases:
         ssh-keyscan $SERVER_IP > ~/.ssh/known_hosts
         cat dockerfile.template | envsubst > dockerfile
         tar cvzf app.tgz dockerfile build/
-        scp app.tgz core@$SERVER_IP:~/kotsutgz
+        scp app.tgz core@$SERVER_IP:~/build.tgz
         scp deploy.sh core@$SERVER_IP:~/deploy.sh
         ssh core@$SERVER_IP chmod +x deploy.sh
         ssh core@$SERVER_IP ./deploy.sh $CIRCLE_PROJECT_REPONAME $CIRCLE_SHA1
@@ -61,22 +69,24 @@ jobs:
     steps:
       - run: *install-npm
       - restore_cache: *restore-repo-cache
-      - restore_cache: *restore-dependencies-cache
-      - run: npm install
+      - restore_cache: *restore-jspm-cache
+      - run: npm ci
       - save_cache: *save-dependencies-cache
 
   test:
     docker: *node
     steps:
       - restore_cache: *restore-repo-cache
-      - restore_cache: *restore-dependencies-cache
+      - restore_cache: *restore-npm-cache
+      - restore_cache: *restore-jspm-cache
       - run: npm run test
 
   build:
     docker: *node
     steps:
       - restore_cache: *restore-repo-cache
-      - restore_cache: *restore-dependencies-cache
+      - restore_cache: *restore-npm-cache
+      - restore_cache: *restore-jspm-cache
       - run: npm run build
       - save_cache: *save-build-cache
 
