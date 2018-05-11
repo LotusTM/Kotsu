@@ -71,7 +71,8 @@ jobs:
       - restore_cache: *restore-repo-cache
       - restore_cache: *restore-jspm-cache
       - run: npm ci
-      - save_cache: *save-dependencies-cache
+      - save_cache: *save-npm-cache
+      - save_cache: *save-jspm-cache
 
   test:
     docker: *node
