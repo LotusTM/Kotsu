@@ -2,17 +2,17 @@ version: "{build}"
 
 environment:
   matrix:
-    - NODE_VERSION: 8
-    - NODE_VERSION: 7
+    - NODE_VERSION: 10
+    - NODE_VERSION: 9
 
 cache:
   - node_modules -> package.json
 
 install:
   # Install GraphicsMagick
-  - appveyor-retry appveyor DownloadFile http://downloads.sourceforge.net/graphicsmagick/GraphicsMagick-1.3.26-Q16-win64-dll.exe
-  - GraphicsMagick-1.3.26-Q16-win64-dll.exe /SP /VERYSILENT /NORESTART /NOICONS /DIR=\gm
-  - del GraphicsMagick-1.3.26-Q16-win64-dll.exe
+  - appveyor-retry appveyor DownloadFile http://downloads.sourceforge.net/graphicsmagick/GraphicsMagick-1.3.29-Q16-win64-dll.exe
+  - GraphicsMagick-1.3.29-Q16-win64-dll.exe /SP /VERYSILENT /NORESTART /NOICONS /DIR=\gm
+  - del GraphicsMagick-1.3.29-Q16-win64-dll.exe
   - set PATH=\gm;%PATH%
 
   # Update submodule
@@ -27,7 +27,7 @@ install:
   - node --version
   - npm --version
 
-  - npm install
+  - npm ci
 
 test_script:
   - npm test
