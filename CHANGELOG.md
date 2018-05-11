@@ -16,16 +16,16 @@
 ### Added
 - [grunt] Added `grunt-jspm` task which allows launch JSPM watch and build within Grunt.
 
-   While doesn't seem to be much, it greatly simplifies configuration. JSPM no longer needs to be launched with `npm-run-parallel` and JSPM running process is now synchronous and predictable.
+   JSPM no longer needs to be launched with `npm-run-parallel` and JSPM running process is now synchronous and predictable.
 
    Besides, new JSPM task able to handle simultaneous watch of multiple packages.
 
-   Note, that task uses `child_process.spawn` under the hood, which might seem to be excessive. Because JSPM does not expose its watch API, for now it is possible to be launched only with CLI. Exactly what's doing `grunt-jspm`.
+   Note, that task uses `child_process.spawn` under the hood. Because JSPM does not expose its watch API, for now it is possible to be launched only with CLI.
 
    [#230](https://github.com/LotusTM/Kotsu/issues/230)
 
 - [grunt] Added `grunt-jspm-emitter` which is responsible for launching `chockidar-socket-emitter`, which is watching scripts changes and emits them to SystemJS when Kotsu started in Hot Reloading Module mode, with `--hmr` flag [#230](https://github.com/LotusTM/Kotsu/issues/230)
-- [package][modules] Added `version` NPM script and called by it `modules/changlog-version`.
+- [package][modules] Added `version` NPM script and called by it `modules/changelog-version`.
 
    This is a small experimental unility, which will run everytime version will be bumped with `npm version` command, so that you'll never forget to update CHANGELOG version before release. Of course, if CHANGELOG exists at all.
 
