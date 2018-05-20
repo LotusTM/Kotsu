@@ -1,5 +1,5 @@
 const { spawn } = require('child_process')
-const { red, cyan } = require('chalk')
+const { red, cyan, yellow } = require('chalk')
 
 /**
  * This task exists only because as of now JSPM does not expose its watch API
@@ -78,9 +78,9 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
 
       jspm.stderr.on('data', (error) => {
         const errorString = error.toString()
-        console.log(red(errorString))
+        const isWarning = /^(\s+)?(warn|npm warn|npm$|watchman|(.+ExperimentalWarning))/i.test(errorString)
 
-        const isWarning = /^(\s+)?(warn|npm warn|npm$|watchman)/i.test(errorString)
+        console.log(isWarning ? yellow(errorString) : red(errorString))
 
         if (isWarning) return
         if (firstLaunch) done(new Error('JSPM failed.'))
