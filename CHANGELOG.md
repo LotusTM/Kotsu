@@ -7,9 +7,14 @@
 - [templates] Structured data for social links in `<head>` will no longer be outputted if services actually doesn't have `url` property.
 
    This can happen, when site using only image for this service, but doesn't have account in social network.
+- [ci] Updated configs to work with Node 10.
+- [ci] Change `npm install` to `npm ci`, which is faster and does not change `package-lock.json`.
+- [ci] Updated CircleCI config to cache NPM modules and JSPM package separately.
 
 ### Fixed
 - [data] Fixed URLs paths joined by `path.join` instead of more appropriate `urljoin`.
+- [grunt] `grunt-jspm` will no longer fail on NPM warnings.
+- [ci] Due to latest changes in Travis, `npm test` no longer invoked automatically.  Fixed by forcing `npm test` to run before build.
 
 ## [1.13.0](https://github.com/LotusTM/Kotsu/compare/v1.12.0...v1.13.0) - 2018-03-30
 
