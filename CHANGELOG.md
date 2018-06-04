@@ -14,6 +14,7 @@
 ### Fixed
 - [data] Fixed URLs paths joined by `path.join` instead of more appropriate `urljoin`.
 - [grunt] `grunt-jspm` will no longer fail on NPM warnings.
+- [grunt] `grunt-jspm` will no longer exit before all files have been built.
 - [ci] Due to latest changes in Travis, `npm test` no longer invoked automatically.  Fixed by forcing `npm test` to run before build.
 
 ## [1.13.0](https://github.com/LotusTM/Kotsu/compare/v1.12.0...v1.13.0) - 2018-03-30

@@ -1,30 +1,30 @@
 const { spawn } = require('child_process')
 const { red, cyan, yellow } = require('chalk')
 
-/**
- * This task exists only because as of now JSPM does not expose its watch API
- * In other words, watch mode (`-wid`) flag can be launched only through CLI
- * This task workarounds this issue and allows to run JSPM watch in parallel
- * with other Grunt tasks.
- *
- * Besides, it allows to watch any amount of builds in parallel.
- *
- * Task target parameters:
- *
- * @param {object[]} files                 List of files to build or watch
- * @param {string}   files[].dest          Build file destination
- * @param {string}   [files[].packageName] SystemJS package name to build. Should
- *                                         be specified unless `files.src` used
- * @param {string}   [files[].src]         JS file to build. Should be specified
- *                                         unless `files.packageName` used
- * @param {object}   [options]             Task options
- * @param {string[]} [options.args]        List of args to call.
- *                                         For instance, `-wid` or `--minify`
- */
-
 let firstLaunch = true
+let builtFiles = 0
 
 module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
+  /**
+   * This task exists only because as of now JSPM does not expose its watch API
+   * In other words, watch mode (`-wid`) flag can be launched only through CLI
+   * This task workarounds this issue and allows to run JSPM watch in parallel
+   * with other Grunt tasks.
+   *
+   * Besides, it allows to watch any amount of builds in parallel.
+   *
+   * Task target parameters:
+   *
+   * @param {object[]} files                 List of files to build or watch
+   * @param {string}   files[].dest          Build file destination
+   * @param {string}   [files[].packageName] SystemJS package name to build. Should
+   *                                         be specified unless `files.src` used
+   * @param {string}   [files[].src]         JS file to build. Should be specified
+   *                                         unless `files.packageName` used
+   * @param {object}   [options]             Task options
+   * @param {string[]} [options.args]        List of args to call.
+   *                                         For instance, `-wid` or `--minify`
+   */
   registerMultiTask('jspm', 'Launch JSPM', function () {
     const done = this.async()
 
@@ -33,9 +33,7 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
       done()
     }
 
-    const { args } = this.options({
-      args: []
-    })
+    const { args } = this.options({ args: [] })
 
     if (!this.files.length) return end('No files specified.')
 
@@ -51,29 +49,16 @@ module.exports = ({ registerMultiTask, log, util: { pluralize } }) =>
 
       process.env['FORCE_COLOR'] = true
 
-      let buildArgs = [
-        'run',
-        'jspm',
-        '--',
-        'build',
-        source,
-        dest
-      ]
-
-      if (args && args.length) {
-        buildArgs = buildArgs.concat(args)
-      }
-
-      const jspm = spawn(
-        'npm',
-        buildArgs,
-        { shell: true }
-      )
+      const buildArgs = ['run', 'jspm', '--', 'build', source, dest, ...args]
+      const jspm = spawn('npm', buildArgs, { shell: true })
 
       jspm.stdout.pipe(process.stdout)
 
       jspm.stdout.on('data', (data) => {
-        if (data.toString().includes('Built into')) done()
+        if (data.toString().includes('Built into')) {
+          builtFiles++
+          if (this.files.length === builtFiles) done()
+        }
       })
 
       jspm.stderr.on('data', (error) => {
