@@ -3,6 +3,7 @@
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.13.0...HEAD)
 
 ### Changed
+- [package] Updated dependencies.
 - [package] Updated JSPM to v0.17.0-beta.48.
 - [styles] `$ekzo-font-families` now uses `unquote()` to declare fonts. Helps to avoid issues when merging font family with predefined font familis stacks:
 
