@@ -61,7 +61,7 @@
     "grunt-sass": "2.1.0",
     "grunt-sitemap-xml": "0.3.0",
     "grunt-size-report": "0.1.4",
-    "grunt-spritesmith": "6.6.0",
+    "grunt-spritesmith": "6.6.2",
     "grunt-tinypng": "0.7.0",
     "grunt-uncss": "0.8.4",
     "grunt-webfont": "1.6.0",
