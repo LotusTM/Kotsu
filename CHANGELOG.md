@@ -4,9 +4,20 @@
 
 ### Changed
 - [package] Updated JSPM to v0.17.0-beta.48.
+- [styles] `$ekzo-font-families` now uses `unquote()` to declare fonts. Helps to avoid issues when merging font family with predefined font familis stacks:
+
+   ```diff
+     $ekzo-font-families: (
+   -   base:           '"Open Sans", #{$ekzo-helvetica-font-stack}',
+   +   base:           unquote('"Open Sans", #{$ekzo-helvetica-font-stack}'),
+       monospace:      $ekzo-consolas-font-stack
+     );
+   ```
+
 - [templates] Structured data for social links in `<head>` will no longer be outputted if services actually doesn't have `url` property.
 
    This can happen, when site using only image for this service, but doesn't have account in social network.
+
 - [ci] Updated configs to work with Node 10.
 - [ci] Change `npm install` to `npm ci`, which is faster and does not change `package-lock.json`.
 - [ci] Updated CircleCI config to cache NPM modules and JSPM package separately.

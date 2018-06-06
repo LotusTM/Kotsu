@@ -77,7 +77,7 @@ $ekzo-line-heights: (
 // -----------------------------------------------------------------------------
 
 $ekzo-font-families: (
-  base:           '"Open Sans", #{$ekzo-helvetica-font-stack}',
+  base:           unquote('"Open Sans", #{$ekzo-helvetica-font-stack}'),
   monospace:      $ekzo-consolas-font-stack
 );
 
