@@ -1,6 +1,8 @@
 # Changelog
 
-## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.13.0...HEAD)
+## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.14.0...HEAD)
+
+## [1.14.0](https://github.com/LotusTM/Kotsu/compare/v1.13.0...v1.14.0) - 2018-06-07
 
 ### Changed
 - [package] Updated dependencies.
