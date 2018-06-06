@@ -8,6 +8,61 @@ const { green, red } = require('chalk')
 const isFromCLI = require.main === module
 const logError = (message) => console.error(red(message))
 
+const VERSION = pkg.version
+const CHANGELOG_FILENAME = 'CHANGELOG.md'
+const REPOSITORY_URL = pkg.repository.url
+const DATE = moment().format('YYYY-MM-DD')
+const HEAD_PATTERN = /^## \[?(HEAD|Unreleased)\]?.+$/m
+const VERSION_PATTERN = /^## \[?(\d+\.\d+\.\d+)/m
+
+/**
+ * Update inputted changelog version
+ *
+ * @param  {object} [options]                   Options
+ * @param  {string} [options.input]             Input to be changed
+ * @param  {string} [options.version]           Version to be used
+ * @param  {string} [options.repositoryURL]     URL to the project repository
+ * @param  {string} [options.date]              Version date
+ * @param  {RegExp} [options.headPattern]       Pattern to match HEAD heading to update
+ * @param  {RegExp} [options.versionPattern]    Pattern to match versions in changelog
+ * @return {string} Updated input
+ */
+const updateVersion = ({
+  input,
+  version = VERSION,
+  repositoryURL = REPOSITORY_URL,
+  date = DATE,
+  headPattern = HEAD_PATTERN,
+  versionPattern = VERSION_PATTERN
+} = {}) => {
+  if (!version) {
+    logError('[changelog-version] please, specify `package.json` `version` property')
+    process.exit(1)
+  }
+
+  if (!repositoryURL || !repositoryURL.includes('github.com')) {
+    logError('[changelog-version] please, specify `package.json` `repository.url` property with a valid Github URL')
+    process.exit(1)
+  }
+
+  if (repositoryURL.endsWith('.git')) {
+    repositoryURL = repositoryURL.slice(0, -4)
+  }
+
+  const hasHead = headPattern.test(input)
+
+  if (!hasHead) {
+    logError('[changelog-version] changelog does not have HEAD version, can not update it with latest version')
+    process.exit(1)
+  }
+
+  const previousVersion = input.match(versionPattern)[1]
+  const releaseHeader = `## [${version}](${repositoryURL}/compare/v${previousVersion}...v${version}) - ${date}`
+  const newHEADHeader = `## [HEAD](${repositoryURL}/compare/v${version}...HEAD)`
+
+  return input.replace(headPattern, `${newHEADHeader}\n\n${releaseHeader}`)
+}
+
 /**
  * Update `CHANGELOG.md` HEAD to the latest version,
  * with proper compare URL and date, as well as
@@ -29,58 +84,39 @@ const logError = (message) => console.error(red(message))
  * @return {void} It just updates `CHANGELOG.md`
  */
 const updateChangelogVersion = ({
-  version = pkg.version,
-  changelogFilename = 'CHANGELOG.md',
-  repositoryURL = pkg.repository.url,
-  date = moment().format('YYYY-MM-DD'),
-  headPattern = /^## \[?(HEAD|Unreleased)\]?.+$/m,
-  versionPattern = /^## \[?(\d+\.\d+\.\d+)/m
-} = {}) => {
-  if (!version) {
-    logError('[changelog-version] please, specify `package.json` `version` property')
-    process.exit(1)
-  }
+  version = VERSION,
+  changelogFilename = CHANGELOG_FILENAME,
+  repositoryURL = REPOSITORY_URL,
+  date = DATE,
+  headPattern = HEAD_PATTERN,
+  versionPattern = VERSION_PATTERN
+} = {}) => readFile(changelogFilename, { encoding: 'utf-8' }, (error, changelog) => {
+  if (error) return console.log(`[changelog-version] seems to be no ${changelogFilename}, skipping changelog version update`)
 
-  if (!repositoryURL || !repositoryURL.includes('github.com')) {
-    logError('[changelog-version] please, specify `package.json` `repository.url` property with a valid Github URL')
-    process.exit(1)
-  }
+  writeFileSync(changelogFilename, updateVersion({
+    changelog,
+    version,
+    changelogFilename,
+    repositoryURL,
+    date,
+    headPattern,
+    versionPattern
+  }))
 
-  if (repositoryURL.endsWith('.git')) {
-    repositoryURL = repositoryURL.slice(0, -4)
-  }
-
-  readFile(changelogFilename, { encoding: 'utf-8' }, (error, changelog) => {
-    if (error) return console.log(`[changelog-version] seems to be no ${changelogFilename}, skipping changelog version update`)
-
-    const hasHead = headPattern.test(changelog)
-
-    if (!hasHead) {
-      logError('[changelog-version] changelog does not have HEAD version, can not update it with latest version')
+  exec(`git add ${changelogFilename}`, (error, stdout) => {
+    if (error) {
+      logError('[changelog-version] An error occurred while staging updated changelog:\n')
+      logError(error)
       process.exit(1)
     }
 
-    const previousVersion = changelog.match(versionPattern)[1]
-    const releaseHeader = `## [${version}](${repositoryURL}/compare/v${previousVersion}...v${version}) - ${date}`
-    const newHEADHeader = `## [HEAD](${repositoryURL}/compare/v${version}...HEAD)`
-    const updatedChangelog = changelog
-      .replace(headPattern, `${newHEADHeader}\n\n## __RELEASE_HEADER__`)
-      .replace(/^## __RELEASE_HEADER__$/m, releaseHeader)
-
-    writeFileSync(changelogFilename, updatedChangelog)
-
-    exec(`git add ${changelogFilename}`, (error, stdout) => {
-      if (error) {
-        logError('[changelog-version] An error occurred while staging updated changelog:\n')
-        logError(error)
-        process.exit(1)
-      }
-
-      console.log(green(`\n[changelog-version] succesfully updated changelog to the v${version}`))
-    })
+    console.log(green(`\n[changelog-version] succesfully updated changelog to the v${version}`))
   })
-}
+})
 
 if (isFromCLI) updateChangelogVersion()
 
-module.exports = updateChangelogVersion
+module.exports = {
+  updateVersion,
+  updateChangelogVersion
+}

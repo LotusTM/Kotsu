@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`\`updateVersion\` function should update version 1`] = `
+"
+# Changelog
+
+## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.1.0...HEAD)
+
+## [1.1.0](https://github.com/LotusTM/Kotsu/compare/v1.0.0...v1.1.0) - 2018-04-01
+
+### Changed
+- Something changed
+
+## [1.0.0](https://github.com/LotusTM/Kotsu/compare/v0.1.0...v1.0.0) - 2018-03-30
+
+### Added
+- Something added
+"
+`;
