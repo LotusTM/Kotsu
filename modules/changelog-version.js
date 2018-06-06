@@ -94,7 +94,7 @@ const updateChangelogVersion = ({
   if (error) return console.log(`[changelog-version] seems to be no ${changelogFilename}, skipping changelog version update`)
 
   writeFileSync(changelogFilename, updateVersion({
-    changelog,
+    input: changelog,
     version,
     changelogFilename,
     repositoryURL,
