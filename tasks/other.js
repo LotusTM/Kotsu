@@ -20,13 +20,16 @@ module.exports = function () {
   // https://github.com/hollandben/grunt-cache-bust
   // Bust static assets from the cache using content hashing
 
+  const urlPrefixes = [this.config('data')().SITE.homepage]
+
   this.config.merge({
     cacheBust: {
       build: {
         options: {
           deleteOriginals: true,
           baseDir: '<%= path.build.root %>',
-          assets: ['{,**/}*.{css,js}']
+          assets: ['{,**/}*.{css,js}'],
+          urlPrefixes
         },
         files: [
           { src: ['<%= path.build.root %>/{,**/}*.{html,css,js}'] }
@@ -36,7 +39,8 @@ module.exports = function () {
         options: {
           queryString: true,
           baseDir: '<%= path.build.root %>',
-          assets: ['{,**/}*.{jpg,jpeg,gif,png,svg}']
+          assets: ['{,**/}*.{jpg,jpeg,gif,png,svg}'],
+          urlPrefixes
         },
         files: [
           { src: ['<%= path.build.root %>/{,**/}*.{html,css,js}'] }

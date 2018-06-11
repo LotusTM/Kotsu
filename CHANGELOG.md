@@ -5,6 +5,11 @@
 ### Changed
 - [styles] Added better paddings for `<code>` tag.
 
+### Fixed
+- [grunt] Local assets' absolute URLs are now cachebusted too thanks to `grunt-cache-bust` new option `urlPrefixes`.
+ 
+   Such absolute URLs, leading to local assets, are used in RDFa and Open Graph declarations.
+
 ## [1.14.0](https://github.com/LotusTM/Kotsu/compare/v1.13.0...v1.14.0) - 2018-06-07
 
 ### Changed
