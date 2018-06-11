@@ -14,7 +14,12 @@ code {
   border-radius: ekzo-border-radius('');
 }
 
-code { padding: ekzo-em(ekzo-space(.25) / 2); }
+code {
+  padding-left: ekzo-em(ekzo-space(.25));
+  padding-right: ekzo-em(ekzo-space(.25));
+  padding-top: ekzo-em(ekzo-space(.25) / 2);
+  padding-bottom: ekzo-em(ekzo-space(.25) / 2);
+}
 
 pre {
   padding: ekzo-em(ekzo-space(.25));

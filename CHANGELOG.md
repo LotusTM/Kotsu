@@ -2,6 +2,9 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.14.0...HEAD)
 
+### Changed
+- [styles] Added better paddings for `<code>` tag.
+
 ## [1.14.0](https://github.com/LotusTM/Kotsu/compare/v1.13.0...v1.14.0) - 2018-06-07
 
 ### Changed
