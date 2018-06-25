@@ -17,13 +17,13 @@
   Github: https://github.com/LotusTM
 
   Developer: Mr.Hyde
-  Site: 2bad.me
+  Site: https://2bad.me
   Twitter: https://twitter.com/2BadMe
   Github: https://github.com/mrhyde
   Location: Europe
 
   Developer: Serj Lavrin
-  Site: #
+  Site: https://lavrins.com
   Twitter: https://twitter.com/ArmorDarks
   Github: https://github.com/ArmorDarks
   Location: Ukraine
@@ -31,9 +31,9 @@
 # TECHNOLOGY
 
   Grunt, Kotsu (https://github.com/LotusTM/Kotsu)
-  HTML5, nunjucks
+  HTML5, Nunjucks
   CSS3, Sass, Ekzo (https://github.com/ArmorDarks/ekzo)
-  JavaScript, jQuery
+  JavaScript
 
 _______________________________________________________________________________
 
