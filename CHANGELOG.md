@@ -2,6 +2,9 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.14.1...HEAD)
 
+### Fixed
+- [modules] Fixed `grunt-jspm` not counting built files properly.
+
 ## [1.14.1](https://github.com/LotusTM/Kotsu/compare/v1.14.0...v1.14.1) - 2018-06-11
 
 ### Changed
