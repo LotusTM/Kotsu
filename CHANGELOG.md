@@ -10,6 +10,8 @@
    + Kotsu v1.10.0+23.e9e5043d16df6d8f03b4a328407a75d711182ebe, production (staging)
    ```
 
+- [tasks] Explicitly call `clean:build` and `clean:temp` instead of the generic `clean` to avoid accidentally cleaning everything when users adds additional cleaning tasks.
+
 ### Fixed
 - [modules] Fixed `grunt-jspm` not counting built files properly.
 

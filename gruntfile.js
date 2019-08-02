@@ -143,6 +143,7 @@ module.exports = function (grunt) {
   // Build for development and serve
   grunt.registerTask('default', [
     'clean:build',
+    'clean:temp',
     'writeJSON',
     'copy',
     'responsive_images:thumbnails',
@@ -160,7 +161,8 @@ module.exports = function (grunt) {
 
   // Build for production
   grunt.registerTask('build', [
-    'clean',
+    'clean:build',
+    'clean:temp',
     'writeJSON',
     'copy',
     'responsive_images:thumbnails',
