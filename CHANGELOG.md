@@ -10,9 +10,10 @@
    + Kotsu v1.10.0+23.e9e5043d16df6d8f03b4a328407a75d711182ebe, production (staging)
    ```
 
-- [grunt] Explicitly call `clean:build` and `clean:temp` instead of the generic `clean` to avoid accidentally cleaning everything when users adds additional cleaning tasks.
-- [grunt] Preserve scripts and styles sourcemaps after build.
-- [grunt] Ensure CSS sourcemaps are generated when using CCSO.
+- [grunt] Changed tasks to Explicitly call `clean:build` and `clean:temp` instead of the generic `clean` to avoid accidentally cleaning everything when users adds additional cleaning tasks.
+- [grunt] Styles sourcemaps are now preserved after build.
+- [grunt] Ensured CSS sourcemaps to be generated when using CCSO.
+- [grunt] Changed styles watcher to watch for all `*.scss` files in source and temp directories instead of only `styles` directory. That's nice addition for projects which prefer to group component's scripts and styles.
 
 ### Fixed
 - [modules] Fixed `grunt-jspm` not counting built files properly.

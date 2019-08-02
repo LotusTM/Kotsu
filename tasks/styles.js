@@ -134,8 +134,8 @@ module.exports = function () {
     watch: {
       styles: {
         files: [
-          '<%= path.source.styles %>/{,**/}*.scss',
-          '<%= path.temp.styles %>/{,**/}*.scss'
+          '<%= path.source.root %>/{,**/}*.scss',
+          '<%= path.temp.root %>/{,**/}*.scss'
         ],
         tasks: [
           'sass',
