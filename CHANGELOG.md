@@ -19,6 +19,8 @@
    * `/templates/test/_page.nj` — exclude
    * `/templates/_test/_page.nj` — exclude
 
+- [static][templates] Added `favicon-16x16.png` and `favicon-32x32.png`. Some browsers like Chrome refusing to use `favicon.ico` in their stead.
+
 ### Changed
 - [scripts] Improved logging of the site info to the console:
 
