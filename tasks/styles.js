@@ -118,14 +118,12 @@ module.exports = function () {
         files: [{
           expand: true,
           cwd: '<%= path.build.styles %>',
-          src: [
-            '{,**/}*.*',
-            '!{,**/}*.min.css'
-          ]
+          src: ['{,**/}!(*.min.css|*.min.css.map)']
         }
         ]
       }
-    }})
+    }
+  })
 
   // Watch
   // https://github.com/gruntjs/grunt-contrib-watch

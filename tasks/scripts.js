@@ -47,10 +47,7 @@ module.exports = function () {
         files: [{
           expand: true,
           cwd: '<%= path.build.scripts %>',
-          src: [
-            '{,**/}*.*',
-            '!{,**/}*.min.js'
-          ]
+          src: ['{,**/}!(*.min.js|*.min.js.map)']
         }]
       }
     }
