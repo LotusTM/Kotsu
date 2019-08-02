@@ -2,6 +2,14 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.14.1...HEAD)
 
+### Changed
+- [scripts] Improved logging of the site info to the console:
+
+   ```diff
+   - Kotsu v1.10.0 #23, SHA1 e9e5043d16df6d8f03b4a328407a75d711182ebe
+   + Kotsu v1.10.0+23.e9e5043d16df6d8f03b4a328407a75d711182ebe, production (staging)
+   ```
+
 ### Fixed
 - [modules] Fixed `grunt-jspm` not counting built files properly.
 
