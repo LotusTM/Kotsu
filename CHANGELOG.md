@@ -2,6 +2,23 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.14.1...HEAD)
 
+### Added
+- [grunt] Added ability to exclude pages building by simply specifying `_` in the beginning of the directory
+
+   Previously:
+
+   * `/templates/test/page.nj` — build
+   * `/templates/_test/page.nj` — build
+   * `/templates/test/_page.nj` — exclude
+   * `/templates/_test/_page.nj` — exclude
+
+   With update:
+
+   * `/templates/test/page.nj` — build
+   * `/templates/_test/page.nj` — exclude
+   * `/templates/test/_page.nj` — exclude
+   * `/templates/_test/_page.nj` — exclude
+
 ### Changed
 - [scripts] Improved logging of the site info to the console:
 

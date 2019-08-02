@@ -3,6 +3,9 @@ const nunjucksTask = require('../modules/nunjucks-task')
 const { merge } = require('lodash')
 const { join } = require('path')
 
+const ALL = '{,**/}*.{nj,html}'
+const NON_PARTIALS = `{,!(_)*/!(_)*{,/}}!(_)*.{nj,html}`
+
 module.exports = function ({ config, file: { readJSON } }) {
   // Nunjucks to HTML
   // https://github.com/vitkarpov/grunt-nunjucks-2-html
@@ -33,7 +36,7 @@ module.exports = function ({ config, file: { readJSON } }) {
       files: [{
         expand: true,
         cwd: config('path.source.templates'),
-        src: ['{,**/}*.{nj,html}', '!{,**/}_*.{nj,html}', '!{,**/}*.{txt,json,xml}.nj'],
+        src: [NON_PARTIALS, '!{,**/}*.{txt,json,xml}.{nj,html}'],
         dest: config('path.build.templates'),
         ext: '.html'
       }]
@@ -92,11 +95,11 @@ module.exports = function ({ config, file: { readJSON } }) {
   this.config.merge({
     watch: {
       templates: {
-        files: ['<%= path.source.templates %>/{,**/}*.nj', '!<%= path.source.templates %>/{,**/}_*.nj'],
+        files: [`<%= path.source.templates %>/${NON_PARTIALS}`],
         tasks: ['grayMatter', 'newer:nunjucks']
       },
       templatesPartials: {
-        files: ['<%= path.source.templates %>/{,**/}_*.nj'],
+        files: [`<%= path.source.templates %>/${ALL}`, `!<%= path.source.templates %>/${NON_PARTIALS}`],
         tasks: ['grayMatter', 'nunjucks']
       }
     }
