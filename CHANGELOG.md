@@ -11,7 +11,8 @@
    ```
 
 - [grunt] Explicitly call `clean:build` and `clean:temp` instead of the generic `clean` to avoid accidentally cleaning everything when users adds additional cleaning tasks.
-- [grunt] Preserve scripts and styles sourcemaps after build
+- [grunt] Preserve scripts and styles sourcemaps after build.
+- [grunt] Ensure CSS sourcemaps are generated when using CCSO.
 
 ### Fixed
 - [modules] Fixed `grunt-jspm` not counting built files properly.

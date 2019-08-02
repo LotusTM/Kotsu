@@ -96,12 +96,13 @@ module.exports = function () {
   this.config('csso', {
     build: {
       options: {
-        report: 'min'
+        report: 'min',
+        sourceMap: true
       },
       files: [{
         expand: true,
         cwd: '<%= path.build.styles %>',
-        src: '{,**/}*.tidy.css',
+        src: '{,**/}*.{min,tidy}.css',
         dest: '<%= path.build.styles %>',
         ext: '.min.css'
       }]
