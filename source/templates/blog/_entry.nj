@@ -1,4 +1,4 @@
-{% extends '_layouts/_main.nj' %}
+{% extends '_layouts/main.nj' %}
 
 {{ config('PAGE', {
   class : 'p-blog-post',

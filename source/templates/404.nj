@@ -12,7 +12,7 @@ showContentTitle: false
 showBreadcrumb:   false
 ---
 
-{% extends '_layouts/_main.nj' %}
+{% extends '_layouts/main.nj' %}
 
 {% block main %}
 <h1 class='h-text++ h-margin-bottom+'><b>404</b> — page not found</h1>

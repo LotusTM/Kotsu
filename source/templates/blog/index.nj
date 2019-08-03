@@ -7,7 +7,7 @@ breadcrumbTitle: ={{ gettext('Blog') }}
 description: ={{ gettext('%(company)s blog') }}
 ---
 
-{% extends '_layouts/_main.nj' %}
+{% extends '_layouts/main.nj' %}
 
 {% block main %}
 {% set posts = _.orderBy(getPage(PAGE.breadcrumb)|format(PLACEHOLDERS), 'props.date', 'desc') %}

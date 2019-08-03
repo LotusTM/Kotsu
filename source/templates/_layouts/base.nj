@@ -1,10 +1,10 @@
 {{ initPage() }}
 
-{% from '_components/analytics/_GoogleAnalytics.nj' import GoogleAnalytics with context %}
-{% from '_components/analytics/_YandexMetrika.nj' import YandexMetrika with context %}
-{% from '_components/_AlternateUrls.nj' import AlternateUrls with context %}
-{% from '_components/_IE.nj' import IE with context %}
-{% from '_components/_OutdatedBrowser.nj' import OutdatedBrowser with context %}
+{% from '_components/analytics/GoogleAnalytics.nj' import GoogleAnalytics with context %}
+{% from '_components/analytics/YandexMetrika.nj' import YandexMetrika with context %}
+{% from '_components/AlternateUrls.nj' import AlternateUrls with context %}
+{% from '_components/IE.nj' import IE with context %}
+{% from '_components/OutdatedBrowser.nj' import OutdatedBrowser with context %}
 
 <!doctype html>
 <html class='{{ PAGE.class }} t-base no-js' lang='{{ PAGE.locale }}' {{ 'dir=\'rtl\'' if PAGE.rtl }} vocab='https://schema.org/'>

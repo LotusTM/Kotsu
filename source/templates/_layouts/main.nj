@@ -1,8 +1,8 @@
-{% extends '_layouts/_base.nj' %}
+{% extends '_layouts/base.nj' %}
 
 {% block body %}
-{% from '_components/_Nav.nj' import Nav with context %}
-{% from '_components/_Breadcrumb.nj' import Breadcrumb with context %}
+{% from '_components/Nav.nj' import Nav with context %}
+{% from '_components/Breadcrumb.nj' import Breadcrumb with context %}
 
 <!-- Header -->
 <!-- ====== -->
