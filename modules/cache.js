@@ -1,7 +1,7 @@
 const LRUCache = require('lru-cache')
 const hash = require('hash-sum')
 
-const cache = LRUCache()
+const cache = new LRUCache()
 
 /**
  * Cache function into specified cache key or based on hash of its arguments

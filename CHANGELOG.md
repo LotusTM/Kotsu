@@ -60,6 +60,7 @@
 
 ### Fixed
 - [modules] Fixed `grunt-jspm` not counting built files properly.
+- [modules] Fixed `lru-cache` initialization — newer versions should always use `new` keyword.
 
 ## [1.14.1](https://github.com/LotusTM/Kotsu/compare/v1.14.0...v1.14.1) - 2018-06-11
 
