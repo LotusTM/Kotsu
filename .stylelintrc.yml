@@ -224,8 +224,7 @@ rules:
   scss/at-function-parentheses-space-before: always
   scss/at-mixin-parentheses-space-before: always
 
-  # @todo No way to disallow newlines after colon
-  # scss/dollar-variable-colon-newline-after: never
+  scss/dollar-variable-colon-newline-after: always-multi-line
 
   # @todo Should be replaced with `always-single-line` when Ekzo v3 will be released
   scss/dollar-variable-colon-space-after: at-least-one-space
@@ -238,11 +237,19 @@ rules:
   scss/operator-no-unspaced: true
   scss/selector-no-redundant-nesting-selector: true
 
+  # @todo Think should it be enabled. So far it seems too restricting
+  # scss/selector-nest-combinators: always
+
+  scss/at-each-key-value-single-line: true
+  scss/function-quote-no-quoted-strings-inside: true
+  scss/function-unquote-no-unquoted-strings-inside: true
+  scss/selector-no-union-class-name: true
+  scss/comment-no-loud: true
+
   # Those are unused due to codestyle and setted by `block-closing-brace-newline-after` value
   # scss/at-else-closing-brace-newline-after:
   # scss/at-if-closing-brace-newline-after:
   # scss/at-else-empty-line-before:
-
 
   # @todo Wrongly reports unneded space after `}` when there is a newlines
   # scss/at-if-closing-brace-space-after: never-intermediate

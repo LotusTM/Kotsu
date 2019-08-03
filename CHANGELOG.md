@@ -45,6 +45,7 @@
    * `snazzy` to `8.0.0`
    * `sprintf-js` to `1.1.2`
    * `standard` to `13.1.0`
+   * `stylelint-scss` to `3.9.3`
    * `time-grunt` to `2.0.0`
 
 - [scripts] Improved logging of the site info to the console:
@@ -60,6 +61,15 @@
 - [grunt] Changed styles watcher to watch for all `*.scss` files in source and temp directories instead of only `styles` directory. That's nice addition for projects which prefer to group component's scripts and styles.
 - [grunt] Updated `grunt-sass` task configuration to work with new `implementation` option.
 - [templates] Renamed components and layouts Nunjucks files to not use leading `_` in names since due to changes in related Grunt task configuration it is enough to use leading `_` in directory that houses them to prevent building into standalone pages.
+
+- [config] Enabled some new Stylelint rules:
+  
+   * `scss/dollar-variable-colon-newline-after: always-multi-line`
+   * `scss/at-each-key-value-single-line: true`
+   * `scss/function-quote-no-quoted-strings-inside: true`
+   * `scss/function-unquote-no-unquoted-strings-inside: true`
+   * `scss/selector-no-union-class-name: true`
+   * `scss/comment-no-loud: true`
 
 ### Fixed
 - [modules] Fixed `grunt-jspm` not counting built files properly.
