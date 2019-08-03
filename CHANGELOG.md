@@ -20,6 +20,7 @@
    * `/templates/_test/_page.nj` — exclude
 
 - [static][templates] Added `favicon-16x16.png` and `favicon-32x32.png`. Some browsers like Chrome refusing to use `favicon.ico` in their stead.
+- [package] Added NPM scripts `lint:scripts` and `lint:styles` to quickly invoke linting of scripts or styles-only.
 
 ### Changed
 - [package] Updated dependencies:
