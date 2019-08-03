@@ -23,6 +23,10 @@
 - [static][templates] Added `favicon-16x16.png` and `favicon-32x32.png`. Some browsers like Chrome refusing to use `favicon.ico` in their stead.
 
 ### Changed
+- [package] Updated dependencies:
+
+   * `grunt-sass@3.0.2`
+
 - [scripts] Improved logging of the site info to the console:
 
    ```diff
@@ -34,6 +38,7 @@
 - [grunt] Styles sourcemaps are now preserved after build.
 - [grunt] Ensured CSS sourcemaps to be generated when using CCSO.
 - [grunt] Changed styles watcher to watch for all `*.scss` files in source and temp directories instead of only `styles` directory. That's nice addition for projects which prefer to group component's scripts and styles.
+- [grunt] Updated `grunt-sass` task configuration to work with new `implementation` option.
 
 ### Fixed
 - [modules] Fixed `grunt-jspm` not counting built files properly.

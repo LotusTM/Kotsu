@@ -1,3 +1,4 @@
+const sass = require('node-sass')
 const { functions } = require('../modules/sass-extensions')
 
 module.exports = function () {
@@ -10,6 +11,7 @@ module.exports = function () {
   this.config('sass', {
     build: {
       options: {
+        implementation: sass,
         outputStyle: 'nested',
         sourceMap: true,
         functions: functions(data)
