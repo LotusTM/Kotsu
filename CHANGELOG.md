@@ -24,6 +24,7 @@
 ### Changed
 - [package] Updated dependencies:
 
+   * `autoprefixer` to `9.6.1`
    * `babel-eslint` to `10.0.2`
    * `gettext-parser` to `4.0.1`
    * `grunt-contrib-clean` to `2.0.0`
