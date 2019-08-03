@@ -19,6 +19,7 @@
    * `/templates/test/_page.nj` — exclude
    * `/templates/_test/_page.nj` — exclude
 
+- [templates] Renamed components and layouts Nunjucks files to not use leading `_` in names since due to changes in related Grunt task configuration it is enough to use leading `_` in directory that houses them to prevent building into standalone pages.
 - [static][templates] Added `favicon-16x16.png` and `favicon-32x32.png`. Some browsers like Chrome refusing to use `favicon.ico` in their stead.
 
 ### Changed
