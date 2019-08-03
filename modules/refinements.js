@@ -30,7 +30,7 @@ module.exports = {
    *  EqualKeyAndProp('id')(t.dict(t.String, t.Any, 'Testdata'))({ 235: { id: '235' } })
    */
   EqualKeyAndProp: (property) => (type) => t.refinement(t.Type(type), (o) => {
-    for (let key in o) {
+    for (const key in o) {
       const prop = o[key][property]
 
       if (key !== prop) {

@@ -85,7 +85,7 @@ const Data = t.struct({
     matter: t.union([t.Function(t.Any), t.dict(t.String, t.Any)]),
     images: t.union([t.Function(t.Any), t.dict(t.String, t.Any)]),
     googleAnalyticsId: t.union([t.String, r.False]),
-    yandexMetrikaId: t.union([t.String, r.False])}),
+    yandexMetrikaId: t.union([t.String, r.False]) }),
   PLACEHOLDERS: t.dict(t.String, t.Any),
   PAGE_DEFAULTS: t.struct({
     image: t.maybe(t.String),

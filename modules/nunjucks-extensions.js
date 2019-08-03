@@ -111,7 +111,7 @@ module.exports = function (env) {
 
     const { SITE: { matter } } = this.ctx
     let page = _.get(matter, path)
-    let $raw = _.get(matter.$raw, path)
+    const $raw = _.get(matter.$raw, path)
 
     if (!page || (matter.$raw && !$raw)) return log.error(`[getPage] can not find \`${path}\` inside site Matter data [${this.ctx.PAGE.props.url}]`)
 

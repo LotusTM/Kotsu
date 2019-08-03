@@ -46,7 +46,7 @@ module.exports = function () {
           { src: ['<%= path.build.root %>/{,**/}*.{html,css,js}'] }
         ]
       }
-    }})
+    } })
 
   // Clean
   // https://github.com/gruntjs/grunt-contrib-clean
@@ -68,7 +68,7 @@ module.exports = function () {
           ]
         }
       }
-    }})
+    } })
 
   // Browser Sync
   // https://github.com/shakyshane/grunt-browser-sync

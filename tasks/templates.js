@@ -64,7 +64,7 @@ module.exports = function ({ config, file: { readJSON } }) {
     build: {
       options: {
         removeComments: true,
-        ignoreCustomComments: [ /^!/, /^\s*\/?noindex\s*$/ ],
+        ignoreCustomComments: [/^!/, /^\s*\/?noindex\s*$/],
         removeCommentsFromCDATA: true,
         collapseWhitespace: true,
         conservativeCollapse: true,

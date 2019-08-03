@@ -8,23 +8,23 @@ const mockContext = {
   SITE: {
     name: 'Test name',
     matter: {
-      'index': {
-        'props': { 'url': '/' }
+      index: {
+        props: { url: '/' }
       },
-      'blog': {
-        'props': { 'url': '/blog' },
+      blog: {
+        props: { url: '/blog' },
         '2015-10-12-example-article': {
-          'props': { 'url': '/blog/2015-10-12-example-article' }
+          props: { url: '/blog/2015-10-12-example-article' }
         }
       },
-      'contexVar': {
-        'props': { 'var': '__contextvar value: {{ __contextvar }}' }
+      contexVar: {
+        props: { var: '__contextvar value: {{ __contextvar }}' }
       },
-      'globalVar': {
-        'props': { 'var': 'SITE.name value: {{ SITE.name }}' }
+      globalVar: {
+        props: { var: 'SITE.name value: {{ SITE.name }}' }
       },
-      'globalFunc': {
-        'props': { 'func': 'Crumbled url: {{ crumble("blog") }}' }
+      globalFunc: {
+        props: { func: 'Crumbled url: {{ crumble("blog") }}' }
       }
       // @todo Disabled, because it will always fail due to endless recursion in cached `getPage`
       // 'testGetPage': {

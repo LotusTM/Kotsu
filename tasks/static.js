@@ -13,7 +13,7 @@ module.exports = function () {
           dest: '<%= path.build.static %>/'
         }]
       }
-    }})
+    } })
 
   // Watch
   // https://github.com/gruntjs/grunt-contrib-watch

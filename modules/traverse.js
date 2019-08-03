@@ -35,7 +35,7 @@ const traverse = (input, fn, predicate = () => true) => {
   if (typeof input === 'object') {
     const clone = Array.isArray(input) ? input.slice(0) : Object.assign({}, input)
 
-    for (let key in input) {
+    for (const key in input) {
       clone[key] = traverse(input[key], fn, predicate)
     }
 

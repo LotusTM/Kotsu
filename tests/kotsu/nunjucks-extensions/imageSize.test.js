@@ -6,14 +6,14 @@ const render = (template, context = mockContext, parse) => renderString(template
 const mockContext = {
   SITE: {
     images: [
-      { 'name': '/images/test.jpg', 'width': 100, 'height': 150 },
-      { 'name': '/images/test2.png', 'width': 120, 'height': 170 },
+      { name: '/images/test.jpg', width: 100, height: 150 },
+      { name: '/images/test2.png', width: 120, height: 170 },
 
-      { 'name': '/images/set.jpg', 'width': 2000, 'height': 2500 },
-      { 'name': '/images/set@500.jpg', 'width': 500, 'height': 550 },
-      { 'name': '/images/set@1000.jpg', 'width': 1000, 'height': 1500 },
+      { name: '/images/set.jpg', width: 2000, height: 2500 },
+      { name: '/images/set@500.jpg', width: 500, height: 550 },
+      { name: '/images/set@1000.jpg', width: 1000, height: 1500 },
 
-      { 'name': '/nope@images/set@1000.jpg', 'width': 1000, 'height': 1000 }
+      { name: '/nope@images/set@1000.jpg', width: 1000, height: 1000 }
     ]
   }
 }

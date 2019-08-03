@@ -42,6 +42,7 @@
    * `onecolor` to `3.1.0`
    * `snazzy` to `8.0.0`
    * `sprintf-js` to `1.1.2`
+   * `standard` to `13.1.0`
    * `time-grunt` to `2.0.0`
 
 - [scripts] Improved logging of the site info to the console:
