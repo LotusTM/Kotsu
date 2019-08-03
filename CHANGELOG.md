@@ -19,7 +19,6 @@
    * `/templates/test/_page.nj` — exclude
    * `/templates/_test/_page.nj` — exclude
 
-- [templates] Renamed components and layouts Nunjucks files to not use leading `_` in names since due to changes in related Grunt task configuration it is enough to use leading `_` in directory that houses them to prevent building into standalone pages.
 - [static][templates] Added `favicon-16x16.png` and `favicon-32x32.png`. Some browsers like Chrome refusing to use `favicon.ico` in their stead.
 
 ### Changed
@@ -39,6 +38,7 @@
 - [grunt] Ensured CSS sourcemaps to be generated when using CCSO.
 - [grunt] Changed styles watcher to watch for all `*.scss` files in source and temp directories instead of only `styles` directory. That's nice addition for projects which prefer to group component's scripts and styles.
 - [grunt] Updated `grunt-sass` task configuration to work with new `implementation` option.
+- [templates] Renamed components and layouts Nunjucks files to not use leading `_` in names since due to changes in related Grunt task configuration it is enough to use leading `_` in directory that houses them to prevent building into standalone pages.
 
 ### Fixed
 - [modules] Fixed `grunt-jspm` not counting built files properly.
