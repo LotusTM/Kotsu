@@ -22,37 +22,37 @@ const mockContext = {
 describe('Nunjucks component `AlternateUrls()`', () => {
   it('should print proper meta tag', () => {
     expect(render(`
-      {% from '_components/_AlternateUrls.nj' import AlternateUrls with context %}
+      {% from '_components/AlternateUrls.nj' import AlternateUrls with context %}
       {{ AlternateUrls('en-US') }}
     `)).toMatchSnapshot()
   })
   it('should print proper meta tag with url specified', () => {
     expect(render(`
-      {% from '_components/_AlternateUrls.nj' import AlternateUrls with context %}
+      {% from '_components/AlternateUrls.nj' import AlternateUrls with context %}
       {{ AlternateUrls('en-US', '/some/specific/url') }}
     `)).toMatchSnapshot()
   })
   it('should print proper meta tag with absolute url specified', () => {
     expect(render(`
-      {% from '_components/_AlternateUrls.nj' import AlternateUrls with context %}
+      {% from '_components/AlternateUrls.nj' import AlternateUrls with context %}
       {{ AlternateUrls('en-US', 'https://test.dev') }}
     `)).toMatchSnapshot()
   })
   it('should print proper meta tags when locale is default for its language', () => {
     expect(render(`
-      {% from '_components/_AlternateUrls.nj' import AlternateUrls with context %}
+      {% from '_components/AlternateUrls.nj' import AlternateUrls with context %}
       {{ AlternateUrls('en-US', undefined, true) }}
     `)).toMatchSnapshot()
   })
   it('should print proper meta tag for language only', () => {
     expect(render(`
-      {% from '_components/_AlternateUrls.nj' import AlternateUrls with context %}
+      {% from '_components/AlternateUrls.nj' import AlternateUrls with context %}
       {{ AlternateUrls('en-US', undefined, false, true) }}
     `)).toMatchSnapshot()
   })
   it('should print proper meta tag for language only when locale is default for its language', () => {
     expect(render(`
-      {% from '_components/_AlternateUrls.nj' import AlternateUrls with context %}
+      {% from '_components/AlternateUrls.nj' import AlternateUrls with context %}
       {{ AlternateUrls('en-US', undefined, true, true) }}
     `)).toMatchSnapshot()
   })
