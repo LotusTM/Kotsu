@@ -24,7 +24,25 @@
 ### Changed
 - [package] Updated dependencies:
 
-   * `grunt-sass@3.0.2`
+   * `babel-eslint` to `10.0.2`
+   * `gettext-parser` to `4.0.1`
+   * `grunt-contrib-clean` to `2.0.0`
+   * `grunt-contrib-htmlmin` to `3.1.0`
+   * `grunt-csso` to `2.2.4`
+   * `grunt-sass` to `3.0.2`
+   * `grunt-spritesmith` to `6.7.1`
+   * `grunt-uncss` to `0.8.6`
+   * `grunt-webfont` to `1.7.2`
+   * `grunt` to `1.0.4`
+   * `hash-sum` to `2.0.0`
+   * `lodash` to `4.17.15`
+   * `lru-cache` to `5.1.1`
+   * `markdown-it` to `9.0.1`
+   * `numbro` to `2.1.2`
+   * `onecolor` to `3.1.0`
+   * `snazzy` to `8.0.0`
+   * `sprintf-js` to `1.1.2`
+   * `time-grunt` to `2.0.0`
 
 - [scripts] Improved logging of the site info to the console:
 
