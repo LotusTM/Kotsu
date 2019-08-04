@@ -68,8 +68,6 @@ rules:
   indentation: null
 
   # @todo https://github.com/stylelint/stylelint/issues/2761
-  block-opening-brace-newline-after: null
-  block-closing-brace-newline-before: null
   block-opening-brace-space-after: null
 
   # Disableed, since it is checked by `scss/at-rule-no-unknown` rule
@@ -89,7 +87,12 @@ rules:
 
   # @todo Excepts `Hz` and `kHz` units to be `hz` and `khz` which isn't correct.
   unit-case: null
-  unit-no-unknown: null
+
+  unit-no-unknown:
+    - true
+    - ignoreUnits:
+      - Hz
+      - kHz
 
   # @todo https://github.com/stylelint/stylelint/issues/2760
   # declaration-colon-newline-after: 'always-multi-line'
@@ -100,7 +103,10 @@ rules:
   block-no-empty: null
   function-max-empty-lines: 1
   no-missing-end-of-source-newline: null
+
+  # @todo This should be changed to the more common 'double' version
   selector-pseudo-element-colon-notation: single
+
   number-leading-zero: never
 
   # Additions
@@ -120,6 +126,7 @@ rules:
     - 3
     - ignore:
       - blockless-at-rules
+      - pseudo-classes
   selector-max-compound-selectors: 3
   selector-max-specificity: 0,3,0
   declaration-no-important: true
@@ -203,6 +210,19 @@ rules:
   #       `Expected selector "%#{$ekzo-objects-ns}nav > li > a" to come before selector ".#{$ekzo-objects-ns}nav > a"`
   no-descending-specificity: true
   selector-max-attribute: 1
+  string-no-newline: true
+  no-empty-source: true
+  selector-max-pseudo-class: 2
+  no-empty-first-line: true
+  function-calc-no-invalid: true
+  at-rule-property-requirelist:
+    font-face:
+      - font-display
+      - font-family
+      - font-style
+
+  # @todo
+  # keyframes-name-pattern
 
   # Scss
   # ---------

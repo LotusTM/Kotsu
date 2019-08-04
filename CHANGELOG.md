@@ -45,7 +45,9 @@
    * `snazzy` to `8.0.0`
    * `sprintf-js` to `1.1.2`
    * `standard` to `13.1.0`
+   * `stylelint-config-standard` to `18.3.0`
    * `stylelint-scss` to `3.9.3`
+   * `stylelint` to `10.1.0`
    * `time-grunt` to `2.0.0`
 
 - [scripts] Improved logging of the site info to the console:
@@ -63,7 +65,17 @@
 - [templates] Renamed components and layouts Nunjucks files to not use leading `_` in names since due to changes in related Grunt task configuration it is enough to use leading `_` in directory that houses them to prevent building into standalone pages.
 
 - [config] Enabled some new Stylelint rules:
-  
+    
+   * `unit-no-unknown`
+   * `block-opening-brace-newline-after`
+   * `block-closing-brace-newline-before`
+   * `string-no-newline`
+   * `no-empty-source`
+   * `selector-max-pseudo-class`
+   * `no-empty-first-line`
+   * `function-calc-no-invalid`
+   * `at-rule-property-requirelist`
+   * `max-nesting-depth`: added ignoring of the `pseudo-classes`
    * `scss/dollar-variable-colon-newline-after: always-multi-line`
    * `scss/at-each-key-value-single-line: true`
    * `scss/function-quote-no-quoted-strings-inside: true`
