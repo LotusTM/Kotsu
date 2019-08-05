@@ -38,6 +38,7 @@
    * `grunt-webfont` to `1.7.2`
    * `grunt` to `1.0.4`
    * `hash-sum` to `2.0.0`
+   * `jest` to `24.8.0`
    * `lodash` to `4.17.15`
    * `lru-cache` to `5.1.1`
    * `markdown-it` to `9.0.1`
