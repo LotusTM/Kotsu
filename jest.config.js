@@ -12,6 +12,10 @@
 // argv.push('--config', JSON.stringify(jestConfig))
 
 module.exports = {
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname'
+  ],
   testPathIgnorePatterns: [
     '/.git/',
     '<rootDir>/build/',
