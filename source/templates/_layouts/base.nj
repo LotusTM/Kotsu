@@ -129,7 +129,7 @@
   {% endif %}
   {% endblock %}
 
-  {{ GoogleAnalytics(siteId = SITE.googleAnalyticsId) if SITE.googleAnalyticsId }}
+  {{ GoogleGlobalTag(UAId = SITE.googleAnalyticsId) if SITE.googleAnalyticsId }}
   {{ YandexMetrika(counterId = SITE.yandexMetrikaId) if SITE.yandexMetrikaId }}
 
 </body>

@@ -1,0 +1,28 @@
+{##
+ # Generate Google 'global site tag' (gtag.js)
+ #
+ # @param {string} UAId Google Analytics ID
+ #
+ # @return {string} `<script>` tags with gtag code
+ #
+ # @example {{ gtag(UAId = 'UA-XXXXX-X') }}
+ #}
+{% macro GoogleGlobalTag(UAId) %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ UAId }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments) }
+  gtag('js', new Date());
+
+  gtag('set', {
+    custom_map: {
+      // You need to configure that dimension in Google Analytics to make it work
+      // @todo Document it
+      dimension1: 'dim_app_version'
+    },
+    dim_app_version: '{{ SITE.version }}'
+  });
+
+  gtag('config', '{{ UAId }}');
+</script>
+{% endmacro %}

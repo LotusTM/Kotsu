@@ -61,6 +61,7 @@
    * `time-grunt` to `2.0.0`
 
 - [submodule] Updated Ekzo to `2.7.1` which included fixes of the linting errors.
+- [templates] Replace Google Analytics with newer Google Global Tag.
 - [scripts] Improved logging of the site info to the console:
 
    ```diff
