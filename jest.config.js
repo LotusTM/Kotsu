@@ -24,6 +24,6 @@ module.exports = {
     '/jspm_packages/'
   ],
   moduleNameMapper: {
-    '^@data$': '<rootDir>/modules/scripts-data.js'
+    '^@data$': '<rootDir>/temp/data/scripts.js'
   }
 }

@@ -107,6 +107,8 @@
    * `scss/selector-no-union-class-name: true`
    * `scss/comment-no-loud: true`
 
+[configs][package] Make Jest use for `@data` mapping precompiled temporary file `temp/data/scripts.js` instead of the `modules/scripts-data.js`. That makes tests running significantly faster because it avoids precompilation of the data for each test file. To make it work, `pretest` NPM script has been added, which ensures that data is always precompiled before running any tests.
+
 ### Fixed
 - [modules] Fixed `grunt-jspm` not counting built files properly.
 - [modules] Fixed `lru-cache` initialization — newer versions should always use `new` keyword.
