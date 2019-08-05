@@ -6,7 +6,7 @@ contentTitle:    ={{ gettext('Home') }}
 navTitle:        ={{ gettext('Home') }}
 breadcrumbTitle: ={{ gettext('Home') }}
 
-description: ={{ gettext('Generated with %(company)s demo homepage') }}
+description: ={{ gettext('Generated with %(name)s demo homepage') }}
 
 showContentTitle: false
 showBreadcrumb:   false

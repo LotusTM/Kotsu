@@ -1,10 +1,10 @@
 ---
 title:           ={{ gettext('Blog') }}
-contentTitle:    ={{ gettext('%(company)s blog') }}
+contentTitle:    ={{ gettext('%(name)s blog') }}
 navTitle:        ={{ gettext('Blog') }}
 breadcrumbTitle: ={{ gettext('Blog') }}
 
-description: ={{ gettext('%(company)s blog') }}
+description: ={{ gettext('%(name)s blog') }}
 ---
 
 {% extends '_layouts/main.nj' %}

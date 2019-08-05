@@ -33,12 +33,12 @@ msgid "Example article"
 msgstr "Демонстрационный пост"
 
 #: source/templates/blog/2015-10-12-example-article.nj:6
-msgid "Example article generated with %(company)s"
-msgstr "Демонстрационный пост, сгенерированный с помощью %(company)s"
+msgid "Example article generated with %(name)s"
+msgstr "Демонстрационный пост, сгенерированный с помощью %(name)s"
 
 #: source/templates/blog/2015-10-12-example-article.nj:7
-msgid "Example article generated with %(company)s. Wanna more?"
-msgstr "Демонстрационный пост, сгенерированный с помощью %(company)s. Хотите еще?"
+msgid "Example article generated with %(name)s. Wanna more?"
+msgstr "Демонстрационный пост, сгенерированный с помощью %(name)s. Хотите еще?"
 
 #: source/templates/blog/2016-08-18-newer-article.nj:2
 #: source/templates/blog/2016-08-18-newer-article.nj:3
@@ -48,12 +48,12 @@ msgid "Newer article"
 msgstr "Более новый пост"
 
 #: source/templates/blog/2016-08-18-newer-article.nj:6
-msgid "Newer example article generated with %(company)s"
-msgstr "Более новый пост, сгенерированный с помощью %(company)s"
+msgid "Newer example article generated with %(name)s"
+msgstr "Более новый пост, сгенерированный с помощью %(name)s"
 
 #: source/templates/blog/2016-08-18-newer-article.nj:7
-msgid "Newer example article generated with %(company)s. Wanna more?"
-msgstr "Более новый пост, сгенерированный с помощью %(company)s. Еще?"
+msgid "Newer example article generated with %(name)s. Wanna more?"
+msgstr "Более новый пост, сгенерированный с помощью %(name)s. Еще?"
 
 #: source/templates/blog/index.nj:2 source/templates/blog/index.nj:3
 #: source/templates/blog/index.nj:5
@@ -61,8 +61,8 @@ msgid "Blog"
 msgstr "Блог"
 
 #: source/templates/blog/index.nj:4 source/templates/blog/index.nj:6
-msgid "%(company)s blog"
-msgstr "Блог %(company)s"
+msgid "%(name)s blog"
+msgstr "Блог %(name)s"
 
 #: source/templates/examples/index.nj:2 source/templates/examples/index.nj:3
 #: source/templates/examples/index.nj:4 source/templates/examples/index.nj:5
@@ -70,8 +70,8 @@ msgid "Examples"
 msgstr "Примеры"
 
 #: source/templates/examples/index.nj:6
-msgid "%(company)s examples"
-msgstr "Примеры %(company)s"
+msgid "%(name)s examples"
+msgstr "Примеры %(name)s"
 
 #: source/templates/examples/index.nj:54 source/templates/examples/index.nj:62
 #: source/templates/examples/index.nj:66 source/templates/examples/index.nj:70
@@ -96,5 +96,5 @@ msgid "Home"
 msgstr "Главная"
 
 #: source/templates/index.nj:7
-msgid "Generated with %(company)s demo homepage"
-msgstr "Демонстрационная страница, сгенерированная с помощью %(company)s"
+msgid "Generated with %(name)s demo homepage"
+msgstr "Демонстрационная страница, сгенерированная с помощью %(name)s"

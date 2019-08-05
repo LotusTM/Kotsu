@@ -4,9 +4,9 @@ contentTitle:    ={{ gettext('Example article') }}
 navTitle:        ={{ gettext('Example article') }}
 breadcrumbTitle: ={{ gettext('Example article') }}
 
-description: ={{ gettext('Example article generated with %(company)s') }}
+description: ={{ gettext('Example article generated with %(name)s') }}
 
-excerpt: ={{ gettext('Example article generated with %(company)s. Wanna more?') }}
+excerpt: ={{ gettext('Example article generated with %(name)s. Wanna more?') }}
 author:  LotusTM
 date:    2015-10-12T14:48:00
 ---

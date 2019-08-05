@@ -80,6 +80,12 @@
 - [templates] Renamed components and layouts Nunjucks files to not use leading `_` in names since due to changes in related Grunt task configuration it is enough to use leading `_` in directory that houses them to prevent building into standalone pages.
 - [data] Made `SOCIAL.url` optional since in some cases social service might not require one.
 
+- [data][templates][locales] Provided better default placeholders. Instead of too abstract `company` added following properties:
+
+   * `name` — project name
+   * `shortName` — project short name
+   * `description` — project description
+
 - [config] Enabled some new Stylelint rules:
     
    * `unit-no-unknown`

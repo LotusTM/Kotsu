@@ -14,11 +14,11 @@ msgid "Example article"
 msgstr ""
 
 #: source/templates/blog/2015-10-12-example-article.nj:6
-msgid "Example article generated with %(company)s"
+msgid "Example article generated with %(name)s"
 msgstr ""
 
 #: source/templates/blog/2015-10-12-example-article.nj:7
-msgid "Example article generated with %(company)s. Wanna more?"
+msgid "Example article generated with %(name)s. Wanna more?"
 msgstr ""
 
 #: source/templates/blog/2016-08-18-newer-article.nj:2
@@ -29,11 +29,11 @@ msgid "Newer article"
 msgstr ""
 
 #: source/templates/blog/2016-08-18-newer-article.nj:6
-msgid "Newer example article generated with %(company)s"
+msgid "Newer example article generated with %(name)s"
 msgstr ""
 
 #: source/templates/blog/2016-08-18-newer-article.nj:7
-msgid "Newer example article generated with %(company)s. Wanna more?"
+msgid "Newer example article generated with %(name)s. Wanna more?"
 msgstr ""
 
 #: source/templates/blog/index.nj:2 source/templates/blog/index.nj:3
@@ -42,7 +42,7 @@ msgid "Blog"
 msgstr ""
 
 #: source/templates/blog/index.nj:4 source/templates/blog/index.nj:6
-msgid "%(company)s blog"
+msgid "%(name)s blog"
 msgstr ""
 
 #: source/templates/examples/index.nj:2 source/templates/examples/index.nj:3
@@ -51,7 +51,7 @@ msgid "Examples"
 msgstr ""
 
 #: source/templates/examples/index.nj:6
-msgid "%(company)s examples"
+msgid "%(name)s examples"
 msgstr ""
 
 #: source/templates/examples/index.nj:54 source/templates/examples/index.nj:62
@@ -76,5 +76,5 @@ msgid "Home"
 msgstr ""
 
 #: source/templates/index.nj:7
-msgid "Generated with %(company)s demo homepage"
+msgid "Generated with %(name)s demo homepage"
 msgstr ""

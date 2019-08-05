@@ -4,6 +4,10 @@ const urljoin = require('../../modules/urljoin')
 const traverse = require('../../modules/traverse')
 const pkg = require('../../package.json')
 
+const name = pkg.name
+const shortName = pkg.name
+const description = pkg.description
+
 module.exports = ({ config }) => {
   const { env, path, file, locales, baseLocale } = config()
   const cwd = process.cwd()
@@ -16,10 +20,10 @@ module.exports = ({ config }) => {
   const data = {
     PATH,
     SITE: {
-      name: pkg.name,
-      shortName: pkg.name,
+      name,
+      shortName,
       version: pkg.version,
-      description: pkg.description,
+      description,
       homepage: env.sitename ? `https://${env.sitename}` : pkg.homepage,
       logo: urljoin('/', PATH.images, '/logo.svg'),
       viewport: 'width=device-width, initial-scale=1',
@@ -32,7 +36,9 @@ module.exports = ({ config }) => {
       yandexMetrikaId: false // 'XXXXXX'
     },
     PLACEHOLDERS: {
-      company: pkg.name
+      name,
+      shortName,
+      description
     },
     PAGE_DEFAULTS: {
       image: '',
