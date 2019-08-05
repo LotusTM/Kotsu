@@ -31,6 +31,7 @@
    * `DigitString` — expect strings with digits only
    * `Email` — expect valid email
 
+- [modules] Grunt task `writeJSON` now allow to compile into `json` file or into `js` file with ES6 exports (which allows it to be effectively destructured and tree shacked).
 - [tests] Added better Jest watch experience with [`jest-watch-typeahead`](https://github.com/jest-community/jest-watch-typeahead).
 
 ### Changed
