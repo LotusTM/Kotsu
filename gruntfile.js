@@ -104,6 +104,10 @@ module.exports = function (grunt) {
           compiled: '<%= path.build.scripts %>/main.js',
           minified: '<%= path.build.scripts %>/main.min.js'
         },
+        serviceWorker: {
+          compiled: '<%= path.build.root %>/sw.js',
+          minified: '<%= path.build.root %>/sw.min.js'
+        },
         sprite: {
           compiled: '<%= path.build.sprites %>/sprite.png'
         }
@@ -155,6 +159,7 @@ module.exports = function (grunt) {
     'webfont',
     'sass',
     'postcss:autoprefix',
+    'jspm:watchServiceWorker',
     'browserSync',
     'watch'
   ])
@@ -182,12 +187,14 @@ module.exports = function (grunt) {
     'clean:scripts',
     'cacheBust',
     'sitemap_xml',
+    'jspm:buildServiceWorker',
     'size_report'
   ])
 
   // Serve built version
   grunt.registerTask('serve', [
     'jspmWatch',
+    'jspm:watchServiceWorker',
     'browserSync',
     'watch'
   ])

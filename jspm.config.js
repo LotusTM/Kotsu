@@ -5,6 +5,7 @@ SystemJS.config({
       "npm:": "/jspm_packages/npm/",
       "github:": "/jspm_packages/github/",
       "main/": "",
+      "serviceWorker": "serviceWorker",
       "@data": "/temp/data/scripts.json"
     }
   },
@@ -13,6 +14,7 @@ SystemJS.config({
       "npm:": "jspm_packages/npm/",
       "github:": "jspm_packages/github/",
       "main/": "source/scripts/",
+      "serviceWorker": "source/scripts/serviceWorker",
       "@data": "temp/data/scripts.json"
     }
   },
@@ -39,6 +41,18 @@ SystemJS.config({
   packages: {
     "main": {
       "main": "main.js",
+      "format": "esm",
+      "meta": {
+        "*.js": {
+          "loader": "plugin-babel"
+        },
+        "*.json": {
+          "loader": "json"
+        }
+      }
+    },
+    "serviceWorker": {
+      "main": "sw.js",
       "format": "esm",
       "meta": {
         "*.js": {

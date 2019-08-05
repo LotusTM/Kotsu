@@ -11,6 +11,11 @@ const data = require('./index')
  */
 module.exports = (grunt) => {
   const {
+    PATH: {
+      file: {
+        serviceWorker
+      }
+    },
     SITE: {
       name,
       version,
@@ -18,12 +23,18 @@ module.exports = (grunt) => {
       baseLocale
     },
     ENV: {
+      build,
       buildSHA1,
       buildNumber
     }
   } = data(grunt)()
 
   return {
+    PATH: {
+      file: {
+        serviceWorker
+      }
+    },
     SITE: {
       name,
       version,
@@ -31,6 +42,7 @@ module.exports = (grunt) => {
       baseLocale
     },
     ENV: {
+      build,
       buildSHA1,
       buildNumber
     }

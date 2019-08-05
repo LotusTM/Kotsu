@@ -3,6 +3,7 @@
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.14.1...HEAD)
 
 ### Added
+- [scripts][grunt][tasks] Added basic service worker with Network-first caching strategy, all related scripts and JSPM Grunt configuration. [#384](https://github.com/LotusTM/Kotsu/issues/384)
 - [grunt] Added ability to exclude pages building by simply specifying `_` in the beginning of the directory
 
    Previously:

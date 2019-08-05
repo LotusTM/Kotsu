@@ -59,6 +59,10 @@ const Data = t.struct({
         compiled: t.String,
         minified: t.String
       }),
+      serviceWorker: t.struct({
+        compiled: t.String,
+        minified: t.String
+      }),
       sprite: t.struct({
         compiled: t.String
       })

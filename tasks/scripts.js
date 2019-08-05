@@ -4,21 +4,31 @@ module.exports = function () {
 
   this.config('jspm', {
     watch: {
-      options: {
-        args: ['-wid']
-      },
+      options: { args: ['-wid'] },
       files: [{
         packageName: 'main',
         dest: '<%= file.build.script.compiled %>'
       }]
     },
+    watchServiceWorker: {
+      options: { args: ['-wid'] },
+      files: [{
+        packageName: 'serviceWorker',
+        dest: '<%= file.build.serviceWorker.compiled %>'
+      }]
+    },
     build: {
-      options: {
-        args: ['--minify']
-      },
+      options: { args: ['--minify'] },
       files: [{
         packageName: 'main',
         dest: '<%= file.build.script.minified %>'
+      }]
+    },
+    buildServiceWorker: {
+      options: { args: ['--minify'] },
+      files: [{
+        packageName: 'serviceWorker',
+        dest: '<%= file.build.serviceWorker.minified %>'
       }]
     }
   })
