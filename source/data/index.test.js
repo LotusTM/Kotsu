@@ -103,7 +103,7 @@ const Data = t.struct({
   SOCIAL: t.dict(t.String, t.struct({
     handle: t.maybe(r.Handle),
     image: t.maybe(r.Imagepath),
-    url: r.Absoluteurl
+    url: t.maybe(r.Absoluteurl)
   }, { name: 'Social' })),
   ENV: t.struct({
     production: t.maybe(t.Boolean),

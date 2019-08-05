@@ -78,6 +78,7 @@
 - [grunt] Changed styles watcher to watch for all `*.scss` files in source and temp directories instead of only `styles` directory. That's nice addition for projects which prefer to group component's scripts and styles.
 - [grunt] Updated `grunt-sass` task configuration to work with new `implementation` option.
 - [templates] Renamed components and layouts Nunjucks files to not use leading `_` in names since due to changes in related Grunt task configuration it is enough to use leading `_` in directory that houses them to prevent building into standalone pages.
+- [data] Made `SOCIAL.url` optional since in some cases social service might not require one.
 
 - [config] Enabled some new Stylelint rules:
     
