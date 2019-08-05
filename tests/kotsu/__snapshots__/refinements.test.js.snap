@@ -40,6 +40,16 @@ exports[`Tcomb refinement Date should error on non-ISO 8601 date 5`] = `"[tcomb]
 
 exports[`Tcomb refinement Date should pass ISO 8601 date 1`] = `"2010-01-01T05:06:07"`;
 
+exports[`Tcomb refinement DigitString should error strings with non-digits 1`] = `"[tcomb] Invalid value 1 supplied to String with digits only"`;
+
+exports[`Tcomb refinement DigitString should error strings with non-digits 2`] = `"[tcomb] Invalid value \\"test\\" supplied to String with digits only"`;
+
+exports[`Tcomb refinement DigitString should error strings with non-digits 3`] = `"[tcomb] Invalid value \\"2012-30-30\\" supplied to String with digits only"`;
+
+exports[`Tcomb refinement DigitString should error strings with non-digits 4`] = `"[tcomb] Invalid value \\"2010-01-01T05:\\" supplied to String with digits only"`;
+
+exports[`Tcomb refinement DigitString should pass strings with digits only 1`] = `"23123"`;
+
 exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 1`] = `"[tcomb] ivalid value \`235\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
 
 exports[`Tcomb refinement EqualKeyAndProp should error on everything except object with equal keys and property value 2`] = `"[tcomb] ivalid value \`111\`<number> supplied to \`Testdata/235/id\` property: expected equal to key value \`235\`<string>"`;
@@ -203,3 +213,21 @@ Array [
 exports[`Tcomb refinement Maxlength should pass string with less or equal length 1`] = `"12"`;
 
 exports[`Tcomb refinement Maxlength should pass string with less or equal length 2`] = `"123"`;
+
+exports[`Tcomb refinement MsDate should error on non-ISO 8601 date 1`] = `"[tcomb] Invalid value \\"2010-01-01T05:06:07\\" supplied to Date in ms since January 1, 1970"`;
+
+exports[`Tcomb refinement MsDate should error on non-ISO 8601 date 2`] = `"[tcomb] Invalid value 2.2222222222222223e+22 supplied to Date in ms since January 1, 1970"`;
+
+exports[`Tcomb refinement MsDate should error on non-ISO 8601 date 3`] = `"[tcomb] Invalid value \\"test\\" supplied to Date in ms since January 1, 1970"`;
+
+exports[`Tcomb refinement MsDate should error on non-ISO 8601 date 4`] = `"[tcomb] Invalid value \\"2012\\" supplied to Date in ms since January 1, 1970"`;
+
+exports[`Tcomb refinement MsDate should error on non-ISO 8601 date 5`] = `"[tcomb] Invalid value \\"2012-30-30\\" supplied to Date in ms since January 1, 1970"`;
+
+exports[`Tcomb refinement MsDate should error on non-ISO 8601 date 6`] = `"[tcomb] Invalid value \\"2010-01-01T05:\\" supplied to Date in ms since January 1, 1970"`;
+
+exports[`Tcomb refinement MsDate should pass date in ms since January 1, 1970 1`] = `-200`;
+
+exports[`Tcomb refinement MsDate should pass date in ms since January 1, 1970 2`] = `0`;
+
+exports[`Tcomb refinement MsDate should pass date in ms since January 1, 1970 3`] = `200`;

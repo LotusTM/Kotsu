@@ -127,6 +127,34 @@ describe('Tcomb refinement', () => {
     })
   })
 
+  describe('MsDate', () => {
+    it('should pass date in ms since January 1, 1970', () => {
+      expect(r.MsDate(-200)).toMatchSnapshot()
+      expect(r.MsDate(0)).toMatchSnapshot()
+      expect(r.MsDate(200)).toMatchSnapshot()
+    })
+    it('should error on non-ISO 8601 date', () => {
+      expect(() => r.MsDate('2010-01-01T05:06:07')).toThrowErrorMatchingSnapshot()
+      expect(() => r.MsDate(22222222222222222222222)).toThrowErrorMatchingSnapshot()
+      expect(() => r.MsDate('test')).toThrowErrorMatchingSnapshot()
+      expect(() => r.MsDate('2012')).toThrowErrorMatchingSnapshot()
+      expect(() => r.MsDate('2012-30-30')).toThrowErrorMatchingSnapshot()
+      expect(() => r.MsDate('2010-01-01T05:')).toThrowErrorMatchingSnapshot()
+    })
+  })
+
+  describe('DigitString', () => {
+    it('should pass strings with digits only', () => {
+      expect(r.DigitString('23123')).toMatchSnapshot()
+    })
+    it('should error strings with non-digits', () => {
+      expect(() => r.DigitString(1)).toThrowErrorMatchingSnapshot()
+      expect(() => r.DigitString('test')).toThrowErrorMatchingSnapshot()
+      expect(() => r.DigitString('2012-30-30')).toThrowErrorMatchingSnapshot()
+      expect(() => r.DigitString('2010-01-01T05:')).toThrowErrorMatchingSnapshot()
+    })
+  })
+
   describe('EqualKeyAndProp', () => {
     const EqualKeysAndId = r.EqualKeyAndProp('id')(t.dict(t.String, t.Any, 'Testdata'))
 
