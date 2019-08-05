@@ -48,7 +48,7 @@ module.exports = function (grunt) {
           require(join(process.cwd(), this.config('file.source.data.scripts')))(grunt)
       },
       files: [{
-        dest: '<%= path.temp.data %>/scripts.json'
+        dest: '<%= path.temp.data %>/scripts.js'
       }]
     }
   })

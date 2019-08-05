@@ -78,6 +78,7 @@
 - [grunt] Ensured CSS sourcemaps to be generated when using CCSO.
 - [grunt] Changed styles watcher to watch for all `*.scss` files in source and temp directories instead of only `styles` directory. That's nice addition for projects which prefer to group component's scripts and styles.
 - [grunt] Updated `grunt-sass` task configuration to work with new `implementation` option.
+- [grunt][data][configs] Precompile scripts data into ES6 JS file `scripts.js` instead of the JSON-file to make it tree shakable. It also makes it possible to be used directly by 3rd-party scripts, like Jest, without the need to run again whole compilation which due to Grunt massiveness can take some time.
 - [templates] Renamed components and layouts Nunjucks files to not use leading `_` in names since due to changes in related Grunt task configuration it is enough to use leading `_` in directory that houses them to prevent building into standalone pages.
 - [data] Made `SOCIAL.url` optional since in some cases social service might not require one.
 

@@ -1,7 +1,7 @@
 const data = require('./index')
 
 /**
- * Data to be compiled to a JSON file `scripts.json` by a Grunt task
+ * Data to be compiled to a JSON file `scripts.js` by a Grunt task
  * Later this data can be imported in `source/scripts` via
  * `import data from '@data'`
  * Try to keep footprint of this file as small as possible

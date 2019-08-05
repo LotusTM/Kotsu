@@ -6,7 +6,7 @@ SystemJS.config({
       "github:": "/jspm_packages/github/",
       "main/": "",
       "serviceWorker": "serviceWorker",
-      "@data": "/temp/data/scripts.json"
+      "@data": "/temp/data/scripts.js"
     }
   },
   nodeConfig: {
@@ -15,7 +15,7 @@ SystemJS.config({
       "github:": "jspm_packages/github/",
       "main/": "source/scripts/",
       "serviceWorker": "source/scripts/serviceWorker",
-      "@data": "temp/data/scripts.json"
+      "@data": "temp/data/scripts.js"
     }
   },
   devConfig: {
@@ -30,11 +30,6 @@ SystemJS.config({
           "systemjs-hmr": "npm:systemjs-hmr@2.0.9"
         }
       }
-    }
-  },
-  meta: {
-    "@data": {
-      "loader": "json"
     }
   },
   transpiler: "plugin-babel",
