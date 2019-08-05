@@ -128,7 +128,7 @@
     "start": "grunt",
     "serve": "grunt serve",
     "lint": "npm run lint:scripts && npm run lint:styles",
-    "lint:scripts": "standard | snazzy",
+    "lint:scripts": "standard \"**/*.{js,jsx}\" | snazzy",
     "lint:styles": "stylelint \"**/*.{css,scss,sass}\" \"!{jspm_packages,build,temp}/**\"",
     "test": "npm run lint && jest",
     "test:watch": "jest --watch",
