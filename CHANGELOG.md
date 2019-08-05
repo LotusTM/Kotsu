@@ -62,6 +62,7 @@
 
 - [submodule] Updated Ekzo to `2.7.1` which included fixes of the linting errors.
 - [templates] Replace Google Analytics with newer Google Global Tag.
+- [templates] Replace Yandex Metrica with v2.
 - [scripts] Improved logging of the site info to the console:
 
    ```diff
