@@ -1,6 +1,6 @@
 {{ initPage() }}
 
-{% from '_components/analytics/GoogleAnalytics.nj' import GoogleAnalytics with context %}
+{% from '_components/analytics/GoogleGlobalTag.nj' import GoogleGlobalTag with context %}
 {% from '_components/analytics/YandexMetrika.nj' import YandexMetrika with context %}
 {% from '_components/AlternateUrls.nj' import AlternateUrls with context %}
 {% from '_components/IE.nj' import IE with context %}
