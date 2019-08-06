@@ -1,6 +1,8 @@
 # Changelog
 
-## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.14.1...HEAD)
+## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.15.0...HEAD)
+
+## [1.15.0](https://github.com/LotusTM/Kotsu/compare/v1.14.1...v1.15.0) - 2019-08-06
 
 ### Added
 - [scripts][grunt][tasks] Added basic service worker with Network-first caching strategy, all related scripts and JSPM Grunt configuration. [#384](https://github.com/LotusTM/Kotsu/issues/384)
