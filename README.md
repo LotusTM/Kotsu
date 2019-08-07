@@ -35,17 +35,15 @@
 
 1. Clone or download and unpack to desired location
 2. Download and install latest version of [node.js](http://nodejs.org/)
-3. Install grunt-cli globally: `npm install -g grunt-cli`
-4. Install [jspm](http://jspm.io/) globally: `npm install -g jspm`
-5. Install [GraphicsMagick](http://www.graphicsmagick.org/download.html) (recommended) or [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) for your OS.
+3. Install [GraphicsMagick](http://www.graphicsmagick.org/download.html) (recommended) or [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) for your OS.
   *Note: it's mandatory to install one of them before running `npm install`*
-6. Set your environment variables [[guide](https://github.com/LotusTM/Kotsu/wiki/Set-up-environment-variables)]
-7. Install project dependencies: `npm install`
-8. *(optional)* Add your repository to [Travis](https://travis-ci.org/) for automatic tests
-9. *(optional)* Set up Continuous Deployment with [CircleCI](https://circleci.com/) or [Werker](http://wercker.com/) Docker following our [guide](https://github.com/LotusTM/Kotsu/wiki/Continuous-Delivery-with-Wercker-Docker-and-CoreOS)
-10. Code live with: `npm start` or `npm start -- --hmr` if you need [Hot Module Reloading](https://github.com/alexisvincent/systemjs-hot-reloader/)
-11. Build with: `npm run build`
-12. Deploy and enjoy your life
+4. Set your environment variables [[guide](https://github.com/LotusTM/Kotsu/wiki/Set-up-environment-variables)]
+5. Install project dependencies: `npm install`
+6. *(optional)* Add your repository to [Travis](https://travis-ci.org/) for automatic tests
+7. *(optional)* Set up Continuous Deployment with [CircleCI](https://circleci.com/) or [Werker](http://wercker.com/) Docker following our [guide](https://github.com/LotusTM/Kotsu/wiki/Continuous-Delivery-with-Wercker-Docker-and-CoreOS)
+8. Code live with: `npm start` or `npm start -- --hmr` if you need [Hot Module Reloading](https://github.com/alexisvincent/systemjs-hot-reloader/)
+9. Build with: `npm run build`
+10. Deploy and enjoy your life
 
 ## What's inside?
 
@@ -60,9 +58,9 @@
 * i18n with [node-gettext](https://github.com/andris9/node-gettext) and configured layouts to properly declare current locale and alternate urls
 * [Sass](http://sass-lang.com/) compiler with source maps generation, [autoprefixing](https://github.com/postcss/autoprefixer), [optimization](https://github.com/giakki/uncss), [minification](https://github.com/css/csso) and [linting](https://github.com/stylelint/stylelint)
 * [Ekzo](https://github.com/ArmorDarks/ekzo) Sass framework
-* [JSPM](http://jspm.io) with ES6 support, managing and bundling JavaScript dependencies and optional [hot module reloading](https://github.com/alexisvincent/systemjs-hot-reloader/) or blazing fast watch
+* [Webpack](https://webpack.js.org/) with ES6 support, managing and bundling JavaScript dependencies and optional [hot module reloading](https://github.com/alexisvincent/systemjs-hot-reloader/) or blazing fast watch
 * [standard](https://github.com/feross/standard) for linting and automatic formatting JavaScript
-* Live reload powered by [Browser Sync](https://github.com/shakyshane/grunt-browser-sync)
+* Live reload powered by [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
 * Runtime type annotation and data validation with [`tcomb`](https://github.com/gcanti/tcomb) and [`tcomb-validation`](https://github.com/gcanti/tcomb-validation), built-in handy refinements.
 * Preconfigured meta tags for [Open Graph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/cards/overview)
 * Commonly used by search providers structured data based on [RDFa](https://rdfa.info/)
