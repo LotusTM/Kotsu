@@ -43,6 +43,9 @@
     "webfont generator",
     "website"
   ],
+  "sideEffects": [
+    "./source/scripts/utils/dom-polyfills.js"
+  ],
   "dependencies": {
     "autoprefixer": "9.6.1",
     "core-js": "3.1.4",
