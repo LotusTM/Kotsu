@@ -21,6 +21,11 @@
 
    Though, we'll continue to monitor JSPM 2 progress, as it has some promising features.
 
+- [package] Updated dependencies:
+
+   * `moment` to `2.24.0`
+   * `tcomb-validation` to `3.4.1`
+
 ## [1.15.0](https://github.com/LotusTM/Kotsu/compare/v1.14.1...v1.15.0) - 2019-08-06
 
 ### Added
