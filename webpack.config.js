@@ -14,7 +14,8 @@ module.exports = ({ env = {}, path = {}, file = {} }) => {
       entry: `./${file.source.scripts.main}`,
       output: {
         path: resolve(__dirname, path.build.scripts),
-        filename: isBuild ? `[name].${file.build.scriptMinifiedExt}.js` : '[name].js'
+        filename: isBuild ? `[name].${file.build.scriptMinifiedExt}.js` : '[name].js',
+        publicPath: path.build.scripts.replace(path.build.root, '')
       },
       optimization: {
         runtimeChunk: 'single',

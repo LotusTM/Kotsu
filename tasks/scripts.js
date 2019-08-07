@@ -15,11 +15,21 @@ module.exports = function () {
   const initedWebpackConfig = webpackConfig(config)
   const initedWebpackServiceWorkerConfig = webpackServiceWorkerConfig(config)
 
+  this.config('webpack-dev-server', {
+    watch: Object.assign(
+      { webpack: initedWebpackConfig },
+      // @todo Because of https://github.com/webpack-contrib/grunt-webpack/issues/154
+      initedWebpackConfig.devServer,
+      {
+        publicPath: initedWebpackConfig.output.publicPath,
+        hot: config.env.hotModuleRloading,
+        open: true,
+        keepalive: false
+      }
+    )
+  })
+
   this.config('webpack', {
-    watch: Object.assign({}, initedWebpackConfig, {
-      watch: true,
-      keepalive: false
-    }),
     build: initedWebpackConfig,
     watchServiceWorker: Object.assign({}, initedWebpackServiceWorkerConfig, {
       watch: true,

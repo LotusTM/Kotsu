@@ -66,41 +66,4 @@ module.exports = function () {
       }
     }
   })
-
-  // Browser Sync
-  // https://github.com/shakyshane/grunt-browser-sync
-  // Keep multiple browsers & devices in sync
-
-  this.config('browserSync', {
-    debug: {
-      options: {
-        open: true,
-        notify: true,
-        watchTask: true,
-        online: false,
-        ghostMode: {
-          clicks: true,
-          links: true,
-          forms: true,
-          scroll: true
-        },
-        watchEvents: ['add', 'change'],
-        reloadDebounce: 100,
-        server: {
-          baseDir: '<%= path.build.root %>'
-        }
-      },
-      bsFiles: {
-        src: [
-          // @note In hot reloading mode for JS files changes watches `chockidar-socket-emitter` and emits directly to `systemjs-hot-reloader`
-          !this.config('env.hotModuleRloading') ? '<%= path.build.root %>/**/*.js' : null,
-          '<%= path.build.root %>/**/*.css',
-          '<%= path.build.root %>/**/*.html',
-          '<%= path.build.root %>/**/*.{png,jpg,jpeg,gif,svg,ico}',
-          '<%= path.build.root %>/**/*.{xml,txt}',
-          '<%= path.build.root %>/**/*.{eot,ttf,woff}'
-        ]
-      }
-    }
-  })
 }

@@ -14,7 +14,8 @@ module.exports = function (grunt) {
   // Load grunt tasks automatically
   jitGrunt(grunt, {
     nunjucks: 'grunt-nunjucks-2-html',
-    sprite: 'grunt-spritesmith'
+    sprite: 'grunt-spritesmith',
+    'webpack-dev-server': 'grunt-webpack'
   })
 
   // Define the configuration for all the tasks
@@ -170,13 +171,12 @@ module.exports = function (grunt) {
     'image_size',
     'grayMatter',
     'nunjucks',
-    'webpack:watch',
     'sprite',
     'webfont',
     'sass',
     'postcss:autoprefix',
+    'webpack-dev-server:watch',
     'webpack:watchServiceWorker',
-    'browserSync',
     'watch'
   ])
 
@@ -208,9 +208,8 @@ module.exports = function (grunt) {
 
   // Serve built version
   grunt.registerTask('serve', [
-    'webpack:watch',
+    'webpack-dev-server:watch',
     'webpack:watchServiceWorker',
-    'browserSync',
     'watch'
   ])
 

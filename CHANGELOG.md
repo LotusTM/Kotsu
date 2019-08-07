@@ -21,6 +21,10 @@
 
    Though, we'll continue to monitor JSPM 2 progress, as it has some promising features.
 
+- [package][grunt][configs] Replaced `grunt-browser-sync` with `webpack-dev-server`.
+
+   Webpack Dev Server lacks cool syncing mechanism that Browser Sync had, however, let's face it — Browser Sync hasn't been updated for years and seems to be abandoned, while Webpack Dev Servers finally allows to enjoy hot module replacement again.
+
 - [package] Updated dependencies:
 
    * `moment` to `2.24.0`
