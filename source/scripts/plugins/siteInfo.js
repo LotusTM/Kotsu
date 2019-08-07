@@ -1,6 +1,4 @@
-import data from '@data'
-
-const { SITE, ENV } = data
+import { SITE, ENV } from '@data'
 
 export const SHA1 = ENV.buildSHA1
 export const build = ENV.buildNumber ? `${ENV.buildNumber}.${SHA1}` : 'local'
