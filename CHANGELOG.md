@@ -26,6 +26,9 @@
    * `moment` to `2.24.0`
    * `tcomb-validation` to `3.4.1`
 
+### Fixed
+- [data] Fixed not passed properly to frontend scripts data about environment (`env.staging` and `env.production`) which resulted in wrong site info logged to the console.
+
 ## [1.15.0](https://github.com/LotusTM/Kotsu/compare/v1.14.1...v1.15.0) - 2019-08-06
 
 ### Added

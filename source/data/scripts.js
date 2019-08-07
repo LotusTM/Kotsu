@@ -25,7 +25,9 @@ module.exports = (grunt) => {
     ENV: {
       build,
       buildSHA1,
-      buildNumber
+      buildNumber,
+      staging,
+      production
     }
   } = data(grunt)()
 
@@ -44,7 +46,9 @@ module.exports = (grunt) => {
     ENV: {
       build,
       buildSHA1,
-      buildNumber
+      buildNumber,
+      staging,
+      production
     }
   }
 }
