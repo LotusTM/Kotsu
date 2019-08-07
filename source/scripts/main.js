@@ -5,3 +5,7 @@ import registerServiceWorker from './serviceWorker/register'
 siteInfo()
 registerServiceWorker()
 document.querySelector('html').classList.remove('no-js')
+
+if (module.hot) {
+  module.hot.accept()
+}
