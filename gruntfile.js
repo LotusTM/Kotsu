@@ -1,7 +1,5 @@
 const timeGrunt = require('time-grunt')
 const gruntWriteJson = require('./modules/grunt-write-json')
-const gruntJSPM = require('./modules/grunt-jspm')
-const gruntJSPMEmitter = require('./modules/grunt-jspm-emitter')
 const jitGrunt = require('jit-grunt')
 const gettext = require('./modules/gettext')
 
@@ -11,8 +9,6 @@ module.exports = function (grunt) {
   // Track execution time
   timeGrunt(grunt)
 
-  gruntJSPM(grunt)
-  gruntJSPMEmitter(grunt)
   gruntWriteJson(grunt)
 
   // Load grunt tasks automatically
@@ -89,24 +85,46 @@ module.exports = function (grunt) {
       source: {
         data: {
           scripts: '<%= path.source.data %>/scripts.js'
+        },
+        scripts: {
+          main: '<%= path.source.scripts %>/main.js',
+          serviceWorker: '<%= path.source.scripts %>/serviceWorker/sw.js'
         }
       },
 
       temp: {
         data: {
           matter: '<%= path.temp.data %>/matter.json',
-          images: '<%= path.temp.data %>/images.json'
+          images: '<%= path.temp.data %>/images.json',
+          scripts: '<%= path.temp.data %>/scripts.js'
         }
       },
 
       build: {
+        // Note that Webpack paths configuration is tricky at times.
+        // For instance, `scriptMinifiedExt` will affect other paths, like `runtime` and
+        // `externals` and there is no straight way to change that Webpack behaviour.
+        // The way Kotsu `compiled` and `minified` paths concatenated exactly represents that relation.
+        // Also, `runtime` name can't be changed without messing directly with related Webpack plugin.
+        scriptMinifiedExt: 'min',
         script: {
-          compiled: '<%= path.build.scripts %>/main.js',
-          minified: '<%= path.build.scripts %>/main.min.js'
+          name: 'main',
+          compiled: '<%= path.build.scripts %>/<%= file.build.script.name %>.js',
+          minified: '<%= path.build.scripts %>/<%= file.build.script.name %>.<%= file.build.scriptMinifiedExt %>.js'
+        },
+        scriptRuntime: {
+          name: 'runtime',
+          compiled: '<%= path.build.scripts %>/<%= file.build.scriptRuntime.name %>.js',
+          minified: '<%= path.build.scripts %>/<%= file.build.scriptRuntime.name %>.<%= file.build.scriptMinifiedExt %>.js'
+        },
+        scriptExternals: {
+          name: 'externals',
+          compiled: '<%= path.build.scripts %>/<%= file.build.scriptExternals.name %>.js',
+          minified: '<%= path.build.scripts %>/<%= file.build.scriptExternals.name %>.<%= file.build.scriptMinifiedExt %>.js'
         },
         serviceWorker: {
           compiled: '<%= path.build.root %>/sw.js',
-          minified: '<%= path.build.root %>/sw.min.js'
+          minified: '<%= path.build.root %>/sw.<%= file.build.scriptMinifiedExt %>.js'
         },
         sprite: {
           compiled: '<%= path.build.sprites %>/sprite.png'
@@ -142,8 +160,6 @@ module.exports = function (grunt) {
 
   grunt.loadTasks(grunt.config('path.tasks.root'))
 
-  grunt.registerTask('jspmWatch', grunt.option('hmr') ? 'jspmEmitter' : 'jspm:watch')
-
   // Build for development and serve
   grunt.registerTask('default', [
     'clean:build',
@@ -154,12 +170,12 @@ module.exports = function (grunt) {
     'image_size',
     'grayMatter',
     'nunjucks',
-    'jspmWatch',
+    'webpack:watch',
     'sprite',
     'webfont',
     'sass',
     'postcss:autoprefix',
-    'jspm:watchServiceWorker',
+    'webpack:watchServiceWorker',
     'browserSync',
     'watch'
   ])
@@ -178,23 +194,22 @@ module.exports = function (grunt) {
     'webfont',
     'sass',
     'postcss:autoprefix',
-    'jspm:build',
+    'webpack:build',
     'uncss',
     'csso',
     'htmlmin',
     'tinypng',
     'clean:styles',
-    'clean:scripts',
     'cacheBust',
     'sitemap_xml',
-    'jspm:buildServiceWorker',
+    'webpack:buildServiceWorker',
     'size_report'
   ])
 
   // Serve built version
   grunt.registerTask('serve', [
-    'jspmWatch',
-    'jspm:watchServiceWorker',
+    'webpack:watch',
+    'webpack:watchServiceWorker',
     'browserSync',
     'watch'
   ])

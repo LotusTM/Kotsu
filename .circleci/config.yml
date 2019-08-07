@@ -19,18 +19,9 @@ aliases:
       paths:
         - ./node_modules
 
-  - &save-jspm-cache
-      key: jspm-cache-{{ checksum "package.json" }}-{{ checksum "jspm.config.js" }}
-      paths:
-        - ./jspm_packages
-
   - &restore-npm-cache
       keys:
         - npm-cache-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-
-  - &restore-jspm-cache
-      keys:
-        - jspm-cache-{{ checksum "package.json" }}-{{ checksum "jspm.config.js" }}
 
   - &save-build-cache
       key: build-cache-{{ .Environment.CIRCLE_SHA1 }}
@@ -69,17 +60,14 @@ jobs:
     steps:
       - run: *install-npm
       - restore_cache: *restore-repo-cache
-      - restore_cache: *restore-jspm-cache
       - run: npm ci
       - save_cache: *save-npm-cache
-      - save_cache: *save-jspm-cache
 
   test:
     docker: *node
     steps:
       - restore_cache: *restore-repo-cache
       - restore_cache: *restore-npm-cache
-      - restore_cache: *restore-jspm-cache
       - run: npm run test
 
   build:
@@ -87,7 +75,6 @@ jobs:
     steps:
       - restore_cache: *restore-repo-cache
       - restore_cache: *restore-npm-cache
-      - restore_cache: *restore-jspm-cache
       - run: npm run build
       - save_cache: *save-build-cache
 

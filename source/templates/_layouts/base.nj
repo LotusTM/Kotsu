@@ -115,18 +115,9 @@
   <!-- ======= -->
 
   {% block js %}
-  {% if ENV.hotModuleRloading %}
-  <script src='/jspm_packages/system.js'></script>
-  <script src='/jspm.config.js'></script>
-  <script>
-    SystemJS.import('systemjs-hot-reloader').then((connect) => {
-      connect()
-      SystemJS.import('main')
-    })
-  </script>
-  {% else %}
-  <script src='{{ urljoin('/', PATH.file.script.minified if ENV.build else PATH.file.script.compiled) }}'></script>
-  {% endif %}
+  <script src='{{ urljoin('\/', PATH.file.scriptRuntime.minified if ENV.build else PATH.file.scriptRuntime.compiled) }}'></script>
+  <script src='{{ urljoin('\/', PATH.file.script.minified if ENV.build else PATH.file.script.compiled) }}'></script>
+  <script src='{{ urljoin('\/', PATH.file.scriptExternals.minified if ENV.build else PATH.file.scriptExternals.compiled) }}'></script>
   {% endblock %}
 
   {{ GoogleGlobalTag(UAId = SITE.googleAnalyticsId) if SITE.googleAnalyticsId }}

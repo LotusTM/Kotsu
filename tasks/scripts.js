@@ -1,65 +1,30 @@
+const webpackConfig = require('../webpack.config.js')
+const webpackServiceWorkerConfig = require('../webpack.config.sw.js')
+
 module.exports = function () {
-  // Launch JSPM build
-  // @link modules/grunt-jspm
+  // Webpack
+  // https://github.com/webpack-contrib/grunt-webpack
+  // Use Webpack with Grunt.
 
-  this.config('jspm', {
-    watch: {
-      options: { args: ['-wid'] },
-      files: [{
-        packageName: 'main',
-        dest: '<%= file.build.script.compiled %>'
-      }]
-    },
-    watchServiceWorker: {
-      options: { args: ['-wid'] },
-      files: [{
-        packageName: 'serviceWorker',
-        dest: '<%= file.build.serviceWorker.compiled %>'
-      }]
-    },
-    build: {
-      options: { args: ['--minify'] },
-      files: [{
-        packageName: 'main',
-        dest: '<%= file.build.script.minified %>'
-      }]
-    },
-    buildServiceWorker: {
-      options: { args: ['--minify'] },
-      files: [{
-        packageName: 'serviceWorker',
-        dest: '<%= file.build.serviceWorker.minified %>'
-      }]
-    }
-  })
+  const config = {
+    env: this.config('env'),
+    path: this.config('path'),
+    file: this.config('file')
+  }
 
-  // Launch chockidar-socket-emitter for JSPM (SystemJS),
-  // which is needed to triger updated when Hot Module Reloading
-  // is enabled with `--hmr` flag
-  // @link modules/grunt-jspm-emitter
+  const initedWebpackConfig = webpackConfig(config)
+  const initedWebpackServiceWorkerConfig = webpackServiceWorkerConfig(config)
 
-  this.config('jspmEmitter', {
-    listen: {
-      options: {
-        watchTask: true,
-        cwd: '<%= path.source.scripts %>'
-      }
-    }
-  })
-
-  // Clean
-  // https://github.com/gruntjs/grunt-contrib-clean
-  // Clean folders to start fresh
-
-  this.config.merge({
-    clean: {
-      scripts: {
-        files: [{
-          expand: true,
-          cwd: '<%= path.build.scripts %>',
-          src: ['{,**/}!(*.min.js|*.min.js.map)']
-        }]
-      }
-    }
+  this.config('webpack', {
+    watch: Object.assign({}, initedWebpackConfig, {
+      watch: true,
+      keepalive: false
+    }),
+    build: initedWebpackConfig,
+    watchServiceWorker: Object.assign({}, initedWebpackServiceWorkerConfig, {
+      watch: true,
+      keepalive: false
+    }),
+    buildServiceWorker: initedWebpackServiceWorkerConfig
   })
 }

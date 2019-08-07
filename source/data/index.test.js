@@ -55,7 +55,19 @@ const Data = t.struct({
       templates: t.String
     }),
     file: t.struct({
+      scriptMinifiedExt: t.String,
       script: t.struct({
+        name: t.String,
+        compiled: t.String,
+        minified: t.String
+      }),
+      scriptRuntime: t.struct({
+        name: t.String,
+        compiled: t.String,
+        minified: t.String
+      }),
+      scriptExternals: t.struct({
+        name: t.String,
         compiled: t.String,
         minified: t.String
       }),

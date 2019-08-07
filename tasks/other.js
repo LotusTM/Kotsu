@@ -56,19 +56,16 @@ module.exports = function () {
     clean: {
       build: {
         files: {
-          src: [
-            '<%= path.build.root %>/*'
-          ]
+          src: ['<%= path.build.root %>/*']
         }
       },
       temp: {
         files: {
-          src: [
-            '<%= path.temp.root %>/*'
-          ]
+          src: ['<%= path.temp.root %>/*']
         }
       }
-    } })
+    }
+  })
 
   // Browser Sync
   // https://github.com/shakyshane/grunt-browser-sync
@@ -90,16 +87,7 @@ module.exports = function () {
         watchEvents: ['add', 'change'],
         reloadDebounce: 100,
         server: {
-          baseDir: '<%= path.build.root %>',
-          routes: {
-            '/jspm_packages': 'jspm_packages',
-            '/jspm.config.js': 'jspm.config.js',
-            // @note this route should match JSPM `baseURL`
-            //       see https://github.com/LotusTM/Kotsu/issues/230
-            //           https://github.com/alexisvincent/systemjs-hot-reloader/issues/141
-            '/source/scripts': 'source/scripts',
-            '/temp/data': 'temp/data'
-          }
+          baseDir: '<%= path.build.root %>'
         }
       },
       bsFiles: {

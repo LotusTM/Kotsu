@@ -2,6 +2,25 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.15.0...HEAD)
 
+### Changed
+- [package][grunt][tasks][configs][templates][data][ci] Replaced JSPM with Webpack 4.
+
+   We waited for JSPM 2 for a long time, and as it came out — it looked promising, and it strive to push web standards forward, which is important. However, it still does not provide sufficient development experience. Even Hot Reloading is [still unavailable](https://github.com/alexisvincent/systemjs-hot-reloader/issues/146), not to mention lack of wide community support and thus lack of some crucial plugins and features.
+
+   So we had little choice but Webpack, which became mature enough to not choke when looking into its configuration files.
+
+   Wepback switch brings working Hot Reloading back, significantly faster builds, better organized dependencies (bye-bye horrible list of JSPM property in `package.json`), and finally sourcemaps won't be that broken as JSPM's ones.
+
+   We've also took care to set up it up to the standards, so instead of single large file it will build three:
+
+   * `main.js` — your project code
+   * `externals.js` — all your external dependencies
+   * `runtime.js` — brings it all together
+
+   This allows to effectively leverage the caching strategies, us since usually externals are barely changed, user will be forced to redownload only `main.js` bundle, which is usually significantly smaller than all project bundled code.
+
+   Though, we'll continue to monitor JSPM 2 progress, as it has some promising features.
+
 ## [1.15.0](https://github.com/LotusTM/Kotsu/compare/v1.14.1...v1.15.0) - 2019-08-06
 
 ### Added
