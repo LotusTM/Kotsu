@@ -13,8 +13,7 @@ module.exports = ({ env }) => {
             // Preserve ES6 modules format, needed for tree shaking
             modules: false,
             useBuiltIns: 'usage',
-            corejs: 3,
-            shippedProposals: true
+            corejs: 3
           }
       ]
     ]
