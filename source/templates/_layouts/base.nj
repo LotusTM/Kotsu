@@ -30,7 +30,7 @@
 
   <!-- CSS -->
   {% block css %}
-  <link rel='stylesheet' href='{{ urljoin('/', PATH.styles, 'style.min.css' if ENV.build else 'style.prefixed.css') }}'>
+  <link rel='stylesheet' href='{{ urljoin('/', PATH.styles, 'style.min.css' if ENV.optimize else 'style.prefixed.css') }}'>
   {% endblock %}
 
   <!-- Manifest -->
@@ -115,9 +115,9 @@
   <!-- ======= -->
 
   {% block js %}
-  <script src='{{ urljoin('\/', PATH.file.scriptRuntime.minified if ENV.build else PATH.file.scriptRuntime.compiled) }}'></script>
-  <script src='{{ urljoin('\/', PATH.file.script.minified if ENV.build else PATH.file.script.compiled) }}'></script>
-  <script src='{{ urljoin('\/', PATH.file.scriptExternals.minified if ENV.build else PATH.file.scriptExternals.compiled) }}'></script>
+  <script src='{{ urljoin('\/', PATH.file.scriptRuntime.minified if ENV.optimize else PATH.file.scriptRuntime.compiled) }}'></script>
+  <script src='{{ urljoin('\/', PATH.file.script.minified if ENV.optimize else PATH.file.script.compiled) }}'></script>
+  <script src='{{ urljoin('\/', PATH.file.scriptExternals.minified if ENV.optimize else PATH.file.scriptExternals.compiled) }}'></script>
   {% endblock %}
 
   {{ GoogleGlobalTag(UAId = SITE.googleAnalyticsId) if SITE.googleAnalyticsId }}

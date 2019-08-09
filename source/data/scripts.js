@@ -23,7 +23,7 @@ module.exports = (grunt) => {
       baseLocale
     },
     ENV: {
-      build,
+      optimize,
       buildSHA1,
       buildNumber,
       staging,
@@ -44,7 +44,7 @@ module.exports = (grunt) => {
       baseLocale
     },
     ENV: {
-      build,
+      optimize,
       buildSHA1,
       buildNumber,
       staging,

@@ -10,7 +10,7 @@
 {% macro IE(version = 'lte IE 9') %}
 <!--[if {{ version }}]>
 
-  <link rel='stylesheet' href='{{ urljoin('/', PATH.styles, 'ie.min.css' if ENV.build else 'ie.prefixed.css') }}'>
+  <link rel='stylesheet' href='{{ urljoin('/', PATH.styles, 'ie.min.css' if ENV.optimize else 'ie.prefixed.css') }}'>
 
   <script>
     var e = ('abbr,article,aside,audio,canvas,datalist,details,' +

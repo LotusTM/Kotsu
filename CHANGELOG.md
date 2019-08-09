@@ -3,9 +3,9 @@
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.15.0...HEAD)
 
 ### Added
-- [grunt] Added ability to force "build" version of the build (nice!) by setting `BUILD` environment variable or providing `--build` flag.
+- [grunt] Added ability to force optimized version of the build by setting `OPTIMIZE` environment variable or providing `--optimize` flag.
 
-   This allows to trigger optimized builds even when running non-build task, like `npm start -- --build`. Yeap, `build` most likely should be replaced with something that makes more sense...
+   It allows to trigger optimized builds not only when running `grunt build`, but while doing any build, like development-one with `npm start -- --optimize`.
 
 ### Changed
 - [package][grunt][tasks][configs][templates][data][ci] Replaced JSPM with Webpack 4.
@@ -29,6 +29,16 @@
 - [package][grunt][configs] Replaced `grunt-browser-sync` with `webpack-dev-server`.
 
    Webpack Dev Server lacks cool syncing mechanism that Browser Sync had, however, let's face it — Browser Sync hasn't been updated for years and seems to be abandoned, while Webpack Dev Servers finally allows to enjoy hot module replacement again.
+
+- [package][grunt][data][scripts][templates] Changed `env.build` to more self-describing `env.optimize`. Finally, those concepts won't be mixed together.
+
+- [package][grunt] `grunt build` no longer triggers optimized build by itself.
+
+   From now on `grunt build` means a specific set of tasks which, on contrary to the development (or default `grunt` command) runs a wider set of tasks, but not specificity optimizes the build.
+
+   Optimized build should be triggered by providing `OPTIMIZE` environment variable or `--optimize` flag. `npm run build` by default does exactly that.
+
+- [package] Changed `npm run build` to clearly define that it should run optimized Grunt build, so command changed from `grunt build` to `grunt build --optimize`.
 
 - [package] Updated dependencies:
 

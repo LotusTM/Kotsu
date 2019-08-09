@@ -21,7 +21,7 @@ SERVER_IP | No | Yes[*](#required) | String | an IP address or domain of your se
 SITENAME | No | Yes[*](#required) | String | your site name without protocol specification (e.g. `exapmple.com`)
 PRODUCTION | No | Yes | Boolean | `false` by default
 STAGING | No | Yes | Boolean | `false` by default
-BUILD | No | Yes | Boolean | `false` by default except for `npm run build` (and invoked by it `grunt build`) command. Usually you don't want to touch it.
+OPTIMIZE | No | Yes | Boolean | `false` by default except for `npm run build`. Usually you don't want to touch it.
 
 # Required
 Variables marked as with asterisk (*) are required for related development environment

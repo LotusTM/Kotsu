@@ -170,7 +170,7 @@ Some useful for project environment variables.
 |---------------------------|-----------|-------------------------|------------------------------------------------------------------|
 | `[ENV.production]`        | `Boolean` | `env.production`        | Denotes production build.                                        |
 | `[ENV.staging]`           | `Boolean` | `env.staging`           | Denotes staging build.                                           |
-| `[ENV.build]`             | `Boolean` | `env.build`             | Denotes fully optimized build. Usually same as production build. |
+| `[ENV.optimize]`          | `Boolean` | `env.optimize`          | Denotes fully optimized build.                                   |
 | `[ENV.buildSHA1]`         | `String`  | `env.buildSHA1`         | Commit SHA1, which caused Circle CI build.                       |
 | `[ENV.buildNumber]`       | `String`  | `env.buildNumber`       | Current Circle CI build.                                         |
 | `[ENV.hotModuleRloading]` | `Boolean` | `env.hotModuleRloading` | Is Hot Module Reloading used right now.                          |

@@ -120,7 +120,7 @@ const Data = t.struct({
   ENV: t.struct({
     production: t.maybe(t.Boolean),
     staging: t.maybe(t.Boolean),
-    build: t.maybe(t.Boolean),
+    optimize: t.maybe(t.Boolean),
     buildSHA1: t.maybe(t.String),
     buildNumber: t.maybe(t.String),
     hotModuleRloading: t.maybe(t.Boolean)

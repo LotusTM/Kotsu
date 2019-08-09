@@ -63,7 +63,7 @@ module.exports = ({ config }) => {
     ENV: {
       production: env.production,
       staging: env.staging,
-      build: env.build,
+      optimize: env.optimize,
       buildSHA1: env.buildSHA1,
       buildNumber: env.buildNumber,
       hotModuleRloading: env.hotModuleRloading

@@ -2,12 +2,12 @@ const { resolve } = require('path')
 const webpack = require('webpack')
 
 module.exports = ({ env = {}, path = {}, file = {} }) => {
-  const isBuild = env.build // --env.production
+  const isOptimized = env.optimize // --env.production
 
   return {
     target: 'web',
-    mode: isBuild ? 'production' : 'development',
-    devtool: isBuild ? 'source-map' : 'eval-source-map',
+    mode: isOptimized ? 'production' : 'development',
+    devtool: isOptimized ? 'source-map' : 'eval-source-map',
     devServer: {
       contentBase: `./${path.build.root}`,
       overlay: true,
@@ -41,7 +41,7 @@ module.exports = ({ env = {}, path = {}, file = {} }) => {
       }
     },
     plugins: [
-      isBuild
+      isOptimized
         ? new webpack.HashedModuleIdsPlugin()
         : new webpack.NamedModulesPlugin()
     ]

@@ -43,10 +43,10 @@ module.exports = function () {
         cwd: '<%= path.build.styles %>',
         src: '{,**/}*.compiled.css',
         dest: '<%= path.build.styles %>',
-        // In build we have to name this file as final stylesheet would be named,
+        // In optimized build we have to name this file as final stylesheet would be named,
         // because due to build mode this is what will be stated in HTML pages
         // and for what will look `uncss` task
-        ext: this.config('env.build') ? '.min.css' : '.prefixed.css'
+        ext: this.config('env.optimize') ? '.min.css' : '.prefixed.css'
       }]
     }
   })

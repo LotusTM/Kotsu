@@ -4,7 +4,7 @@ const webpack = require('webpack')
 
 module.exports = ({ env = {}, path = {}, file = {} }) => {
   const commonConfig = common({ env, path, file })
-  const isBuild = env.build // --env.production
+  const isOptimized = env.optimize // --env.production
 
   return Object.assign(
     {},
@@ -14,7 +14,7 @@ module.exports = ({ env = {}, path = {}, file = {} }) => {
       entry: `./${file.source.scripts.main}`,
       output: {
         path: resolve(__dirname, path.build.scripts),
-        filename: isBuild ? `[name].${file.build.scriptMinifiedExt}.js` : '[name].js',
+        filename: isOptimized ? `[name].${file.build.scriptMinifiedExt}.js` : '[name].js',
         publicPath: path.build.scripts.replace(path.build.root, '')
       },
       optimization: {

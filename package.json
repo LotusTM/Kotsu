@@ -120,7 +120,7 @@
     "pretest": "grunt writeJSON:scripts",
     "test": "npm run lint && jest",
     "test:watch": "jest --watch",
-    "build": "grunt build",
+    "build": "grunt build --optimize",
     "preversion": "npm test && npm run build",
     "version": "node modules/changelog-version",
     "postbuild": "node modules/clean-workdir"
