@@ -26,7 +26,7 @@ module.exports = function (grunt) {
       sitename: process.env.SITENAME,
       production: (process.env.PRODUCTION === 'true') || grunt.option('production'),
       staging: (process.env.STAGING === 'true') || grunt.option('staging'),
-      build: grunt.cli.tasks.includes('build'),
+      build: (process.env.BUILD === 'true') || grunt.cli.tasks.includes('build') || grunt.option('build'),
       buildSHA1: process.env.CIRCLE_SHA1,
       buildNumber: process.env.CIRCLE_BUILD_NUM,
       hotModuleRloading: grunt.option('hmr'),

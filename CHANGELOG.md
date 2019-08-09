@@ -2,6 +2,11 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.15.0...HEAD)
 
+### Added
+- [grunt] Added ability to force "build" version of the build (nice!) by setting `BUILD` environment variable or providing `--build` flag.
+
+   This allows to trigger optimized builds even when running non-build task, like `npm start -- --build`. Yeap, `build` most likely should be replaced with something that makes more sense...
+
 ### Changed
 - [package][grunt][tasks][configs][templates][data][ci] Replaced JSPM with Webpack 4.
 

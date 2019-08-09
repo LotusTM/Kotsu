@@ -19,8 +19,9 @@ TINYPNG_API_KEY | Yes[*](#required) | Yes[*](#required) | String | used by `grun
 GITHUB_API_KEY | Yes[*](#required) | Yes[*](#required) | String | used by `jspm` to access GitHub API. It's an unencrypted Base64 encoding of the GitHub username and password or access token separated by a `:` (e.g. `username:token`). Get your token [here](https://github.com/settings/tokens)
 SERVER_IP | No | Yes[*](#required) | String | an IP address or domain of your server where CI will automatically deploy
 SITENAME | No | Yes[*](#required) | String | your site name without protocol specification (e.g. `exapmple.com`)
-PRODUCTION | No | Yes | Boolean | `true` by default if using `grunt build`, `false` for `grunt`, useful if you want to override this behavior
+PRODUCTION | No | Yes | Boolean | `false` by default
 STAGING | No | Yes | Boolean | `false` by default
+BUILD | No | Yes | Boolean | `false` by default except for `npm run build` (and invoked by it `grunt build`) command. Usually you don't want to touch it.
 
 # Required
 Variables marked as with asterisk (*) are required for related development environment
