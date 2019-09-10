@@ -73,7 +73,7 @@
     "jit-grunt": "0.10.0",
     "lodash": "4.17.15",
     "lru-cache": "5.1.1",
-    "markdown-it": "9.0.1",
+    "markdown-it": "10.0.0",
     "moment": "2.24.0",
     "node-gettext": "2.0.0",
     "node-sass": "4.12.0",
