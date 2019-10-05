@@ -2,6 +2,24 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.15.0...HEAD)
 
+### Changed
+- [package] Updated dependencies:
+
+  * `@babel/preset-env` to `7.6.0` [#449](/pull/449)
+  * `@babel/preset-env` to `7.6.0` [#449](/pull/449)
+  * `autoprefixer` to `9.6.2` [#453](/pull/453)
+  * `babel-eslint` to `10.0.3` [#446](/pull/446)
+  * `core-js` to `3.2.1` [#439](/pull/439)
+  * `gettext-parser` to `4.0.2` [#448](/pull/448)
+  * `grunt-sass` to `3.1.0` [#441](/pull/441)
+  * `grunt-spritesmith` to `6.8.0` [#450](/pull/450)
+  * `grunt-uncss` to `0.9.0` [#447](/pull/447)
+  * `jest-watch-typeahead` to `0.4.0` [#445](/pull/445)
+  * `markdown-it` to `9.1.0` [#438](/pull/438)
+  * `webpack to` to `4.41.0` [#440](/pull/440)
+  * `webpack-cli` to `3.3.9` [#442](/pull/442)
+  * `webpack-dev-server` to `3.8.2` [#437](/pull/437)
+
 ### Added
 - [grunt] Added ability to force "build" version of the build (nice!) by setting `BUILD` environment variable or providing `--build` flag.
 
@@ -127,7 +145,7 @@
    * `description` — project description
 
 - [config] Enabled some new Stylelint rules:
-    
+
    * `unit-no-unknown`
    * `block-opening-brace-newline-after`
    * `block-closing-brace-newline-before`
@@ -158,7 +176,7 @@
 
 ### Fixed
 - [grunt] Local assets' absolute URLs are now cachebusted too thanks to `grunt-cache-bust` new option `urlPrefixes`.
- 
+
    Such absolute URLs, leading to local assets, are used in RDFa and Open Graph declarations.
 
 ## [1.14.0](https://github.com/LotusTM/Kotsu/compare/v1.13.0...v1.14.0) - 2018-06-07
@@ -219,7 +237,7 @@
 
    ```js
    const { cache, cacheFunc } = require('./modules/cache')
-   
+
    cacheFunc(renderFunc)('{{ value }}', { value: 'test' })
    // -> 'test'
    cacheFunc(renderFunc, 'matter')('{{ value }}', { value: 'test2' })
@@ -396,7 +414,7 @@
    * All `path.build` will be stripped of the build root and placed in the root of `PATH`
    * `file.build` will be stripped of the build root and placed in `PATH.file`
    * All `path` will be placed as it is in the root of `PATH`, which makes all `path` values accessible in data consumers by following `PATH.source`, `PATH.build`, etc.
-   
+
    No changes to structure was made except newly added `PATH.file` property. However, with this change it is no longer required to manually map Gruntfile `path` and `file` values to data file `PATH`. Instead, Kotsu will pick up all of them them for you.
 
 - [data] Matter data property renamed from `SITE._matter` to `SITE.matter`.
@@ -605,7 +623,7 @@
    It's done to confront `BreadcrumbList` structured data requirements.
 
    If you still wish to keep last item inactive, use newly added `lastItemClass` option to set a specific class, like `g-link--inherit`, which will make anchor appear like a regular text, making it inactive for users, while still accessible for bots.
-   
+
 - [package][tests] Replaced NPM `postbuild` script, which checks clean working dir, with more reliable `clean-workdir.js` test.
 
    It will no longer occasionally pass wrongly test when `grep` is unavailable (like in Windows environment out of box).
@@ -628,7 +646,7 @@
    See [#320](https://github.com/LotusTM/Kotsu/issues/320).
 
 - [conf] Fixed Travis ignoring failed tests and exit code 1 in postbuild phase.
- 
+
    It is happened because when script runs in `after_success` phase exit codes 1 are ignored. See [Travis docs](https://docs.travis-ci.com/user/customizing-the-build#Breaking-the-Build).
 
    Thus, `.travis.yml` `after_success` changed to `script` which will properly react to exit code 1.
