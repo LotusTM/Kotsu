@@ -2,6 +2,9 @@
 
 ## [HEAD](https://github.com/LotusTM/Kotsu/compare/v1.15.0...HEAD)
 
+### Added
+- [config] Enabled new Stylelint SCSS rule `scss/dimension-no-non-numeric-values`
+
 ### Changed
 - [package] Updated dependencies:
 
@@ -23,6 +26,8 @@
   * `webpack to` to `4.41.0` [#440](/pull/440)
   * `webpack-cli` to `3.3.9` [#442](/pull/442)
   * `webpack-dev-server` to `3.8.2` [#437](/pull/437)
+
+- [config] Updated `scss/at-import-partial-extension-blacklist` to also dissalow `sass` and `css` extensions
 
 ### Added
 - [grunt] Added ability to force "build" version of the build (nice!) by setting `BUILD` environment variable or providing `--build` flag.
