@@ -41,6 +41,6 @@ describe('Nunjucks `imageSize()`', () => {
   })
 
   it('should error on unknown image', () => {
-    expect(() => render(`{% set size = imageSize('/nope.jpg') %}`)).toThrowErrorMatchingSnapshot()
+    expect(() => render('{% set size = imageSize(\'/nope.jpg\') %}')).toThrowErrorMatchingSnapshot()
   })
 })

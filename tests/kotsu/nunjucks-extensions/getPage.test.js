@@ -39,56 +39,56 @@ describe('Nunjucks global function `getPage()`', () => {
 
   describe('should get from', () => {
     it('root string-based path', () => {
-      expect(render(`{{ getPage('blog')|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'blog\')|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('root', () => {
-      expect(render(`{{ getPage('/').props|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'/\').props|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('root string-based path with leading slash', () => {
-      expect(render(`{{ getPage('/blog')|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'/blog\')|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('root string-based path with trailing slash', () => {
-      expect(render(`{{ getPage('blog/')|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'blog/\')|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('root string-based path with leading and trailing slashes', () => {
-      expect(render(`{{ getPage('/blog/')|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'/blog/\')|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('root Array-based path', () => {
-      expect(render(`{{ getPage(['blog'])|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage([\'blog\'])|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('nested dot-notation path', () => {
-      expect(render(`{{ getPage('blog.2015-10-12-example-article').props|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'blog.2015-10-12-example-article\').props|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('nested Array-based path', () => {
-      expect(render(`{{ getPage(['blog', '2015-10-12-example-article']).props|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage([\'blog\', \'2015-10-12-example-article\']).props|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('nested url-like path', () => {
-      expect(render(`{{ getPage('blog/2015-10-12-example-article').props|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'blog/2015-10-12-example-article\').props|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('nested url-like path with leading slash', () => {
-      expect(render(`{{ getPage('/blog/2015-10-12-example-article').props|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'/blog/2015-10-12-example-article\').props|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('nested url-like path with trailing slash', () => {
-      expect(render(`{{ getPage('blog/2015-10-12-example-article/').props|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'blog/2015-10-12-example-article/\').props|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
 
     it('nested url-like path with leading and trailing slash', () => {
-      expect(render(`{{ getPage('/blog/2015-10-12-example-article/').props|dump|safe }}`, undefined, true)).toMatchSnapshot()
+      expect(render('{{ getPage(\'/blog/2015-10-12-example-article/\').props|dump|safe }}', undefined, true)).toMatchSnapshot()
     })
   })
 
   it('should get $raw data', () => {
-    expect(render(`{{ getPage('contexVar').$raw|dump|safe }}`, undefined, true)).toMatchSnapshot()
+    expect(render('{{ getPage(\'contexVar\').$raw|dump|safe }}', undefined, true)).toMatchSnapshot()
   })
 
   it('should allow to render $raw data', () => {
@@ -100,11 +100,11 @@ describe('Nunjucks global function `getPage()`', () => {
 
   describe('should get rendered data', () => {
     it('with global context', () => {
-      expect(render(`{{ getPage('globalVar').props.var }}`)).toMatchSnapshot()
+      expect(render('{{ getPage(\'globalVar\').props.var }}')).toMatchSnapshot()
     })
 
     it('with global custom functions', () => {
-      expect(render(`{{ getPage('globalFunc').props.func }}`)).toMatchSnapshot()
+      expect(render('{{ getPage(\'globalFunc\').props.func }}')).toMatchSnapshot()
     })
 
     it('and ignore current context', () => {

@@ -19,7 +19,7 @@ describe('Nunjucks filter `format()`', () => {
   })
 
   it('should render object', () => {
-    expect(render(`{{ object|format('p_one', 'p_two')|dump|safe }}`, {
+    expect(render('{{ object|format(\'p_one\', \'p_two\')|dump|safe }}', {
       object: {
         value: '%1s ',
         inner: { value: 'inner %2s ' }
@@ -28,7 +28,7 @@ describe('Nunjucks filter `format()`', () => {
   })
 
   it('should render array', () => {
-    expect(render(`{{ array|format('p_one', 'p_two')|dump|safe }}`, {
+    expect(render('{{ array|format(\'p_one\', \'p_two\')|dump|safe }}', {
       array: ['%1s str', ['inner %2s', 2]]
     }, true)).toMatchSnapshot()
   })
@@ -73,14 +73,14 @@ describe('Nunjucks filter `format()`', () => {
   })
 
   it('should ignore regular percentages', () => {
-    expect(render(`{{ '23%'|format('p_one')|safe }}`)).toMatchSnapshot()
-    expect(render(`{{ '23% '|format('p_one')|safe }}`)).toMatchSnapshot()
-    expect(render(`{{ '23%.'|format('p_one')|safe }}`)).toMatchSnapshot()
-    expect(render(`{{ '23%\\\\'|format('p_one')|safe }}`)).toMatchSnapshot()
-    expect(render(`{{ '23%/'|format('p_one')|safe }}`)).toMatchSnapshot()
-    expect(render(`{{ '\\'23%\\''|format('p_one')|safe }}`)).toMatchSnapshot()
-    expect(render(`{{ '"23%"'|format('p_one')|safe }}`)).toMatchSnapshot()
-    expect(render(`{{ '(23%)'|format('p_one')|safe }}`)).toMatchSnapshot()
-    expect(render(`{{ '[23%]'|format('p_one')|safe }}`)).toMatchSnapshot()
+    expect(render('{{ \'23%\'|format(\'p_one\')|safe }}')).toMatchSnapshot()
+    expect(render('{{ \'23% \'|format(\'p_one\')|safe }}')).toMatchSnapshot()
+    expect(render('{{ \'23%.\'|format(\'p_one\')|safe }}')).toMatchSnapshot()
+    expect(render('{{ \'23%\\\\\'|format(\'p_one\')|safe }}')).toMatchSnapshot()
+    expect(render('{{ \'23%/\'|format(\'p_one\')|safe }}')).toMatchSnapshot()
+    expect(render('{{ \'\\\'23%\\\'\'|format(\'p_one\')|safe }}')).toMatchSnapshot()
+    expect(render('{{ \'"23%"\'|format(\'p_one\')|safe }}')).toMatchSnapshot()
+    expect(render('{{ \'(23%)\'|format(\'p_one\')|safe }}')).toMatchSnapshot()
+    expect(render('{{ \'[23%]\'|format(\'p_one\')|safe }}')).toMatchSnapshot()
   })
 })

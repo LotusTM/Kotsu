@@ -4,7 +4,7 @@ const { merge } = require('lodash')
 const { join } = require('path')
 
 const ALL = '{,**/}*.{nj,html}'
-const NON_PARTIALS = `{,!(_)*/!(_)*{,/}}!(_)*.{nj,html}`
+const NON_PARTIALS = '{,!(_)*/!(_)*{,/}}!(_)*.{nj,html}'
 
 module.exports = function ({ config, file: { readJSON } }) {
   // Nunjucks to HTML

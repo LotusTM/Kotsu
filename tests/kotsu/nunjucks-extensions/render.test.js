@@ -67,10 +67,10 @@ describe('Nunjucks filter `render()`', () => {
   })
 
   it('should strip leading `=`', () => {
-    expect(render(`{{ '={{ 123 }} with content'|render() }}`)).toMatchSnapshot()
-    expect(render(`{{ '={% set test = 123 %} with content'|render() }}`)).toMatchSnapshot()
-    expect(render(`{{ 'content with ={{ 123 }}'|render() }}`)).toMatchSnapshot()
-    expect(render(`{{ 'content with ={% set test = 123 %}'|render() }}`)).toMatchSnapshot()
+    expect(render('{{ \'={{ 123 }} with content\'|render() }}')).toMatchSnapshot()
+    expect(render('{{ \'={% set test = 123 %} with content\'|render() }}')).toMatchSnapshot()
+    expect(render('{{ \'content with ={{ 123 }}\'|render() }}')).toMatchSnapshot()
+    expect(render('{{ \'content with ={% set test = 123 %}\'|render() }}')).toMatchSnapshot()
   })
 
   it('should not affect context', () => {
@@ -109,11 +109,11 @@ describe('Nunjucks filter `render()`', () => {
   })
 
   it('should pass input as `this`', () => {
-    expect(render(`{{ { name: 'Mike', hello: 'hey {{ this.name }}' }|render()|dump|safe }}`)).toMatchSnapshot()
+    expect(render('{{ { name: \'Mike\', hello: \'hey {{ this.name }}\' }|render()|dump|safe }}')).toMatchSnapshot()
   })
 
   it('should pass `that` argument as `this`', () => {
-    expect(render(`{{ 'hey {{ this.name }}'|render({ name: 'Mike' }) }}`)).toMatchSnapshot()
+    expect(render('{{ \'hey {{ this.name }}\'|render({ name: \'Mike\' }) }}')).toMatchSnapshot()
   })
 
   it('should not affect `this` of global context', () => {

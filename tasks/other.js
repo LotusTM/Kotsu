@@ -46,7 +46,8 @@ module.exports = function () {
           { src: ['<%= path.build.root %>/{,**/}*.{html,css,js}'] }
         ]
       }
-    } })
+    }
+  })
 
   // Clean
   // https://github.com/gruntjs/grunt-contrib-clean

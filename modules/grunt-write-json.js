@@ -7,7 +7,7 @@ module.exports = ({ registerMultiTask, log, verbose, file: { write }, util: { pl
   registerMultiTask('writeJSON', 'Write a JSON-file', function () {
     const { dataFn } = this.options()
 
-    if (typeof dataFn !== 'function') throw new Error(`\`dataFn\` should be a function which returns data`)
+    if (typeof dataFn !== 'function') throw new Error('`dataFn` should be a function which returns data')
     if (!this.files.length) return log.error('No files specified.')
 
     const data = dataFn()
