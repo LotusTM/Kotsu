@@ -10,7 +10,7 @@
 
   * `@babel/preset-env` to `7.6.0` [#449](/pull/449)
   * `@babel/preset-env` to `7.6.0` [#449](/pull/449)
-  * `autoprefixer` to `9.6.2` [#453](/pull/453)
+  * `autoprefixer` to `9.6.3` [#453](/pull/453)
   * `babel-eslint` to `10.0.3` [#446](/pull/446)
   * `core-js` to `3.2.1` [#439](/pull/439)
   * `gettext-parser` to `4.0.2` [#448](/pull/448)
