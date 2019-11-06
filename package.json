@@ -48,7 +48,7 @@
   ],
   "dependencies": {
     "autoprefixer": "9.6.3",
-    "core-js": "3.2.1",
+    "core-js": "3.4.0",
     "gettext-parser": "4.0.2",
     "gmsmith": "1.2.0",
     "grunt": "1.0.4",
