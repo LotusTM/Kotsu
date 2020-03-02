@@ -67,7 +67,7 @@
     "grunt-size-report": "0.1.4",
     "grunt-spritesmith": "6.8.0",
     "grunt-tinypng": "0.7.0",
-    "grunt-uncss": "0.9.0",
+    "grunt-uncss": "0.9.1",
     "grunt-webfont": "1.7.2",
     "hash-sum": "2.0.0",
     "jit-grunt": "0.10.0",
