@@ -75,7 +75,7 @@
     "lru-cache": "5.1.1",
     "markdown-it": "9.1.0",
     "moment": "2.24.0",
-    "node-gettext": "2.0.0",
+    "node-gettext": "3.0.0",
     "node-sass": "4.12.0",
     "node-sass-utils": "1.1.2",
     "numbro": "2.1.2",
