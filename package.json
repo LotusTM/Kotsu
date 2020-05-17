@@ -47,7 +47,7 @@
     "./source/scripts/utils/dom-polyfills.js"
   ],
   "dependencies": {
-    "autoprefixer": "9.6.3",
+    "autoprefixer": "9.8.0",
     "core-js": "3.2.1",
     "gettext-parser": "4.0.2",
     "gmsmith": "1.2.0",
